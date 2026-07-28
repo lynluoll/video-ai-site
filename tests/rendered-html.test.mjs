@@ -23,6 +23,9 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /<title>广告行业 AI 素材生产方案｜BytePlus<\/title>/);
   assert.match(html, /把素材生产/);
   assert.match(html, /2026 VIDEO API TAM/);
+  assert.match(html, /2026 IMAGE API TAM/);
+  assert.match(html, /\$150K/);
+  assert.match(html, /rev\. 8840/);
   assert.match(html, /三类场景/);
   assert.match(html, /Campaign Agent/);
   assert.match(html, /Pinterest/);
@@ -35,7 +38,18 @@ test("covers every Bojie requirement in the page source", async () => {
 
   assert.match(page, /\$160B/);
   assert.match(page, /\$260B/);
+  assert.match(page, /\$0\.4B/);
+  assert.match(page, /\$1\.25M/);
+  assert.match(page, /约 \$450M ARR/);
+  assert.match(page, /\$150K/);
+  assert.match(page, /5\.6%/);
+  assert.match(page, /13%/);
+  assert.match(page, /AI 10–20% → 70%/);
+  assert.match(page, /AI 30% → 90%/);
   assert.match(page, /关键数字为方向性估算/);
+  assert.match(page, /飞书方案 rev\. 8840/);
+  assert.match(page, /客户钱包口径 2026\.05/);
+  assert.match(page, /待孙越交叉验证/);
   assert.equal((page.match(/按样片拆解/g) ?? []).length, 3);
   assert.match(page, /制作方/);
   assert.match(page, /方案路径/);
@@ -47,6 +61,12 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /Coca-Cola/);
   assert.match(page, /Pinterest/);
   assert.match(page, /Reddit/);
+  assert.match(page, /\$6M MRR/);
+  assert.match(page, /\$1\.5M MRR/);
+  assert.match(page, /约 \$16\.67M \/ 月/);
+  assert.match(page, /头部组 · 单客可达 \$1M/);
+  assert.doesNotMatch(page, /Coca-Cola[^\n]+约 \$1M MRR/);
+  assert.doesNotMatch(page, /2027–28/);
   assert.match(page, /投放算法/);
   assert.match(page, /AI 产品/);
   assert.match(page, /Display Automation/);

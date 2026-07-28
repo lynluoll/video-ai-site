@@ -5,7 +5,7 @@ const scenarioCards = [
     title: "品牌广告",
     ratio: "40%",
     desc: "确定性优先。用 3D 白模锁定机位、运镜与物理，再让视频模型完成最终渲染。",
-    facts: ["15–30s 标准成片", "4K / 10bit 交付", "代理商主导"],
+    facts: ["15–30s 标准成片", "4K / 10bit 交付", "AI 10–20% → 70%"],
     steps: ["创意预演", "3D 白模", "AI 渲染", "后期与交付"],
   },
   {
@@ -14,7 +14,7 @@ const scenarioCards = [
     title: "效果广告",
     ratio: "60%",
     desc: "速度与 ROI 优先。让素材生产进入 Campaign Agent，持续测试、归因与复刻。",
-    facts: ["10–100 条变体", "$10–数十 / 成片", "AdTech 主导"],
+    facts: ["10–100 条变体", "$10–数十 / 成片", "AI 30% → 90%"],
     steps: ["热点洞察", "脚本生成", "素材生产", "投放实验", "爆款复刻"],
   },
   {
@@ -23,7 +23,7 @@ const scenarioCards = [
     title: "静态展示广告",
     ratio: "NEW",
     desc: "规模化优先。一套主视觉，自动衍生多尺寸、多语言、多市场版本。",
-    facts: ["数百–数千张变体", "美分级单张成本", "DCO 自动适配"],
+    facts: ["数百–数千张变体", "美分级单张成本", "WPP · Pinterest"],
     steps: ["资产入库", "图片生成", "批量套版", "A/B 测试"],
   },
 ];
@@ -33,6 +33,7 @@ const audiences = [
     priority: "P0",
     type: "头部代理商",
     wallet: "$200M / 年 TAM",
+    monthly: "约 $17M / 月",
     copy: "切入自建创意平台，把 Creative 渗透率从 30% 推向 70%，再逐步打开 Production。",
     width: "100%",
     cases: [{ name: "WPP", metric: "$6M MRR" }, { name: "Havas", metric: "$1.5M MRR" }],
@@ -42,6 +43,7 @@ const audiences = [
     priority: "P0",
     type: "AdTech / Martech",
     wallet: "$200M / 年 TAM",
+    monthly: "约 $16.67M / 月",
     copy: "把素材自动化嵌入 Campaign Agent，以一次过率、迭代速度和 ROAS 驱动规模收入。",
     width: "100%",
     cases: [{ name: "AppLovin", metric: "AXON · 1B+ DAU" }, { name: "钛动", metric: "AI + 实拍双引擎" }],
@@ -51,15 +53,17 @@ const audiences = [
     priority: "P1",
     type: "头部消费品牌",
     wallet: "$100M / 年 TAM",
+    monthly: "约 $8.3M / 月",
     copy: "预算源头。优先进入企业 AI 平台白名单，用标杆案例建立行业影响力。",
     width: "50%",
-    cases: [{ name: "L’Oréal", metric: "10–20 万视频 / 月" }, { name: "Coca-Cola", metric: "约 $1M MRR" }],
+    cases: [{ name: "L’Oréal", metric: "10–20 万视频 / 月" }, { name: "Coca-Cola", metric: "头部组 · 单客可达 $1M" }],
     org: ["集团 AI 中台", "品牌团队", "外部 4A"],
   },
   {
     priority: "P1",
     type: "Paid Media",
     wallet: "$75M / 年 TAM",
+    monthly: "约 $6.25M / 月",
     copy: "以 Display Ads 和批量本地化为突破口，建立图片与视频的双模型消耗池。",
     width: "38%",
     cases: [{ name: "Pinterest", metric: "$2M MRR" }, { name: "Reddit", metric: "$1M MRR" }],
@@ -101,7 +105,7 @@ const roadmap = [
     points: ["3D 白模 + AI 混合制作", "Campaign Agent 素材自动化", "Display Ads 标杆客户"],
   },
   {
-    time: "NEXT · 2027–28",
+    time: "MID-TERM",
     title: "从渲染节点走向制作引擎",
     points: ["多镜头与品牌一致性", "高精度局部编辑", "规模化本地化与投放闭环"],
   },
@@ -141,6 +145,11 @@ export default function Home() {
           <p>2026 行业方案 · 关键数字为方向性估算</p>
         </div>
 
+        <div className="sourceStamp">
+          <span>SOURCE BASELINE</span>
+          <p>飞书方案 rev. 8840 · 客户钱包口径 2026.05 · 大盘与目标数字待孙越交叉验证</p>
+        </div>
+
         <div className="heroStats" aria-label="核心目标">
           <article>
             <span className="statLabel">2026 VIDEO API TAM</span>
@@ -148,19 +157,19 @@ export default function Home() {
             <small>视频模型</small>
           </article>
           <article>
+            <span className="statLabel">2026 IMAGE API TAM</span>
+            <strong>$0.4B</strong>
+            <small>图片模型</small>
+          </article>
+          <article>
             <span className="statLabel">VIDEO TARGET DRR</span>
             <strong>$1.25M</strong>
-            <small>年底稳定目标</small>
+            <small>约 $450M ARR · 大盘占比 20%</small>
           </article>
           <article>
-            <span className="statLabel">BYTEPLUS SHARE</span>
-            <strong>20%</strong>
-            <small>视频 DRR 大盘</small>
-          </article>
-          <article>
-            <span className="statLabel">CORE CUSTOMER GROUPS</span>
-            <strong>4</strong>
-            <small>2 个 P0 · 2 个 P1</small>
+            <span className="statLabel">IMAGE TARGET DRR</span>
+            <strong>$150K</strong>
+            <small>年底稳定 · 大盘占比 15%</small>
           </article>
         </div>
       </section>
@@ -172,7 +181,7 @@ export default function Home() {
             <h2>预算增长有限，<br />素材需求正在爆发。</h2>
           </div>
           <div className="thesisCopy">
-            <p className="bigCopy">海外广告预算未来五年仅温和增长，但视频广告正在以 <b>13%</b> 的年增速扩大。</p>
+            <p className="bigCopy">海外整体广告预算未来五年增幅仅 <b>5.6%</b>，但视频广告仍以 <b>13%</b> 的年增速扩大。</p>
             <p>生成模型降低制作门槛，让过去只投静态图文与搜索广告的商家，开始大规模升级到短视频。</p>
           </div>
         </div>
@@ -290,7 +299,10 @@ export default function Home() {
           <p className="eyebrow"><span>04</span> / THE GROWTH LOOP</p>
           <h2>Campaign Agent<br />进入可复制阶段。</h2>
           <p>素材自动化不再是独立功能，而是投放系统的必要组成。AI 素材占比越高，模型收入随投放规模同步增长。</p>
-          <div className="agentSignal"><span>1 → 3</span><p><b>从单点验证到复制放大</b><br />当前市场阶段</p></div>
+          <div className="agentSignals">
+            <div className="agentSignal"><span>1 → 3</span><p><b>从单点验证到复制放大</b><br />当前市场阶段</p></div>
+            <div className="agentSignal"><span>30 → 90%</span><p><b>AI 素材渗透率</b><br />2026 → 2030</p></div>
+          </div>
         </div>
         <div className="loop" aria-label="Campaign Agent 增长循环">
           {[
@@ -317,7 +329,7 @@ export default function Home() {
           <div className="audienceGrid">
             {audiences.map((item) => (
               <article className="audienceCard" key={item.type}>
-                <div className="audienceTop"><span>{item.priority}</span><b>{item.wallet}</b></div>
+                <div className="audienceTop"><span>{item.priority}</span><b>{item.wallet}<small>{item.monthly}</small></b></div>
                 <h3>{item.type}</h3>
                 <div className="casePair">
                   {item.cases.map((customer) => <span key={customer.name}><b>{customer.name}</b><small>{customer.metric}</small></span>)}
