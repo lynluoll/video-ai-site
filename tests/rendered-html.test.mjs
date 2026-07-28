@@ -63,7 +63,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /展开具体制作流程/);
   assert.equal((html.match(/class="sampleCase /g) ?? []).length, 3);
   assert.equal((html.match(/class="caseTile"/g) ?? []).length, 3);
-  assert.equal((html.match(/<video /g) ?? []).length, 2);
+  assert.equal((html.match(/<video /g) ?? []).length, 4);
   assert.match(html, /brand-reference\.mp4/);
   assert.match(html, /performance-generated\.mp4/);
   assert.match(html, /确定性来自流程设计/);
@@ -76,6 +76,19 @@ test("server-renders the complete advertising strategy", async () => {
   assert.equal((html.match(/class="workflowDisclosure requirementDisclosure"/g) ?? []).length, 3);
   assert.doesNotMatch(html, /<details class="workflowDisclosure(?: requirementDisclosure)?" open/);
   assert.match(html, /Campaign Agent/);
+  assert.equal((html.match(/class="solutionPage /g) ?? []).length, 3);
+  assert.match(html, /先锁死确定性/);
+  assert.match(html, /PRODUCTION ARCHITECTURE/);
+  assert.match(html, /导演 \/ 客户确认/);
+  assert.match(html, /FIVE-STEP OPERATING LOOP/);
+  assert.match(html, /跑赢素材按要素放大/);
+  assert.match(html, /Campaign Inputs/);
+  assert.match(html, /Creative Planner/);
+  assert.match(html, /Approved Master/);
+  assert.match(html, /QA Gate \+ Delivery/);
+  assert.match(html, /把“看广告”/);
+  assert.match(html, /HTML5 Playable/);
+  assert.match(html, /playable\.byteplus-demo\.com/);
   assert.doesNotMatch(html, /THE GROWTH LOOP|ROAS 反馈回流/);
   assert.doesNotMatch(html, /PERFORMANCE DEEP DIVE|scene-perf|每条可投放素材的综合成本|ANNUAL SUPPLY|STANDARD FORMAT|VARIANTS \/ SKU|AI PENETRATION|costFormula|perfKpis|darkTable/);
   assert.match(html, /3\. 客群策略/);
@@ -123,7 +136,7 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /AppLovin AXON、Unity Ads/);
   assert.match(page, /程序化展示广告网络/);
   assert.match(page, /The Trade Desk、InMobi/);
-  assert.equal((page.match(/\/media\/demo-/g) ?? []).length, 3);
+  assert.equal((page.match(/\/media\/demo-/g) ?? []).length, 6);
   assert.equal((page.match(/type: "video"/g) ?? []).length, 2);
   assert.match(page, /\/media\/brand-reference\.mp4/);
   assert.match(page, /\/media\/performance-generated\.mp4/);
@@ -164,7 +177,7 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.doesNotMatch(page, /2027–28/);
   assert.match(page, /算法 \/ AI 产品团队/);
   assert.match(page, /AI 产品/);
-  assert.match(page, /Display Automation/);
+  assert.match(page, /Template \+ DCO/);
   assert.match(page, /nano banana 2/);
   assert.equal((page.match(/no: "0[1-4]"/g) ?? []).length, 4);
   assert.match(page, /物理语义/);
@@ -196,6 +209,11 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.doesNotMatch(page, /agentSection|agentCopy|agentSignals|agentSignal|className="loop"|loopStep|loopReturn/);
   assert.match(page, /<span>03<\/span> \/ CUSTOMER STRATEGY/);
   assert.match(page, /<span>04<\/span> \/ SOLUTION FOCUS/);
+  assert.match(page, /brandSolutionFlow/);
+  assert.match(page, /performanceSolutionFlow/);
+  assert.match(page, /displaySolutionFlow/);
+  assert.match(page, /游戏资产包/);
+  assert.match(page, /ZIP ≤ 5MB/);
   assert.match(page, /<span>05<\/span> \/ ROADMAP/);
 });
 
@@ -222,7 +240,9 @@ test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone",
   assert.match(css, /\.customerArchitecture \{ display: grid; grid-template-columns: \.86fr 1\.14fr/);
   assert.match(css, /\.revenueEquation \{ display: grid; grid-template-columns: repeat\(4, 1fr\)/);
   assert.match(css, /\.gapGrid \{ grid-template-columns: repeat\(4, 1fr\)/);
-  assert.match(css, /\.solutionStack \{ display: grid; grid-template-columns: repeat\(3, 1fr\)/);
+  assert.match(css, /\.solutionPageBody \{ display: grid; grid-template-columns: minmax\(0, 1\.42fr\)/);
+  assert.match(css, /\.displaySolutionDemos \{ display: grid; grid-template-columns: \.88fr 1fr 1fr 1fr/);
+  assert.match(css, /\.playablePipeline \{ display: grid; grid-template-columns: 1fr 22px 1fr 22px 1fr/);
   assert.match(css, /\.segmentCell strong \{[^}]*font-size: 16px/);
   assert.match(css, /\.segmentCell span \{[^}]*font-size: 12px/);
   assert.match(css, /\.dimensionCell b \{ font-size: 14px/);

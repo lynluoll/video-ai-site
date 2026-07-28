@@ -805,16 +805,150 @@ export default function Home() {
           <p className="eyebrow"><span>04</span> / SOLUTION FOCUS</p>
           <h2>一个模型底座，<br />三条生产管线。</h2>
         </div>
-        <div className="solutionStack">
-          <article>
-            <span>01</span><div><h3>3D 白模 + AI</h3><p>把确定性前置。短期聚焦 Creative pre-vis，中长期突破 Production 的一致性与专业交付。</p></div><b>BRAND</b>
+        <div className="solutionPages">
+          <article className="solutionPage solutionBrand">
+            <header className="solutionPageHeader">
+              <span>01</span>
+              <div><small>BRAND ADVERTISING · 3D WHITE MODEL</small><h3>先锁死确定性，<br />再交给模型渲染。</h3></div>
+              <p>品牌广告是一门确定性生意。3D 白模先确认机位、构图、运镜与物理，再让 Seedance 负责材质、环境和动态的最终渲染。</p>
+            </header>
+
+            <div className="solutionPageBody">
+              <section className="solutionArchitecture" aria-label="品牌广告 3D 白模制作架构">
+                <div className="architectureTopline"><span>PRODUCTION ARCHITECTURE</span><b>确定性前置 · 概率性后置</b></div>
+                <div className="architectureFlow brandSolutionFlow">
+                  <div className="architectureNode inputNode">
+                    <span>01 · INPUT</span><h4>业务输入</h4>
+                    <p>产品 Packshot · 可选 3D 资产 · 运镜参考 · 品牌规范</p>
+                  </div>
+                  <i aria-hidden="true">→</i>
+                  <div className="architectureNode buildNode">
+                    <span>02 · WHITE MODEL</span><h4>白模搭建</h4>
+                    <p><b>路径 A</b> Blender 数字孪生<br /><b>路径 B</b> LLM + Three.js 快速迭代</p>
+                  </div>
+                  <i aria-hidden="true">→</i>
+                  <div className="architectureNode gateNode">
+                    <span>03 · CONFIRMATION GATE</span><h4>导演 / 客户确认</h4>
+                    <p>静态锁定：机位 · 构图 · 灯光<br />动态锁定：节奏 · 运镜 · 碰撞</p>
+                  </div>
+                  <i aria-hidden="true">→</i>
+                  <div className="architectureNode renderNode">
+                    <span>04 · RENDER</span><h4>Seedance 渲染</h4>
+                    <p>12 个参考位锁资产，以 4K 高码率、10 bit 色彩完成材质与环境渲染。</p>
+                  </div>
+                  <i aria-hidden="true">→</i>
+                  <div className="architectureNode outputNode">
+                    <span>05 · DELIVERY</span><h4>专业交付</h4>
+                    <p>15 / 30s 品牌成片 · 多角度 KV · C2PA · 五道验收</p>
+                  </div>
+                </div>
+                <div className="architectureRail">
+                  <span>白模未通过</span><p>返回白模 / 代码层低成本修改</p><b>换 SKU、材质或市场</b><p>白模不变，只回到渲染层</p>
+                </div>
+              </section>
+
+              <figure className="solutionDemo brandSolutionDemo">
+                <div className="solutionDemoTop"><span>BRAND FILM DEMO</span><b>15 / 30S · 4K DELIVERY</b></div>
+                <video src="/media/brand-reference.mp4" poster="/media/brand-poster.jpg" controls muted loop playsInline preload="metadata" aria-label="品牌广告 3D 白模方案视频样片" />
+                <figcaption><strong>从 Pre-vis 到成片，镜头语言保持一致。</strong><span>多镜头一致性 · 产品保真 · 专业审片与交付</span></figcaption>
+              </figure>
+            </div>
+
+            <footer className="solutionProofBar">
+              <div><span>短期切口</span><b>Creative Pre-vis</b><p>用可审片白模把创意确认前置</p></div>
+              <div><span>核心杠杆</span><b>一次确认，稳定渲染</b><p>概率只留在最后一环</p></div>
+              <div><span>长期空间</span><b>Production</b><p>AI + CG 混合替代制作劳动力</p></div>
+            </footer>
           </article>
-          <article>
-            <span>02</span><div><h3>Campaign Agent</h3><p>打通洞察、脚本、生成、投放、复刻，以综合成片成本和 ROI 衡量模型价值。</p></div><b>PERFORMANCE</b>
+
+          <article className="solutionPage solutionPerformance">
+            <header className="solutionPageHeader">
+              <span>02</span>
+              <div><small>PERFORMANCE ADVERTISING · CAMPAIGN AGENT</small><h3>把一条素材，<br />变成持续供给系统。</h3></div>
+              <p>效果广告的竞争本质是素材供给速度。方案不是单点生成工具，而是嵌入 Campaign Agent，把洞察、生产、投放和复刻连成闭环。</p>
+            </header>
+
+            <div className="solutionPageBody performanceSolutionBody">
+              <section className="solutionArchitecture" aria-label="效果广告五步运作架构">
+                <div className="architectureTopline"><span>FIVE-STEP OPERATING LOOP</span><b>客户动作 × 模型能力</b></div>
+                <div className="architectureFlow performanceSolutionFlow">
+                  <div className="architectureNode"><span>01</span><h4>热点洞察</h4><p>舆情、热点与竞品投放监测</p><em>社媒洞察 + 创意分析</em></div>
+                  <i aria-hidden="true">→</i>
+                  <div className="architectureNode"><span>02</span><h4>广告 Book / 脚本</h4><p>卖点 → Hook → CTA → 分镜</p><em>逐秒脚本 → 生产 Prompt</em></div>
+                  <i aria-hidden="true">→</i>
+                  <div className="architectureNode coreNode"><span>03 · CORE</span><h4>AI 内容生产</h4><p>批量生成可直接投放的素材</p><em>Seedream + Seedance + Audio</em></div>
+                  <i aria-hidden="true">→</i>
+                  <div className="architectureNode"><span>04</span><h4>投放测试</h4><p>小预算快测，按阈值挑出爆款</p><em>批归因 · 本地化 · 预审</em></div>
+                  <i aria-hidden="true">→</i>
+                  <div className="architectureNode"><span>05</span><h4>爆款复刻</h4><p>换品、换人、换语言和市场</p><em>保留赢面 → 要素级再生成</em></div>
+                </div>
+                <div className="performanceReturn"><span>↺</span><p><b>投放信号回流链首：</b>跑赢素材按要素放大，对抗 7–10 天素材衰减。</p></div>
+              </section>
+
+              <figure className="solutionDemo performanceSolutionDemo">
+                <div className="solutionDemoTop"><span>PERFORMANCE DEMO</span><b>9:16 · READY TO TEST</b></div>
+                <video src="/media/performance-generated.mp4" poster="/media/performance-poster.jpg" controls muted loop playsInline preload="metadata" aria-label="效果广告 Campaign Agent 视频样片" />
+                <figcaption><strong>用同一结构快速生成 10–100 条变体。</strong><span>UGC 口播 · 商品展示 · 本地场景 · 爆款复刻</span></figcaption>
+              </figure>
+            </div>
+
+            <footer className="solutionProofBar">
+              <div><span>输入</span><b>商品 URL / Brief</b><p>提取卖点、受众和平台规格</p></div>
+              <div><span>生产</span><b>可投放 Variant</b><p>Hook、人物、语言、CTA 批量展开</p></div>
+              <div><span>反馈</span><b>CTR · CVR · CPA</b><p>胜出结构进入下一轮复刻</p></div>
+            </footer>
           </article>
-          <article>
-            <span>03</span><div><h3>Display Automation</h3><p>强化商品一致性、精准文字、局部编辑和任意尺寸，支撑千级图片批量生产。</p></div><b>DISPLAY</b>
+
+          <article className="solutionPage solutionDisplay">
+            <header className="solutionPageHeader">
+              <span>03</span>
+              <div><small>DISPLAY ADS · CREATIVE MATRIX</small><h3>一个 Brief，<br />展开成全渠道矩阵。</h3></div>
+              <p>Display 的核心不是让模型包办一切，而是明确边界：模型负责商业视觉，确定性系统负责文字与版式，再由 Variant Factory 批量适配。</p>
+            </header>
+
+            <section className="solutionArchitecture displayArchitecture" aria-label="Display Ads 分层生产架构">
+              <div className="architectureTopline"><span>LAYERED PRODUCTION</span><b>视觉交给模型 · 确定信息交给系统</b></div>
+              <div className="architectureFlow displaySolutionFlow">
+                <div className="architectureNode inputNode"><span>01 · INPUTS</span><h4>Campaign Inputs</h4><p>Brief · Brand Kit · Product Feed</p></div>
+                <i aria-hidden="true">→</i>
+                <div className="architectureNode plannerNode"><span>02 · PLAN</span><h4>Creative Planner</h4><p>拆解目标，输出构图策略与变体计划</p></div>
+                <i aria-hidden="true">→</i>
+                <div className="architectureNode visualNode"><span>03 · VISUAL</span><h4>Seedream</h4><p>场景、光影、材质、构图与局部重绘</p><em>Approved Master</em></div>
+                <i aria-hidden="true">→</i>
+                <div className="architectureNode factoryNode"><span>04 · FACTORY</span><h4>Template + DCO</h4><p>Logo、价格、CTA、法务文字</p><em>尺寸 × 语言 × SKU × 人群</em></div>
+                <i aria-hidden="true">→</i>
+                <div className="architectureNode qaNode"><span>05 · QA</span><h4>QA Gate + Delivery</h4><p>OCR · VLM · Rules · 人审升级</p><em>Asset Hub / API</em></div>
+              </div>
+              <div className="displayLayerLegend">
+                <div><span>VISUAL LAYER</span><b>视觉层</b><p>无文字或少文字的 Approved Master</p></div>
+                <div><span>COPY LAYER</span><b>文案层</b><p>准确、可审计的文字与品牌版式</p></div>
+                <div><span>ADAPTATION LAYER</span><b>适配层</b><p>全渠道尺寸、语言、SKU 与人群矩阵</p></div>
+              </div>
+            </section>
+
+            <section className="displaySolutionDemos" aria-label="Display Ads 图片案例">
+              <div className="displaySolutionCopy"><span>IMAGE DEMOS</span><h4>同一套生产逻辑，覆盖三种典型交付。</h4><p>从社交信息流到程序化 Banner，商品、Logo 与价格文字都必须可审、可改、可追溯。</p></div>
+              <figure className="displaySolutionTile displaySquare"><img src="/media/demo-display-commerce.jpg" alt="电商社交信息流 Display 广告案例" /><figcaption><span>SOCIAL STATIC</span><b>商品信息流</b><small>1:1 · Carousel / Feed</small></figcaption></figure>
+              <figure className="displaySolutionTile displayLandscape"><img src="/media/demo-display-beauty.jpg" alt="美妆品牌横版 Display 广告案例" /><figcaption><span>BRAND × COMMERCE</span><b>横版商品 KV</b><small>16:9 · Social / Retail Media</small></figcaption></figure>
+              <figure className="displaySolutionTile displayBanner"><img src="/media/demo-display-diwali.jpg" alt="本地化促销 Banner Display 广告案例" /><figcaption><span>LOCALIZED BANNER</span><b>区域促销套版</b><small>3:1 · Programmatic Display</small></figcaption></figure>
+            </section>
+
+            <footer className="solutionProofBar">
+              <div><span>母版</span><b>Approved Master</b><p>商品与商业视觉先经人工确认</p></div>
+              <div><span>矩阵</span><b>100–1K 图片</b><p>多尺寸、多语言、多 SKU 批量生产</p></div>
+              <div><span>门禁</span><b>PASS / REWORK</b><p>规则修复或局部重绘后再交付</p></div>
+            </footer>
           </article>
+
+          <aside className="playableSolution">
+            <div className="playableIntro"><span>04 · PLAYABLE</span><h3>把“看广告”，<br />变成“先玩一局”。</h3><p>Playable 是效果广告的交互分支：把游戏素材包转成可直接投放的轻量 HTML5 体验，在安装前先验证玩法兴趣。</p></div>
+            <div className="playablePipeline" aria-label="Playable 广告生产流程">
+              <div><span>INPUT</span><b>游戏资产包</b><p>角色 · 场景 · 规则 · CTA</p></div><i aria-hidden="true">→</i>
+              <div><span>ORCHESTRATE</span><b>多模型协同</b><p>玩法拆解 · 资产轻量化 · 交互编排</p></div><i aria-hidden="true">→</i>
+              <div><span>OUTPUT</span><b>HTML5 Playable</b><p>自包含 ZIP ≤ 5MB · 商店跳转</p></div>
+            </div>
+            <div className="playableMeta"><p><span>适合</span>模拟经营 · 卡牌 · 超休闲</p><p><span>当前验证</span>4 类玩法测试，2 类通过</p><a href="https://playable.byteplus-demo.com/" target="_blank" rel="noreferrer">查看 Playable Demo ↗</a></div>
+          </aside>
         </div>
         <div className="gapHeader">
           <p className="eyebrow"><span>2.5+</span> / NON-NEGOTIABLE GAPS</p>
