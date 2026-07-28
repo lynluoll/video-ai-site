@@ -32,34 +32,65 @@ const audiences = [
   {
     priority: "P0",
     type: "头部代理商",
-    examples: "WPP · Havas · Publicis",
     wallet: "$200M / 年 TAM",
     copy: "切入自建创意平台，把 Creative 渗透率从 30% 推向 70%，再逐步打开 Production。",
     width: "100%",
+    cases: [{ name: "WPP", metric: "$6M MRR" }, { name: "Havas", metric: "$1.5M MRR" }],
+    org: ["Creative", "Production", "Media"],
   },
   {
     priority: "P0",
     type: "AdTech / Martech",
-    examples: "AppLovin · 钛动 · Adobe",
     wallet: "$200M / 年 TAM",
     copy: "把素材自动化嵌入 Campaign Agent，以一次过率、迭代速度和 ROAS 驱动规模收入。",
     width: "100%",
+    cases: [{ name: "AppLovin", metric: "AXON · 1B+ DAU" }, { name: "钛动", metric: "AI + 实拍双引擎" }],
+    org: ["投放算法", "AI 产品", "Creative Ops"],
   },
   {
     priority: "P1",
     type: "头部消费品牌",
-    examples: "L’Oréal · Coca-Cola · Sony",
     wallet: "$100M / 年 TAM",
     copy: "预算源头。优先进入企业 AI 平台白名单，用标杆案例建立行业影响力。",
     width: "50%",
+    cases: [{ name: "L’Oréal", metric: "10–20 万视频 / 月" }, { name: "Coca-Cola", metric: "约 $1M MRR" }],
+    org: ["集团 AI 中台", "品牌团队", "外部 4A"],
   },
   {
     priority: "P1",
     type: "Paid Media",
-    examples: "Pinterest · Reddit · Snap",
     wallet: "$75M / 年 TAM",
     copy: "以 Display Ads 和批量本地化为突破口，建立图片与视频的双模型消耗池。",
     width: "38%",
+    cases: [{ name: "Pinterest", metric: "$2M MRR" }, { name: "Reddit", metric: "$1M MRR" }],
+    org: ["广告产品", "创意工具", "客户成功"],
+  },
+];
+
+const unresolvedGaps = [
+  {
+    no: "01",
+    title: "物理语义，而非视觉模仿",
+    copy: "涂抹、穿戴、开箱等人货交互，需要理解动作意图与物理关系；仅提升画质或参考能力仍不够。",
+    signal: "WORLD MODEL",
+  },
+  {
+    no: "02",
+    title: "品牌资产的硬约束",
+    copy: "Logo、包装文字、色号、数字和几何比例必须稳定保真，并支持局部返工而不是整条重抽。",
+    signal: "BRAND FIDELITY",
+  },
+  {
+    no: "03",
+    title: "专业音频可交付",
+    copy: "语言、台词、音色、语速与时间戳要严格绑定，同时满足 48kHz、码率和响度等交付规格。",
+    signal: "AUDIO CONTROL",
+  },
+  {
+    no: "04",
+    title: "不破坏母版的精准编辑",
+    copy: "只替换前 3–5 秒 Hook、文案、人物或商品，其他镜头与音轨保持不变，才能进入规模化版本生产。",
+    signal: "PRECISE EDIT",
   },
 ];
 
@@ -204,22 +235,52 @@ export default function Home() {
             <p>让场景、客户、生产流程与模型需求围绕具体素材展开，而不是停留在抽象表格。</p>
           </div>
           <div className="mediaGrid">
-            <article className="mediaCard mediaVideo brandSample">
-              <video src="/media/brand-reference.mp4" poster="/media/brand-poster.jpg" muted loop autoPlay playsInline preload="metadata" aria-label="品牌广告参考样片" />
-              <div className="mediaShade" />
-              <div className="mediaMeta"><span>BRAND FILM · 30S</span><h3>导演级创意</h3><p>品牌一致性 · 多镜头 · 专业交付</p></div>
-            </article>
-            <article className="mediaCard mediaVideo performanceSample">
-              <video src="/media/performance-generated.mp4" poster="/media/performance-poster.jpg" muted loop autoPlay playsInline preload="metadata" aria-label="AI 生成效果广告样片" />
-              <div className="mediaShade" />
-              <div className="mediaMeta"><span>PERFORMANCE · AI GENERATED</span><h3>高频种草</h3><p>低成本变体 · 快速测试 · 爆款复刻</p></div>
-            </article>
-            <article className="mediaCard displaySample">
-              <img src="/media/display-vacuum.jpg" alt="AI 生成的吸尘器展示广告" />
-              <div className="miniVariant"><img src="/media/display-fashion.jpg" alt="AI 生成的服饰展示广告" /></div>
-              <div className="mediaShade" />
-              <div className="mediaMeta"><span>DISPLAY · MULTI-SKU</span><h3>一图千变</h3><p>商品保真 · 精准文字 · 多尺寸适配</p></div>
-            </article>
+            <div className="sampleItem brandSample">
+              <article className="mediaCard mediaVideo">
+                <video src="/media/brand-reference.mp4" poster="/media/brand-poster.jpg" muted loop autoPlay playsInline preload="metadata" aria-label="品牌广告参考样片" />
+                <div className="mediaShade" />
+                <div className="mediaMeta"><span>BRAND FILM · 30S</span><h3>导演级创意</h3><p>品牌一致性 · 多镜头 · 专业交付</p></div>
+              </article>
+              <details className="sampleAnalysis">
+                <summary>按样片拆解 <span>＋</span></summary>
+                <div className="analysisGrid">
+                  <p><b>制作方</b>4A 代理商 + 专业 Production / VFX 团队</p>
+                  <p><b>核心需求</b>导演级审美、产品一致性、多镜头连续与 4K 交付</p>
+                  <p><b>方案路径</b>Creative pre-vis → 3D 白模 → AI 渲染 → 后期质检</p>
+                </div>
+              </details>
+            </div>
+            <div className="sampleItem performanceSample">
+              <article className="mediaCard mediaVideo">
+                <video src="/media/performance-generated.mp4" poster="/media/performance-poster.jpg" muted loop autoPlay playsInline preload="metadata" aria-label="AI 生成效果广告样片" />
+                <div className="mediaShade" />
+                <div className="mediaMeta"><span>PERFORMANCE · AI GENERATED</span><h3>高频种草</h3><p>低成本变体 · 快速测试 · 爆款复刻</p></div>
+              </article>
+              <details className="sampleAnalysis">
+                <summary>按样片拆解 <span>＋</span></summary>
+                <div className="analysisGrid">
+                  <p><b>制作方</b>AdTech / Martech 的 Creative Ops 与投放团队</p>
+                  <p><b>核心需求</b>高一次过率、商品保真、小语种口播和百条级变体</p>
+                  <p><b>方案路径</b>商品链接 → 脚本首帧 → 视频生成 → 投放 → 爆款复刻</p>
+                </div>
+              </details>
+            </div>
+            <div className="sampleItem displaySample">
+              <article className="mediaCard">
+                <img src="/media/display-vacuum.jpg" alt="AI 生成的吸尘器展示广告" />
+                <div className="miniVariant"><img src="/media/display-fashion.jpg" alt="AI 生成的服饰展示广告" /></div>
+                <div className="mediaShade" />
+                <div className="mediaMeta"><span>DISPLAY · MULTI-SKU</span><h3>一图千变</h3><p>商品保真 · 精准文字 · 多尺寸适配</p></div>
+              </article>
+              <details className="sampleAnalysis">
+                <summary>按样片拆解 <span>＋</span></summary>
+                <div className="analysisGrid">
+                  <p><b>制作方</b>Pinterest 等 Paid Media、DTC 品牌与创意自动化平台</p>
+                  <p><b>核心需求</b>精准文字、任意比例、局部编辑与千级并发</p>
+                  <p><b>方案路径</b>品牌资产 → Seedream 生成 → 多尺寸套版 → DCO / A/B</p>
+                </div>
+              </details>
+            </div>
           </div>
         </div>
       </section>
@@ -258,8 +319,13 @@ export default function Home() {
               <article className="audienceCard" key={item.type}>
                 <div className="audienceTop"><span>{item.priority}</span><b>{item.wallet}</b></div>
                 <h3>{item.type}</h3>
-                <p className="examples">{item.examples}</p>
+                <div className="casePair">
+                  {item.cases.map((customer) => <span key={customer.name}><b>{customer.name}</b><small>{customer.metric}</small></span>)}
+                </div>
                 <p>{item.copy}</p>
+                <div className="orgMini" aria-label={`${item.type}典型组织`}>
+                  {item.org.map((unit, i) => <span key={unit}>{unit}{i < item.org.length - 1 && <i>→</i>}</span>)}
+                </div>
                 <div className="walletBar"><i style={{ width: item.width }} /></div>
               </article>
             ))}
@@ -293,6 +359,20 @@ export default function Home() {
           <article>
             <span>03</span><div><h3>Display Automation</h3><p>强化商品一致性、精准文字、局部编辑和任意尺寸，支撑千级图片批量生产。</p></div><b>DISPLAY</b>
           </article>
+        </div>
+        <div className="gapHeader">
+          <p className="eyebrow"><span>2.5+</span> / NON-NEGOTIABLE GAPS</p>
+          <h3>只保留 2.5 之后<br />仍可能没解决的问题。</h3>
+          <p>不重复罗列版本升级自然会改善的基础项，把产品讨论集中到真正影响规模生产的四个硬门槛。</p>
+        </div>
+        <div className="gapGrid">
+          {unresolvedGaps.map((gap) => (
+            <article key={gap.no}>
+              <div><span>{gap.no}</span><b>{gap.signal}</b></div>
+              <h4>{gap.title}</h4>
+              <p>{gap.copy}</p>
+            </article>
+          ))}
         </div>
       </section>
 
