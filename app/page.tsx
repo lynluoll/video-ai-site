@@ -122,6 +122,21 @@ const scenarioCases = [
   },
 ];
 
+const solutionVideoDemos = {
+  brand: [
+    { order: "01", label: "BEAUTY / LUXURY", title: "人物特写与睫毛级质感", meta: "美妆个护 · 奢品", src: "/media/brand-beauty-demo.mp4", poster: "/media/brand-beauty-demo.jpg" },
+    { order: "02", label: "BEVERAGE", title: "剧情节奏与品牌调性", meta: "酒水 · 生活方式", src: "/media/brand-beverage-demo.mp4", poster: "/media/brand-beverage-demo.jpg" },
+    { order: "03", label: "AUTOMOTIVE / PRE-VIS", title: "高速运镜与空间复刻", meta: "汽车 · 3D 白模对象", src: "/media/brand-auto-demo.mp4", poster: "/media/brand-auto-demo.jpg" },
+    { order: "04", label: "TECH / ELECTRONICS", title: "CMF 材质与产品微距", meta: "科技 · 电子 · 软件", src: "/media/brand-tech-demo.mp4", poster: "/media/brand-tech-demo.jpg" },
+  ],
+  performance: [
+    { order: "01", label: "FASHION SHOWCASE", title: "虚拟模特走位", meta: "服饰 · 纹理微距", src: "/media/performance-fashion-demo.mp4", poster: "/media/performance-fashion-demo.jpg" },
+    { order: "02", label: "PERSONAL CARE UGC", title: "多场景使用实拍感", meta: "个护 · UGC 口播", src: "/media/performance-ugc-demo.mp4", poster: "/media/performance-ugc-demo.jpg" },
+    { order: "03", label: "SOCIAL SEEDING", title: "反向开箱与场景演示", meta: "家具 · 种草短视频", src: "/media/performance-sofa-demo.mp4", poster: "/media/performance-sofa-demo.jpg" },
+    { order: "04", label: "VIRAL REPLICATION", title: "保留 Hook 的爆款复刻", meta: "美妆 · 要素级再生成", src: "/media/performance-beauty-demo.mp4", poster: "/media/performance-beauty-demo.jpg" },
+  ],
+};
+
 const customerStrategies = [
   {
     index: "01",
@@ -813,7 +828,7 @@ export default function Home() {
               <p>品牌广告是一门确定性生意。3D 白模先确认机位、构图、运镜与物理，再让 Seedance 负责材质、环境和动态的最终渲染。</p>
             </header>
 
-            <div className="solutionPageBody">
+            <div className="solutionPageBody brandSolutionBody">
               <section className="solutionArchitecture" aria-label="品牌广告 3D 白模制作架构">
                 <div className="architectureTopline"><span>PRODUCTION ARCHITECTURE</span><b>确定性前置 · 概率性后置</b></div>
                 <div className="architectureFlow brandSolutionFlow">
@@ -847,11 +862,17 @@ export default function Home() {
                 </div>
               </section>
 
-              <figure className="solutionDemo brandSolutionDemo">
-                <div className="solutionDemoTop"><span>BRAND FILM DEMO</span><b>15 / 30S · 4K DELIVERY</b></div>
-                <video src="/media/brand-reference.mp4" poster="/media/brand-poster.jpg" controls muted loop playsInline preload="metadata" aria-label="品牌广告 3D 白模方案视频样片" />
-                <figcaption><strong>从 Pre-vis 到成片，镜头语言保持一致。</strong><span>多镜头一致性 · 产品保真 · 专业审片与交付</span></figcaption>
-              </figure>
+              <section className="solutionDemoSection" aria-label="品牌广告四个视频 Demo">
+                <div className="solutionDemoSectionHeader"><span>BRAND FILM DEMOS</span><h4>四个垂类，四种确定性难题。</h4><p>覆盖人物与材质、剧情调性、空间运镜和产品微距；点击任一画面即可播放完整 Demo。</p></div>
+                <div className="solutionDemoGallery brandDemoGallery">
+                  {solutionVideoDemos.brand.map((demo) => (
+                    <figure className="solutionVideoCard" key={demo.src}>
+                      <div className="solutionVideoFrame"><video src={demo.src} poster={demo.poster} controls muted playsInline preload="metadata" aria-label={`${demo.title}品牌广告视频 Demo`} /><span>{demo.order}</span></div>
+                      <figcaption><span>{demo.label}</span><b>{demo.title}</b><small>{demo.meta}</small></figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </section>
             </div>
 
             <footer className="solutionProofBar">
@@ -885,11 +906,17 @@ export default function Home() {
                 <div className="performanceReturn"><span>↺</span><p><b>投放信号回流链首：</b>跑赢素材按要素放大，对抗 7–10 天素材衰减。</p></div>
               </section>
 
-              <figure className="solutionDemo performanceSolutionDemo">
-                <div className="solutionDemoTop"><span>PERFORMANCE DEMO</span><b>9:16 · READY TO TEST</b></div>
-                <video src="/media/performance-generated.mp4" poster="/media/performance-poster.jpg" controls muted loop playsInline preload="metadata" aria-label="效果广告 Campaign Agent 视频样片" />
-                <figcaption><strong>用同一结构快速生成 10–100 条变体。</strong><span>UGC 口播 · 商品展示 · 本地场景 · 爆款复刻</span></figcaption>
-              </figure>
+              <section className="solutionDemoSection performanceDemoSection" aria-label="效果广告四个视频 Demo">
+                <div className="solutionDemoSectionHeader"><span>PERFORMANCE DEMOS</span><h4>不是一种模板，而是四条高频生产线。</h4><p>从商品 Showcase、UGC 口播到种草与爆款复刻，分别对应不同的 Hook、首帧和变量展开方式。</p></div>
+                <div className="solutionDemoGallery performanceDemoGallery">
+                  {solutionVideoDemos.performance.map((demo) => (
+                    <figure className="solutionVideoCard" key={demo.src}>
+                      <div className="solutionVideoFrame"><video src={demo.src} poster={demo.poster} controls muted playsInline preload="metadata" aria-label={`${demo.title}效果广告视频 Demo`} /><span>{demo.order}</span></div>
+                      <figcaption><span>{demo.label}</span><b>{demo.title}</b><small>{demo.meta}</small></figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </section>
             </div>
 
             <footer className="solutionProofBar">

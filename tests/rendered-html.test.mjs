@@ -63,7 +63,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /展开具体制作流程/);
   assert.equal((html.match(/class="sampleCase /g) ?? []).length, 3);
   assert.equal((html.match(/class="caseTile"/g) ?? []).length, 3);
-  assert.equal((html.match(/<video /g) ?? []).length, 4);
+  assert.equal((html.match(/<video /g) ?? []).length, 10);
   assert.match(html, /brand-reference\.mp4/);
   assert.match(html, /performance-generated\.mp4/);
   assert.match(html, /确定性来自流程设计/);
@@ -82,6 +82,11 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /导演 \/ 客户确认/);
   assert.match(html, /FIVE-STEP OPERATING LOOP/);
   assert.match(html, /跑赢素材按要素放大/);
+  assert.equal((html.match(/class="solutionVideoCard"/g) ?? []).length, 8);
+  assert.match(html, /四个垂类，四种确定性难题/);
+  assert.match(html, /四条高频生产线/);
+  assert.match(html, /AUTOMOTIVE \/ PRE-VIS/);
+  assert.match(html, /VIRAL REPLICATION/);
   assert.match(html, /Campaign Inputs/);
   assert.match(html, /Creative Planner/);
   assert.match(html, /Approved Master/);
@@ -211,6 +216,8 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /<span>04<\/span> \/ SOLUTION FOCUS/);
   assert.match(page, /brandSolutionFlow/);
   assert.match(page, /performanceSolutionFlow/);
+  assert.equal((page.match(/brand-[a-z]+-demo\.mp4/g) ?? []).length, 4);
+  assert.equal((page.match(/performance-[a-z]+-demo\.mp4/g) ?? []).length, 4);
   assert.match(page, /displaySolutionFlow/);
   assert.match(page, /游戏资产包/);
   assert.match(page, /ZIP ≤ 5MB/);
@@ -240,7 +247,9 @@ test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone",
   assert.match(css, /\.customerArchitecture \{ display: grid; grid-template-columns: \.86fr 1\.14fr/);
   assert.match(css, /\.revenueEquation \{ display: grid; grid-template-columns: repeat\(4, 1fr\)/);
   assert.match(css, /\.gapGrid \{ grid-template-columns: repeat\(4, 1fr\)/);
-  assert.match(css, /\.solutionPageBody \{ display: grid; grid-template-columns: minmax\(0, 1\.42fr\)/);
+  assert.match(css, /\.solutionPageBody \{ display: grid; grid-template-columns: 1fr/);
+  assert.match(css, /\.brandDemoGallery \{ grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
+  assert.match(css, /\.performanceDemoGallery \{ grid-template-columns: repeat\(4, minmax\(0, 1fr\)\)/);
   assert.match(css, /\.displaySolutionDemos \{ display: grid; grid-template-columns: \.88fr 1fr 1fr 1fr/);
   assert.match(css, /\.playablePipeline \{ display: grid; grid-template-columns: 1fr 22px 1fr 22px 1fr/);
   assert.match(css, /\.segmentCell strong \{[^}]*font-size: 16px/);

@@ -410,7 +410,7 @@ button, summary { font: inherit; }
 .solutionPageHeader small { display: block; margin-bottom: 15px; color: #6d7480; font-size: 9px; font-weight: 800; letter-spacing: .15em; }
 .solutionPageHeader h3 { margin: 0; font-size: clamp(42px, 4.7vw, 66px); line-height: .96; letter-spacing: -.065em; }
 .solutionPageHeader > p { max-width: 480px; margin: 0 0 3px; color: #555b64; font-size: 13px; line-height: 1.75; }
-.solutionPageBody { display: grid; grid-template-columns: minmax(0, 1.42fr) minmax(270px, .58fr); gap: 18px; padding: 18px 18px 0; }
+.solutionPageBody { display: grid; grid-template-columns: 1fr; gap: 18px; padding: 18px 18px 0; }
 .solutionArchitecture { min-width: 0; padding: 22px; background: #fbfaf6; border: 1px solid #d5d1c7; }
 .architectureTopline { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 18px; border-bottom: 1px solid #ddd9d0; }
 .architectureTopline span { color: var(--orange); font-size: 9px; font-weight: 800; letter-spacing: .14em; }
@@ -431,16 +431,24 @@ button, summary { font: inherit; }
 .architectureRail { display: grid; grid-template-columns: auto 1fr auto 1fr; gap: 10px 14px; align-items: center; margin-top: 16px; padding: 13px 15px; background: #eceae4; }
 .architectureRail span, .architectureRail b { color: #4e5763; font-size: 9px; }
 .architectureRail p { margin: 0; color: #727984; font-size: 9px; }
-.solutionDemo { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; min-width: 0; min-height: 100%; margin: 0; overflow: hidden; color: #fff; background: #090d14; border: 1px solid #282e38; }
-.solutionDemoTop { display: flex; justify-content: space-between; gap: 14px; padding: 15px 16px; border-bottom: 1px solid #2d333c; }
-.solutionDemoTop span, .solutionDemoTop b { font-size: 8px; font-weight: 800; letter-spacing: .12em; }
-.solutionDemoTop span { color: var(--lime); }
-.solutionDemoTop b { color: #7e8794; }
-.solutionDemo video { display: block; width: 100%; height: 100%; min-height: 330px; object-fit: cover; background: #05070b; }
-.performanceSolutionDemo video { object-fit: contain; }
-.solutionDemo figcaption { display: grid; gap: 6px; padding: 17px 16px 18px; border-top: 1px solid #2d333c; }
-.solutionDemo figcaption strong { font-size: 15px; letter-spacing: -.02em; }
-.solutionDemo figcaption span { color: #89919d; font-size: 9px; line-height: 1.45; }
+.solutionDemoSection { padding: 22px; color: #fff; background: #0d1118; border: 1px solid #282e38; }
+.solutionDemoSectionHeader { display: grid; grid-template-columns: minmax(280px, .8fr) minmax(0, 1.2fr); column-gap: 42px; align-items: end; padding-bottom: 22px; border-bottom: 1px solid #303641; }
+.solutionDemoSectionHeader > span { grid-column: 1 / -1; margin-bottom: 17px; color: var(--lime); font-size: 8px; font-weight: 800; letter-spacing: .13em; }
+.solutionDemoSectionHeader h4 { margin: 0; font-size: 30px; line-height: 1.02; letter-spacing: -.05em; }
+.solutionDemoSectionHeader p { max-width: 620px; margin: 0; color: #9098a4; font-size: 10px; line-height: 1.65; }
+.solutionDemoGallery { display: grid; gap: 12px; margin-top: 16px; }
+.brandDemoGallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.performanceDemoGallery { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.solutionVideoCard { min-width: 0; margin: 0; overflow: hidden; color: #fff; background: #141922; border: 1px solid #303641; }
+.solutionVideoFrame { position: relative; overflow: hidden; background: #05070b; border-bottom: 1px solid #303641; }
+.brandDemoGallery .solutionVideoFrame { aspect-ratio: 16 / 9; }
+.performanceDemoGallery .solutionVideoFrame { aspect-ratio: 9 / 14; }
+.solutionVideoFrame video { display: block; width: 100%; height: 100%; object-fit: contain; background: #05070b; }
+.solutionVideoFrame > span { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; width: 27px; height: 27px; color: #11150d; background: var(--lime); border-radius: 50%; font-size: 8px; font-weight: 900; pointer-events: none; }
+.solutionVideoCard figcaption { display: grid; grid-template-columns: 1fr auto; gap: 7px 12px; min-height: 104px; padding: 15px 16px 16px; }
+.solutionVideoCard figcaption > span { grid-column: 1 / -1; color: var(--orange); font-size: 8px; font-weight: 800; letter-spacing: .11em; }
+.solutionVideoCard figcaption b { font-size: 14px; letter-spacing: -.025em; }
+.solutionVideoCard figcaption small { align-self: center; color: #7f8793; font-size: 8px; text-align: right; }
 .solutionProofBar { display: grid; grid-template-columns: repeat(3, 1fr); margin: 18px; border: 1px solid #ccc8be; }
 .solutionProofBar > div { min-height: 116px; padding: 18px; border-right: 1px solid #ccc8be; }
 .solutionProofBar > div:last-child { border-right: 0; }
@@ -582,12 +590,14 @@ button, summary { font: inherit; }
 
   .solutionPages { gap: 46px; margin-top: 96px; }
   .solutionPageHeader { grid-template-columns: 70px minmax(0, 1.12fr) minmax(350px, .68fr); padding: 46px 48px 40px; }
-  .solutionPageBody { grid-template-columns: minmax(0, 1.55fr) minmax(330px, .45fr); padding: 24px 24px 0; }
+  .solutionPageBody { grid-template-columns: 1fr; padding: 24px 24px 0; }
   .solutionArchitecture { padding: 28px; }
   .architectureNode { min-height: 270px; padding: 21px 18px; }
   .architectureNode h4 { margin-top: 48px; font-size: 23px; }
   .architectureNode p { font-size: 11px; }
-  .solutionDemo video { min-height: 390px; }
+  .solutionDemoSection { padding: 28px; }
+  .solutionDemoSectionHeader h4 { font-size: 36px; }
+  .solutionVideoCard figcaption b { font-size: 16px; }
   .solutionProofBar, .displayArchitecture { margin: 24px; }
   .displaySolutionDemos { margin-inline: 24px; }
   .displaySolutionTile { min-height: 360px; }
@@ -640,8 +650,7 @@ button, summary { font: inherit; }
   .architectureNode { min-height: 0; }
   .architectureNode h4 { margin-top: 26px; }
   .architectureNode em { position: static; display: block; margin-top: 18px; }
-  .solutionDemo { min-height: 540px; }
-  .solutionDemo video { min-height: 440px; object-fit: contain; }
+  .performanceDemoGallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .displaySolutionDemos { grid-template-columns: 1fr 1fr; }
   .displaySolutionCopy { min-height: 310px; }
   .playableSolution { grid-template-columns: 1fr; }
@@ -679,6 +688,8 @@ button, summary { font: inherit; }
   .dataHeader > p { max-width: 680px; }
   .solutionPageHeader { grid-template-columns: 44px 1fr; }
   .solutionPageHeader > p { grid-column: 2; }
+  .solutionDemoSectionHeader { grid-template-columns: 1fr; gap: 14px; }
+  .solutionDemoSectionHeader > span { grid-column: 1; margin-bottom: 4px; }
   .playableMeta { align-items: flex-start; flex-wrap: wrap; }
   .playableMeta a { margin-left: 0; }
 }
@@ -824,8 +835,11 @@ button, summary { font: inherit; }
   .architectureNode h4 { margin-top: 24px; font-size: 21px; }
   .architectureNode p { font-size: 10px; }
   .architectureRail { grid-template-columns: 1fr; }
-  .solutionDemo { min-height: 430px; }
-  .solutionDemo video { min-height: 330px; }
+  .solutionDemoSection { padding: 16px; }
+  .solutionDemoSectionHeader h4 { font-size: 27px; }
+  .brandDemoGallery, .performanceDemoGallery { grid-template-columns: 1fr; }
+  .performanceDemoGallery .solutionVideoFrame { aspect-ratio: 9 / 14; }
+  .solutionVideoCard figcaption { min-height: 0; }
   .solutionProofBar { margin: 12px; }
   .solutionProofBar > div { padding: 16px; }
   .displayArchitecture { margin: 12px; }
