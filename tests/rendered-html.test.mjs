@@ -142,11 +142,11 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /\$220B/);
   assert.match(page, /\$110B/);
   assert.match(page, /网站 Banner/);
-  const scenariosIndex = page.indexOf('id="scenarios"');
-  const segmentOverviewIndex = page.indexOf('className="segmentComparison sceneSegmentOverview"');
-  const sampleCasesIndex = page.indexOf('className="sampleCases"');
-  assert.ok(scenariosIndex >= 0 && scenariosIndex < segmentOverviewIndex);
-  assert.ok(segmentOverviewIndex < sampleCasesIndex);
+  const conclusion02Index = page.indexOf("CONCLUSION 02");
+  const segmentOverviewIndex = page.indexOf('className="segmentComparison marketSegmentOverview"');
+  const conclusion03Index = page.indexOf("CONCLUSION 03");
+  assert.ok(conclusion02Index >= 0 && conclusion02Index < segmentOverviewIndex);
+  assert.ok(segmentOverviewIndex < conclusion03Index);
   assert.equal((page.match(/tamCaptureVisual/g) ?? []).length, 1);
   assert.doesNotMatch(page, /tamFormula/);
   assert.doesNotMatch(page, /const marketFunnel/);
