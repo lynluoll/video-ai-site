@@ -328,15 +328,53 @@ export default function Home() {
             </div>
             <figure className="conclusionVisual marketStructureVisual" aria-label="2026 年海外数字广告市场结构">
               <div className="visualTopline"><span>2026 MARKET STRUCTURE</span><b>USD</b></div>
-              <div className="marketPath">
-                <div className="marketNode globalNode"><i>01</i><span>全球数字广告</span><strong>$1.0T</strong></div>
-                <div className="pathConnector"><i>64–68%</i><span>海外占比</span></div>
-                <div className="marketNode overseasNode"><i>02</i><span>海外数字广告</span><strong>$660B</strong></div>
-                <div className="pathConnector"><i>≈ 24%</i><span>视频占比</span></div>
-                <div className="marketNode videoNode"><i>03</i><span>海外视频广告</span><strong>$160B</strong></div>
+              <div className="marketScope" aria-label="全球与海外数字广告市场规模">
+                <div className="marketScopeCard globalScope">
+                  <span>GLOBAL BUDGET · 2026</span>
+                  <strong>$1.0T</strong>
+                  <small>全球数字广告总预算 · 约 1 万亿美元</small>
+                </div>
+                <div className="marketScopeLink"><strong>64–68%</strong><span>海外占全球</span></div>
+                <div className="marketScopeCard overseasScope">
+                  <span>OVERSEAS DIGITAL ADS</span>
+                  <strong>$640–680B</strong>
+                  <small>海外数字广告大盘 · 约 $6,400–6,800 亿</small>
+                </div>
               </div>
-              <div className="visualCallout"><span>GROWTH SIGNAL</span><strong>13%</strong><p>视频广告年增速，显著高于整体预算增长。</p></div>
-              <figcaption><span>FIG. 01</span> 从全球广告预算逐层收敛到海外视频广告<small>网页原生表达</small></figcaption>
+              <div className="marketScopeLogic" aria-label="海外数字广告大盘口径">
+                <span>口径校准</span>
+                <div><b>− $160B</b><small>剔除中国市场</small></div>
+                <div><b>− $200B</b><small>剔除海外传统线下媒体</small></div>
+                <p><i>✓</i><span>剩余海外数字广告大盘</span><strong>$640–680B</strong></p>
+              </div>
+              <div className="marketPillars">
+                <div className="marketPillarTitle"><span>2026 海外数字广告四大支柱</span><b>TOTAL · $640–680B</b></div>
+                <div className="marketShareBand" aria-label="搜索 33%，视频 26%，展示 24%，零售媒体网络 17%">
+                  <span className="searchShare">33%</span>
+                  <span className="videoShare">26%</span>
+                  <span className="displayShare">24%</span>
+                  <span className="rmnShare">17%</span>
+                </div>
+                <div className="marketPillarGrid">
+                  <article className="marketPillar searchPillar">
+                    <span><i />SEARCH</span><b>≈ $220B</b>
+                    <h5>纯搜索广告</h5><p>Google · Bing<br />浏览器搜索</p>
+                  </article>
+                  <article className="marketPillar videoPillar">
+                    <span><i />VIDEO</span><b>≈ $160B</b>
+                    <h5>纯数字视频广告</h5><p>社交短视频 · CTV<br />网站嵌入</p>
+                  </article>
+                  <article className="marketPillar displayPillar">
+                    <span><i />DISPLAY</span><b>≈ $160B</b>
+                    <h5>静态社交与展示</h5><p>Meta · X<br />网站 Banner</p>
+                  </article>
+                  <article className="marketPillar rmnPillar">
+                    <span><i />RMN</span><b>≈ $110B</b>
+                    <h5>零售媒体静态广告</h5><p>Amazon · Walmart<br />平台内静态广告</p>
+                  </article>
+                </div>
+              </div>
+              <figcaption><span>FIG. 01</span> 从全球预算口径到海外数字广告四大支柱<small>网页原生重绘 · 2026</small></figcaption>
             </figure>
           </article>
 
