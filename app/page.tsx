@@ -291,11 +291,17 @@ export default function Home() {
                 <div><strong>$160B → $260B</strong><small>2026 → 2030<br />视频广告市场</small></div>
               </div>
             </div>
-            <figure className="conclusionFigure marketStructureFigure">
-              <a href="/media/market-structure-2026.jpg" target="_blank" aria-label="查看海外数字广告市场结构分析原图">
-                <img src="/media/market-structure-2026.jpg" alt="2026 年海外数字广告市场结构：全球约一万亿美元，海外大盘约 6400 至 6800 亿美元，视频广告约 1600 亿美元" loading="lazy" />
-              </a>
-              <figcaption><span>FIG. 01</span> 海外数字广告市场结构分析（2026）<small>点击查看原图</small></figcaption>
+            <figure className="conclusionVisual marketStructureVisual" aria-label="2026 年海外数字广告市场结构">
+              <div className="visualTopline"><span>2026 MARKET STRUCTURE</span><b>USD</b></div>
+              <div className="marketPath">
+                <div className="marketNode globalNode"><i>01</i><span>全球数字广告</span><strong>$1.0T</strong></div>
+                <div className="pathConnector"><i>64–68%</i><span>海外占比</span></div>
+                <div className="marketNode overseasNode"><i>02</i><span>海外数字广告</span><strong>$660B</strong></div>
+                <div className="pathConnector"><i>≈ 24%</i><span>视频占比</span></div>
+                <div className="marketNode videoNode"><i>03</i><span>海外视频广告</span><strong>$160B</strong></div>
+              </div>
+              <div className="visualCallout"><span>GROWTH SIGNAL</span><strong>13%</strong><p>视频广告年增速，显著高于整体预算增长。</p></div>
+              <figcaption><span>FIG. 01</span> 从全球广告预算逐层收敛到海外视频广告<small>网页原生表达</small></figcaption>
             </figure>
           </article>
 
@@ -309,11 +315,18 @@ export default function Home() {
                 <div><span>PERFORMANCE</span><strong>多而快</strong><p>数据驱动、10–100 个变体。模型消耗与素材量直接相关，竞争力落在成片性价比与 ROI。</p></div>
               </div>
             </div>
-            <figure className="conclusionFigure videoBudgetFigure">
-              <a href="/media/video-budget-2021-2030.jpg" target="_blank" aria-label="查看视频广告投放预算走向趋势原图">
-                <img src="/media/video-budget-2021-2030.jpg" alt="2021 至 2030 年视频广告预算趋势：社交视频、联网电视和在线长尾视频共同增长至约 2600 亿美元" loading="lazy" />
-              </a>
-              <figcaption><span>FIG. 02</span> 视频广告投放预算走向趋势（2021–2030）<small>点击查看原图</small></figcaption>
+            <figure className="conclusionVisual budgetStructureVisual" aria-label="海外视频广告预算结构与增长">
+              <div className="visualTopline light"><span>VIDEO AD BUDGET</span><b>2026 → 2030</b></div>
+              <div className="budgetColumns" aria-label="视频广告市场从 1600 亿美元增长至 2600 亿美元">
+                <div className="budgetColumn budget2026"><strong>$160B</strong><i /><span>2026</span></div>
+                <div className="budgetDelta"><b>+$100B</b><span>新增预算</span></div>
+                <div className="budgetColumn budget2030"><strong>$260B</strong><i /><span>2030</span></div>
+              </div>
+              <div className="budgetSplitTrack" aria-label="品牌与效果广告预算各占约一半">
+                <div><span>BRAND</span><strong>≈ 50%</strong><small>少而贵 · 专业生产</small></div>
+                <div><span>PERFORMANCE</span><strong>≈ 50%</strong><small>多而快 · 高频测试</small></div>
+              </div>
+              <figcaption><span>FIG. 02</span> 同一增长市场，对应两套完全不同的生产逻辑<small>网页原生表达</small></figcaption>
             </figure>
           </article>
 
@@ -331,11 +344,18 @@ export default function Home() {
               </div>
               <p className="imageTamNote">图片生产支出约从 $10B 增至 $15B，2030 图片模型 API TAM 约 <b>$2B</b>。</p>
             </div>
-            <figure className="conclusionFigure productionTamFigure">
-              <a href="/media/video-production-tam.jpg" target="_blank" aria-label="查看视频广告素材制作市场规模预测原图">
-                <img src="/media/video-production-tam.jpg" alt="视频广告素材制作市场规模预测：模型 API 从 2026 年约 8 亿美元增长到 2030 年约 28 亿美元，Agent 软件从约 20 亿美元增长到约 56 亿美元" loading="lazy" />
-              </a>
-              <figcaption><span>FIG. 03</span> 视频广告素材制作市场规模预测与 YoY 增长<small>点击查看原图</small></figcaption>
+            <figure className="conclusionVisual tamCaptureVisual" aria-label="2030 年视频素材生产价值捕获阶梯">
+              <div className="visualTopline"><span>2030 VALUE CAPTURE</span><b>TAM</b></div>
+              <div className="tamCascade">
+                <div className="tamStage productionStage"><span>视频素材生产支出</span><strong>$50B</strong><small>BASE</small></div>
+                <div className="cascadeRule"><b>× 80%</b><span>劳动力占比</span></div>
+                <div className="tamStage laborStage"><span>可替代劳动力价值</span><strong>$40B</strong><small>AI ADDRESSABLE</small></div>
+                <div className="cascadeRule"><b>× 32%</b><span>AI 渗透与软件价值捕获</span></div>
+                <div className="tamStage agentStage"><span>Agent 软件 TAM</span><strong>$12.8B</strong><small>SOFTWARE</small></div>
+                <div className="cascadeRule"><b>× 50%</b><span>模型成本占比</span></div>
+                <div className="tamStage apiStage"><span>视频模型 API TAM</span><strong>$6.4B</strong><small>MODEL LAYER</small></div>
+              </div>
+              <figcaption><span>FIG. 03</span> 从生产支出到模型 API 的价值捕获路径<small>网页原生表达</small></figcaption>
             </figure>
           </article>
         </div>
@@ -358,7 +378,7 @@ export default function Home() {
               </tbody>
             </table>
           </div>
-          <p className="dataSource">REFERENCE MODEL · 第一章结论与画板按飞书方案 rev. 8881 还原；过程层关键数字为方向性估算，大盘与目标数字待孙越交叉验证。</p>
+          <p className="dataSource">REFERENCE MODEL · 第一章结论依据飞书方案 rev. 8881；图表为网页原生重绘，过程层关键数字为方向性估算，大盘与目标数字待孙越交叉验证。</p>
         </div>
       </section>
 

@@ -30,9 +30,13 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /增长不在总盘/);
   assert.match(html, /品牌与效果各占一半/);
   assert.match(html, /真正的 TAM/);
-  assert.match(html, /market-structure-2026\.jpg/);
-  assert.match(html, /video-budget-2021-2030\.jpg/);
-  assert.match(html, /video-production-tam\.jpg/);
+  assert.doesNotMatch(html, /market-structure-2026\.jpg/);
+  assert.doesNotMatch(html, /video-budget-2021-2030\.jpg/);
+  assert.doesNotMatch(html, /video-production-tam\.jpg/);
+  assert.match(html, /2026 MARKET STRUCTURE/);
+  assert.match(html, /VIDEO AD BUDGET/);
+  assert.match(html, /2030 VALUE CAPTURE/);
+  assert.match(html, /网页原生表达/);
   assert.match(html, /三类场景/);
   assert.match(html, /先看样片/);
   assert.match(html, /客户是谁/);
