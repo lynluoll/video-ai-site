@@ -196,6 +196,51 @@ const marketFunnel = [
   { layer: "视频模型 API", value2026: "$1.0B", value2030: "$6.4B", logic: "约为 Agent 软件成本的 50%" },
 ];
 
+const videoSegments = [
+  {
+    name: "Social Video",
+    code: "01 / SOCIAL",
+    tone: "social",
+    core: ["TikTok / Reels", "短视频社交电商"],
+    scale: ["1,150亿", "量最大"],
+    growth: ["620 → 1,150", "+85%"],
+    split: ["品牌 30%", "效果 70%"],
+    spend: ["25%–35%", "消耗极快 · 成本高"],
+    driver: ["Reels / TikTok 驱动", "下载 / 购买 / 引流"],
+  },
+  {
+    name: "CTV",
+    code: "02 / STREAMING",
+    tone: "ctv",
+    core: ["Netflix / Disney+", "流媒体广告版"],
+    scale: ["900亿", "增速最快"],
+    growth: ["450 → 900", "+100%"],
+    split: ["品牌 80%", "效果 20%"],
+    spend: ["10%–15%", "追求广播级 · 迭代慢"],
+    driver: ["流媒体广告版加入", "有线电视数字化归入"],
+  },
+  {
+    name: "OLV",
+    code: "03 / OPEN WEB",
+    tone: "olv",
+    core: ["YouTube 长视频", "开放网络视频"],
+    scale: ["550亿", "稳步增长"],
+    growth: ["380 → 550", "+45%"],
+    split: ["品牌 50%", "效果 50%"],
+    spend: ["15%–20%", "多尺寸剪辑"],
+    driver: ["YouTube / Open Web", "长尾稳增 · AI 搜索分流"],
+  },
+];
+
+const segmentDimensions = [
+  { key: "core", label: "核心阵地", note: "WHERE" },
+  { key: "scale", label: "2030 规模", note: "SIZE" },
+  { key: "growth", label: "2026–2030", note: "GROWTH" },
+  { key: "split", label: "品效占比", note: "MIX" },
+  { key: "spend", label: "素材支出", note: "PRODUCTION" },
+  { key: "driver", label: "主要驱动", note: "DRIVER" },
+] as const;
+
 const walletDepth = [
   { customer: "WPP", type: "代理商", value: "$6.0M", width: "100%", signal: "自用平台 + 对外转售" },
   { customer: "Snap", type: "付费媒体", value: "$2.0M", width: "33%", signal: "平台创意生成能力" },
@@ -358,6 +403,40 @@ export default function Home() {
               <figcaption><span>FIG. 03</span> 从生产支出到模型 API 的价值捕获路径<small>网页原生表达</small></figcaption>
             </figure>
           </article>
+        </div>
+
+        <div className="shell segmentComparison">
+          <div className="dataHeader darkText segmentHeader">
+            <div><span>SEGMENT LANDSCAPE</span><h3>三大细分赛道全景对比</h3></div>
+            <p>Social Video 赢在素材规模，CTV 赢在增速与品牌预算，OLV 承接长视频与开放网络。六个维度决定不同的产品优先级。</p>
+          </div>
+          <p className="matrixScrollHint" aria-hidden="true">横向滑动查看完整对比 →</p>
+          <div className="segmentMatrixScroll" role="region" aria-label="Social Video、CTV 和 OLV 全景对比" tabIndex={0}>
+            <div className="segmentMatrix" role="table" aria-label="三大细分赛道全景对比表">
+              <div className="segmentMatrixHead" role="row">
+                <div className="dimensionHead" role="columnheader"><span>评估维度</span><small>6 DIMENSIONS</small></div>
+                {videoSegments.map((segment) => (
+                  <div className={`segmentHead ${segment.tone}`} role="columnheader" key={segment.name}>
+                    <span>{segment.code}</span><strong>{segment.name}</strong>
+                  </div>
+                ))}
+              </div>
+              {segmentDimensions.map((dimension, rowIndex) => (
+                <div className={`segmentRow row-${dimension.key}`} role="row" key={dimension.key}>
+                  <div className="dimensionCell" role="rowheader"><span>{String(rowIndex + 1).padStart(2, "0")}</span><b>{dimension.label}</b><small>{dimension.note}</small></div>
+                  {videoSegments.map((segment) => {
+                    const value = segment[dimension.key];
+                    return (
+                      <div className={`segmentCell ${segment.tone}`} role="cell" key={segment.name}>
+                        <strong>{value[0]}</strong><span>{value[1]}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
+          </div>
+          <p className="dataSource">SEGMENT COMPARISON · 内容按方案截图完整转译为网页原生矩阵；规模与增速沿用方案口径。</p>
         </div>
 
         <div className="shell marketFunnel">

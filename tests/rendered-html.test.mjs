@@ -37,6 +37,15 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /VIDEO AD BUDGET/);
   assert.match(html, /2030 VALUE CAPTURE/);
   assert.match(html, /网页原生表达/);
+  assert.match(html, /三大细分赛道全景对比/);
+  assert.match(html, /Social Video/);
+  assert.match(html, /Netflix \/ Disney\+/);
+  assert.match(html, /YouTube 长视频/);
+  assert.match(html, /1,150亿/);
+  assert.match(html, /450 → 900/);
+  assert.match(html, /品牌 80%/);
+  assert.match(html, /15%–20%/);
+  assert.match(html, /长尾稳增 · AI 搜索分流/);
   assert.match(html, /三类场景/);
   assert.match(html, /先看样片/);
   assert.match(html, /客户是谁/);
@@ -63,6 +72,10 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /\$150K/);
   assert.match(page, /5\.6%/);
   assert.match(page, /13%/);
+  assert.match(page, /620 → 1,150/);
+  assert.match(page, /\+100%/);
+  assert.match(page, /消耗极快 · 成本高/);
+  assert.match(page, /有线电视数字化归入/);
   assert.match(page, /AI 10–20% → 70%/);
   assert.match(page, /AI 30% → 90%/);
   assert.match(page, /关键数字为方向性估算/);
