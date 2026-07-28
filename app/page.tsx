@@ -2,9 +2,9 @@ const scenarioCases = [
   {
     index: "01",
     label: "BRAND FILM",
-    title: "导演级品牌片",
+    title: "品牌广告",
     ratio: "15 / 30S",
-    desc: "这类片子的难点不是生成一段漂亮画面，而是让创意、产品、人物与品牌规范在多镜头里始终可控，并能进入专业交付链路。",
+    desc: "以 CTV、流媒体大屏和 YouTube Hero Video 为主。创意与品牌心智优先，制作主体通常是头部代理商，最终成片必须进入专业审片与交付链路。",
     media: {
       type: "video",
       src: "/media/brand-reference.mp4",
@@ -13,10 +13,16 @@ const scenarioCases = [
       headline: "确定性来自流程设计",
       meta: "多镜头一致性 · 品牌保真 · 专业交付",
     },
+    sampleSpec: "15 / 30 秒标准格式，非常强调品牌规范和导演级创意，每一帧的画质和一致性都有要求。",
+    channels: [
+      { title: "CTV 和流媒体大屏广告", copy: "TV 电视台，以及 Roku、Netflix、Disney、Prime 等流媒体平台。" },
+      { title: "YouTube · 约 50%", copy: "以片头广告 Bumper、插播 In-stream 等长视频广告位为主。" },
+    ],
+    objectives: ["曝光量与品牌知名度", "建立长期品牌心智"],
     customers: [
+      { role: "头部 5 家", names: "WPP · Havas · Publicis · Dentsu · Omnicom" },
+      { role: "次头部", names: "Brandtech（Pencil）· 博报堂" },
       { role: "委托方", names: "L’Oréal · Coca-Cola 等头部品牌" },
-      { role: "主制作方", names: "WPP · Havas · Publicis · Dentsu · Omnicom" },
-      { role: "执行团队", names: "Strategy · Creative · Production / VFX" },
     ],
     needs: [
       { label: "BRAND CONTROL", value: "产品 / Logo / 品牌色保持一致" },
@@ -24,20 +30,26 @@ const scenarioCases = [
       { label: "DELIVERY", value: "4K · 高码率 · 10bit 专业交付" },
       { label: "AI ROLE", value: "AI 10–20% → 70%" },
     ],
+    workflowTitle: "AI 模型 Workflow 逐渐代替实拍和渲染",
     steps: [
-      { title: "策略与创意共创", copy: "代理商 Strategy 与品牌方确认受众、主张与导演概念，先锁定品牌不能妥协的边界。" },
-      { title: "导演级预演", copy: "用图片模型生成分镜、KV 与场景参考，再用 3D 白模锁定机位、运镜、空间和打光。" },
-      { title: "混合生产", copy: "结合实拍、3D 资产与 AI 渲染完成多镜头成片；关键帧与产品 Packshot 先行质检。" },
-      { title: "后期与精准返工", copy: "完成 VFX、调色、音效和局部修补；品牌或法务反馈只改指定元素，不整条重抽。" },
-      { title: "审片与多端交付", copy: "按品牌规范和平台规格输出 CTV、YouTube、DV360 交付包，并衍生海报与封面。" },
+      { title: "Discovery 和 Ideation", copy: "代理商派遣 Strategy 团队与客户共创创意 Idea，先明确受众、品牌主张和导演概念。" },
+      { title: "导演级的创意设计", copy: "把导演脚本、分镜、场景和产品镜头先用 AI 生成可审片素材，与品牌主讨论并持续优化。", imageRole: "生成分镜故事板、概念图、关键视觉 KV 和场景 / 服化道参考图。这是图片模型渗透最深的一步——单张成本低、迭代快，直接替代人工分镜师和概念设计工时。" },
+      { title: "生产拍摄", copy: "结合实拍、3D 建模和 AI 模型渲染，实现帧级高质量与强一致性成片。", imageRole: "产出视频模型的首帧和关键帧，以及产品硬照 Packshot 精修、虚拟布景和环境贴图。" },
+      { title: "后期、编辑和音效", copy: "完成 VFX 特效渲染，其中约 20% 可由 AI 模型替代。", imageRole: "逐帧局部修补、去穿帮、替换不合规元素、抠像与画面延展 Outpainting，完成多比例适配。" },
+      { title: "审片和交付", copy: "按品牌规范、法务声明和平台规格质检，输出可进入 CTV / DV360 的交付包。", imageRole: "衍生多尺寸 KV、海报和视频封面缩略图，随视频成片一起打包交付。" },
     ],
+    modelRequirements: [
+      { type: "视频模型", items: ["高一致性：30 秒多镜头中人物 / 产品不漂，音画同步，能通过大屏质检和品牌审核。", "3D 白模参考：结合物品、环境、打光等现有 3D 资产解决空间物理规律，支持视频模型精准渲染。", "4K 高码率和高比特色深：满足 DV360 常见的 H.264、24 / 30 fps、至少 20 Mbps、10–16 bit 色深等要求。"] },
+      { type: "图片模型", items: ["导演级审美和可控构图：支持景别、焦段、打光等镜头语言的参数化控制，出图可直接进入提案和审片。", "品牌资产一致性：商品、包装、Logo、品牌色接近 Pantone 级还原，并支持品牌素材定制化微调。", "4K 高分辨率和专业色彩：支持广色域和高比特色深，可进入专业后期二次调色。", "可分层和局部重绘：主体 / 背景 / 文字分层输出，修改时不必整张重抽。", "版权和合规：训练数据可溯源、支持商用授权与 C2PA 水印，可通过品牌方法务审核。"] },
+    ],
+    models: [{ type: "视频", copy: "Veo 3.1 · Runway" }, { type: "图片", copy: "nano banana 2" }],
   },
   {
     index: "02",
     label: "PERFORMANCE",
-    title: "高频效果广告",
+    title: "效果广告",
     ratio: "10–100 变体",
-    desc: "这类片子的价值由投放结果定义。客户需要的不是单条 Demo，而是一套能持续产出 Hook、跑实验、看归因、复刻胜出结构的系统。",
+    desc: "以 tCPA、tROAS、CTR、CVR 和 CPI 定义价值。客户需要的不是单条 Demo，而是一套能持续产出 Hook、跑实验、看归因并复刻胜出结构的系统。",
     media: {
       type: "video",
       src: "/media/performance-generated.mp4",
@@ -46,10 +58,17 @@ const scenarioCases = [
       headline: "一次过率决定综合成本",
       meta: "竖屏 UGC · 商品保真 · 爆款复刻",
     },
+    sampleSpec: "10–15 秒最常见，720p、竖屏，以 UGC 口播和种草视频为主。通常需要生产 10–100 条变体进行实验和效果归因。",
+    channels: [
+      { title: "短视频社交广告", copy: "Meta Reels、TikTok 等短视频信息流。" },
+      { title: "YouTube · 约 50%", copy: "Shorts 短视频、插播 In-stream 等。" },
+      { title: "应用内广告网络和激励视频", copy: "去掉竞品 Google AdMob 后，核心包括 AppLovin AXON、Unity Ads 等；以插屏视频、激励视频和 Playable 为主，是游戏和 App 类 CPI 效果广告的核心渠道。" },
+    ],
+    objectives: ["tCPA：目标转化成本", "tROAS：目标广告支出回报率", "商品类 CTR / CVR：跳转购物转化", "App / 游戏 CPI：下载安装量"],
     customers: [
-      { role: "核心制作方", names: "AppLovin · 钛动等 AdTech / Martech" },
-      { role: "预算与投放", names: "品牌 Creative Ops · 电商 / 游戏 / App 团队" },
-      { role: "渠道入口", names: "Meta Reels · TikTok · YouTube Shorts · Unity Ads" },
+      { role: "AdTech", names: "AppLovin · 钛动" },
+      { role: "品牌方", names: "欧莱雅 · 可口可乐等" },
+      { role: "Paid Media", names: "Pinterest · Reddit · LinkedIn Ads" },
     ],
     needs: [
       { label: "FORMAT", value: "10–15s · 720p · 9:16 竖屏" },
@@ -57,19 +76,26 @@ const scenarioCases = [
       { label: "LOCALIZE", value: "换品、换人、换语言、换市场" },
       { label: "AI ROLE", value: "AI 30% → 90%" },
     ],
+    workflowTitle: "Ad Campaign Agent 引入广告素材自动化制作",
     steps: [
-      { title: "热点与脚本洞察", copy: "从 TikTok、Instagram、X 等平台追踪热点，生成 Hook、CTA、口播和商品脚本。" },
-      { title: "首帧与内容生产", copy: "白底图转场景图，完成商品保真、数字人定型与高质量首帧，再进入图生视频。" },
-      { title: "小流量投放实验", copy: "批量生成 10–100 条变体，按 tCPA、tROAS、CTR 与 CVR 做效果归因。" },
-      { title: "爆款结构复刻", copy: "对胜出素材做换 SKU、模特、区域与语言的局部编辑，再送回测试与放量循环。" },
+      { title: "市场热点洞察", copy: "根据 TikTok、Instagram、X 等平台的舆情与热点追踪，设计广告 Hook、CTA 和脚本。", imageRole: "用量较小，主要生成 Mood Board 和视觉参考图，辅助脚本和创意方向评审。" },
+      { title: "AI 内容生产和编辑", copy: "替代一部分或全部实拍和后期，快速生产信息流 UGC、带货解说、夸张剧情和商品演示素材。", imageRole: "核心环节——商品白底图转场景图、虚拟模特和数字人形象定型，并产出图生视频首帧；首帧质量直接决定抽卡成功率和单条成片成本。" },
+      { title: "投放实验", copy: "持续制作 Variant、投放并观察 tCPA、tROAS、CTR 与 CVR。", imageRole: "批量生成视频封面和静态图 Variant，与视频同池 A/B；先用低成本静态图筛选创意方向，再放大成视频。" },
+      { title: "爆款复刻", copy: "把高转化素材快速做换品、换模特、换区域、换语言和换场景，再进入小流量测试与放量循环。", imageRole: "在首帧图层用局部重绘 Inpainting 完成换品 / 换模特 / 换场景，再重新图生视频，比整条视频重抽低一个数量级。" },
     ],
+    modelRequirements: [
+      { type: "视频模型", items: ["高性价比：全 AI 制作达到 TikTok、Meta Reels 等投放平台的声画质量与信息量门槛。", "高抽卡成功率、成本可控：竖屏、UGC、口播和商品一致，能批量产出 10–100 条 Variant。", "本地化：支持多人种数字人和小语种。"] },
+      { type: "图片模型", items: ["首帧图质量：为图生视频提供高质量首帧和关键帧，首帧构图与一致性直接决定视频抽卡成功率。", "商品一致性：支持单图 / 多图参考，白底图转场景图时商品外观、Logo、包装文字不变形。", "局部编辑 Inpainting：换品、换模特、换背景、换文案只重绘局部。", "本地化：多人种模特形象，图内多语言文案准确不乱码。", "极低成本和高并发：单张成本压到美分级、秒级出图，支撑 10–100 条 Variant 的首帧和封面批量生产。"] },
+    ],
+    platformNote: "原文在此引用 TikTok 素材质量示意图；网页以文字门槛呈现，不嵌入原图。",
+    models: [{ type: "视频", copy: "Kling 3.0（商品展示 / 口播性价比）· Veo 3.1" }, { type: "图片", copy: "nano banana 2" }],
   },
   {
     index: "03",
     label: "DISPLAY",
-    title: "静态展示广告",
+    title: "静态展示图片广告",
     ratio: "100–1K 图片",
-    desc: "这类素材看似简单，真正门槛是把商品、文字、尺寸和多语言同时做对，并让一套主视觉能稳定扩成数百到数千张投放版本。",
+    desc: "Display Ads 介于品牌与效果之间，以 CPM / CPC 计价，兼顾低成本覆盖与直接转化。真正门槛是让一套主视觉稳定扩成数百到数千张投放版本。",
     media: {
       type: "image",
       src: "/media/display-vacuum.jpg",
@@ -78,10 +104,17 @@ const scenarioCases = [
       headline: "一套主视觉，适配每个货架",
       meta: "商品保真 · 精准文字 · 多尺寸适配",
     },
+    sampleSpec: "静态 JPG / PNG；同一套主视觉需适配十几到几十种 IAB 标准尺寸（300×250、728×90、160×600、1080×1080、9:16 等）。强调商品精确还原、图内文案可读和多语言版本，单个 Campaign 常需数百至数千张变体。",
+    channels: [
+      { title: "社交信息流静态图", copy: "Meta 单图与轮播 Carousel、Pinterest、LinkedIn Ads 等。" },
+      { title: "程序化展示广告网络", copy: "去掉 Google Display Network、Amazon DSP 等头部竞品后，主要包括 The Trade Desk、InMobi 等 DSP，覆盖海量长尾站点和 App 的 Banner 位。" },
+    ],
+    objectives: ["CPM / CPC：兼顾覆盖成本与直接转化", "覆盖侧：低成本、高频次触达与 Retargeting 兜底", "转化侧 CTR / CVR：商品图、促销图引导落地页跳转与加购"],
     customers: [
-      { role: "广告主", names: "Shein · Temu · Amazon 卖家 · Shopify 商家" },
-      { role: "制作平台", names: "Smartly.io · Creatopy · AppLovin" },
-      { role: "媒体与代理", names: "Pinterest · Criteo · 头部 4A 代理商" },
+      { role: "电商 / DTC", names: "Shein · Temu · Amazon 卖家 · Shopify 商家" },
+      { role: "创意自动化", names: "AppLovin · Smartly.io · Creatopy" },
+      { role: "零售 / Media", names: "Amazon Ads · Walmart Connect · Criteo · Pinterest" },
+      { role: "代理商", names: "头部 4A，承接 Banner 套版与多尺寸适配" },
     ],
     needs: [
       { label: "SCALE", value: "单 Campaign 数百至数千张变体" },
@@ -89,12 +122,17 @@ const scenarioCases = [
       { label: "PRECISION", value: "商品、价格与多语言文字准确" },
       { label: "UNIT COST", value: "美分级单张成本与千级并发" },
     ],
+    workflowTitle: "Ad Campaign Agent 引入图片素材自动化编辑",
     steps: [
-      { title: "品牌资产入库", copy: "把商品白底图、品牌 VI、字体、价格与法务文案作为生成和套版的硬约束。" },
-      { title: "AI 图片生成与合成", copy: "用 Seedream 生成场景重绘、模特换装、背景替换和商品精修，保留 Logo、包装与 SKU 细节。" },
-      { title: "批量套版与尺寸适配", copy: "一套 KV 自动扩展到 IAB、社交信息流和竖屏尺寸，并生成多语言、多市场版本。" },
-      { title: "DCO、A/B 与复刻", copy: "对接动态创意优化，按 CTR / CVR 筛选胜出组合，再快速换品、换区域放大。" },
+      { title: "素材和品牌资产准备", copy: "将商品白底图 / 实拍图、品牌 VI、字体和法务合规文案入库，作为参考图约束。" },
+      { title: "AI 图片生成与合成", copy: "用图片模型完成场景重绘、模特换装、背景替换和商品精修，替代传统棚拍与人工修图。" },
+      { title: "批量套版和尺寸适配", copy: "一套主视觉自动衍生到全部投放尺寸、语言和市场版本，并对接 DCO 按人群实时拼装。" },
+      { title: "投放实验和爆款复刻", copy: "按 CTR / CVR 做 A/B，胜出创意快速换品、换区域、换语言复刻，再进入放量循环。" },
     ],
+    modelRequirements: [
+      { type: "图片模型（主力）", items: ["商品一致性：支持单图 / 多图参考 Image-to-image，商品外观、Logo、包装文字不变形。", "精准文字渲染：图内多语言文案、促销角标和价格数字准确不乱码。", "高分辨率和任意宽高比：覆盖 300×250 到 1080×1920，支持 Outpainting 无损扩图。", "局部编辑 Inpainting：换背景、换模特、换色号只重绘局部。", "单张成本极低、支持高并发：美分级单张成本，支撑千级批量出图。"] },
+    ],
+    models: [{ type: "图片", copy: "nano banana 2 为主" }, { type: "视频", copy: "少量使用 Kling / Runway 将静图转为动效" }],
   },
 ];
 
@@ -464,9 +502,9 @@ export default function Home() {
 
       <section className="section shell" id="scenarios">
         <div className="sectionIntro">
-          <p className="eyebrow"><span>02</span> / MAINSTREAM VIDEO AD SCENES</p>
-          <h2>先看样片，<br />再拆需求。</h2>
-          <p>三支样片对应三类场景：谁在买、谁在做、什么指标决定成败，以及模型应该嵌进哪一步。</p>
+          <p className="eyebrow"><span>02</span> / SCENE &amp; REQUIREMENT ANALYSIS</p>
+          <h2>2. 主流视频广告<br />场景和需求分析</h2>
+          <p>按品牌广告、效果广告和静态展示图片广告三条生产线展开：先看典型样片，再完整拆解投放渠道、商业目标、客户画像、生产模式、模型需求与主流竞品。</p>
         </div>
 
         <div className="sampleCases">
@@ -493,12 +531,30 @@ export default function Home() {
               </figure>
 
               <div className="caseBrief">
-                <p className="caseKicker">SCENE {card.index} <span>按样片拆解</span></p>
+                <p className="caseKicker">SCENE {card.index} <span>广告类型 · 按样片拆解</span></p>
                 <div className="caseTitleRow"><h3>{card.title}</h3><b>{card.ratio}</b></div>
                 <p className="caseDescription">{card.desc}</p>
 
+                <div className="caseSampleSpec">
+                  <span>典型样片 · TYPICAL SAMPLE</span><p>{card.sampleSpec}</p>
+                </div>
+
+                <div className="caseFactBlock" aria-label={`${card.title}主要投放渠道`}>
+                  <div className="briefLabel"><b>主要投放渠道</b><span>WHERE IT RUNS</span></div>
+                  <ol className="caseChannelList">
+                    {card.channels.map((channel) => (
+                      <li key={channel.title}><b>{channel.title}</b><p>{channel.copy}</p></li>
+                    ))}
+                  </ol>
+                </div>
+
+                <div className="caseFactBlock caseObjectives" aria-label={`${card.title}广告目的`}>
+                  <div className="briefLabel"><b>目的与核心指标</b><span>WHY IT RUNS</span></div>
+                  <ul>{card.objectives.map((objective) => <li key={objective}>{objective}</li>)}</ul>
+                </div>
+
                 <div className="caseOwnership" aria-label={`${card.title}客户与制作方`}>
-                  <div className="briefLabel"><b>客户是谁</b><span>WHO BUYS / WHO MAKES</span></div>
+                  <div className="briefLabel"><b>典型客户画像</b><span>WHO BUYS / WHO MAKES</span></div>
                   <dl>
                     {card.customers.map((customer) => (
                       <div key={customer.role}><dt>{customer.role}</dt><dd>{customer.names}</dd></div>
@@ -513,20 +569,44 @@ export default function Home() {
                   </ul>
                 </div>
 
-                <details className="workflowDisclosure">
+                <details className="workflowDisclosure" open>
                   <summary>
-                    <span><b>展开具体制作流程</b><small>方案路径 · {card.steps.length} STEPS</small></span>
+                    <span><b>展开具体制作流程</b><small>生产模式 · {card.workflowTitle} · {card.steps.length} STEPS</small></span>
                     <i aria-hidden="true">＋</i>
                   </summary>
                   <ol>
                     {card.steps.map((step, i) => (
                       <li key={step.title}>
                         <span>{String(i + 1).padStart(2, "0")}</span>
-                        <div><b>{step.title}</b><p>{step.copy}</p></div>
+                        <div>
+                          <b>{step.title}</b><p>{step.copy}</p>
+                          {step.imageRole && <small className="imageModelRole"><strong>图片模型</strong>{step.imageRole}</small>}
+                        </div>
                       </li>
                     ))}
                   </ol>
                 </details>
+
+                <details className="workflowDisclosure requirementDisclosure" open>
+                  <summary>
+                    <span><b>模型需求</b><small>VIDEO / IMAGE MODEL REQUIREMENTS</small></span>
+                    <i aria-hidden="true">＋</i>
+                  </summary>
+                  <div className="requirementGroups">
+                    {card.modelRequirements.map((group) => (
+                      <article key={group.type}>
+                        <h4>{group.type}</h4>
+                        <ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
+                      </article>
+                    ))}
+                    {card.platformNote && <p className="platformNote">{card.platformNote}</p>}
+                  </div>
+                </details>
+
+                <div className="modelShelf" aria-label={`${card.title}市场主流模型`}>
+                  <div className="briefLabel"><b>市场主流模型（竞对）</b><span>MODEL LANDSCAPE</span></div>
+                  <ul>{card.models.map((model) => <li key={model.type}><span>{model.type}</span><b>{model.copy}</b></li>)}</ul>
+                </div>
               </div>
             </article>
           ))}
@@ -562,14 +642,6 @@ export default function Home() {
             </table>
           </div>
 
-          <div className="perfWorkflow" aria-label="Campaign Agent 素材生产链路">
-            {[
-              ["01", "INSIGHT", "市场热点洞察", "追踪 TikTok / IG / X 热点，设计 Hook、CTA 与脚本。"],
-              ["02", "PRODUCE", "AI 内容生产", "白底图转场景、数字人定型、首帧与视频生成；这是模型消耗核心。"],
-              ["03", "TEST", "小流量投放实验", "先用低成本静态图筛方向，再用视频验证 CTR / CVR。"],
-              ["04", "SCALE", "爆款结构复刻", "换 SKU、模特、市场与语言，把胜出结构重新送回测试。"],
-            ].map((step) => <article key={step[0]}><span>{step[0]} / {step[1]}</span><h4>{step[2]}</h4><p>{step[3]}</p></article>)}
-          </div>
           <p className="dataSource inverse">REFERENCE PAGE · localhost:4173/#scene-perf · 竞争信息与素材量级为参考页观察口径。</p>
         </div>
       </section>
