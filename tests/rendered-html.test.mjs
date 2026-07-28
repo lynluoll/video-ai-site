@@ -66,8 +66,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.equal((html.match(/class="workflowDisclosure requirementDisclosure"/g) ?? []).length, 3);
   assert.doesNotMatch(html, /<details class="workflowDisclosure(?: requirementDisclosure)?" open/);
   assert.match(html, /Campaign Agent/);
-  assert.match(html, /scene-perf/);
-  assert.match(html, /每条可投放素材的综合成本/);
+  assert.doesNotMatch(html, /PERFORMANCE DEEP DIVE|scene-perf|每条可投放素材的综合成本|ANNUAL SUPPLY|STANDARD FORMAT|VARIANTS \/ SKU|AI PENETRATION|costFormula|perfKpis|darkTable/);
   assert.match(html, /头部客户钱包/);
   assert.match(html, /Pinterest/);
   assert.match(html, /2\.5 之后/);
@@ -142,11 +141,7 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /视频素材生产支出/);
   assert.match(page, /\$25–30B/);
   assert.match(page, /\$12\.8B/);
-  assert.match(page, /≈ 1B/);
-  assert.match(page, /10–15s/);
   assert.match(page, /10–100/);
-  assert.match(page, /单次生成价格/);
-  assert.match(page, /抽卡次数/);
   assert.match(page, /Meta Reels/);
   assert.match(page, /Snap/);
   assert.equal((page.match(/className="marketPillar /g) ?? []).length, 4);

@@ -584,37 +584,6 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="perfDataPanel" id="scene-perf">
-          <div className="dataHeader">
-            <div><span>PERFORMANCE DEEP DIVE</span><h3>一次过率，决定效果广告的胜负。</h3></div>
-            <p>客户衡量的不是单次生成价格，而是最终得到一条可投放素材要花多少钱、多久，以及能否持续复制。</p>
-          </div>
-
-          <div className="costFormula" aria-label="效果广告综合成本公式">
-            <span>每条可投放素材的综合成本</span><b>=</b><strong>单次生成价格</strong><b>×</b><strong>抽卡次数</strong>
-            <small>单价已经领先；下一阶段最关键的产品杠杆是一次过率。</small>
-          </div>
-
-          <div className="perfKpis">
-            <article><span>ANNUAL SUPPLY</span><strong>≈ 1B</strong><p>海外效果广告年素材量级</p></article>
-            <article><span>STANDARD FORMAT</span><strong>10–15s</strong><p>竖屏 720p · UGC 口播 / 商品演示</p></article>
-            <article><span>VARIANTS / SKU</span><strong>10–100</strong><p>用于 Hook、人物、语言与 CTA 实验</p></article>
-            <article><span>AI PENETRATION</span><strong>30 → 90%</strong><p>2026 → 2030 · 端到端素材生产</p></article>
-          </div>
-
-          <div className="tableScroll" role="region" aria-label="效果广告生产参数表" tabIndex={0}>
-            <table className="dataTable darkTable">
-              <thead><tr><th>决策维度</th><th>当前生产口径</th><th>对模型的要求</th><th>商业含义</th></tr></thead>
-              <tbody>
-                <tr><td><b>投放渠道</b></td><td>Meta Reels · TikTok · YouTube Shorts · 应用内广告网络</td><td>9:16、多语言口播、平台规格直出</td><td>渠道越多，本地化与尺寸变体越多</td></tr>
-                <tr><td><b>主要生产者</b></td><td>AdTech / Martech · 品牌自建工具 · 达人代理</td><td>API 稳定性、批量并发、可编辑工作流</td><td>进入 Campaign Agent 才能形成持续消耗</td></tr>
-                <tr><td><b>素材类型</b></td><td>UGC 种草 · 商品 Showcase · 爆款复刻</td><td>商品保真、人物自然、首帧成功率</td><td>首帧质量直接影响抽卡次数</td></tr>
-                <tr><td><b>竞争观察</b></td><td>Kling 3.0 · Veo 3.1 · nano banana 2</td><td>在成本优势上补齐一次过率</td><td>综合成片成本，而非单次调用价决定份额</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-        </div>
       </section>
 
       <section className="agentSection shell">
