@@ -277,27 +277,43 @@ const customerStrategies = [
 const unresolvedGaps = [
   {
     no: "01",
-    title: "物理语义，而非视觉模仿",
-    copy: "涂抹、穿戴、开箱等人货交互，需要理解动作意图与物理关系；仅提升画质或参考能力仍不够。",
-    signal: "WORLD MODEL",
+    title: "3D 白模只能渲染，不能理解",
+    copy: "短期内模型主要完成视觉渲染。面对动作捕捉白模，它能沿用原始动作重绘人物，却难以理解动作意图并自然融入环境，人物、场景与物体之间仍无法形成合理且连贯的交互。",
+    signal: "3D SEMANTICS",
+    impact: "不解决动作语义与空间物理关系，就不能进入规模生产。",
+    examples: ["动作意图理解", "人物 × 场景交互", "人物 × 物体交互"],
+    link: "https://bytedance.sg.larkoffice.com/docx/O3I3dWdKKof2DtxNkrolaGtIgzc#share-THzudn9RconwUkxVivBlnvQRgNg",
+    linkLabel: "Performance-Driven Video Generation with Seedance ↗",
   },
   {
     no: "02",
-    title: "品牌资产的硬约束",
-    copy: "Logo、包装文字、色号、数字和几何比例必须稳定保真，并支持局部返工而不是整条重抽。",
-    signal: "BRAND FIDELITY",
+    title: "世界知识与物理常识缺失",
+    copy: "效果广告场景已经收到大量来自商品、3C 和快消客户的 Bad Cases，问题不是画面清晰度，而是模型缺少对真实世界过程与因果关系的理解。",
+    signal: "WORLD KNOWLEDGE",
+    impact: "商品使用动作错误，会直接让素材失去可信度与投放价值。",
+    examples: ["涂口红、穿衣等商品操作姿势错误", "箱子自开、双头、人物位置瞬移", "云不飘动，高速动作下人与道具解绑", "伤口愈合、光学迷彩等过程特效错误"],
+    link: "",
+    linkLabel: "",
   },
   {
     no: "03",
-    title: "专业音频可交付",
-    copy: "语言、台词、音色、语速与时间戳要严格绑定，同时满足 48kHz、码率和响度等交付规格。",
-    signal: "AUDIO CONTROL",
+    title: "商品与品牌要素保真不足",
+    copy: "品牌 Logo、商标、商品颜色、包装文字和几何比例必须作为硬约束。当前细节错误、字幕变换、文字崩坏和商品入景后比例失真，都会让品牌方拒绝 POC。",
+    signal: "BRAND FIDELITY",
+    impact: "品牌审核不是审美打分，而是任何关键要素错误即退回。",
+    examples: ["Logo 与商标细节错误", "商品颜色与包装文字漂移", "字幕切换时变形、画面文字崩坏", "商品几何形变与入景比例失真"],
+    link: "",
+    linkLabel: "",
   },
   {
     no: "04",
-    title: "不破坏母版的精准编辑",
-    copy: "只替换前 3–5 秒 Hook、文案、人物或商品，其他镜头与音轨保持不变，才能进入规模化版本生产。",
-    signal: "PRECISE EDIT",
+    title: "音频参考与情感仍不可控",
+    copy: "音色参考不够准确，音频无法 100% 复制参考视频，生成语音机械且情感不足。头部代理商的当前最佳实践，是先用 ElevenLabs 生成语音，再与 Seedance 视频对齐。",
+    signal: "AUDIO CONTROL",
+    impact: "短期方案应支持外部专业音频接入，而不是强行端到端生成。",
+    examples: ["音色参考不准确", "无法完整复制参考音频", "语音机械、情感表现不足", "ElevenLabs 音频 × Seedance 视频对齐"],
+    link: "",
+    linkLabel: "",
   },
 ];
 
@@ -978,16 +994,29 @@ export default function Home() {
           </aside>
         </div>
         <div className="gapHeader">
-          <p className="eyebrow"><span>2.5+</span> / NON-NEGOTIABLE GAPS</p>
-          <h3>只保留 2.5 之后<br />仍可能没解决的问题。</h3>
-          <p>不重复罗列版本升级自然会改善的基础项，把产品讨论集中到真正影响规模生产的四个硬门槛。</p>
+          <p className="eyebrow"><span>FINAL</span> / PRODUCT REQUIREMENTS</p>
+          <h3>最终产品需求：<br />市场分发 × 规模生产。</h3>
+          <p>区域策略决定怎么进入预算池，模型能力决定素材能否通过客户验收。2026 年必须同时解决商业化分发和四个 Seedance 生产门槛。</p>
         </div>
+        <section className="marketAccessRequirement" aria-label="美国市场与 Resell 商业化策略">
+          <div className="marketAccessMetric"><span>REGION PRIORITY</span><strong>50%</strong><p>美国市场占比</p></div>
+          <div className="marketAccessPlan">
+            <span>2026 · COMMERCIAL REQUIREMENT</span>
+            <h4>设计一套比单点工具更有吸引力的 Resell 政策。</h4>
+            <p>围绕头部代理商和 AdTech 客户建立可复制的联合售卖机制，借助它们的客户关系与投放系统，触达广告素材预算和媒体投放预算最高的广告主，尤其是头部品牌主。</p>
+            <div className="resellRoute" aria-label="Resell 触达路径"><b>BytePlus 模型与方案</b><i>→</i><b>头部代理商 / AdTech</b><i>→</i><b>高预算广告主 / 品牌主</b></div>
+            <div className="resellPrinciples"><span>联合方案</span><span>渠道激励</span><span>模型额度</span><span>客户归属</span><span>规模返点</span></div>
+          </div>
+        </section>
         <div className="gapGrid">
           {unresolvedGaps.map((gap) => (
             <article key={gap.no}>
               <div><span>{gap.no}</span><b>{gap.signal}</b></div>
               <h4>{gap.title}</h4>
               <p>{gap.copy}</p>
+              <strong className="gapImpact">{gap.impact}</strong>
+              <ul>{gap.examples.map((example) => <li key={example}>{example}</li>)}</ul>
+              {gap.link && <a href={gap.link} target="_blank" rel="noreferrer">{gap.linkLabel}</a>}
             </article>
           ))}
         </div>

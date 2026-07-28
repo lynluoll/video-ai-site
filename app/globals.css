@@ -495,13 +495,32 @@ button, summary { font: inherit; }
 .gapHeader .eyebrow { grid-column: 1 / -1; }
 .gapHeader h3 { margin: 0; font-size: clamp(38px, 4.4vw, 58px); line-height: 1; letter-spacing: -.055em; }
 .gapHeader > p:last-child { color: #8f96a1; font-size: 14px; line-height: 1.7; }
-.gapGrid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); border-left: 1px solid var(--line); margin-top: 52px; }
-.gapGrid article { padding: 27px; min-height: 230px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.marketAccessRequirement { display: grid; grid-template-columns: minmax(250px, .42fr) minmax(0, 1.58fr); margin-top: 52px; border: 1px solid #343b45; }
+.marketAccessMetric { display: flex; min-height: 330px; padding: 28px; flex-direction: column; color: #11150d; background: var(--lime); }
+.marketAccessMetric > span { font-size: 9px; font-weight: 900; letter-spacing: .13em; }
+.marketAccessMetric strong { margin-top: auto; font-size: clamp(82px, 9vw, 132px); line-height: .72; letter-spacing: -.09em; }
+.marketAccessMetric p { margin: 22px 0 0; font-size: 13px; font-weight: 800; }
+.marketAccessPlan { padding: 34px 38px; background: #11161e; }
+.marketAccessPlan > span { color: var(--orange); font-size: 9px; font-weight: 800; letter-spacing: .13em; }
+.marketAccessPlan h4 { max-width: 860px; margin: 38px 0 16px; font-size: clamp(28px, 3vw, 42px); line-height: 1.03; letter-spacing: -.05em; }
+.marketAccessPlan > p { max-width: 900px; margin: 0; color: #929aa6; font-size: 13px; line-height: 1.75; }
+.resellRoute { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: center; margin-top: 34px; }
+.resellRoute b { display: grid; min-height: 64px; padding: 12px 16px; place-items: center; color: #e8ebef; background: #1a2029; border: 1px solid #343c47; font-size: 11px; text-align: center; }
+.resellRoute i { color: var(--lime); font-size: 17px; font-style: normal; }
+.resellPrinciples { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+.resellPrinciples span { padding: 8px 11px; color: #9ca5b1; border: 1px solid #343c47; font-size: 8px; font-weight: 700; letter-spacing: .08em; }
+.gapGrid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); border-left: 1px solid var(--line); margin-top: 18px; }
+.gapGrid article { display: flex; min-height: 390px; padding: 27px; flex-direction: column; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .gapGrid article > div { display: flex; justify-content: space-between; }
 .gapGrid article > div span { color: var(--orange); font-size: 10px; }
 .gapGrid article > div b { color: #606875; font-size: 9px; letter-spacing: .12em; }
-.gapGrid h4 { font-size: 22px; letter-spacing: -.035em; margin: 47px 0 12px; }
-.gapGrid p { color: #8f96a1; font-size: 12px; line-height: 1.6; margin: 0; }
+.gapGrid h4 { font-size: 22px; line-height: 1.08; letter-spacing: -.035em; margin: 42px 0 14px; }
+.gapGrid p { color: #8f96a1; font-size: 11px; line-height: 1.7; margin: 0; }
+.gapImpact { display: block; margin-top: 20px; color: #dfe4ea; font-size: 10px; line-height: 1.55; }
+.gapGrid ul { list-style: none; margin: 22px 0 0; padding: 0; }
+.gapGrid li { padding: 8px 0; color: #727b87; border-top: 1px solid #252b34; font-size: 9px; line-height: 1.45; }
+.gapGrid li::before { content: "↗"; margin-right: 8px; color: var(--orange); }
+.gapGrid article > a { margin-top: auto; padding-top: 22px; color: var(--lime); font-size: 9px; font-weight: 800; line-height: 1.45; text-decoration: none; }
 
 .roadmapSection { padding: 115px 0 90px; overflow: hidden; }
 .roadmapGrid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 66px; border-top: 1px solid #bbb9b2; border-left: 1px solid #bbb9b2; }
@@ -605,8 +624,8 @@ button, summary { font: inherit; }
   .gapHeader { margin-top: 140px; grid-template-columns: 1.12fr .88fr; column-gap: 110px; }
   .gapHeader h3 { font-size: 64px; }
   .gapGrid { grid-template-columns: repeat(4, 1fr); }
-  .gapGrid article { min-height: 310px; padding: 30px 26px; }
-  .gapGrid h4 { margin-top: 64px; font-size: 24px; }
+  .gapGrid article { min-height: 540px; padding: 30px 26px; }
+  .gapGrid h4 { margin-top: 54px; font-size: 24px; }
 
   .roadmapSection { padding: 136px 0 110px; }
   .roadmapGrid { margin-top: 78px; }
@@ -683,6 +702,9 @@ button, summary { font: inherit; }
   .roadmapGrid article { min-height: 0; }
   .gapHeader { grid-template-columns: 1fr; }
   .gapHeader .eyebrow { grid-column: auto; }
+  .marketAccessRequirement { grid-template-columns: 1fr; }
+  .marketAccessMetric { min-height: 230px; }
+  .marketAccessMetric strong { margin-top: 58px; }
   .northStar { white-space: normal; }
   .dataHeader { grid-template-columns: 1fr; gap: 20px; }
   .dataHeader > p { max-width: 680px; }
@@ -707,6 +729,8 @@ button, summary { font: inherit; }
   .customerExampleGrid { grid-template-columns: 1fr; }
   .customerExampleGrid > article { min-height: 0; }
   .storySectionTitle { grid-template-columns: 1fr; gap: 8px; }
+  .resellRoute { grid-template-columns: 1fr; }
+  .resellRoute i { min-height: 18px; text-align: center; transform: rotate(90deg); }
   .gapGrid { grid-template-columns: 1fr; }
   .gapGrid article { min-height: 0; }
   .solutionProofBar, .displayLayerLegend { grid-template-columns: 1fr; }
@@ -851,6 +875,11 @@ button, summary { font: inherit; }
   .playableIntro h3 { font-size: 36px; }
   .playableMeta { display: grid; gap: 14px; }
   .playableMeta a { justify-self: start; }
+  .marketAccessMetric, .marketAccessPlan { padding: 24px 20px; }
+  .marketAccessMetric { min-height: 210px; }
+  .marketAccessMetric strong { margin-top: 54px; font-size: 86px; }
+  .marketAccessPlan h4 { margin-top: 28px; font-size: 30px; }
+  .marketAccessPlan > p { font-size: 12px; }
   .gapGrid { grid-template-columns: 1fr; }
   .gapGrid article { padding: 24px 20px; }
   .gapGrid h4 { margin-top: 34px; }

@@ -107,7 +107,10 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /投放规模/);
   assert.match(html, /AI 素材占比/);
   assert.match(html, /Pinterest/);
-  assert.match(html, /2\.5 之后/);
+  assert.match(html, /FINAL<\/span> \/ PRODUCT REQUIREMENTS/);
+  assert.match(html, /美国市场占比/);
+  assert.match(html, /头部代理商 \/ AdTech/);
+  assert.match(html, /高预算广告主 \/ 品牌主/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|Your site is taking shape/);
 });
 
@@ -185,10 +188,14 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /Template \+ DCO/);
   assert.match(page, /nano banana 2/);
   assert.equal((page.match(/no: "0[1-4]"/g) ?? []).length, 4);
-  assert.match(page, /物理语义/);
-  assert.match(page, /品牌资产的硬约束/);
-  assert.match(page, /专业音频可交付/);
-  assert.match(page, /精准编辑/);
+  assert.match(page, /3D 白模只能渲染，不能理解/);
+  assert.match(page, /世界知识与物理常识缺失/);
+  assert.match(page, /商品与品牌要素保真不足/);
+  assert.match(page, /音频参考与情感仍不可控/);
+  assert.match(page, /涂口红、穿衣等商品操作姿势错误/);
+  assert.match(page, /Logo 与商标细节错误/);
+  assert.match(page, /ElevenLabs 音频 × Seedance 视频对齐/);
+  assert.match(page, /O3I3dWdKKof2DtxNkrolaGtIgzc/);
   assert.match(page, /视频素材生产支出/);
   assert.match(page, /\$25–30B/);
   assert.match(page, /\$12\.8B/);
@@ -247,6 +254,7 @@ test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone",
   assert.match(css, /\.customerArchitecture \{ display: grid; grid-template-columns: \.86fr 1\.14fr/);
   assert.match(css, /\.revenueEquation \{ display: grid; grid-template-columns: repeat\(4, 1fr\)/);
   assert.match(css, /\.gapGrid \{ grid-template-columns: repeat\(4, 1fr\)/);
+  assert.match(css, /\.marketAccessRequirement \{ display: grid; grid-template-columns: minmax\(250px, \.42fr\)/);
   assert.match(css, /\.solutionPageBody \{ display: grid; grid-template-columns: 1fr/);
   assert.match(css, /\.brandDemoGallery \{ grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
   assert.match(css, /\.performanceDemoGallery \{ grid-template-columns: repeat\(4, minmax\(0, 1fr\)\)/);
