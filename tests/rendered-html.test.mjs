@@ -171,6 +171,9 @@ test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone",
   assert.match(css, /\.audienceGrid \{ grid-template-columns: repeat\(4, 1fr\)/);
   assert.match(css, /\.gapGrid \{ grid-template-columns: repeat\(4, 1fr\)/);
   assert.match(css, /\.solutionStack \{ display: grid; grid-template-columns: repeat\(3, 1fr\)/);
+  assert.match(css, /\.segmentCell strong \{[^}]*font-size: 16px/);
+  assert.match(css, /\.segmentCell span \{[^}]*font-size: 12px/);
+  assert.match(css, /\.dimensionCell b \{ font-size: 14px/);
 
   const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
   assert.match(page, /className="heroFlow"/);

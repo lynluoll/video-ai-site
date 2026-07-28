@@ -175,46 +175,49 @@ button, summary { font: inherit; }
 
 .segmentComparison { margin-top: 0; padding: 76px 0; border-top: 1px solid #c4c2bb; }
 .segmentHeader h3 { max-width: 720px; }
+.segmentHeader > div > span { font-size: 10px; }
+.segmentHeader > p { font-size: 15px; line-height: 1.75; }
 .matrixScrollHint { display: none; margin: 0 0 10px; color: #777a75; font-size: 9px; letter-spacing: .08em; }
 .segmentMatrixScroll { overflow-x: auto; border-radius: 22px; box-shadow: 0 24px 60px rgba(8,11,18,.09); scrollbar-width: thin; outline: none; }
 .segmentMatrixScroll:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
 .segmentMatrix { min-width: 1040px; overflow: hidden; color: var(--ink); background: #fffdf8; border: 1px solid rgba(8,11,18,.12); border-radius: 22px; }
 .segmentMatrixHead, .segmentRow { display: grid; grid-template-columns: 170px repeat(3, minmax(0, 1fr)); }
-.segmentMatrixHead { min-height: 112px; }
+.segmentMatrixHead { min-height: 120px; }
 .dimensionHead, .segmentHead { min-width: 0; padding: 24px 22px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid rgba(8,11,18,.1); border-bottom: 1px solid rgba(8,11,18,.12); }
 .dimensionHead { color: #4e514c; background: #ece9df; }
-.dimensionHead span { font-size: 13px; font-weight: 800; }
-.dimensionHead small { color: #777a74; font-size: 8px; letter-spacing: .13em; }
+.dimensionHead span { font-size: 15px; font-weight: 800; }
+.dimensionHead small { color: #777a74; font-size: 9px; letter-spacing: .13em; }
 .segmentHead:last-child { border-right: 0; }
-.segmentHead span { color: #5f625d; font-size: 8px; font-weight: 800; letter-spacing: .13em; }
-.segmentHead strong { font-size: 25px; line-height: 1; letter-spacing: -.045em; }
+.segmentHead span { color: #5f625d; font-size: 9px; font-weight: 800; letter-spacing: .13em; }
+.segmentHead strong { font-size: 28px; line-height: 1; letter-spacing: -.045em; }
 .segmentHead.social { background: #e5efff; border-top: 5px solid #3e7fd5; }
 .segmentHead.ctv { background: #e8ffa7; border-top: 5px solid #86a425; }
 .segmentHead.olv { background: #ffe2d6; border-top: 5px solid var(--orange); }
-.segmentRow { min-height: 98px; }
+.segmentRow { min-height: 108px; }
 .dimensionCell, .segmentCell { min-width: 0; padding: 20px 22px; border-right: 1px solid rgba(8,11,18,.09); border-bottom: 1px solid rgba(8,11,18,.1); }
 .segmentRow:last-child > * { border-bottom: 0; }
 .segmentCell:last-child { border-right: 0; }
-.dimensionCell { display: grid; grid-template-columns: 28px 1fr; align-content: center; column-gap: 8px; background: #f1efe7; }
-.dimensionCell > span { grid-row: 1 / 3; color: var(--orange); font-size: 8px; font-weight: 900; letter-spacing: .08em; }
-.dimensionCell b { font-size: 12px; }
-.dimensionCell small { margin-top: 6px; color: #858882; font-size: 7px; letter-spacing: .1em; }
+.dimensionCell { display: grid; grid-template-columns: 32px 1fr; align-content: center; column-gap: 8px; background: #f1efe7; }
+.dimensionCell > span { grid-row: 1 / 3; color: var(--orange); font-size: 9px; font-weight: 900; letter-spacing: .08em; }
+.dimensionCell b { font-size: 14px; }
+.dimensionCell small { margin-top: 6px; color: #7c7f79; font-size: 8px; letter-spacing: .1em; }
 .segmentCell { display: flex; flex-direction: column; justify-content: center; gap: 9px; background: rgba(255,255,255,.5); }
-.segmentCell strong { color: #272a26; font-size: 14px; line-height: 1.35; }
-.segmentCell span { color: #686b66; font-size: 10px; line-height: 1.45; }
+.segmentCell strong { color: #272a26; font-size: 16px; line-height: 1.35; }
+.segmentCell span { color: #5f625d; font-size: 12px; line-height: 1.5; }
 .segmentCell.social { box-shadow: inset 3px 0 rgba(62,127,213,.12); }
 .segmentCell.ctv { box-shadow: inset 3px 0 rgba(134,164,37,.15); }
 .segmentCell.olv { box-shadow: inset 3px 0 rgba(255,90,31,.13); }
-.row-scale .segmentCell strong { font-size: 27px; line-height: 1; letter-spacing: -.05em; }
-.row-scale .segmentCell span, .row-growth .segmentCell span { width: max-content; padding: 5px 8px; border-radius: 999px; font-size: 8px; font-weight: 800; }
+.row-scale .segmentCell strong { font-size: 30px; line-height: 1; letter-spacing: -.05em; }
+.row-scale .segmentCell span, .row-growth .segmentCell span { width: max-content; padding: 6px 9px; border-radius: 999px; font-size: 9px; font-weight: 800; }
 .row-scale .social span, .row-growth .social span { color: #225b9f; background: #e5efff; }
 .row-scale .ctv span, .row-growth .ctv span { color: #526716; background: #e8ffa7; }
 .row-scale .olv span, .row-growth .olv span { color: #a63a14; background: #ffe2d6; }
-.row-growth .segmentCell strong { font-size: 18px; letter-spacing: -.025em; }
+.row-growth .segmentCell strong { font-size: 20px; letter-spacing: -.025em; }
 .row-split .segmentCell { flex-direction: row; align-items: center; justify-content: flex-start; flex-wrap: wrap; }
-.row-split .segmentCell strong, .row-split .segmentCell span { padding: 7px 9px; border: 1px solid #d0cdc4; border-radius: 8px; color: #383b36; background: #f5f3ec; font-size: 10px; font-weight: 800; }
-.row-spend .segmentCell strong { color: var(--orange); font-size: 21px; letter-spacing: -.035em; }
-.row-driver .segmentCell strong { font-size: 12px; }
+.row-split .segmentCell strong, .row-split .segmentCell span { padding: 8px 10px; border: 1px solid #d0cdc4; border-radius: 8px; color: #383b36; background: #f5f3ec; font-size: 11px; font-weight: 800; }
+.row-spend .segmentCell strong { color: var(--orange); font-size: 23px; letter-spacing: -.035em; }
+.row-driver .segmentCell strong { font-size: 14px; }
+.marketSegmentOverview .dataSource { font-size: 10px; line-height: 1.6; }
 
 .dataHeader { display: grid; grid-template-columns: 1.08fr .92fr; gap: 70px; align-items: end; margin-bottom: 34px; }
 .dataHeader > div > span { display: block; color: var(--lime); font-size: 9px; font-weight: 800; letter-spacing: .15em; margin-bottom: 15px; }
@@ -446,9 +449,13 @@ button, summary { font: inherit; }
   .segmentComparison { padding-block: 96px; }
   .segmentMatrixHead, .segmentRow { grid-template-columns: 190px repeat(3, minmax(0, 1fr)); }
   .segmentMatrixHead { min-height: 126px; }
-  .segmentHead strong { font-size: 29px; }
-  .segmentRow { min-height: 110px; }
+  .segmentHead strong { font-size: 34px; }
+  .segmentRow { min-height: 124px; }
   .segmentCell, .dimensionCell { padding: 23px 26px; }
+  .dimensionCell b { font-size: 15px; }
+  .dimensionCell small, .dimensionHead small, .segmentHead span { font-size: 10px; }
+  .segmentCell strong { font-size: 18px; }
+  .segmentCell span { font-size: 13px; }
   .dataHeader { gap: 110px; margin-bottom: 42px; }
   .dataHeader h3 { font-size: 50px; }
   .dataTable th { padding: 16px 22px; }
@@ -680,10 +687,12 @@ button, summary { font: inherit; }
   .segmentComparison { padding-block: 56px; }
   .matrixScrollHint { display: block; }
   .segmentMatrixScroll { margin-right: -14px; border-radius: 16px 0 0 16px; }
-  .segmentMatrix { min-width: 900px; border-radius: 16px; }
-  .segmentMatrixHead, .segmentRow { grid-template-columns: 132px repeat(3, 256px); }
+  .segmentMatrix { min-width: 960px; border-radius: 16px; }
+  .segmentMatrixHead, .segmentRow { grid-template-columns: 144px repeat(3, 272px); }
   .dimensionHead, .segmentHead, .dimensionCell, .segmentCell { padding-inline: 16px; }
   .dataHeader h3 { font-size: 34px; }
+  .segmentHeader h3 { font-size: 36px; }
+  .segmentHeader > p { font-size: 14px; }
   .dataHeader { margin-bottom: 26px; }
   .tableScroll { margin-inline: 0; }
   .dataTable { min-width: 700px; }
