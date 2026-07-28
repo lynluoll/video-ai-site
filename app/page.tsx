@@ -24,12 +24,6 @@ const scenarioCases = [
       { role: "次头部", names: "Brandtech（Pencil）· 博报堂" },
       { role: "委托方", names: "L’Oréal · Coca-Cola 等头部品牌" },
     ],
-    needs: [
-      { label: "BRAND CONTROL", value: "产品 / Logo / 品牌色保持一致" },
-      { label: "MULTI-SHOT", value: "30 秒多镜头人物与产品不漂" },
-      { label: "DELIVERY", value: "4K · 高码率 · 10bit 专业交付" },
-      { label: "AI ROLE", value: "AI 10–20% → 70%" },
-    ],
     workflowTitle: "AI 模型 Workflow 逐渐代替实拍和渲染",
     steps: [
       { title: "Discovery 和 Ideation", copy: "代理商派遣 Strategy 团队与客户共创创意 Idea，先明确受众、品牌主张和导演概念。" },
@@ -70,12 +64,6 @@ const scenarioCases = [
       { role: "品牌方", names: "欧莱雅 · 可口可乐等" },
       { role: "Paid Media", names: "Pinterest · Reddit · LinkedIn Ads" },
     ],
-    needs: [
-      { label: "FORMAT", value: "10–15s · 720p · 9:16 竖屏" },
-      { label: "PASS RATE", value: "高一次过率，减少视频抽卡次数" },
-      { label: "LOCALIZE", value: "换品、换人、换语言、换市场" },
-      { label: "AI ROLE", value: "AI 30% → 90%" },
-    ],
     workflowTitle: "Ad Campaign Agent 引入广告素材自动化制作",
     steps: [
       { title: "市场热点洞察", copy: "根据 TikTok、Instagram、X 等平台的舆情与热点追踪，设计广告 Hook、CTA 和脚本。", imageRole: "用量较小，主要生成 Mood Board 和视觉参考图，辅助脚本和创意方向评审。" },
@@ -115,12 +103,6 @@ const scenarioCases = [
       { role: "创意自动化", names: "AppLovin · Smartly.io · Creatopy" },
       { role: "零售 / Media", names: "Amazon Ads · Walmart Connect · Criteo · Pinterest" },
       { role: "代理商", names: "头部 4A，承接 Banner 套版与多尺寸适配" },
-    ],
-    needs: [
-      { label: "SCALE", value: "单 Campaign 数百至数千张变体" },
-      { label: "FORMAT", value: "IAB 尺寸 · 1:1 · 9:16 任意比例" },
-      { label: "PRECISION", value: "商品、价格与多语言文字准确" },
-      { label: "UNIT COST", value: "美分级单张成本与千级并发" },
     ],
     workflowTitle: "Ad Campaign Agent 引入图片素材自动化编辑",
     steps: [
@@ -559,13 +541,6 @@ export default function Home() {
                       <div key={customer.role}><dt>{customer.role}</dt><dd>{customer.names}</dd></div>
                     ))}
                   </dl>
-                </div>
-
-                <div className="caseNeeds" aria-label={`${card.title}核心需求`}>
-                  <div className="briefLabel"><b>样片需求</b><span>WHAT MUST BE TRUE</span></div>
-                  <ul>
-                    {card.needs.map((need) => <li key={need.label}><span>{need.label}</span><b>{need.value}</b></li>)}
-                  </ul>
                 </div>
 
                 <details className="workflowDisclosure" open>

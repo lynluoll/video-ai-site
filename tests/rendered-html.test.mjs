@@ -88,8 +88,7 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /\+100%/);
   assert.match(page, /消耗极快 · 成本高/);
   assert.match(page, /有线电视数字化归入/);
-  assert.match(page, /AI 10–20% → 70%/);
-  assert.match(page, /AI 30% → 90%/);
+  assert.doesNotMatch(page, /样片需求|WHAT MUST BE TRUE|caseNeeds|needs: \[/);
   assert.doesNotMatch(page, /SOURCE ·|REFERENCE PAGE|localhost:4173|rev\. 8900|关键数字为方向性估算|待孙越交叉验证|参考页估算/);
   assert.match(page, /按样片拆解/);
   assert.match(page, /Shein · Temu/);
