@@ -82,6 +82,7 @@ test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone",
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
 
   assert.match(css, /@media \(min-width: 1440px\)/);
+  assert.match(css, /@media \(min-width: 1600px\) \{/);
   assert.match(css, /@media \(min-width: 1600px\) and \(min-height: 980px\)/);
   assert.match(css, /@media \(min-width: 1101px\)/);
   assert.match(css, /calc\(100svh - 76px\)/);
@@ -92,6 +93,9 @@ test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone",
   assert.match(css, /@media \(max-width: 380px\)/);
   assert.match(css, /overflow-x: clip/);
   assert.match(css, /@media \(hover: none\)/);
+  assert.match(css, /\.audienceGrid \{ grid-template-columns: repeat\(4, 1fr\)/);
+  assert.match(css, /\.gapGrid \{ grid-template-columns: repeat\(4, 1fr\)/);
+  assert.match(css, /\.solutionStack \{ display: grid; grid-template-columns: repeat\(3, 1fr\)/);
 
   const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
   assert.match(page, /className="heroFlow"/);

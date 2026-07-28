@@ -220,8 +220,68 @@ details li i { color: var(--orange); font-style: normal; margin-right: 12px; fon
   .heroLead, .heroActions, .sourceStamp { margin-left: 42%; }
 }
 
-@media (min-width: 1600px) and (min-height: 980px) {
+@media (min-width: 1600px) {
   .shell { width: min(1600px, calc(100% - 128px)); }
+  .lightSection { padding-block: 132px; }
+  .thesisGrid { grid-template-columns: 1.18fr .82fr; gap: 120px; }
+  .sectionIntro h2 { font-size: clamp(72px, 4.8vw, 92px); }
+  .thesisCopy { padding-left: 48px; }
+  .thesisCopy .bigCopy { font-size: 30px; }
+  .thesisCopy .bigCopy b { font-size: 50px; }
+  .marketPanel { margin-top: 104px; }
+  .growthVisual { min-height: 340px; }
+  .marketNotes div { padding: 30px 24px; }
+
+  .section { padding-block: 142px; }
+  .section > .sectionIntro { grid-template-columns: 1.12fr .88fr; column-gap: 110px; }
+  .scenarioGrid { margin-top: 82px; }
+  .scenarioCard { min-height: 570px; padding: 32px; }
+  .scenarioCard h3 { font-size: 38px; }
+
+  .samplesSection { padding-block: 128px; }
+  .samplesHeader { grid-template-columns: 1.15fr .65fr; gap: 110px; margin-bottom: 70px; }
+  .samplesHeader h2 { font-size: 88px; }
+  .mediaGrid { grid-template-columns: 1.45fr .92fr .92fr; gap: 16px; }
+  .mediaCard { height: 600px; }
+  .mediaMeta h3 { font-size: 32px; }
+
+  .agentSection { min-height: 860px; padding-block: 142px; grid-template-columns: .78fr 1.22fr; gap: 120px; }
+  .agentCopy h2 { font-size: 78px; }
+  .loop { padding: 20px 34px 38px; }
+  .loopStep { min-height: 110px; }
+
+  .audienceSection { padding-block: 136px; }
+  .audienceIntro { grid-template-columns: 1.12fr .88fr; column-gap: 110px; }
+  .audienceGrid { grid-template-columns: repeat(4, 1fr); margin-top: 82px; }
+  .audienceCard { min-height: 510px; padding: 28px 24px; }
+  .audienceCard h3 { font-size: 29px; }
+  .casePair { grid-template-columns: 1fr; }
+  .lorealCase { margin-top: 88px; padding: 60px; }
+  .caseTitle { grid-template-columns: .45fr 1.55fr; }
+  .caseTitle h3 { font-size: 44px; }
+  .orgFlow { margin-top: 68px; }
+  .orgFlow > div { min-height: 220px; padding: 28px; }
+
+  .solutionStack { display: grid; grid-template-columns: repeat(3, 1fr); border-left: 1px solid var(--line); }
+  .solutionStack article { min-height: 320px; padding: 32px; display: grid; grid-template-columns: 1fr; grid-template-rows: auto 1fr auto; gap: 0; align-items: start; border-right: 1px solid var(--line); }
+  .solutionStack article > div { align-self: center; }
+  .solutionStack h3 { font-size: 32px; }
+  .solutionStack article > b { margin-top: 34px; text-align: left; }
+  .gapHeader { margin-top: 140px; grid-template-columns: 1.12fr .88fr; column-gap: 110px; }
+  .gapHeader h3 { font-size: 64px; }
+  .gapGrid { grid-template-columns: repeat(4, 1fr); }
+  .gapGrid article { min-height: 310px; padding: 30px 26px; }
+  .gapGrid h4 { margin-top: 64px; font-size: 24px; }
+
+  .roadmapSection { padding: 136px 0 110px; }
+  .roadmapGrid { margin-top: 78px; }
+  .roadmapGrid article { min-height: 340px; padding: 32px; }
+  .roadmapGrid h3 { font-size: 29px; }
+  .northStar { margin-top: 90px; }
+  .northStar strong { font-size: clamp(280px, 20vw, 390px); }
+}
+
+@media (min-width: 1600px) and (min-height: 980px) {
   .hero { padding-top: clamp(76px, 8vh, 112px); padding-bottom: 36px; }
   .heroGlow { width: 720px; height: 720px; right: -40px; top: 24px; opacity: .9; }
   .hero h1 { max-width: 1300px; font-size: clamp(132px, 7vw, 160px); }
