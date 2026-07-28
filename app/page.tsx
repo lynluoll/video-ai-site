@@ -6,12 +6,16 @@ const scenarioCases = [
     ratio: "15 / 30S",
     desc: "以 CTV、流媒体大屏和 YouTube Hero Video 为主。创意与品牌心智优先，制作主体通常是头部代理商，最终成片必须进入专业审片与交付链路。",
     media: {
-      type: "video",
-      src: "/media/brand-reference.mp4",
-      poster: "/media/brand-poster.jpg",
-      aria: "品牌广告参考样片",
-      headline: "确定性来自流程设计",
-      meta: "多镜头一致性 · 品牌保真 · 专业交付",
+      layout: "brand",
+      aria: "品牌广告典型案例组合",
+      cases: [
+        { src: "/media/demo-brand-auto.jpg", alt: "汽车品牌电影级主视觉" },
+        { src: "/media/demo-brand-fashion.jpg", alt: "奢侈品牌国际活动主视觉" },
+        { src: "/media/demo-brand-series.jpg", alt: "科技峰会系列品牌主视觉" },
+      ],
+      formats: ["16:9 HERO", "CAMPAIGN KV", "SERIES KV"],
+      headline: "品牌叙事，先从主视觉建立。",
+      meta: "导演级构图 · 品牌资产一致性 · 系列化 KV",
     },
     sampleSpec: "15 / 30 秒标准格式，非常强调品牌规范和导演级创意，每一帧的画质和一致性都有要求。",
     channels: [
@@ -45,12 +49,16 @@ const scenarioCases = [
     ratio: "10–100 变体",
     desc: "以 tCPA、tROAS、CTR、CVR 和 CPI 定义价值。客户需要的不是单条 Demo，而是一套能持续产出 Hook、跑实验、看归因并复刻胜出结构的系统。",
     media: {
-      type: "video",
-      src: "/media/performance-generated.mp4",
-      poster: "/media/performance-poster.jpg",
-      aria: "AI 生成效果广告样片",
-      headline: "一次过率决定综合成本",
-      meta: "竖屏 UGC · 商品保真 · 爆款复刻",
+      layout: "performance",
+      aria: "效果广告典型案例组合",
+      cases: [
+        { src: "/media/demo-performance-fashion-live.jpg", alt: "社交平台时尚直播预约广告" },
+        { src: "/media/demo-performance-black-friday.jpg", alt: "黑色星期五促销广告" },
+        { src: "/media/demo-performance-burger.jpg", alt: "餐饮商品促销广告" },
+      ],
+      formats: ["9:16 SOCIAL", "PROMO HOOK", "CTA VARIANTS"],
+      headline: "从 Hook 到 CTA，首帧先赢。",
+      meta: "竖屏社交 · 促销信息 · 商品一致性",
     },
     sampleSpec: "10–15 秒最常见，720p、竖屏，以 UGC 口播和种草视频为主。通常需要生产 10–100 条变体进行实验和效果归因。",
     channels: [
@@ -82,14 +90,18 @@ const scenarioCases = [
     label: "DISPLAY",
     title: "静态展示图片广告",
     ratio: "100–1K 图片",
-    desc: "Display Ads 介于品牌与效果之间，以 CPM / CPC 计价，兼顾低成本覆盖与直接转化。真正门槛是让一套主视觉稳定扩成数百到数千张投放版本。",
+    desc: "作为独立的第三类广告生产线，Display Ads 以 CPM / CPC 计价，商业目标介于品牌与效果之间，兼顾低成本覆盖与直接转化。真正门槛是让一套主视觉稳定扩成数百到数千张投放版本。",
     media: {
-      type: "image",
-      src: "/media/display-vacuum.jpg",
-      secondary: "/media/display-fashion.jpg",
-      aria: "AI 生成的吸尘器与服饰展示广告",
-      headline: "一套主视觉，适配每个货架",
-      meta: "商品保真 · 精准文字 · 多尺寸适配",
+      layout: "display",
+      aria: "静态展示图片广告典型案例组合",
+      cases: [
+        { src: "/media/demo-display-commerce.jpg", alt: "电商平台社交信息流静态广告" },
+        { src: "/media/demo-display-beauty.jpg", alt: "美妆品牌横版信息流广告" },
+        { src: "/media/demo-display-diwali.jpg", alt: "本地化电商三比一促销横幅广告" },
+      ],
+      formats: ["SOCIAL STATIC", "16:9 FEED", "3:1 BANNER"],
+      headline: "Display Ads，是独立生产线。",
+      meta: "社交静态图 · 程序化 Banner · DCO 多尺寸套版",
     },
     sampleSpec: "静态 JPG / PNG；同一套主视觉需适配十几到几十种 IAB 标准尺寸（300×250、728×90、160×600、1080×1080、9:16 等）。强调商品精确还原、图内文案可读和多语言版本，单个 Campaign 常需数百至数千张变体。",
     channels: [
@@ -489,19 +501,21 @@ export default function Home() {
 
         <div className="sampleCases">
           {scenarioCases.map((card) => (
-            <article className={`sampleCase ${card.media.type === "image" ? "displayCase" : "videoCase"}`} key={card.index}>
+            <article className={`sampleCase ${card.media.layout}Case`} key={card.index}>
               <figure className="sampleVisual">
-                <div className="sampleMedia">
-                  {card.media.type === "video" ? (
-                    <video src={card.media.src} poster={card.media.poster} muted loop autoPlay playsInline preload="metadata" aria-label={card.media.aria} />
-                  ) : (
-                    <>
-                      <img src={card.media.src} alt={card.media.aria} loading="lazy" />
-                      <div className="sampleVariant"><img src={card.media.secondary} alt="同一场景的服饰展示广告变体" loading="lazy" /></div>
-                    </>
-                  )}
+                <div className="sampleMedia" aria-label={card.media.aria}>
+                  <div className={`caseBoard ${card.media.layout}Board`}>
+                    {card.media.cases.map((sample) => (
+                      <div className="caseTile" key={sample.src}>
+                        <img src={sample.src} alt={sample.alt} loading="lazy" />
+                      </div>
+                    ))}
+                  </div>
                   <div className="mediaShade" />
                   <div className="sampleMediaTop"><span>SAMPLE {card.index}</span><b>{card.label}</b></div>
+                  <div className="sampleFormatTags" aria-hidden="true">
+                    {card.media.formats.map((format) => <span key={format}>{format}</span>)}
+                  </div>
                   <figcaption className="sampleMediaMeta">
                     <span>{card.ratio}</span>
                     <h3>{card.media.headline}</h3>

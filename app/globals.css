@@ -236,19 +236,30 @@ button, summary { font: inherit; }
 .sampleVisual { min-width: 0; height: min(760px, calc(100svh - 48px)); position: sticky; top: 24px; align-self: start; margin: 0; padding: 22px 22px 22px 0; border-right: 1px solid var(--line); }
 .sampleCase:nth-child(even) .sampleVisual { order: 2; padding: 22px 0 22px 22px; border-right: 0; border-left: 1px solid var(--line); }
 .sampleMedia { position: relative; height: 100%; min-height: 0; overflow: hidden; background: #151820; }
-.sampleMedia > img, .sampleMedia > video { width: 100%; height: 100%; object-fit: cover; display: block; }
-.videoCase .sampleMedia > video { object-position: center; }
-.displayCase .sampleMedia > img { object-position: 54% center; }
+.caseBoard { display: grid; height: 100%; gap: 4px; padding: 4px; background: #05070b; }
+.caseTile { position: relative; min-width: 0; min-height: 0; overflow: hidden; background: #171a21; }
+.caseTile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+.brandBoard { grid-template-columns: 1fr 1fr; grid-template-rows: 1.35fr .65fr; }
+.brandBoard .caseTile:first-child { grid-column: 1 / -1; }
+.brandBoard .caseTile:first-child img { object-position: center 58%; }
+.brandBoard .caseTile:nth-child(2) img { object-position: 62% center; }
+.performanceBoard { grid-template-columns: 1.12fr .88fr; grid-template-rows: 1fr 1fr; }
+.performanceBoard .caseTile:first-child { grid-row: 1 / -1; }
+.performanceBoard .caseTile:first-child img { object-position: center top; }
+.performanceBoard .caseTile:nth-child(2) img, .performanceBoard .caseTile:nth-child(3) img { object-position: center 24%; }
+.displayBoard { grid-template-columns: 1fr; grid-template-rows: 1.45fr .85fr .55fr; }
+.displayBoard .caseTile:first-child img { object-position: center 58%; }
+.displayBoard .caseTile:nth-child(2) img { object-position: center 54%; }
 .mediaShade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,7,11,.18) 0%, transparent 34%, rgba(5,7,11,.9) 100%); pointer-events: none; }
 .sampleMediaTop { position: absolute; z-index: 1; top: 22px; left: 22px; right: 22px; display: flex; justify-content: space-between; align-items: center; color: white; font-size: 8px; letter-spacing: .14em; }
 .sampleMediaTop span { padding: 7px 9px; background: var(--lime); color: var(--ink); font-weight: 800; }
 .sampleMediaTop b { padding: 7px 9px; border: 1px solid rgba(255,255,255,.35); backdrop-filter: blur(8px); }
+.sampleFormatTags { position: absolute; z-index: 1; top: 66px; left: 22px; right: 22px; display: flex; flex-wrap: wrap; gap: 6px; }
+.sampleFormatTags span { padding: 6px 8px; color: #f4f5f6; border: 1px solid rgba(255,255,255,.26); background: rgba(5,7,11,.48); backdrop-filter: blur(8px); font-size: 7px; font-weight: 800; letter-spacing: .12em; }
 .sampleMediaMeta { position: absolute; z-index: 1; left: 28px; right: 28px; bottom: 28px; color: white; }
 .sampleMediaMeta > span { color: var(--lime); font-size: 9px; letter-spacing: .13em; }
 .sampleMediaMeta h3 { max-width: 520px; margin: 10px 0; font-size: clamp(30px, 3.2vw, 48px); line-height: .98; letter-spacing: -.05em; }
 .sampleMediaMeta p { margin: 0; color: #c7ccd3; font-size: 11px; }
-.sampleVariant { position: absolute; z-index: 1; width: 38%; height: 32%; top: 76px; right: 22px; border: 4px solid var(--lime); box-shadow: 0 12px 36px rgba(0,0,0,.35); }
-.sampleVariant img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .caseBrief { min-width: 0; padding: 54px 0 54px 64px; display: flex; flex-direction: column; }
 .sampleCase:nth-child(even) .caseBrief { order: 1; padding: 54px 64px 54px 0; }
@@ -631,9 +642,9 @@ button, summary { font: inherit; }
   .sampleVisual, .sampleCase:nth-child(even) .sampleVisual { min-height: 0; padding: 12px 0; }
   .sampleMedia { min-height: clamp(360px, 112vw, 470px); }
   .sampleMediaTop { top: 16px; left: 16px; right: 16px; }
+  .sampleFormatTags { top: 54px; left: 16px; right: 16px; }
   .sampleMediaMeta { left: 18px; right: 18px; bottom: 20px; }
   .sampleMediaMeta h3 { font-size: 30px; }
-  .sampleVariant { width: 43%; height: 31%; top: 62px; right: 14px; border-width: 3px; }
   .caseBrief, .sampleCase:nth-child(even) .caseBrief { padding: 34px 0 54px; }
   .caseKicker { margin-bottom: 26px; }
   .caseTitleRow { display: block; }
@@ -712,6 +723,10 @@ button, summary { font: inherit; }
 
 @media (hover: none) {
   .workflowDisclosure summary { min-height: 72px; }
+}
+
+@media (hover: hover) {
+  .caseTile:hover img { transform: scale(1.025); }
 }
 
 @media (prefers-reduced-motion: reduce) {
