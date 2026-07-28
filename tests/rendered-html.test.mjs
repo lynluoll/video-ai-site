@@ -64,6 +64,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.equal((html.match(/class="sampleCase /g) ?? []).length, 3);
   assert.equal((html.match(/class="workflowDisclosure"/g) ?? []).length, 3);
   assert.equal((html.match(/class="workflowDisclosure requirementDisclosure"/g) ?? []).length, 3);
+  assert.doesNotMatch(html, /<details class="workflowDisclosure(?: requirementDisclosure)?" open/);
   assert.match(html, /Campaign Agent/);
   assert.match(html, /scene-perf/);
   assert.match(html, /每条可投放素材的综合成本/);

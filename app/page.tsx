@@ -543,7 +543,7 @@ export default function Home() {
                   </dl>
                 </div>
 
-                <details className="workflowDisclosure" open>
+                <details className="workflowDisclosure">
                   <summary>
                     <span><b>展开具体制作流程</b><small>生产模式 · {card.workflowTitle} · {card.steps.length} STEPS</small></span>
                     <i aria-hidden="true">＋</i>
@@ -561,7 +561,7 @@ export default function Home() {
                   </ol>
                 </details>
 
-                <details className="workflowDisclosure requirementDisclosure" open>
+                <details className="workflowDisclosure requirementDisclosure">
                   <summary>
                     <span><b>模型需求</b><small>VIDEO / IMAGE MODEL REQUIREMENTS</small></span>
                     <i aria-hidden="true">＋</i>
