@@ -62,9 +62,12 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /典型客户画像/);
   assert.match(html, /展开具体制作流程/);
   assert.equal((html.match(/class="sampleCase /g) ?? []).length, 3);
-  assert.equal((html.match(/class="caseTile"/g) ?? []).length, 9);
-  assert.match(html, /品牌叙事，先从主视觉建立/);
-  assert.match(html, /从 Hook 到 CTA，首帧先赢/);
+  assert.equal((html.match(/class="caseTile"/g) ?? []).length, 3);
+  assert.equal((html.match(/<video /g) ?? []).length, 2);
+  assert.match(html, /brand-reference\.mp4/);
+  assert.match(html, /performance-generated\.mp4/);
+  assert.match(html, /确定性来自流程设计/);
+  assert.match(html, /一次过率决定综合成本/);
   assert.match(html, /Display Ads，是独立生产线/);
   assert.match(html, /作为独立的第三类广告生产线/);
   assert.match(html, /SOCIAL STATIC/);
@@ -111,9 +114,10 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /AppLovin AXON、Unity Ads/);
   assert.match(page, /程序化展示广告网络/);
   assert.match(page, /The Trade Desk、InMobi/);
-  assert.equal((page.match(/\/media\/demo-/g) ?? []).length, 9);
-  assert.match(page, /layout: "brand"/);
-  assert.match(page, /layout: "performance"/);
+  assert.equal((page.match(/\/media\/demo-/g) ?? []).length, 3);
+  assert.equal((page.match(/type: "video"/g) ?? []).length, 2);
+  assert.match(page, /\/media\/brand-reference\.mp4/);
+  assert.match(page, /\/media\/performance-generated\.mp4/);
   assert.match(page, /layout: "display"/);
   assert.match(page, /曝光量与品牌知名度/);
   assert.match(page, /tCPA：目标转化成本/);
@@ -200,8 +204,7 @@ test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone",
   assert.match(css, /\.segmentCell strong \{[^}]*font-size: 16px/);
   assert.match(css, /\.segmentCell span \{[^}]*font-size: 12px/);
   assert.match(css, /\.dimensionCell b \{ font-size: 14px/);
-  assert.match(css, /\.brandBoard \{ grid-template-columns: 1fr 1fr/);
-  assert.match(css, /\.performanceBoard \{ grid-template-columns: 1\.12fr \.88fr/);
+  assert.match(css, /\.sampleMedia > video \{[^}]*object-fit: cover/);
   assert.match(css, /\.displayBoard \{ grid-template-columns: 1fr/);
 
   const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");

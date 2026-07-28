@@ -236,17 +236,11 @@ button, summary { font: inherit; }
 .sampleVisual { min-width: 0; height: min(760px, calc(100svh - 48px)); position: sticky; top: 24px; align-self: start; margin: 0; padding: 22px 22px 22px 0; border-right: 1px solid var(--line); }
 .sampleCase:nth-child(even) .sampleVisual { order: 2; padding: 22px 0 22px 22px; border-right: 0; border-left: 1px solid var(--line); }
 .sampleMedia { position: relative; height: 100%; min-height: 0; overflow: hidden; background: #151820; }
+.sampleMedia > video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.videoCase .sampleMedia > video { object-position: center; }
 .caseBoard { display: grid; height: 100%; gap: 4px; padding: 4px; background: #05070b; }
 .caseTile { position: relative; min-width: 0; min-height: 0; overflow: hidden; background: #171a21; }
 .caseTile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
-.brandBoard { grid-template-columns: 1fr 1fr; grid-template-rows: 1.35fr .65fr; }
-.brandBoard .caseTile:first-child { grid-column: 1 / -1; }
-.brandBoard .caseTile:first-child img { object-position: center 58%; }
-.brandBoard .caseTile:nth-child(2) img { object-position: 62% center; }
-.performanceBoard { grid-template-columns: 1.12fr .88fr; grid-template-rows: 1fr 1fr; }
-.performanceBoard .caseTile:first-child { grid-row: 1 / -1; }
-.performanceBoard .caseTile:first-child img { object-position: center top; }
-.performanceBoard .caseTile:nth-child(2) img, .performanceBoard .caseTile:nth-child(3) img { object-position: center 24%; }
 .displayBoard { grid-template-columns: 1fr; grid-template-rows: 1.45fr .85fr .55fr; }
 .displayBoard .caseTile:first-child img { object-position: center 58%; }
 .displayBoard .caseTile:nth-child(2) img { object-position: center 54%; }
