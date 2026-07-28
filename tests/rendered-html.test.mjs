@@ -25,7 +25,6 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /2026 VIDEO API TAM/);
   assert.match(html, /2026 IMAGE API TAM/);
   assert.match(html, /\$150K/);
-  assert.match(html, /rev\. 8900/);
   assert.match(html, /海外数字视频广告市场 TAM 拆解/);
   assert.match(html, /增长不在总盘/);
   assert.match(html, /品牌与效果各占一半/);
@@ -47,7 +46,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /2030 VALUE CAPTURE/);
   assert.doesNotMatch(html, /MARKET FUNNEL/);
   assert.doesNotMatch(html, /从广告预算，切到模型 API/);
-  assert.match(html, /网页原生表达/);
+  assert.doesNotMatch(html, /网页原生表达|网页原生重绘|SOURCE ·|REFERENCE PAGE|localhost:4173|rev\./);
   assert.match(html, /三大细分赛道全景对比/);
   assert.match(html, /Social Video/);
   assert.match(html, /Netflix \/ Disney\+/);
@@ -91,10 +90,7 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /有线电视数字化归入/);
   assert.match(page, /AI 10–20% → 70%/);
   assert.match(page, /AI 30% → 90%/);
-  assert.match(page, /关键数字为方向性估算/);
-  assert.match(page, /飞书方案 rev\. 8900/);
-  assert.match(page, /客户钱包口径 2026\.05/);
-  assert.match(page, /待孙越交叉验证/);
+  assert.doesNotMatch(page, /SOURCE ·|REFERENCE PAGE|localhost:4173|rev\. 8900|关键数字为方向性估算|待孙越交叉验证|参考页估算/);
   assert.match(page, /按样片拆解/);
   assert.match(page, /Shein · Temu/);
   assert.match(page, /Smartly\.io · Creatopy/);
@@ -153,7 +149,6 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /抽卡次数/);
   assert.match(page, /Meta Reels/);
   assert.match(page, /Snap/);
-  assert.match(page, /参考页估算/);
   assert.equal((page.match(/className="marketPillar /g) ?? []).length, 4);
   assert.match(page, /33%/);
   assert.match(page, /26%/);

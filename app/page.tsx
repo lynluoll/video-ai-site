@@ -412,7 +412,7 @@ export default function Home() {
                   </article>
                 </div>
               </div>
-              <figcaption><span>FIG. 01</span> 从全球预算口径到海外数字广告四大支柱<small>网页原生重绘 · 2026</small></figcaption>
+              <figcaption><span>FIG. 01</span> 从全球预算口径到海外数字广告四大支柱</figcaption>
             </figure>
           </article>
 
@@ -437,7 +437,7 @@ export default function Home() {
                 <div><span>BRAND</span><strong>≈ 50%</strong><small>少而贵 · 专业生产</small></div>
                 <div><span>PERFORMANCE</span><strong>≈ 50%</strong><small>多而快 · 高频测试</small></div>
               </div>
-              <figcaption><span>FIG. 02</span> 同一增长市场，对应两套完全不同的生产逻辑<small>网页原生表达</small></figcaption>
+              <figcaption><span>FIG. 02</span> 同一增长市场，对应两套完全不同的生产逻辑</figcaption>
             </figure>
           </article>
 
@@ -472,7 +472,6 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <p className="dataSource">SOURCE · 飞书方案 rev. 8900：概览对比位于品牌 / 效果结构结论之后、生产劳动力 TAM 结论之前；规模与增速沿用方案口径。关键数字为方向性估算，大盘与目标数字待孙越交叉验证。</p>
           </div>
 
           <article className="marketConclusion">
@@ -493,7 +492,7 @@ export default function Home() {
                 <div className="cascadeRule"><b>× 50%</b><span>模型成本占比</span></div>
                 <div className="tamStage apiStage"><span>视频模型 API TAM</span><strong>$6.4B</strong><small>MODEL LAYER</small></div>
               </div>
-              <figcaption><span>FIG. 03</span> 从生产支出到模型 API 的价值捕获路径<small>网页原生表达</small></figcaption>
+              <figcaption><span>FIG. 03</span> 从生产支出到模型 API 的价值捕获路径</figcaption>
             </figure>
           </article>
         </div>
@@ -624,7 +623,7 @@ export default function Home() {
           </div>
 
           <div className="perfKpis">
-            <article><span>ANNUAL SUPPLY</span><strong>≈ 1B</strong><p>海外效果广告年素材量级 · 参考页估算</p></article>
+            <article><span>ANNUAL SUPPLY</span><strong>≈ 1B</strong><p>海外效果广告年素材量级</p></article>
             <article><span>STANDARD FORMAT</span><strong>10–15s</strong><p>竖屏 720p · UGC 口播 / 商品演示</p></article>
             <article><span>VARIANTS / SKU</span><strong>10–100</strong><p>用于 Hook、人物、语言与 CTA 实验</p></article>
             <article><span>AI PENETRATION</span><strong>30 → 90%</strong><p>2026 → 2030 · 端到端素材生产</p></article>
@@ -642,7 +641,6 @@ export default function Home() {
             </table>
           </div>
 
-          <p className="dataSource inverse">REFERENCE PAGE · localhost:4173/#scene-perf · 竞争信息与素材量级为参考页观察口径。</p>
         </div>
       </section>
 
@@ -709,7 +707,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <p className="dataSource">SOURCE · 飞书客户钱包口径 2026.05；头部品牌组为“单客可达”而非 Coca-Cola 单客已确认收入。</p>
           </div>
 
           <div className="lorealCase">

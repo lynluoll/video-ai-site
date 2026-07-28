@@ -167,11 +167,9 @@ button, summary { font: inherit; }
 .cascadeRule { width: 91%; min-height: 38px; margin-left: auto; display: flex; align-items: center; gap: 11px; padding-left: 15px; border-left: 2px dotted #b3b0a7; }
 .cascadeRule b { color: var(--orange); font-size: 10px; font-weight: 900; }
 .cascadeRule span { color: #636660; font-size: 9px; font-weight: 700; }
-.conclusionVisual figcaption { position: relative; z-index: 1; display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; margin-top: auto; padding-top: 18px; border-top: 1px solid #d5d2c9; color: #4f524d; font-size: 10px; font-weight: 600; line-height: 1.4; }
+.conclusionVisual figcaption { position: relative; z-index: 1; display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; margin-top: auto; padding-top: 18px; border-top: 1px solid #d5d2c9; color: #4f524d; font-size: 10px; font-weight: 600; line-height: 1.4; }
 .budgetStructureVisual figcaption { border-color: #d5d2c9; color: #4f524d; }
 .conclusionVisual figcaption span { color: var(--orange); font-size: 8px; font-weight: 800; letter-spacing: .12em; }
-.conclusionVisual figcaption small { color: #767974; font-size: 8px; letter-spacing: .08em; }
-.budgetStructureVisual figcaption small { color: #767974; }
 
 .segmentComparison { margin-top: 0; padding: 76px 0; border-top: 1px solid #c4c2bb; }
 .segmentHeader h3 { max-width: 720px; }
@@ -217,8 +215,6 @@ button, summary { font: inherit; }
 .row-split .segmentCell strong, .row-split .segmentCell span { padding: 8px 10px; border: 1px solid #d0cdc4; border-radius: 8px; color: #383b36; background: #f5f3ec; font-size: 11px; font-weight: 800; }
 .row-spend .segmentCell strong { color: var(--orange); font-size: 23px; letter-spacing: -.035em; }
 .row-driver .segmentCell strong { font-size: 14px; }
-.marketSegmentOverview .dataSource { font-size: 10px; line-height: 1.6; }
-
 .dataHeader { display: grid; grid-template-columns: 1.08fr .92fr; gap: 70px; align-items: end; margin-bottom: 34px; }
 .dataHeader > div > span { display: block; color: var(--lime); font-size: 9px; font-weight: 800; letter-spacing: .15em; margin-bottom: 15px; }
 .dataHeader.darkText > div > span { color: var(--orange); }
@@ -232,9 +228,6 @@ button, summary { font: inherit; }
 .dataTable td:first-child { display: flex; align-items: center; gap: 16px; }
 .dataTable td:first-child i { color: var(--orange); font-size: 9px; font-style: normal; }
 .dataTable td:nth-child(2), .dataTable td:nth-child(3) { font-size: 20px; font-weight: 800; letter-spacing: -.035em; white-space: nowrap; }
-.dataSource { margin: 12px 0 0; color: #858984; font-size: 9px; line-height: 1.5; letter-spacing: .06em; }
-.dataSource.inverse { color: #656d79; }
-
 .section { padding: 118px 0; }
 .section > .sectionIntro { display: grid; grid-template-columns: 1fr 1fr; column-gap: 70px; align-items: end; }
 .section > .sectionIntro .eyebrow { grid-column: 1 / -1; }
@@ -639,8 +632,6 @@ button, summary { font: inherit; }
   .conclusionStats, .conclusionSplit { grid-template-columns: 1fr; margin-top: 28px; }
   .conclusionStats strong { font-size: 27px; }
   .conclusionVisual { min-height: 0; padding: 20px 16px; }
-  .conclusionVisual figcaption { grid-template-columns: auto 1fr; }
-  .conclusionVisual figcaption small { grid-column: 2; }
   .marketStructureVisual { min-height: 0; }
   .marketScope { grid-template-columns: 1fr; gap: 8px; }
   .marketScopeCard { min-height: 98px; }
