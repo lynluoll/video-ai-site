@@ -77,3 +77,16 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /专业音频可交付/);
   assert.match(page, /精准编辑/);
 });
+
+test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone", async () => {
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+
+  assert.match(css, /@media \(min-width: 1440px\)/);
+  assert.match(css, /@media \(max-width: 1100px\)/);
+  assert.match(css, /@media \(max-width: 900px\)/);
+  assert.match(css, /@media \(max-width: 760px\)/);
+  assert.match(css, /@media \(max-width: 600px\)/);
+  assert.match(css, /@media \(max-width: 380px\)/);
+  assert.match(css, /overflow-x: clip/);
+  assert.match(css, /@media \(hover: none\)/);
+});

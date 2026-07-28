@@ -11,11 +11,13 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--ink); color: var(--white); font-family: Arial, Helvetica, sans-serif; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { margin: 0; min-width: 280px; overflow-x: clip; background: var(--ink); color: var(--white); font-family: Arial, Helvetica, sans-serif; }
+img, video { max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button, summary { font: inherit; }
 .shell { width: min(1200px, calc(100% - 48px)); margin-inline: auto; }
+.hero > *, .thesisGrid > *, .sectionIntro > *, .samplesHeader > *, .agentSection > *, .audienceIntro > *, .caseTitle > *, .gapHeader > * { min-width: 0; }
 .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); position: relative; z-index: 10; }
 .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.03em; }
 .brandMark { width: 28px; height: 28px; display: grid; place-items: center; color: var(--ink); background: var(--lime); border-radius: 50%; font-size: 14px; }
@@ -206,63 +208,152 @@ details li i { color: var(--orange); font-style: normal; margin-right: 12px; fon
 .footer .brand { color: white; font-size: 15px; letter-spacing: -.03em; }
 .footer a { color: #c4c9d0; }
 
+@media (min-width: 1440px) {
+  .shell { width: min(1280px, calc(100% - 96px)); }
+  .hero { min-height: min(850px, 92vh); }
+  .hero h1 { max-width: 1100px; }
+  .heroLead, .heroActions, .sourceStamp { margin-left: 42%; }
+}
+
+@media (max-width: 1100px) {
+  .shell { width: min(100% - 40px, 1200px); }
+  .hero { min-height: 720px; padding-top: 86px; }
+  .hero h1 { font-size: clamp(66px, 9.2vw, 96px); }
+  .heroStats article { padding-inline: 18px; }
+  .heroStats strong { font-size: 34px; }
+  .scenarioCard { padding: 24px; }
+  .scenarioCard h3 { font-size: 30px; }
+  .scenarioCard > p { min-height: 128px; }
+  .mediaCard { height: 470px; }
+  .agentSection { gap: 52px; }
+  .audienceCard { padding: 26px; }
+  .lorealCase { padding: 40px; }
+}
+
 @media (max-width: 900px) {
   .navLinks { display: none; }
-  .hero { padding-top: 90px; min-height: auto; }
+  .hero { padding-top: 82px; min-height: auto; }
+  .hero h1 { font-size: clamp(62px, 11.8vw, 88px); }
   .heroLead, .heroActions, .sourceStamp { margin-left: 0; }
+  .heroLead { margin-top: 34px; }
   .heroStats { grid-template-columns: 1fr 1fr; }
   .heroStats article:nth-child(2) { border-right: 0; }
   .heroStats article:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
   .thesisGrid, .samplesHeader, .agentSection, .audienceIntro, .section > .sectionIntro { grid-template-columns: 1fr; }
   .section > .sectionIntro .eyebrow, .audienceIntro .eyebrow { grid-column: auto; }
+  .section > .sectionIntro > p:last-child, .audienceIntro > p:last-child, .gapHeader > p:last-child { margin-top: 24px; max-width: 620px; }
   .thesisCopy { margin-top: 35px; }
   .scenarioGrid { grid-template-columns: 1fr; }
-  .scenarioCard { border-right: 0; border-bottom: 1px solid var(--line); min-height: 490px; }
+  .scenarioCard { border-right: 0; border-bottom: 1px solid var(--line); min-height: 0; }
+  .scenarioCard:last-child { border-bottom: 0; }
+  .scenarioCard > p { min-height: 0; max-width: 660px; }
   .mediaGrid { grid-template-columns: 1fr 1fr; height: auto; }
   .mediaCard { height: 480px; }
   .brandSample { grid-column: 1 / -1; }
+  .agentSection { gap: 56px; }
+  .audienceGrid { margin-top: 54px; }
   .orgFlow { grid-template-columns: 1fr; gap: 10px; }
   .orgFlow > em { transform: rotate(90deg); height: 18px; }
+  .orgFlow > div { min-height: 0; }
   .roadmapGrid { grid-template-columns: 1fr; }
+  .roadmapGrid article { min-height: 0; }
   .gapHeader { grid-template-columns: 1fr; }
   .gapHeader .eyebrow { grid-column: auto; }
+  .northStar { white-space: normal; }
+}
+
+@media (max-width: 760px) {
+  .audienceGrid, .gapGrid { grid-template-columns: 1fr; }
+  .audienceCard, .gapGrid article { min-height: 0; }
+  .growthVisual { grid-template-columns: 1fr .8fr 1fr; }
+  .yearBlock strong { font-size: clamp(48px, 10vw, 72px); }
+  .growthLine span { white-space: nowrap; }
+  .solutionStack article { grid-template-columns: 42px 1fr 90px; gap: 18px; }
 }
 
 @media (max-width: 600px) {
   .shell { width: min(100% - 28px, 1200px); }
   .nav { height: 64px; }
   .status { display: none; }
-  .hero { padding-top: 70px; }
-  .hero h1 { font-size: 56px; }
-  .heroLead { font-size: 17px; }
-  .heroActions { align-items: flex-start; flex-direction: column; margin-bottom: 50px; }
+  .hero { padding-top: 64px; padding-bottom: 36px; }
+  .heroGlow { width: 360px; height: 360px; right: -180px; top: 30px; }
+  .eyebrow { margin-bottom: 22px; line-height: 1.5; }
+  .hero h1 { font-size: clamp(44px, 14.7vw, 58px); line-height: .9; letter-spacing: -.068em; }
+  .heroLead { margin-top: 28px; font-size: clamp(16px, 4.3vw, 18px); line-height: 1.55; }
+  .heroActions { align-items: flex-start; flex-direction: column; gap: 14px; margin-top: 22px; margin-bottom: 34px; }
+  .primaryButton { width: 100%; justify-content: space-between; padding: 16px; }
   .sourceStamp { align-items: flex-start; flex-direction: column; }
-  .heroStats strong { font-size: 30px; }
-  .heroStats article { padding: 20px 12px; }
-  .lightSection, .section, .samplesSection, .agentSection, .audienceSection, .roadmapSection { padding-top: 80px; padding-bottom: 80px; }
-  .sectionIntro h2, .samplesHeader h2, .agentCopy h2 { font-size: 46px; }
+  .sourceStamp p { max-width: 34em; }
+  .heroStats article { min-height: 126px; padding: 20px 12px; }
+  .heroStats strong { font-size: clamp(27px, 8.5vw, 34px); }
+  .heroStats small { line-height: 1.45; }
+  .lightSection, .section, .samplesSection, .agentSection, .audienceSection, .roadmapSection { padding-top: 74px; padding-bottom: 74px; }
+  .sectionIntro h2, .samplesHeader h2, .agentCopy h2 { font-size: clamp(38px, 12vw, 48px); line-height: .98; }
+  .thesisCopy { border-left: 0; border-top: 1px solid #c9c7c0; padding: 26px 0 0; }
+  .thesisCopy .bigCopy { font-size: 21px; }
+  .thesisCopy .bigCopy b { font-size: 34px; }
+  .marketPanel { margin-top: 60px; }
   .growthVisual { grid-template-columns: 1fr; text-align: left; padding: 32px 0; }
   .yearBlock.end { text-align: left; }
   .growthLine { height: 70px; }
+  .growthLine i { left: 4%; right: 4%; }
   .marketNotes { grid-template-columns: 1fr; }
   .marketNotes div { border-right: 0; border-bottom: 1px solid #bbb9b2; }
   .marketNotes div:last-child { border-bottom: 0; }
+  .scenarioGrid, .solutionStack, .gapGrid { margin-top: 48px; }
+  .samplesHeader { margin-bottom: 48px; }
+  .scenarioCard { padding: 24px 20px; }
+  .scenarioCard h3 { margin-top: 38px; }
   .mediaGrid { grid-template-columns: 1fr; }
   .brandSample { grid-column: auto; }
-  .mediaCard { height: 430px; }
+  .mediaCard { height: clamp(360px, 112vw, 460px); }
+  .mediaMeta { left: 18px; right: 18px; bottom: 20px; }
+  .mediaMeta h3 { font-size: 25px; }
+  .miniVariant { width: 44%; height: 34%; border-width: 3px; }
   .agentSection { gap: 45px; }
+  .agentSignal > span { font-size: 34px; }
   .loop { padding-inline: 18px; }
+  .loopStep { grid-template-columns: 34px 1fr 18px; gap: 10px; }
   .audienceGrid { grid-template-columns: 1fr; }
+  .audienceCard { padding: 24px 20px; }
   .lorealCase { padding: 28px 20px; }
   .caseTitle { grid-template-columns: 1fr; }
   .caseTitle h3 { font-size: 30px; }
+  .orgFlow { margin-top: 38px; }
   .solutionStack article { grid-template-columns: 35px 1fr; }
   .solutionStack article > b { display: none; }
   .gapGrid { grid-template-columns: 1fr; }
+  .gapGrid article { padding: 24px 20px; }
+  .gapGrid h4 { margin-top: 34px; }
+  .roadmapGrid { margin-top: 48px; }
+  .roadmapGrid article { padding: 24px 20px; }
   .northStar { gap: 8px; }
-  .northStar strong { font-size: 130px; }
-  .northStar p { white-space: normal; font-size: 11px; }
+  .northStar strong { font-size: clamp(104px, 35vw, 142px); }
+  .northStar p { white-space: normal; font-size: 11px; line-height: 1.4; }
   .footer { flex-direction: column; justify-content: center; gap: 18px; text-align: center; }
+}
+
+@media (max-width: 380px) {
+  .shell { width: calc(100% - 24px); }
+  .brand { gap: 9px; font-size: 14px; }
+  .brandMark { width: 26px; height: 26px; }
+  .heroStats { grid-template-columns: 1fr; }
+  .heroStats article { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line); padding: 18px 0; }
+  .heroStats article:nth-child(2) { border-bottom: 1px solid var(--line); }
+  .heroStats article:last-child { border-bottom: 0; }
+  .casePair { grid-template-columns: 1fr; }
+  .audienceTop { gap: 12px; }
+  .audienceTop b { overflow-wrap: anywhere; }
+  .agentSignals { display: grid; grid-template-columns: 1fr; }
+  .northStar { display: grid; grid-template-columns: auto 1fr; align-items: end; }
+  .northStar span { grid-row: 1 / 3; }
+  .northStar strong { font-size: 104px; }
+  .northStar p { margin: 0; }
+}
+
+@media (hover: none) {
+  .scenarioCard:hover { background: transparent; }
+  summary { min-height: 48px; align-items: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
