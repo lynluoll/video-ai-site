@@ -600,35 +600,10 @@ export default function Home() {
 
       </section>
 
-      <section className="agentSection shell">
-        <div className="agentCopy">
-          <p className="eyebrow"><span>03</span> / THE GROWTH LOOP</p>
-          <h2>Campaign Agent<br />进入可复制阶段。</h2>
-          <p>素材自动化不再是独立功能，而是投放系统的必要组成。AI 素材占比越高，模型收入随投放规模同步增长。</p>
-          <div className="agentSignals">
-            <div className="agentSignal"><span>1 → 3</span><p><b>从单点验证到复制放大</b><br />当前市场阶段</p></div>
-            <div className="agentSignal"><span>30 → 90%</span><p><b>AI 素材渗透率</b><br />2026 → 2030</p></div>
-          </div>
-        </div>
-        <div className="loop" aria-label="Campaign Agent 增长循环">
-          {[
-            ["01", "洞察", "发现热点与高潜创意"],
-            ["02", "创作", "脚本、首帧与视频批量生成"],
-            ["03", "投放", "小流量测试与效果归因"],
-            ["04", "复刻", "换品、换人、换市场放大"],
-          ].map((item, i) => (
-            <div className="loopStep" key={item[1]}>
-              <i>{item[0]}</i><div><b>{item[1]}</b><span>{item[2]}</span></div>{i < 3 && <em>→</em>}
-            </div>
-          ))}
-          <div className="loopReturn">↺ ROAS 反馈回流</div>
-        </div>
-      </section>
-
       <section className="audienceSection" id="audience">
         <div className="shell">
           <div className="sectionIntro darkText audienceIntro">
-            <p className="eyebrow dark"><span>04</span> / CUSTOMER STRATEGY</p>
+            <p className="eyebrow dark"><span>03</span> / CUSTOMER STRATEGY</p>
             <h2>预算来自品牌，<br />规模来自渠道。</h2>
             <p>品牌是预算源头；代理商与 AdTech 掌握生产和投放入口，是 2026 收入增长的核心抓手。</p>
           </div>
@@ -680,7 +655,7 @@ export default function Home() {
 
       <section className="section shell solutions">
         <div className="sectionIntro">
-          <p className="eyebrow"><span>05</span> / SOLUTION FOCUS</p>
+          <p className="eyebrow"><span>04</span> / SOLUTION FOCUS</p>
           <h2>一个模型底座，<br />三条生产管线。</h2>
         </div>
         <div className="solutionStack">
@@ -713,7 +688,7 @@ export default function Home() {
       <section className="roadmapSection" id="roadmap">
         <div className="shell">
           <div className="sectionIntro darkText">
-            <p className="eyebrow dark"><span>06</span> / ROADMAP</p>
+            <p className="eyebrow dark"><span>05</span> / ROADMAP</p>
             <h2>从 SOTA 渲染层，<br />走向核心制作引擎。</h2>
           </div>
           <div className="roadmapGrid">

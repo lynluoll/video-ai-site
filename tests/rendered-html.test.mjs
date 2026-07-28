@@ -73,6 +73,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.equal((html.match(/class="workflowDisclosure requirementDisclosure"/g) ?? []).length, 3);
   assert.doesNotMatch(html, /<details class="workflowDisclosure(?: requirementDisclosure)?" open/);
   assert.match(html, /Campaign Agent/);
+  assert.doesNotMatch(html, /THE GROWTH LOOP|进入可复制阶段|从单点验证到复制放大|AI 素材渗透率|ROAS 反馈回流/);
   assert.doesNotMatch(html, /PERFORMANCE DEEP DIVE|scene-perf|每条可投放素材的综合成本|ANNUAL SUPPLY|STANDARD FORMAT|VARIANTS \/ SKU|AI PENETRATION|costFormula|perfKpis|darkTable/);
   assert.match(html, /头部客户钱包/);
   assert.match(html, /Pinterest/);
@@ -172,6 +173,10 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.doesNotMatch(page, /tamFormula/);
   assert.doesNotMatch(page, /const marketFunnel/);
   assert.doesNotMatch(page, /shell marketFunnel/);
+  assert.doesNotMatch(page, /agentSection|agentCopy|agentSignals|agentSignal|className="loop"|loopStep|loopReturn/);
+  assert.match(page, /<span>03<\/span> \/ CUSTOMER STRATEGY/);
+  assert.match(page, /<span>04<\/span> \/ SOLUTION FOCUS/);
+  assert.match(page, /<span>05<\/span> \/ ROADMAP/);
 });
 
 test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone", async () => {
