@@ -122,46 +122,140 @@ const scenarioCases = [
   },
 ];
 
-const audiences = [
+const customerStrategies = [
   {
-    priority: "P0",
+    index: "01",
+    slug: "brand",
+    priority: "P1 · 标杆优先",
+    type: "头部品牌主",
+    role: "预算源头",
+    headline: "先进入企业 AI 生产池，再让品牌与市场放大消耗。",
+    thesis: "品牌掌握广告预算，但集团采购、合规、数据归属地和内部推广链条长。短期价值是拿下行业标杆与模型白名单，而不是把它假设成最快的收入来源。",
+    walletSignals: [
+      { label: "模型 API TAM", value: "$100M / 年", note: "约 $8.3M / 月" },
+      { label: "单家视频投放预算", value: "$2–5B / 年", note: "海外头部品牌" },
+      { label: "成熟客户模型消耗", value: "数百万美元 / 年", note: "欧莱雅 · 可口可乐 · 索尼" },
+    ],
+    customers: [
+      {
+        name: "L’Oréal",
+        tag: "CRETECH PLATFORM",
+        metric: "10–20 万条视频 / 月",
+        notes: ["同时生成 50–100 万张图片 / 月，约 50% 用于内部创意实验、50% 用于外部广告制作。", "覆盖 50 个品牌、150 个市场；真实需求是完整 Asset List、本地化、平台版本化与 QA。"],
+      },
+      {
+        name: "Coca-Cola",
+        tag: "BRAND BENCHMARK",
+        metric: "头部客户参考 · 约 $1M MRR",
+        notes: ["属于 AI 渗透率较高的品牌组，适合用品牌自建平台、代理商共创和行业 Benchmark 切入。", "Hero / TVC 仍由外部代理商交付；模型更适合 Pre-vis、补镜头、Social Cutdown 和本地化。"],
+      },
+    ],
+    budgetTitle: "欧莱雅集团 AI 生产池",
+    budgetNote: "内部实验与外部商用各占一半；外部输出占比已从一年前 36% 提升到最近一个季度 55%，但放大前必须解决版权、商用权与责任条款。",
+    budgetMix: [
+      { label: "内部创意实验", value: "50%", width: "50%" },
+      { label: "外部发布素材", value: "50%", width: "50%" },
+    ],
+    productLayer: [
+      { title: "CreTech AI 中台", copy: "模型白名单 · Generation Credit · Batch Capacity · 企业 SLA" },
+      { title: "嵌入式 Workflow / Agent", copy: "Campaign Asset Planner · 本地化 · 多尺寸版本化 · QA" },
+    ],
+    businessLayer: [
+      { title: "品牌 / 市场团队", copy: "定义 E-commerce、Social、Website 等真实营销 Use Case" },
+      { title: "IT · Legal · Finance", copy: "完成数据、版权、赔偿条款与采购审批后再放大" },
+      { title: "外部 4A / 制作公司", copy: "承接 Hero Film、TVC、导演制作与最终交付责任" },
+    ],
+    route: ["用真实营销 Use Case 做 Pilot", "进入模型白名单与 Credit 池", "嵌入既有 CreTech / ISV 工作流"],
+    takeaway: "品牌侧优先做影响力和行业标杆；不要另起一个 SaaS 去替代客户已有平台。",
+  },
+  {
+    index: "02",
+    slug: "agency",
+    priority: "P0 · 收入 Driver",
     type: "头部代理商",
-    wallet: "$200M / 年 TAM",
-    monthly: "约 $17M / 月",
-    copy: "切入自建创意平台，把 Creative 渗透率从 30% 推向 70%，再逐步打开 Production。",
-    width: "100%",
-    cases: [{ name: "WPP", metric: "$6M MRR" }, { name: "Havas", metric: "$1.5M MRR" }],
-    org: ["Creative", "Production", "Media"],
+    role: "生产规模入口",
+    headline: "同时握住创意、制作、媒体和品牌预算，是最直接的模型消耗池。",
+    thesis: "代理商会保留客户关系、创意判断和交付责任，但会用 AI 压低 Time-and-materials 成本，并向 Outcome-based Commercial Model 迁移。合作模式以模型 API 接入其自建创意平台为主。",
+    walletSignals: [
+      { label: "模型 API TAM", value: "$200M / 年", note: "约 $17M / 月" },
+      { label: "WPP 钱包", value: "$6M MRR", note: "当前最大参照" },
+      { label: "Havas 钱包", value: "$1.5M MRR", note: "以 Veo 为主" },
+    ],
+    customers: [
+      {
+        name: "WPP",
+        tag: "OPEN · 80K+ EMPLOYEES",
+        metric: "$6M MRR",
+        notes: ["Veo 约 $5.5M MRR：自用 WPP Open 约 60%（$3.3M），ToB 转售约 40%（$2M）。", "Runway 自用约 $0.3–0.5M MRR；统一组织覆盖 WPP Creative、Production、Media 与 Enterprise Solutions。"],
+      },
+      {
+        name: "Havas",
+        tag: "AGENCY BENCHMARK",
+        metric: "$1.5M MRR",
+        notes: ["以 Veo 为主，是除 WPP 外最清晰的头部代理商钱包参照。", "适合先从创意原型和可审片素材切入，再验证 Production 的 AI + CG 混合制作边界。"],
+      },
+    ],
+    budgetTitle: "WPP 的模型钱包如何流动",
+    budgetNote: "WPP Open 既服务 8 万以上员工，也承担模型能力的对外转售；拿下统一平台，收入会同时来自内部生产与客户交付。",
+    budgetMix: [
+      { label: "WPP Open 自用", value: "60% · $3.3M", width: "60%" },
+      { label: "ToB 转售", value: "40% · $2M", width: "40%" },
+    ],
+    productLayer: [
+      { title: "WPP Open", copy: "统一 AI Marketing Operating System · 多模型路由 · 品牌资产引用" },
+      { title: "Agent Hub · Canvas", copy: "Brief、Synthetic Persona、概念测试、KV、Storyboard 与短片预览" },
+    ],
+    businessLayer: [
+      { title: "Creative · 30–60%", copy: "短期推向 70%：洞察、概念、Pre-vis 和初版视觉最先放量" },
+      { title: "Production · 10–15%", copy: "中长期推向 70%：3D / Digital Twin + AI Hybrid Pipeline" },
+      { title: "Media · 20–30%", copy: "围绕母版做语言、尺寸、CTA、前 3–5 秒 Hook 与人群版本" },
+    ],
+    route: ["竞对 Veo，切入 Creative 原型工作流", "以品牌一致性和高精度编辑打开 Media", "随 3D 白模与 4K 能力突破 Production"],
+    takeaway: "代理商是 2026 规模收入的主战场：先提高 Creative 渗透，再解锁 Production 劳动力。",
   },
   {
-    priority: "P0",
+    index: "03",
+    slug: "adtech",
+    priority: "P0 · 增长引擎",
     type: "AdTech / Martech",
-    wallet: "$200M / 年 TAM",
-    monthly: "约 $16.67M / 月",
-    copy: "把素材自动化嵌入 Campaign Agent，以一次过率、迭代速度和 ROAS 驱动规模收入。",
-    width: "100%",
-    cases: [{ name: "AppLovin", metric: "AXON · 1B+ DAU" }, { name: "钛动", metric: "AI + 实拍双引擎" }],
-    org: ["投放算法", "AI 产品", "Creative Ops"],
-  },
-  {
-    priority: "P1",
-    type: "头部消费品牌",
-    wallet: "$100M / 年 TAM",
-    monthly: "约 $8.3M / 月",
-    copy: "预算源头。优先进入企业 AI 平台白名单，用标杆案例建立行业影响力。",
-    width: "50%",
-    cases: [{ name: "L’Oréal", metric: "10–20 万视频 / 月" }, { name: "Coca-Cola", metric: "头部组 · 单客可达 $1M" }],
-    org: ["集团 AI 中台", "品牌团队", "外部 4A"],
-  },
-  {
-    priority: "P1",
-    type: "Paid Media",
-    wallet: "$75M / 年 TAM",
-    monthly: "约 $6.25M / 月",
-    copy: "以 Display Ads 和批量本地化为突破口，建立图片与视频的双模型消耗池。",
-    width: "38%",
-    cases: [{ name: "Pinterest", metric: "$2M MRR" }, { name: "Reddit", metric: "$1M MRR" }],
-    org: ["广告产品", "创意工具", "客户成功"],
+    role: "复利型消耗入口",
+    headline: "让素材自动化成为 Campaign Agent 的必要组成，而不是一个外挂工具。",
+    thesis: "AdTech 不以单条广告片的导演级质量为核心，而以投放效果、素材迭代速度和可复制规模为核心。Campaign Agent 正从单点验证走向 1→3 复制，模型必须嵌入投放系统持续生产 Variant。",
+    walletSignals: [
+      { label: "模型 API TAM", value: "$200M / 年", note: "约 $16.67M / 月" },
+      { label: "头部客户常态", value: "$1–2M MRR", note: "客户数量多、持续消耗" },
+      { label: "市场阶段", value: "1 → 3", note: "从验证走向多客户复制" },
+    ],
+    customers: [
+      {
+        name: "AppLovin",
+        tag: "AXON · 1B+ MOBILE DAU",
+        metric: "$11B+ 年化广告 Spend",
+        notes: ["从移动游戏买量扩展到电商、订阅、服务和 Web Advertiser；全屏视频与激励视频是高注意力效果广告核心。", "需要 URL→脚本 / 分镜 / 30–60 秒视频、百条级 Variant、Playable 接入，并与 AXON 投放反馈闭环。"],
+      },
+      {
+        name: "钛动 Tec-Ad",
+        tag: "MULTI-AGENT MARKETING",
+        metric: "洞察 → 内容 → 投放 → 诊断 → 迭代",
+        notes: ["服务游戏、App、跨境电商、短剧和新能源车；真实打法是“实拍走质和长效，AI 走量和迭代”。", "实拍生命周期约 3–4 个月，AI 素材约 1–2 个月；爆款再换人、换场景、换国家形象和换语言复刻。"],
+      },
+    ],
+    budgetTitle: "Campaign Agent 的模型收入飞轮",
+    budgetNote: "同一笔投放预算下，AI 制作占比越高、Variant 越多、胜出素材复刻越频繁，模型调用和收入就越大。",
+    budgetMix: [],
+    productLayer: [
+      { title: "Campaign Agent / AXON", copy: "商品链接解析 · 受众洞察 · 脚本 · 素材编排 · 投放决策" },
+      { title: "Creative Automation", copy: "30–60 秒视频 · Playable · 批量本地化 · 爆款复刻" },
+      { title: "Experiment & Attribution", copy: "小流量测试 · ROAS / CPI 归因 · 投前预审 · 反馈回流" },
+    ],
+    businessLayer: [
+      { title: "广告销售 / 客户增长", copy: "拿到广告主预算，并把素材自动化写进 Campaign 方案" },
+      { title: "Creative Ops", copy: "维护百条到数百条素材池，持续补充新 Hook 与 Variant" },
+      { title: "算法 / AI 产品团队", copy: "把生成 Workflow、资源池计费和投放优化做成同一闭环" },
+    ],
+    route: ["把模型 API 嵌进 Campaign Agent", "共同定义一次过率、成本和 ROAS 指标", "从 1 个客户复制到 3 个以上行业与区域"],
+    takeaway: "这是最值得猛攻的增长点：素材自动化一旦成为 Agent 标配，收入会随投放规模与 AI 素材占比同步上升。",
+    growthEngine: ["投放规模", "AI 素材占比", "单素材模型消耗", "模型收入"],
   },
 ];
 
@@ -254,15 +348,6 @@ const segmentDimensions = [
   { key: "spend", label: "素材支出", note: "PRODUCTION" },
   { key: "driver", label: "主要驱动", note: "DRIVER" },
 ] as const;
-
-const walletDepth = [
-  { customer: "WPP", type: "代理商", value: "$6.0M", width: "100%", signal: "自用平台 + 对外转售" },
-  { customer: "Snap", type: "付费媒体", value: "$2.0M", width: "33%", signal: "平台创意生成能力" },
-  { customer: "Pinterest", type: "付费媒体", value: "$2.0M", width: "33%", signal: "Display 图片标杆缺口" },
-  { customer: "Havas", type: "代理商", value: "$1.5M", width: "25%", signal: "Creative / Production 渗透" },
-  { customer: "Reddit", type: "付费媒体", value: "$1.0M", width: "17%", signal: "广告主自助创意工具" },
-  { customer: "头部品牌组", type: "品牌", value: "≤ $1.0M", width: "17%", signal: "白名单与 Generation Credit" },
-];
 
 export default function Home() {
   return (
@@ -612,51 +697,105 @@ export default function Home() {
         <div className="shell">
           <div className="sectionIntro darkText audienceIntro">
             <p className="eyebrow dark"><span>03</span> / CUSTOMER STRATEGY</p>
-            <h2>预算来自品牌，<br />规模来自渠道。</h2>
-            <p>品牌是预算源头；代理商与 AdTech 掌握生产和投放入口，是 2026 收入增长的核心抓手。</p>
+            <h2>3. 客群策略：<br />钱从哪里来，收入在哪里放大。</h2>
+            <p>品牌主提供预算源头，代理商把模型放进生产系统，AdTech / Martech 再把素材生产与投放反馈连成持续消耗。三类客户不是并列名单，而是三条不同的增长路径。</p>
           </div>
-          <div className="audienceGrid">
-            {audiences.map((item) => (
-              <article className="audienceCard" key={item.type}>
-                <div className="audienceTop"><span>{item.priority}</span><b>{item.wallet}<small>{item.monthly}</small></b></div>
-                <h3>{item.type}</h3>
-                <div className="casePair">
-                  {item.cases.map((customer) => <span key={customer.name}><b>{customer.name}</b><small>{customer.metric}</small></span>)}
-                </div>
-                <p>{item.copy}</p>
-                <div className="orgMini" aria-label={`${item.type}典型组织`}>
-                  {item.org.map((unit, i) => <span key={unit}>{unit}{i < item.org.length - 1 && <i>→</i>}</span>)}
-                </div>
-                <div className="walletBar"><i style={{ width: item.width }} /></div>
-              </article>
+
+          <div className="customerRoute" aria-label="三类客户增长路径">
+            {customerStrategies.map((item, i) => (
+              <a href={`#customer-${item.slug}`} className={`customerRouteNode ${item.slug}`} key={item.slug}>
+                <span>{item.index}</span>
+                <div><small>{item.role}</small><b>{item.type}</b><p>{item.headline}</p></div>
+                {i < customerStrategies.length - 1 && <i aria-hidden="true">→</i>}
+              </a>
             ))}
           </div>
 
-          <div className="walletDepthPanel">
-            <div className="dataHeader darkText">
-              <div><span>WALLET DEPTH · 2026.05</span><h3>头部客户钱包，已有明确参照。</h3></div>
-              <p>用竞对模型 MRR 观察可争取的钱包深度。代理商负责规模收入，付费媒体提供平台入口，品牌组决定白名单与行业影响力。</p>
-            </div>
-            <div className="walletRows" role="table" aria-label="头部客户钱包深度">
-              {walletDepth.map((row) => (
-                <div className="walletRow" role="row" key={row.customer}>
-                  <b role="cell">{row.customer}</b><span role="cell">{row.type}</span>
-                  <div className="walletTrack" role="cell"><i style={{ width: row.width }} /></div>
-                  <strong role="cell">{row.value}</strong><small role="cell">{row.signal}</small>
-                </div>
-              ))}
-            </div>
-          </div>
+          <div className="customerStories">
+            {customerStrategies.map((item) => (
+              <article className={`customerStory ${item.slug}Story`} id={`customer-${item.slug}`} key={item.slug}>
+                <header className="customerStoryHeader">
+                  <div className="customerIdentity">
+                    <span>{item.index}</span><small>{item.priority}</small><b>{item.role}</b>
+                  </div>
+                  <div>
+                    <p>{item.type}</p>
+                    <h3>{item.headline}</h3>
+                    <div className="customerThesis">{item.thesis}</div>
+                  </div>
+                </header>
 
-          <div className="lorealCase">
-            <div className="caseTitle"><span>CASE / L’ORÉAL</span><h3>不是卖一个工具，<br />而是进入企业 AI 生产池。</h3></div>
-            <div className="orgFlow">
-              <div><b>01</b><strong>集团 CreTech</strong><span>模型白名单 · Generation Credit</span><small>50–100 万张图片 / 月<br />10–20 万条视频 / 月</small></div>
-              <em>→</em>
-              <div><b>02</b><strong>品牌 / 市场团队</strong><span>本地化 · 版本化 · QA</span><small>150 个市场<br />50 个品牌</small></div>
-              <em>→</em>
-              <div><b>03</b><strong>外部代理商</strong><span>Hero Film · TVC · Campaign</span><small>Pre-vis 与后期延展切入</small></div>
-            </div>
+                <div className="walletSignalGrid" aria-label={`${item.type}钱包信号`}>
+                  {item.walletSignals.map((signal) => (
+                    <div key={signal.label}><span>{signal.label}</span><strong>{signal.value}</strong><small>{signal.note}</small></div>
+                  ))}
+                </div>
+
+                <section className="customerExamples" aria-label={`${item.type}典型客户`}>
+                  <div className="storySectionTitle"><span>TYPICAL CUSTOMERS</span><h4>用 1–2 个客户看清钱包与购买逻辑</h4></div>
+                  <div className="customerExampleGrid">
+                    {item.customers.map((customer) => (
+                      <article key={customer.name}>
+                        <div><span>{customer.tag}</span><strong>{customer.metric}</strong></div>
+                        <h5>{customer.name}</h5>
+                        <ul>{customer.notes.map((note) => <li key={note}>{note}</li>)}</ul>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+
+                <div className="customerArchitecture">
+                  <section className="budgetArchitecture">
+                    <div className="storySectionTitle"><span>BUDGET ARCHITECTURE</span><h4>{item.budgetTitle}</h4></div>
+                    {item.budgetMix.length > 0 ? (
+                      <div className="budgetMix">
+                        {item.budgetMix.map((part) => (
+                          <div style={{ width: part.width }} key={part.label}><span>{part.label}</span><strong>{part.value}</strong></div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="agentStageRail" aria-label="Campaign Agent 复制阶段">
+                        <span><i>1</i>单点接入</span><em>→</em><span><i>2</i>投放闭环</span><em>→</em><span className="active"><i>3</i>多客户复制</span>
+                      </div>
+                    )}
+                    <p>{item.budgetNote}</p>
+                  </section>
+
+                  <section className="operatingBlueprint">
+                    <div className="storySectionTitle"><span>OPERATING BLUEPRINT</span><h4>AI 产品层 × 业务执行层</h4></div>
+                    <div className="operatingLayers">
+                      <div className="operatingLayer productLayer">
+                        <span>AI PRODUCT</span>
+                        {item.productLayer.map((unit) => <div key={unit.title}><b>{unit.title}</b><p>{unit.copy}</p></div>)}
+                      </div>
+                      <i aria-hidden="true">⇄</i>
+                      <div className="operatingLayer businessLayer">
+                        <span>BUSINESS TEAM</span>
+                        {item.businessLayer.map((unit) => <div key={unit.title}><b>{unit.title}</b><p>{unit.copy}</p></div>)}
+                      </div>
+                    </div>
+                  </section>
+                </div>
+
+                {item.growthEngine && (
+                  <section className="campaignRevenueEngine">
+                    <div><span>CAMPAIGN AGENT · 1 → 3</span><h4>素材自动化成为 Agent 标配，模型收入随 AI 制作占比放大。</h4></div>
+                    <div className="revenueEquation" aria-label="Campaign Agent 模型收入关系">
+                      {item.growthEngine.map((term, i) => (
+                        <div key={term}><strong>{term}</strong>{i < item.growthEngine.length - 1 && <i>{i === item.growthEngine.length - 2 ? "=" : "×"}</i>}</div>
+                      ))}
+                    </div>
+                    <p>投放预算不需要先大幅增长；只要 Agent 里由 AI 完成的视频占比持续上升，同一客户、同一 Campaign 就会产生更多模型调用。</p>
+                  </section>
+                )}
+
+                <footer className="customerEntryRoute">
+                  <div><span>BYTEPLUS ENTRY</span><b>怎么切</b></div>
+                  <ol>{item.route.map((step, i) => <li key={step}><span>{String(i + 1).padStart(2, "0")}</span><p>{step}</p></li>)}</ol>
+                  <strong>{item.takeaway}</strong>
+                </footer>
+              </article>
+            ))}
           </div>
         </div>
       </section>
