@@ -46,7 +46,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /2030 VALUE CAPTURE/);
   assert.doesNotMatch(html, /MARKET FUNNEL/);
   assert.doesNotMatch(html, /从广告预算，切到模型 API/);
-  assert.doesNotMatch(html, /网页原生表达|网页原生重绘|SOURCE ·|REFERENCE PAGE|localhost:4173|rev\./);
+  assert.doesNotMatch(html, /网页原生表达|网页原生重绘|网页以文字门槛呈现|不嵌入原图|platformNote|SOURCE ·|REFERENCE PAGE|localhost:4173|rev\./);
   assert.match(html, /三大细分赛道全景对比/);
   assert.match(html, /Social Video/);
   assert.match(html, /Netflix \/ Disney\+/);

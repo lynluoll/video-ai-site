@@ -75,7 +75,6 @@ const scenarioCases = [
       { type: "视频模型", items: ["高性价比：全 AI 制作达到 TikTok、Meta Reels 等投放平台的声画质量与信息量门槛。", "高抽卡成功率、成本可控：竖屏、UGC、口播和商品一致，能批量产出 10–100 条 Variant。", "本地化：支持多人种数字人和小语种。"] },
       { type: "图片模型", items: ["首帧图质量：为图生视频提供高质量首帧和关键帧，首帧构图与一致性直接决定视频抽卡成功率。", "商品一致性：支持单图 / 多图参考，白底图转场景图时商品外观、Logo、包装文字不变形。", "局部编辑 Inpainting：换品、换模特、换背景、换文案只重绘局部。", "本地化：多人种模特形象，图内多语言文案准确不乱码。", "极低成本和高并发：单张成本压到美分级、秒级出图，支撑 10–100 条 Variant 的首帧和封面批量生产。"] },
     ],
-    platformNote: "原文在此引用 TikTok 素材质量示意图；网页以文字门槛呈现，不嵌入原图。",
     models: [{ type: "视频", copy: "Kling 3.0（商品展示 / 口播性价比）· Veo 3.1" }, { type: "图片", copy: "nano banana 2" }],
   },
   {
@@ -573,7 +572,6 @@ export default function Home() {
                         <ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
                       </article>
                     ))}
-                    {card.platformNote && <p className="platformNote">{card.platformNote}</p>}
                   </div>
                 </details>
 
