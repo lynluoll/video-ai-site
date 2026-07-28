@@ -34,6 +34,11 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /video-budget-2021-2030\.jpg/);
   assert.match(html, /video-production-tam\.jpg/);
   assert.match(html, /三类场景/);
+  assert.match(html, /先看样片/);
+  assert.match(html, /客户是谁/);
+  assert.match(html, /展开具体制作流程/);
+  assert.equal((html.match(/class="sampleCase /g) ?? []).length, 3);
+  assert.equal((html.match(/class="workflowDisclosure"/g) ?? []).length, 3);
   assert.match(html, /Campaign Agent/);
   assert.match(html, /scene-perf/);
   assert.match(html, /每条可投放素材的综合成本/);
@@ -60,7 +65,11 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /飞书方案 rev\. 8881/);
   assert.match(page, /客户钱包口径 2026\.05/);
   assert.match(page, /待孙越交叉验证/);
-  assert.equal((page.match(/按样片拆解/g) ?? []).length, 3);
+  assert.match(page, /按样片拆解/);
+  assert.match(page, /Shein · Temu/);
+  assert.match(page, /Smartly\.io · Creatopy/);
+  assert.match(page, /WPP · Havas · Publicis/);
+  assert.match(page, /展开具体制作流程/);
   assert.match(page, /制作方/);
   assert.match(page, /方案路径/);
   assert.match(page, /WPP/);

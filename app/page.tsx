@@ -1,30 +1,100 @@
-const scenarioCards = [
+const scenarioCases = [
   {
     index: "01",
-    label: "BRAND",
-    title: "品牌广告",
-    ratio: "40%",
-    desc: "确定性优先。用 3D 白模锁定机位、运镜与物理，再让视频模型完成最终渲染。",
-    facts: ["15–30s 标准成片", "4K / 10bit 交付", "AI 10–20% → 70%"],
-    steps: ["创意预演", "3D 白模", "AI 渲染", "后期与交付"],
+    label: "BRAND FILM",
+    title: "导演级品牌片",
+    ratio: "15 / 30S",
+    desc: "这类片子的难点不是生成一段漂亮画面，而是让创意、产品、人物与品牌规范在多镜头里始终可控，并能进入专业交付链路。",
+    media: {
+      type: "video",
+      src: "/media/brand-reference.mp4",
+      poster: "/media/brand-poster.jpg",
+      aria: "品牌广告参考样片",
+      headline: "确定性来自流程设计",
+      meta: "多镜头一致性 · 品牌保真 · 专业交付",
+    },
+    customers: [
+      { role: "委托方", names: "L’Oréal · Coca-Cola 等头部品牌" },
+      { role: "主制作方", names: "WPP · Havas · Publicis · Dentsu · Omnicom" },
+      { role: "执行团队", names: "Strategy · Creative · Production / VFX" },
+    ],
+    needs: [
+      { label: "BRAND CONTROL", value: "产品 / Logo / 品牌色保持一致" },
+      { label: "MULTI-SHOT", value: "30 秒多镜头人物与产品不漂" },
+      { label: "DELIVERY", value: "4K · 高码率 · 10bit 专业交付" },
+      { label: "AI ROLE", value: "AI 10–20% → 70%" },
+    ],
+    steps: [
+      { title: "策略与创意共创", copy: "代理商 Strategy 与品牌方确认受众、主张与导演概念，先锁定品牌不能妥协的边界。" },
+      { title: "导演级预演", copy: "用图片模型生成分镜、KV 与场景参考，再用 3D 白模锁定机位、运镜、空间和打光。" },
+      { title: "混合生产", copy: "结合实拍、3D 资产与 AI 渲染完成多镜头成片；关键帧与产品 Packshot 先行质检。" },
+      { title: "后期与精准返工", copy: "完成 VFX、调色、音效和局部修补；品牌或法务反馈只改指定元素，不整条重抽。" },
+      { title: "审片与多端交付", copy: "按品牌规范和平台规格输出 CTV、YouTube、DV360 交付包，并衍生海报与封面。" },
+    ],
   },
   {
     index: "02",
     label: "PERFORMANCE",
-    title: "效果广告",
-    ratio: "60%",
-    desc: "速度与 ROI 优先。让素材生产进入 Campaign Agent，持续测试、归因与复刻。",
-    facts: ["10–100 条变体", "$10–数十 / 成片", "AI 30% → 90%"],
-    steps: ["热点洞察", "脚本生成", "素材生产", "投放实验", "爆款复刻"],
+    title: "高频效果广告",
+    ratio: "10–100 变体",
+    desc: "这类片子的价值由投放结果定义。客户需要的不是单条 Demo，而是一套能持续产出 Hook、跑实验、看归因、复刻胜出结构的系统。",
+    media: {
+      type: "video",
+      src: "/media/performance-generated.mp4",
+      poster: "/media/performance-poster.jpg",
+      aria: "AI 生成效果广告样片",
+      headline: "一次过率决定综合成本",
+      meta: "竖屏 UGC · 商品保真 · 爆款复刻",
+    },
+    customers: [
+      { role: "核心制作方", names: "AppLovin · 钛动等 AdTech / Martech" },
+      { role: "预算与投放", names: "品牌 Creative Ops · 电商 / 游戏 / App 团队" },
+      { role: "渠道入口", names: "Meta Reels · TikTok · YouTube Shorts · Unity Ads" },
+    ],
+    needs: [
+      { label: "FORMAT", value: "10–15s · 720p · 9:16 竖屏" },
+      { label: "PASS RATE", value: "高一次过率，减少视频抽卡次数" },
+      { label: "LOCALIZE", value: "换品、换人、换语言、换市场" },
+      { label: "AI ROLE", value: "AI 30% → 90%" },
+    ],
+    steps: [
+      { title: "热点与脚本洞察", copy: "从 TikTok、Instagram、X 等平台追踪热点，生成 Hook、CTA、口播和商品脚本。" },
+      { title: "首帧与内容生产", copy: "白底图转场景图，完成商品保真、数字人定型与高质量首帧，再进入图生视频。" },
+      { title: "小流量投放实验", copy: "批量生成 10–100 条变体，按 tCPA、tROAS、CTR 与 CVR 做效果归因。" },
+      { title: "爆款结构复刻", copy: "对胜出素材做换 SKU、模特、区域与语言的局部编辑，再送回测试与放量循环。" },
+    ],
   },
   {
     index: "03",
     label: "DISPLAY",
     title: "静态展示广告",
-    ratio: "NEW",
-    desc: "规模化优先。一套主视觉，自动衍生多尺寸、多语言、多市场版本。",
-    facts: ["数百–数千张变体", "美分级单张成本", "WPP · Pinterest"],
-    steps: ["资产入库", "图片生成", "批量套版", "A/B 测试"],
+    ratio: "100–1K 图片",
+    desc: "这类素材看似简单，真正门槛是把商品、文字、尺寸和多语言同时做对，并让一套主视觉能稳定扩成数百到数千张投放版本。",
+    media: {
+      type: "image",
+      src: "/media/display-vacuum.jpg",
+      secondary: "/media/display-fashion.jpg",
+      aria: "AI 生成的吸尘器与服饰展示广告",
+      headline: "一套主视觉，适配每个货架",
+      meta: "商品保真 · 精准文字 · 多尺寸适配",
+    },
+    customers: [
+      { role: "广告主", names: "Shein · Temu · Amazon 卖家 · Shopify 商家" },
+      { role: "制作平台", names: "Smartly.io · Creatopy · AppLovin" },
+      { role: "媒体与代理", names: "Pinterest · Criteo · 头部 4A 代理商" },
+    ],
+    needs: [
+      { label: "SCALE", value: "单 Campaign 数百至数千张变体" },
+      { label: "FORMAT", value: "IAB 尺寸 · 1:1 · 9:16 任意比例" },
+      { label: "PRECISION", value: "商品、价格与多语言文字准确" },
+      { label: "UNIT COST", value: "美分级单张成本与千级并发" },
+    ],
+    steps: [
+      { title: "品牌资产入库", copy: "把商品白底图、品牌 VI、字体、价格与法务文案作为生成和套版的硬约束。" },
+      { title: "AI 图片生成与合成", copy: "用 Seedream 生成场景重绘、模特换装、背景替换和商品精修，保留 Logo、包装与 SKU 细节。" },
+      { title: "批量套版与尺寸适配", copy: "一套 KV 自动扩展到 IAB、社交信息流和竖屏尺寸，并生成多语言、多市场版本。" },
+      { title: "DCO、A/B 与复刻", copy: "对接动态创意优化，按 CTR / CVR 筛选胜出组合，再快速换品、换区域放大。" },
+    ],
   },
 ];
 
@@ -294,25 +364,69 @@ export default function Home() {
 
       <section className="section shell" id="scenarios">
         <div className="sectionIntro">
-          <p className="eyebrow"><span>02</span> / THREE BATTLEGROUNDS</p>
-          <h2>三类场景，<br />三种胜负手。</h2>
-          <p>不做泛化工具。围绕每个场景最关键的决策指标，组织产品与交付。</p>
+          <p className="eyebrow"><span>02</span> / SAMPLE-LED SCENE MAP</p>
+          <h2>先看样片，<br />再拆需求。</h2>
+          <p>三支样片对应三类场景：谁在买、谁在做、什么指标决定成败，以及模型应该嵌进哪一步。</p>
         </div>
-        <div className="scenarioGrid">
-          {scenarioCards.map((card) => (
-            <article className="scenarioCard" key={card.index}>
-              <div className="cardTop"><span>{card.index} / {card.label}</span><b>{card.ratio}</b></div>
-              <h3>{card.title}</h3>
-              <p>{card.desc}</p>
-              <div className="factRow">
-                {card.facts.map((fact) => <span key={fact}>{fact}</span>)}
+        <div className="sampleCases">
+          {scenarioCases.map((card) => (
+            <article className={`sampleCase ${card.media.type === "image" ? "displayCase" : "videoCase"}`} key={card.index}>
+              <figure className="sampleVisual">
+                <div className="sampleMedia">
+                  {card.media.type === "video" ? (
+                    <video src={card.media.src} poster={card.media.poster} muted loop autoPlay playsInline preload="metadata" aria-label={card.media.aria} />
+                  ) : (
+                    <>
+                      <img src={card.media.src} alt={card.media.aria} loading="lazy" />
+                      <div className="sampleVariant"><img src={card.media.secondary} alt="同一场景的服饰展示广告变体" loading="lazy" /></div>
+                    </>
+                  )}
+                  <div className="mediaShade" />
+                  <div className="sampleMediaTop"><span>SAMPLE {card.index}</span><b>{card.label}</b></div>
+                  <figcaption className="sampleMediaMeta">
+                    <span>{card.ratio}</span>
+                    <h3>{card.media.headline}</h3>
+                    <p>{card.media.meta}</p>
+                  </figcaption>
+                </div>
+              </figure>
+
+              <div className="caseBrief">
+                <p className="caseKicker">SCENE {card.index} <span>按样片拆解</span></p>
+                <div className="caseTitleRow"><h3>{card.title}</h3><b>{card.ratio}</b></div>
+                <p className="caseDescription">{card.desc}</p>
+
+                <div className="caseOwnership" aria-label={`${card.title}客户与制作方`}>
+                  <div className="briefLabel"><b>客户是谁</b><span>WHO BUYS / WHO MAKES</span></div>
+                  <dl>
+                    {card.customers.map((customer) => (
+                      <div key={customer.role}><dt>{customer.role}</dt><dd>{customer.names}</dd></div>
+                    ))}
+                  </dl>
+                </div>
+
+                <div className="caseNeeds" aria-label={`${card.title}核心需求`}>
+                  <div className="briefLabel"><b>样片需求</b><span>WHAT MUST BE TRUE</span></div>
+                  <ul>
+                    {card.needs.map((need) => <li key={need.label}><span>{need.label}</span><b>{need.value}</b></li>)}
+                  </ul>
+                </div>
+
+                <details className="workflowDisclosure">
+                  <summary>
+                    <span><b>展开具体制作流程</b><small>方案路径 · {card.steps.length} STEPS</small></span>
+                    <i aria-hidden="true">＋</i>
+                  </summary>
+                  <ol>
+                    {card.steps.map((step, i) => (
+                      <li key={step.title}>
+                        <span>{String(i + 1).padStart(2, "0")}</span>
+                        <div><b>{step.title}</b><p>{step.copy}</p></div>
+                      </li>
+                    ))}
+                  </ol>
+                </details>
               </div>
-              <details>
-                <summary>查看生产流程 <span>＋</span></summary>
-                <ol>
-                  {card.steps.map((step, i) => <li key={step}><i>{String(i + 1).padStart(2, "0")}</i>{step}</li>)}
-                </ol>
-              </details>
             </article>
           ))}
         </div>
@@ -359,69 +473,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="samplesSection">
-        <div className="shell">
-          <div className="samplesHeader">
-            <div>
-              <p className="eyebrow dark"><span>03</span> / CREATIVE PROOF</p>
-              <h2>先看样片，<br />再拆需求。</h2>
-            </div>
-            <p>让场景、客户、生产流程与模型需求围绕具体素材展开，而不是停留在抽象表格。</p>
-          </div>
-          <div className="mediaGrid">
-            <div className="sampleItem brandSample">
-              <article className="mediaCard mediaVideo">
-                <video src="/media/brand-reference.mp4" poster="/media/brand-poster.jpg" muted loop autoPlay playsInline preload="metadata" aria-label="品牌广告参考样片" />
-                <div className="mediaShade" />
-                <div className="mediaMeta"><span>BRAND FILM · 30S</span><h3>导演级创意</h3><p>品牌一致性 · 多镜头 · 专业交付</p></div>
-              </article>
-              <details className="sampleAnalysis">
-                <summary>按样片拆解 <span>＋</span></summary>
-                <div className="analysisGrid">
-                  <p><b>制作方</b>4A 代理商 + 专业 Production / VFX 团队</p>
-                  <p><b>核心需求</b>导演级审美、产品一致性、多镜头连续与 4K 交付</p>
-                  <p><b>方案路径</b>Creative pre-vis → 3D 白模 → AI 渲染 → 后期质检</p>
-                </div>
-              </details>
-            </div>
-            <div className="sampleItem performanceSample">
-              <article className="mediaCard mediaVideo">
-                <video src="/media/performance-generated.mp4" poster="/media/performance-poster.jpg" muted loop autoPlay playsInline preload="metadata" aria-label="AI 生成效果广告样片" />
-                <div className="mediaShade" />
-                <div className="mediaMeta"><span>PERFORMANCE · AI GENERATED</span><h3>高频种草</h3><p>低成本变体 · 快速测试 · 爆款复刻</p></div>
-              </article>
-              <details className="sampleAnalysis">
-                <summary>按样片拆解 <span>＋</span></summary>
-                <div className="analysisGrid">
-                  <p><b>制作方</b>AdTech / Martech 的 Creative Ops 与投放团队</p>
-                  <p><b>核心需求</b>高一次过率、商品保真、小语种口播和百条级变体</p>
-                  <p><b>方案路径</b>商品链接 → 脚本首帧 → 视频生成 → 投放 → 爆款复刻</p>
-                </div>
-              </details>
-            </div>
-            <div className="sampleItem displaySample">
-              <article className="mediaCard">
-                <img src="/media/display-vacuum.jpg" alt="AI 生成的吸尘器展示广告" />
-                <div className="miniVariant"><img src="/media/display-fashion.jpg" alt="AI 生成的服饰展示广告" /></div>
-                <div className="mediaShade" />
-                <div className="mediaMeta"><span>DISPLAY · MULTI-SKU</span><h3>一图千变</h3><p>商品保真 · 精准文字 · 多尺寸适配</p></div>
-              </article>
-              <details className="sampleAnalysis">
-                <summary>按样片拆解 <span>＋</span></summary>
-                <div className="analysisGrid">
-                  <p><b>制作方</b>Pinterest 等 Paid Media、DTC 品牌与创意自动化平台</p>
-                  <p><b>核心需求</b>精准文字、任意比例、局部编辑与千级并发</p>
-                  <p><b>方案路径</b>品牌资产 → Seedream 生成 → 多尺寸套版 → DCO / A/B</p>
-                </div>
-              </details>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="agentSection shell">
         <div className="agentCopy">
-          <p className="eyebrow"><span>04</span> / THE GROWTH LOOP</p>
+          <p className="eyebrow"><span>03</span> / THE GROWTH LOOP</p>
           <h2>Campaign Agent<br />进入可复制阶段。</h2>
           <p>素材自动化不再是独立功能，而是投放系统的必要组成。AI 素材占比越高，模型收入随投放规模同步增长。</p>
           <div className="agentSignals">
@@ -447,7 +501,7 @@ export default function Home() {
       <section className="audienceSection" id="audience">
         <div className="shell">
           <div className="sectionIntro darkText audienceIntro">
-            <p className="eyebrow dark"><span>05</span> / CUSTOMER STRATEGY</p>
+            <p className="eyebrow dark"><span>04</span> / CUSTOMER STRATEGY</p>
             <h2>预算来自品牌，<br />规模来自渠道。</h2>
             <p>品牌是预算源头；代理商与 AdTech 掌握生产和投放入口，是 2026 收入增长的核心抓手。</p>
           </div>
@@ -500,7 +554,7 @@ export default function Home() {
 
       <section className="section shell solutions">
         <div className="sectionIntro">
-          <p className="eyebrow"><span>06</span> / SOLUTION FOCUS</p>
+          <p className="eyebrow"><span>05</span> / SOLUTION FOCUS</p>
           <h2>一个模型底座，<br />三条生产管线。</h2>
         </div>
         <div className="solutionStack">
@@ -533,7 +587,7 @@ export default function Home() {
       <section className="roadmapSection" id="roadmap">
         <div className="shell">
           <div className="sectionIntro darkText">
-            <p className="eyebrow dark"><span>07</span> / ROADMAP</p>
+            <p className="eyebrow dark"><span>06</span> / ROADMAP</p>
             <h2>从 SOTA 渲染层，<br />走向核心制作引擎。</h2>
           </div>
           <div className="roadmapGrid">
