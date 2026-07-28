@@ -82,6 +82,8 @@ test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone",
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
 
   assert.match(css, /@media \(min-width: 1440px\)/);
+  assert.match(css, /@media \(min-width: 1101px\)/);
+  assert.match(css, /calc\(100svh - 76px\)/);
   assert.match(css, /@media \(max-width: 1100px\)/);
   assert.match(css, /@media \(max-width: 900px\)/);
   assert.match(css, /@media \(max-width: 760px\)/);

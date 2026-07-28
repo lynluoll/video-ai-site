@@ -208,9 +208,13 @@ details li i { color: var(--orange); font-style: normal; margin-right: 12px; fon
 .footer .brand { color: white; font-size: 15px; letter-spacing: -.03em; }
 .footer a { color: #c4c9d0; }
 
+@media (min-width: 1101px) {
+  .hero { min-height: max(790px, calc(100svh - 76px)); display: flex; flex-direction: column; }
+  .heroStats { margin-top: auto; }
+}
+
 @media (min-width: 1440px) {
   .shell { width: min(1280px, calc(100% - 96px)); }
-  .hero { min-height: min(850px, 92vh); }
   .hero h1 { max-width: 1100px; }
   .heroLead, .heroActions, .sourceStamp { margin-left: 42%; }
 }
