@@ -82,6 +82,7 @@ test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone",
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
 
   assert.match(css, /@media \(min-width: 1440px\)/);
+  assert.match(css, /@media \(min-width: 1600px\) and \(min-height: 980px\)/);
   assert.match(css, /@media \(min-width: 1101px\)/);
   assert.match(css, /calc\(100svh - 76px\)/);
   assert.match(css, /@media \(max-width: 1100px\)/);
@@ -91,4 +92,8 @@ test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone",
   assert.match(css, /@media \(max-width: 380px\)/);
   assert.match(css, /overflow-x: clip/);
   assert.match(css, /@media \(hover: none\)/);
+
+  const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  assert.match(page, /className="heroFlow"/);
+  assert.match(page, /生产[\s\S]*测试[\s\S]*放大/);
 });

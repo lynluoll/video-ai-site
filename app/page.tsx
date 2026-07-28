@@ -150,6 +150,14 @@ export default function Home() {
           <p>飞书方案 rev. 8840 · 客户钱包口径 2026.05 · 大盘与目标数字待孙越交叉验证</p>
         </div>
 
+        <div className="heroFlow" aria-label="素材增长路径">
+          <span><i>01</i><b>生产</b><small>CREATE</small></span>
+          <em>→</em>
+          <span><i>02</i><b>测试</b><small>TEST</small></span>
+          <em>→</em>
+          <span><i>03</i><b>放大</b><small>SCALE</small></span>
+        </div>
+
         <div className="heroStats" aria-label="核心目标">
           <article>
             <span className="statLabel">2026 VIDEO API TAM</span>
