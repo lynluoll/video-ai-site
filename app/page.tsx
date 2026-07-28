@@ -186,16 +186,6 @@ const roadmap = [
   },
 ];
 
-const marketFunnel = [
-  { layer: "全球数字广告总预算", value2026: "$1.0T", value2030: "—", logic: "顶层预算池" },
-  { layer: "海外数字广告大盘", value2026: "$660B", value2030: "—", logic: "约占全球 64–68%" },
-  { layer: "海外视频广告", value2026: "$160B", value2030: "$260B", logic: "视频广告年增速约 13%" },
-  { layer: "视频素材生产支出", value2026: "$25–30B", value2030: "$50B", logic: "从投放预算切到生产环节" },
-  { layer: "可替代人力成本", value2026: "—", value2030: "$40B", logic: "按生产支出的 80% 推演" },
-  { layer: "Agent 软件可切", value2026: "—", value2030: "$12.8B", logic: "80% AI 渗透率 × 40% take rate" },
-  { layer: "视频模型 API", value2026: "$1.0B", value2030: "$6.4B", logic: "约为 Agent 软件成本的 50%" },
-];
-
 const videoSegments = [
   {
     name: "Social Video",
@@ -380,13 +370,6 @@ export default function Home() {
               <span>CONCLUSION 03</span>
               <h4>真正的 TAM，<br />是生产劳动力。</h4>
               <p>视频素材生产支出将从 2026 年的 <b>$25–30B</b> 增长到 2030 年约 <b>$50B</b>。其中约 <b>80%</b> 是人力成本，对应约 <b>$40B</b> 的可替代劳动力价值。</p>
-              <div className="tamFormula">
-                <div><span>AI 可替代劳动力</span><strong>$40B</strong></div>
-                <i>× 80% AI 渗透 × 40% take rate</i>
-                <div><span>Agent 软件 TAM</span><strong>$12.8B</strong></div>
-                <i>× 50% 模型成本</i>
-                <div className="formulaResult"><span>视频模型 API TAM</span><strong>$6.4B</strong></div>
-              </div>
               <p className="imageTamNote">图片生产支出约从 $10B 增至 $15B，2030 图片模型 API TAM 约 <b>$2B</b>。</p>
             </div>
             <figure className="conclusionVisual tamCaptureVisual" aria-label="2030 年视频素材生产价值捕获阶梯">
@@ -436,28 +419,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <p className="dataSource">SEGMENT COMPARISON · 内容按方案截图完整转译为网页原生矩阵；规模与增速沿用方案口径。</p>
-        </div>
-
-        <div className="shell marketFunnel">
-          <div className="dataHeader darkText">
-            <div><span>MARKET FUNNEL</span><h3>从广告预算，切到模型 API。</h3></div>
-            <p>把一万亿美金的大盘逐层拆到真正可由模型捕获的生产成本。2026 TAM 使用方案基线，过程层采用参考页推演口径。</p>
-          </div>
-          <div className="tableScroll" role="region" aria-label="广告预算到模型 API 的市场漏斗" tabIndex={0}>
-            <table className="dataTable lightTable">
-              <thead><tr><th>预算层级</th><th>2026</th><th>2030</th><th>推演逻辑</th></tr></thead>
-              <tbody>
-                {marketFunnel.map((row, index) => (
-                  <tr key={row.layer} className={index === marketFunnel.length - 1 ? "highlightRow" : ""}>
-                    <td><i>{String(index + 1).padStart(2, "0")}</i><b>{row.layer}</b></td>
-                    <td>{row.value2026}</td><td>{row.value2030}</td><td>{row.logic}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="dataSource">REFERENCE MODEL · 第一章结论依据飞书方案 rev. 8881；图表为网页原生重绘，过程层关键数字为方向性估算，大盘与目标数字待孙越交叉验证。</p>
+          <p className="dataSource">SEGMENT COMPARISON · 内容按方案截图完整转译为网页原生矩阵；规模与增速沿用方案口径。第一章结论依据飞书方案 rev. 8881，关键数字为方向性估算，大盘与目标数字待孙越交叉验证。</p>
         </div>
       </section>
 

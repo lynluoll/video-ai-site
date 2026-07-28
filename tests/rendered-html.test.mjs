@@ -36,6 +36,8 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /2026 MARKET STRUCTURE/);
   assert.match(html, /VIDEO AD BUDGET/);
   assert.match(html, /2030 VALUE CAPTURE/);
+  assert.doesNotMatch(html, /MARKET FUNNEL/);
+  assert.doesNotMatch(html, /从广告预算，切到模型 API/);
   assert.match(html, /网页原生表达/);
   assert.match(html, /三大细分赛道全景对比/);
   assert.match(html, /Social Video/);
@@ -123,6 +125,10 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /Meta Reels/);
   assert.match(page, /Snap/);
   assert.match(page, /参考页估算/);
+  assert.equal((page.match(/tamCaptureVisual/g) ?? []).length, 1);
+  assert.doesNotMatch(page, /tamFormula/);
+  assert.doesNotMatch(page, /const marketFunnel/);
+  assert.doesNotMatch(page, /shell marketFunnel/);
 });
 
 test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone", async () => {
