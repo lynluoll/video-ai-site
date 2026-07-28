@@ -215,6 +215,8 @@ test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone",
   assert.match(css, /overflow-x: clip/);
   assert.match(css, /@media \(hover: none\)/);
   assert.match(css, /\.customerRoute \{ display: grid; grid-template-columns: repeat\(3, 1fr\)/);
+  assert.doesNotMatch(css, /\.customerRouteNode\.adtech \{[^}]*background: var\(--ink\)/);
+  assert.match(css, /\.customerRouteNode\.adtech small \{[^}]*background: var\(--lime\)/);
   assert.match(css, /\.customerArchitecture \{ display: grid; grid-template-columns: \.86fr 1\.14fr/);
   assert.match(css, /\.revenueEquation \{ display: grid; grid-template-columns: repeat\(4, 1fr\)/);
   assert.match(css, /\.gapGrid \{ grid-template-columns: repeat\(4, 1fr\)/);
