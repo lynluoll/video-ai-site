@@ -203,25 +203,71 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="shell marketPanel" id="market">
-          <div className="growthVisual">
-            <div className="yearBlock start">
-              <span>2026</span>
-              <strong>$160B</strong>
-              <small>视频广告市场</small>
-            </div>
-            <div className="growthLine"><span>+62.5%</span><i /></div>
-            <div className="yearBlock end">
-              <span>2030</span>
-              <strong>$260B</strong>
-              <small>视频广告市场</small>
-            </div>
+        <div className="shell marketConclusions" id="market">
+          <div className="marketConclusionsHead">
+            <span>THREE MARKET CONCLUSIONS</span>
+            <h3>海外数字视频广告市场 TAM 拆解</h3>
+            <p>先看增长发生在哪里，再看品牌与效果两套生产逻辑，最后把广告预算拆到 AI 真正能够捕获的劳动力价值。</p>
           </div>
-          <div className="marketNotes">
-            <div><b>50 / 50</b><span>海外品牌广告 / 效果广告预算</span></div>
-            <div><b>80%</b><span>素材生产支出中的人力成本</span></div>
-            <div><b>$6.4B</b><span>2030 视频模型 API TAM</span></div>
-          </div>
+
+          <article className="marketConclusion">
+            <div className="conclusionCopy">
+              <span>CONCLUSION 01</span>
+              <h4>增长不在总盘，<br />而在视频。</h4>
+              <p>海外整体广告预算未来五年增幅仅 <b>5.6%</b>，但视频广告年增速约 <b>13%</b>，从 2026 年的 <b>$160B</b> 增长到 2030 年的 <b>$260B</b>。生成模型降低制作门槛，推动中小商家把静态图文与搜索预算升级为短视频。</p>
+              <div className="conclusionStats">
+                <div><strong>5.6%</strong><small>整体广告预算<br />未来五年增幅</small></div>
+                <div><strong>13%</strong><small>视频广告<br />年增速</small></div>
+                <div><strong>$160B → $260B</strong><small>2026 → 2030<br />视频广告市场</small></div>
+              </div>
+            </div>
+            <figure className="conclusionFigure marketStructureFigure">
+              <a href="/media/market-structure-2026.jpg" target="_blank" aria-label="查看海外数字广告市场结构分析原图">
+                <img src="/media/market-structure-2026.jpg" alt="2026 年海外数字广告市场结构：全球约一万亿美元，海外大盘约 6400 至 6800 亿美元，视频广告约 1600 亿美元" loading="lazy" />
+              </a>
+              <figcaption><span>FIG. 01</span> 海外数字广告市场结构分析（2026）<small>点击查看原图</small></figcaption>
+            </figure>
+          </article>
+
+          <article className="marketConclusion reverse">
+            <div className="conclusionCopy">
+              <span>CONCLUSION 02</span>
+              <h4>海外市场，<br />品牌与效果各占一半。</h4>
+              <p>海外视频广告预算呈现约 <b>50 / 50</b> 的品牌与效果结构，因此模型进入广告生产必须同时服务两套完全不同的工作流。</p>
+              <div className="conclusionSplit">
+                <div><span>BRAND</span><strong>少而贵</strong><p>创意驱动、重人力。价值取决于导演、制作、后期等专业环节的 AI 渗透率与价值捕获率。</p></div>
+                <div><span>PERFORMANCE</span><strong>多而快</strong><p>数据驱动、10–100 个变体。模型消耗与素材量直接相关，竞争力落在成片性价比与 ROI。</p></div>
+              </div>
+            </div>
+            <figure className="conclusionFigure videoBudgetFigure">
+              <a href="/media/video-budget-2021-2030.jpg" target="_blank" aria-label="查看视频广告投放预算走向趋势原图">
+                <img src="/media/video-budget-2021-2030.jpg" alt="2021 至 2030 年视频广告预算趋势：社交视频、联网电视和在线长尾视频共同增长至约 2600 亿美元" loading="lazy" />
+              </a>
+              <figcaption><span>FIG. 02</span> 视频广告投放预算走向趋势（2021–2030）<small>点击查看原图</small></figcaption>
+            </figure>
+          </article>
+
+          <article className="marketConclusion">
+            <div className="conclusionCopy">
+              <span>CONCLUSION 03</span>
+              <h4>真正的 TAM，<br />是生产劳动力。</h4>
+              <p>视频素材生产支出将从 2026 年的 <b>$25–30B</b> 增长到 2030 年约 <b>$50B</b>。其中约 <b>80%</b> 是人力成本，对应约 <b>$40B</b> 的可替代劳动力价值。</p>
+              <div className="tamFormula">
+                <div><span>AI 可替代劳动力</span><strong>$40B</strong></div>
+                <i>× 80% AI 渗透 × 40% take rate</i>
+                <div><span>Agent 软件 TAM</span><strong>$12.8B</strong></div>
+                <i>× 50% 模型成本</i>
+                <div className="formulaResult"><span>视频模型 API TAM</span><strong>$6.4B</strong></div>
+              </div>
+              <p className="imageTamNote">图片生产支出约从 $10B 增至 $15B，2030 图片模型 API TAM 约 <b>$2B</b>。</p>
+            </div>
+            <figure className="conclusionFigure productionTamFigure">
+              <a href="/media/video-production-tam.jpg" target="_blank" aria-label="查看视频广告素材制作市场规模预测原图">
+                <img src="/media/video-production-tam.jpg" alt="视频广告素材制作市场规模预测：模型 API 从 2026 年约 8 亿美元增长到 2030 年约 28 亿美元，Agent 软件从约 20 亿美元增长到约 56 亿美元" loading="lazy" />
+              </a>
+              <figcaption><span>FIG. 03</span> 视频广告素材制作市场规模预测与 YoY 增长<small>点击查看原图</small></figcaption>
+            </figure>
+          </article>
         </div>
 
         <div className="shell marketFunnel">
@@ -242,7 +288,7 @@ export default function Home() {
               </tbody>
             </table>
           </div>
-          <p className="dataSource">REFERENCE MODEL · 关键数字为方向性估算；过程层为参考页推演。飞书方案 rev. 8840 · 大盘与目标数字待孙越交叉验证。</p>
+          <p className="dataSource">REFERENCE MODEL · 第一章结论与画板按飞书方案 rev. 8881 还原；过程层关键数字为方向性估算，大盘与目标数字待孙越交叉验证。</p>
         </div>
       </section>
 

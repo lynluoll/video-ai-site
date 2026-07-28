@@ -25,7 +25,14 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /2026 VIDEO API TAM/);
   assert.match(html, /2026 IMAGE API TAM/);
   assert.match(html, /\$150K/);
-  assert.match(html, /rev\. 8840/);
+  assert.match(html, /rev\. 8881/);
+  assert.match(html, /海外数字视频广告市场 TAM 拆解/);
+  assert.match(html, /增长不在总盘/);
+  assert.match(html, /品牌与效果各占一半/);
+  assert.match(html, /真正的 TAM/);
+  assert.match(html, /market-structure-2026\.jpg/);
+  assert.match(html, /video-budget-2021-2030\.jpg/);
+  assert.match(html, /video-production-tam\.jpg/);
   assert.match(html, /三类场景/);
   assert.match(html, /Campaign Agent/);
   assert.match(html, /scene-perf/);
@@ -50,7 +57,7 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /AI 10–20% → 70%/);
   assert.match(page, /AI 30% → 90%/);
   assert.match(page, /关键数字为方向性估算/);
-  assert.match(page, /飞书方案 rev\. 8840/);
+  assert.match(page, /飞书方案 rev\. 8881/);
   assert.match(page, /客户钱包口径 2026\.05/);
   assert.match(page, /待孙越交叉验证/);
   assert.equal((page.match(/按样片拆解/g) ?? []).length, 3);
