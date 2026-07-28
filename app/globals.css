@@ -331,7 +331,7 @@ button, summary { font: inherit; }
 .customerStories { display: grid; gap: 34px; margin-top: 52px; }
 .customerStory { scroll-margin-top: 24px; padding: clamp(34px, 4vw, 58px); overflow: hidden; border: 1px solid #bbb9b2; background: #fbfaf6; }
 .agencyStory { background-color: #faf7f1; background-image: linear-gradient(rgba(34,37,41,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(34,37,41,.035) 1px, transparent 1px); background-size: 34px 34px; }
-.adtechStory { color: white; border-color: #252c36; background-color: var(--ink); background-image: radial-gradient(circle at 82% 4%, rgba(216,255,81,.11), transparent 28%), linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: auto, 36px 36px, 36px 36px; }
+.adtechStory { color: var(--ink); border-color: #b9bcb0; background-color: #f6f7ef; background-image: radial-gradient(circle at 82% 4%, rgba(200,255,61,.2), transparent 30%), linear-gradient(rgba(34,37,41,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(34,37,41,.035) 1px, transparent 1px); background-size: auto, 36px 36px, 36px 36px; }
 .customerStoryHeader { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 58px; padding-bottom: 38px; border-bottom: 1px solid #c8c6bf; }
 .customerIdentity { display: flex; flex-direction: column; align-items: flex-start; }
 .customerIdentity > span { color: var(--orange); font-size: 56px; font-weight: 900; line-height: .82; letter-spacing: -.08em; }
@@ -340,17 +340,13 @@ button, summary { font: inherit; }
 .customerStoryHeader > div:last-child > p { margin: 0 0 12px; color: var(--orange); font-size: 10px; font-weight: 900; letter-spacing: .13em; }
 .customerStoryHeader h3 { max-width: 900px; margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1; letter-spacing: -.055em; }
 .customerThesis { max-width: 900px; margin-top: 24px; color: #656863; font-size: 15px; line-height: 1.75; }
-.adtechStory .customerStoryHeader { border-color: #303946; }
 .adtechStory .customerIdentity small { color: var(--ink); background: var(--lime); }
-.adtechStory .customerIdentity b, .adtechStory .customerThesis { color: #a8afb8; }
 .walletSignalGrid { display: grid; grid-template-columns: repeat(3, 1fr); border-left: 1px solid #c8c6bf; margin-top: 34px; }
 .walletSignalGrid > div { min-width: 0; min-height: 142px; padding: 24px; border-top: 1px solid #c8c6bf; border-right: 1px solid #c8c6bf; border-bottom: 1px solid #c8c6bf; }
 .walletSignalGrid span, .walletSignalGrid strong, .walletSignalGrid small { display: block; }
 .walletSignalGrid span { color: #83867f; font-size: 9px; font-weight: 900; letter-spacing: .13em; }
 .walletSignalGrid strong { margin-top: 24px; font-size: clamp(25px, 2.7vw, 36px); line-height: 1; letter-spacing: -.05em; }
 .walletSignalGrid small { margin-top: 9px; color: #777a74; font-size: 10px; }
-.adtechStory .walletSignalGrid, .adtechStory .walletSignalGrid > div { border-color: #303946; }
-.adtechStory .walletSignalGrid span, .adtechStory .walletSignalGrid small { color: #7f8995; }
 .customerExamples { margin-top: 54px; }
 .storySectionTitle { display: grid; grid-template-columns: 180px 1fr; gap: 24px; align-items: baseline; margin-bottom: 20px; }
 .storySectionTitle > span { color: var(--orange); font-size: 8px; font-weight: 900; letter-spacing: .13em; }
@@ -364,8 +360,6 @@ button, summary { font: inherit; }
 .customerExampleGrid ul { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
 .customerExampleGrid li { display: grid; grid-template-columns: 7px 1fr; gap: 9px; color: #686b67; font-size: 12px; line-height: 1.65; }
 .customerExampleGrid li::before { content: ""; width: 4px; height: 4px; margin-top: 7px; background: var(--orange); border-radius: 50%; }
-.adtechStory .customerExampleGrid > article { border-color: #303946; background: rgba(255,255,255,.025); }
-.adtechStory .customerExampleGrid li { color: #a8afb8; }
 .customerArchitecture { display: grid; grid-template-columns: .86fr 1.14fr; gap: 54px; margin-top: 56px; padding-top: 50px; border-top: 1px solid #c8c6bf; }
 .budgetArchitecture > p { margin: 22px 0 0; color: #6c6f69; font-size: 12px; line-height: 1.7; }
 .budgetMix { display: flex; min-height: 138px; border: 1px solid #c8c6bf; }
@@ -382,16 +376,12 @@ button, summary { font: inherit; }
 .operatingLayer p { margin: 6px 0 0; color: #72756f; font-size: 10px; line-height: 1.55; }
 .productLayer { box-shadow: inset 3px 0 0 var(--lime); }
 .businessLayer { box-shadow: inset 3px 0 0 var(--orange); }
-.adtechStory .customerArchitecture { border-color: #303946; }
-.adtechStory .budgetArchitecture > p, .adtechStory .operatingLayer p { color: #919aa5; }
-.adtechStory .operatingLayer { border-color: #303946; background: rgba(255,255,255,.025); }
-.adtechStory .operatingLayer > div { border-color: #303946; }
 .agentStageRail { display: grid; grid-template-columns: 1fr 24px 1fr 24px 1fr; gap: 4px; align-items: center; }
-.agentStageRail > span { min-height: 104px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; color: #9ca5af; border: 1px solid #303946; background: rgba(255,255,255,.025); font-size: 9px; line-height: 1.4; }
-.agentStageRail > span i { width: 26px; height: 26px; display: grid; place-items: center; color: var(--lime); border: 1px solid #495361; border-radius: 50%; font-style: normal; }
+.agentStageRail > span { min-height: 104px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; color: #636760; border: 1px solid #c8c6bf; background: rgba(255,255,255,.62); font-size: 9px; line-height: 1.4; }
+.agentStageRail > span i { width: 26px; height: 26px; display: grid; place-items: center; color: var(--ink); border: 1px solid #aaada4; border-radius: 50%; font-style: normal; }
 .agentStageRail > span.active { color: var(--ink); background: var(--lime); border-color: var(--lime); font-weight: 900; }
 .agentStageRail > span.active i { color: var(--ink); border-color: rgba(5,7,11,.35); }
-.agentStageRail > em { color: #66717f; font-style: normal; text-align: center; }
+.agentStageRail > em { color: #777b73; font-style: normal; text-align: center; }
 .campaignRevenueEngine { margin-top: 58px; padding: 34px; color: var(--ink); background: var(--lime); }
 .campaignRevenueEngine > div:first-child { display: grid; grid-template-columns: 190px 1fr; gap: 28px; align-items: baseline; }
 .campaignRevenueEngine > div:first-child > span { font-size: 8px; font-weight: 900; letter-spacing: .13em; }
@@ -410,9 +400,6 @@ button, summary { font: inherit; }
 .customerEntryRoute li span { color: var(--orange); font-size: 8px; font-weight: 900; }
 .customerEntryRoute li p { margin: 24px 0 0; color: #626560; font-size: 11px; line-height: 1.5; }
 .customerEntryRoute > strong { grid-column: 2; padding: 17px 20px; color: #31342f; background: #e9e6de; font-size: 11px; line-height: 1.55; }
-.adtechStory .customerEntryRoute { border-color: #303946; }
-.adtechStory .customerEntryRoute ol, .adtechStory .customerEntryRoute li { border-color: #303946; }
-.adtechStory .customerEntryRoute li p { color: #a4acb6; }
 .adtechStory .customerEntryRoute > strong { color: var(--ink); background: var(--lime); }
 
 .solutions { padding-bottom: 130px; }
