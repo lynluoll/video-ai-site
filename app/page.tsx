@@ -426,10 +426,19 @@ export default function Home() {
           </article>
         </div>
 
-        <div className="shell segmentComparison">
-          <div className="dataHeader darkText segmentHeader">
+      </section>
+
+      <section className="section shell" id="scenarios">
+        <div className="sectionIntro">
+          <p className="eyebrow"><span>02</span> / MAINSTREAM VIDEO AD SCENES</p>
+          <h2>先看样片，<br />再拆需求。</h2>
+          <p>三支样片对应三类场景：谁在买、谁在做、什么指标决定成败，以及模型应该嵌进哪一步。</p>
+        </div>
+
+        <div className="segmentComparison sceneSegmentOverview">
+          <div className="dataHeader segmentHeader">
             <div><span>SEGMENT LANDSCAPE</span><h3>三大细分赛道全景对比</h3></div>
-            <p>Social Video 赢在素材规模，CTV 赢在增速与品牌预算，OLV 承接长视频与开放网络。六个维度决定不同的产品优先级。</p>
+            <p>Social Video 赢在素材规模，CTV 赢在增速与品牌预算，OLV 承接长视频与开放网络。先看市场结构，再进入品牌、效果与 Display Ads 的典型样片和制作流程。</p>
           </div>
           <p className="matrixScrollHint" aria-hidden="true">横向滑动查看完整对比 →</p>
           <div className="segmentMatrixScroll" role="region" aria-label="Social Video、CTV 和 OLV 全景对比" tabIndex={0}>
@@ -457,16 +466,9 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <p className="dataSource">SEGMENT COMPARISON · 内容按方案截图完整转译为网页原生矩阵；规模与增速沿用方案口径。第一章结论依据飞书方案 rev. 8881，关键数字为方向性估算，大盘与目标数字待孙越交叉验证。</p>
+          <p className="dataSource inverse">SOURCE · 飞书方案 rev. 8900 将“概览图”置于“主流视频广告场景和需求分析”标题之后；本矩阵按该结构呈现。第一章关键数字为方向性估算，大盘与目标数字待孙越交叉验证。</p>
         </div>
-      </section>
 
-      <section className="section shell" id="scenarios">
-        <div className="sectionIntro">
-          <p className="eyebrow"><span>02</span> / SAMPLE-LED SCENE MAP</p>
-          <h2>先看样片，<br />再拆需求。</h2>
-          <p>三支样片对应三类场景：谁在买、谁在做、什么指标决定成败，以及模型应该嵌进哪一步。</p>
-        </div>
         <div className="sampleCases">
           {scenarioCases.map((card) => (
             <article className={`sampleCase ${card.media.type === "image" ? "displayCase" : "videoCase"}`} key={card.index}>

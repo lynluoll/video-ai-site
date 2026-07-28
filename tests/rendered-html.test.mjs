@@ -25,7 +25,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /2026 VIDEO API TAM/);
   assert.match(html, /2026 IMAGE API TAM/);
   assert.match(html, /\$150K/);
-  assert.match(html, /rev\. 8881/);
+  assert.match(html, /rev\. 8900/);
   assert.match(html, /海外数字视频广告市场 TAM 拆解/);
   assert.match(html, /增长不在总盘/);
   assert.match(html, /品牌与效果各占一半/);
@@ -90,7 +90,7 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /AI 10–20% → 70%/);
   assert.match(page, /AI 30% → 90%/);
   assert.match(page, /关键数字为方向性估算/);
-  assert.match(page, /飞书方案 rev\. 8881/);
+  assert.match(page, /飞书方案 rev\. 8900/);
   assert.match(page, /客户钱包口径 2026\.05/);
   assert.match(page, /待孙越交叉验证/);
   assert.match(page, /按样片拆解/);
@@ -142,6 +142,11 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /\$220B/);
   assert.match(page, /\$110B/);
   assert.match(page, /网站 Banner/);
+  const scenariosIndex = page.indexOf('id="scenarios"');
+  const segmentOverviewIndex = page.indexOf('className="segmentComparison sceneSegmentOverview"');
+  const sampleCasesIndex = page.indexOf('className="sampleCases"');
+  assert.ok(scenariosIndex >= 0 && scenariosIndex < segmentOverviewIndex);
+  assert.ok(segmentOverviewIndex < sampleCasesIndex);
   assert.equal((page.match(/tamCaptureVisual/g) ?? []).length, 1);
   assert.doesNotMatch(page, /tamFormula/);
   assert.doesNotMatch(page, /const marketFunnel/);

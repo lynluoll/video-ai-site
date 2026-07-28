@@ -173,7 +173,7 @@ button, summary { font: inherit; }
 .conclusionVisual figcaption small { color: #767974; font-size: 8px; letter-spacing: .08em; }
 .budgetStructureVisual figcaption small { color: #767974; }
 
-.segmentComparison { margin-top: 112px; padding-top: 58px; border-top: 1px solid #bbb9b2; }
+.segmentComparison { margin-top: 82px; padding-top: 58px; border-top: 1px solid var(--line); }
 .segmentHeader h3 { max-width: 720px; }
 .matrixScrollHint { display: none; margin: 0 0 10px; color: #777a75; font-size: 9px; letter-spacing: .08em; }
 .segmentMatrixScroll { overflow-x: auto; border-radius: 22px; box-shadow: 0 24px 60px rgba(8,11,18,.09); scrollbar-width: thin; outline: none; }
@@ -443,7 +443,7 @@ button, summary { font: inherit; }
   .marketPillar > b { font-size: 20px; }
   .marketPillar h5 { font-size: 10px; }
   .marketPillar p { font-size: 9px; }
-  .segmentComparison { margin-top: 132px; padding-top: 68px; }
+  .segmentComparison { margin-top: 96px; padding-top: 68px; }
   .segmentMatrixHead, .segmentRow { grid-template-columns: 190px repeat(3, minmax(0, 1fr)); }
   .segmentMatrixHead { min-height: 126px; }
   .segmentHead strong { font-size: 29px; }
