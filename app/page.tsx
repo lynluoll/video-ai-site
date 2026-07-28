@@ -159,16 +159,6 @@ export default function Home() {
         <p className="heroLead">
           AI 正在把广告竞争从“谁能做出一条片”，改写为“谁能持续生产、测试并放大有效素材”。
         </p>
-        <div className="heroActions">
-          <a className="primaryButton" href="#thesis">查看核心判断 <span>↘</span></a>
-          <p>2026 行业方案 · 关键数字为方向性估算</p>
-        </div>
-
-        <div className="sourceStamp">
-          <span>SOURCE BASELINE</span>
-          <p>飞书方案 rev. 8840 · 客户钱包口径 2026.05 · 大盘与目标数字待孙越交叉验证</p>
-        </div>
-
         <div className="heroFlow" aria-label="素材增长路径">
           <span><i>01</i><b>生产</b><small>CREATE</small></span>
           <em>→</em>
@@ -252,7 +242,7 @@ export default function Home() {
               </tbody>
             </table>
           </div>
-          <p className="dataSource">REFERENCE MODEL · 过程层为方向性推演，最终口径仍以飞书方案 rev. 8840 的交叉验证结果为准。</p>
+          <p className="dataSource">REFERENCE MODEL · 关键数字为方向性估算；过程层为参考页推演。飞书方案 rev. 8840 · 大盘与目标数字待孙越交叉验证。</p>
         </div>
       </section>
 

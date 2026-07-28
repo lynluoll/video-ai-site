@@ -35,12 +35,6 @@ button, summary { font: inherit; }
 .hero h1 { font-size: clamp(68px, 9.4vw, 132px); line-height: .86; letter-spacing: -.078em; margin: 0; max-width: 1020px; font-weight: 800; }
 .hero h1 span { color: var(--orange); }
 .heroLead { width: min(560px, 100%); margin: 42px 0 0 39%; color: #bcc1c9; font-size: 20px; line-height: 1.6; }
-.heroActions { margin: 28px 0 26px 39%; display: flex; align-items: center; gap: 24px; }
-.heroActions p { color: #707784; font-size: 11px; letter-spacing: .05em; }
-.primaryButton { background: var(--lime); color: var(--ink); padding: 15px 18px; font-weight: 800; font-size: 13px; display: inline-flex; gap: 24px; align-items: center; }
-.sourceStamp { margin: 0 0 46px 39%; display: flex; align-items: center; gap: 12px; color: #737b87; font-size: 10px; }
-.sourceStamp span { color: var(--orange); border: 1px solid rgba(255,90,31,.35); padding: 6px 8px; letter-spacing: .1em; white-space: nowrap; }
-.sourceStamp p { margin: 0; line-height: 1.45; }
 .heroFlow { display: none; }
 .heroStats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .heroStats article { padding: 25px 22px; border-right: 1px solid var(--line); }
@@ -272,7 +266,7 @@ details li i { color: var(--orange); font-style: normal; margin-right: 12px; fon
 @media (min-width: 1440px) {
   .shell { width: min(1280px, calc(100% - 96px)); }
   .hero h1 { max-width: 1100px; }
-  .heroLead, .heroActions, .sourceStamp { margin-left: 42%; }
+  .heroLead { margin-left: 42%; }
 }
 
 @media (min-width: 1600px) {
@@ -350,7 +344,7 @@ details li i { color: var(--orange); font-style: normal; margin-right: 12px; fon
   .hero { padding-top: clamp(76px, 8vh, 112px); padding-bottom: 36px; }
   .heroGlow { width: 720px; height: 720px; right: -40px; top: 24px; opacity: .9; }
   .hero h1 { max-width: 1300px; font-size: clamp(132px, 7vw, 160px); }
-  .heroLead, .heroActions, .sourceStamp { margin-left: 48%; }
+  .heroLead { margin-left: 48%; }
   .heroFlow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 24px; margin-top: auto; padding: 20px 0; border-top: 1px solid var(--line); }
   .heroFlow > span { min-width: 0; display: grid; grid-template-columns: 28px auto 1fr; align-items: baseline; gap: 12px; }
   .heroFlow i { color: var(--orange); font-size: 9px; font-style: normal; letter-spacing: .12em; }
@@ -381,7 +375,7 @@ details li i { color: var(--orange); font-style: normal; margin-right: 12px; fon
   .navLinks { display: none; }
   .hero { padding-top: 82px; min-height: auto; }
   .hero h1 { font-size: clamp(62px, 11.8vw, 88px); }
-  .heroLead, .heroActions, .sourceStamp { margin-left: 0; }
+  .heroLead { margin-left: 0; }
   .heroLead { margin-top: 34px; }
   .heroStats { grid-template-columns: 1fr 1fr; }
   .heroStats article:nth-child(2) { border-right: 0; }
@@ -435,10 +429,6 @@ details li i { color: var(--orange); font-style: normal; margin-right: 12px; fon
   .eyebrow { margin-bottom: 22px; line-height: 1.5; }
   .hero h1 { font-size: clamp(44px, 14.7vw, 58px); line-height: .9; letter-spacing: -.068em; }
   .heroLead { margin-top: 28px; font-size: clamp(16px, 4.3vw, 18px); line-height: 1.55; }
-  .heroActions { align-items: flex-start; flex-direction: column; gap: 14px; margin-top: 22px; margin-bottom: 34px; }
-  .primaryButton { width: 100%; justify-content: space-between; padding: 16px; }
-  .sourceStamp { align-items: flex-start; flex-direction: column; }
-  .sourceStamp p { max-width: 34em; }
   .heroStats article { min-height: 126px; padding: 20px 12px; }
   .heroStats strong { font-size: clamp(27px, 8.5vw, 34px); }
   .heroStats small { line-height: 1.45; }
