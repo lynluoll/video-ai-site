@@ -116,6 +116,25 @@ const roadmap = [
   },
 ];
 
+const marketFunnel = [
+  { layer: "全球数字广告总预算", value2026: "$1.0T", value2030: "—", logic: "顶层预算池" },
+  { layer: "海外数字广告大盘", value2026: "$660B", value2030: "—", logic: "约占全球 64–68%" },
+  { layer: "海外视频广告", value2026: "$160B", value2030: "$260B", logic: "视频广告年增速约 13%" },
+  { layer: "视频素材生产支出", value2026: "$25–30B", value2030: "$50B", logic: "从投放预算切到生产环节" },
+  { layer: "可替代人力成本", value2026: "—", value2030: "$40B", logic: "按生产支出的 80% 推演" },
+  { layer: "Agent 软件可切", value2026: "—", value2030: "$12.8B", logic: "80% AI 渗透率 × 40% take rate" },
+  { layer: "视频模型 API", value2026: "$1.0B", value2030: "$6.4B", logic: "约为 Agent 软件成本的 50%" },
+];
+
+const walletDepth = [
+  { customer: "WPP", type: "代理商", value: "$6.0M", width: "100%", signal: "自用平台 + 对外转售" },
+  { customer: "Snap", type: "付费媒体", value: "$2.0M", width: "33%", signal: "平台创意生成能力" },
+  { customer: "Pinterest", type: "付费媒体", value: "$2.0M", width: "33%", signal: "Display 图片标杆缺口" },
+  { customer: "Havas", type: "代理商", value: "$1.5M", width: "25%", signal: "Creative / Production 渗透" },
+  { customer: "Reddit", type: "付费媒体", value: "$1.0M", width: "17%", signal: "广告主自助创意工具" },
+  { customer: "头部品牌组", type: "品牌", value: "≤ $1.0M", width: "17%", signal: "白名单与 Generation Credit" },
+];
+
 export default function Home() {
   return (
     <main>
@@ -214,6 +233,27 @@ export default function Home() {
             <div><b>$6.4B</b><span>2030 视频模型 API TAM</span></div>
           </div>
         </div>
+
+        <div className="shell marketFunnel">
+          <div className="dataHeader darkText">
+            <div><span>MARKET FUNNEL</span><h3>从广告预算，切到模型 API。</h3></div>
+            <p>把一万亿美金的大盘逐层拆到真正可由模型捕获的生产成本。2026 TAM 使用方案基线，过程层采用参考页推演口径。</p>
+          </div>
+          <div className="tableScroll" role="region" aria-label="广告预算到模型 API 的市场漏斗" tabIndex={0}>
+            <table className="dataTable lightTable">
+              <thead><tr><th>预算层级</th><th>2026</th><th>2030</th><th>推演逻辑</th></tr></thead>
+              <tbody>
+                {marketFunnel.map((row, index) => (
+                  <tr key={row.layer} className={index === marketFunnel.length - 1 ? "highlightRow" : ""}>
+                    <td><i>{String(index + 1).padStart(2, "0")}</i><b>{row.layer}</b></td>
+                    <td>{row.value2026}</td><td>{row.value2030}</td><td>{row.logic}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="dataSource">REFERENCE MODEL · 过程层为方向性推演，最终口径仍以飞书方案 rev. 8840 的交叉验证结果为准。</p>
+        </div>
       </section>
 
       <section className="section shell" id="scenarios">
@@ -239,6 +279,47 @@ export default function Home() {
               </details>
             </article>
           ))}
+        </div>
+
+        <div className="perfDataPanel" id="scene-perf">
+          <div className="dataHeader">
+            <div><span>PERFORMANCE DEEP DIVE</span><h3>一次过率，决定效果广告的胜负。</h3></div>
+            <p>客户衡量的不是单次生成价格，而是最终得到一条可投放素材要花多少钱、多久，以及能否持续复制。</p>
+          </div>
+
+          <div className="costFormula" aria-label="效果广告综合成本公式">
+            <span>每条可投放素材的综合成本</span><b>=</b><strong>单次生成价格</strong><b>×</b><strong>抽卡次数</strong>
+            <small>单价已经领先；下一阶段最关键的产品杠杆是一次过率。</small>
+          </div>
+
+          <div className="perfKpis">
+            <article><span>ANNUAL SUPPLY</span><strong>≈ 1B</strong><p>海外效果广告年素材量级 · 参考页估算</p></article>
+            <article><span>STANDARD FORMAT</span><strong>10–15s</strong><p>竖屏 720p · UGC 口播 / 商品演示</p></article>
+            <article><span>VARIANTS / SKU</span><strong>10–100</strong><p>用于 Hook、人物、语言与 CTA 实验</p></article>
+            <article><span>AI PENETRATION</span><strong>30 → 90%</strong><p>2026 → 2030 · 端到端素材生产</p></article>
+          </div>
+
+          <div className="tableScroll" role="region" aria-label="效果广告生产参数表" tabIndex={0}>
+            <table className="dataTable darkTable">
+              <thead><tr><th>决策维度</th><th>当前生产口径</th><th>对模型的要求</th><th>商业含义</th></tr></thead>
+              <tbody>
+                <tr><td><b>投放渠道</b></td><td>Meta Reels · TikTok · YouTube Shorts · 应用内广告网络</td><td>9:16、多语言口播、平台规格直出</td><td>渠道越多，本地化与尺寸变体越多</td></tr>
+                <tr><td><b>主要生产者</b></td><td>AdTech / Martech · 品牌自建工具 · 达人代理</td><td>API 稳定性、批量并发、可编辑工作流</td><td>进入 Campaign Agent 才能形成持续消耗</td></tr>
+                <tr><td><b>素材类型</b></td><td>UGC 种草 · 商品 Showcase · 爆款复刻</td><td>商品保真、人物自然、首帧成功率</td><td>首帧质量直接影响抽卡次数</td></tr>
+                <tr><td><b>竞争观察</b></td><td>Kling 3.0 · Veo 3.1 · nano banana 2</td><td>在成本优势上补齐一次过率</td><td>综合成片成本，而非单次调用价决定份额</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="perfWorkflow" aria-label="Campaign Agent 素材生产链路">
+            {[
+              ["01", "INSIGHT", "市场热点洞察", "追踪 TikTok / IG / X 热点，设计 Hook、CTA 与脚本。"],
+              ["02", "PRODUCE", "AI 内容生产", "白底图转场景、数字人定型、首帧与视频生成；这是模型消耗核心。"],
+              ["03", "TEST", "小流量投放实验", "先用低成本静态图筛方向，再用视频验证 CTR / CVR。"],
+              ["04", "SCALE", "爆款结构复刻", "换 SKU、模特、市场与语言，把胜出结构重新送回测试。"],
+            ].map((step) => <article key={step[0]}><span>{step[0]} / {step[1]}</span><h4>{step[2]}</h4><p>{step[3]}</p></article>)}
+          </div>
+          <p className="dataSource inverse">REFERENCE PAGE · localhost:4173/#scene-perf · 竞争信息与素材量级为参考页观察口径。</p>
         </div>
       </section>
 
@@ -349,6 +430,23 @@ export default function Home() {
                 <div className="walletBar"><i style={{ width: item.width }} /></div>
               </article>
             ))}
+          </div>
+
+          <div className="walletDepthPanel">
+            <div className="dataHeader darkText">
+              <div><span>WALLET DEPTH · 2026.05</span><h3>头部客户钱包，已有明确参照。</h3></div>
+              <p>用竞对模型 MRR 观察可争取的钱包深度。代理商负责规模收入，付费媒体提供平台入口，品牌组决定白名单与行业影响力。</p>
+            </div>
+            <div className="walletRows" role="table" aria-label="头部客户钱包深度">
+              {walletDepth.map((row) => (
+                <div className="walletRow" role="row" key={row.customer}>
+                  <b role="cell">{row.customer}</b><span role="cell">{row.type}</span>
+                  <div className="walletTrack" role="cell"><i style={{ width: row.width }} /></div>
+                  <strong role="cell">{row.value}</strong><small role="cell">{row.signal}</small>
+                </div>
+              ))}
+            </div>
+            <p className="dataSource">SOURCE · 飞书客户钱包口径 2026.05；头部品牌组为“单客可达”而非 Coca-Cola 单客已确认收入。</p>
           </div>
 
           <div className="lorealCase">
