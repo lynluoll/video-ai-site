@@ -20,6 +20,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
+  const sceneOverviewHtml = html.slice(html.indexOf('class="sceneLandscapePage"'), html.indexOf('class="sceneDemoPages"'));
   const sceneDemoHtml = html.slice(html.indexOf('class="sceneDemoPages"'), html.indexOf('class="customerFlowPage"'));
   assert.match(html, /<title>BytePlus 广告行业素材生产方案<\/title>/);
   assert.match(html, /class="coverPage"/);
@@ -106,15 +107,12 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /SCENE LANDSCAPE/);
   assert.match(html, /2\. 主流广告场景/);
   assert.match(html, /和需求分析/);
-  assert.match(html, /VIDEO MODEL API · 2026/);
-  assert.match(html, /IMAGE MODEL API · 2026/);
-  assert.match(html, /\$0\.4B/);
-  assert.match(html, /\$0\.6B/);
-  assert.match(html, /\$0\.3–0\.4B/);
+  assert.doesNotMatch(sceneOverviewHtml, /VIDEO MODEL API · 2026|IMAGE MODEL API · 2026|视频 API 规模|图片模型 API 规模|主流模型/);
   assert.equal((html.match(/class="sceneLandscapeCard /g) ?? []).length, 3);
-  assert.match(html, /头部代理商 · 品牌主/);
-  assert.match(html, /AdTech \/ MarTech · Paid Media/);
-  assert.match(html, /创意自动化平台 · Paid Media · 代理商/);
+  assert.match(html, /头部 5 家代理商.*WPP · Havas · Publicis · Dentsu · Omnicom.*次头部代理商.*Brandtech（Pencil）· 博报堂/s);
+  assert.match(html, /AdTech 公司.*AppLovin · 钛动.*广告主（品牌方）.*欧莱雅 · 可口可乐等.*Paid Media.*Pinterest · Reddit · LinkedIn Ads 等/s);
+  assert.match(html, /AdTech \/ 创意自动化平台.*AppLovin · Smartly\.io · Creatopy.*零售媒体和 Paid Media.*Amazon Ads · Walmart Connect · Criteo · Pinterest.*代理商.*WPP · Havas · Publicis · Dentsu · Omnicom/s);
+  assert.doesNotMatch(sceneOverviewHtml, /Shein|Temu|Amazon 卖家|Shopify 商家/);
   assert.equal((html.match(/<video /g) ?? []).length, 11);
   assert.equal((html.match(/class="sceneDemoPage sceneDemoPage/g) ?? []).length, 3);
   assert.match(html, /scene-brand-demo/);
@@ -274,6 +272,7 @@ test("server-renders the complete advertising strategy", async () => {
 
 test("covers every Bojie requirement in the page source", async () => {
   const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  const sceneOverviewSource = page.slice(page.indexOf('id="scenarios"'), page.indexOf('className="sceneDemoPages"'));
   const sceneDemoSource = page.slice(page.indexOf('className="sceneDemoPages"'), page.indexOf('className="customerFlowPage"'));
 
   const coverIndex = page.indexOf('className="coverPage"');
@@ -304,18 +303,19 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.doesNotMatch(page, /样片需求|WHAT MUST BE TRUE|caseNeeds|needs: \[/);
   assert.doesNotMatch(page, /SOURCE ·|REFERENCE PAGE|localhost:4173|rev\. 8900|关键数字为方向性估算|待孙越交叉验证|参考页估算/);
   assert.match(page, /sceneLandscapePage/);
-  assert.match(page, /VIDEO MODEL API · 2026/);
-  assert.match(page, /\$0\.4B/);
-  assert.match(page, /\$0\.6B/);
-  assert.match(page, /\$0\.3–0\.4B/);
+  assert.doesNotMatch(sceneOverviewSource, /sceneScaleRail|VIDEO MODEL API · 2026|IMAGE MODEL API · 2026|视频 API 规模|图片模型 API 规模|主流模型/);
   assert.match(page, /Smartly\.io · Creatopy/);
-  assert.match(page, /零售 \/ Paid Media.*Criteo · Pinterest/s);
-  assert.doesNotMatch(page, /Shein · Temu|Amazon 卖家|Shopify 商家|Amazon Ads|Walmart Connect/);
+  assert.match(page, /零售媒体和 Paid Media.*Amazon Ads · Walmart Connect · Criteo · Pinterest/s);
+  assert.doesNotMatch(page, /Shein|Temu|Amazon 卖家|Shopify 商家/);
+  assert.match(page, /AppLovin · Smartly\.io · Creatopy/);
+  assert.match(page, /AdTech \/ 创意自动化平台/);
+  assert.match(page, /代理商.*WPP · Havas · Publicis · Dentsu · Omnicom/s);
   assert.match(page, /WPP · Havas · Publicis/);
-  assert.match(page, /制作方/);
-  assert.match(page, /曝光量 · 品牌知名度 · 品牌心智/);
-  assert.match(page, /tCPA \/ tROAS · CTR \/ CVR · CPI/);
-  assert.match(page, /CPM \/ CPC · 低成本覆盖 \+ 直接转化/);
+  assert.doesNotMatch(sceneDemoSource, /制作方 \/ 客户|sceneDemoWho/);
+  assert.equal((sceneDemoSource.match(/className="sceneDemoDisclosure" open/g) ?? []).length, 3);
+  assert.match(page, /曝光量 · 品牌知名度.*长期品牌心智/s);
+  assert.match(page, /tCPA \/ tROAS.*CTR \/ CVR · CPI/s);
+  assert.match(page, /CPM \/ CPC.*低成本覆盖 \+ 直接转化/s);
   assert.match(page, /CTV 和流媒体大屏广告/);
   assert.match(page, /Roku、Netflix、Disney、Prime/);
   assert.match(page, /应用内广告网络和激励视频/);
