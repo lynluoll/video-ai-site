@@ -143,27 +143,232 @@ body.is-copy-editing [data-copy-hidden="true"]::after {
   .copyEditorActions { grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
 
-/* P02 · scene landscape — three distinct production systems */
-.sceneLandscapePage {
-  min-height: 0;
-  padding: 24px 0 36px;
+/* P02 · 2026 target — one target, one execution path */
+.targetPage {
+  height: calc(100svh - 76px);
+  min-height: 760px;
   color: #111319;
   background:
-    radial-gradient(circle at 76% 22%, rgba(255,90,31,.06), transparent 30%),
+    linear-gradient(rgba(17,19,25,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,19,25,.035) 1px, transparent 1px),
     #f4f1ea;
+  background-size: 34px 34px;
+}
+.targetPageShell {
+  width: min(100% - 64px, 1512px);
+  height: 100%;
+  margin: 0 auto;
+  padding: 24px 0;
+  display: grid;
+  grid-template-rows: 128px minmax(0, 1fr);
+  gap: 18px;
+}
+.targetPageHeader {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 380px;
+  align-items: center;
+  border-top: 1px solid #bbb7ad;
+  border-bottom: 1px solid #bbb7ad;
+}
+.targetPageIndex {
+  align-self: stretch;
+  padding: 20px 18px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-right: 1px solid #bbb7ad;
+}
+.targetPageIndex span,
+.targetPageTitle > p,
+.targetCardTop span,
+.targetGrowthCard header span,
+.targetRegionCard header > span {
+  color: var(--orange);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .13em;
+}
+.targetPageIndex b { font-size: 9px; letter-spacing: .14em; }
+.targetPageTitle { padding: 0 28px; }
+.targetPageTitle > p { margin-bottom: 7px; color: #6d7069; }
+.targetPageTitle h2 { margin: 0; font-size: clamp(34px, 3.15vw, 52px); font-weight: 560; line-height: .94; letter-spacing: -.065em; }
+.targetPageTitle h2 span { color: var(--orange); }
+.targetPageSummary { max-width: 340px; margin: 0; color: #676a64; font-size: 13px; font-weight: 650; line-height: 1.75; }
+
+.targetPageCanvas {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 380px minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1.15fr) minmax(205px, .65fr);
+  gap: 14px;
+}
+.targetNorthStarCard,
+.targetGrowthCard,
+.targetRegionCard {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #bbb7ad;
+  background: rgba(255,253,249,.84);
+}
+.targetNorthStarCard {
+  grid-row: 1 / 3;
+  padding: 22px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  color: #fff;
+  background:
+    radial-gradient(circle at 92% 7%, rgba(186,255,46,.22), transparent 28%),
+    #0d1016;
+  border-color: #0d1016;
+}
+.targetCardTop { display: flex; align-items: center; justify-content: space-between; }
+.targetCardTop span { color: var(--lime); }
+.targetCardTop b { color: #7e827b; font-size: 10px; letter-spacing: .12em; }
+.targetHeroMetric { align-self: center; }
+.targetHeroMetric > span { display: block; margin-bottom: 6px; color: #9ea29b; font-size: 10px; font-weight: 900; letter-spacing: .12em; }
+.targetHeroMetric strong { display: block; color: #fff; font-size: clamp(70px, 7vw, 112px); line-height: .82; letter-spacing: -.075em; }
+.targetHeroMetric strong i { color: var(--lime); font-size: .42em; font-style: normal; vertical-align: top; }
+.targetHeroMetric p { margin: 16px 0 0; color: #b4b7b0; font-size: 12px; }
+.targetShareTrack { padding: 16px 0 20px; border-top: 1px solid rgba(255,255,255,.18); }
+.targetShareTrack > div { display: flex; justify-content: space-between; margin-bottom: 9px; color: #b8bbb5; font-size: 9px; font-weight: 900; letter-spacing: .1em; }
+.targetShareTrack > div b { color: var(--lime); }
+.targetShareTrack > i { height: 4px; display: block; background: rgba(255,255,255,.12); }
+.targetShareTrack > i > em { width: 20%; height: 100%; display: block; background: var(--lime); }
+.targetImageMetric { padding: 17px; color: #111319; background: var(--lime); }
+.targetImageMetric > div { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.targetImageMetric span { font-size: 9px; font-weight: 900; letter-spacing: .09em; }
+.targetImageMetric strong { font-size: 28px; letter-spacing: -.055em; }
+.targetImageMetric p { margin: 6px 0 0; color: #3b421f; font-size: 9px; }
+
+.targetGrowthCard { display: grid; grid-template-rows: auto minmax(0, 1fr); }
+.targetGrowthCard > header { min-height: 72px; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #c8c4ba; }
+.targetGrowthCard h3,
+.targetRegionCard h3 { margin: 4px 0 0; font-size: 21px; letter-spacing: -.035em; }
+.targetGrowthCard > header > b { color: var(--orange); font-size: 30px; letter-spacing: -.06em; }
+.targetGrowthPlot { min-height: 0; padding: 5px 18px 14px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(330px, .95fr); align-items: center; gap: 10px; }
+.targetGrowthPlot svg { width: 100%; height: 100%; min-height: 200px; }
+.targetGrid line { stroke: #d5d1c8; stroke-width: 1; stroke-dasharray: 4 6; }
+.targetGrowthArea { fill: url(#target-growth-fill); }
+.targetGrowthLine { fill: none; stroke: var(--orange); stroke-width: 5; stroke-linecap: round; }
+.targetPoint circle { fill: #f4f1ea; stroke: var(--orange); stroke-width: 4; }
+.targetPoint.october circle { fill: var(--lime); stroke: #111319; }
+.targetPoint text { fill: #6d7069; font-size: 10px; font-weight: 900; letter-spacing: .12em; }
+.targetPoint .targetValue { fill: #111319; font-size: 10px; letter-spacing: -.02em; }
+.targetPoint .targetEndValue { font-size: 13px; }
+.targetGrowthMobile { display: none; }
+.targetMilestones { display: grid; gap: 7px; }
+.targetMilestones > div { min-height: 59px; padding: 10px 12px; display: grid; grid-template-columns: 68px 1fr; align-items: center; border: 1px solid #cbc7bd; background: #fffdfa; }
+.targetMilestones > .targetPeak { color: #fff; background: var(--orange); border-color: var(--orange); }
+.targetMilestones span { color: var(--orange); font-size: 8px; font-weight: 900; letter-spacing: .09em; }
+.targetMilestones > .targetPeak span { color: var(--lime); }
+.targetMilestones b { font-size: 15px; }
+.targetMilestones p { grid-column: 2; margin: -3px 0 0; color: #74776f; font-size: 9px; }
+.targetMilestones > .targetPeak p { color: rgba(255,255,255,.76); }
+.targetMilestones > .targetTail {
+  min-height: 28px;
+  padding: 2px 4px;
+  display: flex;
+  justify-content: space-between;
+  color: #73766f;
+  background: transparent;
+  border: 0;
+}
+.targetMilestones > .targetTail span { color: #73766f; font-size: 8px; }
+.targetMilestones > .targetTail b { color: var(--orange); font-size: 12px; }
+
+.targetRegionCard { padding: 17px 20px; display: grid; grid-template-columns: 265px minmax(0, 1fr); grid-template-rows: 1fr auto; column-gap: 25px; align-items: center; }
+.targetRegionCard header { grid-row: 1 / 3; }
+.targetRegionCard header p { max-width: 235px; margin: 8px 0 0; color: #74776f; font-size: 10px; line-height: 1.55; }
+.regionStack { height: 70px; display: flex; overflow: hidden; border: 1px solid #111319; }
+.regionStack > div { position: relative; display: flex; align-items: center; justify-content: center; }
+.regionStack span { font-size: 18px; font-weight: 900; letter-spacing: -.035em; }
+.regionOne { color: #fff; background: #111319; }
+.regionTwo { background: var(--orange); }
+.regionThree { background: #ef9b7f; }
+.regionFour { background: #dfdfd6; }
+.regionFive { background: var(--lime); }
+.regionFour span,
+.regionFive span { transform: rotate(-90deg); font-size: 8px; }
+.regionLegend { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; padding-top: 12px; }
+.regionLegend > div { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 7px; border-top: 1px solid #c8c4ba; padding-top: 8px; }
+.regionLegend i { width: 7px; height: 7px; border-radius: 50%; }
+.regionOneDot { background: #111319; }
+.regionTwoDot { background: var(--orange); }
+.regionThreeDot { background: #ef9b7f; }
+.regionFourDot { background: #c9c9c0; }
+.regionFiveDot { background: var(--lime); border: 1px solid #a0b948; }
+.regionSixDot { background: #b7b7ad; }
+.regionLegend span { color: #74776f; font-size: 8px; font-weight: 900; letter-spacing: .08em; }
+.regionLegend b { font-size: 12px; }
+.regionLegend .regionZero { opacity: .62; }
+
+@media (max-width: 1180px) {
+  .targetPageShell { width: min(100% - 34px, 1512px); }
+  .targetPageHeader { grid-template-columns: 115px 1fr 310px; }
+  .targetPageCanvas { grid-template-columns: 330px minmax(0, 1fr); }
+  .targetGrowthPlot { grid-template-columns: minmax(0, 1.1fr) minmax(285px, .9fr); }
+  .targetRegionCard { grid-template-columns: 230px minmax(0, 1fr); }
+}
+
+@media (max-width: 980px) {
+  .targetPage { height: auto; min-height: 0; padding: 38px 0; }
+  .targetPageShell { height: auto; padding: 0; display: block; }
+  .targetPageHeader { grid-template-columns: 90px 1fr; padding: 18px 0; }
+  .targetPageTitle h2 { font-size: clamp(42px, 7vw, 66px); }
+  .targetPageSummary { grid-column: 1 / -1; max-width: none; margin: 18px 0 0; padding-top: 15px; border-top: 1px solid #c8c4ba; }
+  .targetPageCanvas { margin-top: 18px; grid-template-columns: 1fr; grid-template-rows: auto; }
+  .targetNorthStarCard { grid-row: auto; min-height: 580px; }
+  .targetGrowthCard { min-height: 510px; }
+  .targetRegionCard { min-height: 250px; }
+}
+
+@media (max-width: 700px) {
+  .targetPage { padding: 28px 0; }
+  .targetPageShell { width: min(100% - 28px, 1512px); }
+  .targetPageHeader { grid-template-columns: 1fr; gap: 12px; }
+  .targetPageIndex { padding: 0 0 12px; flex-direction: row; border-right: 0; border-bottom: 1px solid #c8c4ba; }
+  .targetPageTitle { padding: 0; }
+  .targetPageTitle h2 { font-size: clamp(40px, 12vw, 56px); }
+  .targetNorthStarCard { min-height: 535px; }
+  .targetHeroMetric strong { font-size: clamp(72px, 23vw, 108px); }
+  .targetGrowthCard { min-height: 0; }
+  .targetGrowthPlot { padding: 10px 14px 16px; grid-template-columns: 1fr; }
+  .targetGrowthPlot svg { display: none; }
+  .targetGrowthMobile { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
+  .targetGrowthMobile > div { min-width: 0; min-height: 78px; padding: 10px; display: grid; align-content: space-between; gap: 4px; border-top: 4px solid #c5c1b7; background: #f0ede6; }
+  .targetGrowthMobile span { color: #777a73; font-size: 8px; font-weight: 900; letter-spacing: .07em; }
+  .targetGrowthMobile b { font-size: 19px; letter-spacing: -.045em; }
+  .targetGrowthMobile small { color: #72766f; font-size: 9px; }
+  .targetGrowthMobile .targetMobilePeak { color: #111319; border-top-color: var(--lime); background: var(--orange); }
+  .targetGrowthMobile .targetMobilePeak span, .targetGrowthMobile .targetMobilePeak small { color: rgba(17,19,25,.72); }
+  .targetGrowthMobile .targetMobileEnd { color: #111319; border-top-color: #111319; background: var(--lime); }
+  .targetMilestones { grid-template-columns: 1fr; }
+  .targetRegionCard { padding: 18px 15px; grid-template-columns: 1fr; grid-template-rows: auto auto auto; gap: 16px; }
+  .targetRegionCard header { grid-row: auto; }
+  .regionStack { height: 60px; }
+  .regionLegend { grid-template-columns: 1fr 1fr; }
+}
+
+/* P03 · scene landscape — API pools split into three production systems */
+.sceneLandscapePage {
+  height: calc(100svh - 76px);
+  min-height: 760px;
+  color: #111319;
+  background: #f4f1ea;
 }
 .sceneLandscapeShell {
   width: min(100% - 64px, 1512px);
-  height: auto;
+  height: 100%;
   margin: 0 auto;
-  padding: 0;
+  padding: 24px 0;
   display: grid;
-  grid-template-rows: 112px minmax(0, 1fr);
-  gap: 18px;
+  grid-template-rows: 132px 96px minmax(0, 1fr);
+  gap: 16px;
 }
 .sceneLandscapeHeader {
   display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
+  grid-template-columns: 150px minmax(0, 1fr) 390px;
   align-items: center;
   border-top: 1px solid #bdb9ae;
   border-bottom: 1px solid #bdb9ae;
@@ -176,87 +381,90 @@ body.is-copy-editing [data-copy-hidden="true"]::after {
   gap: 8px;
   border-right: 1px solid #bdb9ae;
 }
-.sceneLandscapeIndex span { color: var(--orange); font-size: 9px; font-weight: 900; letter-spacing: .13em; }
+.sceneLandscapeIndex span,
+.sceneLandscapeHeader > div:nth-child(2) > p,
+.sceneScaleSource span,
+.sceneLandscapeCard > header span,
+.sceneFormat > span {
+  color: var(--orange);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .13em;
+}
 .sceneLandscapeIndex b { font-size: 9px; letter-spacing: .14em; }
 .sceneLandscapeHeader > div:nth-child(2) { padding: 0 28px; }
+.sceneLandscapeHeader > div:nth-child(2) > p { margin: 0 0 6px; color: #6f726b; }
 .sceneLandscapeHeader h2 { margin: 0; font-size: clamp(36px, 3.25vw, 52px); font-weight: 560; line-height: .92; letter-spacing: -.065em; }
 .sceneLandscapeHeader h2 span { color: var(--orange); }
+.sceneLandscapeHeader > p { max-width: 360px; margin: 0; color: #666962; font-size: 13px; font-weight: 650; line-height: 1.75; }
 
-.sceneLandscapeCards { min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.sceneLandscapeCard {
-  min-width: 0;
-  min-height: 644px;
+.sceneScaleRail {
+  position: relative;
   display: grid;
-  grid-template-rows: 116px 104px minmax(0, 1fr) 54px;
-  overflow: hidden;
-  border: 1px solid #b8b4aa;
-  background: rgba(255,253,249,.93);
-  box-shadow: 0 24px 60px rgba(35,31,24,.08);
+  grid-template-columns: 2fr 1fr;
+  gap: 14px;
 }
-.sceneLandscapeCard > header { padding: 18px 20px; display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; align-items: center; gap: 14px; }
-.sceneLandscapeCard > header > span { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid currentColor; border-radius: 50%; font-size: 14px; font-weight: 950; }
-.sceneLandscapeCard > header small { display: block; margin-bottom: 6px; font-size: 9px; font-weight: 900; letter-spacing: .14em; opacity: .7; }
-.sceneLandscapeCard > header h3 { margin: 0; font-size: clamp(25px, 2vw, 34px); font-weight: 680; line-height: 1; letter-spacing: -.055em; }
-.sceneLandscapeCard > header em { align-self: start; padding: 7px 9px; border: 1px solid currentColor; border-radius: 999px; font-size: 9px; font-weight: 900; font-style: normal; letter-spacing: .08em; white-space: nowrap; }
+.sceneScaleSource { padding: 16px 20px; display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto 1fr; align-items: center; border: 1px solid #111319; }
+.sceneScaleSource span { color: inherit; }
+.sceneScaleSource strong { grid-row: 1 / 3; grid-column: 2; font-size: 35px; letter-spacing: -.055em; }
+.sceneScaleSource small { align-self: end; color: inherit; font-size: 9px; opacity: .68; }
+.videoSource { color: #fff; background: #111319; }
+.videoSource span { color: var(--lime); }
+.imageSource { background: var(--lime); }
+.imageSource span { color: #39421d; }
+.sceneSplitConnector { position: absolute; left: 0; bottom: -17px; width: calc(66.666% - 5px); height: 18px; pointer-events: none; }
+.sceneSplitConnector i { position: absolute; left: 0; right: 0; top: 0; height: 1px; background: #111319; }
+.sceneSplitConnector i::before,
+.sceneSplitConnector i::after { content: ""; position: absolute; top: 0; width: 1px; height: 17px; background: #111319; }
+.sceneSplitConnector i::before { left: 25%; }
+.sceneSplitConnector i::after { left: 75%; }
+.sceneSplitConnector b { position: absolute; top: 4px; color: #6e716a; font-size: 8px; letter-spacing: .08em; }
+.sceneSplitConnector b:nth-of-type(1) { left: calc(25% + 7px); }
+.sceneSplitConnector b:nth-of-type(2) { left: calc(75% + 7px); }
+
+.sceneLandscapeCards { min-height: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding-top: 10px; }
+.sceneLandscapeCard { min-width: 0; display: grid; grid-template-rows: 110px 118px minmax(0, 1fr) 52px; overflow: hidden; border: 1px solid #bbb7ad; background: #fffdfa; }
+.sceneLandscapeCard > header { position: relative; padding: 17px 19px; display: grid; grid-template-columns: 1fr auto; align-content: space-between; }
+.sceneLandscapeCard > header span { color: inherit; }
+.sceneLandscapeCard > header strong { grid-row: 1 / 3; grid-column: 2; align-self: center; font-size: clamp(36px, 3.3vw, 53px); letter-spacing: -.065em; }
+.sceneLandscapeCard > header small { font-size: 10px; opacity: .68; }
 .brandSceneCard > header { color: #fff; background: #111319; }
-.brandSceneCard > header > span { color: var(--lime); }
+.brandSceneCard > header span { color: var(--lime); }
 .performanceSceneCard > header { color: #fff; background: var(--orange); }
-.performanceSceneCard > header > span { color: #fff; }
-.displaySceneCard > header { color: #111319; background: var(--lime); }
-.displaySceneCard > header > span { color: #364118; }
-
-.sceneFormat { padding: 15px 20px 16px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; border-bottom: 1px solid #c8c4ba; background: #ebe8e0; }
-.sceneFormat > span { color: var(--orange); font-size: 9px; font-weight: 900; letter-spacing: .13em; }
-.sceneFormat > b { grid-row: 1 / 3; grid-column: 2; font-size: 33px; line-height: .95; letter-spacing: -.06em; }
-.sceneFormat > p { margin: 15px 0 0; color: #656861; font-size: 12px; font-weight: 750; line-height: 1.4; }
-
-.sceneCardContent { min-height: 0; padding: 14px 18px 16px; display: grid; grid-template-rows: 106px minmax(0, 1fr); gap: 13px; }
-.sceneFacts { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
-.sceneFacts section { min-width: 0; padding: 12px; border: 1px solid #d0ccc2; background: #fff; }
-.sceneFacts span,
-.sceneCustomerTitle > span,
-.sceneCustomerGroups span { display: block; color: #777a73; font-size: 9px; font-weight: 900; letter-spacing: .07em; }
-.sceneFacts p { margin: 12px 0 0; font-size: 12px; font-weight: 780; line-height: 1.5; }
-
-.sceneCustomerPanel { min-height: 0; padding: 13px; border: 1px solid #c7c3b9; background: #f1eee7; }
-.sceneCustomerTitle { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 10px; border-bottom: 1px solid #cfcbc1; }
-.sceneCustomerTitle > span { color: #111319; font-size: 11px; }
-.sceneCustomerTitle > b { color: var(--orange); font-size: 8px; letter-spacing: .12em; }
-.sceneCustomerGroups { padding-top: 10px; display: grid; grid-template-columns: 1fr; gap: 8px; }
-.sceneCustomerGroups > div { min-width: 0; padding: 9px 10px; border-left: 3px solid var(--orange); background: #fffdfa; }
-.brandSceneCard .sceneCustomerGroups > div { border-left-color: #111319; }
-.displaySceneCard .sceneCustomerGroups > div { border-left-color: #8cab1d; }
-.sceneCustomerGroups span { margin-bottom: 5px; color: var(--orange); }
-.brandSceneCard .sceneCustomerGroups span { color: #5f635d; }
-.displaySceneCard .sceneCustomerGroups span { color: #5c6f17; }
-.sceneCustomerGroups p { margin: 0; font-size: 10.5px; font-weight: 800; line-height: 1.35; }
-.sceneCustomerGroupsTwo { grid-template-columns: 1fr 1fr; }
-
-.sceneLandscapeCard > a { padding: 0 20px; display: flex; align-items: center; justify-content: space-between; color: #fff; background: #111319; font-size: 12px; font-weight: 900; letter-spacing: .04em; }
-.sceneLandscapeCard > a span { color: var(--lime); font-size: 18px; }
+.performanceSceneCard > header span { color: #fff5ed; }
+.displaySceneCard > header { background: var(--lime); }
+.displaySceneCard > header span { color: #38411c; }
+.sceneFormat { padding: 16px 19px; display: grid; grid-template-columns: 1fr auto; align-items: start; border-bottom: 1px solid #c8c4ba; background: #f2efe8; }
+.sceneFormat > span { color: #73766f; }
+.sceneFormat > b { grid-row: 1 / 3; grid-column: 2; font-size: 31px; letter-spacing: -.055em; }
+.sceneFormat > p { max-width: 280px; margin: 12px 0 0; color: #676a63; font-size: 13px; font-weight: 650; line-height: 1.38; }
+.sceneLandscapeCard dl { margin: 0; padding: 0 19px; align-self: stretch; display: grid; grid-template-rows: repeat(4, 1fr); }
+.sceneLandscapeCard dl > div { min-height: 0; display: grid; grid-template-columns: 100px 1fr; align-items: center; gap: 13px; border-bottom: 1px solid #d0ccc2; }
+.sceneLandscapeCard dl > div:last-child { border-bottom: 0; }
+.sceneLandscapeCard dt { color: #777a73; font-size: 10px; font-weight: 900; letter-spacing: .07em; }
+.sceneLandscapeCard dd { margin: 0; font-size: 13px; font-weight: 750; line-height: 1.38; }
+.sceneLandscapeCard > a { padding: 0 19px; display: flex; align-items: center; justify-content: space-between; color: #fff; background: #111319; font-size: 12px; font-weight: 900; letter-spacing: .04em; }
+.sceneLandscapeCard > a span { color: var(--lime); font-size: 17px; }
 .performanceSceneCard > a { background: var(--orange); }
 .displaySceneCard > a { color: #111319; background: var(--lime); }
 .displaySceneCard > a span { color: #111319; }
 
 @media (max-width: 1180px) {
   .sceneLandscapeShell { width: min(100% - 34px, 1512px); }
-  .sceneLandscapeHeader { grid-template-columns: 115px 1fr; }
-  .sceneLandscapeCard > header { grid-template-columns: 38px minmax(0, 1fr); gap: 11px; }
-  .sceneLandscapeCard > header > span { width: 36px; height: 36px; }
-  .sceneLandscapeCard > header em { display: none; }
-  .sceneCustomerGroups p { font-size: 10px; }
+  .sceneLandscapeHeader { grid-template-columns: 115px 1fr 310px; }
+  .sceneLandscapeCard dl > div { grid-template-columns: 82px 1fr; }
 }
 
 @media (max-width: 980px) {
-  .sceneLandscapePage { padding: 38px 0; }
+  .sceneLandscapePage { height: auto; min-height: 0; padding: 38px 0; }
   .sceneLandscapeShell { height: auto; padding: 0; display: block; }
   .sceneLandscapeHeader { grid-template-columns: 90px 1fr; padding: 18px 0; }
   .sceneLandscapeHeader h2 { font-size: clamp(42px, 7vw, 66px); }
+  .sceneLandscapeHeader > p { grid-column: 1 / -1; max-width: none; margin-top: 18px; padding-top: 15px; border-top: 1px solid #c8c4ba; }
+  .sceneScaleRail { margin-top: 18px; }
   .sceneLandscapeCards { margin-top: 20px; grid-template-columns: 1fr; }
-  .sceneLandscapeCard { min-height: 640px; }
-  .sceneLandscapeCard > header { grid-template-columns: 44px minmax(0, 1fr) auto; }
-  .sceneLandscapeCard > header em { display: block; }
-  .sceneCustomerGroups p { font-size: 11px; }
+  .sceneLandscapeCard { min-height: 520px; }
+  .sceneSplitConnector { display: none; }
 }
 
 @media (max-width: 700px) {
@@ -266,16 +474,10 @@ body.is-copy-editing [data-copy-hidden="true"]::after {
   .sceneLandscapeIndex { padding: 0 0 12px; flex-direction: row; border-right: 0; border-bottom: 1px solid #c8c4ba; }
   .sceneLandscapeHeader > div:nth-child(2) { padding: 0; }
   .sceneLandscapeHeader h2 { font-size: clamp(40px, 12vw, 56px); }
-  .sceneLandscapeCard { min-height: 0; grid-template-rows: auto auto auto 56px; }
-  .sceneLandscapeCard > header { min-height: 112px; padding: 16px; grid-template-columns: 40px minmax(0, 1fr); }
-  .sceneLandscapeCard > header > span { width: 38px; height: 38px; }
-  .sceneLandscapeCard > header h3 { font-size: 29px; }
-  .sceneLandscapeCard > header em { display: none; }
-  .sceneFormat { padding: 16px; }
-  .sceneFormat > b { font-size: 30px; }
-  .sceneCardContent { padding: 12px; grid-template-rows: auto auto; }
-  .sceneFacts { grid-template-columns: 1fr; }
-  .sceneCustomerGroupsTwo { grid-template-columns: 1fr; }
+  .sceneScaleRail { grid-template-columns: 1fr; }
+  .sceneScaleSource strong { font-size: 29px; }
+  .sceneLandscapeCard { min-height: 500px; grid-template-rows: 105px 112px minmax(0, 1fr) 52px; }
+  .sceneLandscapeCard > header strong { font-size: 42px; }
 }
 
 /* P03 · scene demos — reference on the left, production brief on the right */
@@ -283,7 +485,7 @@ body.is-copy-editing [data-copy-hidden="true"]::after {
 .sceneDemoPage { padding: 42px 0 58px; border-top: 1px solid #bdb9ae; scroll-margin-top: 12px; }
 .sceneDemoPage02 { background: #f5f2ea; }
 .sceneDemoPage03 { background: #e9ebe5; }
-.sceneDemoShell { width: min(1512px, calc(100% - 64px)); margin-inline: auto; display: grid; grid-template-rows: 92px auto; }
+.sceneDemoShell { width: min(1512px, calc(100% - 64px)); min-height: 820px; margin-inline: auto; display: grid; grid-template-rows: 92px minmax(0, 1fr); }
 .sceneDemoHeader { display: grid; grid-template-columns: 150px minmax(0, 1fr) auto; align-items: center; border-top: 1px solid #aca89e; }
 .sceneDemoHeader > div { align-self: stretch; display: flex; flex-direction: column; justify-content: center; gap: 7px; border-right: 1px solid #aca89e; }
 .sceneDemoHeader > div span { color: var(--orange); font-size: 11px; font-weight: 900; letter-spacing: .16em; }
@@ -291,8 +493,8 @@ body.is-copy-editing [data-copy-hidden="true"]::after {
 .sceneDemoHeader h3 { margin: 0; padding-left: 30px; font-size: clamp(42px, 4vw, 62px); font-weight: 570; letter-spacing: -.065em; }
 .sceneDemoHeader > p { margin: 0; color: #676b64; font-size: 12px; font-weight: 800; letter-spacing: .08em; }
 
-.sceneDemoStage { min-height: 680px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(520px, .92fr); align-items: start; gap: 20px; }
-.sceneDemoVisual { position: sticky; top: 16px; min-width: 0; min-height: 0; height: 680px; margin: 0; align-self: start; display: grid; grid-template-rows: 72px minmax(0, 1fr) 64px; color: #fff; background: #101319; border: 1px solid #aba79d; box-shadow: 0 24px 70px rgba(44, 40, 31, .09); }
+.sceneDemoStage { min-height: 680px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(520px, .92fr); overflow: hidden; border: 1px solid #aba79d; background: #fffdfa; box-shadow: 0 24px 70px rgba(44, 40, 31, .09); }
+.sceneDemoVisual { min-width: 0; min-height: 0; height: 680px; margin: 0; align-self: start; display: grid; grid-template-rows: 72px minmax(0, 1fr) 64px; color: #fff; background: #101319; border-right: 1px solid #aba79d; }
 .sceneDemoVisualLabel { padding: 16px 22px; display: flex; align-items: center; justify-content: space-between; gap: 18px; border-bottom: 1px solid #30343d; }
 .sceneDemoVisualLabel span { color: var(--lime); font-size: 10px; font-weight: 900; letter-spacing: .14em; }
 .sceneDemoVisualLabel b { max-width: 60%; font-size: 14px; text-align: right; }
@@ -307,49 +509,43 @@ body.is-copy-editing [data-copy-hidden="true"]::after {
 .sceneDemoImageGrid img { width: 100%; height: 100%; display: block; object-fit: cover; }
 .sceneDemoImageGrid figcaption { position: absolute; left: 10px; bottom: 10px; padding: 7px 9px; color: #111319; background: var(--lime); font-size: 9px; font-weight: 900; letter-spacing: .08em; }
 
-.sceneDemoBrief { min-width: 0; padding: 30px; display: grid; align-content: start; gap: 22px; background: #fffdfa; border: 1px solid #aba79d; box-shadow: 0 24px 70px rgba(44, 40, 31, .09); }
+.sceneDemoBrief { min-width: 0; padding: 28px 30px 24px; display: grid; grid-template-rows: auto auto auto auto; align-content: start; gap: 18px; background: #fffdfa; }
 .sceneDemoThesis { padding-bottom: 18px; border-bottom: 1px solid #cfcbc1; }
 .sceneDemoThesis > span,
 .sceneDemoSubhead > span { color: var(--orange); font-size: 10px; font-weight: 900; letter-spacing: .13em; }
 .sceneDemoThesis h4 { margin: 13px 0 0; font-size: clamp(19px, 1.45vw, 25px); font-weight: 650; line-height: 1.35; letter-spacing: -.025em; }
 .sceneDemoSubhead { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
 .sceneDemoSubhead > b { color: #6f736d; font-size: 12px; }
-.sceneDemoExpanders { display: grid; gap: 14px; }
-.sceneDemoDisclosure { border: 1px solid #c4c0b6; background: #f5f2eb; }
-.sceneDemoDisclosure > summary { min-height: 62px; padding: 0 14px; display: grid; grid-template-columns: minmax(0, 1fr) auto 30px; align-items: center; gap: 12px; border-left: 4px solid #111319; cursor: pointer; list-style: none; }
-.sceneDemoPage02 .sceneDemoDisclosure > summary { border-left-color: var(--orange); }
-.sceneDemoPage03 .sceneDemoDisclosure > summary { border-left-color: #94b61a; }
-.sceneDemoDisclosure > summary::-webkit-details-marker { display: none; }
-.sceneDemoDisclosure > summary > span { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 900; }
-.sceneDemoDisclosure > summary > span b { color: var(--orange); font-size: 10px; letter-spacing: .1em; }
-.sceneDemoDisclosure > summary > small { color: #72766f; font-size: 9px; font-weight: 900; letter-spacing: .08em; }
-.sceneDemoDisclosure > summary > i { width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid #111319; border-radius: 50%; font-style: normal; }
-.sceneDemoDisclosure > summary > i::before { content: "+"; font-size: 18px; line-height: 1; }
-.sceneDemoDisclosure[open] > summary { border-bottom: 1px solid #c4c0b6; }
-.sceneDemoDisclosure[open] > summary > i::before { content: "−"; }
+.sceneDemoWhoGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.sceneDemoWhoGrid > div { min-width: 0; min-height: 66px; padding: 11px 12px; background: #f0ede6; border-left: 3px solid #111319; }
+.sceneDemoPage02 .sceneDemoWhoGrid > div { border-left-color: var(--orange); }
+.sceneDemoPage03 .sceneDemoWhoGrid > div { border-left-color: #86a61b; }
+.sceneDemoWhoGrid span { display: block; margin-bottom: 8px; color: #787b75; font-size: 9px; font-weight: 900; letter-spacing: .08em; }
+.sceneDemoWhoGrid b { display: block; font-size: 12px; line-height: 1.4; }
+.sceneDemoModels > div:last-child { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.sceneDemoModels p { min-width: 0; margin: 0; padding: 10px 12px; display: grid; grid-template-columns: auto 1fr; gap: 10px; background: #111319; }
+.sceneDemoModels p span { color: var(--lime); font-size: 10px; font-weight: 900; }
+.sceneDemoModels p b { color: #fff; font-size: 11px; line-height: 1.35; }
 
-.sceneWorkflowPanel { padding: 20px; }
-.sceneWorkflowPanel > h4 { margin: 0 0 18px; font-size: clamp(22px, 1.8vw, 30px); line-height: 1.16; letter-spacing: -.04em; }
-.sceneWorkflowSteps { margin: 0; padding: 0; display: grid; list-style: none; }
-.sceneWorkflowSteps > li { min-width: 0; padding: 17px 0; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; border-top: 1px solid #d2cec4; }
-.sceneWorkflowSteps > li > span { padding-top: 3px; color: var(--orange); font-size: 10px; font-weight: 950; letter-spacing: .1em; }
-.sceneWorkflowSteps h5 { margin: 0 0 7px; font-size: 15px; line-height: 1.25; }
-.sceneWorkflowSteps p { margin: 0; color: #5e625d; font-size: 12px; line-height: 1.58; }
-.sceneWorkflowSteps aside { margin-top: 12px; padding: 12px; background: #eefecc; border-left: 3px solid #9abe1b; }
-.sceneWorkflowSteps aside b { display: block; margin-bottom: 5px; color: #4b5e10; font-size: 10px; letter-spacing: .08em; }
-.sceneWorkflowSteps aside p { color: #3f4827; font-size: 11px; line-height: 1.5; }
-
-.sceneDemoRequirementGrid { padding: 18px; display: grid; grid-template-columns: 1fr; gap: 10px; }
-.sceneDemoRequirementGrid article { min-width: 0; padding: 17px; background: #fff; border: 1px solid #d2cec4; }
-.sceneDemoRequirementGrid h5 { margin: 0 0 13px; padding-bottom: 11px; border-bottom: 1px solid #d8d4ca; font-size: 16px; }
-.sceneDemoRequirementGrid ul { margin: 0; padding: 0; display: grid; gap: 9px; list-style: none; }
-.sceneDemoRequirementGrid li { position: relative; padding-left: 18px; color: #4f544e; font-size: 11px; line-height: 1.58; }
-.sceneDemoRequirementGrid li::before { content: "→"; position: absolute; left: 0; top: 0; color: var(--orange); font-weight: 900; }
-
-.sceneCompetitorGrid { padding: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.sceneCompetitorGrid article { min-width: 0; min-height: 104px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; color: #fff; background: #111319; }
-.sceneCompetitorGrid span { color: var(--lime); font-size: 10px; font-weight: 900; letter-spacing: .12em; }
-.sceneCompetitorGrid strong { margin-top: 16px; font-size: 14px; line-height: 1.4; }
+.sceneDemoExpanders { display: grid; gap: 8px; }
+.sceneDemoExpanders details { border: 1px solid #bbb7ad; background: #f6f3ec; }
+.sceneDemoExpanders summary { min-height: 48px; padding: 0 13px; display: grid; grid-template-columns: 1fr auto 24px; align-items: center; gap: 12px; cursor: pointer; list-style: none; }
+.sceneDemoExpanders summary::-webkit-details-marker { display: none; }
+.sceneDemoExpanders summary > span { font-size: 13px; font-weight: 900; }
+.sceneDemoExpanders summary > b { color: #73766f; font-size: 9px; letter-spacing: .1em; }
+.sceneDemoExpanders summary > i { display: grid; place-items: center; width: 22px; height: 22px; color: #111319; background: var(--lime); border-radius: 50%; font-size: 15px; font-style: normal; transition: transform .18s ease; }
+.sceneDemoExpanders details[open] summary { border-bottom: 1px solid #bbb7ad; }
+.sceneDemoExpanders details[open] summary > i { transform: rotate(45deg); }
+.sceneDemoExpanders ol { margin: 0; padding: 12px 14px 16px; display: grid; gap: 10px; list-style: none; }
+.sceneDemoExpanders ol li { display: grid; grid-template-columns: 30px 1fr; gap: 10px; }
+.sceneDemoExpanders ol li > span { color: var(--orange); font-size: 10px; font-weight: 900; }
+.sceneDemoExpanders ol b { font-size: 12px; }
+.sceneDemoExpanders ol p { margin: 4px 0 0; color: #666a64; font-size: 11px; line-height: 1.5; }
+.sceneDemoRequirementGrid { padding: 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.sceneDemoRequirementGrid section { min-width: 0; padding: 12px; background: #fff; border: 1px solid #d5d1c7; }
+.sceneDemoRequirementGrid h5 { margin: 0 0 10px; font-size: 12px; }
+.sceneDemoRequirementGrid ul { margin: 0; padding-left: 17px; }
+.sceneDemoRequirementGrid li { margin-top: 7px; color: #626761; font-size: 10px; line-height: 1.45; }
 
 @media (max-width: 1180px) {
   .sceneDemoShell { width: min(100% - 36px, 1512px); }
@@ -363,7 +559,7 @@ body.is-copy-editing [data-copy-hidden="true"]::after {
   .sceneDemoHeader { min-height: 94px; grid-template-columns: 100px 1fr; }
   .sceneDemoHeader > p { grid-column: 1 / -1; padding: 11px 0; border-top: 1px solid #aca89e; }
   .sceneDemoStage { min-height: 0; grid-template-columns: 1fr; }
-  .sceneDemoVisual { position: static; height: 610px; }
+  .sceneDemoVisual { height: 610px; border-right: 0; border-bottom: 1px solid #aba79d; }
   .sceneDemoBrief { padding: 28px; }
 }
 
@@ -382,10 +578,7 @@ body.is-copy-editing [data-copy-hidden="true"]::after {
   .sceneDemoImageGrid { padding: 8px; grid-template-columns: 1fr; grid-template-rows: repeat(3, 230px); }
   .sceneDemoImageGrid figure:first-child { grid-row: auto; }
   .sceneDemoBrief { padding: 20px 16px; }
-  .sceneDemoDisclosure > summary { grid-template-columns: minmax(0, 1fr) 28px; }
-  .sceneDemoDisclosure > summary > small { display: none; }
-  .sceneWorkflowPanel, .sceneDemoRequirementGrid, .sceneCompetitorGrid { padding: 14px; }
-  .sceneCompetitorGrid { grid-template-columns: 1fr; }
+  .sceneDemoWhoGrid, .sceneDemoModels > div:last-child, .sceneDemoRequirementGrid { grid-template-columns: 1fr; }
 }
 
 * { box-sizing: border-box; }
@@ -886,16 +1079,50 @@ button, summary { font: inherit; }
 .lorealBudgetEquation div > span { margin-top: 9px; color: #5f635c; font-size: 10px; font-weight: 750; }
 .lorealBudgetHero > span { color: #b9bdb6 !important; }
 
+.lorealDecisionBoard {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.lorealDecisionCard {
+  min-width: 0;
+  padding: 13px;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  border: 1px solid #c8c4ba;
+  background: #f7f4ed;
+}
+.lorealDecisionCard span {
+  color: #737870;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .11em;
+}
+.lorealDecisionCard h5 { margin: 8px 0 9px; color: #141820; font-size: 21px; letter-spacing: -.04em; }
+.lorealDecisionCard dl {
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.lorealDecisionCard dt {
+  color: #747971;
+  font-size: 8px;
+  font-weight: 950;
+  letter-spacing: .12em;
+}
+.lorealDecisionCard dd {
+  margin: 4px 0 0;
+  color: #555951;
+  font-size: 10px;
+  line-height: 1.48;
+}
+
 .lorealApiBoundary { min-width: 0; padding: 7px 10px; display: grid; grid-template-columns: 126px 1fr minmax(190px, 1.25fr); align-items: center; gap: 10px; color: #333730; background: #ebe8df; border-left: 3px solid var(--orange); }
 .lorealApiBoundary span { color: var(--orange); font-size: 8px; font-weight: 950; letter-spacing: .12em; }
 .lorealApiBoundary strong { font-size: 10px; }
 .lorealApiBoundary p { margin: 0; color: #5e625b; font-size: 9px; font-weight: 650; line-height: 1.35; text-align: right; }
 
-.lorealFork { min-height: 0; display: grid; grid-template-rows: 44px minmax(0, 1fr); }
-.lorealForkStem { position: relative; display: flex; flex-direction: column; align-items: center; color: #6d716a; }
-.lorealForkStem::after { content: ""; position: absolute; left: 25%; right: 25%; bottom: 0; height: 1px; background: #bdb9af; }
-.lorealForkStem span { padding: 4px 10px; z-index: 1; background: #fffdf9; font-size: 8px; font-weight: 900; letter-spacing: .1em; }
-.lorealForkStem i { color: var(--orange); font-style: normal; line-height: 1; }
 .lorealForkPaths { min-height: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .lorealForkPaths article { position: relative; min-width: 0; padding: 15px; overflow: hidden; border: 1px solid #c8c4ba; background: #f7f4ed; }
 .lorealForkPaths article::before { content: ""; position: absolute; top: -10px; left: 50%; width: 1px; height: 10px; background: #bdb9af; }
@@ -910,6 +1137,31 @@ button, summary { font: inherit; }
 .lorealSplitShare strong { color: var(--orange); font-size: 29px; line-height: .8; letter-spacing: -.05em; }
 .lorealSplitShare small { color: #5e625b; font-size: 9px; font-weight: 850; letter-spacing: .02em; }
 .lorealForkPaths p { position: relative; z-index: 1; max-width: 88%; margin: 0; color: #555951; font-size: 11px; font-weight: 620; line-height: 1.5; }
+
+.lorealEntryMatrix {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+.lorealEntryMatrix article {
+  min-width: 0;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 7px;
+  border: 1px solid #c8c4ba;
+  background: #fffdf9;
+}
+.lorealEntryMatrix span {
+  color: var(--orange);
+  font-size: 10px;
+  font-weight: 950;
+}
+.lorealEntryMatrix small { color: #747971; font-size: 9px; font-weight: 900; letter-spacing: .12em; }
+.lorealEntryMatrix h5 { margin: 4px 0 4px; font-size: 16px; letter-spacing: -.035em; }
+.lorealEntryMatrix p { margin: 0; color: #555951; font-size: 10px; line-height: 1.48; }
+.lorealEntryMatrix b { color: #333730; font-size: 10px; letter-spacing: .01em; }
 
 .lorealOrgMap { min-height: 0; display: grid; grid-template-rows: minmax(86px, .7fr) 36px minmax(100px, 1fr); }
 .lorealPlatformNode { width: 68%; min-width: 0; margin: 0 auto; padding: 15px 18px; color: #fff; background: #151922; border: 1px solid #151922; box-shadow: 0 12px 32px rgba(17,19,25,.14); }
@@ -939,6 +1191,398 @@ button, summary { font: inherit; }
 .lorealCaseFooter strong { font-size: 9px; font-weight: 850; letter-spacing: .04em; }
 .lorealCaseFooter i { color: var(--orange); font-style: normal; }
 .lorealCaseFooter strong { padding: 7px 10px; color: #111319; background: var(--lime); }
+
+/* L'Oréal case — single-screen decision map */
+.lorealCasePage {
+  height: min(960px, calc(100svh - 24px));
+  min-height: 820px;
+  padding: 24px 26px 20px;
+  grid-template-rows: 108px minmax(0, 1fr);
+  gap: 12px;
+  background:
+    linear-gradient(rgba(17,19,25,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,19,25,.025) 1px, transparent 1px),
+    #f6f3ec;
+  background-size: 40px 40px;
+  box-shadow: 0 24px 64px rgba(17,19,25,.07);
+}
+.lorealCaseHeader {
+  grid-template-columns: 108px minmax(0, 1fr) 330px;
+  border-color: #aaa79d;
+}
+.lorealCaseIndex { padding-top: 17px; }
+.lorealCaseTitle { padding: 0 28px !important; }
+.lorealCaseTitle > p { margin: 0 0 7px !important; font-size: 9px !important; }
+.lorealCaseHeader h3 {
+  max-width: 720px;
+  font-size: clamp(34px, 3.05vw, 48px);
+  font-weight: 650;
+  line-height: .98;
+  text-wrap: balance;
+}
+.lorealVerdict {
+  align-self: stretch;
+  padding: 15px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 4px solid var(--orange);
+  background: rgba(255,255,255,.66);
+}
+.lorealVerdict span { color: var(--orange); font-size: 9px; font-weight: 950; letter-spacing: .14em; }
+.lorealVerdict p { margin: 7px 0 8px; color: #30332f; font-size: 13px; font-weight: 760; line-height: 1.35; }
+.lorealVerdict strong { color: #696d66; font-size: 10px; line-height: 1.35; }
+
+.lorealCaseCanvas {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(310px, .67fr) minmax(0, 1.33fr);
+  grid-template-rows: minmax(0, 1fr) 184px;
+  gap: 12px;
+}
+.lorealScalePanel,
+.lorealOrgPanel,
+.lorealEntryPanel {
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid #b9b5ab;
+  background: rgba(255,253,249,.92);
+}
+.lorealScalePanel,
+.lorealOrgPanel { padding: 17px; }
+.lorealScalePanel { display: grid; grid-template-rows: auto minmax(120px, 1fr) auto auto; gap: 10px; }
+.lorealOrgPanel { display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 10px; }
+.lorealPanelTitle { min-height: 36px; padding-bottom: 9px; }
+.lorealPanelTitle span { font-size: 9px; }
+.lorealPanelTitle h4 { font-size: clamp(17px, 1.45vw, 21px); }
+
+.lorealScaleSplit {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  border: 1px solid #c6c1b6;
+}
+.lorealScaleSplit > div { min-width: 0; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; background: #ffeadf; }
+.lorealScaleSplit > div:last-child { border-left: 1px solid #b8b3a9; background: #eef8d3; }
+.lorealScaleSplit small { color: #747870; font-size: 9px; font-weight: 950; letter-spacing: .13em; }
+.lorealScaleSplit strong { margin-top: auto; color: #171a20; font-size: clamp(42px, 4vw, 64px); line-height: .82; letter-spacing: -.075em; }
+.lorealScaleSplit strong em { color: var(--orange); font-size: .48em; font-style: normal; }
+.lorealScaleSplit > div:last-child strong em { color: #668000; }
+.lorealScaleSplit p { margin: 9px 0 0; color: #565a53; font-size: 11px; font-weight: 750; }
+
+.lorealVolumeGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.lorealVolumeGrid article { min-width: 0; padding: 11px 12px; border: 1px solid #cac6bc; background: #f5f2ea; }
+.lorealVolumeGrid span { display: block; color: #747870; font-size: 8px; font-weight: 950; letter-spacing: .12em; }
+.lorealVolumeGrid strong { display: block; margin: 7px 0 3px; color: #111319; font-size: clamp(22px, 2.25vw, 34px); line-height: .9; letter-spacing: -.06em; }
+.lorealVolumeGrid strong small { margin-left: 3px; font-size: .42em; letter-spacing: -.02em; }
+.lorealVolumeGrid p { margin: 0; color: #666a63; font-size: 9px; }
+.lorealScaleRequirements { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; }
+.lorealScaleRequirements span { margin-right: 3px; color: var(--orange); font-size: 9px; font-weight: 950; letter-spacing: .1em; }
+.lorealScaleRequirements b { padding: 5px 7px; color: #52564f; border: 1px solid #d1cdc4; background: #fffdf9; font-size: 8px; }
+
+.lorealOrgRail {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 22px minmax(0, 1fr) 22px minmax(0, 1fr);
+  align-items: stretch;
+}
+.lorealRailArrow { display: grid; place-items: center; color: var(--orange); font-size: 15px; font-style: normal; font-weight: 950; }
+.lorealOrgCard {
+  min-width: 0;
+  padding: 13px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #c9c5bb;
+  background: #f7f4ed;
+}
+.lorealOrgCardPrimary { border: 2px solid var(--orange); background: #fff0e8; box-shadow: 0 12px 30px rgba(255,90,31,.09); }
+.lorealOrgCard header { display: grid; grid-template-columns: 22px 1fr auto; align-items: center; gap: 6px; }
+.lorealOrgCard header span { color: var(--orange); font-size: 11px; font-weight: 950; }
+.lorealOrgCard header small { color: #767a73; font-size: 9px; font-weight: 950; letter-spacing: .1em; }
+.lorealOrgCard header b { padding: 4px 6px; color: #50544d; background: #e8e5dc; font-size: 9px; }
+.lorealOrgCardPrimary header b { color: #191b21; background: var(--lime); }
+.lorealOrgCard h5 { margin: 12px 0 6px; color: #151820; font-size: clamp(17px, 1.55vw, 21px); line-height: 1.05; letter-spacing: -.04em; }
+.lorealOrgLead { min-height: 38px; margin: 0; color: #5d615a; font-size: 11.5px; font-weight: 650; line-height: 1.45; }
+.lorealOrgStats { min-height: 38px; margin: 0; color: #676b64; font-size: 10px; font-weight: 800; }
+.lorealOrgStats strong { color: #171a20; font-size: 22px; letter-spacing: -.05em; }
+.lorealOrgStats i { margin: 0 5px; color: var(--orange); font-style: normal; }
+.lorealOrgCard dl { margin: auto 0 0; display: grid; }
+.lorealOrgCard dl > div { padding: 8px 0; border-top: 1px solid #d3cfc6; }
+.lorealOrgCard dt { margin-bottom: 3px; color: #7b7f77; font-size: 9px; font-weight: 950; letter-spacing: .1em; }
+.lorealOrgCard dd { margin: 0; color: #4f534d; font-size: 11px; font-weight: 610; line-height: 1.42; }
+.lorealOrgCard dd strong { color: var(--orange); }
+
+.lorealEntryPanel {
+  grid-column: 1 / -1;
+  padding: 13px 15px;
+  display: grid;
+  grid-template-columns: 215px minmax(0, 1fr);
+  gap: 14px;
+}
+.lorealEntryHeading { padding: 4px 14px 4px 0; border-right: 1px solid #cbc7bd; }
+.lorealEntryHeading span { color: var(--orange); font-size: 9px; font-weight: 950; letter-spacing: .13em; }
+.lorealEntryHeading h4 { margin: 10px 0 7px; font-size: 22px; line-height: 1.05; letter-spacing: -.045em; }
+.lorealEntryHeading p { margin: 0; color: #656961; font-size: 11px; line-height: 1.45; }
+.lorealEntryCards { min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.lorealEntryCards article { min-width: 0; padding: 11px 12px; border: 1px solid #cbc7bd; background: #f6f3ec; }
+.lorealEntryCards article.isPriority { border-color: var(--orange); background: #fff0e8; }
+.lorealEntryCards article.isGrowth { background: #eef8d3; }
+.lorealEntryCards header { display: flex; justify-content: space-between; gap: 8px; }
+.lorealEntryCards header span { color: var(--orange); font-size: 9px; font-weight: 950; }
+.lorealEntryCards header b { color: #7b7f77; font-size: 8px; letter-spacing: .1em; }
+.lorealEntryCards h5 { margin: 9px 0 5px; font-size: 16px; letter-spacing: -.035em; }
+.lorealEntryCards p { margin: 0 0 5px; color: #333730; font-size: 11px; font-weight: 750; line-height: 1.35; }
+.lorealEntryCards p strong { color: var(--orange); font-size: 17px; letter-spacing: -.04em; }
+.lorealEntryCards small { display: block; color: #6a6e67; font-size: 10px; line-height: 1.4; }
+.lorealCaseFooter { border-bottom: 0; border-top: 1px solid #aaa79d; }
+
+/* L'Oréal case v2 — one ecosystem map, one decision path */
+.lorealCasePage {
+  height: min(852px, calc(100svh - 24px));
+  min-height: 792px;
+  grid-template-rows: 116px minmax(0, 1fr);
+  gap: 14px;
+}
+.lorealCaseHeader { grid-template-columns: 108px minmax(0, 1fr) 340px; }
+.lorealCaseTitle { align-self: stretch; padding: 8px 28px 12px !important; display: flex; flex-direction: column; justify-content: center; }
+.lorealCaseTitle h3 { max-width: 790px; font-size: clamp(32px, 2.75vw, 40px); line-height: 1.02; }
+.lorealVerdict { padding: 13px 18px; background: rgba(255,255,255,.78); }
+.lorealVerdict p { margin: 6px 0; font-size: 13px; }
+.lorealVerdict strong { font-size: 10.5px; }
+
+.lorealCaseCanvas {
+  position: relative;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.48fr) minmax(300px, .62fr);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 18px;
+  border: 1px solid #b8b4aa;
+  background: rgba(255,253,249,.94);
+}
+.lorealEcosystem,
+.lorealPlaybook {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+}
+.lorealEcosystem { padding-right: 18px; border-right: 1px solid #cbc7bd; }
+.lorealEcosystem {
+  display: grid;
+  grid-template-rows: auto auto 34px minmax(250px, 1fr) 30px 126px;
+}
+.lorealSectionHead { min-width: 0; padding-bottom: 11px; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; border-bottom: 1px solid #cbc7bd; }
+.lorealSectionHead span { flex: none; color: var(--orange); font-size: 10px; font-weight: 950; letter-spacing: .13em; }
+.lorealSectionHead h4 { margin: 0; font-size: clamp(18px, 1.6vw, 23px); line-height: 1.08; letter-spacing: -.04em; }
+
+.lorealMarketNode {
+  margin-top: 12px;
+  padding: 13px 15px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) auto minmax(220px, .85fr);
+  align-items: center;
+  gap: 17px;
+  border: 1px solid #c8c4ba;
+  background: #f5f2ea;
+}
+.lorealNodeIdentity span,
+.lorealMarketNeeds span { color: #777b74; font-size: 9px; font-weight: 950; letter-spacing: .11em; }
+.lorealNodeIdentity h5 { margin: 5px 0 3px; font-size: 19px; letter-spacing: -.035em; }
+.lorealNodeIdentity p,
+.lorealMarketNeeds p { margin: 0; color: #565a53; font-size: 11.5px; font-weight: 620; line-height: 1.4; }
+.lorealMarketScale { display: grid; grid-template-columns: auto auto 16px auto auto; align-items: end; column-gap: 4px; }
+.lorealMarketScale strong { color: #151820; font-size: 36px; line-height: .8; letter-spacing: -.07em; }
+.lorealMarketScale small { padding-bottom: 2px; color: #72766f; font-size: 8px; font-weight: 950; letter-spacing: .08em; }
+.lorealMarketScale i { align-self: center; color: var(--orange); font-size: 12px; font-style: normal; font-weight: 950; text-align: center; }
+.lorealMarketNeeds { padding-left: 16px; border-left: 1px solid #c8c4ba; }
+.lorealMarketNeeds p { margin-top: 5px; }
+
+.lorealFlowLink { display: grid; grid-template-columns: 1fr auto 1fr 22px; align-items: center; gap: 9px; color: #767a73; }
+.lorealFlowLink i { height: 1px; background: #c9c5bb; }
+.lorealFlowLink b { font-size: 9px; letter-spacing: .06em; }
+.lorealFlowLink em { color: var(--orange); font-size: 15px; font-style: normal; font-weight: 950; }
+
+.lorealCretechNode {
+  min-height: 0;
+  padding: 17px 18px 13px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  color: #fff;
+  border: 1px solid #18263b;
+  background:
+    radial-gradient(circle at 94% 8%, rgba(200,255,61,.24), transparent 25%),
+    linear-gradient(135deg, #172338 0%, #233551 56%, #1a2a43 100%);
+  box-shadow: 0 16px 36px rgba(21,33,53,.2);
+}
+.lorealCretechNode > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.lorealCretechNode > header span { color: rgba(255,255,255,.72); font-size: 9px; font-weight: 950; letter-spacing: .12em; }
+.lorealCretechNode > header h5 { margin: 5px 0 0; font-size: 25px; line-height: 1; letter-spacing: -.045em; }
+.lorealCretechNode > header > b { padding: 7px 9px; color: #191b21; background: var(--lime); font-size: 9px; letter-spacing: .04em; }
+.lorealCretechBody { min-height: 0; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 10px; }
+.lorealCretechSplit { min-width: 0; display: grid; grid-template-columns: 1fr 1fr; border: 1px solid rgba(255,255,255,.38); }
+.lorealCretechSplit article { min-width: 0; padding: 11px 12px; display: flex; flex-direction: column; justify-content: space-between; background: rgba(255,255,255,.1); }
+.lorealCretechSplit article + article { border-left: 1px solid rgba(255,255,255,.38); }
+.lorealCretechSplit span,
+.lorealCretechVolume span { color: rgba(255,255,255,.72); font-size: 8.5px; font-weight: 950; letter-spacing: .11em; }
+.lorealCretechSplit strong { margin-top: auto; font-size: clamp(38px, 3.7vw, 56px); line-height: .82; letter-spacing: -.075em; }
+.lorealCretechSplit strong small { color: var(--lime); font-size: .44em; }
+.lorealCretechSplit p { margin: 7px 0 0; color: rgba(255,255,255,.86); font-size: 10.5px; font-weight: 750; }
+.lorealCretechVolume { min-width: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.lorealCretechVolume article { min-width: 0; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(255,255,255,.38); background: rgba(255,255,255,.14); }
+.lorealCretechVolume strong { display: block; margin-top: 8px; font-size: clamp(25px, 2.6vw, 38px); line-height: .9; letter-spacing: -.065em; }
+.lorealCretechVolume strong small { margin-left: 3px; color: #fff; font-size: .38em; }
+.lorealApproval { padding-top: 10px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 9px; border-top: 1px solid rgba(255,255,255,.34); }
+.lorealApproval span { color: var(--lime); font-size: 9px; font-weight: 950; letter-spacing: .1em; }
+.lorealApproval b { font-size: 10px; }
+.lorealApproval i { color: rgba(255,255,255,.58); font-size: 10px; font-style: normal; }
+
+.lorealDeliveryLabel { display: flex; align-items: center; justify-content: center; gap: 9px; color: #666a63; }
+.lorealDeliveryLabel span { color: var(--orange); font-size: 8.5px; font-weight: 950; letter-spacing: .1em; }
+.lorealDeliveryLabel b { font-size: 9px; }
+.lorealDeliveryLabel i { color: #aaa69c; font-size: 9px; font-style: normal; }
+.lorealProductionBranches { min-height: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.lorealProductionBranches article { position: relative; min-width: 0; padding: 12px 14px; border: 1px solid #c8c4ba; background: #f4f1e9; }
+.lorealProductionBranches article::before { content: ""; position: absolute; top: -8px; left: 50%; width: 1px; height: 8px; background: var(--orange); }
+.lorealProductionBranches article.isAgency { border-style: dashed; background: #fff3ed; }
+.lorealProductionBranches article.isAgency::before { background: repeating-linear-gradient(to bottom, #9b968c 0 2px, transparent 2px 4px); }
+.lorealProductionBranches header { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.lorealProductionBranches header span { color: var(--orange); font-size: 9px; font-weight: 950; letter-spacing: .1em; }
+.lorealProductionBranches header b { color: #777b74; font-size: 9px; }
+.lorealProductionBranches h5 { margin: 8px 0 4px; font-size: 17px; letter-spacing: -.035em; }
+.lorealProductionBranches p { margin: 0 0 5px; color: #353933; font-size: 11.5px; font-weight: 800; }
+.lorealProductionBranches small { display: block; color: #666a63; font-size: 10.5px; line-height: 1.35; }
+
+.lorealPlaybook { position: relative; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 12px; overflow: visible; }
+.lorealPlaybook .lorealSectionHead { display: block; }
+.lorealPlaybook .lorealSectionHead h4 { margin-top: 7px; font-size: clamp(24px, 2.3vw, 32px); }
+.lorealPlaybookSteps { min-height: 0; display: grid; grid-template-rows: minmax(190px, 1fr) minmax(245px, 1.08fr); gap: 8px; }
+.lorealPlaybookSteps article { min-width: 0; padding: 13px 14px; border: 1px solid #c9c5bb; background: #f5f2ea; }
+.lorealPlaybookSteps article > header { display: flex; justify-content: space-between; gap: 8px; }
+.lorealPlaybookSteps article > header span { color: var(--orange); font-size: 9px; font-weight: 950; letter-spacing: .1em; }
+.lorealPlaybookSteps article > header b { color: #747870; font-size: 9px; }
+.lorealPlaybookSteps h5 { margin: 10px 0 6px; font-size: 18px; line-height: 1.05; letter-spacing: -.04em; }
+.lorealPlaybookSteps p { margin: 0; color: #555951; font-size: 11.5px; font-weight: 620; line-height: 1.4; }
+.lorealPlaybookPrimary { position: relative; color: #fff; border-color: #e34c15 !important; background: var(--orange) !important; box-shadow: 0 14px 30px rgba(255,90,31,.16); }
+.lorealPlaybookPrimary::before { content: ""; position: absolute; top: 50%; left: -56px; width: 55px; height: 2px; background: var(--orange); transform: translateY(-50%); }
+.lorealPlaybookPrimary::after { content: "←"; position: absolute; top: calc(50% - 9px); left: -59px; color: var(--orange); font-size: 14px; font-weight: 950; }
+.lorealPlaybookPrimary > header span,
+.lorealPlaybookPrimary > header b,
+.lorealPlaybookPrimary p { color: rgba(255,255,255,.88) !important; }
+.lorealPlaybookPrimary > div { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 5px; }
+.lorealPlaybookPrimary small { padding: 5px 7px; color: #fff; border: 1px solid rgba(255,255,255,.4); font-size: 8.5px; font-weight: 800; }
+.lorealPlaybookExpansion { display: grid; grid-template-rows: auto minmax(0, 1fr); }
+.lorealPlaybookExpansion > div { min-height: 0; display: grid; grid-template-rows: 1fr 1fr; }
+.lorealPlaybookExpansion section { padding: 12px 0; }
+.lorealPlaybookExpansion section + section { border-top: 1px solid #d0ccc2; }
+.lorealPlaybookExpansion section small { color: #797d76; font-size: 8.5px; font-weight: 950; letter-spacing: .1em; }
+.lorealPlaybookExpansion section h5 { margin: 6px 0 4px; font-size: 16px; }
+.lorealPlaybookExpansion section p { font-size: 10.5px; }
+.lorealGrowthSignal { padding: 13px 14px; color: #1c2114; border: 1px solid #b8d369; background: #eef8d3; }
+.lorealGrowthSignal span { color: #697a37; font-size: 9px; font-weight: 950; letter-spacing: .1em; }
+.lorealGrowthYears { margin: 6px 0; display: grid; grid-template-columns: 1fr 20px 1fr; align-items: end; }
+.lorealGrowthYears > p { margin: 0; }
+.lorealGrowthYears small { display: block; margin-bottom: 2px; color: #718044; font-size: 8px; font-weight: 850; }
+.lorealGrowthYears strong { display: block; color: #171b10; font-size: 28px; line-height: .85; letter-spacing: -.06em; }
+.lorealGrowthYears > i { color: var(--orange); font-size: 15px; font-style: normal; font-weight: 950; }
+.lorealGrowthSignal p { margin: 0; color: #59633e; font-size: 10px; line-height: 1.35; }
+
+/* L'Oréal report cut — presentation-first, three takeaways only */
+.lorealReportCanvas {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.52fr) minmax(310px, .58fr);
+  gap: 14px;
+}
+.lorealReportCore,
+.lorealReportStrategy {
+  min-width: 0;
+  min-height: 0;
+  padding: 18px;
+  border: 1px solid #b8b4aa;
+  background: rgba(255,253,249,.94);
+}
+.lorealReportCore { display: grid; grid-template-rows: 68px minmax(0, 1fr) 96px; gap: 12px; }
+.lorealReportCore > header { display: flex; align-items: center; justify-content: space-between; gap: 22px; border-bottom: 1px solid #cbc7bd; }
+.lorealReportCore > header > div > span,
+.lorealReportStrategy > header span,
+.lorealReportEngineTitle > span,
+.lorealReportUse > span,
+.lorealReportVolume > span,
+.lorealReportP0 > span,
+.lorealReportP1 > span,
+.lorealReportGrowth > span { color: var(--orange); font-size: 10px; font-weight: 950; letter-spacing: .12em; }
+.lorealReportCore > header h4 { margin: 7px 0 0; font-size: clamp(20px, 1.8vw, 25px); letter-spacing: -.045em; }
+.lorealReportCore > header > p { margin: 0; display: flex; align-items: flex-end; gap: 5px; white-space: nowrap; }
+.lorealReportCore > header > p strong { font-size: 45px; line-height: .78; letter-spacing: -.07em; }
+.lorealReportCore > header > p small { padding-bottom: 2px; color: #72766f; font-size: 9px; font-weight: 950; letter-spacing: .08em; }
+.lorealReportCore > header > p i { align-self: center; margin: 0 4px; color: var(--orange); font-size: 15px; font-style: normal; font-weight: 950; }
+
+.lorealReportEngine {
+  min-height: 0;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: minmax(175px, .75fr) minmax(0, 1fr) minmax(0, 1.12fr);
+  align-items: center;
+  gap: 18px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 96% 5%, rgba(200,255,61,.2), transparent 26%),
+    linear-gradient(135deg, #18243a, #253956);
+  box-shadow: 0 18px 38px rgba(21,33,53,.18);
+}
+.lorealReportEngineTitle { display: flex; flex-direction: column; justify-content: center; }
+.lorealReportEngineTitle > span { color: #aab5c6; }
+.lorealReportEngineTitle h5 { margin: 10px 0 13px; font-size: clamp(26px, 2.6vw, 36px); line-height: .95; letter-spacing: -.055em; }
+.lorealReportEngineTitle b { width: max-content; padding: 6px 8px; color: #172033; background: var(--lime); font-size: 10px; }
+.lorealReportUse,
+.lorealReportVolume { min-width: 0; min-height: 190px; align-self: center; padding-left: 18px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; gap: 10px; border-left: 1px solid rgba(255,255,255,.25); }
+.lorealReportUse > span,
+.lorealReportVolume > span { grid-column: 1 / -1; color: #aab5c6; }
+.lorealReportUse > div,
+.lorealReportVolume > div { align-self: center; }
+.lorealReportUse > div + div,
+.lorealReportVolume > div + div { padding-left: 13px; border-left: 1px solid rgba(255,255,255,.24); }
+.lorealReportUse strong { display: block; color: #fff; font-size: clamp(48px, 4.8vw, 68px); line-height: .8; letter-spacing: -.08em; }
+.lorealReportUse p,
+.lorealReportVolume p { margin: 9px 0 0; color: #cad0da; font-size: 12px; font-weight: 700; }
+.lorealReportVolume strong { display: block; color: #fff; font-size: clamp(30px, 3vw, 43px); line-height: .86; letter-spacing: -.065em; white-space: nowrap; }
+.lorealReportVolume strong small { margin-left: 3px; color: var(--lime); font-size: .36em; letter-spacing: -.01em; }
+
+.lorealReportLanes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.lorealReportLanes article { min-width: 0; padding: 15px 17px; display: flex; flex-direction: column; justify-content: center; border-top: 3px solid var(--orange); background: #f4f1e9; }
+.lorealReportLanes article:last-child { border-top-style: dashed; background: #fff3ed; }
+.lorealReportLanes span { color: #787c75; font-size: 9px; font-weight: 950; letter-spacing: .1em; }
+.lorealReportLanes p { margin: 9px 0 0; color: #333730; font-size: 13px; font-weight: 720; }
+.lorealReportLanes i { margin: 0 5px; color: var(--orange); font-style: normal; }
+
+.lorealReportStrategy { display: grid; grid-template-rows: 78px minmax(0, 1fr) 82px 120px; gap: 10px; }
+.lorealReportStrategy > header { border-bottom: 1px solid #cbc7bd; }
+.lorealReportStrategy > header h4 { margin: 7px 0 2px; font-size: clamp(25px, 2.3vw, 32px); line-height: 1; letter-spacing: -.05em; }
+.lorealReportStrategy > header p { margin: 0; color: #6a6e67; font-size: 11px; font-weight: 720; }
+.lorealReportP0 { position: relative; padding: 19px; display: flex; flex-direction: column; justify-content: center; color: #fff; background: var(--orange); box-shadow: 0 15px 32px rgba(255,90,31,.17); }
+.lorealReportP0 > span { color: rgba(255,255,255,.8); }
+.lorealReportP0 > b { position: absolute; top: 18px; right: 18px; color: #fff; font-size: 10px; }
+.lorealReportP0 h5 { margin: 22px 0 9px; font-size: clamp(23px, 2.15vw, 29px); line-height: 1.08; letter-spacing: -.045em; }
+.lorealReportP0 p { margin: 0; color: rgba(255,255,255,.88); font-size: 12px; font-weight: 720; }
+.lorealReportP0 > div { margin-top: 18px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+.lorealReportP0 small { padding: 6px 4px; border: 1px solid rgba(255,255,255,.42); font-size: 10px; font-weight: 800; text-align: center; }
+.lorealReportGrowth { padding: 12px 14px; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 14px; border: 1px solid #bdd96d; background: #eff9d4; }
+.lorealReportGrowth > span { color: #6f7e41; }
+.lorealReportGrowth > p { margin: 0; display: flex; align-items: flex-end; justify-content: flex-end; gap: 6px; }
+.lorealReportGrowth small { padding-bottom: 2px; color: #6f7e41; font-size: 8px; font-weight: 800; }
+.lorealReportGrowth strong { color: #18200e; font-size: 28px; line-height: .8; letter-spacing: -.055em; }
+.lorealReportGrowth i { align-self: center; color: var(--orange); font-style: normal; font-weight: 950; }
+.lorealReportP1 { padding: 11px 14px; border: 1px solid #c8c4ba; background: #f5f2ea; }
+.lorealReportP1 > div { padding: 7px 0; display: grid; grid-template-columns: 112px 1fr; align-items: center; gap: 10px; }
+.lorealReportP1 > div + div { border-top: 1px solid #d1cdc4; }
+.lorealReportP1 b { color: #222620; font-size: 10px; letter-spacing: .05em; }
+.lorealReportP1 p { margin: 0; color: #5d615a; font-size: 11px; font-weight: 650; line-height: 1.3; }
 
 /* Customer case 02 · WPP — Creative-to-Production migration */
 .wppCasePage {
@@ -3601,18 +4245,26 @@ button, summary { font: inherit; }
   .lorealCasePage,
   .wppCasePage,
   .adtechCasePage { min-height: 0; grid-template-rows: auto auto 52px; padding: 22px; }
+  .lorealCasePage { height: auto; grid-template-rows: auto auto; }
   .lorealCaseHeader,
   .wppCaseHeader,
   .adtechCaseHeader { grid-template-columns: 110px minmax(0, 1fr) 260px; min-height: 132px; }
   .lorealCaseCanvas,
   .wppCaseCanvas,
   .adtechCaseCanvas { grid-template-columns: 1fr; }
+  .lorealCaseCanvas { grid-template-rows: auto; }
+  .lorealScalePanel,
+  .lorealOrgPanel { min-height: 500px; }
+  .lorealEntryPanel { grid-column: 1; grid-template-columns: 1fr; }
+  .lorealEntryHeading { padding: 2px 0 12px; border-right: 0; border-bottom: 1px solid #cbc7bd; }
   .lorealBudgetSystem,
   .lorealOrgSystem,
   .wppWalletSystem,
   .wppProductionSystem,
   .adtechAgentSystem,
   .adtechCustomerSystem { min-height: 580px; }
+  .lorealDecisionBoard,
+  .lorealEntryMatrix { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 760px) {
@@ -3620,6 +4272,7 @@ button, summary { font: inherit; }
   .lorealCasePage,
   .wppCasePage,
   .adtechCasePage { width: 100%; padding: 14px; grid-template-rows: auto auto auto; gap: 10px; }
+  .lorealCasePage { grid-template-rows: auto auto; }
   .lorealCaseHeader,
   .wppCaseHeader,
   .adtechCaseHeader { grid-template-columns: 1fr; padding: 14px 0 18px; }
@@ -3635,6 +4288,18 @@ button, summary { font: inherit; }
   .lorealCaseHeader > p,
   .wppCaseHeader > p,
   .adtechCaseHeader > p { max-width: none; margin-top: 18px; }
+  .lorealVerdict { margin-top: 18px; min-height: 112px; }
+  .lorealScalePanel,
+  .lorealOrgPanel { min-height: 0; padding: 14px; }
+  .lorealScaleSplit,
+  .lorealVolumeGrid,
+  .lorealOrgRail,
+  .lorealEntryCards { grid-template-columns: 1fr; }
+  .lorealScaleSplit > div { min-height: 132px; }
+  .lorealScaleSplit > div:last-child { border-top: 1px solid #b8b3a9; border-left: 0; }
+  .lorealRailArrow { min-height: 24px; transform: rotate(90deg); }
+  .lorealOrgCard { min-height: 320px; }
+  .lorealEntryPanel { padding: 14px; }
   .lorealBudgetSystem,
   .lorealOrgSystem,
   .wppWalletSystem,
@@ -3652,6 +4317,9 @@ button, summary { font: inherit; }
   .lorealBudgetHero,
   .lorealProductionShare,
   .lorealProductionPool { min-height: 132px; }
+  .lorealEntryMatrix,
+  .lorealDecisionBoard,
+  .lorealDecisionCard { grid-template-columns: 1fr; }
   .lorealForkPaths,
   .lorealOperatorNodes,
   .lorealEntryRoutes { grid-template-columns: 1fr; }
@@ -3701,4 +4369,69 @@ button, summary { font: inherit; }
   .adtechCustomerCards > article { min-height: 370px; }
   .adtechEntryStatement { grid-template-columns: 1fr; gap: 8px; }
   .adtechCaseFooter { padding: 14px 0; flex-wrap: wrap; }
+}
+
+@media (max-width: 1120px) {
+  .lorealEcosystem { min-height: 700px; padding: 0 0 18px; border-right: 0; border-bottom: 1px solid #cbc7bd; }
+  .lorealPlaybook { min-height: 620px; }
+  .lorealPlaybookPrimary::before,
+  .lorealPlaybookPrimary::after { display: none; }
+}
+
+@media (max-width: 760px) {
+  .lorealEcosystem,
+  .lorealPlaybook { min-height: 0; padding: 0; overflow: visible; }
+  .lorealEcosystem { grid-template-rows: auto auto 34px auto 30px auto; }
+  .lorealSectionHead { align-items: flex-start; flex-direction: column; gap: 7px; }
+  .lorealMarketNode { grid-template-columns: 1fr; gap: 14px; }
+  .lorealMarketScale { width: max-content; }
+  .lorealMarketNeeds { padding: 12px 0 0; border-top: 1px solid #c8c4ba; border-left: 0; }
+  .lorealFlowLink { grid-template-columns: 1fr 18px; }
+  .lorealFlowLink i,
+  .lorealFlowLink b { display: none; }
+  .lorealCretechBody,
+  .lorealCretechSplit,
+  .lorealCretechVolume,
+  .lorealProductionBranches { grid-template-columns: 1fr; }
+  .lorealCretechSplit article,
+  .lorealCretechVolume article { min-height: 118px; }
+  .lorealCretechSplit article + article { border-top: 1px solid rgba(255,255,255,.38); border-left: 0; }
+  .lorealApproval { align-items: flex-start; flex-direction: column; }
+  .lorealApproval i { transform: rotate(90deg); }
+  .lorealDeliveryLabel { padding: 8px 0; flex-wrap: wrap; }
+  .lorealProductionBranches article { min-height: 138px; }
+  .lorealPlaybookSteps { grid-template-rows: auto; }
+  .lorealPlaybookSteps article { min-height: 150px; }
+  .lorealPlaybookExpansion > div { grid-template-rows: auto; }
+}
+
+@media (min-width: 1121px) and (max-width: 1220px) {
+  .lorealCasePage { min-height: 860px; }
+  .lorealMarketNode { grid-template-columns: minmax(0, 1fr) auto; }
+  .lorealMarketNeeds { grid-column: 1 / -1; padding: 10px 0 0; border-top: 1px solid #c8c4ba; border-left: 0; }
+}
+
+@media (max-width: 1120px) {
+  .lorealReportCanvas { grid-template-columns: 1fr; }
+  .lorealReportCore { min-height: 660px; }
+  .lorealReportStrategy { min-height: 620px; }
+}
+
+@media (max-width: 760px) {
+  .lorealReportCore,
+  .lorealReportStrategy { min-height: 0; padding: 14px; }
+  .lorealReportCore { grid-template-rows: auto auto auto; }
+  .lorealReportCore > header { padding-bottom: 14px; align-items: flex-start; flex-direction: column; }
+  .lorealReportEngine { grid-template-columns: 1fr; }
+  .lorealReportEngineTitle { min-height: 150px; }
+  .lorealReportUse,
+  .lorealReportVolume { min-height: 170px; padding: 16px 0 0; border-top: 1px solid rgba(255,255,255,.25); border-left: 0; }
+  .lorealReportLanes { grid-template-columns: 1fr; }
+  .lorealReportLanes article { min-height: 112px; }
+  .lorealReportStrategy { grid-template-rows: auto auto auto auto; }
+  .lorealReportStrategy > header { padding-bottom: 16px; }
+  .lorealReportP0 { min-height: 270px; }
+  .lorealReportGrowth { grid-template-columns: 1fr; }
+  .lorealReportGrowth > p { justify-content: flex-start; }
+  .lorealReportP1 > div { grid-template-columns: 1fr; }
 }
