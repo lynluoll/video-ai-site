@@ -96,9 +96,11 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /scene-display-demo/);
   assert.match(html, /REFERENCE DEMO/);
   assert.match(html, /src="\/media\/brand-reference\.mp4"/);
-  assert.match(html, /src="\/media\/performance-reference\.mp4"/);
-  assert.match(html, /真实效果广告参考样片/);
-  assert.match(html, /真实投放素材参考/);
+  assert.match(html, /src="\/media\/performance-generated\.mp4"/);
+  assert.match(html, /poster="\/media\/performance-poster\.jpg"/);
+  assert.match(html, /AI 生成效果广告样片/);
+  assert.match(html, /一次过率决定综合成本/);
+  assert.doesNotMatch(sceneDemoHtml, /performance-reference\.mp4|performance-reference\.jpg/);
   assert.doesNotMatch(sceneDemoHtml, /WHO MAKES IT|制作方 \/ 客户|sceneDemoWho/);
   assert.equal((sceneDemoHtml.match(/class="sceneDemoDisclosure" open=""/g) ?? []).length, 9);
   assert.doesNotMatch(sceneDemoHtml, /sceneProductionDisclosure|sceneProductionBody/);
@@ -222,7 +224,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(adtechHtml, /Lumos \/ Navos/);
   assert.doesNotMatch(adtechHtml, /≈ \$0\.2B|钱包深度|MRR|ARR|待确认|暂无可核/);
   assert.match(sceneDemoHtml, /scene-brand-demo.*brand-reference\.mp4/s);
-  assert.match(sceneDemoHtml, /scene-performance-demo.*performance-reference\.mp4/s);
+  assert.match(sceneDemoHtml, /scene-performance-demo.*performance-generated\.mp4/s);
   assert.match(sceneDemoHtml, /scene-display-demo.*demo-display-commerce\.jpg/s);
   assert.doesNotMatch(sceneDemoHtml, /solution-focus|BRAND PRODUCTION|PERFORMANCE ADS/);
   assert.doesNotMatch(sceneDemoHtml, /MODEL LANDSCAPE/);
@@ -300,7 +302,9 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.equal((page.match(/\/media\/demo-/g) ?? []).length, 6);
   assert.equal((page.match(/type: "video"/g) ?? []).length, 2);
   assert.match(page, /\/media\/brand-reference\.mp4/);
-  assert.match(page, /\/media\/performance-reference\.mp4/);
+  assert.match(page, /\/media\/performance-generated\.mp4/);
+  assert.match(page, /\/media\/performance-poster\.jpg/);
+  assert.doesNotMatch(sceneDemoSource, /performance-reference\.mp4|performance-reference\.jpg/);
   assert.match(page, /layout: "display"/);
   assert.match(page, /曝光量与品牌知名度/);
   assert.match(page, /tCPA：目标转化成本/);

@@ -46,11 +46,11 @@ const scenarioCases = [
     desc: "以 tCPA、tROAS、CTR、CVR 和 CPI 定义价值。客户需要的不是单条 Demo，而是一套能持续产出 Hook、跑实验、看归因并复刻胜出结构的系统。",
     media: {
       type: "video" as const,
-      src: "/media/performance-reference.mp4",
-      poster: "/media/performance-reference.jpg",
-      aria: "真实效果广告参考样片",
-      headline: "真实投放素材参考",
-      meta: "竖屏 UGC · 商品演示 · 转化导向",
+      src: "/media/performance-generated.mp4",
+      poster: "/media/performance-poster.jpg",
+      aria: "AI 生成效果广告样片",
+      headline: "一次过率决定综合成本",
+      meta: "竖屏 UGC · 商品保真 · 爆款复刻",
     },
     sampleSpec: "10–15 秒最常见，720p、竖屏，以 UGC 口播和种草视频为主。通常需要生产 10–100 条变体进行实验和效果归因。",
     channels: [
