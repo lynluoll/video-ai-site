@@ -265,17 +265,17 @@ test("server-renders the complete advertising strategy", async () => {
   assert.doesNotMatch(sceneDemoHtml, /MODEL LANDSCAPE/);
   assert.match(html, /规模化推广素材自动化，成为每个 Campaign Agent 的标配/);
   assert.match(html, /AI 制作占比/);
-  assert.match(html, /FINAL<\/span> \/ PRODUCT REQUIREMENTS/);
-  assert.match(html, /最终产品需求：.*走向规模生产/s);
+  assert.match(html, /FINAL · SEEDANCE REQUIREMENTS/);
+  assert.doesNotMatch(html, /FINAL<\/span> \/ PRODUCT REQUIREMENTS|最终产品需求：|走向规模生产/);
   assert.doesNotMatch(html, /美国市场占比|REGION PRIORITY|Resell 政策|COMMERCIAL REQUIREMENT|渠道激励|规模返点/);
   assert.match(html, /id="product-requirements"/);
-  assert.match(html, /四个门槛.*决定能不能规模生产/s);
+  assert.match(html, /模型短期能力短板/);
   assert.equal((html.match(/class="productGateCard productGateCard/g) ?? []).length, 4);
   assert.match(html, /3D 白模只能渲染，不能理解/);
   assert.match(html, /世界知识与物理常识缺失/);
   assert.match(html, /商品与品牌要素保真不足/);
   assert.match(html, /音频参考与情感仍不可控/);
-  assert.match(html, /必须同时通过 4 \/ 4 门槛/);
+  assert.doesNotMatch(html, /视觉渲染.*可规模生产|必须同时通过 4 \/ 4 门槛/s);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|Your site is taking shape/);
 });
 
