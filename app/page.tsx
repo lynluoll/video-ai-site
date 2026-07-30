@@ -129,7 +129,9 @@ const solutionVideoDemos = {
       order: "01",
       label: "BEAUTY / LUXURY",
       title: "人物特写与睫毛级质感",
+      titleEn: "Portrait detail & lash-level texture",
       meta: "美妆个护 · 奢品",
+      metaEn: "Beauty · Luxury",
       src: "/media/brand-beauty-demo.mp4",
       poster: "/media/brand-beauty-demo.jpg",
       frames: ["/media/brand-frames/beauty-01.jpg", "/media/brand-frames/beauty-02.jpg", "/media/brand-frames/beauty-03.jpg"],
@@ -140,7 +142,9 @@ const solutionVideoDemos = {
       order: "02",
       label: "BEVERAGE",
       title: "产品保真与生活化叙事",
+      titleEn: "Product fidelity & lifestyle storytelling",
       meta: "酒水 · 生活方式",
+      metaEn: "Beverage · Lifestyle",
       src: "/media/brand-beverage-demo.mp4",
       poster: "/media/brand-beverage-demo.jpg",
       frames: ["/media/brand-frames/beverage-01.jpg", "/media/brand-frames/beverage-02.jpg", "/media/brand-frames/beverage-03.jpg"],
@@ -151,7 +155,9 @@ const solutionVideoDemos = {
       order: "03",
       label: "HOSPITALITY / LIFESTYLE",
       title: "夜景光影与角色连续性",
+      titleEn: "Night lighting & character continuity",
       meta: "酒店 · 奢旅 · 服务叙事",
+      metaEn: "Hospitality · Luxury travel",
       src: "/media/brand-auto-demo.mp4",
       poster: "/media/brand-auto-demo.jpg",
       frames: ["/media/brand-frames/auto-01.jpg", "/media/brand-frames/auto-02.jpg", "/media/brand-frames/auto-03.jpg"],
@@ -162,7 +168,9 @@ const solutionVideoDemos = {
       order: "04",
       label: "TECH / ELECTRONICS",
       title: "CMF 材质与产品微距",
+      titleEn: "CMF materials & product macro",
       meta: "科技 · 电子 · 软件",
+      metaEn: "Tech · Electronics",
       src: "/media/brand-tech-demo.mp4",
       poster: "/media/brand-tech-demo.jpg",
       frames: ["/media/brand-frames/tech-01.jpg", "/media/brand-frames/tech-02.jpg", "/media/brand-frames/tech-03.jpg"],
@@ -909,95 +917,69 @@ export default function Home() {
 
       <section className="section shell solutions" id="solution-focus">
         <div className="solutionPages">
-          <article className="brandProcessPage" id="solution-brand" aria-labelledby="brand-process-title">
-            <header className="brandProcessHeader">
-              <div className="brandProcessIndex"><span>01</span><b>BRAND PRODUCTION</b></div>
-              <div><p>3D WHITE-MODEL × AI HYBRID</p><h3 id="brand-process-title">品牌广告制作方案</h3></div>
-              <p><span>CORE LOGIC</span><strong>确定性前置：</strong>先用 3D 白模锁定镜位、运镜和物理关系，再由模型完成最终视觉渲染。</p>
+          <article className="solutionPage brandSolutionPage" id="solution-brand" aria-labelledby="brand-solution-title">
+            <header className="brandSolutionHeader">
+              <div className="brandSolutionIndex"><span>01</span><b>BRAND PRODUCTION</b></div>
+              <div className="brandSolutionTitle">
+                <p className="langZh">CG + AI 混合制作</p><p className="langEn">CG + AI HYBRID PRODUCTION</p>
+                <h3 className="langZh" id="brand-solution-title">品牌广告制作方案</h3>
+                <h3 className="langEn">Brand Advertising Production Solution</h3>
+              </div>
+              <div className="brandSolutionScope"><span>SOFA DEMO</span><i>×</i><span>ARCHITECTURE</span><i>×</i><strong>4 DEMOS</strong></div>
             </header>
 
-            <section className="brandBusinessFlow" aria-label="品牌广告业务制作流程">
-              <div className="brandProcessSectionTitle"><span>01 · BUSINESS FLOW</span><h4>谁负责哪一步</h4></div>
-              <div className="brandBusinessSteps">
-                <article><span>01</span><small>ACCOUNT &amp; STRATEGY</small><h5>拿到客户输入</h5><p>客户素材、品牌规范与最初创意概念。</p><b>OWNER · 客户接口 / 策略团队</b></article>
-                <i>→</i>
-                <article><span>02</span><small>CREATIVE</small><h5>定义视觉方案</h5><p>脚本、分镜、场景与导演表达。</p><b>OWNER · 创意 / 导演团队</b></article>
-                <i>→</i>
-                <article className="brandBusinessFocus"><span>03</span><small>PRODUCTION</small><h5>完成专业制作</h5><p>Pre-vis / 3D Layout、模型渲染与后期编辑。</p><b>OWNER · 制作团队 + 模型</b></article>
-                <i>→</i>
-                <article><span>04</span><small>REVIEW &amp; DELIVERY</small><h5>审片并交付</h5><p>品牌确认、版本调整与最终成片。</p><b>OWNER · 客户 / 代理商</b></article>
-              </div>
-            </section>
-
-            <section className="brandProductionView" aria-label="品牌广告输入、模型参与与产出示意">
-              <div className="brandProcessSectionTitle"><span>02 · PRODUCTION ARCHITECTURE</span><h4>3D 白模 + AI 混合制作</h4></div>
-              <div className="brandArchitecture">
-                <article className="brandArchitectureStage brandArchitectureInput">
-                  <header><span>01 · INPUT</span><b>客户素材包</b></header>
-                  <ul><li>产品 Packshot / 可选 3D 资产</li><li>人物、动作与运镜参考</li><li>品牌色、Logo 与商标规范</li></ul>
-                  <p className="brandArchitectureOwner"><span>PROVIDED BY</span><b>客户 + Account &amp; Strategy</b></p>
-                </article>
-                <i aria-hidden="true">→</i>
-                <article className="brandArchitectureStage brandArchitectureGreybox">
-                  <header><span>02 · 3D WHITE-MODEL</span><b>白模搭建 · 双路径</b></header>
-                  <div className="brandGreyboxViewport" aria-label="3D 白模场景示意"><i></i><i></i><i></i><b></b><em>CAM 01</em></div>
-                  <div className="brandDualPath"><span>Blender 人工建模</span><span>LLM + three.js</span></div>
-                </article>
-                <i aria-hidden="true">→</i>
-                <article className="brandArchitectureStage brandArchitectureLock">
-                  <header><span>03 · PREVIZ LOCK</span><b>镜头与物理关系锁定</b></header>
-                  <dl><div><dt>CAMERA</dt><dd>景别 · 焦段 · 运镜</dd></div><div><dt>LIGHT</dt><dd>方向 · 强度 · 阴影</dd></div><div><dt>SPACE</dt><dd>人物 · 商品 · 环境</dd></div></dl>
-                  <p>导演 / 客户确认后进入渲染</p>
-                </article>
-                <i aria-hidden="true">→</i>
-                <article className="brandArchitectureStage brandArchitectureRender">
-                  <header><span>04 · MODEL LAYER</span><b>Seedance 2.0 / Seedream</b></header>
-                  <div className="brandRenderFrames" aria-label="模型渲染连续镜头">
-                    <img src="/media/brand-frames/beauty-01.jpg" alt="模型渲染镜头一" />
-                    <img src="/media/brand-frames/beauty-02.jpg" alt="模型渲染镜头二" />
-                    <img src="/media/brand-frames/beauty-03.jpg" alt="模型渲染镜头三" />
-                  </div>
-                  <p>模型负责材质、光影与最终画面</p>
-                </article>
-                <i aria-hidden="true">→</i>
-                <article className="brandArchitectureStage brandArchitectureOutput">
-                  <header><span>05 · OUTPUT</span><b>正式交付</b></header>
-                  <strong>15 / 30s</strong>
-                  <ul><li>4K / 高码率品牌成片</li><li>多镜头 Cutdown / KV</li><li>可回到 Previz 局部返工</li></ul>
-                </article>
-              </div>
-              <div className="brandArchitectureLogic"><span>DETERMINISTIC CONTROL · INPUT → 3D → PREVIZ LOCK</span><i></i><strong>GENERATIVE RENDER · MODEL LAYER</strong></div>
-            </section>
-
-            <footer className="brandProcessFooter"><span>客户输入</span><i>→</i><span>Creative</span><i>→</i><strong>3D 确定性 + AI 渲染</strong><i>→</i><span>审片与交付</span></footer>
-          </article>
-
-          <article className="solutionPage solutionBrand brandDemoPage" id="solution-brand-demos">
-            <header className="brandDemoHeader">
-              <div className="brandDemoIndex"><span>02</span><b>BRAND FILM</b></div>
-              <div><p>四个样片 × 逐镜头说明</p><h3>用样片，<br /><span>讲清模型为什么好。</span></h3></div>
-              <p>先看完整视频；再展开连续画面，具体判断一致性、材质和光影是否达到广告制作要求。</p>
-            </header>
-            <div className="brandDemoBody">
-              <div className="brandDemoTopline"><span>04 DEMOS</span><h4>四个垂类，四种制作难题。</h4><p>点击展开连续画面，验证一致性、材质与光影。</p></div>
-              <section className="brandDemoGallery" aria-label="品牌广告四个视频 Demo">
-                  {solutionVideoDemos.brand.map((demo) => (
-                    <article className="brandDemoCard" key={demo.src}>
-                      <div className="brandDemoVideo"><video src={demo.src} poster={demo.poster} controls muted playsInline preload="metadata" aria-label={`${demo.title}品牌广告视频 Demo`} /><span>{demo.order}</span></div>
-                      <div className="brandDemoMeta"><span>{demo.label}</span><h5>{demo.title}</h5><p>{demo.meta}</p><strong>{demo.proofTitle}</strong></div>
-                      <details className="brandProofDisclosure">
-                        <summary><span>为什么达到广告要求</span><b>03 PROOF SHOTS</b><i>＋</i></summary>
-                        <div className="brandProofDrawer">
-                          <div className="brandProofFrames" aria-label={`${demo.title}连续画面`}>
-                            {demo.frames.map((frame, frameIndex) => <figure key={frame}><img src={frame} alt={`${demo.title}连续画面 ${frameIndex + 1}`} /><figcaption>SHOT {String(frameIndex + 1).padStart(2, "0")}</figcaption></figure>)}
-                          </div>
-                          <div className="brandProofCopy"><h6>{demo.proofTitle}</h6><ul>{demo.proofs.map((proof) => <li key={proof}>{proof}</li>)}</ul></div>
-                        </div>
-                      </details>
-                    </article>
-                  ))}
+            <div className="brandSolutionBody">
+              <section className="brandSofaPanel" aria-label="Sofa 品牌广告成片">
+                <header><span>SOFA DEMO</span><b className="langZh">从 Packshot 到品牌成片</b><b className="langEn">From packshot to brand film</b></header>
+                <video src="/media/sofa/final-film.mp4" poster="/media/sofa/final-film-poster.jpg" controls muted loop playsInline preload="metadata" aria-label="Sofa CG 与 Seedance 品牌广告成片" />
               </section>
-              <footer className="brandDemoFooter"><span>完整视频</span><i>→</i><span>连续画面</span><i>→</i><strong>具体能力证据</strong></footer>
+
+              <section className="brandArchitecturePanel" aria-label="Sofa CG 与 AI 五阶段制作架构">
+                <header><span>PRODUCTION ARCHITECTURE</span><b className="langZh">CG 锁定控制，AI 完成输出</b><b className="langEn">CG locks control. AI delivers output.</b></header>
+                <div className="brandArchitectureCompact">
+                  <article>
+                    <header><span>01</span><b className="langZh">输入资产</b><b className="langEn">Input assets</b></header>
+                    <div className="brandArchMosaic brandArchMosaicFour"><img src="/media/sofa/input-texture.jpg" alt="材质参考" /><img src="/media/sofa/input-environment.jpg" alt="环境参考" /><img src="/media/sofa/input-packshot.jpg" alt="商品 Packshot" /><img src="/media/sofa/input-character.jpg" alt="人物参考" /></div>
+                    <strong>PACKSHOT · MATERIAL · SCENE</strong>
+                  </article>
+                  <i aria-hidden="true">→</i>
+                  <article>
+                    <header><span>02</span><b className="langZh">理解与数字孪生</b><b className="langEn">Understand &amp; twin</b></header>
+                    <div className="brandArchMosaic"><img src="/media/sofa/digital-twin-poster.png" alt="沙发数字孪生" /></div>
+                    <strong>SEED 2.0 · SEED3D 2.0</strong>
+                  </article>
+                  <i aria-hidden="true">→</i>
+                  <article>
+                    <header><span>03</span><b className="langZh">镜头与灯光控制</b><b className="langEn">Camera &amp; lighting</b></header>
+                    <div className="brandArchMosaic brandArchMosaicTwo"><img src="/media/sofa/cg-angle.jpg" alt="CG 镜头控制" /><img src="/media/sofa/lighting-1.jpg" alt="CG 灯光控制" /></div>
+                    <strong>BLENDER</strong>
+                  </article>
+                  <i aria-hidden="true">→</i>
+                  <article>
+                    <header><span>04</span><b className="langZh">图像渲染</b><b className="langEn">Image rendering</b></header>
+                    <div className="brandArchMosaic brandArchMosaicTwo"><img src="/media/sofa/cg-scene.jpg" alt="CG 场景" /><img src="/media/sofa/render-detail.jpg" alt="AI 图像渲染" /></div>
+                    <strong>SEEDREAM 5.0 LITE</strong>
+                  </article>
+                  <i aria-hidden="true">→</i>
+                  <article>
+                    <header><span>05</span><b className="langZh">KV 与视频成片</b><b className="langEn">Final KV &amp; video</b></header>
+                    <div className="brandArchMosaic brandArchMosaicTwo"><img src="/media/sofa/kv-wide.jpg" alt="沙发 KV" /><img src="/media/sofa/kv-ultrawide.jpg" alt="沙发宽幅 KV" /></div>
+                    <strong>SEEDANCE 2.0 · CAPCUT</strong>
+                  </article>
+                </div>
+              </section>
+
+              <section className="brandDemoStrip" aria-label="品牌广告四个视频 Demo">
+                <header><span>4 × BRAND DEMOS</span><b className="langZh">四个垂类样片</b><b className="langEn">Four vertical demos</b></header>
+                <div className="brandDemoCompactGrid">
+                  {solutionVideoDemos.brand.map((demo) => (
+                    <figure className="brandDemoCompactCard" key={demo.src}>
+                      <div><video src={demo.src} poster={demo.poster} controls muted playsInline preload="metadata" aria-label={`${demo.title}品牌广告视频 Demo`} /><span>{demo.order}</span></div>
+                      <figcaption><small>{demo.label}</small><b className="langZh">{demo.title}</b><b className="langEn">{demo.titleEn}</b><p className="langZh">{demo.meta}</p><p className="langEn">{demo.metaEn}</p></figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </section>
             </div>
           </article>
 
