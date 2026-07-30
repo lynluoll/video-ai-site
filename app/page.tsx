@@ -219,7 +219,7 @@ const solutionVideoDemos = {
 const customerFlowStages = [
   {
     index: "01",
-    role: "BUDGET SOURCE",
+    role: "预算源头",
     title: "品牌主",
     flowRole: "定义预算与品牌资产",
     flowNote: "先进入集团 AI 平台，再向市场与外部代理商分配生产任务。",
@@ -229,7 +229,7 @@ const customerFlowStages = [
   },
   {
     index: "02",
-    role: "PRODUCTION SCALE",
+    role: "制作放大",
     title: "代理商",
     flowRole: "承接创意与制作预算",
     flowNote: "同时连接品牌关系、导演创意、Production 与最终交付。",
@@ -239,7 +239,7 @@ const customerFlowStages = [
   },
   {
     index: "03",
-    role: "COMPOUNDING CONSUMPTION",
+    role: "复利消耗",
     title: "AdTech / MarTech",
     flowRole: "把投放预算转成持续生产",
     flowNote: "模型嵌入 Campaign Agent，随客户、素材和实验次数重复调用。",
@@ -249,7 +249,7 @@ const customerFlowStages = [
   },
   {
     index: "04",
-    role: "MEDIA DISTRIBUTION",
+    role: "媒体反馈",
     title: "Paid Media",
     flowRole: "完成分发并返回效果信号",
     flowNote: "把媒体侧数据送回创意生产，让胜出结构进入下一轮。",
@@ -339,11 +339,13 @@ export default function Home() {
           <header className="marketFlowIntro">
             <div className="marketFlowIndex"><span>01</span><b>BUDGET FLOW</b></div>
             <div className="marketFlowTitle">
+              <p className="langZh">未来 3–4 年 · 广告预算结构性迁移</p>
+              <p className="langEn">THE NEXT 3–4 YEARS · A STRUCTURAL BUDGET SHIFT</p>
               <h1 className="langZh">AI 降低视频生产成本，<br /><span>视频广告成为全球投放第一大类型。</span></h1>
               <h1 className="langEn">AI lowers video production cost.<br /><span>Video becomes the world’s No.1 ad format.</span></h1>
             </div>
             <div className="marketFlowScope" aria-label="全球数字广告与海外数字广告市场口径">
-              <div><span>2026 全球数字广告</span><strong>≈ $1T</strong></div>
+              <div><span>2026 全球数字广告</span><strong>≈ $1T</strong><small>近万亿美元总盘</small></div>
               <i aria-hidden="true">→</i>
               <div><span>海外数字广告大盘</span><strong>$640–680B</strong><small>剔除中国约 $160B 与海外线下约 $200B</small></div>
             </div>
@@ -352,7 +354,7 @@ export default function Home() {
           <figure className="marketFlowFigure" aria-labelledby="market-flow-heading">
             <input className="segmentControl" id="video-segment-mode" type="checkbox" aria-label="查看或收起视频广告三赛道" />
             <div className="marketFlowFigureHead">
-              <div><strong id="market-flow-heading">海外数字广告市场规模与增速</strong></div>
+              <div><strong id="market-flow-heading">预算迁移流</strong><span>2026 四大支柱 → 2030 视频广告 #1</span></div>
               <label className="marketFlowToggle" htmlFor="video-segment-mode"><span className="segmentClosedText">查看三赛道</span><span className="segmentOpenText">收起三赛道</span><i aria-hidden="true">＋</i></label>
             </div>
 
@@ -388,17 +390,23 @@ export default function Home() {
                 <text x="35" y="389" className="flowName">零售媒体</text><text x="35" y="405" className="flowMeta">RMN · 17%</text><text x="169" y="399" textAnchor="end" className="flowValue">$110B</text>
               </g>
 
+              <g className="flowEngine">
+                <rect x="354" y="150" width="250" height="68" />
+                <text x="374" y="173" className="flowEngineOverline">CAUSAL ENGINE</text><text x="374" y="199" className="flowEngineTitle">AI 降本 → 供给规模化 → 预算迁移</text>
+              </g>
               <text x="672" y="183" className="flowCrossTitle">3–4 年内跨过 $220B 搜索基准</text>
+              <text x="672" y="202" className="flowCrossNote">只使用已知视频预测，不外推其他品类</text>
 
               <g className="flowOutcomeDefault">
                 <rect x="936" y="42" width="236" height="259" />
+                <text x="955" y="70" className="flowDefaultOverline">FASTEST-GROWING FORMAT</text>
                 <text x="955" y="119" className="flowDefaultValue">$260B</text>
                 <text x="1148" y="118" textAnchor="end" className="flowDefaultRank">#1</text>
                 <line x1="955" y1="139" x2="1152" y2="139" />
                 <text x="955" y="175" className="flowDefaultSignal">3–4 YEARS</text>
                 <text x="955" y="199" className="flowDefaultCopy">超过搜索与图文展示广告</text>
                 <text x="955" y="244" className="flowDefaultSignal">AI-DRIVEN SUPPLY</text>
-                <text x="955" y="268" className="flowDefaultCopy">AI 使制作成本下降，视频供给规模化</text>
+                <text x="955" y="268" className="flowDefaultCopy">制作成本下降，视频供给规模化</text>
               </g>
               <g className="flowSegments">
                 <rect x="936" y="42" width="236" height="113" className="flowSocial" />
@@ -413,12 +421,8 @@ export default function Home() {
               </g>
 
               <g className="flowTimeline">
-                <text x="300" y="337" className="flowOverline">VIDEO BUDGET TRAJECTORY · 区间增长</text>
+                <text x="300" y="337" className="flowOverline">VIDEO BUDGET TRAJECTORY</text>
                 <line x1="300" y1="375" x2="835" y2="375" />
-                <g className="flowGrowthTag base" transform="translate(300 354)"><rect x="-27" y="-12" width="54" height="18" rx="9" /><text y="1" textAnchor="middle">基期</text></g>
-                <g className="flowGrowthTag" transform="translate(470 354)"><rect x="-42" y="-12" width="84" height="18" rx="9" /><text y="1" textAnchor="middle">2021–23 +44%</text></g>
-                <g className="flowGrowthTag" transform="translate(640 354)"><rect x="-42" y="-12" width="84" height="18" rx="9" /><text y="1" textAnchor="middle">2023–26 +63%</text></g>
-                <g className="flowGrowthTag finish" transform="translate(835 354)"><rect x="-42" y="-12" width="84" height="18" rx="9" /><text y="1" textAnchor="middle">2026–30 +79%</text></g>
                 <circle cx="300" cy="375" r="5" /><circle cx="470" cy="375" r="5" /><circle cx="640" cy="375" r="6" className="active" /><circle cx="835" cy="375" r="8" className="finish" />
                 <text x="300" y="399" className="flowTimelineText">2021 · $62B</text><text x="470" y="399" textAnchor="middle" className="flowTimelineText">2023 · $89B</text><text x="640" y="399" textAnchor="middle" className="flowTimelineText">2026 · $145B</text><text x="835" y="399" textAnchor="middle" className="flowTimelineFinish">2030 · $260B</text>
               </g>
@@ -441,13 +445,14 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <figcaption>注：四类大盘口径中的 Video 为 $160B；三赛道可拆分口径合计约 $145B。</figcaption>
           </figure>
 
           <section className="marketFlowAiBand" aria-label="2026 到 2030 AI 价值捕获">
             <div className="marketFlowAiIntro"><span>WHY NOW · COST COMPRESSION</span><h2 className="langZh">AI 把制作瓶颈，<br />变成可规模化供给。</h2><h2 className="langEn">AI turns a production bottleneck<br />into scalable supply.</h2><p>从制作成本中切出 Agent 与模型 API 价值层。</p></div>
-            <div className="marketFlowYear current"><header><strong>2026</strong><span>CURRENT</span></header><div className="marketFlowYearTotal"><span>视频广告制作总成本</span><b>$25–30B</b></div><div className="marketFlowMetric agent"><span>AGENT</span><b>$2B</b><small>≈ 成本 10%</small></div><div className="marketFlowMetric api"><span>MODEL API</span><b>$1B</b><small>≈ 成本 5%</small></div></div>
-            <div className="marketFlowYear future"><header><strong>2030</strong><span>FORECAST</span></header><div className="marketFlowYearTotal"><span>可替代劳动力盘</span><b>≈ $50B</b></div><div className="marketFlowMetric agent"><span>AGENT</span><b>$12.8B</b><small>6.4×</small></div><div className="marketFlowMetric api"><span>MODEL API</span><b>$6.4B</b><small>6.4×</small></div></div>
-            <div className="marketFlowCapture"><span>VALUE CAPTURE</span><strong><b>AI 已切走</b><em>&gt;20%</em></strong><p>Agent 对应约 $50B 劳动力盘；模型 API 占比同步进入两位数。</p></div>
+            <div className="marketFlowYear current"><header><strong>2026</strong><span>CURRENT</span></header><div className="marketFlowYearTotal"><span>视频广告制作总成本</span><b>$25–30B</b></div><div className="marketFlowMetric"><span>AGENT</span><b>$2B</b><small>≈ 成本 10%</small></div><div className="marketFlowMetric"><span>MODEL API</span><b>$1B</b><small>≈ 成本 5%</small></div></div>
+            <div className="marketFlowYear future"><header><strong>2030</strong><span>FORECAST</span></header><div className="marketFlowYearTotal"><span>可替代劳动力盘</span><b>≈ $50B</b></div><div className="marketFlowMetric"><span>AGENT</span><b>$12.8B</b><small>6.4×</small></div><div className="marketFlowMetric"><span>MODEL API</span><b>$6.4B</b><small>6.4×</small></div></div>
+            <div className="marketFlowCapture"><span>VALUE CAPTURE</span><strong>AI 已切走 &gt;20%</strong><p>Agent 对应约 $50B 劳动力盘；模型 API 占比同步进入两位数。</p></div>
           </section>
         </div>
       </section>
@@ -651,30 +656,28 @@ export default function Home() {
       <section className="customerFlowPage" id="audience" aria-labelledby="customer-flow-title">
         <div className="customerFlowShell">
           <header className="customerFlowHeader">
-            <div className="customerFlowIndex"><span>04</span><b>CUSTOMER MONEY FLOW</b></div>
-            <div><p>预算流向 × 客户角色 × 核心趋势</p><h2 id="customer-flow-title">3. 客群策略<br /><span>钱从上往下走。</span></h2></div>
-            <p>不是四类并列客户，而是一条完整链路：预算从品牌主出发，经代理商与 AdTech / MarTech 进入规模化生产，最终在 Paid Media 完成分发与反馈。</p>
+            <div className="customerFlowIndex"><span>04</span><b>客群策略</b></div>
+            <div><p>预算如何变成模型消耗</p><h2 id="customer-flow-title">钱从上往下走，<br /><span>价值在中间放大。</span></h2></div>
+            <p>品牌主掌握预算，代理商放大制作规模，AdTech / MarTech 把一次性交付变成持续调用，Paid Media 再把效果信号送回生产。</p>
           </header>
 
-          <div className="customerFlowBoard" aria-label="品牌主到 Paid Media 的广告预算流向">
-            <aside className="customerMoneySpine" aria-hidden="true">
-              <span>$</span><b>BUDGET</b><i></i><em>↓</em>
-            </aside>
-            <div className="customerFlowStages">
+          <div className="customerFlowCanvas">
+            <div className="customerFlowRoute" aria-label="品牌主到 Paid Media 的广告预算流向">
+              <div className="customerMoneySpine" aria-hidden="true"><span>$</span><i></i><em>↓</em></div>
+              <div className="customerFlowStages">
               {customerFlowStages.map((stage) => (
                 <article className={`customerFlowStage ${stage.index === "03" ? "customerFlowStageFocus" : ""}`} key={stage.index}>
                   <div className="customerFlowIdentity"><span>{stage.index}</span><small>{stage.role}</small><h3>{stage.title}</h3></div>
-                  <div className="customerFlowRole"><small>BUDGET ROLE</small><h4>{stage.flowRole}</h4><p>{stage.flowNote}</p></div>
-                  <div className="customerFlowTrend"><small>TREND / OPPORTUNITY</small><h4>{stage.trend}</h4><p>{stage.opportunity}</p></div>
-                  <div className="customerFlowExamples"><small>TYPICAL CASES</small><b>{stage.examples}</b><i>↘</i></div>
+                  <div className="customerFlowRole"><small>预算作用</small><h4>{stage.flowRole}</h4></div>
+                  <div className="customerFlowTrend"><small>关键趋势</small><h4>{stage.trend}</h4></div>
+                  <div className="customerFlowExamples"><small>代表客户</small><b>{stage.examples}</b></div>
                 </article>
               ))}
+              </div>
             </div>
           </div>
 
-          <footer className="customerFlowFooter">
-            <span>预算源头</span><i>→</i><span>生产规模</span><i>→</i><span>自动化复利</span><i>→</i><span>媒体分发与反馈</span>
-          </footer>
+          <footer className="customerFlowFooter"><span>预算源头</span><i>→</i><span>制作放大</span><i>→</i><strong>自动化复利</strong><i>→</i><span>媒体反馈</span><b>↺</b></footer>
         </div>
       </section>
 

@@ -34,8 +34,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /视频广告/);
   assert.match(html, /第一大类型/);
   assert.match(html, /BUDGET FLOW/);
-  assert.match(html, /海外数字广告市场规模与增速/);
-  assert.doesNotMatch(html, /未来 3–4 年 · 广告预算结构性迁移|近万亿美元总盘|2026 四大支柱 → 2030 视频广告 #1/);
+  assert.match(html, /预算迁移流/);
   assert.match(html, /CTR \/ CVR/);
   assert.match(html, /AI 降低视频生产成本/);
   assert.match(html, /供给规模化/);
@@ -88,12 +87,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.doesNotMatch(html, /网页原生表达|网页原生重绘|网页以文字门槛呈现|不嵌入原图|platformNote|SOURCE ·|REFERENCE PAGE|localhost:4173|rev\./);
   assert.doesNotMatch(html, /三大细分赛道全景对比/);
   assert.match(html, /查看三赛道/);
-  assert.doesNotMatch(html, /FASTEST-GROWING FORMAT|CAUSAL ENGINE|只使用已知视频预测/);
-  assert.doesNotMatch(html, /四类大盘口径中的 Video/);
-  assert.match(html, /AI 使制作成本下降，视频供给规模化/);
-  assert.match(html, /2021–23 \+44%/);
-  assert.match(html, /2023–26 \+63%/);
-  assert.match(html, /2026–30 \+79%/);
+  assert.match(html, /FASTEST-GROWING FORMAT/);
   assert.match(html, /class="flowOutcomeDefault"/);
   assert.match(html, /class="mobileOutcomeSummary"/);
   assert.match(html, /class="mobileSegmentDetails"/);
@@ -197,9 +191,10 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /playable\.byteplus-demo\.com/);
   assert.doesNotMatch(html, /THE GROWTH LOOP|ROAS 反馈回流/);
   assert.doesNotMatch(html, /PERFORMANCE DEEP DIVE|id="scene-perf"|每条可投放素材的综合成本|ANNUAL SUPPLY|STANDARD FORMAT|VARIANTS \/ SKU|costFormula|perfKpis|darkTable/);
-  assert.match(html, /3\. 客群策略/);
+  assert.match(html, /客群策略/);
   assert.match(html, /钱从上往下走/);
-  assert.match(html, /CUSTOMER MONEY FLOW/);
+  assert.match(html, /价值在中间放大/);
+  assert.match(html, /Campaign Agent 进入 1 → 3/);
   assert.match(html, /品牌主.*代理商.*AdTech \/ MarTech.*Paid Media/s);
   assert.doesNotMatch(html, /当前模型 API 钱包口径|钱包口径待补充/);
   assert.match(html, /定义预算与品牌资产/);
@@ -282,7 +277,7 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /\$150K/);
   assert.match(page, /AI 降低视频生产成本/);
   assert.match(page, /供给规模化/);
-  assert.match(page, /海外数字广告市场规模与增速/);
+  assert.match(page, /预算迁移流/);
   assert.match(page, /VALUE CAPTURE/);
   assert.match(page, /\$2B/);
   assert.match(page, /62 → 115B/);
@@ -367,8 +362,8 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.doesNotMatch(page, /const marketFunnel/);
   assert.doesNotMatch(page, /shell marketFunnel/);
   assert.doesNotMatch(page, /agentSection|agentCopy|agentSignals|agentSignal|className="loop"|loopStep|loopReturn/);
-  assert.match(page, /CUSTOMER MONEY FLOW/);
-  assert.equal((page.match(/role: "(BUDGET SOURCE|PRODUCTION SCALE|COMPOUNDING CONSUMPTION|MEDIA DISTRIBUTION)"/g) ?? []).length, 4);
+  assert.doesNotMatch(page, /customerFlowThesis/);
+  assert.equal((page.match(/role: "(预算源头|制作放大|复利消耗|媒体反馈)"/g) ?? []).length, 4);
   assert.match(page, /brandProcessPage/);
   assert.match(page, /brandBusinessSteps/);
   assert.match(page, /brandArchitecture/);
@@ -410,8 +405,9 @@ test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone",
   assert.match(css, /overflow-x: clip/);
   assert.match(css, /@media \(hover: none\)/);
   assert.match(css, /\.customerFlowPage \{ height: 860px/);
-  assert.match(css, /\.customerFlowStage \{[^}]*grid-template-columns: 225px minmax\(220px, \.78fr\) minmax\(330px, 1\.22fr\) 205px/);
-  assert.match(css, /@media \(max-width: 700px\) \{[\s\S]*?\.customerFlowStage,\s*\.customerFlowStage:nth-child\(n\) \{ grid-template-columns: 1fr; \}/);
+  assert.match(css, /\.customerFlowCanvas \{[^}]*grid-template-columns: minmax\(0, 1fr\)/);
+  assert.match(css, /\.customerFlowStage \{[^}]*grid-template-columns: 150px minmax\(190px, 1fr\) minmax\(205px, 1fr\) 155px/);
+  assert.match(css, /@media \(max-width: 700px\) \{[\s\S]*?\.customerFlowStage \{[^}]*grid-template-columns: 1fr 1fr/);
   assert.match(css, /@media \(max-width: 1120px\) \{[\s\S]*?\.adtechCasePage/);
   assert.match(css, /@media \(max-width: 760px\) \{[\s\S]*?\.adtechAgentFlow \{ grid-template-columns: 1fr/);
   assert.match(css, /@media \(max-width: 760px\) \{[\s\S]*?\.adtechCustomerCards \{ grid-template-columns: 1fr/);
