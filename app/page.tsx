@@ -30,7 +30,6 @@ const sceneLandscapeColumns = [
     title: "品牌广告",
     marketValue: "$0.4B",
     marketShare: "40%",
-    marketNote: "视频广告盘",
     channels: ["CTV / 流媒体大屏", "YouTube 长视频广告"],
     objective: ["曝光量 · 品牌知名度", "长期品牌心智"],
     output: "15 / 30S",
@@ -46,7 +45,6 @@ const sceneLandscapeColumns = [
     title: "效果广告",
     marketValue: "$0.6B",
     marketShare: "60%",
-    marketNote: "视频广告盘",
     channels: ["TikTok / Reels / Shorts", "应用内广告网络"],
     objective: ["tCPA / tROAS", "CTR / CVR · CPI"],
     output: "10–15S",
@@ -61,8 +59,6 @@ const sceneLandscapeColumns = [
     eyebrow: "DISPLAY ADS",
     title: "静态展示图片广告",
     marketValue: "$0.4B",
-    marketShare: "独立盘",
-    marketNote: "图片广告盘",
     channels: ["社交信息流静态图", "程序化展示广告"],
     objective: ["CPM / CPC", "低成本覆盖 + 直接转化"],
     output: "100–1K",
@@ -547,11 +543,10 @@ export default function Home() {
               </header>
             ))}
 
-            <div className="sceneMatrixRowHead sceneMatrixMarketHead" role="rowheader"><span>01</span><div><b>市场量</b><small>MARKET SIZE</small><em>视频盘 $1.0B<br />图片盘 $0.4B</em></div></div>
+            <div className="sceneMatrixRowHead sceneMatrixMarketHead" role="rowheader"><span>01</span><div><b>市场量</b><small>MARKET SIZE</small></div></div>
             {sceneLandscapeColumns.map((column) => (
               <section className={`sceneMatrixCell sceneMatrixMarket sceneMatrixCell-${column.key}`} role="cell" key={`market-${column.key}`}>
-                <div><strong>{column.marketValue}</strong><b>{column.marketShare}</b></div>
-                <p>{column.marketNote}</p>
+                <div><strong>{column.marketValue}</strong>{"marketShare" in column ? <b>{column.marketShare}</b> : null}</div>
                 <i><span style={{ width: column.key === "brand" ? "40%" : column.key === "performance" ? "60%" : "100%" }} /></i>
               </section>
             ))}

@@ -95,10 +95,10 @@ test("server-renders the complete advertising strategy", async () => {
   assert.doesNotMatch(sceneOverviewHtml, /VIDEO MODEL API · 2026|IMAGE MODEL API · 2026|视频 API 规模|图片模型 API 规模|主流模型/);
   assert.equal((html.match(/class="sceneMatrixColumnHead sceneMatrixColumnHead-/g) ?? []).length, 3);
   assert.match(sceneOverviewHtml, /品牌广告.*效果广告.*静态展示图片广告/s);
-  assert.match(sceneOverviewHtml, /视频盘 \$1\.0B.*图片盘 \$0\.4B/s);
-  assert.equal((sceneOverviewHtml.match(/\$0\.4B/g) ?? []).length, 3);
+  assert.equal((sceneOverviewHtml.match(/\$0\.4B/g) ?? []).length, 2);
   assert.equal((sceneOverviewHtml.match(/\$0\.6B/g) ?? []).length, 1);
-  assert.match(sceneOverviewHtml, /40%.*60%.*独立盘/s);
+  assert.match(sceneOverviewHtml, /40%.*60%/s);
+  assert.doesNotMatch(sceneOverviewHtml, /视频盘 \$1\.0B|图片盘 \$0\.4B|视频广告盘|图片广告盘|独立盘/);
   assert.match(sceneOverviewHtml, /WPP · Havas · Publicis · Dentsu · Omnicom.*Brandtech（Pencil）· 博报堂/s);
   assert.match(sceneOverviewHtml, /AppLovin · 钛动.*Pinterest · Reddit · LinkedIn Ads/s);
   assert.match(sceneOverviewHtml, /AppLovin · Smartly\.io · Creatopy.*Criteo · Pinterest · 头部 4A/s);
