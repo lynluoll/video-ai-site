@@ -20,7 +20,7 @@ type ExportedCopyChange = {
   updatedHtml: string;
 };
 
-const STORAGE_KEY = "byteplus-ads-copy-overrides-v9";
+const STORAGE_KEY = "byteplus-ads-copy-overrides-v10";
 
 function readOverrides(): Record<string, CopyOverride> {
   try {
@@ -64,6 +64,26 @@ function getXPath(element: Element) {
   return `/${segments.join("/")}`;
 }
 
+function hashCopyIdentity(value: string) {
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(36);
+}
+
+function getStableCopyKey(
+  element: EditableElement,
+  occurrenceByFingerprint: Map<string, number>,
+) {
+  const sectionId = element.closest<HTMLElement>("[id]")?.id ?? "site-root";
+  const fingerprint = `${sectionId}|${element.localName}|${element.innerHTML}`;
+  const occurrence = (occurrenceByFingerprint.get(fingerprint) ?? 0) + 1;
+  occurrenceByFingerprint.set(fingerprint, occurrence);
+  return `copy-${hashCopyIdentity(fingerprint)}-${String(occurrence).padStart(2, "0")}`;
+}
+
 function textFromHtml(html: string) {
   const template = document.createElement("template");
   template.innerHTML = html;
@@ -105,11 +125,12 @@ export default function InlineTextEditor() {
 
     const targets = getEditableTargets(root);
     const stored = readOverrides();
+    const occurrenceByFingerprint = new Map<string, number>();
     targetsRef.current = targets;
     overridesRef.current = stored;
 
-    targets.forEach((element, index) => {
-      const key = `copy-${String(index + 1).padStart(4, "0")}`;
+    targets.forEach((element) => {
+      const key = getStableCopyKey(element, occurrenceByFingerprint);
       element.dataset.copyKey = key;
       originalsRef.current[key] = element.innerHTML;
       const override = stored[key];
