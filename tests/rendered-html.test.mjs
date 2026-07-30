@@ -93,10 +93,15 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /2\. 主流广告场景/);
   assert.match(html, /和需求分析/);
   assert.doesNotMatch(sceneOverviewHtml, /VIDEO MODEL API · 2026|IMAGE MODEL API · 2026|视频 API 规模|图片模型 API 规模|主流模型/);
-  assert.equal((html.match(/class="sceneLandscapeCard /g) ?? []).length, 3);
-  assert.match(html, /头部 5 家代理商.*WPP · Havas · Publicis · Dentsu · Omnicom.*次头部代理商.*Brandtech（Pencil）· 博报堂/s);
-  assert.match(html, /AdTech 公司.*AppLovin · 钛动.*广告主（品牌方）.*欧莱雅 · 可口可乐等.*Paid Media.*Pinterest · Reddit · LinkedIn Ads 等/s);
-  assert.match(html, /AdTech \/ 创意自动化平台.*AppLovin · Smartly\.io · Creatopy.*零售媒体和 Paid Media.*Criteo · Pinterest.*代理商.*WPP · Havas · Publicis · Dentsu · Omnicom/s);
+  assert.equal((html.match(/class="sceneMatrixColumnHead sceneMatrixColumnHead-/g) ?? []).length, 3);
+  assert.match(sceneOverviewHtml, /品牌广告.*效果广告.*静态展示图片广告/s);
+  assert.match(sceneOverviewHtml, /视频盘 \$1\.0B.*图片盘 \$0\.4B/s);
+  assert.equal((sceneOverviewHtml.match(/\$0\.4B/g) ?? []).length, 3);
+  assert.equal((sceneOverviewHtml.match(/\$0\.6B/g) ?? []).length, 1);
+  assert.match(sceneOverviewHtml, /40%.*60%.*独立盘/s);
+  assert.match(sceneOverviewHtml, /WPP · Havas · Publicis · Dentsu · Omnicom.*Brandtech（Pencil）· 博报堂/s);
+  assert.match(sceneOverviewHtml, /AppLovin · 钛动.*Pinterest · Reddit · LinkedIn Ads/s);
+  assert.match(sceneOverviewHtml, /AppLovin · Smartly\.io · Creatopy.*Criteo · Pinterest · 头部 4A/s);
   assert.doesNotMatch(sceneOverviewHtml, /Shein|Temu|Amazon 卖家|Shopify 商家/);
   assert.equal((html.match(/<video /g) ?? []).length, 20);
   assert.equal((html.match(/class="sceneDemoPage sceneDemoPage/g) ?? []).length, 3);
@@ -136,6 +141,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.equal((html.match(/class="solutionPage /g) ?? []).length, 3);
   assert.match(html, /品牌广告制作方案/);
   assert.match(html, /Brand Advertising Production Solution/);
+  assert.match(html, /href="https:\/\/sofa-demo\.byteplus-demo\.com\/"[^>]*>.*查看方案详情/s);
   assert.match(html, /src="\/media\/sofa\/final-film\.mp4"/);
   assert.doesNotMatch(html, /One packshot in|A whole catalog/);
   assert.match(html, /CG 锁定控制，AI 完成输出/);
@@ -169,6 +175,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.doesNotMatch(html, /class="brandSolutionScope"|10–15s · 9:16/);
   assert.match(html, /效果广告制作方案/);
   assert.match(html, /流程、样片与能力证据/);
+  assert.match(html, /href="https:\/\/bytedance\.sg\.larkoffice\.com\/docx\/YpqAdyBReoQt3gxDZUql9wMagIf"[^>]*>查看方案详情/s);
   assert.match(html, /5 STEPS/);
   assert.match(html, /热点洞察.*广告脚本.*AI 内容生产.*投放测试.*爆款复刻/s);
   assert.equal((html.match(/class="performanceFlowSummary"/g) ?? []).length, 5);
@@ -178,6 +185,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /只改变目标效果，不破坏人物身份/);
   assert.match(html, /Display Ads 制作方法/);
   assert.match(html, /一个母版，规模化交付/);
+  assert.match(html, /href="https:\/\/bytedance\.sg\.larkoffice\.com\/docx\/BDRLd6Y8Ponm2QxRUFBl1AJXgyh"[^>]*>查看方案详情/s);
   assert.match(html, /id="solution-display-demos"/);
   assert.equal((html.match(/class="solutionPage displaySolutionPage"/g) ?? []).length, 1);
   assert.doesNotMatch(html, /class="solutionPage displayDemoPage"/);
@@ -207,6 +215,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /cake-sort\.html.*tiny-fishing\.html/s);
   assert.doesNotMatch(html, /4 类玩法测试|2 类通过/);
   assert.match(html, /playable\.byteplus-demo\.com/);
+  assert.match(html, /查看 Playable 方案详情与更多案例/);
   assert.doesNotMatch(html, /THE GROWTH LOOP|ROAS 反馈回流/);
   assert.doesNotMatch(html, /PERFORMANCE DEEP DIVE|id="scene-perf"|每条可投放素材的综合成本|ANNUAL SUPPLY|STANDARD FORMAT|VARIANTS \/ SKU|costFormula|perfKpis|darkTable/);
   assert.match(html, /客群策略/);

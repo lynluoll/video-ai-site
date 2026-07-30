@@ -22,6 +22,57 @@ const playableDemos = [
   },
 ];
 
+const sceneLandscapeColumns = [
+  {
+    key: "brand",
+    index: "01",
+    eyebrow: "BRAND VIDEO",
+    title: "品牌广告",
+    marketValue: "$0.4B",
+    marketShare: "40%",
+    marketNote: "视频广告盘",
+    channels: ["CTV / 流媒体大屏", "YouTube 长视频广告"],
+    objective: ["曝光量 · 品牌知名度", "长期品牌心智"],
+    output: "15 / 30S",
+    outputNote: "导演级创意 · 多镜头一致性 · 品牌审片",
+    buyers: ["WPP · Havas · Publicis · Dentsu · Omnicom", "Brandtech（Pencil）· 博报堂"],
+    href: "#scene-brand-demo",
+    link: "查看品牌场景样片",
+  },
+  {
+    key: "performance",
+    index: "02",
+    eyebrow: "PERFORMANCE VIDEO",
+    title: "效果广告",
+    marketValue: "$0.6B",
+    marketShare: "60%",
+    marketNote: "视频广告盘",
+    channels: ["TikTok / Reels / Shorts", "应用内广告网络"],
+    objective: ["tCPA / tROAS", "CTR / CVR · CPI"],
+    output: "10–15S",
+    outputNote: "竖屏 UGC · 10–100 条变体 · 持续投放实验",
+    buyers: ["AppLovin · 钛动", "Pinterest · Reddit · LinkedIn Ads"],
+    href: "#scene-performance-demo",
+    link: "查看效果场景样片",
+  },
+  {
+    key: "display",
+    index: "03",
+    eyebrow: "DISPLAY ADS",
+    title: "静态展示图片广告",
+    marketValue: "$0.4B",
+    marketShare: "独立盘",
+    marketNote: "图片广告盘",
+    channels: ["社交信息流静态图", "程序化展示广告"],
+    objective: ["CPM / CPC", "低成本覆盖 + 直接转化"],
+    output: "100–1K",
+    outputNote: "静态图 / Banner · 多尺寸 · 多语言批量变体",
+    buyers: ["AppLovin · Smartly.io · Creatopy", "Criteo · Pinterest · 头部 4A"],
+    href: "#scene-display-demo",
+    link: "查看 Display 场景样片",
+  },
+] as const;
+
 const scenarioCases = [
   {
     index: "01",
@@ -484,65 +535,43 @@ export default function Home() {
             <div><h2 id="scene-landscape-title">2. 主流广告场景<br /><span>和需求分析</span></h2></div>
           </header>
 
-          <div className="sceneLandscapeCards">
-            <article className="sceneLandscapeCard brandSceneCard">
-              <header><span>01</span><div><small>BRAND VIDEO</small><h3>品牌广告</h3></div><em>品牌心智</em></header>
-              <div className="sceneFormat"><span>TYPICAL OUTPUT</span><b>15 / 30S</b><p>导演级创意 · 多镜头一致性 · 品牌审片</p></div>
-              <div className="sceneCardContent">
-                <div className="sceneFacts">
-                  <section><span>主要投放</span><p>CTV / 流媒体大屏<br />YouTube 长视频广告</p></section>
-                  <section><span>核心目的</span><p>曝光量 · 品牌知名度<br />长期品牌心智</p></section>
-                </div>
-                <section className="sceneCustomerPanel">
-                  <div className="sceneCustomerTitle"><span>典型客户画像</span><b>WHO BUYS</b></div>
-                  <div className="sceneCustomerGroups sceneCustomerGroupsTwo">
-                    <div><span>头部 5 家代理商</span><p>WPP · Havas · Publicis · Dentsu · Omnicom</p></div>
-                    <div><span>次头部代理商</span><p>Brandtech（Pencil）· 博报堂</p></div>
-                  </div>
-                </section>
-              </div>
-              <a href="#scene-brand-demo">查看品牌场景样片 <span>↘</span></a>
-            </article>
+          <div className="sceneComparisonMatrix" role="table" aria-label="品牌、效果与静态展示图片广告全景对比">
+            <div className="sceneMatrixCorner" role="columnheader">
+              <span>评估维度</span>
+              <b>5 DIMENSIONS</b>
+            </div>
+            {sceneLandscapeColumns.map((column) => (
+              <header className={`sceneMatrixColumnHead sceneMatrixColumnHead-${column.key}`} role="columnheader" key={`head-${column.key}`}>
+                <small>{column.index} / {column.eyebrow}</small>
+                <h3>{column.title}</h3>
+              </header>
+            ))}
 
-            <article className="sceneLandscapeCard performanceSceneCard">
-              <header><span>02</span><div><small>PERFORMANCE VIDEO</small><h3>效果广告</h3></div><em>转化效率</em></header>
-              <div className="sceneFormat"><span>TYPICAL OUTPUT</span><b>10–15S</b><p>竖屏 UGC · 10–100 条变体 · 持续投放实验</p></div>
-              <div className="sceneCardContent">
-                <div className="sceneFacts">
-                  <section><span>主要投放</span><p>TikTok / Reels / Shorts<br />应用内广告网络</p></section>
-                  <section><span>核心目的</span><p>tCPA / tROAS<br />CTR / CVR · CPI</p></section>
-                </div>
-                <section className="sceneCustomerPanel">
-                  <div className="sceneCustomerTitle"><span>典型客户画像</span><b>WHO BUYS</b></div>
-                  <div className="sceneCustomerGroups">
-                    <div><span>AdTech 公司</span><p>AppLovin · 钛动</p></div>
-                    <div><span>广告主（品牌方）</span><p>欧莱雅 · 可口可乐等</p></div>
-                    <div><span>Paid Media</span><p>Pinterest · Reddit · LinkedIn Ads 等</p></div>
-                  </div>
-                </section>
-              </div>
-              <a href="#scene-performance-demo">查看效果场景样片 <span>↘</span></a>
-            </article>
+            <div className="sceneMatrixRowHead sceneMatrixMarketHead" role="rowheader"><span>01</span><div><b>市场量</b><small>MARKET SIZE</small><em>视频盘 $1.0B<br />图片盘 $0.4B</em></div></div>
+            {sceneLandscapeColumns.map((column) => (
+              <section className={`sceneMatrixCell sceneMatrixMarket sceneMatrixCell-${column.key}`} role="cell" key={`market-${column.key}`}>
+                <div><strong>{column.marketValue}</strong><b>{column.marketShare}</b></div>
+                <p>{column.marketNote}</p>
+                <i><span style={{ width: column.key === "brand" ? "40%" : column.key === "performance" ? "60%" : "100%" }} /></i>
+              </section>
+            ))}
 
-            <article className="sceneLandscapeCard displaySceneCard">
-              <header><span>03</span><div><small>DISPLAY ADS</small><h3>静态展示图片广告</h3></div><em>覆盖 + 转化</em></header>
-              <div className="sceneFormat"><span>TYPICAL OUTPUT</span><b>100–1K</b><p>静态图 / Banner · 多尺寸 · 多语言批量变体</p></div>
-              <div className="sceneCardContent">
-                <div className="sceneFacts">
-                  <section><span>主要投放</span><p>社交信息流静态图<br />程序化展示广告</p></section>
-                  <section><span>核心目的</span><p>CPM / CPC<br />低成本覆盖 + 直接转化</p></section>
-                </div>
-                <section className="sceneCustomerPanel">
-                  <div className="sceneCustomerTitle"><span>典型客户画像</span><b>WHO BUYS</b></div>
-                  <div className="sceneCustomerGroups">
-                    <div><span>AdTech / 创意自动化平台</span><p>AppLovin · Smartly.io · Creatopy</p></div>
-                    <div><span>零售媒体和 Paid Media</span><p>Criteo · Pinterest</p></div>
-                    <div><span>代理商</span><p>WPP · Havas · Publicis · Dentsu · Omnicom</p></div>
-                  </div>
-                </section>
-              </div>
-              <a href="#scene-display-demo">查看 Display 场景样片 <span>↘</span></a>
-            </article>
+            <div className="sceneMatrixRowHead" role="rowheader"><span>02</span><div><b>核心阵地</b><small>WHERE</small></div></div>
+            {sceneLandscapeColumns.map((column) => <section className="sceneMatrixCell" role="cell" key={`channels-${column.key}`}><p>{column.channels.map((line) => <span key={line}>{line}</span>)}</p></section>)}
+
+            <div className="sceneMatrixRowHead" role="rowheader"><span>03</span><div><b>核心目的</b><small>OBJECTIVE</small></div></div>
+            {sceneLandscapeColumns.map((column) => <section className="sceneMatrixCell" role="cell" key={`objective-${column.key}`}><p>{column.objective.map((line) => <span key={line}>{line}</span>)}</p></section>)}
+
+            <div className="sceneMatrixRowHead" role="rowheader"><span>04</span><div><b>典型产出</b><small>OUTPUT</small></div></div>
+            {sceneLandscapeColumns.map((column) => <section className="sceneMatrixCell sceneMatrixOutput" role="cell" key={`output-${column.key}`}><strong>{column.output}</strong><p>{column.outputNote}</p></section>)}
+
+            <div className="sceneMatrixRowHead" role="rowheader"><span>05</span><div><b>典型客户</b><small>WHO BUYS</small></div></div>
+            {sceneLandscapeColumns.map((column) => (
+              <section className="sceneMatrixCell sceneMatrixBuyers" role="cell" key={`buyers-${column.key}`}>
+                <p>{column.buyers.map((line) => <span key={line}>{line}</span>)}</p>
+                <a href={column.href}>{column.link}<b>↘</b></a>
+              </section>
+            ))}
           </div>
         </div>
       </section>
@@ -827,6 +856,7 @@ export default function Home() {
                 <h3 className="langZh" id="brand-solution-title">品牌广告制作方案</h3>
                 <h3 className="langEn">Brand Advertising Production Solution</h3>
               </div>
+              <a className="solutionDetailLink" href="https://sofa-demo.byteplus-demo.com/" target="_blank" rel="noreferrer"><span className="langZh">查看方案详情</span><span className="langEn">View solution details</span><b>↗</b></a>
             </header>
 
             <div className="brandSolutionBody">
@@ -904,7 +934,7 @@ export default function Home() {
             <header className="performanceSolutionHeader">
               <div className="performanceSolutionIndex"><span>03</span><b>PERFORMANCE ADS</b></div>
               <div><p>五步运作链 × 四个样片</p><h3>效果广告制作方案<br /><span>流程、样片与能力证据。</span></h3></div>
-              <p>从洞察、生产到投放复刻，形成一条可持续迭代的素材生产闭环。</p>
+              <div className="solutionHeaderAside"><p>从洞察、生产到投放复刻，形成一条可持续迭代的素材生产闭环。</p><a className="solutionDetailLink" href="https://bytedance.sg.larkoffice.com/docx/YpqAdyBReoQt3gxDZUql9wMagIf" target="_blank" rel="noreferrer">查看方案详情<b>↗</b></a></div>
             </header>
 
             <div className="performanceSolutionBody">
@@ -967,7 +997,7 @@ export default function Home() {
             <header className="displaySolutionHeader">
               <div className="displaySolutionIndex"><span>04</span><b>DISPLAY ADS</b></div>
               <div><p>VISUAL MASTER × DETERMINISTIC SCALE</p><h3>Display Ads 制作方法<br /><span>一个母版，规模化交付。</span></h3></div>
-              <p>Seedream 负责视觉创意；Template + DCO 把母版准确扩展到每个尺寸、语言、SKU 与人群。</p>
+              <div className="solutionHeaderAside"><p>Seedream 负责视觉创意；Template + DCO 把母版准确扩展到每个尺寸、语言、SKU 与人群。</p><a className="solutionDetailLink" href="https://bytedance.sg.larkoffice.com/docx/BDRLd6Y8Ponm2QxRUFBl1AJXgyh" target="_blank" rel="noreferrer">查看方案详情<b>↗</b></a></div>
             </header>
 
             <div className="displaySolutionBody">
@@ -1093,7 +1123,7 @@ export default function Home() {
                     </article>
                   ))}
                 </div>
-                <a className="playableAllDemos" href="https://playable.byteplus-demo.com/" target="_blank" rel="noreferrer"><span className="langZh">查看完整 Playable 方案与更多案例</span><span className="langEn">Explore the full solution and more demos</span><b>↗</b></a>
+                <a className="playableAllDemos" href="https://playable.byteplus-demo.com/" target="_blank" rel="noreferrer"><span className="langZh">查看 Playable 方案详情与更多案例</span><span className="langEn">View solution details and more demos</span><b>↗</b></a>
               </section>
             </div>
           </article>
