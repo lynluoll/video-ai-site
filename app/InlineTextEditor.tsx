@@ -20,7 +20,7 @@ type ExportedCopyChange = {
   updatedHtml: string;
 };
 
-const STORAGE_KEY = "byteplus-ads-copy-overrides-v8";
+const STORAGE_KEY = "byteplus-ads-copy-overrides-v9";
 
 function readOverrides(): Record<string, CopyOverride> {
   try {

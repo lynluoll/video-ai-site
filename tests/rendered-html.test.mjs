@@ -103,12 +103,12 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /scene-brand-demo/);
   assert.match(html, /scene-performance-demo/);
   assert.match(html, /scene-display-demo/);
-  assert.match(html, /REFERENCE DEMO/);
+  assert.doesNotMatch(html, /REFERENCE DEMO/);
   assert.match(html, /src="\/media\/brand-reference\.mp4"/);
   assert.match(html, /src="\/media\/performance-generated\.mp4"/);
   assert.match(html, /poster="\/media\/performance-poster\.jpg"/);
   assert.match(html, /AI 生成效果广告样片/);
-  assert.match(html, /一次过率决定综合成本/);
+  assert.doesNotMatch(html, /一次过率决定综合成本/);
   assert.doesNotMatch(sceneDemoHtml, /performance-reference\.mp4|performance-reference\.jpg/);
   assert.doesNotMatch(sceneDemoHtml, /WHO MAKES IT|制作方 \/ 客户|sceneDemoWho/);
   assert.equal((sceneDemoHtml.match(/class="sceneDemoDisclosure" open=""/g) ?? []).length, 9);
@@ -199,7 +199,9 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /id="solution-playable"/);
   assert.match(html, /一个游戏素材.*市场调研.*创意策划.*自动生产.*可投放广告包/s);
   assert.match(html, /Hook × 视觉 × CTA/);
-  assert.match(html, /AI 自动编排 · 全流程无需人工/);
+  assert.doesNotMatch(html, /AI 自动编排 · 全流程无需人工/);
+  assert.match(html, /截图 \/ 视频 \/ URL 参考/);
+  assert.match(html, /可直接试玩的 Playable 广告/);
   assert.equal((html.match(/class="playableDemoCard"/g) ?? []).length, 2);
   assert.match(html, /CakeSort.*TinyFishing/s);
   assert.match(html, /cake-sort\.html.*tiny-fishing\.html/s);
@@ -255,11 +257,13 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /钛动/);
   const adtechHtml = html.slice(html.indexOf('class="adtechCasePage"'), html.indexOf('id="solution-focus"'));
   assert.match(adtechHtml, /MARKET STAGE.*1 → 3.*Campaign Agent.*进入可复制阶段.*素材自动化.*嵌入主链路.*AI 视频素材.*占比持续上升.*模型调用与收入.*同步放大/s);
-  assert.match(adtechHtml, /Lumos \/ Navos/);
+  assert.match(adtechHtml, /Navos 承接素材生产/);
+  assert.doesNotMatch(adtechHtml, /Lumos \/ Navos/);
   assert.doesNotMatch(adtechHtml, /adtechReplicableStage|adtechGrowthLogic|adtechWalletBanner|adtechCaseFooter/);
   assert.doesNotMatch(adtechHtml, /≈ \$0\.2B|钱包深度|MRR|ARR|待确认|暂无可核/);
   assert.match(sceneDemoHtml, /scene-brand-demo.*brand-reference\.mp4/s);
   assert.match(sceneDemoHtml, /scene-performance-demo.*performance-generated\.mp4/s);
+  assert.doesNotMatch(sceneDemoHtml, /<video[^>]*\bmuted\b/);
   assert.match(sceneDemoHtml, /scene-display-demo.*demo-display-commerce\.jpg/s);
   assert.doesNotMatch(sceneDemoHtml, /solution-focus|BRAND PRODUCTION|PERFORMANCE ADS/);
   assert.doesNotMatch(sceneDemoHtml, /MODEL LANDSCAPE/);
@@ -340,6 +344,8 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /\/media\/brand-reference\.mp4/);
   assert.match(page, /\/media\/performance-generated\.mp4/);
   assert.match(page, /\/media\/performance-poster\.jpg/);
+  assert.match(page, /<video[^>]*src="\/media\/sofa\/final-film\.mp4"[^>]*controls[^>]*>/);
+  assert.doesNotMatch(page, /<video[^>]*src="\/media\/sofa\/final-film\.mp4"[^>]*\bmuted\b/);
   assert.doesNotMatch(sceneDemoSource, /performance-reference\.mp4|performance-reference\.jpg/);
   assert.match(page, /layout: "display"/);
   assert.match(page, /曝光量与品牌知名度/);
@@ -398,6 +404,7 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /brandSolutionPage/);
   assert.match(page, /brandSofaPanel/);
   assert.match(page, /brandOriginalArchitecture/);
+  assert.match(page, /ArchitectureImageLightbox/);
   assert.match(page, /Vision LLM · Seed 2\.1/);
   assert.match(page, /3D model · Seed3D 2\.0/);
   assert.match(page, /Production-ready videos/);
@@ -416,14 +423,17 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /display-lightbox-commerce.*display-lightbox-beauty.*display-lightbox-diwali/s);
   assert.match(page, /一个游戏素材/);
   assert.match(page, /输出合规可投的 Playable 包/);
+  assert.match(page, /小字号文案仍会模糊、断笔或不可读/);
+  assert.match(page, /由模型原生生成清晰、准确的小字/);
   assert.match(page, /className="roadmapPage"/);
-  assert.match(page, /从单点模型.*走向广告制作引擎/s);
+  assert.match(page, /Seedance 从 SOTA 渲染层.*走向端到端制作引擎/s);
   assert.match(page, /10–15%/);
   assert.match(page, /70%/);
-  assert.match(page, /SINGLE MODEL → OMNI ENGINE/);
-  assert.match(page, /创意意图.*空间与物理.*品牌资产.*编辑反馈/s);
-  assert.match(page, /VALUE CAPTURE/);
-  assert.match(page, /≈ 20%/);
+  assert.match(page, /SEEDANCE → UNIFIED OMNI/);
+  assert.match(page, /创意导演层.*3D 结构表现层.*编辑层.*渲染层/s);
+  assert.match(page, /对标 Google Omni 路线/);
+  assert.match(page, /70% 制作劳动力替换/);
+  assert.doesNotMatch(page, /roadmapProductionRail/);
 });
 
 test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone", async () => {
@@ -451,7 +461,7 @@ test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone",
   assert.match(css, /@media \(max-width: 760px\) \{[\s\S]*?\.lorealBudgetSystem,[\s\S]*?\.lorealOrgSystem \{ grid-template-rows: auto auto auto; \}/);
   assert.match(css, /@media \(max-width: 760px\) \{[\s\S]*?\.wppWalletSystem,[\s\S]*?\.wppProductionSystem \{ grid-template-rows: auto auto auto auto; \}/);
   assert.match(css, /@media \(max-width: 760px\) \{[\s\S]*?\.adtechAgentSystem,[\s\S]*?\.adtechCustomerSystem \{ grid-template-rows: auto auto auto; \}/);
-  assert.match(css, /@media \(max-width: 700px\) \{[\s\S]*?\.sceneDemoImages \{ height: auto; grid-template-rows: 62px auto 72px; \}/);
+  assert.match(css, /@media \(max-width: 700px\) \{[\s\S]*?\.sceneDemoImages \{ height: auto; grid-template-rows: auto 72px; \}/);
   assert.doesNotMatch(css, /\.adtechStory \{[^}]*background-color: var\(--ink\)/);
   assert.match(css, /\.adtechStory \{[^}]*background-color: #f6f7ef/);
   assert.match(css, /\.customerArchitecture \{ display: grid; grid-template-columns: \.86fr 1\.14fr/);
@@ -460,8 +470,8 @@ test("keeps responsive safeguards for desktop, tablet, phone, and narrow phone",
   assert.match(css, /\.productGatePage \{[\s\S]*?min-height: calc\(100svh - 24px\)/);
   assert.match(css, /\.productGateMatrix \{[^}]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
   assert.match(css, /@media \(max-width: 760px\) \{[\s\S]*?\.productGateMatrix \{ grid-template-columns: 1fr/);
-  assert.match(css, /\.roadmapPage \{[\s\S]*?min-height: calc\(100svh - 24px\)/);
-  assert.match(css, /\.roadmapEvolution \{[^}]*grid-template-columns: 292px 32px minmax\(0, 1fr\) 32px 292px/);
+  assert.match(css, /\.roadmapPage \{[\s\S]*?height: clamp\(720px, calc\(100svh - 24px\), 880px\)/);
+  assert.match(css, /\.roadmapEvolution \{[^}]*grid-template-columns: 260px 30px minmax\(0, 1fr\) 30px 260px/);
   assert.match(css, /@media \(max-width: 760px\) \{[\s\S]*?\.roadmapEngineInputs \{ grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
   assert.doesNotMatch(css, /\.marketAccessRequirement|\.marketAccessMetric|\.marketAccessPlan|\.resellRoute|\.resellPrinciples/);
   assert.match(css, /\.solutionPageBody \{ display: grid; grid-template-columns: 1fr/);

@@ -1,4 +1,5 @@
 import InlineTextEditor from "./InlineTextEditor";
+import ArchitectureImageLightbox from "./ArchitectureImageLightbox";
 
 const playableOutputClips = Array.from({ length: 9 }, (_, index) =>
   `https://carey.tos-ap-southeast-1.bytepluses.com/playables/factory/clips/fish_${String(index + 1).padStart(2, "0")}_thumb.mp4`,
@@ -33,7 +34,6 @@ const scenarioCases = [
       src: "/media/brand-reference.mp4",
       poster: "/media/brand-poster.jpg",
       aria: "品牌广告参考样片",
-      headline: "确定性来自流程设计",
       meta: "多镜头一致性 · 品牌保真 · 专业交付",
     },
     sampleSpec: "15 / 30 秒标准格式，非常强调品牌规范和导演级创意，每一帧的画质和一致性都有要求。",
@@ -72,7 +72,6 @@ const scenarioCases = [
       src: "/media/performance-generated.mp4",
       poster: "/media/performance-poster.jpg",
       aria: "AI 生成效果广告样片",
-      headline: "一次过率决定综合成本",
       meta: "竖屏 UGC · 商品保真 · 爆款复刻",
     },
     sampleSpec: "10–15 秒最常见，720p、竖屏，以 UGC 口播和种草视频为主。通常需要生产 10–100 条变体进行实验和效果归因。",
@@ -116,7 +115,6 @@ const scenarioCases = [
         { src: "/media/demo-display-diwali.jpg", alt: "本地化电商三比一促销横幅广告" },
       ],
       formats: ["SOCIAL STATIC", "16:9 FEED", "3:1 BANNER"],
-      headline: "Display Ads，是独立生产线。",
       meta: "社交静态图 · 程序化 Banner · DCO 多尺寸套版",
     },
     sampleSpec: "静态 JPG / PNG；同一套主视觉需适配十几到几十种 IAB 标准尺寸（300×250、728×90、160×600、1080×1080、9:16 等）。强调商品精确还原、图内文案可读和多语言版本，单个 Campaign 常需数百至数千张变体。",
@@ -296,7 +294,6 @@ const unresolvedGaps = [
     title: "3D 白模只能渲染，不能理解",
     copy: "短期内模型主要完成视觉渲染。面对动作捕捉白模，它能沿用原始动作重绘人物，却难以理解动作意图并自然融入环境，人物、场景与物体之间仍无法形成合理且连贯的交互。",
     signal: "3D SEMANTICS",
-    impact: "不解决动作语义与空间物理关系，就不能进入规模生产。",
     examples: ["动作意图理解", "人物 × 场景交互", "人物 × 物体交互"],
     link: "https://bytedance.sg.larkoffice.com/docx/O3I3dWdKKof2DtxNkrolaGtIgzc#share-THzudn9RconwUkxVivBlnvQRgNg",
     linkLabel: "Performance-Driven Video Generation with Seedance ↗",
@@ -306,7 +303,6 @@ const unresolvedGaps = [
     title: "世界知识与物理常识缺失",
     copy: "效果广告场景已经收到大量来自商品、3C 和快消客户的 Bad Cases，问题不是画面清晰度，而是模型缺少对真实世界过程与因果关系的理解。",
     signal: "WORLD KNOWLEDGE",
-    impact: "商品使用动作错误，会直接让素材失去可信度与投放价值。",
     examples: ["涂口红、穿衣等商品操作姿势错误", "箱子自开、双头、人物位置瞬移", "云不飘动，高速动作下人与道具解绑", "伤口愈合、光学迷彩等过程特效错误"],
     link: "",
     linkLabel: "",
@@ -314,10 +310,9 @@ const unresolvedGaps = [
   {
     no: "03",
     title: "商品与品牌要素保真不足",
-    copy: "品牌 Logo、商标、商品颜色、包装文字和几何比例必须作为硬约束。当前细节错误、字幕变换、文字崩坏和商品入景后比例失真，都会让品牌方拒绝 POC。",
+    copy: "品牌 Logo、商标、商品颜色、包装文字和几何比例必须作为硬约束。当前图片模型生成的小字号文案仍会模糊、断笔或不可读，只能依赖后期工具补字；产品目标必须是由模型原生生成清晰、准确的小字，而不是继续依赖后处理。",
     signal: "BRAND FIDELITY",
-    impact: "品牌审核不是审美打分，而是任何关键要素错误即退回。",
-    examples: ["Logo 与商标细节错误", "商品颜色与包装文字漂移", "字幕切换时变形、画面文字崩坏", "商品几何形变与入景比例失真"],
+    examples: ["Logo 与商标细节错误", "商品颜色与包装文字漂移", "小字号文案模糊、断笔或不可读", "商品几何形变与入景比例失真"],
     link: "",
     linkLabel: "",
   },
@@ -326,7 +321,6 @@ const unresolvedGaps = [
     title: "音频参考与情感仍不可控",
     copy: "音色参考不够准确，音频无法 100% 复制参考视频，生成语音机械且情感不足。头部代理商的当前最佳实践，是先用 ElevenLabs 生成语音，再与 Seedance 视频对齐。",
     signal: "AUDIO CONTROL",
-    impact: "短期方案应支持外部专业音频接入，而不是强行端到端生成。",
     examples: ["音色参考不准确", "无法完整复制参考音频", "语音机械、情感表现不足", "ElevenLabs 音频 × Seedance 视频对齐"],
     link: "",
     linkLabel: "",
@@ -408,7 +402,7 @@ export default function Home() {
               <path className="flowVideoRiver" d="M254 125 C470 127 630 94 820 55 C875 44 914 42 936 42 L936 301 C877 301 825 304 756 307 C575 315 426 284 254 282Z" />
               <g className="flowBaseline flowVideo">
                 <rect x="18" y="125" width="236" height="157" />
-                <text x="35" y="155" className="flowName">视频广告</text><text x="35" y="176" className="flowMeta">VIDEO · 26%</text><text x="35" y="229" className="flowHeroValue">$160B</text><text x="232" y="231" textAnchor="end" className="flowShare">26%</text>
+                <text x="35" y="155" className="flowName">视频广告</text><text x="35" y="176" className="flowMeta">VIDEO · 26%</text><text x="35" y="229" className="flowHeroValue">$160B</text>
                 <text x="35" y="259" className="flowNote">CTR / CVR 更优，但制作成本曾限制供给</text>
               </g>
               <g className="flowBaseline flowDisplay">
@@ -566,9 +560,8 @@ export default function Home() {
 
                 <div className="sceneDemoStage">
                   <figure className={`sceneDemoVisual ${item.media.type === "video" ? "sceneDemoVideo" : "sceneDemoImages"}`}>
-                    <div className="sceneDemoVisualLabel"><span>REFERENCE DEMO</span><b>{item.media.headline}</b></div>
                     {item.media.type === "video" ? (
-                      <video src={item.media.src} poster={item.media.poster} controls muted playsInline preload="metadata" aria-label={item.media.aria} />
+                      <video src={item.media.src} poster={item.media.poster} controls playsInline preload="metadata" aria-label={item.media.aria} />
                     ) : (
                       <div className="sceneDemoImageGrid" aria-label={item.media.aria}>
                         {item.media.cases.map((sample, index) => (
@@ -809,7 +802,7 @@ export default function Home() {
                     </article>
                     <article>
                       <span>PAID MEDIA · 钛动</span><h5>进入 Creative 模块</h5>
-                      <p>Lumos / Navos 承接素材生产，再随 Campaign 复制。</p>
+                      <p>Navos 承接素材生产，再随 Campaign 复制。</p>
                     </article>
                   </div>
                   <div className="adtechStrategyMove">
@@ -839,7 +832,7 @@ export default function Home() {
             <div className="brandSolutionBody">
               <section className="brandSofaPanel" aria-label="Sofa 品牌广告成片">
                 <header><span>SOFA DEMO</span><b className="langZh">从 Packshot 到品牌成片</b><b className="langEn">From packshot to brand film</b></header>
-                <video src="/media/sofa/final-film.mp4" poster="/media/sofa/final-film-poster.jpg" controls muted loop playsInline preload="metadata" aria-label="Sofa CG 与 Seedance 品牌广告成片" />
+                <video src="/media/sofa/final-film.mp4" poster="/media/sofa/final-film-poster.jpg" controls loop playsInline preload="metadata" aria-label="Sofa CG 与 Seedance 品牌广告成片" />
               </section>
 
               <section className="brandArchitecturePanel" aria-label="Sofa CG 与 AI 五阶段制作架构">
@@ -890,6 +883,7 @@ export default function Home() {
                   </div>
                   <footer>CG DELIVERS CONTROL · AI DELIVERS OUTPUT</footer>
                 </div>
+                <ArchitectureImageLightbox />
               </section>
 
               <section className="brandDemoStrip" aria-label="品牌广告四个视频 Demo">
@@ -1002,7 +996,7 @@ export default function Home() {
                   </article>
                   <article className="displaySimpleQa">
                     <span>05 · DELIVER</span><h5>QA Gate</h5>
-                    <p>OCR · VLM · Rules</p><small>统一质检与资产交付</small><strong>ASSET HUB / API</strong>
+                    <p>VLM · Rules</p><small>统一质检与资产交付</small><strong>ASSET HUB / API</strong>
                   </article>
                 </div>
 
@@ -1051,9 +1045,8 @@ export default function Home() {
                 <h3 className="langEn">One game asset.<br /><span>A full playable ad set.</span></h3>
               </div>
               <div className="playableHeaderCopy">
-                <p className="langZh">从一个截图或视频参考出发，自动形成 Hook × 视觉 × CTA 变体矩阵，并交付可直接试玩的 HTML5 广告。</p>
-                <p className="langEn">Turn one screenshot or video reference into a Hook × Visual × CTA matrix and deployable HTML5 ads.</p>
-                <a href="https://playable.byteplus-demo.com/" target="_blank" rel="noreferrer">PLAYABLE EXPERIENCE CENTER ↗</a>
+                <p className="langZh">从一个截图或视频参考出发，自动形成 Hook × 视觉 × CTA 变体矩阵，并交付可直接试玩的 Playable 广告。</p>
+                <p className="langEn">Turn one screenshot or video reference into a Hook × Visual × CTA matrix and deployable playable ads.</p>
               </div>
             </header>
 
@@ -1064,7 +1057,7 @@ export default function Home() {
                   <div className="playableFactoryInput">
                     <span>INPUT</span>
                     <div className="playablePhone"><i aria-hidden="true" /><img src="https://carey.tos-ap-southeast-1.bytepluses.com/playables/factory/input_fish_sm.jpg" alt="节奏钓鱼游戏素材输入" /></div>
-                    <p><b className="langZh">一个游戏素材</b><b className="langEn">One game asset</b><small className="langZh">截图 / 视频参考</small><small className="langEn">Screenshot / video reference</small></p>
+                    <p><b className="langZh">一个游戏素材</b><b className="langEn">One game asset</b><small className="langZh">截图 / 视频 / URL 参考</small><small className="langEn">Screenshot / video / URL reference</small></p>
                   </div>
 
                   <i className="playableFlowArrow" aria-hidden="true"><span /></i>
@@ -1076,7 +1069,6 @@ export default function Home() {
                       <li><em>2</em><p><b className="langZh">创意策划</b><b className="langEn">Creative planning</b><small className="langZh">生成 Hook × 视觉 × CTA 变体脚本</small><small className="langEn">Create Hook × Visual × CTA scripts</small></p></li>
                       <li><em>3</em><p><b className="langZh">自动生产</b><b className="langEn">Automated production</b><small className="langZh">输出合规可投的 Playable 包</small><small className="langEn">Deliver compliant playable packages</small></p></li>
                     </ol>
-                    <footer><i aria-hidden="true" /><span className="langZh">AI 自动编排 · 全流程无需人工</span><span className="langEn">AI orchestrated · No manual production</span></footer>
                   </div>
 
                   <i className="playableFlowArrow" aria-hidden="true"><span /></i>
@@ -1092,7 +1084,7 @@ export default function Home() {
               </section>
 
               <section className="playableDemoPanel" aria-label="两个 Playable 试玩案例">
-                <header><span>2 × LIVE DEMOS</span><b className="langZh">直接试玩两个成品</b><b className="langEn">Try two finished ads</b></header>
+                <header><span>2 × LIVE DEMOS</span></header>
                 <div className="playableDemoGrid">
                   {playableDemos.map((demo) => (
                     <article className="playableDemoCard" key={demo.title}>
@@ -1115,7 +1107,6 @@ export default function Home() {
           <header className="productGateHeader">
             <div className="productGateIndex"><span>07</span><b>PRODUCTION GATES</b></div>
             <div><p>FINAL · SEEDANCE REQUIREMENTS</p><h3 id="product-gate-title">四个门槛，<br /><span>决定能不能规模生产。</span></h3></div>
-            <p>问题不再是单帧是否好看，而是动作、物理、品牌和音频能否稳定通过客户验收。每一项失败，都会让素材退出生产链路。</p>
           </header>
 
           <div className="productGateBody">
@@ -1125,7 +1116,6 @@ export default function Home() {
                   <header><span>{gap.no}</span><b>{gap.signal}</b></header>
                   <h4>{gap.title}</h4>
                   <p>{gap.copy}</p>
-                  <strong>{gap.impact}</strong>
                   <ul>{gap.examples.map((example) => <li key={example}>{example}</li>)}</ul>
                   {gap.link && <a href={gap.link} target="_blank" rel="noreferrer">{gap.linkLabel}</a>}
                 </section>
@@ -1143,55 +1133,44 @@ export default function Home() {
       <section className="roadmapPage" id="roadmap" aria-labelledby="roadmap-title">
         <header className="roadmapPageHeader">
           <div className="roadmapPageIndex"><span>08</span><b>ROADMAP</b></div>
-          <div><p>FROM POINT MODEL TO PRODUCTION ENGINE</p><h2 id="roadmap-title">从单点模型，<br /><span>走向广告制作引擎。</span></h2></div>
-          <p>今天模型只是局部渲染节点；未来 Omni 必须理解创意意图、空间物理、品牌资产与编辑反馈，才能贯穿完整制作链路。</p>
+          <div><p>FROM SOTA RENDERING TO OMNI ENGINE</p><h2 id="roadmap-title">Seedance 从 SOTA 渲染层，<br /><span>走向端到端制作引擎。</span></h2></div>
+          <p>创意导演、3D 结构表现、编辑和渲染四层融合为统一 Omni 模型，对标 Google Omni 路线。</p>
         </header>
 
         <div className="roadmapPageBody">
-          <section className="roadmapEvolution" aria-label="从当前百分之十到十五覆盖走向未来百分之七十劳动力替代">
+          <section className="roadmapEvolution" aria-label="Seedance 从 SOTA 渲染层模型走向统一 Omni 制作引擎并替换百分之七十制作劳动力">
             <article className="roadmapState roadmapStateCurrent">
-              <header><span>CURRENT</span><b>POINT ASSISTANCE</b></header>
+              <header><span>CURRENT</span><b>SOTA RENDERING</b></header>
               <strong>10–15%</strong>
-              <h3>模型是局部节点。</h3>
-              <ul><li>创意预览与 Storyboard</li><li>局部视觉渲染</li><li>后期修补与版本适配</li></ul>
-              <p>人仍然负责跨步骤理解、判断与衔接。</p>
+              <h3>Seedance 强在渲染层。</h3>
+              <p>仍是单点模型，尚未贯通完整制作链路。</p>
             </article>
 
             <i className="roadmapEvolutionArrow" aria-hidden="true">→</i>
 
             <article className="roadmapEngine">
-              <header><span>EVOLUTION LOGIC</span><b>SINGLE MODEL → OMNI ENGINE</b></header>
-              <div className="roadmapEngineCore"><small>ORCHESTRATE</small><strong>OMNI</strong><span>PRODUCTION ENGINE</span></div>
+              <header><span>FOUR-LAYER FUSION</span><b>SEEDANCE → UNIFIED OMNI</b></header>
+              <div className="roadmapEngineCore"><small>ORCHESTRATE</small><strong>OMNI</strong><span>CORE PRODUCTION ENGINE</span></div>
               <div className="roadmapEngineInputs">
-                <p><span>01</span><b>创意意图</b><small>Brief · Script · Director Intent</small></p>
-                <p><span>02</span><b>空间与物理</b><small>3D · Motion · Interaction</small></p>
-                <p><span>03</span><b>品牌资产</b><small>Product · Logo · Color</small></p>
-                <p><span>04</span><b>编辑反馈</b><small>Post-edit · Audio · QA</small></p>
+                <p><span>01</span><b>创意导演层</b></p>
+                <p><span>02</span><b>3D 结构表现层</b></p>
+                <p><span>03</span><b>编辑层</b></p>
+                <p><span>04</span><b>渲染层</b></p>
               </div>
-              <footer>不是更强的单次生成，而是能读写整条生产链。</footer>
+              <footer>四层融合，成为端到端核心制作引擎</footer>
             </article>
 
             <i className="roadmapEvolutionArrow" aria-hidden="true">→</i>
 
             <article className="roadmapState roadmapStateFuture">
-              <header><span>FUTURE</span><b>ENGINE-LED</b></header>
+              <header><span>TARGET</span><b>LABOR REPLACEMENT</b></header>
               <strong>70%</strong>
-              <h3>替代制作劳动力。</h3>
-              <ul><li>多步骤连续理解</li><li>跨工具自动编排</li><li>专业交付与规模复用</li></ul>
-              <p><span>VALUE CAPTURE</span><b>≈ 20%</b>劳动力覆盖不等于价值全额获取。</p>
+              <h3>替换制作劳动力。</h3>
+              <p>从局部渲染走向端到端规模生产。</p>
             </article>
           </section>
 
-          <section className="roadmapProductionRail" aria-label="品牌广告制作全链路与 AI 覆盖变化">
-            <header><span>PRIMARY IMPACT · BRAND PRODUCTION</span><b>完整制作链</b></header>
-            <ol><li><span>01</span><b>Brief / 创意设计</b></li><li><span>02</span><b>Pre-vis / 3D 白模</b></li><li><span>03</span><b>拍摄 / AI 渲染</b></li><li><span>04</span><b>后期 / 审片交付</b></li></ol>
-            <div className="roadmapCoverageTracks">
-              <p><span>CURRENT</span><i><b /></i><strong>10–15%</strong></p>
-              <p><span>FUTURE</span><i><b /></i><strong>70%</strong></p>
-            </div>
-          </section>
-
-          <footer className="roadmapPageFooter"><span>单点模型</span><i>→</i><strong>Omni 制作引擎</strong><i>→</i><span>70% 制作劳动力覆盖</span></footer>
+          <footer className="roadmapPageFooter"><span>SOTA 渲染层</span><i>→</i><strong>统一 Omni 模型</strong><i>→</i><span>70% 制作劳动力替换</span></footer>
         </div>
       </section>
 
