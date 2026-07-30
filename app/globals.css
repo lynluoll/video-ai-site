@@ -10,6 +10,139 @@
   --lime: #c8ff3d;
 }
 
+/* Local copy editor — hidden until the user opens it. */
+.copyEditor {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  display: grid;
+  justify-items: end;
+  gap: 10px;
+  color: #f7f7f2;
+  font-family: var(--font-geist-sans), sans-serif;
+}
+.copyEditor button { font: inherit; }
+.copyEditorToggle {
+  min-height: 44px;
+  padding: 0 17px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 999px;
+  color: #fff;
+  background: #0b0d12;
+  box-shadow: 0 12px 34px rgba(0,0,0,.24);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+}
+.copyEditorToggle span {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  color: #0b0d12;
+  background: var(--lime);
+  border-radius: 50%;
+  font-size: 14px;
+}
+.copyEditorOpen .copyEditorToggle { border-color: rgba(200,255,61,.58); }
+.copyEditorPanel {
+  width: min(430px, calc(100vw - 32px));
+  overflow: hidden;
+  border: 1px solid #323641;
+  border-radius: 18px;
+  background: rgba(11,13,18,.96);
+  box-shadow: 0 24px 70px rgba(0,0,0,.34);
+  backdrop-filter: blur(18px);
+}
+.copyEditorPanel header { padding: 16px 18px 13px; border-bottom: 1px solid #2d313a; }
+.copyEditorPanel header > div { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.copyEditorPanel header strong { font-size: 14px; }
+.copyEditorPanel header span { color: var(--lime); font-size: 10px; font-weight: 900; letter-spacing: .08em; }
+.copyEditorPanel header p { margin: 6px 0 0; color: #a4a9b2; font-size: 11px; }
+.copyEditorField {
+  padding: 12px 14px 0;
+  display: grid;
+  gap: 7px;
+}
+.copyEditorField > span {
+  color: var(--lime);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+.copyEditorField textarea {
+  width: 100%;
+  min-height: 72px;
+  resize: vertical;
+  padding: 10px 11px;
+  border: 1px solid #3b404a;
+  border-radius: 9px;
+  color: #f5f6f1;
+  background: #11141a;
+  outline: none;
+  font: 12px/1.55 var(--font-geist-sans), sans-serif;
+}
+.copyEditorField textarea:focus { border-color: var(--lime); }
+.copyEditorActions {
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 7px;
+}
+.copyEditorActions button {
+  min-height: 38px;
+  padding: 0 8px;
+  border: 1px solid #393e48;
+  border-radius: 9px;
+  color: #eef0ea;
+  background: #171a21;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 800;
+}
+.copyEditorActions button:hover:not(:disabled) { border-color: var(--lime); }
+.copyEditorActions button:disabled { opacity: .35; cursor: not-allowed; }
+.copyEditorActions .copyEditorExport { color: #111319; border-color: var(--lime); background: var(--lime); }
+.copyEditorPanel > small { display: block; padding: 0 18px 15px; color: #858b96; font-size: 10px; line-height: 1.5; }
+
+[data-copy-hidden="true"] { display: none !important; }
+body.is-copy-editing [data-copy-key] {
+  min-width: 3px;
+  cursor: text;
+  outline: 1px dashed transparent;
+  outline-offset: 4px;
+  transition: outline-color .12s ease, background-color .12s ease;
+}
+body.is-copy-editing [data-copy-key]:hover { outline-color: rgba(255,86,37,.72); background-color: rgba(255,86,37,.055); }
+body.is-copy-editing [data-copy-key].copy-editor-selected { outline: 2px solid var(--lime); background-color: rgba(200,255,61,.1); }
+body.is-copy-editing [data-copy-key]:empty { display: inline-block; min-width: 48px; min-height: 1em; }
+body.is-copy-editing [data-copy-key]:empty::before { content: "空文字"; color: #8f948d; font-size: 10px; font-style: normal; opacity: .7; }
+body.is-copy-editing [data-copy-hidden="true"] {
+  display: inline-block !important;
+  min-width: 70px;
+  min-height: 24px;
+  opacity: .48;
+  outline: 1px dashed #ff5625;
+  outline-offset: 3px;
+  cursor: pointer;
+}
+body.is-copy-editing [data-copy-hidden="true"]::after {
+  content: " · 已删除";
+  color: #ff5625;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+@media (max-width: 760px) {
+  .copyEditor { right: 12px; bottom: 12px; }
+  .copyEditorPanel { width: calc(100vw - 24px); }
+  .copyEditorActions { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
 /* P02 · scene landscape — three distinct production systems */
 .sceneLandscapePage {
   min-height: 0;
