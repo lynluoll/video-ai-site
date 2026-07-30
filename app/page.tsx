@@ -22,7 +22,7 @@ const scenarioCases = [
     customers: [
       { role: "头部 5 家", names: "WPP · Havas · Publicis · Dentsu · Omnicom" },
       { role: "次头部", names: "Brandtech（Pencil）· 博报堂" },
-      { role: "委托方", names: "L’Oréal · Coca-Cola 等头部品牌" },
+      { role: "广告主（品牌方）", names: "欧莱雅（L’Oréal）· 可口可乐（Coca-Cola）等" },
     ],
     workflowTitle: "AI 模型 Workflow 逐渐代替实拍和渲染",
     steps: [
@@ -60,9 +60,9 @@ const scenarioCases = [
     ],
     objectives: ["tCPA：目标转化成本", "tROAS：目标广告支出回报率", "商品类 CTR / CVR：跳转购物转化", "App / 游戏 CPI：下载安装量"],
     customers: [
-      { role: "AdTech", names: "AppLovin · 钛动" },
-      { role: "品牌方", names: "欧莱雅 · 可口可乐等" },
-      { role: "Paid Media", names: "Pinterest · Reddit · LinkedIn Ads" },
+      { role: "AdTech 公司", names: "AppLovin · 钛动" },
+      { role: "广告主（品牌方）", names: "欧莱雅（L’Oréal）· 可口可乐（Coca-Cola）等" },
+      { role: "Paid Media", names: "Pinterest · Reddit · LinkedIn Ads 等" },
     ],
     workflowTitle: "Ad Campaign Agent 引入广告素材自动化制作",
     steps: [
@@ -103,9 +103,9 @@ const scenarioCases = [
     ],
     objectives: ["CPM / CPC：兼顾覆盖成本与直接转化", "覆盖侧：低成本、高频次触达与 Retargeting 兜底", "转化侧 CTR / CVR：商品图、促销图引导落地页跳转与加购"],
     customers: [
-      { role: "创意自动化", names: "AppLovin · Smartly.io · Creatopy" },
-      { role: "零售 / Paid Media", names: "Criteo · Pinterest" },
-      { role: "代理商", names: "头部 4A，承接 Banner 套版与多尺寸适配" },
+      { role: "AdTech / 创意自动化平台", names: "AppLovin · Smartly.io · Creatopy" },
+      { role: "零售媒体和 Paid Media", names: "Amazon Ads · Walmart Connect · Criteo · Pinterest" },
+      { role: "代理商", names: "WPP · Havas · Publicis · Dentsu · Omnicom 等头部 4A" },
     ],
     workflowTitle: "Ad Campaign Agent 引入图片素材自动化编辑",
     steps: [
@@ -219,7 +219,7 @@ const solutionVideoDemos = {
 const customerFlowStages = [
   {
     index: "01",
-    role: "预算源头",
+    role: "BUDGET SOURCE",
     title: "品牌主",
     flowRole: "定义预算与品牌资产",
     flowNote: "先进入集团 AI 平台，再向市场与外部代理商分配生产任务。",
@@ -229,7 +229,7 @@ const customerFlowStages = [
   },
   {
     index: "02",
-    role: "制作放大",
+    role: "PRODUCTION SCALE",
     title: "代理商",
     flowRole: "承接创意与制作预算",
     flowNote: "同时连接品牌关系、导演创意、Production 与最终交付。",
@@ -239,7 +239,7 @@ const customerFlowStages = [
   },
   {
     index: "03",
-    role: "复利消耗",
+    role: "COMPOUNDING CONSUMPTION",
     title: "AdTech / MarTech",
     flowRole: "把投放预算转成持续生产",
     flowNote: "模型嵌入 Campaign Agent，随客户、素材和实验次数重复调用。",
@@ -249,7 +249,7 @@ const customerFlowStages = [
   },
   {
     index: "04",
-    role: "媒体反馈",
+    role: "MEDIA DISTRIBUTION",
     title: "Paid Media",
     flowRole: "完成分发并返回效果信号",
     flowNote: "把媒体侧数据送回创意生产，让胜出结构进入下一轮。",
@@ -457,136 +457,70 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="targetPage" id="targets" aria-labelledby="target-page-title">
-        <div className="targetPageShell">
-          <header className="targetPageHeader">
-            <div className="targetPageIndex"><span>02</span><b>2026 BUSINESS TARGET</b></div>
-            <div className="targetPageTitle">
-              <p>年度 North Star · 月度 DR · 区域结构</p>
-              <h2 id="target-page-title">2026 目标与<br /><span>兑现路径。</span></h2>
-            </div>
-            <p className="targetPageSummary">先锁定头部客户保底，再把合同转成生产流量，最后承接旺季素材需求。</p>
-          </header>
-
-          <div className="targetPageCanvas">
-            <article className="targetNorthStarCard">
-              <div className="targetCardTop"><span>YEAR-END NORTH STAR</span><b>2026</b></div>
-              <div className="targetHeroMetric">
-                <span>视频模型目标 DRR</span>
-                <strong><i>$</i>1.25M</strong>
-                <p>年底稳定运行目标</p>
-              </div>
-              <div className="targetShareTrack" aria-label="视频模型目标占白牌大盘百分之二十">
-                <div><span>白牌大盘占比</span><b>20%</b></div>
-                <i><em /></i>
-              </div>
-              <div className="targetImageMetric">
-                <div><span>图片模型年底目标</span><strong>$150K</strong></div>
-                <p>不拆月度节奏 · 年底稳定占白牌大盘约 15%</p>
-              </div>
-            </article>
-
-            <article className="targetGrowthCard">
-              <header><div><span>MONTHLY DR RAMP</span><h3>月度 DR 的兑现节奏</h3></div><b>07 → 12</b></header>
-              <div className="targetGrowthPlot" aria-label="七月至十二月业务爬坡节奏">
-                <svg viewBox="0 0 760 220" role="img" aria-label="七月基线、八月签约、九月爬坡、十月旺季、十一月增速回缓、十二月稳定在年底目标">
-                  <defs><linearGradient id="target-growth-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#ff5b31" stopOpacity=".25" /><stop offset="1" stopColor="#ff5b31" stopOpacity="0" /></linearGradient></defs>
-                  <g className="targetGrid"><line x1="28" y1="48" x2="732" y2="48"/><line x1="28" y1="104" x2="732" y2="104"/><line x1="28" y1="160" x2="732" y2="160"/></g>
-                  <path className="targetGrowthArea" d="M64 173 C112 171 140 157 176 150 C220 142 248 128 286 119 C338 107 376 88 416 76 C470 60 510 54 550 49 C608 41 650 35 700 30 L700 188 L64 188Z" />
-                  <path className="targetGrowthLine" d="M64 173 C112 171 140 157 176 150 C220 142 248 128 286 119 C338 107 376 88 416 76 C470 60 510 54 550 49 C608 41 650 35 700 30" />
-                  <g className="targetPoint july"><circle cx="64" cy="173" r="7"/><text x="64" y="204" textAnchor="middle">JUL</text><text x="64" y="158" textAnchor="middle" className="targetValue">$120K</text></g>
-                  <g className="targetPoint august"><circle cx="176" cy="150" r="8"/><text x="176" y="204" textAnchor="middle">AUG</text><text x="176" y="135" textAnchor="middle" className="targetValue">$250K</text></g>
-                  <g className="targetPoint september"><circle cx="286" cy="119" r="8"/><text x="286" y="204" textAnchor="middle">SEP</text><text x="286" y="104" textAnchor="middle" className="targetValue">$450K</text></g>
-                  <g className="targetPoint october"><circle cx="416" cy="76" r="10"/><text x="416" y="204" textAnchor="middle">OCT</text><text x="416" y="60" textAnchor="middle" className="targetValue">$750K</text></g>
-                  <g className="targetPoint november"><circle cx="550" cy="49" r="8"/><text x="550" y="204" textAnchor="middle">NOV</text><text x="550" y="33" textAnchor="middle" className="targetValue">$1.0M</text></g>
-                  <g className="targetPoint december"><circle cx="700" cy="30" r="10"/><text x="700" y="204" textAnchor="middle">DEC</text><text x="700" y="14" textAnchor="end" className="targetValue targetEndValue">$1.25M</text></g>
-                </svg>
-                <div className="targetGrowthMobile" aria-label="七月至十二月月度 DR 目标">
-                  <div><span>JUL · BASE</span><b>$120K</b><small>当前基线</small></div>
-                  <div><span>AUG · SIGN</span><b>$250K</b><small>头部签约</small></div>
-                  <div><span>SEP · RAMP</span><b>$450K</b><small>流量爬坡</small></div>
-                  <div className="targetMobilePeak"><span>OCT · PEAK</span><b>$750K</b><small>旺季放量</small></div>
-                  <div><span>NOV · EASE</span><b>$1.0M</b><small>增速回缓</small></div>
-                  <div className="targetMobileEnd"><span>DEC · STABLE</span><b>$1.25M</b><small>年底目标</small></div>
-                </div>
-                <div className="targetMilestones">
-                  <div><span>01 · 8 月</span><b>头部签约</b><p>完成头部客户保底合同</p></div>
-                  <div><span>02 · 9 月</span><b>流量爬坡</b><p>合同转为真实生产流量</p></div>
-                  <div className="targetPeak"><span>03 · 10 月</span><b>旺季放量</b><p>承接季节性素材制作需求</p></div>
-                  <div className="targetTail"><span>11 月回缓</span><b>→</b><span>12 月稳定目标</span></div>
-                </div>
-              </div>
-            </article>
-
-            <article className="targetRegionCard">
-              <header><span>REGIONAL MIX</span><h3>六个销售区，四个承接目标</h3><p>日本 / 韩国区虽本地需求有限，但因头部客户单独保留较高权重；TVP 与 South America 暂不分配目标。</p></header>
-              <div className="regionStack" aria-label="区域目标分布">
-                <div className="regionOne" style={{ width: "45%" }}><span>45%</span></div>
-                <div className="regionTwo" style={{ width: "35%" }}><span>35%</span></div>
-                <div className="regionThree" style={{ width: "15%" }}><span>15%</span></div>
-                <div className="regionFour" style={{ width: "5%" }}><span>5%</span></div>
-              </div>
-              <div className="regionLegend">
-                <div><i className="regionOneDot"/><span>EUI</span><b>45%</b></div>
-                <div><i className="regionTwoDot"/><span>JK</span><b>35%</b></div>
-                <div><i className="regionThreeDot"/><span>IME</span><b>15%</b></div>
-                <div><i className="regionFourDot"/><span>SEA &amp; ANZ</span><b>5%</b></div>
-                <div className="regionZero"><i className="regionFiveDot"/><span>TVP</span><b>0%</b></div>
-                <div className="regionZero"><i className="regionSixDot"/><span>SOUTH AMERICA</span><b>0%</b></div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section className="sceneLandscapePage" id="scenarios" aria-labelledby="scene-landscape-title">
         <div className="sceneLandscapeShell">
           <header className="sceneLandscapeHeader">
-            <div className="sceneLandscapeIndex"><span>03</span><b>SCENE LANDSCAPE</b></div>
-            <div><p>市场规模 × 素材格式 × 制作方</p><h2 id="scene-landscape-title">2. 主流广告场景<br /><span>和需求分析</span></h2></div>
-            <p>同一笔广告预算，进入三套完全不同的素材生产系统。先看规模如何分流，再用真实样片拆解生产需求与典型制作方。</p>
+            <div className="sceneLandscapeIndex"><span>02</span><b>SCENE LANDSCAPE</b></div>
+            <div><h2 id="scene-landscape-title">2. 主流广告场景<br /><span>和需求分析</span></h2></div>
           </header>
-
-          <div className="sceneScaleRail" aria-label="2026 广告素材模型 API 规模拆分">
-            <div className="sceneScaleSource videoSource"><span>VIDEO MODEL API · 2026</span><strong>$1.0B</strong><small>按 40% / 60% 拆入两类视频场景</small></div>
-            <div className="sceneSplitConnector" aria-hidden="true"><i/><b>40%</b><b>60%</b></div>
-            <div className="sceneScaleSource imageSource"><span>IMAGE MODEL API · 2026</span><strong>$0.3–0.4B</strong><small>Display Ads 独立生产线</small></div>
-          </div>
 
           <div className="sceneLandscapeCards">
             <article className="sceneLandscapeCard brandSceneCard">
-              <header><span>01 · BRAND VIDEO</span><strong>$0.4B</strong><small>视频 API 规模 · 40%</small></header>
-              <div className="sceneFormat"><span>典型素材</span><b>15 / 30S</b><p>导演级创意 · 多镜头一致性 · 品牌审片</p></div>
-              <dl>
-                <div><dt>主要投放</dt><dd>CTV / 流媒体大屏 · YouTube 长视频广告</dd></div>
-                <div><dt>目的</dt><dd>曝光量 · 品牌知名度 · 品牌心智</dd></div>
-                <div><dt>制作方 / 客户</dt><dd>头部代理商 · 品牌主</dd></div>
-                <div><dt>主流模型</dt><dd>Veo 3.1 · Runway · nano banana 2</dd></div>
-              </dl>
+              <header><span>01</span><div><small>BRAND VIDEO</small><h3>品牌广告</h3></div><em>品牌心智</em></header>
+              <div className="sceneFormat"><span>TYPICAL OUTPUT</span><b>15 / 30S</b><p>导演级创意 · 多镜头一致性 · 品牌审片</p></div>
+              <div className="sceneCardContent">
+                <div className="sceneFacts">
+                  <section><span>主要投放</span><p>CTV / 流媒体大屏<br />YouTube 长视频广告</p></section>
+                  <section><span>核心目的</span><p>曝光量 · 品牌知名度<br />长期品牌心智</p></section>
+                </div>
+                <section className="sceneCustomerPanel">
+                  <div className="sceneCustomerTitle"><span>典型客户画像</span><b>WHO BUYS</b></div>
+                  <div className="sceneCustomerGroups sceneCustomerGroupsTwo">
+                    <div><span>头部 5 家代理商</span><p>WPP · Havas · Publicis · Dentsu · Omnicom</p></div>
+                    <div><span>次头部代理商</span><p>Brandtech（Pencil）· 博报堂</p></div>
+                  </div>
+                </section>
+              </div>
               <a href="#scene-brand-demo">查看品牌场景样片 <span>↘</span></a>
             </article>
 
             <article className="sceneLandscapeCard performanceSceneCard">
-              <header><span>02 · PERFORMANCE VIDEO</span><strong>$0.6B</strong><small>视频 API 规模 · 60%</small></header>
-              <div className="sceneFormat"><span>典型素材</span><b>10–15S</b><p>竖屏 UGC · 10–100 条变体 · 持续投放实验</p></div>
-              <dl>
-                <div><dt>主要投放</dt><dd>TikTok / Reels / Shorts · 应用内广告网络</dd></div>
-                <div><dt>目的</dt><dd>tCPA / tROAS · CTR / CVR · CPI</dd></div>
-                <div><dt>制作方 / 客户</dt><dd>AdTech / MarTech · Paid Media · 品牌增长团队</dd></div>
-                <div><dt>主流模型</dt><dd>Kling 3.0 · Veo 3.1 · nano banana 2</dd></div>
-              </dl>
+              <header><span>02</span><div><small>PERFORMANCE VIDEO</small><h3>效果广告</h3></div><em>转化效率</em></header>
+              <div className="sceneFormat"><span>TYPICAL OUTPUT</span><b>10–15S</b><p>竖屏 UGC · 10–100 条变体 · 持续投放实验</p></div>
+              <div className="sceneCardContent">
+                <div className="sceneFacts">
+                  <section><span>主要投放</span><p>TikTok / Reels / Shorts<br />应用内广告网络</p></section>
+                  <section><span>核心目的</span><p>tCPA / tROAS<br />CTR / CVR · CPI</p></section>
+                </div>
+                <section className="sceneCustomerPanel">
+                  <div className="sceneCustomerTitle"><span>典型客户画像</span><b>WHO BUYS</b></div>
+                  <div className="sceneCustomerGroups">
+                    <div><span>AdTech 公司</span><p>AppLovin · 钛动</p></div>
+                    <div><span>广告主（品牌方）</span><p>欧莱雅 · 可口可乐等</p></div>
+                    <div><span>Paid Media</span><p>Pinterest · Reddit · LinkedIn Ads 等</p></div>
+                  </div>
+                </section>
+              </div>
               <a href="#scene-performance-demo">查看效果场景样片 <span>↘</span></a>
             </article>
 
             <article className="sceneLandscapeCard displaySceneCard">
-              <header><span>03 · DISPLAY ADS</span><strong>$0.3–0.4B</strong><small>图片模型 API 规模</small></header>
-              <div className="sceneFormat"><span>典型素材</span><b>100–1K</b><p>静态图 / Banner · 多尺寸 · 多语言批量变体</p></div>
-              <dl>
-                <div><dt>主要投放</dt><dd>社交信息流静态图 · 程序化展示广告</dd></div>
-                <div><dt>目的</dt><dd>CPM / CPC · 低成本覆盖 + 直接转化</dd></div>
-                <div><dt>制作方 / 客户</dt><dd>创意自动化平台 · Paid Media · 代理商</dd></div>
-                <div><dt>主流模型</dt><dd>nano banana 2 · 少量 Kling / Runway 动效</dd></div>
-              </dl>
+              <header><span>03</span><div><small>DISPLAY ADS</small><h3>静态展示图片广告</h3></div><em>覆盖 + 转化</em></header>
+              <div className="sceneFormat"><span>TYPICAL OUTPUT</span><b>100–1K</b><p>静态图 / Banner · 多尺寸 · 多语言批量变体</p></div>
+              <div className="sceneCardContent">
+                <div className="sceneFacts">
+                  <section><span>主要投放</span><p>社交信息流静态图<br />程序化展示广告</p></section>
+                  <section><span>核心目的</span><p>CPM / CPC<br />低成本覆盖 + 直接转化</p></section>
+                </div>
+                <section className="sceneCustomerPanel">
+                  <div className="sceneCustomerTitle"><span>典型客户画像</span><b>WHO BUYS</b></div>
+                  <div className="sceneCustomerGroups">
+                    <div><span>AdTech / 创意自动化平台</span><p>AppLovin · Smartly.io · Creatopy</p></div>
+                    <div><span>零售媒体和 Paid Media</span><p>Amazon Ads · Walmart Connect · Criteo · Pinterest</p></div>
+                    <div><span>代理商</span><p>WPP · Havas · Publicis · Dentsu · Omnicom</p></div>
+                  </div>
+                </section>
+              </div>
               <a href="#scene-display-demo">查看 Display 场景样片 <span>↘</span></a>
             </article>
           </div>
@@ -602,7 +536,7 @@ export default function Home() {
                 <header className="sceneDemoHeader">
                   <div><span>{item.index}</span><b>{item.label}</b></div>
                   <h3>{item.title}</h3>
-                  <p>样片 → 生产需求 → 制作方 / 客户</p>
+                  <p>样片 → 制作流程 → 模型需求 → 竞品模型</p>
                 </header>
 
                 <div className="sceneDemoStage">
@@ -626,27 +560,53 @@ export default function Home() {
                       <h4>{item.sampleSpec}</h4>
                     </div>
 
-                    <section className="sceneDemoWho" aria-label={`${item.title}制作方和客户`}>
-                      <div className="sceneDemoSubhead"><span>WHO MAKES IT</span><b>制作方 / 客户</b></div>
-                      <div className="sceneDemoWhoGrid">
-                        {item.customers.map((customer) => <div key={customer.role}><span>{customer.role}</span><b>{customer.names}</b></div>)}
+                    <section className="sceneDemoProductionCue" aria-label={`${item.title}生产模式`}>
+                      <div className="sceneDemoSubhead"><span>PRODUCTION MODE</span><b>生产模式</b></div>
+                      <h4>{item.workflowTitle}</h4>
+                      <div className="sceneDemoScopeGrid">
+                        <div><strong>{String(item.steps.length).padStart(2, "0")}</strong><span>制作步骤</span></div>
+                        <div><strong>{item.modelRequirements.length === 1 ? "IMAGE" : "VIDEO + IMAGE"}</strong><span>能力组合</span></div>
+                        <div><strong>{String(item.models.length).padStart(2, "0")}</strong><span>竞品方向</span></div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+
+                <details className="sceneProductionDisclosure" open>
+                  <summary><span>制作流程、模型需求与竞品模型</span><b>{item.workflowTitle}</b><i aria-hidden="true"></i></summary>
+                  <div className="sceneProductionBody">
+                    <section className="sceneWorkflowSection">
+                      <header><span>01</span><div><small>PRODUCTION WORKFLOW</small><h4>{item.workflowTitle}</h4></div></header>
+                      <ol className={`sceneWorkflowSteps sceneWorkflowSteps${item.steps.length}`}>
+                        {item.steps.map((step, index) => (
+                          <li key={step.title}>
+                            <span>{String(index + 1).padStart(2, "0")}</span>
+                            <div><h5>{step.title}</h5><p>{step.copy}</p>{step.imageRole ? <aside><b>图片模型</b><p>{step.imageRole}</p></aside> : null}</div>
+                          </li>
+                        ))}
+                      </ol>
+                    </section>
+
+                    <section className="sceneRequirementsSection">
+                      <header><span>02</span><div><small>CAPABILITY REQUIREMENTS</small><h4>模型需求</h4></div></header>
+                      <div className={`sceneDemoRequirementGrid sceneDemoRequirementGrid${item.modelRequirements.length}`}>
+                        {item.modelRequirements.map((group) => (
+                          <article key={group.type}>
+                            <h5>{group.type}</h5>
+                            <ul>{group.items.map((requirement) => <li key={requirement}>{requirement}</li>)}</ul>
+                          </article>
+                        ))}
                       </div>
                     </section>
 
-                    <div className="sceneDemoExpanders">
-                      <details>
-                        <summary><span>展开具体制作流程</span><b>{String(item.steps.length).padStart(2, "0")} STEPS</b><i>＋</i></summary>
-                        <ol>{item.steps.map((step, index) => <li key={step.title}><span>{String(index + 1).padStart(2, "0")}</span><div><b>{step.title}</b><p>{step.copy}</p></div></li>)}</ol>
-                      </details>
-                      <details>
-                        <summary><span>展开模型需求</span><b>{item.modelRequirements.length === 1 ? "IMAGE" : "VIDEO + IMAGE"}</b><i>＋</i></summary>
-                        <div className="sceneDemoRequirementGrid">
-                          {item.modelRequirements.map((group) => <section key={group.type}><h5>{group.type}</h5><ul>{group.items.map((requirement) => <li key={requirement}>{requirement}</li>)}</ul></section>)}
-                        </div>
-                      </details>
-                    </div>
+                    <section className="sceneCompetitorSection">
+                      <header><span>03</span><div><small>COMPETITIVE SET</small><h4>市场主流模型（竞对）</h4></div></header>
+                      <div className="sceneCompetitorGrid">
+                        {item.models.map((model) => <article key={model.type}><span>{model.type}</span><strong>{model.copy}</strong></article>)}
+                      </div>
+                    </section>
                   </div>
-                </div>
+                </details>
               </div>
             </article>
           );
@@ -656,28 +616,30 @@ export default function Home() {
       <section className="customerFlowPage" id="audience" aria-labelledby="customer-flow-title">
         <div className="customerFlowShell">
           <header className="customerFlowHeader">
-            <div className="customerFlowIndex"><span>04</span><b>客群策略</b></div>
-            <div><p>预算如何变成模型消耗</p><h2 id="customer-flow-title">钱从上往下走，<br /><span>价值在中间放大。</span></h2></div>
-            <p>品牌主掌握预算，代理商放大制作规模，AdTech / MarTech 把一次性交付变成持续调用，Paid Media 再把效果信号送回生产。</p>
+            <div className="customerFlowIndex"><span>04</span><b>CUSTOMER MONEY FLOW</b></div>
+            <div><p>预算流向 × 客户角色 × 核心趋势</p><h2 id="customer-flow-title">3. 客群策略<br /><span>钱从上往下走。</span></h2></div>
+            <p>不是四类并列客户，而是一条完整链路：预算从品牌主出发，经代理商与 AdTech / MarTech 进入规模化生产，最终在 Paid Media 完成分发与反馈。</p>
           </header>
 
-          <div className="customerFlowCanvas">
-            <div className="customerFlowRoute" aria-label="品牌主到 Paid Media 的广告预算流向">
-              <div className="customerMoneySpine" aria-hidden="true"><span>$</span><i></i><em>↓</em></div>
-              <div className="customerFlowStages">
+          <div className="customerFlowBoard" aria-label="品牌主到 Paid Media 的广告预算流向">
+            <aside className="customerMoneySpine" aria-hidden="true">
+              <span>$</span><b>BUDGET</b><i></i><em>↓</em>
+            </aside>
+            <div className="customerFlowStages">
               {customerFlowStages.map((stage) => (
                 <article className={`customerFlowStage ${stage.index === "03" ? "customerFlowStageFocus" : ""}`} key={stage.index}>
                   <div className="customerFlowIdentity"><span>{stage.index}</span><small>{stage.role}</small><h3>{stage.title}</h3></div>
-                  <div className="customerFlowRole"><small>预算作用</small><h4>{stage.flowRole}</h4></div>
-                  <div className="customerFlowTrend"><small>关键趋势</small><h4>{stage.trend}</h4></div>
-                  <div className="customerFlowExamples"><small>代表客户</small><b>{stage.examples}</b></div>
+                  <div className="customerFlowRole"><small>BUDGET ROLE</small><h4>{stage.flowRole}</h4><p>{stage.flowNote}</p></div>
+                  <div className="customerFlowTrend"><small>TREND / OPPORTUNITY</small><h4>{stage.trend}</h4><p>{stage.opportunity}</p></div>
+                  <div className="customerFlowExamples"><small>TYPICAL CASES</small><b>{stage.examples}</b><i>↘</i></div>
                 </article>
               ))}
-              </div>
             </div>
           </div>
 
-          <footer className="customerFlowFooter"><span>预算源头</span><i>→</i><span>制作放大</span><i>→</i><strong>自动化复利</strong><i>→</i><span>媒体反馈</span><b>↺</b></footer>
+          <footer className="customerFlowFooter">
+            <span>预算源头</span><i>→</i><span>生产规模</span><i>→</i><span>自动化复利</span><i>→</i><span>媒体分发与反馈</span>
+          </footer>
         </div>
       </section>
 
