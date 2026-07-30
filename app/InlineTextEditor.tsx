@@ -9,7 +9,18 @@ type CopyOverride = {
 
 type EditableElement = HTMLElement | SVGElement;
 
-const STORAGE_KEY = "byteplus-ads-copy-overrides-v2";
+type ExportedCopyChange = {
+  key: string;
+  xpath: string;
+  section: string | null;
+  action: "replace" | "delete";
+  originalText: string;
+  updatedText: string;
+  originalHtml: string;
+  updatedHtml: string;
+};
+
+const STORAGE_KEY = "byteplus-ads-copy-overrides-v8";
 
 function readOverrides(): Record<string, CopyOverride> {
   try {
@@ -28,6 +39,35 @@ function getEditableTargets(root: HTMLElement) {
       (node) => node.nodeType === Node.TEXT_NODE && Boolean(node.textContent?.trim()),
     );
   });
+}
+
+function getXPath(element: Element) {
+  const segments: string[] = [];
+  let current: Element | null = element;
+
+  while (current) {
+    const tagName = current.localName.toLowerCase();
+    const parent = current.parentElement;
+    let segment = tagName;
+
+    if (parent) {
+      const siblings = Array.from(parent.children).filter(
+        (sibling) => sibling.localName.toLowerCase() === tagName,
+      );
+      if (siblings.length > 1) segment += `[${siblings.indexOf(current) + 1}]`;
+    }
+
+    segments.unshift(segment);
+    current = parent;
+  }
+
+  return `/${segments.join("/")}`;
+}
+
+function textFromHtml(html: string) {
+  const template = document.createElement("template");
+  template.innerHTML = html;
+  return (template.content.textContent || "").replace(/\s+/g, " ").trim();
 }
 
 export default function InlineTextEditor() {
@@ -196,47 +236,52 @@ export default function InlineTextEditor() {
     setNotice("已恢复全部原始文字");
   };
 
-  const exportHtml = () => {
-    const clone = document.documentElement.cloneNode(true) as HTMLElement;
-    clone.querySelectorAll("[data-copy-editor], script, link[rel='modulepreload'], link[rel='preload'][as='script']").forEach((node) => node.remove());
-    clone.querySelectorAll<HTMLElement>("[data-copy-key]").forEach((element) => {
-      element.removeAttribute("contenteditable");
-      element.removeAttribute("spellcheck");
-      element.removeAttribute("data-copy-key");
-      element.classList.remove("copy-editor-selected");
-    });
-    clone.querySelector("body")?.classList.remove("is-copy-editing");
-    clone.querySelectorAll<HTMLImageElement | HTMLVideoElement>("img[src], video[src], video[poster]").forEach((element) => {
-      ["src", "poster"].forEach((attribute) => {
-        const value = element.getAttribute(attribute);
-        if (value) element.setAttribute(attribute, new URL(value, window.location.href).href);
-      });
+  const exportChanges = () => {
+    const changes = targetsRef.current.flatMap<ExportedCopyChange>((element) => {
+      const key = element.dataset.copyKey;
+      if (!key) return [];
+
+      const override = overridesRef.current[key];
+      if (!override) return [];
+
+      const section = element.closest<HTMLElement>("section[id]");
+      const originalHtml = originalsRef.current[key] || "";
+      return [{
+        key,
+        xpath: getXPath(element),
+        section: section?.id || null,
+        action: override.hidden ? "delete" : "replace",
+        originalText: textFromHtml(originalHtml),
+        updatedText: override.hidden ? "" : (element.textContent || "").replace(/\s+/g, " ").trim(),
+        originalHtml,
+        updatedHtml: override.hidden ? "" : element.innerHTML,
+      }];
     });
 
-    const css = Array.from(document.styleSheets)
-      .map((sheet) => {
-        try {
-          return Array.from(sheet.cssRules).map((rule) => rule.cssText).join("\n");
-        } catch {
-          return "";
-        }
-      })
-      .join("\n");
-    clone.querySelectorAll("style, link[rel='stylesheet']").forEach((node) => node.remove());
-    const style = document.createElement("style");
-    style.textContent = css;
-    clone.querySelector("head")?.appendChild(style);
+    if (!changes.length) {
+      setNotice("还没有需要导出的修改");
+      return;
+    }
 
-    const blob = new Blob([`<!doctype html>\n${clone.outerHTML}`], { type: "text/html;charset=utf-8" });
+    const payload = {
+      format: "byteplus-ads-copy-changes",
+      version: 1,
+      pageTitle: document.title,
+      pageUrl: window.location.href,
+      exportedAt: new Date().toISOString(),
+      changeCount: changes.length,
+      changes,
+    };
+    const blob = new Blob([`${JSON.stringify(payload, null, 2)}\n`], { type: "application/json;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = "byteplus-ads-edited.html";
+    link.download = "byteplus-ads-copy-changes.json";
     document.body.appendChild(link);
     link.click();
     link.remove();
     window.setTimeout(() => URL.revokeObjectURL(url), 1_000);
-    setNotice("已导出修改后的 HTML");
+    setNotice(`已导出 ${changes.length} 处修改与 XPath`);
   };
 
   return (
@@ -262,9 +307,9 @@ export default function InlineTextEditor() {
             <button type="button" onClick={deleteSelected} disabled={!selectedKey}>删除当前</button>
             <button type="button" onClick={restoreSelected} disabled={!selectedKey}>恢复当前</button>
             <button type="button" onClick={restoreAll} disabled={!changeCount}>恢复全部</button>
-            <button className="copyEditorExport" type="button" onClick={exportHtml}>导出 HTML</button>
+            <button className="copyEditorExport" type="button" onClick={exportChanges} disabled={!changeCount}>导出修改清单</button>
           </div>
-          <small>页面全部文本节点均可选择；SVG 和图表文字可在“当前文字”中修改。</small>
+          <small>导出文件仅包含修改前后文字、删除操作与对应 XPath，不包含完整网页。</small>
         </div>
       )}
     </aside>
