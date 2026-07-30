@@ -150,7 +150,7 @@
 .sceneDemoPage { padding: 42px 0 58px; border-top: 1px solid #bdb9ae; scroll-margin-top: 12px; }
 .sceneDemoPage02 { background: #f5f2ea; }
 .sceneDemoPage03 { background: #e9ebe5; }
-.sceneDemoShell { width: min(1512px, calc(100% - 64px)); margin-inline: auto; display: grid; grid-template-rows: 92px auto auto; }
+.sceneDemoShell { width: min(1512px, calc(100% - 64px)); margin-inline: auto; display: grid; grid-template-rows: 92px auto; }
 .sceneDemoHeader { display: grid; grid-template-columns: 150px minmax(0, 1fr) auto; align-items: center; border-top: 1px solid #aca89e; }
 .sceneDemoHeader > div { align-self: stretch; display: flex; flex-direction: column; justify-content: center; gap: 7px; border-right: 1px solid #aca89e; }
 .sceneDemoHeader > div span { color: var(--orange); font-size: 11px; font-weight: 900; letter-spacing: .16em; }
@@ -158,8 +158,8 @@
 .sceneDemoHeader h3 { margin: 0; padding-left: 30px; font-size: clamp(42px, 4vw, 62px); font-weight: 570; letter-spacing: -.065em; }
 .sceneDemoHeader > p { margin: 0; color: #676b64; font-size: 12px; font-weight: 800; letter-spacing: .08em; }
 
-.sceneDemoStage { min-height: 680px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(520px, .92fr); overflow: hidden; border: 1px solid #aba79d; background: #fffdfa; box-shadow: 0 24px 70px rgba(44, 40, 31, .09); }
-.sceneDemoVisual { min-width: 0; min-height: 0; height: 680px; margin: 0; align-self: start; display: grid; grid-template-rows: 72px minmax(0, 1fr) 64px; color: #fff; background: #101319; border-right: 1px solid #aba79d; }
+.sceneDemoStage { min-height: 680px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(520px, .92fr); align-items: start; gap: 20px; }
+.sceneDemoVisual { position: sticky; top: 16px; min-width: 0; min-height: 0; height: 680px; margin: 0; align-self: start; display: grid; grid-template-rows: 72px minmax(0, 1fr) 64px; color: #fff; background: #101319; border: 1px solid #aba79d; box-shadow: 0 24px 70px rgba(44, 40, 31, .09); }
 .sceneDemoVisualLabel { padding: 16px 22px; display: flex; align-items: center; justify-content: space-between; gap: 18px; border-bottom: 1px solid #30343d; }
 .sceneDemoVisualLabel span { color: var(--lime); font-size: 10px; font-weight: 900; letter-spacing: .14em; }
 .sceneDemoVisualLabel b { max-width: 60%; font-size: 14px; text-align: right; }
@@ -174,78 +174,54 @@
 .sceneDemoImageGrid img { width: 100%; height: 100%; display: block; object-fit: cover; }
 .sceneDemoImageGrid figcaption { position: absolute; left: 10px; bottom: 10px; padding: 7px 9px; color: #111319; background: var(--lime); font-size: 9px; font-weight: 900; letter-spacing: .08em; }
 
-.sceneDemoBrief { min-width: 0; padding: 34px 34px 30px; display: grid; grid-template-rows: auto minmax(0, 1fr); align-content: stretch; gap: 26px; background: #fffdfa; }
+.sceneDemoBrief { min-width: 0; padding: 30px; display: grid; align-content: start; gap: 22px; background: #fffdfa; border: 1px solid #aba79d; box-shadow: 0 24px 70px rgba(44, 40, 31, .09); }
 .sceneDemoThesis { padding-bottom: 18px; border-bottom: 1px solid #cfcbc1; }
 .sceneDemoThesis > span,
 .sceneDemoSubhead > span { color: var(--orange); font-size: 10px; font-weight: 900; letter-spacing: .13em; }
 .sceneDemoThesis h4 { margin: 13px 0 0; font-size: clamp(19px, 1.45vw, 25px); font-weight: 650; line-height: 1.35; letter-spacing: -.025em; }
 .sceneDemoSubhead { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
 .sceneDemoSubhead > b { color: #6f736d; font-size: 12px; }
-.sceneDemoProductionCue { min-height: 0; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; background: #f0ede6; border-top: 4px solid #111319; }
-.sceneDemoPage02 .sceneDemoProductionCue { border-top-color: var(--orange); }
-.sceneDemoPage03 .sceneDemoProductionCue { border-top-color: #94b61a; }
-.sceneDemoProductionCue h4 { max-width: 520px; margin: 14px 0 24px; font-size: clamp(24px, 2vw, 34px); line-height: 1.15; letter-spacing: -.04em; }
-.sceneDemoScopeGrid { display: grid; grid-template-columns: .72fr 1.35fr .8fr; gap: 8px; }
-.sceneDemoScopeGrid > div { min-width: 0; min-height: 92px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; background: #fffdfa; border: 1px solid #d3cfc5; }
-.sceneDemoScopeGrid strong { font-size: clamp(17px, 1.5vw, 25px); line-height: 1; letter-spacing: -.04em; }
-.sceneDemoScopeGrid span { color: #70736d; font-size: 10px; font-weight: 900; letter-spacing: .08em; }
+.sceneDemoExpanders { display: grid; gap: 14px; }
+.sceneDemoDisclosure { border: 1px solid #c4c0b6; background: #f5f2eb; }
+.sceneDemoDisclosure > summary { min-height: 62px; padding: 0 14px; display: grid; grid-template-columns: minmax(0, 1fr) auto 30px; align-items: center; gap: 12px; border-left: 4px solid #111319; cursor: pointer; list-style: none; }
+.sceneDemoPage02 .sceneDemoDisclosure > summary { border-left-color: var(--orange); }
+.sceneDemoPage03 .sceneDemoDisclosure > summary { border-left-color: #94b61a; }
+.sceneDemoDisclosure > summary::-webkit-details-marker { display: none; }
+.sceneDemoDisclosure > summary > span { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 900; }
+.sceneDemoDisclosure > summary > span b { color: var(--orange); font-size: 10px; letter-spacing: .1em; }
+.sceneDemoDisclosure > summary > small { color: #72766f; font-size: 9px; font-weight: 900; letter-spacing: .08em; }
+.sceneDemoDisclosure > summary > i { width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid #111319; border-radius: 50%; font-style: normal; }
+.sceneDemoDisclosure > summary > i::before { content: "+"; font-size: 18px; line-height: 1; }
+.sceneDemoDisclosure[open] > summary { border-bottom: 1px solid #c4c0b6; }
+.sceneDemoDisclosure[open] > summary > i::before { content: "−"; }
 
-.sceneProductionDisclosure { margin-top: 22px; border: 1px solid #aaa69c; background: #f7f4ed; box-shadow: 0 20px 55px rgba(44, 40, 31, .08); }
-.sceneProductionDisclosure > summary { min-height: 76px; padding: 0 24px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, auto) 34px; align-items: center; gap: 22px; color: #fff; background: #111319; cursor: pointer; list-style: none; }
-.sceneDemoPage02 .sceneProductionDisclosure > summary { background: #e94a21; }
-.sceneDemoPage03 .sceneProductionDisclosure > summary { color: #111319; background: var(--lime); }
-.sceneProductionDisclosure > summary::-webkit-details-marker { display: none; }
-.sceneProductionDisclosure > summary > span { font-size: clamp(18px, 1.6vw, 25px); font-weight: 900; letter-spacing: -.025em; }
-.sceneProductionDisclosure > summary > b { max-width: 520px; font-size: 11px; line-height: 1.4; text-align: right; opacity: .76; }
-.sceneProductionDisclosure > summary > i { position: relative; width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; font-style: normal; }
-.sceneProductionDisclosure > summary > i::before { content: "+"; font-size: 20px; line-height: 1; }
-.sceneProductionDisclosure[open] > summary > i::before { content: "−"; }
-.sceneProductionBody { padding: 34px; display: grid; gap: 34px; }
-.sceneProductionBody > section { min-width: 0; }
-.sceneProductionBody > section + section { padding-top: 34px; border-top: 1px solid #c6c1b7; }
-.sceneProductionBody > section > header { margin-bottom: 20px; display: grid; grid-template-columns: 48px 1fr; align-items: start; gap: 14px; }
-.sceneProductionBody > section > header > span { width: 44px; height: 44px; display: grid; place-items: center; color: #fff; background: var(--orange); border-radius: 50%; font-size: 11px; font-weight: 900; }
-.sceneProductionBody > section > header small { display: block; margin-bottom: 5px; color: #777b74; font-size: 9px; font-weight: 900; letter-spacing: .13em; }
-.sceneProductionBody > section > header h4 { margin: 0; font-size: clamp(25px, 2.3vw, 37px); line-height: 1.08; letter-spacing: -.04em; }
-
-.sceneWorkflowSteps { margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; list-style: none; }
-.sceneWorkflowSteps5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-.sceneWorkflowSteps > li { min-width: 0; min-height: 265px; padding: 16px; display: grid; grid-template-rows: auto 1fr; gap: 14px; background: #fff; border: 1px solid #d2cec4; border-top: 4px solid #111319; }
-.sceneDemoPage02 .sceneWorkflowSteps > li { border-top-color: var(--orange); }
-.sceneDemoPage03 .sceneWorkflowSteps > li { border-top-color: #94b61a; }
-.sceneWorkflowSteps > li > span { color: var(--orange); font-size: 11px; font-weight: 950; letter-spacing: .12em; }
-.sceneWorkflowSteps h5 { margin: 0 0 10px; font-size: 16px; line-height: 1.2; }
+.sceneWorkflowPanel { padding: 20px; }
+.sceneWorkflowPanel > h4 { margin: 0 0 18px; font-size: clamp(22px, 1.8vw, 30px); line-height: 1.16; letter-spacing: -.04em; }
+.sceneWorkflowSteps { margin: 0; padding: 0; display: grid; list-style: none; }
+.sceneWorkflowSteps > li { min-width: 0; padding: 17px 0; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; border-top: 1px solid #d2cec4; }
+.sceneWorkflowSteps > li > span { padding-top: 3px; color: var(--orange); font-size: 10px; font-weight: 950; letter-spacing: .1em; }
+.sceneWorkflowSteps h5 { margin: 0 0 7px; font-size: 15px; line-height: 1.25; }
 .sceneWorkflowSteps p { margin: 0; color: #5e625d; font-size: 12px; line-height: 1.58; }
-.sceneWorkflowSteps aside { margin-top: 14px; padding: 12px; background: #efffd1; border-left: 3px solid #9abe1b; }
+.sceneWorkflowSteps aside { margin-top: 12px; padding: 12px; background: #eefecc; border-left: 3px solid #9abe1b; }
 .sceneWorkflowSteps aside b { display: block; margin-bottom: 5px; color: #4b5e10; font-size: 10px; letter-spacing: .08em; }
 .sceneWorkflowSteps aside p { color: #3f4827; font-size: 11px; line-height: 1.5; }
 
-.sceneDemoRequirementGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.sceneDemoRequirementGrid1 { grid-template-columns: 1fr; }
-.sceneDemoRequirementGrid article { min-width: 0; padding: 22px; background: #fff; border: 1px solid #d2cec4; }
-.sceneDemoRequirementGrid h5 { margin: 0 0 15px; padding-bottom: 13px; border-bottom: 1px solid #d8d4ca; font-size: 18px; }
-.sceneDemoRequirementGrid ul { margin: 0; padding: 0; display: grid; gap: 10px; list-style: none; }
-.sceneDemoRequirementGrid li { position: relative; padding-left: 19px; color: #4f544e; font-size: 12px; line-height: 1.58; }
+.sceneDemoRequirementGrid { padding: 18px; display: grid; grid-template-columns: 1fr; gap: 10px; }
+.sceneDemoRequirementGrid article { min-width: 0; padding: 17px; background: #fff; border: 1px solid #d2cec4; }
+.sceneDemoRequirementGrid h5 { margin: 0 0 13px; padding-bottom: 11px; border-bottom: 1px solid #d8d4ca; font-size: 16px; }
+.sceneDemoRequirementGrid ul { margin: 0; padding: 0; display: grid; gap: 9px; list-style: none; }
+.sceneDemoRequirementGrid li { position: relative; padding-left: 18px; color: #4f544e; font-size: 11px; line-height: 1.58; }
 .sceneDemoRequirementGrid li::before { content: "→"; position: absolute; left: 0; top: 0; color: var(--orange); font-weight: 900; }
 
-.sceneCompetitorSection { display: grid; grid-template-columns: minmax(240px, .45fr) minmax(0, 1.55fr); gap: 24px; }
-.sceneCompetitorSection > header { margin-bottom: 0 !important; }
-.sceneCompetitorGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.sceneCompetitorGrid article { min-width: 0; min-height: 112px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; color: #fff; background: #111319; }
+.sceneCompetitorGrid { padding: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.sceneCompetitorGrid article { min-width: 0; min-height: 104px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; color: #fff; background: #111319; }
 .sceneCompetitorGrid span { color: var(--lime); font-size: 10px; font-weight: 900; letter-spacing: .12em; }
-.sceneCompetitorGrid strong { margin-top: 18px; font-size: 15px; line-height: 1.4; }
-
-@media (max-width: 1500px) {
-  .sceneWorkflowSteps5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .sceneWorkflowSteps4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .sceneWorkflowSteps > li { min-height: 0; }
-}
+.sceneCompetitorGrid strong { margin-top: 16px; font-size: 14px; line-height: 1.4; }
 
 @media (max-width: 1180px) {
   .sceneDemoShell { width: min(100% - 36px, 1512px); }
   .sceneDemoStage { grid-template-columns: minmax(0, .92fr) minmax(500px, 1.08fr); }
   .sceneDemoBrief { padding: 24px; }
-  .sceneWorkflowSteps, .sceneWorkflowSteps5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 980px) {
@@ -254,11 +230,8 @@
   .sceneDemoHeader { min-height: 94px; grid-template-columns: 100px 1fr; }
   .sceneDemoHeader > p { grid-column: 1 / -1; padding: 11px 0; border-top: 1px solid #aca89e; }
   .sceneDemoStage { min-height: 0; grid-template-columns: 1fr; }
-  .sceneDemoVisual { height: 610px; border-right: 0; border-bottom: 1px solid #aba79d; }
+  .sceneDemoVisual { position: static; height: 610px; }
   .sceneDemoBrief { padding: 28px; }
-  .sceneProductionDisclosure > summary { grid-template-columns: 1fr 34px; }
-  .sceneProductionDisclosure > summary > b { display: none; }
-  .sceneCompetitorSection { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 700px) {
@@ -276,12 +249,10 @@
   .sceneDemoImageGrid { padding: 8px; grid-template-columns: 1fr; grid-template-rows: repeat(3, 230px); }
   .sceneDemoImageGrid figure:first-child { grid-row: auto; }
   .sceneDemoBrief { padding: 20px 16px; }
-  .sceneDemoScopeGrid, .sceneWorkflowSteps, .sceneWorkflowSteps5, .sceneDemoRequirementGrid, .sceneCompetitorGrid { grid-template-columns: 1fr; }
-  .sceneProductionDisclosure { margin-top: 14px; }
-  .sceneProductionDisclosure > summary { min-height: 70px; padding: 12px 16px; }
-  .sceneProductionBody { padding: 22px 16px; gap: 28px; }
-  .sceneProductionBody > section + section { padding-top: 28px; }
-  .sceneWorkflowSteps > li { min-height: 0; }
+  .sceneDemoDisclosure > summary { grid-template-columns: minmax(0, 1fr) 28px; }
+  .sceneDemoDisclosure > summary > small { display: none; }
+  .sceneWorkflowPanel, .sceneDemoRequirementGrid, .sceneCompetitorGrid { padding: 14px; }
+  .sceneCompetitorGrid { grid-template-columns: 1fr; }
 }
 
 * { box-sizing: border-box; }
