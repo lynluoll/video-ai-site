@@ -80,8 +80,8 @@ const scenarioCases = [
       type: "video" as const,
       src: "/media/brand-reference.mp4",
       poster: "/media/brand-poster.jpg",
-      aria: "品牌广告参考样片",
-      meta: "多镜头一致性 · 品牌保真 · 专业交付",
+      aria: "Seedance 2.5 生成的 30 秒香水品牌 TVC 样片",
+      meta: "Seedance 2.5 全 AI 生成 · 光影定义真实感：人物肤质 / 玻璃金属材质 / 环境光与色温",
     },
     sampleSpec: "15 / 30 秒标准格式，非常强调品牌规范和导演级创意，每一帧的画质和一致性都有要求。",
     channels: [
@@ -164,7 +164,7 @@ const scenarioCases = [
       formats: ["SOCIAL STATIC", "16:9 FEED", "3:1 BANNER"],
       meta: "社交静态图 · 程序化 Banner · DCO 多尺寸套版",
     },
-    sampleSpec: "静态 JPG / PNG；同一套主视觉需适配十几到几十种 IAB 标准尺寸（300×250、728×90、160×600、1080×1080、9:16 等）。强调商品精确还原、图内文案可读和多语言版本，单个 Campaign 常需数百至数千张变体。",
+    sampleSpec: "静态 JPG / PNG；同一套主视觉需适配十几到几十种 IAB 标准尺寸。强调商品精确还原、图内文案可读和多语言版本，单个 Campaign 常需数百至数千张变体。",
     channels: [
       { title: "社交信息流静态图", copy: "Meta 单图与轮播 Carousel、Pinterest、LinkedIn Ads 等。" },
       { title: "程序化展示广告网络", copy: "去掉 Google Display Network、Amazon DSP 等头部竞品后，主要包括 The Trade Desk、InMobi 等 DSP，覆盖海量长尾站点和 App 的 Banner 位。" },
@@ -711,20 +711,6 @@ export default function Home() {
                   </div>
                 </section>
 
-                <aside className="lorealReportStrategy" aria-labelledby="loreal-report-strategy-title">
-                  <header><span>02 · BYTEPLUS PRIORITY</span><h4 id="loreal-report-strategy-title">切入优先级</h4></header>
-                  <article className="lorealReportP0">
-                    <span>P0 · DIRECT</span><b>优先切入</b>
-                    <h5>模型 API<br />进入 CreTech 白名单</h5>
-                    <div><small>质量</small><small>速度</small><small>并发</small><small>商用权</small></div>
-                  </article>
-                  <div className="lorealReportGrowth"><span>外部商用输出</span><p><small>一年前</small><strong>36%</strong><i>→</i><small>最近一季度</small><strong>55%</strong></p></div>
-                  <article className="lorealReportP1">
-                    <span>P1 · EXPAND</span>
-                    <div><b>WORKFLOW / ISV</b><p>本地化 · 版本化 · 批量 QA</p></div>
-                    <div><b>WPP · 从代理商切入</b><p>Previs · Cutdown · Localization</p></div>
-                  </article>
-                </aside>
               </div>
 
             </article>
@@ -768,6 +754,66 @@ export default function Home() {
               </div>
             </article>
 
+            <article className="wppWorkPage" id="customer-agency-case" aria-labelledby="wpp-work-title">
+              <header className="wppWorkHeader">
+                <div className="wppWorkIndex"><span>3.4</span><b>AGENCY CASE STUDY</b></div>
+                <div>
+                  <h3 id="wpp-work-title">代理商怎么工作：<br /><span>导演创意为核新，四步走到帧级交付。</span></h3>
+                </div>
+                <a className="wppWorkDetailLink" href="#solution-brand">Sofa 全流程制作方法见品牌方案<b>↘</b></a>
+              </header>
+
+              <div className="wppWorkCanvas">
+                <section className="wppWorkFlow" aria-label="代理商品牌广告四步工作方式">
+                  <header><span>TEAM &amp; WORKFLOW</span><h4>团队组织与工作方式</h4></header>
+                  <ol>
+                    <li>
+                      <span>01</span>
+                      <div><h5>Creative &amp; Previz</h5><p>导演主导创意概念，AI Pre-vis 分镜板交客户审签后立项。</p></div>
+                    </li>
+                    <li>
+                      <span>02</span>
+                      <div><h5>Production</h5><p>实拍 + 3D + AI 渲染混合制作，追求帧级质量与一致性。</p></div>
+                    </li>
+                    <li>
+                      <span>03</span>
+                      <div><h5>Post-Production &amp; Audio</h5><p>VFX 与后期收尾，其中约 20% 的工作量已可由 AI 替代。</p></div>
+                    </li>
+                    <li>
+                      <span>04</span>
+                      <div><h5>Review &amp; Delivery</h5><p>品牌、法务与平台三道质检门，全部通过后才能上刊。</p></div>
+                    </li>
+                  </ol>
+                  <footer>少量成片 · 每完成秒制作成本最高 $10K–100K+</footer>
+                </section>
+
+                <section className="wppWorkCase" aria-label="WPP 汽车客户 Paris Street VFX 制作案例">
+                  <header>
+                    <span>CASE · AUTOMOTIVE</span>
+                    <h4>Paris Street VFX：一次实拍，Seedream + Seedance 完成好莱坞级 VFX。</h4>
+                    <p>绿色 DS 3 行驶在雨后巴黎奥斯曼街区，路面升起珊瑚粉与浅蓝颜料 VFX。实拍素材仅来自一天的封闭场地拍摄。</p>
+                  </header>
+                  <div className="wppWorkCaseClips">
+                    <figure>
+                      <video src="/media/wpp-auto-input.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="封闭场地实拍运动参考片段" />
+                      <figcaption>REAL SHOOT · MOTION REF</figcaption>
+                    </figure>
+                    <i aria-hidden="true">→</i>
+                    <figure>
+                      <video src="/media/wpp-auto-final.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="Seedance 生成的巴黎街区 VFX 成片片段" />
+                      <figcaption>SEEDANCE FINAL CUT</figcaption>
+                    </figure>
+                  </div>
+                  <p className="wppWorkCasePipeline"><b>PIPELINE</b>Seedream 5.0 生成巴黎街景板与伪目标帧 <i>→</i> Seedance 2.0 以视频参考锁运动、图像参考锁质感</p>
+                  <div className="wppWorkCaseMetrics">
+                    <div><span>HERO SHOT</span><strong>3–5 天</strong><small>传统 CG 需 6–10 周</small></div>
+                    <div><span>总成本</span><strong>$30–65K</strong><small>传统 CG $410K–$1.06M</small></div>
+                    <div><span>单条变体</span><strong>~$1–3</strong><small>换色 / 换景仅需 Token 成本</small></div>
+                  </div>
+                </section>
+              </div>
+            </article>
+
             <article className="adtechCasePage" id="customer-adtech" aria-labelledby="adtech-case-title">
               <header className="adtechCaseHeader">
                 <div className="adtechCaseIndex"><span>03</span><b>ADTECH / PAID MEDIA</b></div>
@@ -781,60 +827,48 @@ export default function Home() {
               </header>
 
               <div className="adtechGrowthCanvas">
-                <section className="adtechGrowthChain" aria-labelledby="adtech-growth-chain-title">
+                <section className="adtechAgentPanel" aria-labelledby="adtech-agent-title">
                   <header>
-                    <span>THE GROWTH CHAIN</span>
-                    <h4 id="adtech-growth-chain-title">一条链路，带动持续收入放大。</h4>
+                    <span>CAMPAIGN AGENT · END TO END</span>
+                    <h4 id="adtech-agent-title">Campaign Agent 端到端在做什么。</h4>
                   </header>
 
-                  <div className="adtechGrowthSteps" aria-label="从 Campaign Agent 复制到模型收入放大的增长链路">
-                    <article>
-                      <span>01 · MARKET</span><strong>1 → 3</strong>
-                      <h5>Campaign Agent<br />进入可复制阶段</h5>
-                      <p>从单点验证，走向多 Campaign、多客户复制。</p>
-                    </article>
-                    <article className="adtechGrowthCore">
-                      <span>02 · BYTEPLUS ENTRY</span><strong>CORE</strong>
-                      <h5>素材自动化<br />嵌入主链路</h5>
-                      <p>生成、编辑与版本化，成为每次投放都要调用的必要能力。</p>
-                    </article>
-                    <article>
-                      <span>03 · ADOPTION</span><strong>AI % ↑</strong>
-                      <h5>AI 视频素材<br />占比持续上升</h5>
-                      <p>自动化生产覆盖越来越多可投放视频。</p>
-                    </article>
-                    <article className="adtechGrowthOutcome">
-                      <span>04 · OUTCOME</span><strong>CALLS ↑</strong>
-                      <h5>模型调用与收入<br />同步放大</h5>
-                      <p>投放越大、AI 占比越高，持续消耗越深。</p>
-                    </article>
+                  <div className="adtechManagerStrip" aria-label="市场主流 Ad Manager 平台">
+                    <span>主流 AD MANAGER 都在内建 Campaign Agent</span>
+                    <ul>
+                      <li><b>TikTok</b><small>Ads Manager · Smart+</small></li>
+                      <li><b>Meta</b><small>Ads Manager · Advantage+</small></li>
+                      <li><b>YouTube</b><small>Google Ads · PMax</small></li>
+                      <li><b>AppLovin</b><small>AXON</small></li>
+                      <li><b>AdTech</b><small>钛动 Navos · Smartly.io</small></li>
+                    </ul>
                   </div>
 
-                  <div className="adtechGrowthEquation" aria-label="Campaign Agent 模型收入放大公式">
-                    <div><span>投放视频规模</span><strong>持续增长</strong></div><i>×</i>
-                    <div><span>AI 制作占比</span><strong>持续上升</strong></div><i>=</i>
-                    <div className="isResult"><span>模型调用与收入</span><strong>同步放大</strong></div>
-                  </div>
+                  <ol className="adtechAgentSteps" aria-label="Campaign Agent 端到端五步流程">
+                    <li>
+                      <span>01</span>
+                      <div><h5>市场洞察</h5><p>追踪社媒热点、舆情与竞品信号，找出高潜创意方向。</p></div>
+                    </li>
+                    <li>
+                      <span>02</span>
+                      <div><h5>广告脚本</h5><p>自动生成 Hook、分镜与 CTA 的可执行脚本。</p></div>
+                    </li>
+                    <li className="adtechAgentCore">
+                      <span>03</span>
+                      <div><h5>素材自动化生产</h5><p>调用 Seedream + Seedance 批量生成可投素材，素材自动化嵌入主链路，成为每次投放的必要能力。</p></div>
+                      <b>BYTEPLUS 切入点</b>
+                    </li>
+                    <li>
+                      <span>04</span>
+                      <div><h5>投放与测试</h5><p>小预算多变体上线，近实时归因筛选胜出素材。</p></div>
+                    </li>
+                    <li>
+                      <span>05</span>
+                      <div><h5>爆款复刻放大</h5><p>AI 视频素材占比持续上升，胜出结构换品、换人、换市场复制，模型调用与收入同步放大。</p></div>
+                    </li>
+                  </ol>
                 </section>
 
-                <aside className="adtechProofRail" aria-labelledby="adtech-proof-title">
-                  <header><span>MARKET PROOF</span><h4 id="adtech-proof-title">需求已经发生。</h4></header>
-                  <div className="adtechProofClients">
-                    <article>
-                      <span>ADTECH · APPLOVIN</span><h5>嵌入 Agent 主链路</h5>
-                      <p>模型 API 成为素材生成与编辑模块，由 Campaign 持续调用。</p>
-                    </article>
-                    <article>
-                      <span>PAID MEDIA · 钛动</span><h5>进入 Creative 模块</h5>
-                      <p>Navos 承接素材生产，再随 Campaign 复制。</p>
-                    </article>
-                  </div>
-                  <div className="adtechStrategyMove">
-                    <span>BYTEPLUS MOVE</span>
-                    <strong>规模化推广素材自动化，成为每个 Campaign Agent 的标配。</strong>
-                    <p>不是卖孤立工具，而是占住可重复调用的核心模块。</p>
-                  </div>
-                </aside>
               </div>
             </article>
           </div>

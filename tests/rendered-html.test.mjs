@@ -103,7 +103,17 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(sceneOverviewHtml, /AppLovin · 钛动.*Pinterest · Reddit · LinkedIn Ads/s);
   assert.match(sceneOverviewHtml, /AppLovin · Smartly\.io · Creatopy.*Criteo · Pinterest · 头部 4A/s);
   assert.doesNotMatch(sceneOverviewHtml, /Shein|Temu|Amazon 卖家|Shopify 商家/);
-  assert.equal((html.match(/<video /g) ?? []).length, 20);
+  assert.equal((html.match(/<video /g) ?? []).length, 22);
+  // Bojie 2026-07-30: 品牌样片换为 Seedance 2.5 香水 TVC（原片含欧莱雅 logo，不可对外）
+  assert.match(html, /Seedance 2\.5 全 AI 生成 · 光影定义真实感/);
+  // Bojie 2026-07-30: 代理商部分增加 case study——工作方式 + Paris Street VFX 汽车案例
+  assert.match(html, /id="customer-agency-case"/);
+  assert.match(html, /代理商怎么工作/);
+  assert.match(html, /Creative &amp; Previz.*Production.*Post-Production &amp; Audio.*Review &amp; Delivery/s);
+  assert.match(html, /Paris Street VFX/);
+  assert.match(html, /wpp-auto-input\.mp4/);
+  assert.match(html, /wpp-auto-final\.mp4/);
+  assert.match(html, /\$30–65K/);
   assert.equal((html.match(/class="sceneDemoPage sceneDemoPage/g) ?? []).length, 3);
   assert.match(html, /scene-brand-demo/);
   assert.match(html, /scene-performance-demo/);
@@ -239,12 +249,11 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /50–100.*万张.*10–20.*万条/s);
   assert.doesNotMatch(html, /\$5B|≈ \$0\.5B|年度消耗暂无可核口径|待客户确认/);
   assert.match(html, /50.*BRANDS.*150.*MARKETS/s);
-  assert.match(html, /模型 API.*CreTech 白名单/s);
   assert.doesNotMatch(html, /预算如何变成模型消耗|L’ORÉAL · CUSTOMER BREAKDOWN|API FIRST · WORKFLOW SECOND|P0 模型 API · P1 工作流|企业级 SLA \+ generation credit/);
-  assert.match(html, /WPP · 从代理商切入.*Previs.*Cutdown.*Localization/s);
   assert.doesNotMatch(html, /CORE JUDGEMENT|不要卖孤立工具/);
-  assert.match(html, /外部商用输出.*一年前.*36%.*最近一季度.*55%/s);
-  assert.match(html, /lorealReportCanvas.*lorealReportCore.*lorealReportEngine.*lorealReportStrategy/s);
+  // Bojie 2026-07-30: 欧莱雅页去掉右侧"切入优先级"栏，左侧单栏呈现
+  assert.doesNotMatch(html, /切入优先级|lorealReportStrategy|P0 · DIRECT|P1 · EXPAND|外部商用输出/);
+  assert.match(html, /lorealReportCanvas.*lorealReportCore.*lorealReportEngine/s);
   const wppHtml = html.slice(html.indexOf('class="wppCasePage wppPresentationPage"'), html.indexOf('class="adtechCasePage"'));
   assert.match(wppHtml, /WPP \/ HAVAS.*代理商是最大的增长入口.*从简单的AI创意预览.*真正投产到Production/s);
   assert.match(wppHtml, /模型 API 为主/);
@@ -261,12 +270,15 @@ test("server-renders the complete advertising strategy", async () => {
   assert.equal((html.match(/class="customerFlowStage /g) ?? []).length, 4);
   assert.match(html, /抓住 Campaign Agent 的增长窗口/);
   assert.match(html, /让素材自动化成为必要组成/);
-  assert.match(html, /一条链路，带动持续收入放大/);
+  // Bojie/文杰 2026-07-31: Campaign Agent 页改为 Ad Manager 平台墙 + 端到端五步
+  assert.match(html, /Campaign Agent 端到端在做什么/);
+  assert.match(html, /TikTok.*Meta.*YouTube.*AppLovin.*钛动 Navos/s);
   assert.match(html, /AppLovin/);
   assert.match(html, /钛动/);
   const adtechHtml = html.slice(html.indexOf('class="adtechCasePage"'), html.indexOf('id="solution-focus"'));
-  assert.match(adtechHtml, /MARKET STAGE.*1 → 3.*Campaign Agent.*进入可复制阶段.*素材自动化.*嵌入主链路.*AI 视频素材.*占比持续上升.*模型调用与收入.*同步放大/s);
-  assert.match(adtechHtml, /Navos 承接素材生产/);
+  assert.match(adtechHtml, /MARKET STAGE.*1 → 3.*进入可复制阶段.*Campaign Agent 端到端在做什么.*Ads Manager.*素材自动化.*嵌入主链路.*AI 视频素材占比持续上升.*模型调用与收入同步放大/s);
+  // 文杰 2026-07-31: Campaign Agent 页右侧 MARKET PROOF 栏删除
+  assert.doesNotMatch(adtechHtml, /MARKET PROOF|需求已经发生|adtechProofRail|adtechStrategyMove/);
   assert.doesNotMatch(adtechHtml, /Lumos \/ Navos/);
   assert.doesNotMatch(adtechHtml, /adtechReplicableStage|adtechGrowthLogic|adtechWalletBanner|adtechCaseFooter/);
   assert.doesNotMatch(adtechHtml, /≈ \$0\.2B|钱包深度|MRR|ARR|待确认|暂无可核/);
@@ -276,8 +288,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(sceneDemoHtml, /scene-display-demo.*demo-display-commerce\.jpg/s);
   assert.doesNotMatch(sceneDemoHtml, /solution-focus|BRAND PRODUCTION|PERFORMANCE ADS/);
   assert.doesNotMatch(sceneDemoHtml, /MODEL LANDSCAPE/);
-  assert.match(html, /规模化推广素材自动化，成为每个 Campaign Agent 的标配/);
-  assert.match(html, /AI 制作占比/);
+  assert.match(html, /AI 视频素材占比持续上升/);
   assert.match(html, /FINAL · SEEDANCE REQUIREMENTS/);
   assert.doesNotMatch(html, /FINAL<\/span> \/ PRODUCT REQUIREMENTS|最终产品需求：|走向规模生产/);
   assert.doesNotMatch(html, /美国市场占比|REGION PRIORITY|Resell 政策|COMMERCIAL REQUIREMENT|渠道激励|规模返点/);
@@ -364,7 +375,9 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /Retargeting 兜底/);
   assert.match(page, /15 \/ 30 秒标准格式/);
   assert.match(page, /10–15 秒最常见/);
-  assert.match(page, /300×250、728×90、160×600/);
+  // 文杰 2026-07-31 改稿：Display 规格删去具体尺寸列举
+  assert.match(page, /十几到几十种 IAB 标准尺寸。强调商品精确还原/);
+  assert.doesNotMatch(page, /300×250、728×90、160×600/);
   assert.match(page, /AI 模型 Workflow 逐渐代替实拍和渲染/);
   assert.match(page, /Ad Campaign Agent 引入广告素材自动化制作/);
   assert.match(page, /Ad Campaign Agent 引入图片素材自动化编辑/);
