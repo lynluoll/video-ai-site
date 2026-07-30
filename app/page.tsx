@@ -377,7 +377,7 @@ const unresolvedGaps = [
 export default function Home() {
   return (
     <main className="siteRoot" id="top">
-      <InlineTextEditor />
+      {process.env.NODE_ENV === "development" ? <InlineTextEditor /> : null}
       <input className="langControl" id="language-mode" type="checkbox" aria-label="切换中英文" />
       <nav className="nav shell" aria-label="主导航">
         <a className="brand" href="#top" aria-label="BytePlus 广告行业素材生产方案首页">

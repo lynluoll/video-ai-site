@@ -27,8 +27,8 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /<title>BytePlus 广告行业素材生产方案<\/title>/);
   assert.match(html, /class="coverPage"/);
   assert.match(html, /<main class="siteRoot" id="top">/);
-  assert.match(html, /网页文字编辑器/);
-  assert.match(html, /编辑文字/);
+  assert.doesNotMatch(html, /网页文字编辑器/);
+  assert.doesNotMatch(html, /编辑文字/);
   assert.doesNotMatch(html, /class="coverPage" id="top"/);
   assert.match(html, /视频成为主流/);
   assert.match(html, /AI 生产走向规模化/);
