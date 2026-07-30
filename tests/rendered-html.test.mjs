@@ -285,7 +285,9 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /模型短期能力短板/);
   assert.equal((html.match(/class="productGateCard productGateCard/g) ?? []).length, 4);
   assert.match(html, /3D 白模只能渲染，不能理解/);
-  assert.match(html, /世界知识与物理常识缺失/);
+  assert.match(html, /Seedance 2\.0 \/ Fast \/ mini 商品知识与商品交互能力较差/);
+  assert.match(html, /钛动 Seedance 2\.0 mini 效果广告 Bad Cases/);
+  assert.match(html, /OJQ9dIYdfo0ponxiLcNlhbDHgng/);
   assert.match(html, /商品与品牌要素保真不足/);
   assert.match(html, /音频参考与情感仍不可控/);
   assert.doesNotMatch(html, /视觉渲染.*可规模生产|必须同时通过 4 \/ 4 门槛/s);
@@ -383,10 +385,14 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /nano banana 2/);
   assert.equal((page.match(/no: "0[1-4]"/g) ?? []).length, 4);
   assert.match(page, /3D 白模只能渲染，不能理解/);
-  assert.match(page, /世界知识与物理常识缺失/);
+  assert.match(page, /Seedance 2\.0 \/ Fast \/ mini 商品知识与商品交互能力较差/);
   assert.match(page, /商品与品牌要素保真不足/);
   assert.match(page, /音频参考与情感仍不可控/);
-  assert.match(page, /涂口红、穿衣等商品操作姿势错误/);
+  assert.match(page, /口红、3C 等商品操作姿势不对/);
+  assert.match(page, /开箱视频中箱子自己打开/);
+  assert.match(page, /人脸重复出现、位置瞬移/);
+  assert.match(page, /高速动作下人物与道具的物理绑定失效/);
+  assert.match(page, /特效生成错误，或表现过于浮夸/);
   assert.match(page, /Logo 与商标细节错误/);
   assert.match(page, /ElevenLabs 音频 × Seedance 视频对齐/);
   assert.match(page, /O3I3dWdKKof2DtxNkrolaGtIgzc/);

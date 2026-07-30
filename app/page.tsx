@@ -347,12 +347,12 @@ const unresolvedGaps = [
   },
   {
     no: "02",
-    title: "世界知识与物理常识缺失",
-    copy: "效果广告场景已经收到大量来自商品、3C 和快消客户的 Bad Cases，问题不是画面清晰度，而是模型缺少对真实世界过程与因果关系的理解。",
+    title: "Seedance 2.0 / Fast / mini 商品知识与商品交互能力较差",
+    copy: "效果广告规模生产的主要阻塞点，集中在商品知识、真实交互、过程因果和高速运动一致性。",
     signal: "WORLD KNOWLEDGE",
-    examples: ["涂口红、穿衣等商品操作姿势错误", "箱子自开、双头、人物位置瞬移", "云不飘动，高速动作下人与道具解绑", "伤口愈合、光学迷彩等过程特效错误"],
-    link: "",
-    linkLabel: "",
+    examples: ["口红、3C 等商品操作姿势不对", "开箱视频中箱子自己打开", "人脸重复出现、位置瞬移", "高速动作下人物与道具的物理绑定失效", "特效生成错误，或表现过于浮夸"],
+    link: "https://bytedance.sg.larkoffice.com/docx/OJQ9dIYdfo0ponxiLcNlhbDHgng",
+    linkLabel: "钛动 Seedance 2.0 mini 效果广告 Bad Cases ↗",
   },
   {
     no: "03",
