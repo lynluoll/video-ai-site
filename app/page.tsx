@@ -789,79 +789,43 @@ export default function Home() {
 
             </article>
 
-            <article className="wppCasePage" id="customer-agency" aria-labelledby="wpp-case-title">
-              <header className="wppCaseHeader">
-                <div className="wppCaseIndex"><span>02</span><b>AGENCY CASE</b></div>
+            <article className="wppCasePage wppPresentationPage" id="customer-agency" aria-labelledby="wpp-case-title">
+              <header className="wppCaseHeader wppPresentationHeader">
+                <div className="wppCaseIndex"><span>3.3</span><b>WPP / HAVAS</b></div>
                 <div>
-                  <p>WPP · CREATIVE → PRODUCTION</p>
-                  <h3 id="wpp-case-title">WPP，把 <span>Creative</span><br />推进到 Production。</h3>
+                  <h3 id="wpp-case-title">代理商是最大的增长入口：<br /><span>Creative → Production</span></h3>
                 </div>
-                <p>WPP 值得单独拆解：它以 Creative 为核心，同时连接品牌关系、制作能力和交付链路，是创意投入进入模型生产的典型路径。</p>
+                <div className="wppHeaderProofs" aria-label="代理商合作方式与 WPP Open 覆盖规模">
+                  <div><span>合作方式</span><strong>模型 API 为主</strong></div>
+                  <div><span>WPP Open</span><strong>80,000+ 员工</strong></div>
+                </div>
               </header>
 
-              <div className="wppCaseCanvas">
-                <section className="wppWalletSystem" aria-labelledby="wpp-wallet-title">
-                  <div className="wppPanelTitle"><span>01 · PRODUCTION DEPTH</span><h4 id="wpp-wallet-title">越接近生产，模型消耗越深。</h4></div>
-                  <div className="wppAgencyWallet">
-                    <div><span>VALUE MIGRATION</span><strong>CREATIVE</strong><em>→ PRODUCTION</em><b>代理商的核心价值迁移</b></div>
-                    <p>WPP 同时连接品牌关系、导演创意、正式制作与客户交付；模型价值随生产深度持续放大。</p>
-                  </div>
-
-                  <div className="wppCaseReason">
-                    <span>WHY WPP</span>
-                    <strong>贯穿全链路</strong>
-                    <p>不是只买一个生成工具，而是有机会把模型嵌入创意、制作和客户交付的完整链路。</p>
-                  </div>
-
-                  <div className="wppMoneyRoute" aria-label="WPP 钱包随生产深度放大的流向">
-                    <article><span>01</span><h5>Creative</h5><p>从概念、脚本和分镜进入</p><b>预算入口</b></article>
-                    <i>→</i>
-                    <article><span>02</span><h5>Production</h5><p>AI 进入正式制作与后期</p><b>消耗放大</b></article>
-                    <i>→</i>
-                    <article><span>03</span><h5>Delivery</h5><p>随客户项目完成商业交付</p><b>收入出口</b></article>
-                  </div>
-                </section>
-
-                <section className="wppProductionSystem" aria-labelledby="wpp-production-title">
-                  <div className="wppPanelTitle"><span>02 · VALUE MIGRATION</span><h4 id="wpp-production-title">从预览工具，进入正式生产。</h4></div>
-
-                  <div className="wppValueLadder" aria-label="代理商 AI 从创意预览走向 Production 的价值迁移">
-                    <article>
-                      <span>01 · IDEATION</span><h5>创意预览</h5><p>概念、脚本与分镜快速生成</p><b>低模型消耗</b>
-                    </article>
-                    <i>→</i>
-                    <article>
-                      <span>02 · REVIEW</span><h5>提案 / 审片</h5><p>可讨论、可修改的品牌素材</p><b>工作流嵌入</b>
-                    </article>
-                    <i>→</i>
-                    <article className="wppProductionFocus">
-                      <span>03 · PRODUCTION</span><h5>正式生产</h5><p>AI + CG 进入商业交付链路</p><b>高模型消耗</b>
-                    </article>
-                  </div>
-
-                  <div className="wppOperatingMap" aria-label="WPP AI 产品与业务团队协作结构">
-                    <article className="wppOpenNode">
-                      <span>AI PRODUCT LAYER</span><h5>WPP Open</h5><p>统一模型入口 · 创意工作流 · 资产与权限</p>
-                    </article>
-                    <div className="wppTeamConnector" aria-hidden="true"><i></i><b>↓</b><i></i></div>
-                    <div className="wppBusinessTeams">
-                      <article><span>CREATIVE</span><h5>导演 / 策略 / 创意</h5><p>定义概念与品牌判断</p></article>
-                      <article><span>PRODUCTION</span><h5>制作 / 后期 / CG</h5><p>把创意变成可交付成片</p></article>
-                      <article><span>MEDIA</span><h5>媒体 / 客户交付</h5><p>版本化、投放与客户复用</p></article>
-                    </div>
-                  </div>
-
-                  <div className="wppEntryRail" aria-label="BytePlus 在 WPP 的三步切入路径">
-                    <div><span>01</span><p>从 Creative 原型工作流切入</p></div><i>→</i>
-                    <div><span>02</span><p>用品牌一致性与可编辑性进入审片</p></div><i>→</i>
-                    <div><span>03</span><p>从创意预览继续进入 Production</p></div>
-                  </div>
+              <div className="wppPresentationCanvas wppCondensedCanvas">
+                <section className="wppStageStrip wppStrategyStageStrip" aria-label="Creative Production Media 三个业务环节">
+                  <article className="wppWorkstreamIdentity wppStageCreative">
+                    <header><span>01 · 短期 · 2026</span><b>CREATIVE</b></header>
+                    <div className="wppStageMetric"><strong>30%</strong><i>→</i><strong>70%</strong></div>
+                    <h4>先切入创意原型工作流</h4>
+                    <p>概念、分镜与 Pre-vis 可讨论、可审片、可拿去赢预算，当前最容易快速放量。</p>
+                    <footer><b>模型重点</b><span>速度 · 风格控制 · 品牌资产</span></footer>
+                  </article>
+                  <article className="wppWorkstreamIdentity wppStageProduction">
+                    <header><span>02 · 中长期</span><b>PRODUCTION</b></header>
+                    <div className="wppStageMetric"><strong>10% 至 15%</strong><i>→</i><strong>70%</strong></div>
+                    <h4>向端到端正式制作放大</h4>
+                    <p>以 3D / Digital Twin 锁定产品与镜头，AI 从渲染向拍摄、CG 与后期延伸。</p>
+                    <footer><b>模型重点</b><span>一致性 · 可控镜头 · 4K · 低闪烁</span></footer>
+                  </article>
+                  <article className="wppWorkstreamIdentity wppStageMedia">
+                    <header><span>03 · 当前</span><b>MEDIA</b></header>
+                    <div className="wppStageMetric wppStageMetricCurrent"><strong>20% 至 30%</strong></div>
+                    <h4>把母版规模化复制</h4>
+                    <p>围绕 Master Video，批量适配不同渠道、市场、语言与人群。</p>
+                    <footer><b>模型重点</b><span>精准编辑 · 本地化 · 投放反馈</span></footer>
+                  </article>
                 </section>
               </div>
-
-              <footer className="wppCaseFooter">
-                <span>品牌预算</span><i>→</i><span>WPP Open</span><i>→</i><span>Creative</span><i>→</i><strong>Production</strong><i>→</i><span>客户交付</span>
-              </footer>
             </article>
 
             <article className="adtechCasePage" id="customer-adtech" aria-labelledby="adtech-case-title">
@@ -968,36 +932,51 @@ export default function Home() {
 
               <section className="brandArchitecturePanel" aria-label="Sofa CG 与 AI 五阶段制作架构">
                 <header><span>PRODUCTION ARCHITECTURE</span><b className="langZh">CG 锁定控制，AI 完成输出</b><b className="langEn">CG locks control. AI delivers output.</b></header>
-                <div className="brandArchitectureCompact">
-                  <article>
-                    <header><span>01</span><b className="langZh">输入资产</b><b className="langEn">Input assets</b></header>
-                    <div className="brandArchMosaic brandArchMosaicFour"><img src="/media/sofa/input-texture.jpg" alt="材质参考" /><img src="/media/sofa/input-environment.jpg" alt="环境参考" /><img src="/media/sofa/input-packshot.jpg" alt="商品 Packshot" /><img src="/media/sofa/input-character.jpg" alt="人物参考" /></div>
-                    <strong>PACKSHOT · MATERIAL · SCENE</strong>
-                  </article>
-                  <i aria-hidden="true">→</i>
-                  <article>
-                    <header><span>02</span><b className="langZh">理解与数字孪生</b><b className="langEn">Understand &amp; twin</b></header>
-                    <div className="brandArchMosaic"><img src="/media/sofa/digital-twin-poster.png" alt="沙发数字孪生" /></div>
-                    <strong>SEED 2.0 · SEED3D 2.0</strong>
-                  </article>
-                  <i aria-hidden="true">→</i>
-                  <article>
-                    <header><span>03</span><b className="langZh">镜头与灯光控制</b><b className="langEn">Camera &amp; lighting</b></header>
-                    <div className="brandArchMosaic brandArchMosaicTwo"><img src="/media/sofa/cg-angle.jpg" alt="CG 镜头控制" /><img src="/media/sofa/lighting-1.jpg" alt="CG 灯光控制" /></div>
-                    <strong>BLENDER</strong>
-                  </article>
-                  <i aria-hidden="true">→</i>
-                  <article>
-                    <header><span>04</span><b className="langZh">图像渲染</b><b className="langEn">Image rendering</b></header>
-                    <div className="brandArchMosaic brandArchMosaicTwo"><img src="/media/sofa/cg-scene.jpg" alt="CG 场景" /><img src="/media/sofa/render-detail.jpg" alt="AI 图像渲染" /></div>
-                    <strong>SEEDREAM 5.0 LITE</strong>
-                  </article>
-                  <i aria-hidden="true">→</i>
-                  <article>
-                    <header><span>05</span><b className="langZh">KV 与视频成片</b><b className="langEn">Final KV &amp; video</b></header>
-                    <div className="brandArchMosaic brandArchMosaicTwo"><img src="/media/sofa/kv-wide.jpg" alt="沙发 KV" /><img src="/media/sofa/kv-ultrawide.jpg" alt="沙发宽幅 KV" /></div>
-                    <strong>SEEDANCE 2.0 · CAPCUT</strong>
-                  </article>
+                <div className="brandOriginalArchitecture">
+                  <div className="brandOriginalFlow">
+                    <section className="arch-stage">
+                      <header className="arch-stage__head"><span className="arch-stage__no">①</span><b className="langZh">输入资产</b><b className="langEn">Input Assets</b></header>
+                      <figure className="arch-input"><img src="/media/sofa/input-texture.jpg" alt="材质参考" /><figcaption>Texture · material<span className="arch-to">→ AI composite ④</span></figcaption></figure>
+                      <figure className="arch-input"><img src="/media/sofa/input-environment.jpg" alt="环境参考" /><figcaption>Environment<span className="arch-to">→ scene ③ · video ⑤</span></figcaption></figure>
+                      <figure className="arch-input"><img src="/media/sofa/input-packshot.jpg" alt="商品 Packshot" /><figcaption>Product · packshot<span className="arch-to">→ vision + 3D ②</span></figcaption></figure>
+                      <figure className="arch-input"><img src="/media/sofa/input-character.jpg" alt="人物参考" /><figcaption>Character<span className="arch-to">→ reference</span></figcaption></figure>
+                    </section>
+                    <i className="arch-arrow" aria-hidden="true">→</i>
+
+                    <section className="arch-stage">
+                      <header className="arch-stage__head"><span className="arch-stage__no">②</span><b className="langZh">AI 理解 + 数字孪生</b><b className="langEn">AI Understanding + Digital Twin</b></header>
+                      <div className="arch-node"><div className="arch-node__t arch-node__t--model">Vision LLM · Seed 2.0</div><div className="arch-node__m">Visual understanding · spec</div></div>
+                      <div className="arch-down" aria-hidden="true">↓</div>
+                      <div className="arch-node arch-node--ghost arch-spec"><div className="arch-node__t">Vision spec · anchor</div><div className="arch-spec__b">Solid oak sofa · linen <span>#E8E5DF</span><br />locks colour / material / size / structure</div></div>
+                      <div className="arch-node arch-twin"><div className="arch-node__t arch-node__t--model">3D model · Seed3D 2.0</div><div className="arch-node__m">Image → 3D digital twin</div><div className="arch-twin__viewer"><img src="/media/sofa/digital-twin-poster.png" alt="沙发 3D 数字孪生" /></div></div>
+                    </section>
+                    <i className="arch-arrow" aria-hidden="true">→</i>
+
+                    <section className="arch-stage">
+                      <header className="arch-stage__head"><span className="arch-stage__no">③</span><b className="langZh">CG 控制 · Blender</b><b className="langEn">CG Control · Blender</b></header>
+                      <div className="arch-node"><div className="arch-node__t">Set design · camera control</div><div className="arch-node__m">Multi-angle · product consistency</div><div className="arch-thumbs arch-thumbs--row"><img src="/media/sofa/digital-twin.png" alt="" /><img src="/media/sofa/cg-angle.jpg" alt="" /><img src="/media/sofa/cg-scene.jpg" alt="" /></div></div>
+                      <div className="arch-node"><div className="arch-node__t">Lighting control</div><div className="arch-node__m">Mood · shadows</div><div className="arch-thumbs arch-thumbs--2"><img src="/media/sofa/lighting-1.jpg" alt="" /><img src="/media/sofa/lighting-2.jpg" alt="" /></div></div>
+                    </section>
+                    <i className="arch-arrow" aria-hidden="true">→</i>
+
+                    <section className="arch-stage">
+                      <header className="arch-stage__head"><span className="arch-stage__no">④</span><b className="langZh">图像渲染</b><b className="langEn">Image Rendering</b></header>
+                      <div className="arch-node"><div className="arch-node__t">Blender render</div><div className="arch-node__m">Composite plate · any angle</div><div className="arch-thumbs arch-thumbs--2x2"><img src="/media/sofa/cg-angle.jpg" alt="" /><img src="/media/sofa/cg-scene.jpg" alt="" /><img src="/media/sofa/render-detail.jpg" alt="" /><img src="/media/sofa/digital-twin.png" alt="" /></div></div>
+                      <div className="arch-down" aria-hidden="true">↓</div>
+                      <div className="arch-node"><div className="arch-node__t arch-node__t--model">Seedream 5.0 Lite</div><div className="arch-node__m">AI compositing</div><div className="arch-tags"><span>quality boost</span><span>environment</span><span>product</span><span>material</span><span>upscale</span></div></div>
+                    </section>
+                    <i className="arch-arrow" aria-hidden="true">→</i>
+
+                    <section className="arch-stage">
+                      <header className="arch-stage__head"><span className="arch-stage__no">⑤</span><b className="langZh">最终输出 · KV + 视频</b><b className="langEn">Final Output · KV + Video</b></header>
+                      <div className="arch-node"><div className="arch-node__t">Final KV</div><div className="arch-kv"><figure><img src="/media/sofa/kv-side.jpg" alt="侧面 KV" /></figure><figure><img src="/media/sofa/kv-mcu.jpg" alt="中近景 KV" /></figure><figure><img src="/media/sofa/kv-wide.jpg" alt="宽景 KV" /></figure><figure><img src="/media/sofa/kv-ultrawide.jpg" alt="超宽景 KV" /></figure></div></div>
+                      <div className="arch-node arch-node--ghost arch-merge"><div className="arch-node__t">+ Prompt</div></div>
+                      <div className="arch-node"><div className="arch-node__t arch-node__t--model">Seedance 2.0</div><div className="arch-node__m">Video generation</div></div>
+                      <div className="arch-node"><div className="arch-node__t">Editing · sound</div><div className="arch-node__m">CapCut</div></div>
+                      <div className="arch-node arch-node--final"><div className="arch-node__t">▸ Production-ready videos</div></div>
+                    </section>
+                  </div>
+                  <footer>CG DELIVERS CONTROL · AI DELIVERS OUTPUT</footer>
                 </div>
               </section>
 
