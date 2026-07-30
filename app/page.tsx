@@ -1098,15 +1098,10 @@ export default function Home() {
             </div>
           </article>
         </div>
-        <div className="gapHeader">
-          <p className="eyebrow"><span>FINAL</span> / PRODUCT REQUIREMENTS</p>
-          <h3>最终产品需求：<br />走向规模生产。</h3>
-          <p>模型能力决定素材能否通过客户验收。要进入规模生产，Seedance 必须同时通过动作、物理、品牌与音频四个门槛。</p>
-        </div>
         <article className="productGatePage" id="product-requirements" aria-labelledby="product-gate-title">
           <header className="productGateHeader">
             <div className="productGateIndex"><span>07</span><b>PRODUCTION GATES</b></div>
-            <div><p>FINAL · SEEDANCE REQUIREMENTS</p><h3 id="product-gate-title">四个门槛，<br /><span>决定能不能规模生产。</span></h3></div>
+            <div><p>FINAL · SEEDANCE REQUIREMENTS</p><h3 id="product-gate-title">模型短期能力短板</h3></div>
           </header>
 
           <div className="productGateBody">
@@ -1123,9 +1118,6 @@ export default function Home() {
               <div className="productGateCenter" aria-hidden="true"><span>SCALE</span><b>PRODUCTION</b><i>×</i></div>
             </div>
 
-            <footer className="productGateFooter">
-              <span>视觉渲染</span><i>≠</i><strong>可规模生产</strong><b>必须同时通过 4 / 4 门槛</b>
-            </footer>
           </div>
         </article>
       </section>
