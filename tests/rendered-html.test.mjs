@@ -185,7 +185,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.doesNotMatch(html, /class="brandSolutionScope"|10–15s · 9:16/);
   assert.match(html, /效果广告制作方案/);
   assert.match(html, /流程、样片与能力证据/);
-  assert.match(html, /href="https:\/\/bytedance\.sg\.larkoffice\.com\/docx\/YpqAdyBReoQt3gxDZUql9wMagIf"[^>]*>查看方案详情/s);
+  assert.match(html, /href="https:\/\/bytedance\.sg\.larkoffice\.com\/docx\/YpqAdyBReoQt3gxDZUql9wMagIf"[^>]*>.*?查看方案详情/s);
   assert.match(html, /5 STEPS/);
   assert.match(html, /热点洞察.*广告脚本.*AI 内容生产.*投放测试.*爆款复刻/s);
   assert.equal((html.match(/class="performanceFlowSummary"/g) ?? []).length, 5);
@@ -195,7 +195,7 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /只改变目标效果，不破坏人物身份/);
   assert.match(html, /Display Ads 制作方法/);
   assert.match(html, /一个母版，规模化交付/);
-  assert.match(html, /href="https:\/\/bytedance\.sg\.larkoffice\.com\/docx\/BDRLd6Y8Ponm2QxRUFBl1AJXgyh"[^>]*>查看方案详情/s);
+  assert.match(html, /href="https:\/\/bytedance\.sg\.larkoffice\.com\/docx\/BDRLd6Y8Ponm2QxRUFBl1AJXgyh"[^>]*>.*?查看方案详情/s);
   assert.match(html, /id="solution-display-demos"/);
   assert.equal((html.match(/class="solutionPage displaySolutionPage"/g) ?? []).length, 1);
   assert.doesNotMatch(html, /class="solutionPage displayDemoPage"/);

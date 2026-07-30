@@ -1057,7 +1057,7 @@ button, summary { font: inherit; }
 .customerFlowRoute { min-width: 0; min-height: 0; padding: 16px 18px 16px 12px; display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 12px; background: rgba(255,255,255,.78); border: 1px solid #b0aca0; border-radius: 28px; box-shadow: 0 18px 45px rgba(20,23,30,.06); }
 .customerMoneySpine { min-height: 0; display: grid; grid-template-rows: 46px 1fr 28px; justify-items: center; align-items: center; }
 .customerMoneySpine span { display: grid; place-items: center; width: 42px; height: 42px; color: #f7f7f2; background: var(--orange); border-radius: 50%; font-size: 23px; font-weight: 950; }
-.customerMoneySpine i { width: 3px; height: calc(100% - 8px); background: linear-gradient(var(--lime), var(--orange)); border-radius: 4px; }
+.customerMoneySpine i { width: 4px; height: calc(100% - 8px); background: linear-gradient(var(--orange), #14171e); border-radius: 4px; }
 .customerMoneySpine em { color: var(--orange); font-size: 25px; font-style: normal; font-weight: 950; }
 .customerFlowStages { min-width: 0; min-height: 0; display: grid; grid-template-rows: repeat(4, minmax(0, 1fr)); gap: 10px; }
 .customerFlowStage { position: relative; min-width: 0; padding: 0 20px; display: grid; grid-template-columns: 150px minmax(190px, 1fr) minmax(205px, 1fr) 155px; align-items: center; overflow: hidden; background: #fbfaf5; border: 1px solid #d8d4c9; border-radius: 16px; box-shadow: 0 6px 16px rgba(20,23,30,.045); }
@@ -2737,20 +2737,16 @@ button, summary { font: inherit; }
 .performanceSolutionHeader h3 { margin: 0; font-size: clamp(31px, 2.5vw, 42px); font-weight: 640; line-height: .96; letter-spacing: -.055em; }
 .performanceSolutionHeader h3 span { color: var(--orange); }
 .performanceSolutionHeader > p { max-width: 380px; margin: 0; color: #4c5058; font-size: 14px; font-weight: 680; line-height: 1.58; }
-.performanceSolutionBody { min-height: 0; padding: 14px 22px 20px; display: grid; grid-template-rows: 250px auto; align-content: start; gap: 12px; }
-.performanceProductionFlow { min-width: 0; min-height: 0; display: grid; grid-template-rows: 52px minmax(0, 1fr) 34px; overflow: hidden; border: 1px solid #b0aca0; background: rgba(255,255,255,.9); }
+.performanceSolutionBody { min-height: 0; padding: 14px 22px 20px; display: grid; grid-template-rows: auto auto; align-content: start; gap: 12px; }
+.performanceProductionFlow { min-width: 0; min-height: 0; display: grid; grid-template-rows: 52px auto 38px; border: 1px solid #b0aca0; border-radius: 12px; background: rgba(255,255,255,.9); }
 .performanceFlowTitle { padding: 0 16px; display: flex; align-items: center; justify-content: flex-start; gap: 22px; border-bottom: 1px solid #b0aca0; }
 .performanceFlowTitle > div:first-child { display: flex; align-items: baseline; gap: 18px; }
 .performanceFlowTitle > div:first-child span { color: var(--orange); font-size: 10px; font-weight: 950; letter-spacing: .15em; }
 .performanceFlowTitle > div:first-child b { font-size: 18px; line-height: 1.2; letter-spacing: -.025em; }
 .performanceProductionFlow ol { min-width: 0; min-height: 0; margin: 0; padding: 12px 16px 10px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; list-style: none; }
-.performanceProductionFlow li { --step-color: #b0aca0; position: relative; min-width: 0; padding: 10px 12px; display: grid; grid-template-rows: 30px minmax(0, 1fr) 24px; gap: 9px; border: 1px solid #d8d4c9; border-top: 4px solid var(--step-color); background: #fbfaf5; }
+.performanceProductionFlow li { --step-color: var(--edge-strong); position: relative; min-width: 0; padding: 10px 12px; display: grid; grid-template-rows: 30px minmax(0, 1fr) 24px; gap: 9px; border: 1px solid #d8d4c9; border-top: 4px solid var(--step-color); background: #fbfaf5; }
 .performanceProductionFlow li:not(:last-child)::after { content: "→"; position: absolute; z-index: 2; right: -15px; top: 50%; color: var(--orange); font-size: 13px; font-weight: 950; transform: translateY(-50%); }
-.performanceProductionFlow li:nth-child(1) { --step-color: #ff5a1f; }
-.performanceProductionFlow li:nth-child(2) { --step-color: #b0aca0; }
 .performanceProductionFlow li:nth-child(3) { --step-color: var(--orange); }
-.performanceProductionFlow li:nth-child(4) { --step-color: #b0aca0; }
-.performanceProductionFlow li:nth-child(5) { --step-color: #ff5a1f; }
 .performanceProductionFlow li > header { min-width: 0; display: grid; grid-template-columns: 23px minmax(0, 1fr); align-items: center; gap: 9px; }
 .performanceProductionFlow li > header > span { display: grid; place-items: center; width: 22px; height: 22px; color: #f7f7f2; background: var(--step-color); border-radius: 50%; font-size: 9px; font-weight: 950; }
 .performanceProductionFlow li > header b { min-width: 0; font-size: clamp(15px, 1.05vw, 18px); line-height: 1.05; letter-spacing: -.025em; }
@@ -5733,7 +5729,18 @@ button, summary { font: inherit; }
 
 
 /* v2.3 · Campaign Agent: proof rail removed — full-width horizontal chain */
-.adtechCasePage { height: auto; min-height: 0; }
+.adtechCasePage { height: auto; min-height: calc(100svh - 24px); }
+.adtechGrowthCanvas { grid-template-rows: minmax(0, 1fr); align-items: stretch; }
+.adtechAgentPanel { justify-content: center; gap: 18px; }
+.adtechAgentPanel > header > h4 { font-size: clamp(21px, 1.7vw, 28px); }
+.adtechManagerStrip { padding: 16px 18px; }
+.adtechManagerStrip li { padding: 14px 14px; gap: 5px; }
+.adtechManagerStrip li b { font-size: 16px; }
+.adtechManagerStrip li small { font-size: 9.5px; }
+.adtechAgentSteps > li, .adtechAgentSteps > li:first-child { min-height: 240px; padding: 18px; }
+.adtechAgentSteps > li > span { font-size: 22px; }
+.adtechAgentSteps h5 { font-size: 15px; }
+.adtechAgentSteps p { font-size: 12px; line-height: 1.66; }
 .adtechGrowthCanvas { grid-template-columns: minmax(0, 1fr); }
 .adtechAgentSteps { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; align-items: stretch; }
 .adtechAgentSteps > li,
@@ -5779,3 +5786,97 @@ button, summary { font: inherit; }
 @media (max-width: 700px) {
   .adtechAgentSteps { grid-template-columns: 1fr; }
 }
+
+
+/* ============================================================
+   v2.4 · Customer flow as a budget ledger (design pass)
+   ============================================================ */
+.customerFlowRoute {
+  padding: 10px 8px 10px 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  column-gap: 20px;
+}
+.customerFlowStages { gap: 0; }
+.customerFlowStage,
+.customerFlowPage .customerFlowStageFocus {
+  padding: 0 14px;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--edge-strong);
+  border-radius: 0;
+  box-shadow: none;
+  transition: background .18s ease;
+}
+.customerFlowStage:first-child { border-top: 0; }
+.customerFlowStage:hover { background: rgba(255,255,255,.72); }
+.customerFlowStage::before { left: -29px; background: var(--paper); }
+.customerFlowIdentity { grid-template-columns: 56px 1fr; }
+.customerFlowIdentity > span { color: var(--orange); font-family: var(--font-mono); font-size: 30px; font-weight: 350; letter-spacing: -.02em; }
+.customerFlowIdentity small { color: var(--text-3); font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: .15em; }
+.customerFlowIdentity h3 { font-size: clamp(22px, 1.75vw, 27px); font-weight: 760; letter-spacing: -.04em; }
+.customerFlowRole small, .customerFlowTrend small, .customerFlowExamples small {
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+.customerFlowRole h4 { color: var(--text-2); font-weight: 520; }
+.customerFlowTrend h4 { padding-left: 11px; border-left: 3px solid var(--orange); font-weight: 750; }
+.customerFlowExamples b {
+  width: fit-content;
+  margin-top: 10px;
+  padding: 7px 12px;
+  display: inline-block;
+  border: 1px solid var(--edge-strong);
+  border-radius: 999px;
+  background: var(--paper-2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+@media (max-width: 700px) {
+  .customerFlowStage, .customerFlowPage .customerFlowStageFocus { border: 0; border-top: 1px solid var(--edge-strong); border-radius: 0; }
+  .customerFlowExamples b { white-space: normal; }
+}
+.customerFlowStage, .customerFlowPage .customerFlowStageFocus { grid-template-columns: 236px minmax(190px, 1fr) minmax(205px, 1fr) 175px; }
+.customerFlowIdentity h3 { font-size: clamp(20px, 1.55vw, 24px); white-space: nowrap; }
+@media (max-width: 1150px) {
+  .customerFlowStage, .customerFlowPage .customerFlowStageFocus { grid-template-columns: 190px minmax(165px, 1fr) minmax(185px, 1fr) 150px; }
+  .customerFlowIdentity h3 { white-space: normal; }
+}
+.adtechAgentPanel { justify-content: space-evenly; gap: 22px; }
+.adtechAgentPanel > header > h4 { font-size: clamp(24px, 1.9vw, 32px); }
+.adtechManagerStrip { padding: 20px 22px; }
+.adtechManagerStrip ul { gap: 10px; }
+.adtechManagerStrip li { padding: 18px 16px; gap: 6px; border-radius: 10px; }
+.adtechManagerStrip li b { font-size: 18px; }
+.adtechManagerStrip li small { font-size: 10px; }
+.adtechAgentSteps { gap: 14px; }
+.adtechAgentSteps > li, .adtechAgentSteps > li:first-child { min-height: 300px; padding: 22px 20px; gap: 10px; }
+.adtechAgentSteps > li > span { font-size: 26px; }
+.adtechAgentSteps h5 { font-size: 16px; }
+.adtechAgentSteps p { font-size: 12.5px; line-height: 1.7; }
+.adtechAgentSteps > li:not(:last-child)::after { top: 44%; }
+
+/* v2.4 · Performance page: gallery stretches to fill the slide */
+.performanceSolutionBody { grid-template-rows: auto minmax(0, 1fr); align-content: stretch; }
+.performanceEvidenceGallery { align-items: stretch; }
+.performanceEvidenceCard { grid-template-rows: minmax(320px, 1fr) auto; border-radius: 12px; }
+
+/* v2.5 · Global language toggle: every top-level sibling section + footer */
+#language-mode:checked ~ section .langZh,
+#language-mode:checked ~ footer .langZh { display: none !important; }
+#language-mode:checked ~ section .langEn,
+#language-mode:checked ~ footer .langEn { display: revert !important; }
+
+/* v2.5 · EN-length fixes */
+.customerFlowIndex b { max-width: 132px; font-size: 9px; line-height: 1.5; letter-spacing: .12em; white-space: normal; }
+.customerFlowExamples small { display: block; }
+.customerFlowExamples b { margin-top: 8px; }
