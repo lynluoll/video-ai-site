@@ -563,53 +563,43 @@ export default function Home() {
                       <h4>{item.sampleSpec}</h4>
                     </div>
 
-                    <section className="sceneDemoProductionCue" aria-label={`${item.title}生产模式`}>
-                      <div className="sceneDemoSubhead"><span>PRODUCTION MODE</span><b>生产模式</b></div>
-                      <h4>{item.workflowTitle}</h4>
-                      <div className="sceneDemoScopeGrid">
-                        <div><strong>{String(item.steps.length).padStart(2, "0")}</strong><span>制作步骤</span></div>
-                        <div><strong>{item.modelRequirements.length === 1 ? "IMAGE" : "VIDEO + IMAGE"}</strong><span>能力组合</span></div>
-                        <div><strong>{String(item.models.length).padStart(2, "0")}</strong><span>竞品方向</span></div>
-                      </div>
-                    </section>
+                    <div className="sceneDemoExpanders">
+                      <details className="sceneDemoDisclosure" open>
+                        <summary><span><b>01</b>具体制作流程</span><small>{String(item.steps.length).padStart(2, "0")} STEPS</small><i aria-hidden="true"></i></summary>
+                        <section className="sceneWorkflowPanel">
+                          <h4>{item.workflowTitle}</h4>
+                          <ol className="sceneWorkflowSteps">
+                            {item.steps.map((step, index) => (
+                              <li key={step.title}>
+                                <span>{String(index + 1).padStart(2, "0")}</span>
+                                <div><h5>{step.title}</h5><p>{step.copy}</p>{step.imageRole ? <aside><b>图片模型</b><p>{step.imageRole}</p></aside> : null}</div>
+                              </li>
+                            ))}
+                          </ol>
+                        </section>
+                      </details>
+
+                      <details className="sceneDemoDisclosure" open>
+                        <summary><span><b>02</b>模型需求</span><small>{item.modelRequirements.length === 1 ? "IMAGE" : "VIDEO + IMAGE"}</small><i aria-hidden="true"></i></summary>
+                        <div className={`sceneDemoRequirementGrid sceneDemoRequirementGrid${item.modelRequirements.length}`}>
+                          {item.modelRequirements.map((group) => (
+                            <article key={group.type}>
+                              <h5>{group.type}</h5>
+                              <ul>{group.items.map((requirement) => <li key={requirement}>{requirement}</li>)}</ul>
+                            </article>
+                          ))}
+                        </div>
+                      </details>
+
+                      <details className="sceneDemoDisclosure" open>
+                        <summary><span><b>03</b>市场主流模型（竞对）</span><small>COMPETITIVE SET</small><i aria-hidden="true"></i></summary>
+                        <div className="sceneCompetitorGrid">
+                          {item.models.map((model) => <article key={model.type}><span>{model.type}</span><strong>{model.copy}</strong></article>)}
+                        </div>
+                      </details>
+                    </div>
                   </div>
                 </div>
-
-                <details className="sceneProductionDisclosure" open>
-                  <summary><span>制作流程、模型需求与竞品模型</span><b>{item.workflowTitle}</b><i aria-hidden="true"></i></summary>
-                  <div className="sceneProductionBody">
-                    <section className="sceneWorkflowSection">
-                      <header><span>01</span><div><small>PRODUCTION WORKFLOW</small><h4>{item.workflowTitle}</h4></div></header>
-                      <ol className={`sceneWorkflowSteps sceneWorkflowSteps${item.steps.length}`}>
-                        {item.steps.map((step, index) => (
-                          <li key={step.title}>
-                            <span>{String(index + 1).padStart(2, "0")}</span>
-                            <div><h5>{step.title}</h5><p>{step.copy}</p>{step.imageRole ? <aside><b>图片模型</b><p>{step.imageRole}</p></aside> : null}</div>
-                          </li>
-                        ))}
-                      </ol>
-                    </section>
-
-                    <section className="sceneRequirementsSection">
-                      <header><span>02</span><div><small>CAPABILITY REQUIREMENTS</small><h4>模型需求</h4></div></header>
-                      <div className={`sceneDemoRequirementGrid sceneDemoRequirementGrid${item.modelRequirements.length}`}>
-                        {item.modelRequirements.map((group) => (
-                          <article key={group.type}>
-                            <h5>{group.type}</h5>
-                            <ul>{group.items.map((requirement) => <li key={requirement}>{requirement}</li>)}</ul>
-                          </article>
-                        ))}
-                      </div>
-                    </section>
-
-                    <section className="sceneCompetitorSection">
-                      <header><span>03</span><div><small>COMPETITIVE SET</small><h4>市场主流模型（竞对）</h4></div></header>
-                      <div className="sceneCompetitorGrid">
-                        {item.models.map((model) => <article key={model.type}><span>{model.type}</span><strong>{model.copy}</strong></article>)}
-                      </div>
-                    </section>
-                  </div>
-                </details>
               </div>
             </article>
           );

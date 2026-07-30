@@ -102,8 +102,11 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /真实效果广告参考样片/);
   assert.match(html, /真实投放素材参考/);
   assert.doesNotMatch(sceneDemoHtml, /WHO MAKES IT|制作方 \/ 客户|sceneDemoWho/);
-  assert.equal((sceneDemoHtml.match(/class="sceneProductionDisclosure" open=""/g) ?? []).length, 3);
-  assert.match(sceneDemoHtml, /制作流程、模型需求与竞品模型/);
+  assert.equal((sceneDemoHtml.match(/class="sceneDemoDisclosure" open=""/g) ?? []).length, 9);
+  assert.doesNotMatch(sceneDemoHtml, /sceneProductionDisclosure|sceneProductionBody/);
+  assert.equal((sceneDemoHtml.match(/class="sceneDemoStage"/g) ?? []).length, 3);
+  assert.match(sceneDemoHtml, /sceneDemoStage.*sceneDemoVisual.*sceneDemoBrief.*sceneDemoExpanders/s);
+  assert.match(sceneDemoHtml, /具体制作流程/);
   assert.match(sceneDemoHtml, /AI 模型 Workflow 逐渐代替实拍和渲染/);
   assert.match(sceneDemoHtml, /Ad Campaign Agent 引入广告素材自动化制作/);
   assert.match(sceneDemoHtml, /Ad Campaign Agent 引入图片素材自动化编辑/);
@@ -284,8 +287,9 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /代理商.*WPP · Havas · Publicis · Dentsu · Omnicom/s);
   assert.match(page, /WPP · Havas · Publicis/);
   assert.doesNotMatch(sceneDemoSource, /制作方 \/ 客户|sceneDemoWho/);
-  assert.match(sceneDemoSource, /className="sceneProductionDisclosure" open/);
-  assert.match(sceneDemoSource, /制作流程、模型需求与竞品模型/);
+  assert.equal((sceneDemoSource.match(/className="sceneDemoDisclosure" open/g) ?? []).length, 3);
+  assert.doesNotMatch(sceneDemoSource, /sceneProductionDisclosure|sceneProductionBody/);
+  assert.match(sceneDemoSource, /sceneDemoStage.*sceneDemoVisual.*sceneDemoBrief.*sceneDemoExpanders/s);
   assert.match(page, /曝光量 · 品牌知名度.*长期品牌心智/s);
   assert.match(page, /tCPA \/ tROAS.*CTR \/ CVR · CPI/s);
   assert.match(page, /CPM \/ CPC.*低成本覆盖 \+ 直接转化/s);
