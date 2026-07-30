@@ -24,7 +24,7 @@ const scenarioCases = [
     customers: [
       { role: "头部 5 家", names: "WPP · Havas · Publicis · Dentsu · Omnicom" },
       { role: "次头部", names: "Brandtech（Pencil）· 博报堂" },
-      { role: "委托方", names: "L’Oréal · Coca-Cola 等头部品牌" },
+      { role: "广告主（品牌方）", names: "欧莱雅（L’Oréal）· 可口可乐（Coca-Cola）等" },
     ],
     workflowTitle: "AI 模型 Workflow 逐渐代替实拍和渲染",
     steps: [
@@ -62,9 +62,9 @@ const scenarioCases = [
     ],
     objectives: ["tCPA：目标转化成本", "tROAS：目标广告支出回报率", "商品类 CTR / CVR：跳转购物转化", "App / 游戏 CPI：下载安装量"],
     customers: [
-      { role: "AdTech", names: "AppLovin · 钛动" },
-      { role: "品牌方", names: "欧莱雅 · 可口可乐等" },
-      { role: "Paid Media", names: "Pinterest · Reddit · LinkedIn Ads" },
+      { role: "AdTech 公司", names: "AppLovin · 钛动" },
+      { role: "广告主（品牌方）", names: "欧莱雅（L’Oréal）· 可口可乐（Coca-Cola）等" },
+      { role: "Paid Media", names: "Pinterest · Reddit · LinkedIn Ads 等" },
     ],
     workflowTitle: "Ad Campaign Agent 引入广告素材自动化制作",
     steps: [
@@ -105,9 +105,9 @@ const scenarioCases = [
     ],
     objectives: ["CPM / CPC：兼顾覆盖成本与直接转化", "覆盖侧：低成本、高频次触达与 Retargeting 兜底", "转化侧 CTR / CVR：商品图、促销图引导落地页跳转与加购"],
     customers: [
-      { role: "创意自动化", names: "AppLovin · Smartly.io · Creatopy" },
-      { role: "零售 / Paid Media", names: "Criteo · Pinterest" },
-      { role: "代理商", names: "头部 4A，承接 Banner 套版与多尺寸适配" },
+      { role: "AdTech / 创意自动化平台", names: "AppLovin · Smartly.io · Creatopy" },
+      { role: "零售媒体和 Paid Media", names: "Amazon Ads · Walmart Connect · Criteo · Pinterest" },
+      { role: "代理商", names: "WPP · Havas · Publicis · Dentsu · Omnicom 等头部 4A" },
     ],
     workflowTitle: "Ad Campaign Agent 引入图片素材自动化编辑",
     steps: [
@@ -553,51 +553,67 @@ export default function Home() {
       <section className="sceneLandscapePage" id="scenarios" aria-labelledby="scene-landscape-title">
         <div className="sceneLandscapeShell">
           <header className="sceneLandscapeHeader">
-            <div className="sceneLandscapeIndex"><span>03</span><b>SCENE LANDSCAPE</b></div>
-            <div><p>市场规模 × 素材格式 × 制作方</p><h2 id="scene-landscape-title">2. 主流广告场景<br /><span>和需求分析</span></h2></div>
-            <p>同一笔广告预算，进入三套完全不同的素材生产系统。先看规模如何分流，再用真实样片拆解生产需求与典型制作方。</p>
+            <div className="sceneLandscapeIndex"><span>02</span><b>SCENE LANDSCAPE</b></div>
+            <div><h2 id="scene-landscape-title">2. 主流广告场景<br /><span>和需求分析</span></h2></div>
           </header>
-
-          <div className="sceneScaleRail" aria-label="2026 广告素材模型 API 规模拆分">
-            <div className="sceneScaleSource videoSource"><span>VIDEO MODEL API · 2026</span><strong>$1.0B</strong><small>按 40% / 60% 拆入两类视频场景</small></div>
-            <div className="sceneSplitConnector" aria-hidden="true"><i/><b>40%</b><b>60%</b></div>
-            <div className="sceneScaleSource imageSource"><span>IMAGE MODEL API · 2026</span><strong>$0.3–0.4B</strong><small>Display Ads 独立生产线</small></div>
-          </div>
 
           <div className="sceneLandscapeCards">
             <article className="sceneLandscapeCard brandSceneCard">
-              <header><span>01 · BRAND VIDEO</span><strong>$0.4B</strong><small>视频 API 规模 · 40%</small></header>
-              <div className="sceneFormat"><span>典型素材</span><b>15 / 30S</b><p>导演级创意 · 多镜头一致性 · 品牌审片</p></div>
-              <dl>
-                <div><dt>主要投放</dt><dd>CTV / 流媒体大屏 · YouTube 长视频广告</dd></div>
-                <div><dt>目的</dt><dd>曝光量 · 品牌知名度 · 品牌心智</dd></div>
-                <div><dt>制作方 / 客户</dt><dd>头部代理商 · 品牌主</dd></div>
-                <div><dt>主流模型</dt><dd>Veo 3.1 · Runway · nano banana 2</dd></div>
-              </dl>
+              <header><span>01</span><div><small>BRAND VIDEO</small><h3>品牌广告</h3></div><em>品牌心智</em></header>
+              <div className="sceneFormat"><span>TYPICAL OUTPUT</span><b>15 / 30S</b><p>导演级创意 · 多镜头一致性 · 品牌审片</p></div>
+              <div className="sceneCardContent">
+                <div className="sceneFacts">
+                  <section><span>主要投放</span><p>CTV / 流媒体大屏<br />YouTube 长视频广告</p></section>
+                  <section><span>核心目的</span><p>曝光量 · 品牌知名度<br />长期品牌心智</p></section>
+                </div>
+                <section className="sceneCustomerPanel">
+                  <div className="sceneCustomerTitle"><span>典型客户画像</span><b>WHO BUYS</b></div>
+                  <div className="sceneCustomerGroups sceneCustomerGroupsTwo">
+                    <div><span>头部 5 家代理商</span><p>WPP · Havas · Publicis · Dentsu · Omnicom</p></div>
+                    <div><span>次头部代理商</span><p>Brandtech（Pencil）· 博报堂</p></div>
+                  </div>
+                </section>
+              </div>
               <a href="#scene-brand-demo">查看品牌场景样片 <span>↘</span></a>
             </article>
 
             <article className="sceneLandscapeCard performanceSceneCard">
-              <header><span>02 · PERFORMANCE VIDEO</span><strong>$0.6B</strong><small>视频 API 规模 · 60%</small></header>
-              <div className="sceneFormat"><span>典型素材</span><b>10–15S</b><p>竖屏 UGC · 10–100 条变体 · 持续投放实验</p></div>
-              <dl>
-                <div><dt>主要投放</dt><dd>TikTok / Reels / Shorts · 应用内广告网络</dd></div>
-                <div><dt>目的</dt><dd>tCPA / tROAS · CTR / CVR · CPI</dd></div>
-                <div><dt>制作方 / 客户</dt><dd>AdTech / MarTech · Paid Media · 品牌增长团队</dd></div>
-                <div><dt>主流模型</dt><dd>Kling 3.0 · Veo 3.1 · nano banana 2</dd></div>
-              </dl>
+              <header><span>02</span><div><small>PERFORMANCE VIDEO</small><h3>效果广告</h3></div><em>转化效率</em></header>
+              <div className="sceneFormat"><span>TYPICAL OUTPUT</span><b>10–15S</b><p>竖屏 UGC · 10–100 条变体 · 持续投放实验</p></div>
+              <div className="sceneCardContent">
+                <div className="sceneFacts">
+                  <section><span>主要投放</span><p>TikTok / Reels / Shorts<br />应用内广告网络</p></section>
+                  <section><span>核心目的</span><p>tCPA / tROAS<br />CTR / CVR · CPI</p></section>
+                </div>
+                <section className="sceneCustomerPanel">
+                  <div className="sceneCustomerTitle"><span>典型客户画像</span><b>WHO BUYS</b></div>
+                  <div className="sceneCustomerGroups">
+                    <div><span>AdTech 公司</span><p>AppLovin · 钛动</p></div>
+                    <div><span>广告主（品牌方）</span><p>欧莱雅 · 可口可乐等</p></div>
+                    <div><span>Paid Media</span><p>Pinterest · Reddit · LinkedIn Ads 等</p></div>
+                  </div>
+                </section>
+              </div>
               <a href="#scene-performance-demo">查看效果场景样片 <span>↘</span></a>
             </article>
 
             <article className="sceneLandscapeCard displaySceneCard">
-              <header><span>03 · DISPLAY ADS</span><strong>$0.3–0.4B</strong><small>图片模型 API 规模</small></header>
-              <div className="sceneFormat"><span>典型素材</span><b>100–1K</b><p>静态图 / Banner · 多尺寸 · 多语言批量变体</p></div>
-              <dl>
-                <div><dt>主要投放</dt><dd>社交信息流静态图 · 程序化展示广告</dd></div>
-                <div><dt>目的</dt><dd>CPM / CPC · 低成本覆盖 + 直接转化</dd></div>
-                <div><dt>制作方 / 客户</dt><dd>创意自动化平台 · Paid Media · 代理商</dd></div>
-                <div><dt>主流模型</dt><dd>nano banana 2 · 少量 Kling / Runway 动效</dd></div>
-              </dl>
+              <header><span>03</span><div><small>DISPLAY ADS</small><h3>静态展示图片广告</h3></div><em>覆盖 + 转化</em></header>
+              <div className="sceneFormat"><span>TYPICAL OUTPUT</span><b>100–1K</b><p>静态图 / Banner · 多尺寸 · 多语言批量变体</p></div>
+              <div className="sceneCardContent">
+                <div className="sceneFacts">
+                  <section><span>主要投放</span><p>社交信息流静态图<br />程序化展示广告</p></section>
+                  <section><span>核心目的</span><p>CPM / CPC<br />低成本覆盖 + 直接转化</p></section>
+                </div>
+                <section className="sceneCustomerPanel">
+                  <div className="sceneCustomerTitle"><span>典型客户画像</span><b>WHO BUYS</b></div>
+                  <div className="sceneCustomerGroups">
+                    <div><span>AdTech / 创意自动化平台</span><p>AppLovin · Smartly.io · Creatopy</p></div>
+                    <div><span>零售媒体和 Paid Media</span><p>Amazon Ads · Walmart Connect · Criteo · Pinterest</p></div>
+                    <div><span>代理商</span><p>WPP · Havas · Publicis · Dentsu · Omnicom</p></div>
+                  </div>
+                </section>
+              </div>
               <a href="#scene-display-demo">查看 Display 场景样片 <span>↘</span></a>
             </article>
           </div>
@@ -613,7 +629,7 @@ export default function Home() {
                 <header className="sceneDemoHeader">
                   <div><span>{item.index}</span><b>{item.label}</b></div>
                   <h3>{item.title}</h3>
-                  <p>样片 → 生产需求 → 制作方 / 客户</p>
+                  <p>样片 → 制作流程 → 模型需求 → 竞品模型</p>
                 </header>
 
                 <div className="sceneDemoStage">
@@ -637,22 +653,38 @@ export default function Home() {
                       <h4>{item.sampleSpec}</h4>
                     </div>
 
-                    <section className="sceneDemoWho" aria-label={`${item.title}制作方和客户`}>
-                      <div className="sceneDemoSubhead"><span>WHO MAKES IT</span><b>制作方 / 客户</b></div>
-                      <div className="sceneDemoWhoGrid">
-                        {item.customers.map((customer) => <div key={customer.role}><span>{customer.role}</span><b>{customer.names}</b></div>)}
-                      </div>
-                    </section>
-
                     <div className="sceneDemoExpanders">
-                      <details>
-                        <summary><span>展开具体制作流程</span><b>{String(item.steps.length).padStart(2, "0")} STEPS</b><i>＋</i></summary>
-                        <ol>{item.steps.map((step, index) => <li key={step.title}><span>{String(index + 1).padStart(2, "0")}</span><div><b>{step.title}</b><p>{step.copy}</p></div></li>)}</ol>
+                      <details className="sceneDemoDisclosure" open>
+                        <summary><span><b>01</b>具体制作流程</span><small>{String(item.steps.length).padStart(2, "0")} STEPS</small><i aria-hidden="true"></i></summary>
+                        <section className="sceneWorkflowPanel">
+                          <h4>{item.workflowTitle}</h4>
+                          <ol className="sceneWorkflowSteps">
+                            {item.steps.map((step, index) => (
+                              <li key={step.title}>
+                                <span>{String(index + 1).padStart(2, "0")}</span>
+                                <div><h5>{step.title}</h5><p>{step.copy}</p>{step.imageRole ? <aside><b>图片模型</b><p>{step.imageRole}</p></aside> : null}</div>
+                              </li>
+                            ))}
+                          </ol>
+                        </section>
                       </details>
-                      <details>
-                        <summary><span>展开模型需求</span><b>{item.modelRequirements.length === 1 ? "IMAGE" : "VIDEO + IMAGE"}</b><i>＋</i></summary>
-                        <div className="sceneDemoRequirementGrid">
-                          {item.modelRequirements.map((group) => <section key={group.type}><h5>{group.type}</h5><ul>{group.items.map((requirement) => <li key={requirement}>{requirement}</li>)}</ul></section>)}
+
+                      <details className="sceneDemoDisclosure" open>
+                        <summary><span><b>02</b>模型需求</span><small>{item.modelRequirements.length === 1 ? "IMAGE" : "VIDEO + IMAGE"}</small><i aria-hidden="true"></i></summary>
+                        <div className={`sceneDemoRequirementGrid sceneDemoRequirementGrid${item.modelRequirements.length}`}>
+                          {item.modelRequirements.map((group) => (
+                            <article key={group.type}>
+                              <h5>{group.type}</h5>
+                              <ul>{group.items.map((requirement) => <li key={requirement}>{requirement}</li>)}</ul>
+                            </article>
+                          ))}
+                        </div>
+                      </details>
+
+                      <details className="sceneDemoDisclosure" open>
+                        <summary><span><b>03</b>市场主流模型（竞对）</span><small>COMPETITIVE SET</small><i aria-hidden="true"></i></summary>
+                        <div className="sceneCompetitorGrid">
+                          {item.models.map((model) => <article key={model.type}><span>{model.type}</span><strong>{model.copy}</strong></article>)}
                         </div>
                       </details>
                     </div>
