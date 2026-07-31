@@ -5885,3 +5885,6 @@ button, summary { font: inherit; }
 .playableMatrix video { cursor: zoom-in; transition: transform .16s ease, box-shadow .16s ease; }
 .playableMatrix video:hover { transform: scale(1.04); box-shadow: 0 10px 26px rgba(20,23,30,.28); }
 .playableClipLightbox video { width: min(420px, 80vw); max-height: calc(90vh - 40px); display: block; object-fit: contain; background: #0a0d14; }
+
+/* v2.6 · 2030 combined video+image AI metric spans the year card */
+.marketFlowMetricCombined { grid-column: 1 / -1; }

@@ -64,8 +64,10 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /\$25–30B/);
   assert.match(html, /\$1B/);
   assert.match(html, /\$2B/);
-  assert.match(html, /\$6\.4B/);
-  assert.match(html, /\$12\.8B/);
+  // 2026-07-31 数据口径：2030 年视频+图片 AI 整体（Agent+API）$29.4B，替换 12.8/6.4 分项
+  assert.match(html, /\$29\.4B/);
+  assert.match(html, /9\.8×/);
+  assert.doesNotMatch(html, /\$12\.8B|\$6\.4B/);
   assert.doesNotMatch(html, /MARKET FUNNEL/);
   assert.doesNotMatch(html, /从广告预算，切到模型 API/);
   assert.doesNotMatch(html, /网页原生表达|网页原生重绘|网页以文字门槛呈现|不嵌入原图|platformNote|SOURCE ·|REFERENCE PAGE|localhost:4173|rev\./);
@@ -411,7 +413,7 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /O3I3dWdKKof2DtxNkrolaGtIgzc/);
   assert.match(page, /视频广告制作总成本/);
   assert.match(page, /\$25–30B/);
-  assert.match(page, /\$12\.8B/);
+  assert.match(page, /\$29\.4B/);
   assert.match(page, /10–100/);
   assert.match(page, /Meta Reels/);
   assert.equal((page.match(/className="flowBaseline flow/g) ?? []).length, 4);
