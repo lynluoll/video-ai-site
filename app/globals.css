@@ -4463,7 +4463,7 @@ button, summary { font: inherit; }
   min-height: 0;
   position: relative;
   display: grid;
-  grid-template-columns: 300px 1fr 1fr 285px;
+  grid-template-columns: 300px 1fr 1fr;
   gap: 8px;
   padding: 8px;
   background: rgba(224,220,210,.72);
@@ -4479,7 +4479,7 @@ button, summary { font: inherit; }
   right: 20px;
   height: 3px;
   border-radius: 0 0 4px 4px;
-  background: linear-gradient(90deg, var(--orange) 0 66%, var(--lime) 66% 100%);
+  background: linear-gradient(90deg, var(--orange) 0 72%, rgba(255,90,31,.25));
 }
 .marketFlowAiBand > div {
   min-width: 0;
@@ -4580,7 +4580,7 @@ button, summary { font: inherit; }
   .marketFlowTitle h1 { font-size: clamp(30px, 3.7vw, 43px); }
   .marketFlowScope { grid-template-columns: 1fr 24px 1.2fr; }
   .marketFlowScope > div { padding-left: 15px; }
-  .marketFlowAiBand { grid-template-columns: 230px 1fr 1fr 220px; gap: 7px; padding: 7px; }
+  .marketFlowAiBand { grid-template-columns: 230px 1fr 1fr; gap: 7px; padding: 7px; }
   .marketFlowAiBand > div { padding: 10px 11px; }
   .marketFlowAiIntro h2 { font-size: 19px; }
   .marketFlowCapture strong { gap: 5px; }

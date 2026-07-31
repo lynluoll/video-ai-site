@@ -46,7 +46,8 @@ test("server-renders the complete advertising strategy", async () => {
   assert.match(html, /AI 降低视频生产成本/);
   assert.match(html, /供给规模化/);
   assert.match(html, /预算迁移/);
-  assert.match(html, /VALUE CAPTURE/);
+  // 2026-07-31: VALUE CAPTURE >20% 卡有歧义，移除
+  assert.doesNotMatch(html, /VALUE CAPTURE|AI 已切走|AI captures/);
   assert.match(html, /MODEL API/);
   assert.match(html, /中.{1,8}EN/);
   assert.doesNotMatch(html, /2026 BUSINESS TARGET|视频模型目标 DRR|2026 目标与|MONTHLY DR RAMP|REGIONAL MIX|头部客户保底合同|JUL · BASE|DEC · STABLE/);
@@ -334,7 +335,6 @@ test("covers every Bojie requirement in the page source", async () => {
   assert.match(page, /AI 降低视频生产成本/);
   assert.match(page, /供给规模化/);
   assert.match(page, /海外数字广告市场规模与增速/);
-  assert.match(page, /VALUE CAPTURE/);
   assert.match(page, /\$2B/);
   assert.match(page, /62 → 115B/);
   assert.match(page, /\+100%/);
