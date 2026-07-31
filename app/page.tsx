@@ -1,5 +1,6 @@
 import InlineTextEditor from "./InlineTextEditor";
 import ArchitectureImageLightbox from "./ArchitectureImageLightbox";
+import PlayableClipLightbox from "./PlayableClipLightbox";
 
 const B = ({ zh, en }: { zh: React.ReactNode; en: React.ReactNode }) => (
   <>
@@ -946,10 +947,9 @@ export default function Home() {
                       <span>02</span>
                       <div><h5><B zh="广告脚本" en="Ad scripts" /></h5><p><B zh="自动生成 Hook、分镜与 CTA 的可执行脚本。" en="Auto-generate executable scripts: hooks, boards and CTAs." /></p></div>
                     </li>
-                    <li className="adtechAgentCore">
+                    <li>
                       <span>03</span>
                       <div><h5><B zh="素材自动化生产" en="Automated creative production" /></h5><p><B zh="调用 Seedream + Seedance 批量生成可投素材，素材自动化嵌入主链路，成为每次投放的必要能力。" en="Seedream + Seedance batch-produce ready-to-run assets — creative automation embedded in the main loop, required on every launch." /></p></div>
-                      <b><B zh="BYTEPLUS 切入点" en="BYTEPLUS ENTRY" /></b>
                     </li>
                     <li>
                       <span>04</span>
@@ -1228,8 +1228,9 @@ export default function Home() {
                   <div className="playableFactoryOutput">
                     <span>OUTPUT</span>
                     <div className="playableMatrix" aria-label="九种 Playable 广告视觉变体">
-                      {playableOutputClips.map((src, index) => <video key={src} src={src} autoPlay loop muted playsInline preload={index < 3 ? "metadata" : "none"} aria-label={`Playable 广告视觉变体 ${index + 1}`} />)}
+                      {playableOutputClips.map((src, index) => <video key={src} src={src} autoPlay loop muted playsInline preload={index < 3 ? "metadata" : "none"} aria-label={`Playable 广告视觉变体 ${index + 1}，点击放大`} />)}
                     </div>
+                    <PlayableClipLightbox />
                     <p><b className="langZh">可投放广告包</b><b className="langEn">Deployable ad package</b><small>Hook × Visual × CTA Matrix</small></p>
                   </div>
                 </div>

@@ -5880,3 +5880,8 @@ button, summary { font: inherit; }
 .customerFlowIndex b { max-width: 132px; font-size: 9px; line-height: 1.5; letter-spacing: .12em; white-space: normal; }
 .customerFlowExamples small { display: block; }
 .customerFlowExamples b { margin-top: 8px; }
+
+/* v2.5 · Playable matrix click-to-zoom */
+.playableMatrix video { cursor: zoom-in; transition: transform .16s ease, box-shadow .16s ease; }
+.playableMatrix video:hover { transform: scale(1.04); box-shadow: 0 10px 26px rgba(20,23,30,.28); }
+.playableClipLightbox video { width: min(420px, 80vw); max-height: calc(90vh - 40px); display: block; object-fit: contain; background: #0a0d14; }
