@@ -5,7 +5,7 @@
   --txt:#14161E; --dim:rgba(20,22,32,.66); --dim-2:rgba(20,22,32,.46);
   --cy:#0A67AF; --bl:#2F5BFF; --pu:#7B2FE0;
   --grad:linear-gradient(96deg,#2BE3FF 0%,#4C6FFF 46%,#B15CFF 100%);
-  --ok:#1C9A63; --no:#D6394A; --warn:#B4790A;
+  --ok:#168052; --no:#D6394A; --warn:#8A5A07;
   --wrap:1240px; --r:16px;
   --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
 }
@@ -310,6 +310,16 @@ a{color:inherit;text-decoration:none}
 /* ═════════════════════ strategy sections ═════════════════════ */
 .h3{font-size:clamp(21px,2.3vw,30px);line-height:1.2;letter-spacing:-.025em;font-weight:600;margin:0}
 .sub-head{margin-top:74px;margin-bottom:34px}
+
+/* ── 01 market: three-trend index ── */
+.trend3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 52px}
+.t3{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:26px 24px}
+.t3-n{font-size:11px;letter-spacing:.13em;color:var(--cy)}
+.t3 b{display:block;font-size:16px;line-height:1.32;font-weight:600;letter-spacing:-.015em;margin:12px 0 10px}
+.t3 p{font-size:12.5px;line-height:1.6;color:var(--dim);margin:0}
+.t3-tbd{display:inline-block;margin-top:14px;font-size:10.5px;letter-spacing:.04em;color:var(--warn);
+  border:1px solid rgba(180,121,10,.30);background:rgba(180,121,10,.07);padding:4px 9px;border-radius:6px}
+@media(max-width:860px){.trend3{grid-template-columns:1fr}}
 
 /* ── 01 market ── */
 .mk-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:22px;align-items:stretch}
