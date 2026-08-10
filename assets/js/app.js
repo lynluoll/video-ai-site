@@ -116,6 +116,7 @@
 
   function renderTabs() {
     var box = document.getElementById('tabs');
+    if (!box) return;
     box.innerHTML = '';
     CATS.forEach(function (c) {
       var b = document.createElement('button');
@@ -151,6 +152,7 @@
 
   function renderRatios() {
     var box = document.getElementById('ratioChips');
+    if (!box) return;
     box.innerHTML = '';
     RATIOS.forEach(function (r) {
       var b = document.createElement('button');
@@ -225,13 +227,14 @@
   }
 
   function render() {
+    if (!grid) return;
     visible = DEMOS.filter(matches);
     grid.innerHTML = '';
     visible.forEach(function (d, i) { grid.appendChild(card(d, i)); });
-    document.getElementById('empty').hidden = visible.length > 0;
-    document.getElementById('resultCount').textContent = t('cnt').replace('{n}', visible.length);
+    var emptyEl = document.getElementById('empty'); if (emptyEl) emptyEl.hidden = visible.length > 0;
+    var resultEl = document.getElementById('resultCount'); if (resultEl) resultEl.textContent = t('cnt').replace('{n}', visible.length);
     var c = CATS.filter(function (x) { return x.id === state.cat; })[0];
-    document.getElementById('tabNote').textContent = c ? (lang === 'zh' ? c.noteZh : c.noteEn) : '';
+    var noteEl = document.getElementById('tabNote'); if (noteEl) noteEl.textContent = c ? (lang === 'zh' ? c.noteZh : c.noteEn) : '';
     observeReveal(grid.querySelectorAll('.rv'));
   }
 
@@ -270,16 +273,18 @@
         refs + prompt +
       '</div>';
   }
-  document.getElementById('lbClose').onclick = closeLb;
-  document.getElementById('lbPrev').onclick = function () { stepLb(-1); };
-  document.getElementById('lbNext').onclick = function () { stepLb(1); };
-  lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
-  document.addEventListener('keydown', function (e) {
-    if (lb.hidden) return;
-    if (e.key === 'Escape') closeLb();
-    if (e.key === 'ArrowLeft') stepLb(-1);
-    if (e.key === 'ArrowRight') stepLb(1);
-  });
+  if (lb && lbIn) {
+    document.getElementById('lbClose').onclick = closeLb;
+    document.getElementById('lbPrev').onclick = function () { stepLb(-1); };
+    document.getElementById('lbNext').onclick = function () { stepLb(1); };
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', function (e) {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') stepLb(-1);
+      if (e.key === 'ArrowRight') stepLb(1);
+    });
+  }
 
   /* ─────────────── generation compare strip ─────────────── */
   function renderCompare() {
@@ -346,7 +351,8 @@
   }
   var revealTimer = null;
 
-  document.getElementById('search').addEventListener('input', function (e) {
+  var searchEl = document.getElementById('search');
+  if (searchEl) searchEl.addEventListener('input', function (e) {
     state.q = e.target.value.trim().toLowerCase(); render();
   });
 
