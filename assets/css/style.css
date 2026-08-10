@@ -534,6 +534,34 @@ a{color:inherit;text-decoration:none}
 .mini{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
 .mini li{font-size:12.5px;line-height:1.58;color:var(--dim-2);padding-left:14px;border-left:1px solid var(--line)}
 .mini b{display:block;color:var(--txt);font-size:12.5px;margin-bottom:4px;font-weight:600}
+/* ── key players: budget chain rows ── */
+.pchain{display:grid;grid-template-columns:44px 1fr;gap:24px;align-items:stretch;margin-top:8px}
+.pchain-rail{display:flex;flex-direction:column;align-items:center}
+.pchain-dot{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:99px;
+  background:var(--bl);color:#fff;font-weight:700;font-size:14px;flex:0 0 auto}
+.pchain-line{flex:1;width:2px;background:var(--line-2);margin:6px 0}
+.pchain-arrow{color:var(--dim-2);font-size:15px}
+.pchain-rows{display:flex;flex-direction:column}
+.pchain-row{display:grid;grid-template-columns:190px 1fr 1fr auto;gap:22px;align-items:center;
+  padding:24px 0;border-bottom:1px solid var(--line)}
+.pchain-rows .pchain-row:last-child{border-bottom:none}
+.pchain-lab{display:flex;align-items:baseline;gap:14px}
+.pchain-n{font-size:24px;font-weight:600;color:var(--cy);letter-spacing:-.02em}
+.pchain-lab span{font-size:15.5px;font-weight:600;letter-spacing:-.01em}
+.pchain-h{display:block;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--dim-2);margin-bottom:6px}
+.pchain-col p{font-size:13px;line-height:1.5;color:var(--dim);margin:0}
+.pchain-trend{position:relative;padding-left:12px}
+.pchain-trend::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:2px;background:var(--bl)}
+.pchain-tags{text-align:right}
+.pchain-tag{display:inline-block;font-size:12px;padding:6px 13px;border-radius:99px;border:1px solid var(--line-2);
+  color:var(--dim);white-space:nowrap}
+@media(max-width:1180px){
+  .pchain-row{grid-template-columns:1fr;gap:10px;text-align:left;padding:20px 0}
+  .pchain-tags{text-align:left}
+  .pchain{grid-template-columns:1fr}
+  .pchain-rail{display:none}
+}
+
 .flow4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .f4{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:24px 22px;position:relative}
 .f4.hot{border-color:rgba(43,227,255,.34);background:linear-gradient(160deg,rgba(43,227,255,.08),transparent)}
