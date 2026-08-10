@@ -1,6 +1,7 @@
 import InlineTextEditor from "./InlineTextEditor";
 import ArchitectureImageLightbox from "./ArchitectureImageLightbox";
 import PlayableClipLightbox from "./PlayableClipLightbox";
+import MarketTrackAutoReveal from "./MarketTrackAutoReveal";
 
 const B = ({ zh, en }: { zh: React.ReactNode; en: React.ReactNode }) => (
   <>
@@ -106,8 +107,6 @@ const scenarioCases = [
     label: "BRAND FILM",
     title: "品牌广告",
     titleEn: "Brand ads",
-    ratio: "15 / 30S",
-    ratioEn: "15 / 30S",
     desc: "以 CTV、流媒体大屏和 YouTube Hero Video 为主。创意与品牌心智优先，制作主体通常是头部代理商，最终成片必须进入专业审片与交付链路。",
     descEn: "Centered on CTV, streaming big screens and YouTube hero videos. Creativity and brand equity come first, production is led by top agencies, and every film passes professional review and delivery.",
     media: {
@@ -115,8 +114,6 @@ const scenarioCases = [
       src: "/media/brand-reference.mp4",
       poster: "/media/brand-poster.jpg",
       aria: "Seedance 2.5 生成的 30 秒香水品牌 TVC 样片",
-      meta: "Seedance 2.5 全 AI 生成 · 光影定义真实感：人物肤质 / 玻璃金属材质 / 环境光与色温",
-      metaEn: "Fully AI-generated with Seedance 2.5 · lighting defines realism: skin / glass & metal / ambient light",
     },
     sampleSpec: "15 / 30 秒标准格式，非常强调品牌规范和导演级创意，每一帧的画质和一致性都有要求。",
     sampleSpecEn: "Standard 15 / 30s formats, held to strict brand codes and director-grade craft — every frame is judged on quality and consistency.",
@@ -144,24 +141,20 @@ const scenarioCases = [
       { type: "视频模型", typeEn: "Video model", items: ["高一致性：30 秒多镜头中人物 / 产品不漂，音画同步，能通过大屏质检和品牌审核。", "3D 白模参考：结合物品、环境、打光等现有 3D 资产解决空间物理规律，支持视频模型精准渲染。", "4K 高码率和高比特色深：满足 DV360 常见的 H.264、24 / 30 fps、至少 20 Mbps、10–16 bit 色深等要求。"], itemsEn: ["High consistency: characters and products hold across a 30s multi-shot cut, A/V in sync, passing big-screen QC and brand review.", "3D white-model reference: grounds spatial physics with existing objects, sets and lighting for precise rendering.", "4K, high bitrate and bit depth: meets DV360-grade H.264, 24 / 30 fps, 20 Mbps+, 10–16 bit delivery."] },
       { type: "图片模型", typeEn: "Image model", items: ["导演级审美和可控构图：支持景别、焦段、打光等镜头语言的参数化控制，出图可直接进入提案和审片。", "品牌资产一致性：商品、包装、Logo、品牌色接近 Pantone 级还原，并支持品牌素材定制化微调。", "4K 高分辨率和专业色彩：支持广色域和高比特色深，可进入专业后期二次调色。", "可分层和局部重绘：主体 / 背景 / 文字分层输出，修改时不必整张重抽。", "版权和合规：训练数据可溯源、支持商用授权与 C2PA 水印，可通过品牌方法务审核。"], itemsEn: ["Director-grade aesthetics with controllable composition: parametric framing, focal length and lighting — straight into decks and review.", "Brand-asset consistency: product, packaging, logo and brand color near Pantone-level, with brand fine-tuning.", "4K and professional color: wide gamut, high bit depth, ready for pro grading.", "Layers and local repaint: subject / background / text separated so edits never re-roll the frame.", "Copyright and compliance: traceable data, commercial licensing and C2PA watermarking that passes brand legal."] },
     ],
-    models: [{ type: "视频", typeEn: "Video", copy: "Veo 3.1 · Runway" }, { type: "图片", typeEn: "Image", copy: "nano banana 2" }],
+    models: [{ type: "视频", typeEn: "Video", copy: "Seedance · Veo 3.1 · Runway" }, { type: "图片", typeEn: "Image", copy: "Seedream · nano banana 2" }],
   },
   {
     index: "02",
     label: "PERFORMANCE",
     title: "效果广告",
     titleEn: "Performance ads",
-    ratio: "10–100 变体",
-    ratioEn: "10–100 variants",
     desc: "以 tCPA、tROAS、CTR、CVR 和 CPI 定义价值。客户需要的不是单条 Demo，而是一套能持续产出 Hook、跑实验、看归因并复刻胜出结构的系统。",
     descEn: "Value is defined by tCPA, tROAS, CTR, CVR and CPI. Clients need a system that keeps shipping hooks, running tests, reading attribution and cloning winners — not a single demo.",
     media: {
       type: "video" as const,
-      src: "/media/performance-generated.mp4",
-      poster: "/media/performance-poster.jpg",
-      aria: "AI 生成效果广告样片",
-      meta: "竖屏 UGC · 商品保真 · 爆款复刻",
-      metaEn: "Vertical UGC · product fidelity · winner cloning",
+      src: "/media/performance-2026/multi-sku.mp4",
+      poster: "/media/performance-2026/multi-sku.jpg",
+      aria: "Seedance 2.5 生成的多商品连换效果广告样片",
     },
     sampleSpec: "10–15 秒最常见，720p、竖屏，以 UGC 口播和种草视频为主。通常需要生产 10–100 条变体进行实验和效果归因。",
     sampleSpecEn: "10–15s is typical: 720p vertical UGC talking-head and seeding videos, produced as 10–100 variants for testing and attribution.",
@@ -189,15 +182,13 @@ const scenarioCases = [
       { type: "视频模型", typeEn: "Video model", items: ["高性价比：全 AI 制作达到 TikTok、Meta Reels 等投放平台的声画质量与信息量门槛。", "高抽卡成功率、成本可控：竖屏、UGC、口播和商品一致，能批量产出 10–100 条 Variant。", "本地化：支持多人种数字人和小语种。"], itemsEn: ["Cost-effective: fully AI output clears TikTok / Reels quality and information bars.", "High hit rate at controlled cost: vertical, UGC, talking-head and product-consistent across 10–100 variants.", "Localization: multi-ethnic digital humans and long-tail languages."] },
       { type: "图片模型", typeEn: "Image model", items: ["首帧图质量：为图生视频提供高质量首帧和关键帧，首帧构图与一致性直接决定视频抽卡成功率。", "商品一致性：支持单图 / 多图参考，白底图转场景图时商品外观、Logo、包装文字不变形。", "局部编辑 Inpainting：换品、换模特、换背景、换文案只重绘局部。", "本地化：多人种模特形象，图内多语言文案准确不乱码。", "极低成本和高并发：单张成本压到美分级、秒级出图，支撑 10–100 条 Variant 的首帧和封面批量生产。"], itemsEn: ["First-frame quality: strong first / key frames decide image-to-video hit rate.", "Product consistency: single / multi reference keeps product, logo and packaging true from white background to scene.", "Local inpainting: swap product, model, background or copy without full re-rolls.", "Localization: diverse model looks with accurate in-image multilingual text.", "Cent-level cost, high concurrency: seconds-fast output powering 10–100 variant batches."] },
     ],
-    models: [{ type: "视频", typeEn: "Video", copy: "Kling 3.0（商品展示 / 口播性价比）· Veo 3.1", copyEn: "Kling 3.0 (product demo / talking-head value) · Veo 3.1" }, { type: "图片", typeEn: "Image", copy: "nano banana 2" }],
+    models: [{ type: "视频", typeEn: "Video", copy: "Seedance · Kling 3.0 · Veo 3.1", copyEn: "Seedance · Kling 3.0 · Veo 3.1" }, { type: "图片", typeEn: "Image", copy: "Seedream · nano banana 2" }],
   },
   {
     index: "03",
     label: "DISPLAY",
     title: "静态展示图片广告",
     titleEn: "Static display ads",
-    ratio: "100–1K 图片",
-    ratioEn: "100–1K images",
     desc: "作为独立的第三类广告生产线，Display Ads 以 CPM / CPC 计价，商业目标介于品牌与效果之间，兼顾低成本覆盖与直接转化。真正门槛是让一套主视觉稳定扩成数百到数千张投放版本。",
     descEn: "A third production line: display prices on CPM / CPC, sitting between brand and performance — low-cost reach plus direct conversion. The real bar is scaling one master visual into hundreds or thousands of live versions.",
     media: {
@@ -210,10 +201,8 @@ const scenarioCases = [
         { src: "/media/demo-display-diwali.jpg", alt: "本地化电商三比一促销横幅广告" },
       ],
       formats: ["SOCIAL STATIC", "16:9 FEED", "3:1 BANNER"],
-      meta: "社交静态图 · 程序化 Banner · DCO 多尺寸套版",
-      metaEn: "Social statics · programmatic banners · DCO multi-size templating",
     },
-    sampleSpec: "静态 JPG / PNG；同一套主视觉需适配十几到几十种 IAB 标准尺寸。强调商品精确还原、图内文案可读和多语言版本，单个 Campaign 常需数百至数千张变体。",
+    sampleSpec: "同一套主视觉需适配十几到几十种 IAB 标准尺寸。强调商品精确还原、图内文案可读和多语言版本，单个 Campaign 常需数百至数千张变体。",
     sampleSpecEn: "Static JPG / PNG; one master visual adapts to dozens of IAB sizes. Product fidelity, readable in-image copy and multilingual versions matter — one campaign often needs hundreds to thousands of variants.",
     channels: [
       { title: "社交信息流静态图", titleEn: "Social feed statics", copy: "Meta 单图与轮播 Carousel、Pinterest、LinkedIn Ads 等。", copyEn: "Meta single-image and carousel, Pinterest, LinkedIn Ads." },
@@ -237,7 +226,7 @@ const scenarioCases = [
     modelRequirements: [
       { type: "", typeEn: "", items: ["商品一致性：支持单图 / 多图参考 Image-to-image，商品外观、Logo、包装文字不变形。", "精准文字渲染：图内多语言文案、促销角标和价格数字准确不乱码。", "高分辨率和任意宽高比：覆盖 300×250 到 1080×1920，支持 Outpainting 无损扩图。", "局部编辑 Inpainting：换背景、换模特、换色号只重绘局部。", "单张成本极低、支持高并发：美分级单张成本，支撑千级批量出图。"], itemsEn: ["Product consistency: image-to-image with single / multi reference keeps product, logo and packaging true.", "Precise text rendering: multilingual copy, badges and prices stay accurate in-image.", "High resolution, any aspect ratio: 300×250 up to 1080×1920 with lossless outpainting.", "Local inpainting: swap background, model or colorway without full repaints.", "Cent-level unit cost with high concurrency for thousand-scale batches."] },
     ],
-    models: [{ type: "图片", typeEn: "Image", copy: "nano banana 2 为主", copyEn: "mostly nano banana 2" }, { type: "视频", typeEn: "Video", copy: "少量使用 Kling / Runway 将静图转为动效", copyEn: "light Kling / Runway use for motion versions" }],
+    models: [{ type: "图片", typeEn: "Image", copy: "Seedream · nano banana 2 为主", copyEn: "Seedream · nano banana 2 primarily" }, { type: "视频", typeEn: "Video", copy: "少量使用 Seedance / Kling / Runway 将静图转为动效", copyEn: "Limited Seedance / Kling / Runway use to animate static assets" }],
   },
 ];
 
@@ -299,66 +288,66 @@ const solutionVideoDemos = {
   performance: [
     {
       order: "01",
-      label: "FASHION SHOWCASE",
-      title: "商品展示",
-      titleEn: "Product showcase",
-      meta: "服饰 · 商品展示",
-      metaEn: "Fashion · product showcase",
-      src: "/media/performance-fashion-demo.mp4",
-      poster: "/media/performance-fashion-demo.jpg",
-      frames: ["/media/performance-frames/fashion-01.jpg", "/media/performance-frames/fashion-02.jpg", "/media/performance-frames/fashion-03.jpg"],
-      proofTitle: "从全身到微距，服装结构仍然可读。",
-      proofTitleEn: "From full body to macro, garment structure stays readable.",
-      proofs: ["模特身份、发型与服装轮廓跨镜头稳定", "镂空针织纹理在近景中保留细节", "同一商品可覆盖全身、局部与回收镜头"],
-      proofsEn: ["Model identity, hair and silhouette hold across shots", "Open-knit texture keeps detail in close-ups", "One product covers full-body, detail and recap shots"],
+      label: "SHOPPABLE VIDEO",
+      title: "演示 + 商品卡即购",
+      titleEn: "Demo + Card-to-Buy",
+      meta: "服饰 · 商品卡转化",
+      metaEn: "Fashion · shoppable conversion",
+      src: "/media/performance-2026/shoppable.mp4",
+      poster: "/media/performance-2026/shoppable.jpg",
+      frames: ["/media/performance-2026/shoppable-frames/01.jpg", "/media/performance-2026/shoppable-frames/02.jpg", "/media/performance-2026/shoppable-frames/03.jpg"],
+      proofTitle: "从真人试穿演示，直接承接商品卡购买动作。",
+      proofTitleEn: "A try-on demo hands off directly to the product card.",
+      proofs: ["真人展示衬衫版型、袖口与上身效果", "人物和商品在远近景切换中保持一致", "结尾用明确手势引导点击商品卡"],
+      proofsEn: ["A real person demonstrates fit, cuff and on-body styling", "Person and product remain consistent across framing", "A clear final gesture directs users to the product card"],
       ...({ onePagerStatus: "internal" } satisfies DemoLink),
     },
     {
       order: "02",
-      label: "PERSONAL CARE UGC",
-      title: "UGC 实拍感",
-      titleEn: "UGC authenticity",
-      meta: "个护 · 口播演示",
-      metaEn: "Personal care · talking demo",
-      src: "/media/performance-ugc-demo.mp4",
-      poster: "/media/performance-ugc-demo.jpg",
-      frames: ["/media/performance-frames/ugc-01.jpg", "/media/performance-frames/ugc-02.jpg", "/media/performance-frames/ugc-03.jpg"],
-      proofTitle: "产品、人物与使用动作组成完整演示。",
-      proofTitleEn: "Product, person and usage form a complete demo.",
-      proofs: ["挤出、刷牙与结果展示形成连续使用链路", "人物、浴室环境和手持视角保持自然", "商品近景与人物口播可以在同一条素材中切换"],
-      proofsEn: ["Squeeze, brush and result form a continuous chain", "Person, bathroom and handheld POV stay natural", "Product close-ups and talking head cut within one asset"],
+      label: "VERTICAL FEED · 1S HOOK",
+      title: "1 秒钩子 + 直给卖点",
+      titleEn: "1s Hook + Direct Selling",
+      meta: "护肤 · 信息流转化",
+      metaEn: "Skincare · feed conversion",
+      src: "/media/performance-2026/hook-direct.mp4",
+      poster: "/media/performance-2026/hook-direct.jpg",
+      frames: ["/media/performance-2026/hook-direct-frames/01.jpg", "/media/performance-2026/hook-direct-frames/02.jpg", "/media/performance-2026/hook-direct-frames/03.jpg"],
+      proofTitle: "第一秒抛出痛点，随后用产品演示证明卖点。",
+      proofTitleEn: "The first second states the pain point, then product proof delivers the benefit.",
+      proofs: ["开场问题第一时间建立观看理由", "质地、涂抹和效果镜头连续证明卖点", "包装与购买引导在结尾清晰出现"],
+      proofsEn: ["The opening question creates an immediate reason to watch", "Texture, application and result shots prove the benefit", "Product pack and purchase cue land clearly at the end"],
       ...({ onePagerStatus: "internal" } satisfies DemoLink),
     },
     {
       order: "03",
-      label: "SOCIAL SEEDING",
-      title: "商品开箱与人物交互",
-      titleEn: "Unboxing and interaction",
-      meta: "家具 · 种草短视频",
-      metaEn: "Furniture · seeding video",
-      src: "/media/performance-sofa-demo.mp4",
-      poster: "/media/performance-sofa-demo.jpg",
-      frames: ["/media/performance-frames/sofa-01.jpg", "/media/performance-frames/sofa-02.jpg", "/media/performance-frames/sofa-03.jpg"],
-      proofTitle: "商品几何、材质与承重关系贯穿使用过程。",
-      proofTitleEn: "Geometry, material and weight-bearing hold through use.",
-      proofs: ["沙发轮廓、褶皱与尺度在连续镜头中稳定", "人物坐卧与商品发生清楚的空间交互", "自然光和室内布景保持同一实拍环境"],
-      proofsEn: ["Sofa outline, creases and scale stay stable across shots", "Sitting and lying interact clearly with the product", "Natural light and set stay one continuous environment"],
+      label: "IN-STREAM · FEATURE DEMO",
+      title: "功能演示导购",
+      titleEn: "Feature Demo Selling",
+      meta: "运动装备 · 插播广告",
+      metaEn: "Sports gear · in-stream video",
+      src: "/media/performance-2026/feature-demo.mp4",
+      poster: "/media/performance-2026/feature-demo.jpg",
+      frames: ["/media/performance-2026/feature-demo-frames/01.jpg", "/media/performance-2026/feature-demo-frames/02.jpg", "/media/performance-2026/feature-demo-frames/03.jpg"],
+      proofTitle: "用真实使用场景，把核心功能讲清楚并导向购买。",
+      proofTitleEn: "Real use cases explain the core feature and move toward purchase.",
+      proofs: ["第一视角山地骑行快速建立使用场景", "动作、路况与产品功能形成直接对应", "横版叙事留出更完整的功能讲解空间"],
+      proofsEn: ["First-person trail riding establishes the use case immediately", "Action, terrain and product function connect directly", "Landscape storytelling leaves room for complete feature proof"],
       ...({ onePagerStatus: "internal" } satisfies DemoLink),
     },
     {
       order: "04",
-      label: "HIGH-PRECISION EDIT",
-      title: "试穿试戴试妆带货",
-      titleEn: "Try-on and makeup selling",
-      meta: "美妆 · UGC 效果演示",
-      metaEn: "Beauty · UGC effect demo",
-      src: "/media/performance-beauty-demo.mp4",
-      poster: "/media/performance-beauty-demo.jpg",
-      frames: ["/media/performance-frames/beauty-01.jpg", "/media/performance-frames/beauty-02.jpg", "/media/performance-frames/beauty-03.jpg"],
-      proofTitle: "只改变目标效果，不破坏人物身份。",
-      proofTitleEn: "Change only the target effect, never the identity.",
-      proofs: ["同一人物在前后效果镜头中保持五官与造型", "产品出现、涂抹与结果特写形成闭环", "局部肤质变化不影响其余画面结构"],
-      proofsEn: ["Same face and styling across before / after shots", "Product reveal, application and result close the loop", "Local skin change leaves the rest of the frame intact"],
+      label: "BUMPER · SINGLE POINT",
+      title: "单卖点闪记",
+      titleEn: "Single-Point Flash",
+      meta: "快餐 · 超短促销提醒",
+      metaEn: "QSR · ultra-short reminder",
+      src: "/media/performance-2026/single-point.mp4",
+      poster: "/media/performance-2026/single-point.jpg",
+      frames: ["/media/performance-2026/single-point-frames/01.jpg", "/media/performance-2026/single-point-frames/02.jpg", "/media/performance-2026/single-point-frames/03.jpg"],
+      proofTitle: "一条片只讲一个卖点，用强产品特写完成快速记忆。",
+      proofTitleEn: "One film, one benefit, delivered through memorable product close-ups.",
+      proofs: ["高冲击食物特写迅速占领注意力", "单一卖点与品牌露出集中在短时长内", "节奏紧凑，适合 Bumper 与开屏提醒"],
+      proofsEn: ["High-impact food close-ups capture attention immediately", "One benefit and brand cue land within a short runtime", "Tight pacing fits bumper and opening-screen reminders"],
       ...({ onePagerStatus: "internal" } satisfies DemoLink),
     },
   ],
@@ -428,49 +417,6 @@ const customerFlowStages = [
   },
 ];
 
-const unresolvedGaps = [
-  {
-    no: "01",
-    title: "3D 白模只能渲染，不能理解",
-    titleEn: "White models render, but are not understood",
-    copy: "短期内模型主要完成视觉渲染。面对动作捕捉白模，它能沿用原始动作重绘人物，却难以理解动作意图并自然融入环境，人物、场景与物体之间仍无法形成合理且连贯的交互。",
-    copyEn: "Near-term the model mostly renders. Given mocap white models it repaints characters along the original motion, but struggles to understand intent and blend into the scene — person, set and object interaction stays incoherent.",
-    signal: "3D SEMANTICS",
-    examples: ["动作意图理解", "人物 × 场景交互", "人物 × 物体交互"],
-    examplesEn: ["Motion-intent understanding", "Person × scene interaction", "Person × object interaction"],
-  },
-  {
-    no: "02",
-    title: "Seedance 2.0 / Fast / mini 商品知识与商品交互能力较差",
-    titleEn: "Seedance 2.0 / Fast / mini: weak product knowledge and interaction",
-    copy: "效果广告规模生产的主要阻塞点，集中在商品知识、真实交互、过程因果和高速运动一致性。",
-    copyEn: "The main blocker for performance-scale production: product knowledge, real interaction, process causality and high-speed consistency.",
-    signal: "WORLD KNOWLEDGE",
-    examples: ["口红、3C 等商品操作姿势不对", "开箱视频中箱子自己打开", "人脸重复出现、位置瞬移", "高速动作下人物与道具的物理绑定失效", "特效生成错误，或表现过于浮夸"],
-    examplesEn: ["Wrong handling of lipstick, 3C and similar products", "Boxes open themselves in unboxing videos", "Faces duplicate or teleport", "Physics binding fails at high speed", "VFX misfire or overact"],
-  },
-  {
-    no: "03",
-    title: "商品与品牌要素保真不足",
-    titleEn: "Product and brand fidelity falls short",
-    copy: "品牌 Logo、商标、商品颜色、包装文字和几何比例必须作为硬约束。当前图片模型生成的小字号文案仍会模糊、断笔或不可读，只能依赖后期工具补字；产品目标必须是由模型原生生成清晰、准确的小字，而不是继续依赖后处理。",
-    copyEn: "Logos, marks, product color, packaging text and geometry must be hard constraints. Small in-image type still blurs or breaks and gets patched in post — the product goal is native, accurate small text, not more post-processing.",
-    signal: "BRAND FIDELITY",
-    examples: ["Logo 与商标细节错误", "商品颜色与包装文字漂移", "小字号文案模糊、断笔或不可读", "商品几何形变与入景比例失真"],
-    examplesEn: ["Logo and trademark detail errors", "Product color and packaging drift", "Small type blurs, breaks or is unreadable", "Geometry warps and scale distorts in scene"],
-  },
-  {
-    no: "04",
-    title: "音频参考与情感仍不可控",
-    titleEn: "Audio reference and emotion remain uncontrolled",
-    copy: "音色参考不够准确，音频无法 100% 复制参考视频，生成语音机械且情感不足。头部代理商的当前最佳实践，是先用 ElevenLabs 生成语音，再与 Seedance 视频对齐。",
-    copyEn: "Voice reference is imprecise, audio cannot fully copy the reference, and speech sounds mechanical. Top agencies currently generate voice with ElevenLabs, then align it to Seedance video.",
-    signal: "AUDIO CONTROL",
-    examples: ["音色参考不准确", "无法完整复制参考音频", "语音机械、情感表现不足", "ElevenLabs 音频 × Seedance 视频对齐"],
-    examplesEn: ["Voice reference misses", "Reference audio cannot be fully copied", "Mechanical, flat delivery", "ElevenLabs audio × Seedance alignment"],
-  },
-];
-
 export default function Home() {
   return (
     <main className="siteRoot" id="top">
@@ -520,7 +466,7 @@ export default function Home() {
           </header>
 
           <figure className="marketFlowFigure" aria-labelledby="market-flow-heading">
-            <input className="segmentControl" id="video-segment-mode" type="checkbox" aria-label="查看或收起视频广告三赛道" />
+            <MarketTrackAutoReveal />
             <div className="marketFlowFigureHead">
               <div><strong id="market-flow-heading"><span className="langZh">海外数字广告市场规模与增速</span><span className="langEn">Overseas digital ad market · size and growth</span></strong></div>
               <label className="marketFlowToggle" htmlFor="video-segment-mode"><span className="segmentClosedText"><span className="langZh">查看三赛道</span><span className="langEn">View 3 tracks</span></span><span className="segmentOpenText"><span className="langZh">收起三赛道</span><span className="langEn">Hide 3 tracks</span></span><i aria-hidden="true">＋</i></label>
@@ -540,8 +486,6 @@ export default function Home() {
                 <rect x="18" y="46" width="236" height="60" />
                 <text x="35" y="70" className="flowName"><tspan className="langZh">搜索广告</tspan><tspan className="langEn">Search ads</tspan></text><text x="35" y="88" className="flowMeta">SEARCH · 33%</text><text x="232" y="82" textAnchor="end" className="flowValue">$220B</text>
               </g>
-              <line x1="254" y1="76" x2="1172" y2="76" className="flowBenchmark" />
-              <text x="806" y="66" className="flowBenchmarkLabel">$220B SEARCH BENCHMARK</text>
 
               <path className="flowVideoRiver" d="M254 125 C470 127 630 94 820 55 C875 44 914 42 936 42 L936 301 C877 301 825 304 756 307 C575 315 426 284 254 282Z" />
               <g className="flowBaseline flowVideo">
@@ -571,12 +515,18 @@ export default function Home() {
                 <text x="955" y="268" className="flowDefaultCopy"><tspan className="langZh">AI 使制作成本下降，视频供给规模化</tspan><tspan className="langEn">AI cuts production cost; supply scales</tspan></text>
               </g>
               <g className="flowSegments">
-                <rect x="936" y="42" width="236" height="113" className="flowSocial" />
-                <rect x="936" y="155" width="236" height="88" className="flowCtv" />
-                <rect x="936" y="243" width="236" height="58" className="flowOlv" />
-                <text x="955" y="68" className="flowSegmentName">SOCIAL VIDEO</text><text x="955" y="105" className="flowSegmentValue">62 → 115B</text><text x="1148" y="69" textAnchor="end" className="flowSegmentDelta">+85%</text>
-                <text x="955" y="181" className="flowSegmentName">CTV</text><text x="955" y="215" className="flowSegmentValue">45 → 90B</text><text x="1148" y="181" textAnchor="end" className="flowSegmentDelta">+100%</text>
-                <text x="955" y="267" className="flowSegmentName">OLV</text><text x="955" y="291" className="flowSegmentValue small">38 → 55B</text><text x="1148" y="267" textAnchor="end" className="flowSegmentDelta dark">+45%</text>
+                <g className="flowSegmentTrack flowSegmentTrackSocial">
+                  <rect x="936" y="42" width="236" height="113" className="flowSocial" />
+                  <text x="955" y="68" className="flowSegmentName">SOCIAL VIDEO</text><text x="955" y="105" className="flowSegmentValue">62 → 115B</text><text x="1148" y="69" textAnchor="end" className="flowSegmentDelta">+85%</text>
+                </g>
+                <g className="flowSegmentTrack flowSegmentTrackCtv">
+                  <rect x="936" y="155" width="236" height="88" className="flowCtv" />
+                  <text x="955" y="181" className="flowSegmentName">CTV</text><text x="955" y="215" className="flowSegmentValue">45 → 90B</text><text x="1148" y="181" textAnchor="end" className="flowSegmentDelta">+100%</text>
+                </g>
+                <g className="flowSegmentTrack flowSegmentTrackOlv">
+                  <rect x="936" y="243" width="236" height="58" className="flowOlv" />
+                  <text x="955" y="267" className="flowSegmentName">OLV</text><text x="955" y="291" className="flowSegmentValue small">38 → 55B</text><text x="1148" y="267" textAnchor="end" className="flowSegmentDelta dark">+45%</text>
+                </g>
               </g>
               <g className="flowOutcome">
                 <text x="936" y="334" className="flowOutcomeOverline">2030 TOTAL VIDEO BUDGET</text><text x="936" y="383" className="flowOutcomeValue">$260B</text><text x="1158" y="383" textAnchor="end" className="flowOutcomeRank">#1</text><line x1="936" y1="396" x2="1172" y2="396" />
@@ -648,16 +598,16 @@ export default function Home() {
               </section>
             ))}
 
-            <div className="sceneMatrixRowHead" role="rowheader"><span>02</span><div><b><B zh="核心阵地" en="Where it runs" /></b><small className="langZh">WHERE</small></div></div>
+            <div className="sceneMatrixRowHead" role="rowheader"><span>02</span><div><b><B zh="核心阵地" en="Where it runs" /></b><small>WHERE</small></div></div>
             {sceneLandscapeColumns.map((column) => <section className="sceneMatrixCell" role="cell" key={`channels-${column.key}`}><p className="langZh">{column.channels.map((line) => <span key={line}>{line}</span>)}</p><p className="langEn">{column.channelsEn.map((line) => <span key={line}>{line}</span>)}</p></section>)}
 
-            <div className="sceneMatrixRowHead" role="rowheader"><span>03</span><div><b><B zh="核心目的" en="Objective" /></b><small className="langZh">OBJECTIVE</small></div></div>
+            <div className="sceneMatrixRowHead" role="rowheader"><span>03</span><div><b><B zh="核心目的" en="Objective" /></b><small>OBJECTIVE</small></div></div>
             {sceneLandscapeColumns.map((column) => <section className="sceneMatrixCell" role="cell" key={`objective-${column.key}`}><p className="langZh">{column.objective.map((line) => <span key={line}>{line}</span>)}</p><p className="langEn">{column.objectiveEn.map((line) => <span key={line}>{line}</span>)}</p></section>)}
 
-            <div className="sceneMatrixRowHead" role="rowheader"><span>04</span><div><b><B zh="典型产出" en="Typical output" /></b><small className="langZh">OUTPUT</small></div></div>
+            <div className="sceneMatrixRowHead" role="rowheader"><span>04</span><div><b><B zh="典型产出" en="Typical output" /></b><small>OUTPUT</small></div></div>
             {sceneLandscapeColumns.map((column) => <section className="sceneMatrixCell sceneMatrixOutput" role="cell" key={`output-${column.key}`}><strong>{column.output}</strong><p><B zh={column.outputNote} en={column.outputNoteEn} /></p></section>)}
 
-            <div className="sceneMatrixRowHead" role="rowheader"><span>05</span><div><b><B zh="典型客户" en="Who buys" /></b><small className="langZh">WHO BUYS</small></div></div>
+            <div className="sceneMatrixRowHead" role="rowheader"><span>05</span><div><b><B zh="典型客户" en="Who buys" /></b><small>WHO BUYS</small></div></div>
             {sceneLandscapeColumns.map((column) => (
               <section className="sceneMatrixCell sceneMatrixBuyers" role="cell" key={`buyers-${column.key}`}>
                 <p className="langZh">{column.buyers.map((line) => <span key={line}>{line}</span>)}</p><p className="langEn">{column.buyersEn.map((line) => <span key={line}>{line}</span>)}</p>
@@ -690,7 +640,6 @@ export default function Home() {
                         ))}
                       </div>
                     )}
-                    <figcaption className="sceneDemoVisualMeta"><span><B zh={item.ratio} en={item.ratioEn} /></span><p><B zh={item.media.meta} en={item.media.metaEn} /></p></figcaption>
                   </figure>
 
                   <div className="sceneDemoBrief">
@@ -729,7 +678,7 @@ export default function Home() {
                       </details>
 
                       <details className="sceneDemoDisclosure" open>
-                        <summary className="hasMeta"><span><b>03</b><B zh="市场主流模型（竞对）" en="Mainstream models (competitive set)" /></span><small>COMPETITIVE SET</small><i aria-hidden="true"></i></summary>
+                        <summary className="hasMeta"><span><b>03</b><B zh="市场主流模型" en="Mainstream models (competitive set)" /></span><small>COMPETITIVE SET</small><i aria-hidden="true"></i></summary>
                         <div className="sceneCompetitorGrid">
                           {item.models.map((model) => <article key={model.type}><span><B zh={model.type} en={model.typeEn} /></span><strong><B zh={model.copy} en={model.copyEn ?? model.copy} /></strong></article>)}
                         </div>
@@ -789,22 +738,49 @@ export default function Home() {
                   </header>
 
                   <div className="lorealReportEngine">
-                    <div className="lorealReportEngineTitle"><span><B zh="品牌资产管理" en="BRAND ASSET MANAGEMENT" /></span><h5><B zh="品牌资产库" en="Brand asset library" /></h5><b><B zh="品牌规范 · 产品图 · 标识 · 字体" en="Brand rules · product · logo · type" /></b></div>
-                    <div className="lorealReportUse">
-                      <span><B zh="任务入口" en="BRIEF INTAKE" /></span>
-                      <div><strong>01</strong><p><B zh="全球品牌需求简报" en="Global campaign brief" /></p></div>
-                      <div><strong>02</strong><p><B zh="区域 / 市场需求简报" en="Regional / market brief" /></p></div>
-                    </div>
-                    <div className="lorealReportVolume">
-                      <span><B zh="两条生产链路" en="TWO PRODUCTION LANES" /></span>
-                      <div><strong><B zh="一" en="A" /></strong><p><B zh="高频素材：电商 / 社媒 / 官网" en="Always-on: commerce / social / web" /></p></div>
-                      <div><strong><B zh="二" en="B" /></strong><p><B zh="品牌主片 / 电视广告片" en="Hero film / TVC" /></p></div>
-                    </div>
-                  </div>
+                    <section className="lorealReportAsset">
+                      <span><B zh="总部统一管理" en="CENTRALLY MANAGED" /></span>
+                      <h5><B zh="品牌资产库" en="Brand asset library" /></h5>
+                      <p><B zh="一套资产，为全球与区域生产提供统一标准。" en="One asset system sets the standard for global and regional production." /></p>
+                      <ul>
+                        <li><B zh="品牌规范" en="Brand rules" /></li>
+                        <li><B zh="产品图" en="Product imagery" /></li>
+                        <li><B zh="标识" en="Logos" /></li>
+                        <li><B zh="字体" en="Typography" /></li>
+                      </ul>
+                    </section>
 
-                  <div className="lorealReportLanes" aria-label="全球品牌主高频素材与品牌主片的标准生产路径">
-                    <article><span><B zh="链路一 · 高频素材" en="LANE A · ALWAYS-ON" /></span><p><B zh="区域需求简报" en="Regional brief" /> <i>→</i> <strong><B zh="模板化生成 / 本地化" en="templated generation / localization" /></strong> <i>→</i> <B zh="品牌与法务审核" en="brand &amp; legal review" /> <i>→</i> <B zh="电商 / 社媒 / 官网交付" en="commerce / social / web delivery" /></p></article>
-                    <article><span><B zh="链路二 · 品牌主片" en="LANE B · HERO FILM / TVC" /></span><p><B zh="全球品牌需求简报" en="Global campaign brief" /> <i>→</i> <strong><B zh="代理商 / 制作伙伴" en="agency / production partner" /></strong> <i>→</i> <B zh="主片制作与品牌审核" en="master production &amp; brand review" /> <i>→</i> <B zh="区域本地化交付" en="regional localization &amp; delivery" /></p></article>
+                    <i className="lorealReportConnector" aria-hidden="true">→</i>
+
+                    <div className="lorealReportRoutes">
+                      <article className="lorealReportRoute lorealReportRouteAlwaysOn">
+                        <header>
+                          <span>01</span>
+                          <div><small><B zh="链路一" en="LANE A" /></small><h5><B zh="高频素材" en="Always-on content" /></h5></div>
+                          <b><B zh="电商 · 社媒 · 官网" en="COMMERCE · SOCIAL · WEB" /></b>
+                        </header>
+                        <ol>
+                          <li><span>01</span><strong><B zh="区域市场素材需求" en="Regional content needs" /></strong></li>
+                          <li><span>02</span><strong><B zh="模板化生成与本地化" en="Templated generation and localization" /></strong></li>
+                          <li><span>03</span><strong><B zh="品牌与法务审核" en="Brand and legal review" /></strong></li>
+                          <li><span>04</span><strong><B zh="多渠道交付" en="Multi-channel delivery" /></strong></li>
+                        </ol>
+                      </article>
+
+                      <article className="lorealReportRoute lorealReportRouteHero">
+                        <header>
+                          <span>02</span>
+                          <div><small><B zh="链路二" en="LANE B" /></small><h5><B zh="品牌主片" en="Hero film" /></h5></div>
+                          <b><B zh="品牌主片 · 电视广告片" en="HERO FILM · TVC" /></b>
+                        </header>
+                        <ol>
+                          <li><span>01</span><strong><B zh="全球品牌主片需求" en="Global hero-film brief" /></strong></li>
+                          <li><span>02</span><strong><B zh="代理商与制作伙伴" en="Agency and production partner" /></strong></li>
+                          <li><span>03</span><strong><B zh="主片制作与品牌审核" en="Master production and brand review" /></strong></li>
+                          <li><span>04</span><strong><B zh="区域本地化交付" en="Regional localization and delivery" /></strong></li>
+                        </ol>
+                      </article>
+                    </div>
                   </div>
                 </section>
 
@@ -812,53 +788,38 @@ export default function Home() {
 
             </article>
 
-            <article className="wppCasePage wppPresentationPage" id="customer-agency" aria-labelledby="wpp-case-title">
-              <header className="wppCaseHeader wppPresentationHeader">
-                <div className="wppCaseIndex"><span>3.3</span><b><B zh="代表性代理商" en="WPP / HAVAS / PUBLICIS" /></b></div>
-                <div>
-                  <h3 id="wpp-case-title"><span className="langZh">全球代理商业务模式：<br /><span>从策略与创意预演，到正式制作和媒体交付。</span></span><span className="langEn">Global agency operating model:<br /><span>from strategy and previsualization to production and media delivery.</span></span></h3>
-                </div>
-                <div className="wppHeaderProofs" aria-label="代表性代理商与标准工作方式">
-                  <div><span><B zh="代表性代理商" en="REPRESENTATIVE AGENCIES" /></span><strong>WPP · Havas · Publicis</strong></div>
-                  <div><span><B zh="标准工作方式" en="STANDARD MODEL" /></span><strong><B zh="平台化创意与制作流程" en="Platform-enabled creative production" /></strong></div>
-                </div>
-              </header>
-
-              <div className="wppPresentationCanvas wppCondensedCanvas">
-                <section className="wppStageStrip wppStrategyStageStrip" aria-label="Creative Production Media 三个业务环节">
-                  <article className="wppWorkstreamIdentity wppStageCreative">
-                    <header><b><B zh="创意" en="CREATIVE" /></b></header>
-                    <div className="wppStageMetric"><strong><B zh="创意" en="IDEA" /></strong><i>→</i><strong><B zh="分镜" en="BOARD" /></strong></div>
-                    <h4><B zh="把策略转成可审阅的创意预演" en="Turn strategy into reviewable previsualization" /></h4>
-                    <p><B zh="明确受众、品牌主张和导演概念，再通过脚本、分镜与预演完成品牌审阅。" en="Define audience, brand proposition and directorial concept, then review scripts, boards and previsualization." /></p>
-                    <footer><b><B zh="模型重点" en="MODEL FOCUS" /></b><span><B zh="速度 · 风格控制 · 品牌资产" en="Speed · style control · brand assets" /></span></footer>
-                  </article>
-                  <article className="wppWorkstreamIdentity wppStageProduction">
-                    <header><b><B zh="制作" en="PRODUCTION" /></b></header>
-                    <div className="wppStageMetric"><strong><B zh="资产" en="ASSET" /></strong><i>→</i><strong><B zh="母版" en="MASTER" /></strong></div>
-                    <h4><B zh="进入端到端正式制作" en="Move into end-to-end production" /></h4>
-                    <p><B zh="用三维资产和数字孪生锁定产品、场景与镜头，再连接实拍、生成、特效和后期。" en="Use 3D assets and digital twins to lock product, scene and camera, then connect live action, generation, VFX and post." /></p>
-                    <footer><b><B zh="模型重点" en="MODEL FOCUS" /></b><span><B zh="一致性 · 可控镜头 · 4K · 3D渲染" en="Consistency · camera control · 4K · 3D rendering" /></span></footer>
-                  </article>
-                  <article className="wppWorkstreamIdentity wppStageMedia">
-                    <header><b><B zh="媒体" en="MEDIA" /></b></header>
-                    <div className="wppStageMetric"><strong><B zh="母版" en="MASTER" /></strong><i>→</i><strong><B zh="变体" en="VARIANTS" /></strong></div>
-                    <h4><B zh="把母版规模化复制" en="Replicate masters at scale" /></h4>
-                    <p><B zh="围绕母版视频，批量适配不同渠道、市场、语言与人群，并回收投放反馈。" en="Adapt master videos across channels, markets, languages and audiences, then return media feedback." /></p>
-                    <footer><b><B zh="模型重点" en="MODEL FOCUS" /></b><span><B zh="精准编辑 · 本地化" en="Precise editing · localization" /></span></footer>
-                  </article>
-                </section>
-              </div>
-            </article>
-
-            <article className="wppWorkPage" id="customer-agency-case" aria-labelledby="wpp-work-title">
+            <article className="wppWorkPage wppMergedPage" id="customer-agency" aria-labelledby="wpp-work-title">
               <header className="wppWorkHeader">
-                <div className="wppWorkIndex"><span>3.4</span><b><B zh="代理商标准流程" en="AGENCY WORKFLOW" /></b></div>
+                <div className="wppWorkIndex"><span>02</span><b><B zh="代表性代理商" en="AGENCY MODEL" /></b></div>
                 <div>
-                  <h3 id="wpp-work-title"><span className="langZh">代理商怎么工作：<br /><span>导演创意为核心，四步走到帧级交付。</span></span><span className="langEn">How agencies work:<br /><span>director-led creative, four steps to frame-level delivery.</span></span></h3>
+                  <h3 id="wpp-work-title"><span className="langZh">全球代理商业务模式：<br /><span>从创意预演，到母版制作与媒体交付。</span></span><span className="langEn">Global agency operating model:<br /><span>from creative previsualization to master production and media delivery.</span></span></h3>
                 </div>
-                <a className="wppWorkDetailLink" href="#solution-brand"><B zh="Sofa 全流程制作方法见品牌方案" en="Full sofa pipeline in the brand solution" /><b>↘</b></a>
+                <aside className="wppMergedAgencies">
+                  <span><B zh="代表性代理商" en="REPRESENTATIVE AGENCIES" /></span>
+                  <strong>WPP · Havas · Publicis</strong>
+                  <a href="#solution-brand"><B zh="查看完整制作方案" en="View full production solution" /><b>↘</b></a>
+                </aside>
               </header>
+
+              <section className="wppMergedStages" aria-label="代理商创意、制作与媒体三类核心交付">
+                <article>
+                  <span>01 · <B zh="创意" en="CREATIVE" /></span>
+                  <h4><B zh="创意概念 → 可审阅预演" en="Creative concept → reviewable previz" /></h4>
+                  <p><B zh="把策略转成脚本、分镜与导演预演。" en="Turn strategy into scripts, boards and director-led previsualization." /></p>
+                </article>
+                <i aria-hidden="true">→</i>
+                <article>
+                  <span>02 · <B zh="制作" en="PRODUCTION" /></span>
+                  <h4><B zh="生产资产 → 高质量母版" en="Production assets → high-quality master" /></h4>
+                  <p><B zh="协同实拍、三维、生成与后期完成正式制作。" en="Combine live action, 3D, generation and post-production." /></p>
+                </article>
+                <i aria-hidden="true">→</i>
+                <article>
+                  <span>03 · <B zh="媒体" en="MEDIA" /></span>
+                  <h4><B zh="审核母版 → 多渠道版本" en="Approved master → channel variants" /></h4>
+                  <p><B zh="适配不同渠道、市场、语言与受众。" en="Adapt across channels, markets, languages and audiences." /></p>
+                </article>
+              </section>
 
               <div className="wppWorkCanvas">
                 <section className="wppWorkFlow" aria-label="代理商品牌广告四步工作方式">
@@ -971,6 +932,7 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="productionChapter">
       <section className="section shell solutions" id="solution-focus">
         <div className="solutionPages">
           <article className="solutionPage brandSolutionPage" id="solution-brand" aria-labelledby="brand-solution-title">
@@ -981,7 +943,11 @@ export default function Home() {
                 <h3 className="langZh" id="brand-solution-title">品牌广告制作方案</h3>
                 <h3 className="langEn">Brand Advertising Production Solution</h3>
               </div>
-              <a className="solutionDetailLink" href="https://sofa-demo.byteplus-demo.com/" target="_blank" rel="noopener noreferrer"><span className="langZh">查看方案详情</span><span className="langEn">View solution details</span><b>↗</b></a>
+              <div className="solutionHeaderActions">
+                <a className="solutionDetailLink" href="https://sofa-demo.byteplus-demo.com/" target="_blank" rel="noopener noreferrer"><span className="langZh">查看方案详情</span><span className="langEn">View solution details</span><b>↗</b></a>
+                <a className="solutionDetailLink langZh" href="https://bytedance.larkoffice.com/wiki/E96mwlJfsiLCvKkCPC0cjLIMnRg" target="_blank" rel="noopener noreferrer">查看更多 Seedance 样片<b>↗</b></a>
+                <a className="solutionDetailLink langEn" href="https://bytedance.sg.larkoffice.com/docx/SOrgdnSJ3oSr4Rx6EYMlKhBsgqc" target="_blank" rel="noopener noreferrer">View more Seedance demos<b>↗</b></a>
+              </div>
             </header>
 
             <div className="brandSolutionBody">
@@ -1059,7 +1025,14 @@ export default function Home() {
             <header className="performanceSolutionHeader">
               <div className="performanceSolutionIndex"><span>03</span><b>PERFORMANCE ADS</b></div>
               <div><p><B zh="五步运作链 × 四个样片" en="5-STEP LOOP × 4 DEMOS" /></p><h3><span className="langZh">效果广告制作方案<br /><span>流程、样片与能力证据。</span></span><span className="langEn">Performance ads production<br /><span>process, demos and proof.</span></span></h3></div>
-              <div className="solutionHeaderAside"><p><B zh="从洞察、生产到投放复刻，形成一条可持续迭代的素材生产闭环。" en="From insight and production to launch and cloning — one continuously iterating creative loop." /></p><a className="solutionDetailLink" href="#solution-performance-demos"><B zh="查看效果广告样片" en="View performance demos" /><b>↓</b></a></div>
+              <div className="solutionHeaderAside">
+                <p><B zh="从洞察、生产到投放复刻，形成一条可持续迭代的素材生产闭环。" en="From insight and production to launch and cloning — one continuously iterating creative loop." /></p>
+                <div className="solutionHeaderLinks">
+                  <a className="solutionDetailLink" href="#solution-performance-demos"><B zh="查看效果广告样片" en="View performance demos" /><b>↓</b></a>
+                  <a className="solutionDetailLink langZh" href="https://bytedance.larkoffice.com/wiki/E96mwlJfsiLCvKkCPC0cjLIMnRg" target="_blank" rel="noopener noreferrer">查看更多 Seedance 样片<b>↗</b></a>
+                  <a className="solutionDetailLink langEn" href="https://bytedance.sg.larkoffice.com/docx/SOrgdnSJ3oSr4Rx6EYMlKhBsgqc" target="_blank" rel="noopener noreferrer">View more Seedance demos<b>↗</b></a>
+                </div>
+              </div>
             </header>
 
             <div className="performanceSolutionBody">
@@ -1254,33 +1227,11 @@ export default function Home() {
             </div>
           </article>
         </div>
-        <article className="productGatePage" id="product-requirements" aria-labelledby="product-gate-title">
-          <header className="productGateHeader">
-            <div className="productGateIndex"><span>07</span><b>PRODUCTION GATES</b></div>
-            <div><p>FINAL · SEEDANCE REQUIREMENTS</p><h3 id="product-gate-title"><B zh="模型短期能力短板" en="Near-term model capability gaps" /></h3></div>
-          </header>
-
-          <div className="productGateBody">
-            <div className="productGateMatrix" aria-label="Seedance 广告规模生产的四个产品门槛">
-              {unresolvedGaps.map((gap) => (
-                <section className={`productGateCard productGateCard${gap.no}`} data-index={gap.no} key={gap.no}>
-                  <header><span>{gap.no}</span><b>{gap.signal}</b></header>
-                  <h4><B zh={gap.title} en={gap.titleEn} /></h4>
-                  <p><B zh={gap.copy} en={gap.copyEn} /></p>
-                  <ul className="langZh">{gap.examples.map((example) => <li key={example}>{example}</li>)}</ul>
-                  <ul className="langEn">{gap.examplesEn.map((example) => <li key={example}>{example}</li>)}</ul>
-                </section>
-              ))}
-              <div className="productGateCenter" aria-hidden="true"><span>SCALE</span><b>PRODUCTION</b><i>×</i></div>
-            </div>
-
-          </div>
-        </article>
       </section>
 
       <section className="roadmapPage" id="roadmap" aria-labelledby="roadmap-title">
         <header className="roadmapPageHeader">
-          <div className="roadmapPageIndex"><span>08</span><b>ROADMAP</b></div>
+          <div className="roadmapPageIndex"><span>07</span><b>ROADMAP</b></div>
           <div><p>FROM SOTA RENDERING TO OMNI ENGINE</p><h2 id="roadmap-title"><span className="langZh">Seedance 从 SOTA 渲染层，<br /><span>走向端到端制作引擎。</span></span><span className="langEn">Seedance: from SOTA rendering<br /><span>to an end-to-end production engine.</span></span></h2></div>
           <p><B zh="创意导演、3D 结构表现、编辑和渲染四层融合为统一 Omni 模型，对标 Google Omni 路线。" en="Creative direction, 3D structure, editing and rendering fuse into one Omni model — benchmarked against Google’s Omni path." /></p>
         </header>
@@ -1321,6 +1272,7 @@ export default function Home() {
           <footer className="roadmapPageFooter"><span><B zh="SOTA 渲染层" en="SOTA rendering" /></span><i>→</i><strong><B zh="统一 Omni 模型" en="Unified Omni model" /></strong><i>→</i><span><B zh="70% 制作劳动力替换" en="70% labor replacement" /></span></footer>
         </div>
       </section>
+      </div>
 
       <footer className="footer shell">
         <div className="brand"><span className="brandMark">B</span><span>ADS Creative Solution</span></div>
