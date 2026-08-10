@@ -362,13 +362,14 @@ const customerFlowStages = [
     roleEn: "BUDGET SOURCE",
     title: "品牌主",
     titleEn: "Brand owners",
-    flowRole: "定义预算与品牌资产",
-    flowRoleEn: "Set budgets and brand assets",
-    flowNote: "先进入集团 AI 平台，再向市场与外部代理商分配生产任务。",
-    trend: "自建 AI 中台",
-    trendEn: "Building in-house AI platforms",
-    opportunity: "从零散生成工具，走向企业级品牌资产生产池。",
-    examples: "L’Oréal · CreateAI",
+    flowRole: "制定预算、传播目标与品牌规范",
+    flowRoleEn: "Set budgets, objectives and brand rules",
+    flowNote: "年度传播目标与品牌资产形成 Brief，经品牌、法务与采购审核后交给内部团队或制作伙伴。",
+    trend: "Brief → 资产授权 → 品牌审核 → 制作交付",
+    trendEn: "Brief → asset rights → brand review → delivery",
+    opportunity: "模型 API 与资产权限管理，支持符合品牌规范的规模化生成。",
+    opportunityEn: "Model APIs and asset controls for brand-safe generation at scale.",
+    examples: "L’Oréal · Coca-Cola",
   },
   {
     index: "02",
@@ -376,12 +377,13 @@ const customerFlowStages = [
     roleEn: "PRODUCTION SCALE",
     title: "代理商",
     titleEn: "Agencies",
-    flowRole: "承接创意与制作预算",
-    flowRoleEn: "Hold creative and production budgets",
-    flowNote: "同时连接品牌关系、导演创意、Production 与最终交付。",
-    trend: "从创意预览进入 Production",
-    trendEn: "From previews into production",
-    opportunity: "导演、创意与制作团队把 AI 纳入正式生产流程。",
+    flowRole: "承接策略、创意与制作预算",
+    flowRoleEn: "Hold strategy, creative and production budgets",
+    flowNote: "接收品牌 Brief，完成策略、脚本与分镜，再进入制作、后期、审核和多渠道交付。",
+    trend: "Brief → 策略 / 分镜 → 制作 / 后期 → 交付",
+    trendEn: "Brief → strategy / boards → production / post → delivery",
+    opportunity: "用生成模型和工作流工具连接预演、成片制作、本地化与版本管理。",
+    opportunityEn: "Connect previsualization, production, localization and versioning with generative workflows.",
     examples: "WPP · Havas",
   },
   {
@@ -390,12 +392,13 @@ const customerFlowStages = [
     roleEn: "COMPOUNDING USAGE",
     title: "AdTech / MarTech",
     titleEn: "AdTech / MarTech",
-    flowRole: "把投放预算转成持续生产",
-    flowRoleEn: "Turn media budgets into continuous production",
-    flowNote: "模型嵌入 Campaign Agent，随客户、素材和实验次数重复调用。",
-    trend: "Campaign Agent 进入 1 → 3",
-    trendEn: "Campaign agents enter 1 → 3",
-    opportunity: "素材自动化成为核心场景，随客户与投放规模复制放大。",
+    flowRole: "把投放目标转成持续素材生产",
+    flowRoleEn: "Turn campaign goals into continuous creative production",
+    flowNote: "连接商品、素材与投放约束，批量生成变体并依据实验结果持续迭代。",
+    trend: "素材接入 → 变体生成 → A/B 测试 → 自动迭代",
+    trendEn: "Asset ingest → variants → A/B tests → automated iteration",
+    opportunity: "把模型 API 嵌入 Campaign Agent，随素材与实验次数形成持续调用。",
+    opportunityEn: "Embed model APIs in campaign agents for recurring calls across assets and experiments.",
     examples: "AppLovin · 钛动",
     examplesEn: "AppLovin · TecDo",
   },
@@ -405,12 +408,13 @@ const customerFlowStages = [
     roleEn: "MEDIA FEEDBACK",
     title: "Paid Media",
     titleEn: "Paid media",
-    flowRole: "完成分发并返回效果信号",
-    flowRoleEn: "Distribute and return performance signals",
-    flowNote: "把媒体侧数据送回创意生产，让胜出结构进入下一轮。",
-    trend: "分发信号回流素材生产",
-    trendEn: "Signals flow back into production",
-    opportunity: "用投放反馈缩短创意迭代，让胜出素材更快进入下一轮。",
+    flowRole: "完成分发、优化并返回效果信号",
+    flowRoleEn: "Distribute, optimize and return performance signals",
+    flowNote: "按受众与版位完成投放优化，将聚合效果信号送回下一轮创意生产。",
+    trend: "分发 → 优化 → 聚合反馈 → 下一轮素材",
+    trendEn: "Delivery → optimization → aggregated feedback → next creative",
+    opportunity: "连接投放反馈与生成工作流，缩短下一轮素材迭代周期。",
+    opportunityEn: "Connect media feedback to generation workflows and shorten creative iteration cycles.",
     examples: "Criteo · Pinterest",
   },
 ];
@@ -636,7 +640,7 @@ export default function Home() {
               </header>
             ))}
 
-            <div className="sceneMatrixRowHead sceneMatrixMarketHead" role="rowheader"><span>01</span><div><b><B zh="市场量" en="Market size" /></b><small className="langZh">MARKET SIZE</small></div></div>
+            <div className="sceneMatrixRowHead sceneMatrixMarketHead" role="rowheader"><span>01</span><div><b><B zh="2026 模型 API 潜在空间" en="2026 model API potential" /></b><small className="langZh">情景估算</small><small className="langEn">SCENARIO ESTIMATE</small></div></div>
             {sceneLandscapeColumns.map((column) => (
               <section className={`sceneMatrixCell sceneMatrixMarket sceneMatrixCell-${column.key}`} role="cell" key={`market-${column.key}`}>
                 <div><strong>{column.marketValue}</strong>{"marketShare" in column ? <b>{column.marketShare}</b> : null}</div>
@@ -755,15 +759,14 @@ export default function Home() {
                   <article className={`customerFlowStage ${stage.index === "03" ? "customerFlowStageFocus" : ""}`} key={stage.index}>
                     <div className="customerFlowIdentity"><span>{stage.index}</span><small><B zh={stage.role} en={stage.roleEn} /></small><h3><B zh={stage.title} en={stage.titleEn} /></h3></div>
                     <div className="customerFlowRole"><small><B zh="预算作用" en="BUDGET ROLE" /></small><h4><B zh={stage.flowRole} en={stage.flowRoleEn} /></h4></div>
-                    <div className="customerFlowTrend"><small><B zh="关键趋势" en="KEY TREND" /></small><h4><B zh={stage.trend} en={stage.trendEn} /></h4></div>
-                    <div className="customerFlowExamples"><small><B zh="代表客户" en="WHO" /></small><b><B zh={stage.examples} en={stage.examplesEn ?? stage.examples} /></b></div>
+                    <div className="customerFlowTrend"><small><B zh="标准工作流" en="STANDARD WORKFLOW" /></small><h4><B zh={stage.trend} en={stage.trendEn} /></h4><p className="customerFlowOpportunity"><strong><B zh="BYTEPLUS OFFER" en="BYTEPLUS OFFER" /></strong><B zh={stage.opportunity} en={stage.opportunityEn} /></p></div>
+                    <div className="customerFlowExamples"><small><B zh="公开行业示例" en="PUBLIC EXAMPLES" /></small><b><B zh={stage.examples} en={stage.examplesEn ?? stage.examples} /></b></div>
                   </article>
                 ))}
               </div>
             </div>
           </div>
 
-          <footer className="customerFlowFooter"><span><B zh="预算源头" en="Budget source" /></span><i>→</i><span><B zh="制作放大" en="Production scale" /></span><i>→</i><strong><B zh="自动化复利" en="Automation compounding" /></strong><i>→</i><span><B zh="媒体反馈" en="Media feedback" /></span><b>↺</b></footer>
         </div>
       </section>
 
@@ -772,36 +775,36 @@ export default function Home() {
           <div className="customerStories">
             <article className="lorealCasePage" id="customer-brand" aria-labelledby="loreal-case-title">
               <header className="lorealCaseHeader">
-                <div className="lorealCaseIndex"><span>01</span><b>BRAND OWNER CASE</b></div>
+                <div className="lorealCaseIndex"><span>01</span><b><B zh="欧莱雅" en="L’ORÉAL" /></b></div>
                 <div className="lorealCaseTitle">
-                  <h3 id="loreal-case-title"><span className="langZh">欧莱雅客户拆解：<br />先进入 <span>CreTech</span>，再随市场放大。</span><span className="langEn">Inside L’Oréal:<br />land in <span>CreTech</span>, then scale with the market.</span></h3>
+                  <h3 id="loreal-case-title"><span className="langZh">全球品牌主业务模式：<br /><span>一套品牌资产，两条生产链路。</span></span><span className="langEn">Global brand-owner model:<br /><span>one asset system, two production lanes.</span></span></h3>
                 </div>
               </header>
 
               <div className="lorealReportCanvas">
                 <section className="lorealReportCore" aria-labelledby="loreal-report-core-title">
                   <header>
-                    <div><span>01 · CUSTOMER SCALE</span><h4 id="loreal-report-core-title"><B zh="一个集团中台，集中全球素材生产。" en="One group platform centralizes global creative production." /></h4></div>
-                    <p><strong>50</strong><small>BRANDS</small><i>×</i><strong>150</strong><small>MARKETS</small></p>
+                    <div><span><B zh="01 · 业务模式" en="01 · OPERATING MODEL" /></span><h4 id="loreal-report-core-title"><B zh="以欧莱雅为代表：总部统一管理品牌资产，全球与区域需求分流生产。" en="Using L’Oréal as a representative example: centrally managed brand assets feed global and regional briefs." /></h4></div>
+                    <p><strong>1</strong><small><B zh="套品牌资产体系" en="BRAND ASSET SYSTEM" /></small><i>→</i><strong>2</strong><small><B zh="条生产链路" en="PRODUCTION LANES" /></small></p>
                   </header>
 
                   <div className="lorealReportEngine">
-                    <div className="lorealReportEngineTitle"><span>CENTRAL AI PLATFORM</span><h5><B zh="集团 CreTech" en="Group CreTech" /></h5><b><B zh="集中模型消耗池" en="Central model consumption pool" /></b></div>
+                    <div className="lorealReportEngineTitle"><span><B zh="品牌资产管理" en="BRAND ASSET MANAGEMENT" /></span><h5><B zh="品牌资产库" en="Brand asset library" /></h5><b><B zh="品牌规范 · 产品图 · 标识 · 字体" en="Brand rules · product · logo · type" /></b></div>
                     <div className="lorealReportUse">
-                      <span><B zh="素材用途" en="USAGE SPLIT" /></span>
-                      <div><strong>50%</strong><p><B zh="内部创意实验" en="Internal experiments" /></p></div>
-                      <div><strong>50%</strong><p><B zh="外部发布素材" en="Published externally" /></p></div>
+                      <span><B zh="任务入口" en="BRIEF INTAKE" /></span>
+                      <div><strong>01</strong><p><B zh="全球品牌需求简报" en="Global campaign brief" /></p></div>
+                      <div><strong>02</strong><p><B zh="区域 / 市场需求简报" en="Regional / market brief" /></p></div>
                     </div>
                     <div className="lorealReportVolume">
-                      <span><B zh="每月模型用量" en="MONTHLY VOLUME" /></span>
-                      <div><strong><span className="langZh">50–100<small>万张</small></span><span className="langEn">0.5–1M<small>imgs</small></span></strong><p>IMAGE</p></div>
-                      <div><strong><span className="langZh">10–20<small>万条</small></span><span className="langEn">100–200K<small>clips</small></span></strong><p>VIDEO</p></div>
+                      <span><B zh="两条生产链路" en="TWO PRODUCTION LANES" /></span>
+                      <div><strong><B zh="一" en="A" /></strong><p><B zh="高频素材：电商 / 社媒 / 官网" en="Always-on: commerce / social / web" /></p></div>
+                      <div><strong><B zh="二" en="B" /></strong><p><B zh="品牌主片 / 电视广告片" en="Hero film / TVC" /></p></div>
                     </div>
                   </div>
 
-                  <div className="lorealReportLanes" aria-label="欧莱雅日常素材与品牌主片的两条生产路径">
-                    <article><span><B zh="高频素材" en="HIGH-FREQUENCY" /></span><p><B zh="品牌团队" en="Brand teams" /> <i>→</i> <strong>CreTech</strong> <i>→</i> <B zh="电商 / 社交 / 官网" en="e-commerce / social / web" /></p></article>
-                    <article><span>Hero / TVC</span><p><B zh="品牌团队" en="Brand teams" /> <i>→</i> <strong>WPP / 4A</strong> <i>→</i> Master Film</p></article>
+                  <div className="lorealReportLanes" aria-label="全球品牌主高频素材与品牌主片的标准生产路径">
+                    <article><span><B zh="链路一 · 高频素材" en="LANE A · ALWAYS-ON" /></span><p><B zh="区域需求简报" en="Regional brief" /> <i>→</i> <strong><B zh="模板化生成 / 本地化" en="templated generation / localization" /></strong> <i>→</i> <B zh="品牌与法务审核" en="brand &amp; legal review" /> <i>→</i> <B zh="电商 / 社媒 / 官网交付" en="commerce / social / web delivery" /></p></article>
+                    <article><span><B zh="链路二 · 品牌主片" en="LANE B · HERO FILM / TVC" /></span><p><B zh="全球品牌需求简报" en="Global campaign brief" /> <i>→</i> <strong><B zh="代理商 / 制作伙伴" en="agency / production partner" /></strong> <i>→</i> <B zh="主片制作与品牌审核" en="master production &amp; brand review" /> <i>→</i> <B zh="区域本地化交付" en="regional localization &amp; delivery" /></p></article>
                   </div>
                 </section>
 

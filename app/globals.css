@@ -506,7 +506,6 @@ body.is-copy-editing [data-copy-hidden="true"]::after {
   letter-spacing: .15em;
 }
 .sceneMatrixBuyers > a b { color: var(--orange); font-size: 15px; }
-
 @media (max-width: 1180px) {
   .sceneComparisonMatrix { grid-template-columns: 150px repeat(3, minmax(0, 1fr)); }
   .sceneMatrixColumnHead,
@@ -1041,7 +1040,7 @@ button, summary { font: inherit; }
 
 /* P04 · customer money flow — a narrative route, not a dense table */
 .customerFlowPage { height: 860px; color: #14171e; background: #f3f1ea; scroll-margin-top: 10px; }
-.customerFlowShell { width: min(1512px, calc(100% - 64px)); height: 100%; margin-inline: auto; padding: 28px 0 22px; display: grid; grid-template-rows: 152px minmax(0, 1fr) 46px; }
+.customerFlowShell { width: min(1512px, calc(100% - 64px)); height: 100%; margin-inline: auto; padding: 28px 0 22px; display: grid; grid-template-rows: 152px minmax(0, 1fr); }
 .customerFlowHeader { display: grid; grid-template-columns: 138px minmax(0, 1fr) 420px; align-items: center; border-top: 1px solid #b0aca0; border-bottom: 1px solid #b0aca0; }
 .customerFlowIndex { align-self: stretch; padding: 22px 0; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid #b0aca0; }
 .customerFlowIndex span { color: var(--orange); font-size: 12px; font-weight: 950; letter-spacing: .15em; }
@@ -1076,6 +1075,8 @@ button, summary { font: inherit; }
 .customerFlowExamples { min-width: 0; padding-left: 22px; }
 .customerFlowRole h4,
 .customerFlowTrend h4 { margin: 8px 0 0; font-size: clamp(15px, 1.08vw, 18px); line-height: 1.2; letter-spacing: -.025em; }
+.customerFlowOpportunity { margin: 7px 0 0; color: #686b70; font-size: 9px; line-height: 1.4; }
+.customerFlowOpportunity strong { display: block; margin-bottom: 2px; color: var(--orange); font-size: 8px; letter-spacing: .11em; }
 .customerFlowExamples { position: relative; z-index: 1; }
 .customerFlowExamples b { display: block; margin-top: 9px; font-size: 13px; line-height: 1.35; }
 .customerFlowStageFocus .customerFlowIdentity > span { color: var(--lime); }
@@ -5878,6 +5879,15 @@ button, summary { font: inherit; }
 
 /* v2.5 · EN-length fixes */
 .customerFlowIndex b { max-width: 132px; font-size: 9px; line-height: 1.5; letter-spacing: .12em; white-space: normal; }
+.lorealCaseIndex b > .langZh,
+.lorealCaseIndex b > .langEn {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 1.5;
+  letter-spacing: inherit;
+}
 .customerFlowExamples small { display: block; }
 .customerFlowExamples b { margin-top: 8px; }
 
