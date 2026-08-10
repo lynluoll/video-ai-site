@@ -30,6 +30,11 @@ const playableDemos = [
   },
 ];
 
+type DemoLink = {
+  onePagerUrl?: string;
+  onePagerStatus?: "published" | "coming-soon" | "internal";
+};
+
 const sceneLandscapeColumns = [
   {
     key: "brand",
@@ -306,6 +311,7 @@ const solutionVideoDemos = {
       proofTitleEn: "From full body to macro, garment structure stays readable.",
       proofs: ["模特身份、发型与服装轮廓跨镜头稳定", "镂空针织纹理在近景中保留细节", "同一商品可覆盖全身、局部与回收镜头"],
       proofsEn: ["Model identity, hair and silhouette hold across shots", "Open-knit texture keeps detail in close-ups", "One product covers full-body, detail and recap shots"],
+      ...({ onePagerStatus: "internal" } satisfies DemoLink),
     },
     {
       order: "02",
@@ -321,6 +327,7 @@ const solutionVideoDemos = {
       proofTitleEn: "Product, person and usage form a complete demo.",
       proofs: ["挤出、刷牙与结果展示形成连续使用链路", "人物、浴室环境和手持视角保持自然", "商品近景与人物口播可以在同一条素材中切换"],
       proofsEn: ["Squeeze, brush and result form a continuous chain", "Person, bathroom and handheld POV stay natural", "Product close-ups and talking head cut within one asset"],
+      ...({ onePagerStatus: "internal" } satisfies DemoLink),
     },
     {
       order: "03",
@@ -336,6 +343,7 @@ const solutionVideoDemos = {
       proofTitleEn: "Geometry, material and weight-bearing hold through use.",
       proofs: ["沙发轮廓、褶皱与尺度在连续镜头中稳定", "人物坐卧与商品发生清楚的空间交互", "自然光和室内布景保持同一实拍环境"],
       proofsEn: ["Sofa outline, creases and scale stay stable across shots", "Sitting and lying interact clearly with the product", "Natural light and set stay one continuous environment"],
+      ...({ onePagerStatus: "internal" } satisfies DemoLink),
     },
     {
       order: "04",
@@ -351,6 +359,7 @@ const solutionVideoDemos = {
       proofTitleEn: "Change only the target effect, never the identity.",
       proofs: ["同一人物在前后效果镜头中保持五官与造型", "产品出现、涂抹与结果特写形成闭环", "局部肤质变化不影响其余画面结构"],
       proofsEn: ["Same face and styling across before / after shots", "Product reveal, application and result close the loop", "Local skin change leaves the rest of the frame intact"],
+      ...({ onePagerStatus: "internal" } satisfies DemoLink),
     },
   ],
 };
@@ -429,8 +438,6 @@ const unresolvedGaps = [
     signal: "3D SEMANTICS",
     examples: ["动作意图理解", "人物 × 场景交互", "人物 × 物体交互"],
     examplesEn: ["Motion-intent understanding", "Person × scene interaction", "Person × object interaction"],
-    link: "https://bytedance.sg.larkoffice.com/docx/O3I3dWdKKof2DtxNkrolaGtIgzc#share-THzudn9RconwUkxVivBlnvQRgNg",
-    linkLabel: "Performance-Driven Video Generation with Seedance ↗",
   },
   {
     no: "02",
@@ -441,9 +448,6 @@ const unresolvedGaps = [
     signal: "WORLD KNOWLEDGE",
     examples: ["口红、3C 等商品操作姿势不对", "开箱视频中箱子自己打开", "人脸重复出现、位置瞬移", "高速动作下人物与道具的物理绑定失效", "特效生成错误，或表现过于浮夸"],
     examplesEn: ["Wrong handling of lipstick, 3C and similar products", "Boxes open themselves in unboxing videos", "Faces duplicate or teleport", "Physics binding fails at high speed", "VFX misfire or overact"],
-    link: "https://bytedance.sg.larkoffice.com/docx/OJQ9dIYdfo0ponxiLcNlhbDHgng",
-    linkLabel: "钛动 Seedance 2.0 mini 效果广告 Bad Cases ↗",
-    linkLabelEn: "TecDo Seedance 2.0 mini performance-ads bad cases ↗",
   },
   {
     no: "03",
@@ -454,8 +458,6 @@ const unresolvedGaps = [
     signal: "BRAND FIDELITY",
     examples: ["Logo 与商标细节错误", "商品颜色与包装文字漂移", "小字号文案模糊、断笔或不可读", "商品几何形变与入景比例失真"],
     examplesEn: ["Logo and trademark detail errors", "Product color and packaging drift", "Small type blurs, breaks or is unreadable", "Geometry warps and scale distorts in scene"],
-    link: "",
-    linkLabel: "",
   },
   {
     no: "04",
@@ -466,8 +468,6 @@ const unresolvedGaps = [
     signal: "AUDIO CONTROL",
     examples: ["音色参考不准确", "无法完整复制参考音频", "语音机械、情感表现不足", "ElevenLabs 音频 × Seedance 视频对齐"],
     examplesEn: ["Voice reference misses", "Reference audio cannot be fully copied", "Mechanical, flat delivery", "ElevenLabs audio × Seedance alignment"],
-    link: "",
-    linkLabel: "",
   },
 ];
 
@@ -814,37 +814,37 @@ export default function Home() {
 
             <article className="wppCasePage wppPresentationPage" id="customer-agency" aria-labelledby="wpp-case-title">
               <header className="wppCaseHeader wppPresentationHeader">
-                <div className="wppCaseIndex"><span>3.3</span><b>WPP / HAVAS</b></div>
+                <div className="wppCaseIndex"><span>3.3</span><b><B zh="代表性代理商" en="WPP / HAVAS / PUBLICIS" /></b></div>
                 <div>
-                  <h3 id="wpp-case-title"><span className="langZh">代理商是最大的增长入口：<br /><span>从简单的AI创意预览，到真正投产到Production</span></span><span className="langEn">Agencies are the biggest growth door:<br /><span>from simple AI previews to real production</span></span></h3>
+                  <h3 id="wpp-case-title"><span className="langZh">全球代理商业务模式：<br /><span>从策略与创意预演，到正式制作和媒体交付。</span></span><span className="langEn">Global agency operating model:<br /><span>from strategy and previsualization to production and media delivery.</span></span></h3>
                 </div>
-                <div className="wppHeaderProofs" aria-label="代理商合作方式与 WPP Open 覆盖规模">
-                  <div><span><B zh="合作方式" en="ENGAGEMENT" /></span><strong><B zh="模型 API 为主" en="Model API first" /></strong></div>
-                  <div><span>WPP Open</span><strong><B zh="覆盖WPP 80,000+ 员工" en="Reaches 80,000+ WPP staff" /></strong></div>
+                <div className="wppHeaderProofs" aria-label="代表性代理商与标准工作方式">
+                  <div><span><B zh="代表性代理商" en="REPRESENTATIVE AGENCIES" /></span><strong>WPP · Havas · Publicis</strong></div>
+                  <div><span><B zh="标准工作方式" en="STANDARD MODEL" /></span><strong><B zh="平台化创意与制作流程" en="Platform-enabled creative production" /></strong></div>
                 </div>
               </header>
 
               <div className="wppPresentationCanvas wppCondensedCanvas">
                 <section className="wppStageStrip wppStrategyStageStrip" aria-label="Creative Production Media 三个业务环节">
                   <article className="wppWorkstreamIdentity wppStageCreative">
-                    <header><b>CREATIVE</b></header>
-                    <div className="wppStageMetric"><strong>30%</strong><i>→</i><strong>70%</strong></div>
-                    <h4><B zh="先切入创意原型工作流" en="Land in creative prototyping first" /></h4>
-                    <p><B zh="概念、分镜与 Pre-vis 可讨论、可审片、可拿去赢预算，当前最容易快速放量。" en="Concepts, boards and pre-vis you can discuss, review and win budgets with — the fastest to scale today." /></p>
+                    <header><b><B zh="创意" en="CREATIVE" /></b></header>
+                    <div className="wppStageMetric"><strong><B zh="创意" en="IDEA" /></strong><i>→</i><strong><B zh="分镜" en="BOARD" /></strong></div>
+                    <h4><B zh="把策略转成可审阅的创意预演" en="Turn strategy into reviewable previsualization" /></h4>
+                    <p><B zh="明确受众、品牌主张和导演概念，再通过脚本、分镜与预演完成品牌审阅。" en="Define audience, brand proposition and directorial concept, then review scripts, boards and previsualization." /></p>
                     <footer><b><B zh="模型重点" en="MODEL FOCUS" /></b><span><B zh="速度 · 风格控制 · 品牌资产" en="Speed · style control · brand assets" /></span></footer>
                   </article>
                   <article className="wppWorkstreamIdentity wppStageProduction">
-                    <header><b>PRODUCTION</b></header>
-                    <div className="wppStageMetric"><strong><B zh="10% 至 15%" en="10–15%" /></strong><i>→</i><strong>70%</strong></div>
-                    <h4><B zh="向端到端正式制作放大" en="Scale into end-to-end production" /></h4>
-                    <p><B zh="以 3D / Digital Twin 锁定产品与镜头，AI 从渲染向拍摄、CG 与后期延伸。" en="3D / digital twins lock product and camera; AI extends from rendering into shoots, CG and post." /></p>
+                    <header><b><B zh="制作" en="PRODUCTION" /></b></header>
+                    <div className="wppStageMetric"><strong><B zh="资产" en="ASSET" /></strong><i>→</i><strong><B zh="母版" en="MASTER" /></strong></div>
+                    <h4><B zh="进入端到端正式制作" en="Move into end-to-end production" /></h4>
+                    <p><B zh="用三维资产和数字孪生锁定产品、场景与镜头，再连接实拍、生成、特效和后期。" en="Use 3D assets and digital twins to lock product, scene and camera, then connect live action, generation, VFX and post." /></p>
                     <footer><b><B zh="模型重点" en="MODEL FOCUS" /></b><span><B zh="一致性 · 可控镜头 · 4K · 3D渲染" en="Consistency · camera control · 4K · 3D rendering" /></span></footer>
                   </article>
                   <article className="wppWorkstreamIdentity wppStageMedia">
-                    <header><b>MEDIA</b></header>
-                    <div className="wppStageMetric wppStageMetricCurrent"><strong><B zh="20% 至 30%" en="20–30%" /></strong></div>
+                    <header><b><B zh="媒体" en="MEDIA" /></b></header>
+                    <div className="wppStageMetric"><strong><B zh="母版" en="MASTER" /></strong><i>→</i><strong><B zh="变体" en="VARIANTS" /></strong></div>
                     <h4><B zh="把母版规模化复制" en="Replicate masters at scale" /></h4>
-                    <p><B zh="围绕 Master Video，批量适配不同渠道、市场、语言与人群。" en="Adapt master videos across channels, markets, languages and audiences in batches." /></p>
+                    <p><B zh="围绕母版视频，批量适配不同渠道、市场、语言与人群，并回收投放反馈。" en="Adapt master videos across channels, markets, languages and audiences, then return media feedback." /></p>
                     <footer><b><B zh="模型重点" en="MODEL FOCUS" /></b><span><B zh="精准编辑 · 本地化" en="Precise editing · localization" /></span></footer>
                   </article>
                 </section>
@@ -853,59 +853,59 @@ export default function Home() {
 
             <article className="wppWorkPage" id="customer-agency-case" aria-labelledby="wpp-work-title">
               <header className="wppWorkHeader">
-                <div className="wppWorkIndex"><span>3.4</span><b>AGENCY CASE STUDY</b></div>
+                <div className="wppWorkIndex"><span>3.4</span><b><B zh="代理商标准流程" en="AGENCY WORKFLOW" /></b></div>
                 <div>
-                  <h3 id="wpp-work-title"><span className="langZh">代理商怎么工作：<br /><span>导演创意为核新，四步走到帧级交付。</span></span><span className="langEn">How agencies work:<br /><span>director-led creative, four steps to frame-level delivery.</span></span></h3>
+                  <h3 id="wpp-work-title"><span className="langZh">代理商怎么工作：<br /><span>导演创意为核心，四步走到帧级交付。</span></span><span className="langEn">How agencies work:<br /><span>director-led creative, four steps to frame-level delivery.</span></span></h3>
                 </div>
                 <a className="wppWorkDetailLink" href="#solution-brand"><B zh="Sofa 全流程制作方法见品牌方案" en="Full sofa pipeline in the brand solution" /><b>↘</b></a>
               </header>
 
               <div className="wppWorkCanvas">
                 <section className="wppWorkFlow" aria-label="代理商品牌广告四步工作方式">
-                  <header><span>TEAM &amp; WORKFLOW</span><h4><B zh="团队组织与工作方式" en="Team structure and ways of working" /></h4></header>
+                  <header><span><B zh="团队与流程" en="TEAM &amp; WORKFLOW" /></span><h4><B zh="通用制作工作流" en="Standard production workflow" /></h4></header>
                   <ol>
                     <li>
                       <span>01</span>
-                      <div><h5>Creative &amp; Previz</h5><p><B zh="导演主导创意概念，AI Pre-vis 分镜板交客户审签后立项。" en="Director-led concepts; AI pre-vis boards go to the client for sign-off." /></p></div>
+                      <div><h5><B zh="创意与预演" en="Creative &amp; Previz" /></h5><p><B zh="导演主导创意概念，生成式预演分镜经过品牌审阅后进入制作。" en="Director-led concepts; generative previsualization boards move into production after brand review." /></p></div>
                     </li>
                     <li>
                       <span>02</span>
-                      <div><h5>Production</h5><p><B zh="实拍 + 3D + AI 渲染混合制作，追求帧级质量与一致性。" en="Live action + 3D + AI rendering, for frame-level quality and consistency." /></p></div>
+                      <div><h5><B zh="正式制作" en="Production" /></h5><p><B zh="实拍、三维制作与生成式渲染协同，确保帧级质量和跨镜头一致性。" en="Live action, 3D and generative rendering work together for frame-level quality and consistency." /></p></div>
                     </li>
                     <li>
                       <span>03</span>
-                      <div><h5>Post-Production &amp; Audio</h5><p><B zh="VFX 与后期收尾，其中约 20% 的工作量已可由 AI 替代。" en="VFX and finishing; about 20% already AI-replaceable today." /></p></div>
+                      <div><h5><B zh="后期与声音" en="Post-production &amp; audio" /></h5><p><B zh="完成特效、逐帧修补、剪辑、调色和声音制作，再形成可审阅母版。" en="Complete VFX, frame-level cleanup, editing, grading and audio before producing a reviewable master." /></p></div>
                     </li>
                     <li>
                       <span>04</span>
-                      <div><h5>Review &amp; Delivery</h5><p><B zh="品牌、法务与平台三道质检门，全部通过后才能上刊。" en="Brand, legal and platform QC gates before a single airing." /></p></div>
+                      <div><h5><B zh="审核与交付" en="Review &amp; delivery" /></h5><p><B zh="经过品牌、法务和平台规范审核后，输出母版及各渠道交付版本。" en="After brand, legal and platform review, deliver the master and channel-ready versions." /></p></div>
                     </li>
                   </ol>
-                  <footer><B zh="少量成片 · 每完成秒制作成本最高 $10K–100K+" en="Few final films · up to $10K–100K+ per finished second" /></footer>
+                  <footer><B zh="高质量母版 · 多轮审核 · 多渠道版本交付" en="High-quality master · iterative review · multi-channel delivery" /></footer>
                 </section>
 
-                <section className="wppWorkCase" aria-label="WPP 汽车客户 Paris Street VFX 制作案例">
+                <section className="wppWorkCase" aria-label="汽车广告混合制作流程示例">
                   <header>
-                    <span>CASE · AUTOMOTIVE</span>
-                    <h4><B zh="Paris Street VFX：一次实拍，Seedream + Seedance 完成好莱坞级 VFX。" en="Paris Street VFX: one real shoot, then Seedream + Seedance deliver Hollywood-grade VFX." /></h4>
-                    <p><B zh="绿色 DS 3 行驶在雨后巴黎奥斯曼街区，路面升起珊瑚粉与浅蓝颜料 VFX。实拍素材仅来自一天的封闭场地拍摄。" en="A green DS 3 drives a wet Haussmann street as coral-pink and pale-blue pigment VFX rise from the road. The only footage: one day on a closed lot." /></p>
+                    <span><B zh="流程示例 · 汽车广告" en="WORKFLOW EXAMPLE · AUTOMOTIVE" /></span>
+                    <h4><B zh="汽车广告混合制作：实拍锁定运动，Seedream + Seedance 完成场景与特效。" en="Hybrid automotive production: live action locks motion; Seedream + Seedance build the scene and VFX." /></h4>
+                    <p><B zh="先拍摄车辆运动参考，再生成环境、目标画面与特效版本，最后进入剪辑、调色和品牌审核。" en="Capture vehicle motion reference, generate environment, target frames and VFX variants, then move through edit, grade and brand review." /></p>
                   </header>
                   <div className="wppWorkCaseClips">
                     <figure>
                       <video src="/media/wpp-auto-input.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="封闭场地实拍运动参考片段" />
-                      <figcaption>REAL SHOOT · MOTION REF</figcaption>
+                      <figcaption><B zh="实拍运动参考" en="REAL SHOOT · MOTION REF" /></figcaption>
                     </figure>
                     <i aria-hidden="true">→</i>
                     <figure>
                       <video src="/media/wpp-auto-final.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="Seedance 生成的巴黎街区 VFX 成片片段" />
-                      <figcaption>SEEDANCE FINAL CUT</figcaption>
+                      <figcaption><B zh="生成式特效成片" en="GENERATIVE VFX FINAL" /></figcaption>
                     </figure>
                   </div>
-                  <p className="wppWorkCasePipeline"><b>PIPELINE</b><B zh="Seedream 5.0 生成巴黎街景板与伪目标帧" en="Seedream 5.0 builds the Paris street plate and pseudo target frames" /> <i>→</i> <B zh="Seedance 2.0 以视频参考锁运动、图像参考锁质感" en="Seedance 2.0 locks motion via video ref, look via image refs" /></p>
+                  <p className="wppWorkCasePipeline"><b><B zh="制作链路" en="PIPELINE" /></b><B zh="Seedream 生成环境板与目标帧" en="Seedream builds environment plates and target frames" /> <i>→</i> <B zh="Seedance 以视频参考锁运动、图像参考锁质感" en="Seedance locks motion via video ref and look via image refs" /></p>
                   <div className="wppWorkCaseMetrics">
-                    <div><span>HERO SHOT</span><strong><B zh="3–5 天" en="3–5 days" /></strong><small><B zh="传统 CG 需 6–10 周" en="vs 6–10 weeks in CG" /></small></div>
-                    <div><span><B zh="总成本" en="TOTAL COST" /></span><strong>$30–65K</strong><small><B zh="传统 CG $410K–$1.06M" en="vs $410K–$1.06M in CG" /></small></div>
-                    <div><span><B zh="单条变体" en="PER VARIANT" /></span><strong>~$1–3</strong><small><B zh="换色 / 换景仅需 Token 成本" en="recolor / rescene at token cost" /></small></div>
+                    <div><span><B zh="运动控制" en="MOTION CONTROL" /></span><strong><B zh="实拍参考" en="VIDEO REF" /></strong><small><B zh="保留车辆速度、路径与镜头运动" en="Preserves speed, path and camera motion" /></small></div>
+                    <div><span><B zh="视觉控制" en="VISUAL CONTROL" /></span><strong><B zh="目标帧" en="IMAGE REF" /></strong><small><B zh="锁定环境、材质、光线与特效风格" en="Locks environment, material, light and VFX style" /></small></div>
+                    <div><span><B zh="版本延展" en="VERSIONING" /></span><strong><B zh="批量变体" en="VARIANTS" /></strong><small><B zh="换色、换景与区域版本复用同一母版" en="Reuses one master across color, scene and market variants" /></small></div>
                   </div>
                 </section>
               </div>
@@ -913,25 +913,25 @@ export default function Home() {
 
             <article className="adtechCasePage" id="customer-adtech" aria-labelledby="adtech-case-title">
               <header className="adtechCaseHeader">
-                <div className="adtechCaseIndex"><span>03</span><b>ADTECH / PAID MEDIA</b></div>
+                <div className="adtechCaseIndex"><span>03</span><b><B zh="广告技术 / 付费媒体" en="ADTECH / PAID MEDIA" /></b></div>
                 <div>
-                  <p>CAMPAIGN AGENT · 1 → 3</p>
-                  <h3 id="adtech-case-title"><span className="langZh">抓住 Campaign Agent 的增长窗口：<br /><span>让素材自动化成为必要组成。</span></span><span className="langEn">Seize the campaign-agent window:<br /><span>make creative automation a required part.</span></span></h3>
+                  <p><B zh="投放智能体 · 标准工作流" en="CAMPAIGN AGENT · STANDARD WORKFLOW" /></p>
+                  <h3 id="adtech-case-title"><span className="langZh">广告技术与付费媒体的素材闭环：<br /><span>从市场洞察到投放反馈。</span></span><span className="langEn">The AdTech and paid-media creative loop:<br /><span>from market insight to media feedback.</span></span></h3>
                 </div>
-                <aside className="adtechStageBadge" aria-label="Campaign Agent 市场阶段">
-                  <span>MARKET STAGE</span><strong>1 → 3</strong><b><B zh="进入可复制阶段" en="entering replication" /></b>
+                <aside className="adtechStageBadge" aria-label="投放智能体五步标准流程">
+                  <span><B zh="标准流程" en="STANDARD FLOW" /></span><strong>5</strong><b><B zh="步素材闭环" en="step creative loop" /></b>
                 </aside>
               </header>
 
               <div className="adtechGrowthCanvas">
                 <section className="adtechAgentPanel" aria-labelledby="adtech-agent-title">
                   <header>
-                    <span>CAMPAIGN AGENT · END TO END</span>
-                    <h4 id="adtech-agent-title"><B zh="Campaign Agent 端到端在做什么。" en="What a campaign agent does end to end." /></h4>
+                    <span><B zh="投放智能体 · 端到端" en="CAMPAIGN AGENT · END TO END" /></span>
+                    <h4 id="adtech-agent-title"><B zh="投放智能体的端到端标准流程。" en="The standard campaign-agent workflow, end to end." /></h4>
                   </header>
 
                   <div className="adtechManagerStrip" aria-label="市场主流 Ad Manager 平台">
-                    <span><B zh="主流 AD MANAGER 都在内建 Campaign Agent" en="EVERY MAJOR AD MANAGER IS BUILDING ONE IN" /></span>
+                    <span><B zh="代表性广告管理平台与智能投放产品" en="REPRESENTATIVE AD MANAGERS AND CAMPAIGN PRODUCTS" /></span>
                     <ul>
                       <li><b>TikTok</b><small>Ads Manager · Smart+</small></li>
                       <li><b>Meta</b><small>Ads Manager · Advantage+</small></li>
@@ -948,7 +948,7 @@ export default function Home() {
                     </li>
                     <li>
                       <span>02</span>
-                      <div><h5><B zh="广告脚本" en="Ad scripts" /></h5><p><B zh="自动生成 Hook、分镜与 CTA 的可执行脚本。" en="Auto-generate executable scripts: hooks, boards and CTAs." /></p></div>
+                      <div><h5><B zh="广告脚本" en="Ad scripts" /></h5><p><B zh="自动生成开场创意、分镜与行动引导，形成可执行脚本。" en="Generate executable scripts with hooks, boards and calls to action." /></p></div>
                     </li>
                     <li>
                       <span>03</span>
@@ -960,7 +960,7 @@ export default function Home() {
                     </li>
                     <li>
                       <span>05</span>
-                      <div><h5><B zh="爆款复刻放大" en="Clone winners and scale" /></h5><p><B zh="AI 视频素材占比持续上升，胜出结构换品、换人、换市场复制，模型调用与收入同步放大。" en="AI share of live video keeps rising; winners swap product, cast and market — model calls and revenue scale together." /></p></div>
+                      <div><h5><B zh="胜出素材迭代" en="Iterate winning creative" /></h5><p><B zh="将聚合效果信号回流到洞察与脚本，保留胜出结构并替换商品、人物或市场变量。" en="Feed aggregated performance signals back into insight and scripts; keep winning structures while changing product, cast or market variables." /></p></div>
                     </li>
                   </ol>
                 </section>
@@ -977,11 +977,11 @@ export default function Home() {
             <header className="brandSolutionHeader">
               <div className="brandSolutionIndex"><span>01</span><b>BRAND PRODUCTION</b></div>
               <div className="brandSolutionTitle">
-                <p className="langZh">CG + AI 混合制作</p><p className="langEn">CG + AI HYBRID PRODUCTION</p>
+                <p className="langZh">CG + AI 混合制作 · 四个品牌样片</p><p className="langEn">CG + AI HYBRID PRODUCTION · 4 BRAND DEMOS</p>
                 <h3 className="langZh" id="brand-solution-title">品牌广告制作方案</h3>
                 <h3 className="langEn">Brand Advertising Production Solution</h3>
               </div>
-              <a className="solutionDetailLink" href="https://sofa-demo.byteplus-demo.com/" target="_blank" rel="noreferrer"><span className="langZh">查看方案详情</span><span className="langEn">View solution details</span><b>↗</b></a>
+              <a className="solutionDetailLink" href="https://sofa-demo.byteplus-demo.com/" target="_blank" rel="noopener noreferrer"><span className="langZh">查看方案详情</span><span className="langEn">View solution details</span><b>↗</b></a>
             </header>
 
             <div className="brandSolutionBody">
@@ -1041,7 +1041,7 @@ export default function Home() {
                 <ArchitectureImageLightbox />
               </section>
 
-              <section className="brandDemoStrip" aria-label="品牌广告四个视频 Demo">
+              <section className="brandDemoStrip" id="solution-brand-demos" aria-label="品牌广告四个视频 Demo">
                 <header><span>4 × BRAND DEMOS</span><b className="langZh">Branding Ads 样片</b><b className="langEn">Branding Ads demos</b></header>
                 <div className="brandDemoCompactGrid">
                   {solutionVideoDemos.brand.map((demo) => (
@@ -1059,7 +1059,7 @@ export default function Home() {
             <header className="performanceSolutionHeader">
               <div className="performanceSolutionIndex"><span>03</span><b>PERFORMANCE ADS</b></div>
               <div><p><B zh="五步运作链 × 四个样片" en="5-STEP LOOP × 4 DEMOS" /></p><h3><span className="langZh">效果广告制作方案<br /><span>流程、样片与能力证据。</span></span><span className="langEn">Performance ads production<br /><span>process, demos and proof.</span></span></h3></div>
-              <div className="solutionHeaderAside"><p><B zh="从洞察、生产到投放复刻，形成一条可持续迭代的素材生产闭环。" en="From insight and production to launch and cloning — one continuously iterating creative loop." /></p><a className="solutionDetailLink" href="https://bytedance.sg.larkoffice.com/docx/YpqAdyBReoQt3gxDZUql9wMagIf" target="_blank" rel="noreferrer"><B zh="查看方案详情" en="View solution details" /><b>↗</b></a></div>
+              <div className="solutionHeaderAside"><p><B zh="从洞察、生产到投放复刻，形成一条可持续迭代的素材生产闭环。" en="From insight and production to launch and cloning — one continuously iterating creative loop." /></p><a className="solutionDetailLink" href="#solution-performance-demos"><B zh="查看效果广告样片" en="View performance demos" /><b>↓</b></a></div>
             </header>
 
             <div className="performanceSolutionBody">
@@ -1097,7 +1097,7 @@ export default function Home() {
                 <footer className="performanceFeedbackRail"><strong><B zh="↺ 跑赢素材回到洞察，持续迭代" en="↺ Winners feed back into insight — keep iterating" /></strong></footer>
               </section>
 
-              <section className="performanceEvidenceGallery" aria-label="效果广告四个视频 Demo 与能力证据">
+              <section className="performanceEvidenceGallery" id="solution-performance-demos" aria-label="效果广告四个视频 Demo 与能力证据">
                 {solutionVideoDemos.performance.map((demo) => (
                   <article className="performanceEvidenceCard" key={demo.src}>
                     <div className="performanceEvidenceVideo"><video src={demo.src} poster={demo.poster} controls muted playsInline preload="metadata" aria-label={`${demo.title}效果广告视频 Demo`} /><span>{demo.order}</span></div>
@@ -1121,8 +1121,8 @@ export default function Home() {
           <article className="solutionPage displaySolutionPage" id="solution-display">
             <header className="displaySolutionHeader">
               <div className="displaySolutionIndex"><span>04</span><b>DISPLAY ADS</b></div>
-              <div><p>VISUAL MASTER × DETERMINISTIC SCALE</p><h3><span className="langZh">Display Ads 制作方法<br /><span>一个母版，规模化交付。</span></span><span className="langEn">Display ads method<br /><span>one master, delivered at scale.</span></span></h3></div>
-              <div className="solutionHeaderAside"><p><B zh="Seedream 负责视觉创意；Template + DCO 把母版准确扩展到每个尺寸、语言、SKU 与人群。" en="Seedream owns visual creative; Template + DCO expand the master into every size, language, SKU and audience." /></p><a className="solutionDetailLink" href="https://bytedance.sg.larkoffice.com/docx/BDRLd6Y8Ponm2QxRUFBl1AJXgyh" target="_blank" rel="noreferrer"><B zh="查看方案详情" en="View solution details" /><b>↗</b></a></div>
+              <div><p><B zh="视觉母版 × 确定性扩展 · 三张图片样片" en="VISUAL MASTER × DETERMINISTIC SCALE · 3 IMAGE DEMOS" /></p><h3><span className="langZh">展示广告制作方法<br /><span>一个母版，规模化交付。</span></span><span className="langEn">Display ads method<br /><span>one master, delivered at scale.</span></span></h3></div>
+              <div className="solutionHeaderAside"><p><B zh="Seedream 负责视觉创意；模板与动态创意优化把母版准确扩展到每个尺寸、语言、商品与人群。" en="Seedream owns visual creative; templates and DCO expand the master into every size, language, SKU and audience." /></p><a className="solutionDetailLink" href="#solution-display-demos"><B zh="查看展示广告样片" en="View display demos" /><b>↓</b></a></div>
             </header>
 
             <div className="displaySolutionBody">
@@ -1239,17 +1239,17 @@ export default function Home() {
                 </div>
               </section>
 
-              <section className="playableDemoPanel" aria-label="两个 Playable 试玩案例">
+              <section className="playableDemoPanel" id="solution-playable-demos" aria-label="两个 Playable 试玩案例">
                 <header><span>2 × LIVE DEMOS</span></header>
                 <div className="playableDemoGrid">
                   {playableDemos.map((demo) => (
                     <article className="playableDemoCard" key={demo.title}>
                       <div className="playableDemoFrame"><iframe src={demo.src} title={`${demo.title} Playable Demo`} loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation" /></div>
-                      <footer><span>DEMO {demo.index}</span><p><b>{demo.title}</b><small className="langZh">{demo.titleZh}</small><small className="langEn">{demo.titleEn}</small></p><a href={demo.src} target="_blank" rel="noreferrer" aria-label={`新窗口打开 ${demo.title} Demo`}>↗</a></footer>
+                      <footer><span>DEMO {demo.index}</span><p><b>{demo.title}</b><small className="langZh">{demo.titleZh}</small><small className="langEn">{demo.titleEn}</small></p><a href={demo.src} target="_blank" rel="noopener noreferrer" aria-label={`新窗口打开 ${demo.title} Demo`}>↗</a></footer>
                     </article>
                   ))}
                 </div>
-                <a className="playableAllDemos" href="https://playable.byteplus-demo.com/" target="_blank" rel="noreferrer"><span className="langZh">查看 Playable 方案详情与更多案例</span><span className="langEn">View solution details and more demos</span><b>↗</b></a>
+                <a className="playableAllDemos" href="https://playable.byteplus-demo.com/" target="_blank" rel="noopener noreferrer"><span className="langZh">查看 Playable 方案详情与更多案例</span><span className="langEn">View solution details and more demos</span><b>↗</b></a>
               </section>
             </div>
           </article>
@@ -1269,7 +1269,6 @@ export default function Home() {
                   <p><B zh={gap.copy} en={gap.copyEn} /></p>
                   <ul className="langZh">{gap.examples.map((example) => <li key={example}>{example}</li>)}</ul>
                   <ul className="langEn">{gap.examplesEn.map((example) => <li key={example}>{example}</li>)}</ul>
-                  {gap.link && <a href={gap.link} target="_blank" rel="noreferrer"><B zh={gap.linkLabel} en={gap.linkLabelEn ?? gap.linkLabel} /></a>}
                 </section>
               ))}
               <div className="productGateCenter" aria-hidden="true"><span>SCALE</span><b>PRODUCTION</b><i>×</i></div>

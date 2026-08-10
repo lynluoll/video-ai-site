@@ -5880,7 +5880,13 @@ button, summary { font: inherit; }
 /* v2.5 · EN-length fixes */
 .customerFlowIndex b { max-width: 132px; font-size: 9px; line-height: 1.5; letter-spacing: .12em; white-space: normal; }
 .lorealCaseIndex b > .langZh,
-.lorealCaseIndex b > .langEn {
+.lorealCaseIndex b > .langEn,
+.wppCaseIndex b > .langZh,
+.wppCaseIndex b > .langEn,
+.adtechCaseIndex b > .langZh,
+.adtechCaseIndex b > .langEn,
+.wppWorkIndex b > .langZh,
+.wppWorkIndex b > .langEn {
   color: inherit;
   font-family: inherit;
   font-size: inherit;

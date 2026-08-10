@@ -1,6 +1,6 @@
 # Ads Demo 站点小范围改进计划
 
-> 状态：待评审，尚未实施
+> 状态：站点内容修改完成；对外 One-pager 等待脱敏后的公开链接
 > 原则：不大改页面结构，不重做视觉风格，只处理内容表达、Demo 质量和飞书 One-pager 外链。
 
 ## 1. 已确认要求
@@ -87,27 +87,33 @@
 
 保持现有 WPP 页面和制作流程视觉：
 
-- [ ] WPP、Havas、Publicis 等名称可以保留为代表性代理商。
-- [ ] 只讲 Strategy、Creative、Previz、Production、Post-production、Review 等通用流程。
-- [ ] 不描述具体客户、内部团队、合作进度或未公开项目。
-- [ ] 保留 Sofa 制作流程和方案入口。
+- [x] WPP、Havas、Publicis 等名称可以保留为代表性代理商。
+- [x] 只讲 Strategy、Creative、Previz、Production、Post-production、Review 等通用流程。
+- [x] 不描述具体客户、内部团队、合作进度或未公开项目。
+- [x] 保留 Sofa 制作流程和方案入口。
+
+完成说明：删除员工覆盖规模、制作比例、成本、周期和合作状态等具体信息；保留代表性代理商名称，并将两页内容统一为策略、创意预演、正式制作、后期、审核、媒体版本与反馈的标准流程。
 
 ### 3.6 AdTech / Paid Media 案例区
 
 保持现有页面：
 
-- [ ] 保留 AppLovin、Pinterest、Criteo 等代表公司名称。
-- [ ] 不展示具体客户消耗、收入、用户数或当前销售进展。
-- [ ] 重点讲标准 Campaign Agent 流程和素材效果回流。
-- [ ] 保留现有五步流程和页面结构。
+- [x] 保留 AppLovin、Pinterest、Criteo 等代表公司名称。
+- [x] 不展示具体客户消耗、收入、用户数或当前销售进展。
+- [x] 重点讲标准 Campaign Agent 流程和素材效果回流。
+- [x] 保留现有五步流程和页面结构。
+
+完成说明：删除“市场阶段”“进入可复制阶段”和“收入同步放大”等状态性表述，改为市场洞察、脚本、素材生产、测试、聚合反馈五步标准闭环。
 
 ### 3.7 方案页面
 
 Brand、Performance、Display、Playable 方案页面保持不变，只加强 Demo 外链：
 
-- [ ] 每个方案明确关联对应 Demo Gallery。
-- [ ] 保留现有方案流程、模型能力和价值说明。
-- [ ] 不新增大型页面或重新拆分路由。
+- [x] 每个方案明确关联对应 Demo Gallery。
+- [x] 保留现有方案流程、模型能力和价值说明。
+- [x] 不新增大型页面或重新拆分路由。
+
+完成说明：为 Brand、Performance、Display、Playable 的现有 Gallery 增加稳定锚点，并将 Performance、Display 的方案入口改为站内对应样片区域；没有新增页面或路由。
 
 ## 4. Demo Gallery 与飞书 One-pager
 
@@ -130,12 +136,16 @@ Brand、Performance、Display、Playable 方案页面保持不变，只加强 De
 
 交互要求：
 
-- [ ] 新标签页打开飞书文档。
-- [ ] 使用 `target="_blank"`。
-- [ ] 使用 `rel="noopener noreferrer"`。
-- [ ] 没有 One-pager 链接的 Demo 不显示按钮，或显示 `Coming soon`。
-- [ ] 上线前检查飞书文档的目标访问权限。
-- [ ] 不用 iframe 嵌入飞书文档。
+- [x] 新标签页打开飞书文档。
+- [x] 使用 `target="_blank"`。
+- [x] 使用 `rel="noopener noreferrer"`。
+- [x] 没有 One-pager 链接的 Demo 不显示按钮，或显示 `Coming soon`。
+- [x] 上线前检查飞书文档的目标访问权限。
+- [x] 不用 iframe 嵌入飞书文档。
+
+P0 核验结果：现有 Performance 与 Display 飞书方案文档可读取，但包含内部测算、产品缺口、规模目标与当前判断，不符合对外 One-pager 口径，因此已从对外站点移除链接并在台账标记为“内部文档”。获得脱敏后的公开 URL 前，Demo 不显示 One-pager 按钮。
+
+根据评审意见，页面不新增合规声明、数据口径等解释性小字；合规控制直接落实在正文泛化与内部链接下线中。
 
 ### 4.2 推荐实现方式
 
@@ -236,15 +246,17 @@ type DemoLink = {
 
 所有准备对外链接的 Demo 做一次轻量检查，不建立新的复杂评测系统。
 
+本轮按评审意见不处理 Demo 画面本身的 Bad Case；仅核对页面描述、媒体可用性与对外链接合规性。
+
 ### 检查项
 
 - [ ] 是否有明显皮肤、肢体或物理错误。
 - [ ] 是否有不可读的小字。
 - [ ] 是否有时钟数字跳动。
 - [ ] 是否有未经确认的品牌 Logo 或商品包装。
-- [ ] 页面描述是否和 Demo 内容一致。
-- [ ] 飞书文档是否包含客户内部信息。
-- [ ] 飞书链接是否可访问。
+- [x] 页面描述是否和 Demo 内容一致。
+- [x] 飞书文档是否包含客户内部信息。
+- [x] 飞书链接是否可访问。
 
 ### 已知 Demo 处理建议
 
@@ -255,13 +267,7 @@ type DemoLink = {
 
 ## 7. 页面说明文字
 
-建议在“典型客户”附近或页面底部增加一次说明：
-
-> 文中企业名称用于说明代表性行业角色与公开业务场景，不代表客户背书或已建立商业合作。具体方案内容为行业通用分析，不包含相关企业的未公开经营信息。
-
-英文：
-
-> Company names illustrate representative industry roles and public market scenarios. They do not imply endorsement or a commercial relationship. Solution descriptions are based on general industry workflows and do not disclose non-public company information.
+按评审意见，不在页面增加免责声明或其他解释性小字。合规要求通过正文使用行业通用表达、删除内部数字和下线内部文档链接实现。
 
 ## 8. 实施顺序
 
@@ -298,16 +304,18 @@ type DemoLink = {
 
 ## 9. 验收标准
 
-- [ ] 页面主要结构和视觉没有明显变化。
-- [ ] 典型客户名称可以正常展示。
-- [ ] 页面不包含客户未公开的具体情况。
-- [ ] 市场、场景、方案和 Demo 关系清楚。
+- [x] 页面主要结构和视觉没有明显变化。
+- [x] 典型客户名称可以正常展示。
+- [x] 页面不包含客户未公开的具体情况。
+- [x] 市场、场景、方案和 Demo 关系清楚。
 - [ ] 需要展开阅读的 Demo 都能跳转到飞书 One-pager。
 - [ ] 飞书链接在目标访问身份下可正常打开。
 - [ ] 明显 Bad Case 不作为首页成功案例展示。
-- [ ] 页面没有失效图片、视频和外链。
-- [ ] 中英文内容一致。
-- [ ] 项目构建通过。
+- [x] 页面没有失效图片、视频和外链。
+- [x] 中英文内容一致。
+- [x] 项目构建通过。
+
+未勾选项说明：对外 One-pager 尚缺脱敏后的公开链接；Demo 画面 Bad Case 按评审意见不在本轮处理。当前内部飞书文档已完成可访问性与内容核验，但不会在对外页面展示。
 
 ## 10. 评审意见区
 
