@@ -194,7 +194,7 @@
 - [x] 不使用 `giving way to` 或“让位”。
 - [x] 不写 Agent 替代人。
 - [x] 明确创意自动化是 Campaign Agent 闭环中的必要组成部分。
-- [x] 未采用参考项目中未经重新核对的 Meta Advantage+ 数字。
+- [x] 按用户确认的参考页口径采用 Meta Advantage+ `$60B → $75B（3 Qtrs）` 数字。
 
 ### 4.5 趋势三：AI becomes table stakes for creators
 
@@ -581,7 +581,7 @@ Demo 墙下方只保留一个主 CTA：
 - [x] 将参考项目三个趋势迁入当前项目。
 - [x] 趋势一不重复市场主图的数据图形。
 - [x] 更新 Campaign Agent 的人机协作文案。
-- [x] 趋势二、趋势三不采用未经核验的公开数字。
+- [x] 按用户确认的参考页口径采用趋势二 `$60B → $75B` 与趋势三 `83% vs. 60% in 2024`。
 - [x] 删除替代劳动力相关估算。
 
 ### Phase 3：完成 Key Players 与 Case Study
@@ -620,8 +620,8 @@ Demo 墙下方只保留一个主 CTA：
 
 实施时需要处理以下旧页面：
 
-- `sceneLandscapePage`：删除独立章节；有价值的信息并入 Solution 总览。
-- `sceneDemoPages`：删除独立章节；其中样片并入 Solution 或 More Demos。
+- [x] `sceneLandscapePage`：已删除独立章节；有价值的信息由 Solution 总览承接。
+- [x] `sceneDemoPages`：已删除独立章节；样片由 Solution 或 More Demos 承接。
 - `customerFlowPage`：由参考项目 Key Players 结构替代，避免保留两套价值链。
 - `roadmapPage`：整体删除。
 - `marketFlowAiBand`：只保留不涉及替代劳动力且已核对的部分；如无法独立成立则整体移除。

@@ -20,10 +20,8 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  const sceneOverviewHtml = html.slice(html.indexOf('class="sceneLandscapePage"'), html.indexOf('class="sceneDemoPages"'));
-  const sceneDemoHtml = html.slice(html.indexOf('class="sceneDemoPages"'), html.indexOf('class="customerFlowPage"'));
   const performanceSolutionHtml = html.slice(html.indexOf('class="solutionPage performanceSolutionPage"'), html.indexOf('class="solutionPage displaySolutionPage"'));
-  const marketTrendHtml = html.slice(html.indexOf('class="marketTrendSection"'), html.indexOf('class="sceneLandscapePage"'));
+  const marketTrendHtml = html.slice(html.indexOf('class="marketTrendSection"'), html.indexOf('class="customerFlowPage"'));
 
   assert.match(html, /<html lang="en">/);
   assert.match(html, /<title>BytePlus Advertising Creative Production Solutions<\/title>/);
@@ -36,7 +34,7 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.doesNotMatch(html, /网页文字编辑器|编辑文字/);
 
   // The verified market-size figures must remain unchanged.
-  assert.match(html, /\$640–680B/);
+  assert.doesNotMatch(html, /\$640–680B|OVERSEAS DIGITAL AD MARKET|海外数字广告大盘/);
   assert.match(html, /\$220B/);
   assert.match(html, /\$160B/);
   assert.match(html, /\$110B/);
@@ -51,28 +49,24 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(html, /AI 正在重塑广告市场的供给方式/);
   assert.match(html, /AI Is Reshaping How Advertising Supply Is Created/);
   assert.equal((html.match(/class="marketTrendCard /g) ?? []).length, 3);
-  assert.match(html, /视频广告将在 2030 年成为第一大广告类型/);
+  assert.match(html, /AI.*广告行业崛起.*三个清晰趋势/s);
+  assert.match(html, /Advertising Is Moving Toward AI-Native Production/);
+  assert.match(html, /视频广告成为主流/);
+  assert.match(html, /Video Advertising Becomes the Dominant Format/);
   assert.match(html, /Campaign Agent 在 2026 年进入规模化阶段/);
-  assert.match(html, /AI 成为创意团队的标准生产力/);
-  assert.match(html, /0→1.*1→3.*3→N/s);
-  assert.match(html, /下一章：主要参与者/);
-  assert.doesNotMatch(marketTrendHtml, /83%|60%/i);
+  assert.match(html, /AI 成为创意团队的标准能力/);
+  assert.match(marketTrendHtml, /\$160B.*1\.63×.*\$260B/s);
+  assert.doesNotMatch(marketTrendHtml, /SEARCH BENCHMARK/);
+  assert.match(marketTrendHtml, /\$60B.*\$75B.*3 QTRS/s);
+  assert.match(marketTrendHtml, /83%.*60% IN 2024/s);
+  assert.doesNotMatch(marketTrendHtml, /CORE SIGNAL|SOURCE|Meta Advantage\+ annual run-rate|IAB · The AI Ad Gap Widens|下一章：主要参与者|Next: Key Players/);
 
-  // The three-track overview and auto-reveal chart are present once.
+  // The verified market chart remains, while the redundant Scene Landscape
+  // overview and its three standalone demo pages are removed completely.
   assert.equal((html.match(/class="marketFlowSvg"/g) ?? []).length, 1);
   assert.match(html, /查看三赛道/);
-  assert.equal((html.match(/class="sceneTrackCard sceneTrackCard-/g) ?? []).length, 3);
-  assert.match(sceneOverviewHtml, /品牌广告.*效果广告.*静态展示图片广告/s);
-  assert.match(sceneOverviewHtml, /Brand video.*Performance video.*Static display ads/s);
-  assert.doesNotMatch(sceneOverviewHtml, /Shein|Temu|Amazon 卖家|Shopify 商家/);
-
-  // Each scenario keeps one focused demo page and three expanded detail groups.
-  assert.equal((html.match(/class="sceneDemoPage sceneDemoPage/g) ?? []).length, 3);
-  assert.equal((sceneDemoHtml.match(/class="sceneDemoDisclosure" open=""/g) ?? []).length, 9);
-  assert.match(sceneDemoHtml, /scene-brand-demo.*brand-reference\.mp4/s);
-  assert.match(sceneDemoHtml, /scene-performance-demo.*performance-2026\/multi-sku\.mp4/s);
-  assert.match(sceneDemoHtml, /scene-display-demo.*demo-display-commerce\.jpg/s);
-  assert.doesNotMatch(sceneDemoHtml, /performance-generated\.mp4|performance-poster\.jpg/);
+  assert.doesNotMatch(html, /sceneLandscapePage|sceneDemoPages|sceneTrackCard|sceneDemoPage|SCENE LANDSCAPE|Mainstream ad scenarios/);
+  assert.match(html, /class="customerFlowIndex"><span>02<\/span>/);
 
   // Public customer pages use generic operating models and omit internal specifics.
   assert.match(html, /全球品牌主业务模式.*一套品牌资产.*两条生产链路/s);
@@ -128,8 +122,6 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   assert.match(reveal, /window\.scrollTo/);
   assert.match(reveal, /segmentControl/);
 
-  assert.match(page, /\/media\/performance-2026\/multi-sku\.mp4/);
-  assert.match(page, /\/media\/performance-2026\/multi-sku\.jpg/);
   for (const slug of ["shoppable", "hook-direct", "feature-demo", "single-point"]) {
     assert.match(page, new RegExp(`/media/performance-2026/${slug}\\.mp4`));
     assert.match(page, new RegExp(`/media/performance-2026/${slug}-frames/01\\.jpg`));
@@ -155,10 +147,6 @@ test("keeps V3 desktop alignment, sticky media, language, and responsive safegua
   assert.match(css, /@media \(max-width: 380px\)/);
   assert.match(css, /@media \(hover: none\)/);
 
-  assert.match(css, /\.sceneDemoPage \.sceneDemoHeader \{[\s\S]*?position: sticky;[\s\S]*?top: 0/);
-  assert.match(css, /\.sceneDemoPage \.sceneDemoVisual \{[\s\S]*?position: sticky;[\s\S]*?top: 92px/);
-  assert.match(css, /@media \(max-width: 700px\) \{[\s\S]*?\.sceneDemoImages \{ height: auto; grid-template-rows: auto; \}/);
-
   assert.match(css, /#language-mode:checked ~ \.productionChapter \.langZh/);
   assert.match(css, /#language-mode:checked ~ \.productionChapter \.langEn/);
   assert.match(css, /#language-mode:checked ~ \.productionChapter \.solutionDetailLink\.langEn/);
@@ -166,4 +154,14 @@ test("keeps V3 desktop alignment, sticky media, language, and responsive safegua
   assert.match(css, /@media \(min-width: 1121px\) \{[\s\S]*?width: min\(1512px, calc\(100% - 64px\)\)/);
   assert.match(css, /\.brandSolutionPage,[\s\S]*?\.roadmapPage \{[\s\S]*?width: min\(1512px, calc\(100vw - 64px\)\)/);
   assert.match(css, /\.productionChapter \{[\s\S]*?background:[\s\S]*?var\(--paper\)/);
+  assert.match(css, /v4 · SD2-PE visual system/);
+  assert.match(css, /--blue: #0b67ff/);
+  assert.match(css, /\.nav\.shell \{[\s\S]*?position: sticky;[\s\S]*?background: rgba\(255,255,255,\.94\)/);
+  assert.match(css, /\.coverPageInner \{[\s\S]*?display: flex;[\s\S]*?align-items: center/);
+  assert.match(css, /\.marketTrendCard \{[\s\S]*?border-top: 5px solid var\(--blue\)/);
+  assert.match(css, /\.solutionPage,[\s\S]*?border-radius: 0;[\s\S]*?box-shadow: none/);
+  assert.match(css, /v4\.1 · visual QA corrections/);
+  assert.match(css, /\.customerFlowIndex b > \.langEn[\s\S]*?font-size: inherit/);
+  assert.match(css, /\.wppMergedPage \{[\s\S]*?grid-template-rows: auto auto auto/);
+  assert.match(css, /\.brandArchitecturePanel \{[\s\S]*?min-height: 450px/);
 });

@@ -9,7 +9,9 @@ export default function MarketTrackAutoReveal() {
     const input = inputRef.current;
     const figure = input?.closest<HTMLElement>(".marketFlowFigure");
     const marketPage = figure?.closest<HTMLElement>(".marketFlowPage");
+    const overviewPage = figure?.closest<HTMLElement>(".marketOverviewPage");
     if (!input || !figure || !marketPage) return;
+    const focusPage = overviewPage ?? marketPage;
 
     let hasPlayed = input.checked;
     let touchStartY = 0;
@@ -63,7 +65,8 @@ export default function MarketTrackAutoReveal() {
     };
 
     const focusMarketPage = () => {
-      const pageTop = marketPage.getBoundingClientRect().top + window.scrollY;
+      const navHeight = document.querySelector<HTMLElement>(".nav")?.offsetHeight ?? 0;
+      const pageTop = focusPage.getBoundingClientRect().top + window.scrollY - navHeight;
       const previousScrollBehavior = document.documentElement.style.scrollBehavior;
       document.documentElement.style.scrollBehavior = "auto";
       window.scrollTo(0, pageTop);
@@ -107,8 +110,9 @@ export default function MarketTrackAutoReveal() {
     };
 
     const isAtExitBoundary = () => {
-      const bounds = marketPage.getBoundingClientRect();
-      const pageTopHasReachedViewport = bounds.top <= 20;
+      const navHeight = document.querySelector<HTMLElement>(".nav")?.offsetHeight ?? 0;
+      const bounds = focusPage.getBoundingClientRect();
+      const pageTopHasReachedViewport = bounds.top <= navHeight + 20;
       const pageBottomHasEnteredViewport = bounds.bottom <= window.innerHeight + 2;
       const pageIsStillTheFocus = bounds.bottom >= window.innerHeight - 260;
       return pageTopHasReachedViewport && pageBottomHasEnteredViewport && pageIsStillTheFocus;

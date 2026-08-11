@@ -36,200 +36,6 @@ type DemoLink = {
   onePagerStatus?: "published" | "coming-soon" | "internal";
 };
 
-const sceneLandscapeColumns = [
-  {
-    key: "brand",
-    index: "01",
-    eyebrow: "BRAND VIDEO",
-    title: "品牌广告",
-    titleEn: "Brand video",
-    marketValue: "$0.4B",
-    marketShare: "40%",
-    channels: ["CTV / 流媒体大屏", "YouTube 长视频广告"],
-    channelsEn: ["CTV / streaming big screen", "YouTube long-form ads"],
-    objective: ["曝光量 · 品牌知名度", "长期品牌心智"],
-    objectiveEn: ["Reach · brand awareness", "Long-term brand equity"],
-    output: "15 / 30S",
-    outputNote: "导演级创意 · 多镜头一致性 · 品牌审片",
-    outputNoteEn: "Director-grade craft · multi-shot consistency · brand review",
-    buyers: ["WPP · Havas · Publicis · Dentsu · Omnicom", "Brandtech（Pencil）· 博报堂"],
-    buyersEn: ["WPP · Havas · Publicis · Dentsu · Omnicom", "Brandtech (Pencil) · Hakuhodo"],
-    href: "#scene-brand-demo",
-    link: "查看品牌场景样片",
-    linkEn: "View brand demo",
-  },
-  {
-    key: "performance",
-    index: "02",
-    eyebrow: "PERFORMANCE VIDEO",
-    title: "效果广告",
-    titleEn: "Performance video",
-    marketValue: "$0.6B",
-    marketShare: "60%",
-    channels: ["TikTok / Reels / Shorts", "应用内广告网络"],
-    channelsEn: ["TikTok / Reels / Shorts", "In-app ad networks"],
-    objective: ["tCPA / tROAS", "CTR / CVR · CPI"],
-    objectiveEn: ["tCPA / tROAS", "CTR / CVR · CPI"],
-    output: "10–15S",
-    outputNote: "竖屏 UGC · 10–100 条变体 · 持续投放实验",
-    outputNoteEn: "Vertical UGC · 10–100 variants · continuous testing",
-    buyers: ["AppLovin · 钛动", "Pinterest · Reddit · LinkedIn Ads"],
-    buyersEn: ["AppLovin · TecDo", "Pinterest · Reddit · LinkedIn Ads"],
-    href: "#scene-performance-demo",
-    link: "查看效果场景样片",
-    linkEn: "View performance demo",
-  },
-  {
-    key: "display",
-    index: "03",
-    eyebrow: "DISPLAY ADS",
-    title: "静态展示图片广告",
-    titleEn: "Static display ads",
-    marketValue: "$0.4B",
-    channels: ["社交信息流静态图", "程序化展示广告"],
-    channelsEn: ["Social feed statics", "Programmatic display"],
-    objective: ["CPM / CPC", "低成本覆盖 + 直接转化"],
-    objectiveEn: ["CPM / CPC", "Low-cost reach + direct conversion"],
-    output: "100–1K",
-    outputNote: "静态图 / Banner · 多尺寸 · 多语言批量变体",
-    outputNoteEn: "Statics / banners · multi-size · multilingual variants",
-    buyers: ["AppLovin · Smartly.io · Creatopy", "Criteo · Pinterest · 头部 4A"],
-    buyersEn: ["AppLovin · Smartly.io · Creatopy", "Criteo · Pinterest · top 4A agencies"],
-    href: "#scene-display-demo",
-    link: "查看 Display 场景样片",
-    linkEn: "View display demo",
-  },
-] as const;
-
-const scenarioCases = [
-  {
-    index: "01",
-    label: "BRAND FILM",
-    title: "品牌广告",
-    titleEn: "Brand ads",
-    desc: "以 CTV、流媒体大屏和 YouTube Hero Video 为主。创意与品牌心智优先，制作主体通常是头部代理商，最终成片必须进入专业审片与交付链路。",
-    descEn: "Centered on CTV, streaming big screens and YouTube hero videos. Creativity and brand equity come first, production is led by top agencies, and every film passes professional review and delivery.",
-    media: {
-      type: "video" as const,
-      src: "/media/brand-reference.mp4",
-      poster: "/media/brand-poster.jpg",
-      aria: "Seedance 2.5 生成的 30 秒香水品牌 TVC 样片",
-    },
-    sampleSpec: "15 / 30 秒标准格式，非常强调品牌规范和导演级创意，每一帧的画质和一致性都有要求。",
-    sampleSpecEn: "Standard 15 / 30s formats, held to strict brand codes and director-grade craft — every frame is judged on quality and consistency.",
-    channels: [
-      { title: "CTV 和流媒体大屏广告", titleEn: "CTV and streaming big screens", copy: "TV 电视台，以及 Roku、Netflix、Disney、Prime 等流媒体平台。", copyEn: "TV networks plus Roku, Netflix, Disney and Prime placements." },
-      { title: "YouTube · 约 50%", titleEn: "YouTube · ~50%", copy: "以片头广告 Bumper、插播 In-stream 等长视频广告位为主。", copyEn: "Mostly bumper and in-stream long-form placements." },
-    ],
-    objectives: ["曝光量与品牌知名度", "建立长期品牌心智"],
-    objectivesEn: ["Reach and brand awareness", "Build long-term brand equity"],
-    customers: [
-      { role: "头部 5 家", roleEn: "Top 5 groups", names: "WPP · Havas · Publicis · Dentsu · Omnicom" },
-      { role: "次头部", roleEn: "Challengers", names: "Brandtech（Pencil）· 博报堂" },
-      { role: "广告主（品牌方）", roleEn: "Advertisers (brands)", names: "欧莱雅（L’Oréal）· 可口可乐（Coca-Cola）等" },
-    ],
-    workflowTitle: "AI 模型 Workflow 逐渐代替实拍和渲染",
-    workflowTitleEn: "AI workflows are replacing shoots and rendering",
-    steps: [
-      { title: "Discovery 和 Ideation", titleEn: "Discovery & ideation", copy: "代理商派遣 Strategy 团队与客户共创创意 Idea，先明确受众、品牌主张和导演概念。", copyEn: "Agency strategy teams co-create the idea with the client — audience, brand proposition and directorial concept first." },
-      { title: "导演级的创意设计", titleEn: "Director-grade creative design", copy: "把导演脚本、分镜、场景和产品镜头先用 AI 生成可审片素材，与品牌主讨论并持续优化。", copyEn: "Scripts, storyboards, sets and product shots become AI-generated, reviewable material iterated with the brand.", imageRole: "生成分镜故事板、概念图、关键视觉 KV 和场景 / 服化道参考图。这是图片模型渗透最深的一步——单张成本低、迭代快，直接替代人工分镜师和概念设计工时。", imageRoleEn: "Storyboards, concept art, key visuals and set / costume references — the deepest image-model step; cheap, fast iteration replacing manual concept hours." },
-      { title: "生产拍摄", titleEn: "Production", copy: "结合实拍、3D 建模和 AI 模型渲染，实现帧级高质量与强一致性成片。", copyEn: "Live action, 3D and AI rendering combine for frame-level quality and consistency.", imageRole: "产出视频模型的首帧和关键帧，以及产品硬照 Packshot 精修、虚拟布景和环境贴图。", imageRoleEn: "First / key frames for video models, retouched packshots, virtual sets and environment plates." },
-      { title: "后期、编辑和音效", titleEn: "Post, editing & audio", copy: "完成 VFX 特效渲染，其中约 20% 可由 AI 模型替代。", copyEn: "VFX and finishing — about 20% already replaceable by AI.", imageRole: "逐帧局部修补、去穿帮、替换不合规元素、抠像与画面延展 Outpainting，完成多比例适配。", imageRoleEn: "Frame-level inpainting, cleanup, compliance swaps, keying and outpainting for multi-ratio delivery." },
-      { title: "审片和交付", titleEn: "Review & delivery", copy: "按品牌规范、法务声明和平台规格质检，输出可进入 CTV / DV360 的交付包。", copyEn: "QC against brand codes, legal lines and platform specs; packages ready for CTV / DV360.", imageRole: "衍生多尺寸 KV、海报和视频封面缩略图，随视频成片一起打包交付。", imageRoleEn: "Multi-size KVs, posters and thumbnails packaged with the film." },
-    ],
-    modelRequirements: [
-      { type: "视频模型", typeEn: "Video model", items: ["高一致性：30 秒多镜头中人物 / 产品不漂，音画同步，能通过大屏质检和品牌审核。", "3D 白模参考：结合物品、环境、打光等现有 3D 资产解决空间物理规律，支持视频模型精准渲染。", "4K 高码率和高比特色深：满足 DV360 常见的 H.264、24 / 30 fps、至少 20 Mbps、10–16 bit 色深等要求。"], itemsEn: ["High consistency: characters and products hold across a 30s multi-shot cut, A/V in sync, passing big-screen QC and brand review.", "3D white-model reference: grounds spatial physics with existing objects, sets and lighting for precise rendering.", "4K, high bitrate and bit depth: meets DV360-grade H.264, 24 / 30 fps, 20 Mbps+, 10–16 bit delivery."] },
-      { type: "图片模型", typeEn: "Image model", items: ["导演级审美和可控构图：支持景别、焦段、打光等镜头语言的参数化控制，出图可直接进入提案和审片。", "品牌资产一致性：商品、包装、Logo、品牌色接近 Pantone 级还原，并支持品牌素材定制化微调。", "4K 高分辨率和专业色彩：支持广色域和高比特色深，可进入专业后期二次调色。", "可分层和局部重绘：主体 / 背景 / 文字分层输出，修改时不必整张重抽。", "版权和合规：训练数据可溯源、支持商用授权与 C2PA 水印，可通过品牌方法务审核。"], itemsEn: ["Director-grade aesthetics with controllable composition: parametric framing, focal length and lighting — straight into decks and review.", "Brand-asset consistency: product, packaging, logo and brand color near Pantone-level, with brand fine-tuning.", "4K and professional color: wide gamut, high bit depth, ready for pro grading.", "Layers and local repaint: subject / background / text separated so edits never re-roll the frame.", "Copyright and compliance: traceable data, commercial licensing and C2PA watermarking that passes brand legal."] },
-    ],
-    models: [{ type: "视频", typeEn: "Video", copy: "Seedance · Veo 3.1 · Runway" }, { type: "图片", typeEn: "Image", copy: "Seedream · nano banana 2" }],
-  },
-  {
-    index: "02",
-    label: "PERFORMANCE",
-    title: "效果广告",
-    titleEn: "Performance ads",
-    desc: "以 tCPA、tROAS、CTR、CVR 和 CPI 定义价值。客户需要的不是单条 Demo，而是一套能持续产出 Hook、跑实验、看归因并复刻胜出结构的系统。",
-    descEn: "Value is defined by tCPA, tROAS, CTR, CVR and CPI. Clients need a system that keeps shipping hooks, running tests, reading attribution and cloning winners — not a single demo.",
-    media: {
-      type: "video" as const,
-      src: "/media/performance-2026/multi-sku.mp4",
-      poster: "/media/performance-2026/multi-sku.jpg",
-      aria: "Seedance 2.5 生成的多商品连换效果广告样片",
-    },
-    sampleSpec: "10–15 秒最常见，720p、竖屏，以 UGC 口播和种草视频为主。通常需要生产 10–100 条变体进行实验和效果归因。",
-    sampleSpecEn: "10–15s is typical: 720p vertical UGC talking-head and seeding videos, produced as 10–100 variants for testing and attribution.",
-    channels: [
-      { title: "短视频社交广告", titleEn: "Short-video social", copy: "Meta Reels、TikTok 等短视频信息流。", copyEn: "Meta Reels, TikTok and other short-video feeds." },
-      { title: "YouTube · 约 50%", titleEn: "YouTube · ~50%", copy: "Shorts 短视频、插播 In-stream 等。", copyEn: "Shorts and in-stream placements." },
-      { title: "应用内广告网络和激励视频", titleEn: "In-app networks & rewarded video", copy: "去掉竞品 Google AdMob 后，核心包括 AppLovin AXON、Unity Ads 等；以插屏视频、激励视频和 Playable 为主，是游戏和 App 类 CPI 效果广告的核心渠道。", copyEn: "Beyond Google AdMob: AppLovin AXON, Unity Ads and peers — interstitial, rewarded and playable formats at the core of CPI campaigns." },
-    ],
-    objectives: ["tCPA：目标转化成本", "tROAS：目标广告支出回报率", "商品类 CTR / CVR：跳转购物转化", "App / 游戏 CPI：下载安装量"],
-    objectivesEn: ["tCPA: target cost per action", "tROAS: target return on ad spend", "Commerce CTR / CVR: click-to-purchase", "App / game CPI: installs"],
-    customers: [
-      { role: "AdTech 公司", roleEn: "AdTech", names: "AppLovin · 钛动" },
-      { role: "广告主（品牌方）", roleEn: "Advertisers (brands)", names: "欧莱雅（L’Oréal）· 可口可乐（Coca-Cola）等" },
-      { role: "Paid Media", roleEn: "Paid media", names: "Pinterest · Reddit · LinkedIn Ads 等" },
-    ],
-    workflowTitle: "Ad Campaign Agent 引入广告素材自动化制作",
-    workflowTitleEn: "Campaign agents bring automated creative production",
-    steps: [
-      { title: "市场热点洞察", titleEn: "Trend insight", copy: "根据 TikTok、Instagram、X 等平台的舆情与热点追踪，设计广告 Hook、CTA 和脚本。", copyEn: "Track sentiment and trends across TikTok, Instagram and X to design hooks, CTAs and scripts.", imageRole: "用量较小，主要生成 Mood Board 和视觉参考图，辅助脚本和创意方向评审。", imageRoleEn: "Light usage — mood boards and visual references for direction reviews." },
-      { title: "AI 内容生产和编辑", titleEn: "AI production & editing", copy: "替代一部分或全部实拍和后期，快速生产信息流 UGC、带货解说、夸张剧情和商品演示素材。", copyEn: "Replaces part or all of shooting and post: feed UGC, selling explainers, story skits and product demos at speed.", imageRole: "核心环节——商品白底图转场景图、虚拟模特和数字人形象定型，并产出图生视频首帧；首帧质量直接决定抽卡成功率和单条成片成本。", imageRoleEn: "The core step — white-background-to-scene, virtual models and digital humans, plus image-to-video first frames; first-frame quality decides hit rate and unit cost." },
-      { title: "投放实验", titleEn: "Launch & test", copy: "持续制作 Variant、投放并观察 tCPA、tROAS、CTR 与 CVR。", copyEn: "Keep shipping variants; watch tCPA, tROAS, CTR and CVR.", imageRole: "批量生成视频封面和静态图 Variant，与视频同池 A/B；先用低成本静态图筛选创意方向，再放大成视频。", imageRoleEn: "Batch thumbnails and static variants A/B alongside video; statics filter directions cheaply before scaling." },
-      { title: "爆款复刻", titleEn: "Clone winners", copy: "把高转化素材快速做换品、换模特、换区域、换语言和换场景，再进入小流量测试与放量循环。", copyEn: "Swap product, cast, region, language and scene on winners, then re-test and scale.", imageRole: "在首帧图层用局部重绘 Inpainting 完成换品 / 换模特 / 换场景，再重新图生视频，比整条视频重抽低一个数量级。", imageRoleEn: "Inpaint the first frame to swap product / model / scene, then regenerate — an order of magnitude cheaper than re-rolling video." },
-    ],
-    modelRequirements: [
-      { type: "视频模型", typeEn: "Video model", items: ["高性价比：全 AI 制作达到 TikTok、Meta Reels 等投放平台的声画质量与信息量门槛。", "高抽卡成功率、成本可控：竖屏、UGC、口播和商品一致，能批量产出 10–100 条 Variant。", "本地化：支持多人种数字人和小语种。"], itemsEn: ["Cost-effective: fully AI output clears TikTok / Reels quality and information bars.", "High hit rate at controlled cost: vertical, UGC, talking-head and product-consistent across 10–100 variants.", "Localization: multi-ethnic digital humans and long-tail languages."] },
-      { type: "图片模型", typeEn: "Image model", items: ["首帧图质量：为图生视频提供高质量首帧和关键帧，首帧构图与一致性直接决定视频抽卡成功率。", "商品一致性：支持单图 / 多图参考，白底图转场景图时商品外观、Logo、包装文字不变形。", "局部编辑 Inpainting：换品、换模特、换背景、换文案只重绘局部。", "本地化：多人种模特形象，图内多语言文案准确不乱码。", "极低成本和高并发：单张成本压到美分级、秒级出图，支撑 10–100 条 Variant 的首帧和封面批量生产。"], itemsEn: ["First-frame quality: strong first / key frames decide image-to-video hit rate.", "Product consistency: single / multi reference keeps product, logo and packaging true from white background to scene.", "Local inpainting: swap product, model, background or copy without full re-rolls.", "Localization: diverse model looks with accurate in-image multilingual text.", "Cent-level cost, high concurrency: seconds-fast output powering 10–100 variant batches."] },
-    ],
-    models: [{ type: "视频", typeEn: "Video", copy: "Seedance · Kling 3.0 · Veo 3.1", copyEn: "Seedance · Kling 3.0 · Veo 3.1" }, { type: "图片", typeEn: "Image", copy: "Seedream · nano banana 2" }],
-  },
-  {
-    index: "03",
-    label: "DISPLAY",
-    title: "静态展示图片广告",
-    titleEn: "Static display ads",
-    desc: "作为独立的第三类广告生产线，Display Ads 以 CPM / CPC 计价，商业目标介于品牌与效果之间，兼顾低成本覆盖与直接转化。真正门槛是让一套主视觉稳定扩成数百到数千张投放版本。",
-    descEn: "A third production line: display prices on CPM / CPC, sitting between brand and performance — low-cost reach plus direct conversion. The real bar is scaling one master visual into hundreds or thousands of live versions.",
-    media: {
-      type: "image-grid" as const,
-      layout: "display",
-      aria: "静态展示图片广告典型案例组合",
-      cases: [
-        { src: "/media/demo-display-commerce.jpg", alt: "电商平台社交信息流静态广告" },
-        { src: "/media/demo-display-beauty.jpg", alt: "美妆品牌横版信息流广告" },
-        { src: "/media/demo-display-diwali.jpg", alt: "本地化电商三比一促销横幅广告" },
-      ],
-      formats: ["SOCIAL STATIC", "16:9 FEED", "3:1 BANNER"],
-    },
-    sampleSpec: "同一套主视觉需适配十几到几十种 IAB 标准尺寸。强调商品精确还原、图内文案可读和多语言版本，单个 Campaign 常需数百至数千张变体。",
-    sampleSpecEn: "Static JPG / PNG; one master visual adapts to dozens of IAB sizes. Product fidelity, readable in-image copy and multilingual versions matter — one campaign often needs hundreds to thousands of variants.",
-    channels: [
-      { title: "社交信息流静态图", titleEn: "Social feed statics", copy: "Meta 单图与轮播 Carousel、Pinterest、LinkedIn Ads 等。", copyEn: "Meta single-image and carousel, Pinterest, LinkedIn Ads." },
-      { title: "程序化展示广告网络", titleEn: "Programmatic display networks", copy: "去掉 Google Display Network、Amazon DSP 等头部竞品后，主要包括 The Trade Desk、InMobi 等 DSP，覆盖海量长尾站点和 App 的 Banner 位。", copyEn: "Beyond GDN and Amazon DSP: The Trade Desk, InMobi and peer DSPs covering long-tail site and app banner slots." },
-    ],
-    objectives: ["CPM / CPC：兼顾覆盖成本与直接转化", "覆盖侧：低成本、高频次触达与 Retargeting 兜底", "转化侧 CTR / CVR：商品图、促销图引导落地页跳转与加购"],
-    objectivesEn: ["CPM / CPC: reach economics with direct response", "Reach side: cheap, high-frequency touch and retargeting", "Conversion side CTR / CVR: product and promo images drive landing and add-to-cart"],
-    customers: [
-      { role: "AdTech / 创意自动化平台", roleEn: "AdTech / creative automation", names: "AppLovin · Smartly.io · Creatopy" },
-      { role: "零售媒体和 Paid Media", roleEn: "Retail media & paid media", names: "Criteo · Pinterest" },
-      { role: "代理商", roleEn: "Agencies", names: "WPP · Havas · Publicis · Dentsu · Omnicom 等头部 4A" },
-    ],
-    workflowTitle: "Ad Campaign Agent 引入图片素材自动化编辑",
-    workflowTitleEn: "Campaign agents bring automated image editing",
-    steps: [
-      { title: "素材和品牌资产准备", titleEn: "Asset & brand prep", copy: "将商品白底图 / 实拍图、品牌 VI、字体和法务合规文案入库，作为参考图约束。", copyEn: "Ingest white-background / product shots, brand VI, fonts and legal copy as reference constraints." },
-      { title: "AI 图片生成与合成", titleEn: "AI generation & compositing", copy: "用图片模型完成场景重绘、模特换装、背景替换和商品精修，替代传统棚拍与人工修图。", copyEn: "Scene repaint, model swaps, background replacement and product retouch replace studio shoots and manual editing." },
-      { title: "批量套版和尺寸适配", titleEn: "Batch templating & sizing", copy: "一套主视觉自动衍生到全部投放尺寸、语言和市场版本，并对接 DCO 按人群实时拼装。", copyEn: "One master auto-derives every size, language and market version, feeding DCO real-time assembly." },
-      { title: "投放实验和爆款复刻", titleEn: "Test & clone winners", copy: "按 CTR / CVR 做 A/B，胜出创意快速换品、换区域、换语言复刻，再进入放量循环。", copyEn: "A/B on CTR / CVR; winners swap product, region and language, then scale." },
-    ],
-    modelRequirements: [
-      { type: "", typeEn: "", items: ["商品一致性：支持单图 / 多图参考 Image-to-image，商品外观、Logo、包装文字不变形。", "精准文字渲染：图内多语言文案、促销角标和价格数字准确不乱码。", "高分辨率和任意宽高比：覆盖 300×250 到 1080×1920，支持 Outpainting 无损扩图。", "局部编辑 Inpainting：换背景、换模特、换色号只重绘局部。", "单张成本极低、支持高并发：美分级单张成本，支撑千级批量出图。"], itemsEn: ["Product consistency: image-to-image with single / multi reference keeps product, logo and packaging true.", "Precise text rendering: multilingual copy, badges and prices stay accurate in-image.", "High resolution, any aspect ratio: 300×250 up to 1080×1920 with lossless outpainting.", "Local inpainting: swap background, model or colorway without full repaints.", "Cent-level unit cost with high concurrency for thousand-scale batches."] },
-    ],
-    models: [{ type: "图片", typeEn: "Image", copy: "Seedream · nano banana 2 为主", copyEn: "Seedream · nano banana 2 primarily" }, { type: "视频", typeEn: "Video", copy: "少量使用 Seedance / Kling / Runway 将静图转为动效", copyEn: "Limited Seedance / Kling / Runway use to animate static assets" }],
-  },
-];
-
 const solutionVideoDemos = {
   brand: [
     {
@@ -452,21 +258,16 @@ export default function Home() {
 
       <section className="marketHero marketFlowPage" id="market">
         <div className="marketFlowShell">
-          <header className="marketFlowIntro">
+          <div className="marketOverviewPage">
+            <header className="marketFlowIntro">
             <div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div>
             <div className="marketFlowTitle">
               <h1 className="langZh">AI 正在重塑广告市场的供给方式</h1>
               <h1 className="langEn">AI Is Reshaping How Advertising Supply Is Created</h1>
-              <p><B zh="视频成为最大的广告形态，Campaign Agent 开始规模化，AI 也正在成为每个创意团队的标准生产力。" en="Video is becoming the largest ad format, campaign agents are beginning to scale, and AI is becoming standard infrastructure for creative teams." /></p>
             </div>
-            <div className="marketFlowScope" aria-label="全球数字广告与海外数字广告市场口径">
-              <div><span><span className="langZh">2026 全球数字广告</span><span className="langEn">2026 GLOBAL DIGITAL ADS</span></span><strong>≈ $1T</strong></div>
-              <i aria-hidden="true">→</i>
-              <div><span><span className="langZh">海外数字广告大盘</span><span className="langEn">OVERSEAS DIGITAL AD MARKET</span></span><strong>$640–680B</strong><small><span className="langZh">剔除中国约 $160B 与海外线下约 $200B</span><span className="langEn">excl. China ~$160B and overseas offline ~$200B</span></small></div>
-            </div>
-          </header>
+            </header>
 
-          <figure className="marketFlowFigure" aria-labelledby="market-flow-heading">
+            <figure className="marketFlowFigure" aria-labelledby="market-flow-heading">
             <MarketTrackAutoReveal />
             <div className="marketFlowFigureHead">
               <div><strong id="market-flow-heading"><span className="langZh">海外数字广告市场规模与增速</span><span className="langEn">Overseas digital ad market · size and growth</span></strong></div>
@@ -490,22 +291,22 @@ export default function Home() {
 
               <g className="flowBaseline flowSearch">
                 <rect x="18" y="46" width="236" height="60" />
-                <text x="35" y="70" className="flowName"><tspan className="langZh">搜索广告</tspan><tspan className="langEn">Search ads</tspan></text><text x="35" y="88" className="flowMeta">SEARCH · 33%</text><text x="232" y="82" textAnchor="end" className="flowValue">$220B</text>
+                <text x="35" y="70" className="flowName"><tspan className="langZh">搜索广告</tspan><tspan className="langEn">Search ads</tspan></text><text x="35" y="88" className="flowMeta">33%</text><text x="232" y="82" textAnchor="end" className="flowValue">$220B</text>
               </g>
 
               <path className="flowVideoRiver" d="M254 125 C470 127 630 94 820 55 C875 44 914 42 936 42 L936 301 C877 301 825 304 756 307 C575 315 426 284 254 282Z" />
               <g className="flowBaseline flowVideo">
                 <rect x="18" y="125" width="236" height="157" />
-                <text x="35" y="155" className="flowName"><tspan className="langZh">视频广告</tspan><tspan className="langEn">Video ads</tspan></text><text x="35" y="176" className="flowMeta">VIDEO · 26%</text><text x="35" y="229" className="flowHeroValue">$160B</text>
+                <text x="35" y="155" className="flowName"><tspan className="langZh">视频广告</tspan><tspan className="langEn">Video ads</tspan></text><text x="35" y="176" className="flowMeta">26%</text><text x="35" y="229" className="flowHeroValue">$160B</text>
                 <text x="35" y="259" className="flowNote"><tspan className="langZh">CTR / CVR 更优，但制作成本曾限制供给</tspan><tspan className="langEn">Better CTR / CVR — production cost capped supply</tspan></text>
               </g>
               <g className="flowBaseline flowDisplay">
                 <rect x="18" y="301" width="205" height="52" />
-                <text x="35" y="324" className="flowName"><tspan className="langZh">图文展示</tspan><tspan className="langEn">Display</tspan></text><text x="35" y="342" className="flowMeta">DISPLAY · 24%</text><text x="203" y="334" textAnchor="end" className="flowValue">$160B</text>
+                <text x="35" y="324" className="flowName"><tspan className="langZh">图文展示</tspan><tspan className="langEn">Display</tspan></text><text x="35" y="342" className="flowMeta">24%</text><text x="203" y="334" textAnchor="end" className="flowValue">$160B</text>
               </g>
               <g className="flowBaseline flowRmn">
                 <rect x="18" y="368" width="170" height="47" />
-                <text x="35" y="389" className="flowName"><tspan className="langZh">零售媒体</tspan><tspan className="langEn">Retail</tspan></text><text x="35" y="405" className="flowMeta">RMN · 17%</text><text x="169" y="399" textAnchor="end" className="flowValue">$110B</text>
+                <text x="35" y="389" className="flowName"><tspan className="langZh">零售媒体</tspan><tspan className="langEn">Retail</tspan></text><text x="35" y="405" className="flowMeta">17%</text><text x="169" y="399" textAnchor="end" className="flowValue">$110B</text>
               </g>
 
               <text x="672" y="183" className="flowCrossTitle"><tspan className="langZh">3–4 年内跨过 $220B 搜索基准</tspan><tspan className="langEn">Crosses the $220B search benchmark in 3–4 years</tspan></text>
@@ -550,10 +351,10 @@ export default function Home() {
             </svg>
             <div className="marketFlowMobile" aria-label="移动端预算迁移流">
               <div className="mobileMarketRows">
-                <div><span>SEARCH · 33%</span><strong>$220B</strong></div>
-                <div className="active"><span>VIDEO · 26%</span><strong>$160B</strong><small><span className="langZh">AI 降本释放规模供给</span><span className="langEn">AI cost-down unlocks supply</span></small></div>
-                <div><span>DISPLAY · 24%</span><strong>$160B</strong></div>
-                <div><span>RMN · 17%</span><strong>$110B</strong></div>
+                <div><span>33%</span><strong>$220B</strong></div>
+                <div className="active"><span>26%</span><strong>$160B</strong><small><span className="langZh">AI 降本释放规模供给</span><span className="langEn">AI cost-down unlocks supply</span></small></div>
+                <div><span>24%</span><strong>$160B</strong></div>
+                <div><span>17%</span><strong>$110B</strong></div>
               </div>
               <div className="mobileFlowArrow"><span>3–4 YEARS</span><b>↓</b><small><span className="langZh">跨过 $220B Search 基准</span><span className="langEn">crosses the $220B search benchmark</span></small></div>
               <div className="mobileVideoOutcome">
@@ -566,174 +367,56 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </figure>
+            </figure>
+          </div>
 
           <section className="marketTrendSection" aria-labelledby="market-trends-title">
             <header className="marketTrendSectionHeader">
-              <span>01.2 · THREE MARKET SHIFTS</span>
-              <h2 id="market-trends-title"><B zh="三个变化，正在把广告生产推向持续供给。" en="Three shifts are turning advertising production into an always-on supply system." /></h2>
+              <span>01 · MARKET OVERVIEW</span>
+              <h2 id="market-trends-title"><B zh={<>AI 在广告行业崛起：<strong>三个清晰趋势</strong></>} en="Advertising Is Moving Toward AI-Native Production" /></h2>
             </header>
 
             <div className="marketTrendGrid">
               <article className="marketTrendCard marketTrendVideo">
                 <header><span>01</span><b>VIDEO</b></header>
-                <h3><B zh="视频广告将在 2030 年成为第一大广告类型" en="Video Becomes the Largest Ad Format by 2030" /></h3>
-                <p><B zh="视频本来就在互动和转化上占优，过去限制供给的是制作成本。AI 降低生产门槛后，视频素材开始走向规模化供给。" en="Video already performs strongly on engagement and conversion. As AI reduces production cost and complexity, creative supply can finally scale." /></p>
-                <footer>
-                  <strong><B zh="产品含义" en="PRODUCT IMPLICATION" /></strong>
-                  <span><B zh="视频模型从创意预演走向正式生产" en="Video models move from previsualization into production" /></span>
-                  <a href="#market-flow-heading"><B zh="查看上方市场主图" en="See the market chart above" /> ↑</a>
-                </footer>
+                <h3><B zh="视频广告成为主流" en="Video Advertising Becomes the Dominant Format" /></h3>
+                <div className="marketTrendVisual marketVideoChart" role="img" aria-label="视频广告从 2026 年 1600 亿美元增长至 2030 年 2600 亿美元，规模增长至 1.63 倍">
+                  <div className="marketCompareBar current"><b>$160B</b><i /><span>2026</span></div>
+                  <div className="marketCompareArrow"><b>1.63×</b><strong>→</strong><small>2026–30</small></div>
+                  <div className="marketCompareBar video"><b>$260B</b><i /><span>2030</span><em>#1</em></div>
+                </div>
               </article>
 
               <article className="marketTrendCard marketTrendAgent">
                 <header><span>02</span><b>CAMPAIGN AGENT</b></header>
-                <h3><B zh="Campaign Agent 在 2026 年进入规模化阶段" en="Campaign Agents Enter the Scaling Phase in 2026" /></h3>
-                <p><B zh="Ad Manager 正在演化为 Campaign Agent。Agent 串联策略、素材、投放与优化，人负责设定方向、选择和审核。" en="Ad managers are evolving into campaign agents that connect strategy, creative, activation, and optimization — while people direct, choose, and review." /></p>
-                <ol className="marketAgentStages" aria-label="Campaign Agent 规模化阶段">
-                  <li><small>2025</small><strong>0→1</strong><span><B zh="验证" en="VALIDATE" /></span></li>
-                  <li className="active"><small>2026</small><strong>1→3</strong><span><B zh="复制" en="REPLICATE" /></span></li>
-                  <li><small><B zh="未来" en="NEXT" /></small><strong>3→N</strong><span><B zh="普及" en="SCALE" /></span></li>
-                </ol>
-                <footer><strong><B zh="必要闭环" en="REQUIRED LOOP" /></strong><span><B zh="创意自动化必须留在 Campaign Agent 的端到端工作流内。" en="Creative automation must remain inside the campaign agent’s end-to-end workflow." /></span></footer>
+                <h3><B zh="Campaign Agent 在 2026 年进入规模化阶段" en="Campaign Agents Scale in 2026" /></h3>
+                <div className="marketTrendVisual marketAgentAdoption" role="img" aria-label="Campaign Agent 自动化采用的年度运行规模在三个季度内从 600 亿美元增长至 750 亿美元">
+                  <div className="marketAgentAdoptionTitle"><span>AD MANAGER</span><i>→</i><strong>CAMPAIGN AGENT</strong></div>
+                  <div className="marketAdoptionBars">
+                    <div className="before"><b>$60B</b><i /></div>
+                    <div className="after"><b>$75B</b><i /></div>
+                  </div>
+                  <p>$60B → $75B <span>3 QTRS</span></p>
+                </div>
               </article>
 
               <article className="marketTrendCard marketTrendCreator">
                 <header><span>03</span><b>CREATIVE TEAMS</b></header>
-                <h3><B zh="AI 成为创意团队的标准生产力" en="AI Becomes Standard Infrastructure for Creative Teams" /></h3>
-                <p><B zh="AI 的价值不再只是生成一条素材，而是持续覆盖创意、制作、本地化和版本延展等日常工作。" en="AI is moving beyond one-off generation to become an everyday layer across ideation, production, localization, and versioning." /></p>
-                <ul className="marketCreatorCoverage" aria-label="AI 覆盖的创意工作环节">
-                  <li><B zh="创意" en="IDEATION" /></li>
-                  <li><B zh="制作" en="PRODUCTION" /></li>
-                  <li><B zh="本地化" en="LOCALIZATION" /></li>
-                  <li><B zh="版本延展" en="VERSIONING" /></li>
-                </ul>
-                <footer><strong><B zh="衡量方式" en="HOW TO MEASURE" /></strong><span><B zh="关注团队采用率与工作流覆盖，而不是孤立的调用次数。" en="Measure team adoption and workflow coverage, not isolated generation counts." /></span></footer>
+                <h3><B zh="AI 成为创意团队的标准能力" en="AI Becomes Table Stakes for Creators" /></h3>
+                <div className="marketTrendVisual marketCreatorAdoption" role="img" aria-label="创意流程中的 AI 部署率当前为 83%，高于 2024 年的 60%">
+                  <div className="marketAdoptionDonut"><span>83%</span><small>CURRENT</small></div>
+                  <strong>VS. 60% IN 2024</strong>
+                </div>
               </article>
-            </div>
-
-            <div className="marketChapterTransition">
-              <span>01 → 02</span>
-              <p><B zh="这三项趋势不会同时作用于所有人。品牌主、代理商、AdTech 和媒体平台分别控制着不同的预算、资产和反馈信号。" en="These shifts do not affect every player in the same way. Brands, agencies, AdTech platforms, and media owners each control a different part of the budget, asset, and feedback loop." /></p>
-              <a href="#audience"><B zh="下一章：主要参与者" en="Next: Key Players" /> →</a>
             </div>
           </section>
         </div>
       </section>
 
-      <section className="sceneLandscapePage" id="scenarios" aria-labelledby="scene-landscape-title">
-        <div className="sceneLandscapeShell">
-          <header className="sceneLandscapeHeader">
-            <div className="sceneLandscapeIndex"><span>02</span><b>SCENE LANDSCAPE</b></div>
-            <div><h2 id="scene-landscape-title"><span className="langZh">2. 主流广告场景<br /><span>和需求分析</span></span><span className="langEn">2. Mainstream ad scenarios<br /><span>and what they demand</span></span></h2></div>
-          </header>
-
-          <div className="sceneTrackCards" aria-label="品牌、效果与静态展示图片广告全景对比">
-            {sceneLandscapeColumns.map((column) => (
-              <article className={`sceneTrackCard sceneTrackCard-${column.key}`} key={column.key}>
-                <header className="sceneTrackHeader">
-                  <span>{column.index}</span>
-                  <div><small>{column.eyebrow}</small><h3><B zh={column.title} en={column.titleEn} /></h3></div>
-                </header>
-
-                <section className="sceneTrackMarket">
-                  <div className="sceneTrackLabel"><span>01</span><div><b><B zh="2026 模型 API 潜在空间" en="2026 model API potential" /></b><small><B zh="情景估算" en="SCENARIO ESTIMATE" /></small></div></div>
-                  <div className="sceneTrackMetric"><strong>{column.marketValue}</strong>{"marketShare" in column ? <b>{column.marketShare}</b> : null}</div>
-                  <i><span style={{ width: column.key === "brand" ? "40%" : column.key === "performance" ? "60%" : "100%" }} /></i>
-                </section>
-
-                <dl className="sceneTrackFacts">
-                  <div><dt><span>02</span><div><b><B zh="核心阵地" en="Where it runs" /></b><small>WHERE</small></div></dt><dd><p className="langZh">{column.channels.map((line) => <span key={line}>{line}</span>)}</p><p className="langEn">{column.channelsEn.map((line) => <span key={line}>{line}</span>)}</p></dd></div>
-                  <div><dt><span>03</span><div><b><B zh="核心目的" en="Objective" /></b><small>OBJECTIVE</small></div></dt><dd><p className="langZh">{column.objective.map((line) => <span key={line}>{line}</span>)}</p><p className="langEn">{column.objectiveEn.map((line) => <span key={line}>{line}</span>)}</p></dd></div>
-                  <div className="sceneTrackOutput"><dt><span>04</span><div><b><B zh="典型产出" en="Typical output" /></b><small>OUTPUT</small></div></dt><dd><strong>{column.output}</strong><p><B zh={column.outputNote} en={column.outputNoteEn} /></p></dd></div>
-                  <div><dt><span>05</span><div><b><B zh="典型客户" en="Who buys" /></b><small>WHO BUYS</small></div></dt><dd><p className="langZh">{column.buyers.map((line) => <span key={line}>{line}</span>)}</p><p className="langEn">{column.buyersEn.map((line) => <span key={line}>{line}</span>)}</p></dd></div>
-                </dl>
-
-                <a className="sceneTrackLink" href={column.href}><B zh={column.link} en={column.linkEn} /><b>↘</b></a>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="sceneDemoPages" aria-label="三类广告场景样片与需求拆解">
-        {scenarioCases.map((item) => {
-          const slug = item.index === "01" ? "brand" : item.index === "02" ? "performance" : "display";
-          return (
-            <article className={`sceneDemoPage sceneDemoPage${item.index}`} id={`scene-${slug}-demo`} key={item.index}>
-              <div className="sceneDemoShell">
-                <header className="sceneDemoHeader">
-                  <div><span>{item.index}</span><b>{item.label}</b></div>
-                  <h3><B zh={item.title} en={item.titleEn} /></h3>
-                </header>
-
-                <div className="sceneDemoStage">
-                  <figure className={`sceneDemoVisual ${item.media.type === "video" ? "sceneDemoVideo" : "sceneDemoImages"}`}>
-                    {item.media.type === "video" ? (
-                      <video src={item.media.src} poster={item.media.poster} controls playsInline preload="metadata" aria-label={item.media.aria} />
-                    ) : (
-                      <div className="sceneDemoImageGrid" aria-label={item.media.aria}>
-                        {item.media.cases.map((sample, index) => (
-                          <figure key={sample.src}><img src={sample.src} alt={sample.alt} /><figcaption>{item.media.formats[index]}</figcaption></figure>
-                        ))}
-                      </div>
-                    )}
-                  </figure>
-
-                  <div className="sceneDemoBrief">
-                    <div className="sceneDemoThesis">
-                      <span>TYPICAL OUTPUT</span>
-                      <h4><B zh={item.sampleSpec} en={item.sampleSpecEn} /></h4>
-                    </div>
-
-                    <div className="sceneDemoExpanders">
-                      <details className="sceneDemoDisclosure" open>
-                        <summary><span><b>01</b><B zh="具体制作流程" en="Production workflow" /></span><i aria-hidden="true"></i></summary>
-                        <section className="sceneWorkflowPanel">
-                          <h4><B zh={item.workflowTitle} en={item.workflowTitleEn} /></h4>
-                          <ol className="sceneWorkflowSteps">
-                            {item.steps.map((step, index) => (
-                              <li key={step.title}>
-                                <span>{String(index + 1).padStart(2, "0")}</span>
-                                <div><h5><B zh={step.title} en={step.titleEn} /></h5><p><B zh={step.copy} en={step.copyEn} /></p>{step.imageRole ? <aside><b><B zh="图片模型" en="IMAGE MODEL" /></b><p><B zh={step.imageRole} en={step.imageRoleEn} /></p></aside> : null}</div>
-                              </li>
-                            ))}
-                          </ol>
-                        </section>
-                      </details>
-
-                      <details className="sceneDemoDisclosure" open>
-                        <summary className={item.index === "02" ? "hasMeta" : undefined}><span><b>02</b><B zh="模型需求" en="Model requirements" /></span>{item.index === "02" ? <small>VIDEO + IMAGE</small> : null}<i aria-hidden="true"></i></summary>
-                        <div className={`sceneDemoRequirementGrid sceneDemoRequirementGrid${item.modelRequirements.length}`}>
-                          {item.modelRequirements.map((group, index) => (
-                            <article key={group.type || `${item.index}-${index}`}>
-                              {group.type ? <h5><B zh={group.type} en={group.typeEn} /></h5> : null}
-                              <ul className="langZh">{group.items.map((requirement) => <li key={requirement}>{requirement}</li>)}</ul>
-                              <ul className="langEn">{group.itemsEn.map((requirement) => <li key={requirement}>{requirement}</li>)}</ul>
-                            </article>
-                          ))}
-                        </div>
-                      </details>
-
-                      <details className="sceneDemoDisclosure" open>
-                        <summary className="hasMeta"><span><b>03</b><B zh="市场主流模型" en="Mainstream models (competitive set)" /></span><small>COMPETITIVE SET</small><i aria-hidden="true"></i></summary>
-                        <div className="sceneCompetitorGrid">
-                          {item.models.map((model) => <article key={model.type}><span><B zh={model.type} en={model.typeEn} /></span><strong><B zh={model.copy} en={model.copyEn ?? model.copy} /></strong></article>)}
-                        </div>
-                      </details>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          );
-        })}
-      </section>
-
       <section className="customerFlowPage" id="audience" aria-labelledby="customer-flow-title">
         <div className="customerFlowShell">
           <header className="customerFlowHeader">
-            <div className="customerFlowIndex"><span>04</span><b><B zh="客群策略" en="CUSTOMER STRATEGY" /></b></div>
+            <div className="customerFlowIndex"><span>02</span><b><B zh="客群策略" en="CUSTOMER STRATEGY" /></b></div>
             <div><h2 id="customer-flow-title"><span className="langZh">钱从上往下走，<br /><span>价值在中间放大。</span></span><span className="langEn">Money flows down.<br /><span>Value compounds in the middle.</span></span></h2></div>
             <p><B zh="品牌主掌握预算，代理商放大制作规模，AdTech / MarTech 把一次性交付变成持续调用，Paid Media 再把效果信号送回生产。" en="Brands hold the budget, agencies scale production, AdTech / MarTech turns one-off delivery into recurring calls, and paid media feeds performance signals back." /></p>
           </header>
