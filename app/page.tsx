@@ -497,7 +497,7 @@ export default function Home() {
             <article className="appLovinCase wppWorkPage" id="customer-brand" aria-label="AppLovin AI 创意规模化案例研究">
               <header className="appLovinCaseHero">
                 <p className="appLovinCaseKicker"><B zh="已验证方案 · APPLOVIN" en="PROVEN SOLUTION · APPLOVIN" /></p>
-                <h3><span className="langZh">从互动广告切入，<br /><strong>规模化至视频与图片全格式。</strong></span><span className="langEn">Start with Interactive.<br /><strong>Scale into Video and Image at volume.</strong></span></h3>
+                <h3><B zh="APPLOVIN：Automating creative to unlock scale" en="APPLOVIN: Automating creative to unlock scale" /></h3>
               </header>
 
               <div className="appLovinCaseBody">
@@ -506,17 +506,17 @@ export default function Home() {
                   <div className="appLovinChallengeStats">
                     <div>
                       <b>$1M<span><B zh="/月" en="/mo" /></span></b>
-                      <p><B zh="客户月消耗量级" en="Client monthly ad spend" /></p>
+                      <p><B zh="客户月消耗" en="Client spend" /></p>
                     </div>
                     <i className="appLovinChallengeArrow" aria-hidden="true">→</i>
                     <div>
                       <b>~150</b>
-                      <p><B zh="平均每月上传的新素材数" en="New creative assets uploaded per month" /></p>
+                      <p><B zh="月新增素材" en="New assets / mo" /></p>
                     </div>
                     <i className="appLovinChallengeArrow" aria-hidden="true">→</i>
                     <div>
                       <b><B zh="数千条" en="Thousands" /></b>
-                      <p><B zh="更大广告主的测试素材量" en="Assets tested by larger advertisers" /></p>
+                      <p><B zh="大客户测试量" en="Tested by larger advertisers" /></p>
                     </div>
                   </div>
                   <cite>
