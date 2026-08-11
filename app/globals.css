@@ -194,6 +194,31 @@
   font-size: 12px;
   font-weight: 520;
 }
+#customer-agency .agencyAdoptionIntro {
+  display: block;
+  min-height: 0;
+  padding: 22px 24px 18px;
+}
+#customer-agency .agencyAdoptionIntro > p {
+  margin: 0 0 10px;
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 780;
+  letter-spacing: .16em;
+}
+#customer-agency .agencyAdoptionIntro h4 {
+  max-width: 640px;
+  margin: 0;
+  color: #121d30;
+  font-size: clamp(20px, 1.9vw, 28px);
+  font-weight: 560;
+  line-height: 1.15;
+  letter-spacing: -.03em;
+}
+#customer-agency .agencyAdoptionIntro h4 strong {
+  color: var(--blue);
+  font-weight: 660;
+}
 #customer-agency .agencyOperatingWorkflow ol {
   margin: 0;
   padding: 0;
@@ -262,35 +287,41 @@
   background: #121d30;
   color: #ffffff;
 }
-#customer-agency .agencyOperatingCase > header {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(280px, .7fr);
-  align-items: end;
-  gap: 42px;
+#customer-agency .agencyOperatingCase > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
 }
-#customer-agency .agencyOperatingCase > header span {
+#customer-agency .agencyOperatingCase > summary::-webkit-details-marker { display: none; }
+#customer-agency .agencyOperatingCase > summary span {
   color: #78aaff;
   font-size: 10px;
   font-weight: 780;
   letter-spacing: .16em;
 }
-#customer-agency .agencyOperatingCase > header h4 {
-  max-width: 960px;
-  margin: 8px 0 0;
-  color: #ffffff;
-  font-size: clamp(22px, 1.9vw, 33px);
-  font-weight: 610;
-  line-height: 1.08;
-  letter-spacing: -.035em;
+#customer-agency .agencyOperatingCaseToggle {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid #42516a;
+  flex: 0 0 auto;
 }
-#customer-agency .agencyOperatingCase > header > p {
-  margin: 0;
-  padding-left: 24px;
-  color: #b9c5d8;
-  border-left: 1px solid #42516a;
-  font-size: 13px;
-  line-height: 1.5;
+#customer-agency .agencyOperatingCaseToggle::before,
+#customer-agency .agencyOperatingCaseToggle::after {
+  content: "";
+  position: absolute;
+  background: #ffffff;
+  top: 50%;
+  left: 50%;
 }
+#customer-agency .agencyOperatingCaseToggle::before { width: 9px; height: 1.6px; transform: translate(-50%, -50%); }
+#customer-agency .agencyOperatingCaseToggle::after { width: 1.6px; height: 9px; transform: translate(-50%, -50%); transition: transform .18s; }
+#customer-agency .agencyOperatingCase[open] .agencyOperatingCaseToggle::after { transform: translate(-50%, -50%) rotate(90deg); }
 #customer-agency .agencyOperatingClips {
   min-height: 0;
   display: grid;
@@ -419,8 +450,6 @@
   #customer-agency .agencyOperatingWorkflow li:first-child { border-top: 0; }
   #customer-agency .agencyOperatingWorkflow li::after { display: none !important; }
   #customer-agency .agencyOperatingCase { padding: 18px; }
-  #customer-agency .agencyOperatingCase > header { grid-template-columns: 1fr; gap: 14px; }
-  #customer-agency .agencyOperatingCase > header > p { padding: 0; border: 0; }
   #customer-agency .agencyOperatingClips { grid-template-columns: 1fr; }
   #customer-agency .agencyOperatingClips > i { margin: -2px auto; transform: rotate(90deg); }
   #customer-agency .agencyOperatingClips video { min-height: 190px; }
@@ -9583,7 +9612,7 @@ body {
     min-height: 720px;
     max-height: 1080px;
     padding: 22px 26px 24px;
-    grid-template-rows: 128px 168px minmax(0, 1fr);
+    grid-template-rows: 128px 238px minmax(0, 1fr);
     gap: 14px;
     overflow: hidden;
   }
@@ -9657,20 +9686,7 @@ body {
     grid-template-rows: auto minmax(0, 1fr) 38px;
     gap: 10px;
   }
-  #customer-agency .agencyOperatingCase > header {
-    grid-template-columns: minmax(0, 1.3fr) minmax(270px, .7fr);
-    gap: 28px;
-  }
-  #customer-agency .agencyOperatingCase > header span { font-size: 8px; }
-  #customer-agency .agencyOperatingCase > header h4 {
-    margin-top: 5px;
-    font-size: clamp(18px, 1.45vw, 25px);
-  }
-  #customer-agency .agencyOperatingCase > header > p {
-    padding-left: 18px;
-    font-size: 10px;
-    line-height: 1.4;
-  }
+  #customer-agency .agencyOperatingCase > summary span { font-size: 8px; }
   #customer-agency .agencyOperatingClips { gap: 8px; grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr); }
   #customer-agency .agencyOperatingClips > i { width: 34px; height: 34px; font-size: 16px; }
   #customer-agency .agencyOperatingClips video {
@@ -9696,7 +9712,7 @@ body {
     min-height: 0;
     padding-top: 16px;
     padding-bottom: 16px;
-    grid-template-rows: 110px 150px minmax(0, 1fr);
+    grid-template-rows: 110px 220px minmax(0, 1fr);
     gap: 10px;
   }
   #customer-agency .agencyOperatingHero { height: 110px; }
@@ -9735,10 +9751,6 @@ body {
   right: -21px;
   border: 0;
   box-shadow: none;
-}
-#customer-agency .agencyOperatingCase > header > p {
-  padding-left: 0;
-  border: 0;
 }
 #customer-agency .agencyOperatingClips video { border: 0; }
 #customer-agency .agencyOperatingProof {
@@ -12256,38 +12268,24 @@ body {
 
 /* ═════════════════════ AppLovin case study (between 2.2 and 2.3) ═════════════════════ */
 #customer-brand .appLovinCaseHero {
-  padding: 28px 32px 24px;
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  align-items: center;
   border-bottom: 1px solid var(--line);
 }
-#customer-brand .appLovinCaseBrand {
+#customer-brand .appLovinCaseIndex {
+  align-self: stretch;
+  padding: 28px 20px 28px 32px;
   display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 14px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  border-right: 1px solid var(--line);
 }
-#customer-brand .appLovinLogo { width: 108px; height: auto; color: #121d30; flex: 0 0 auto; }
-#customer-brand .appLovinCaseKicker {
-  margin: 0;
-  padding-left: 14px;
-  border-left: 1px solid var(--line);
-  color: var(--blue);
-  font-size: 10px;
-  font-weight: 780;
-  letter-spacing: .16em;
-}
-#customer-brand .appLovinCaseHero h3 {
-  max-width: 900px;
-  margin: 0;
-  color: #121d30;
-  font-size: clamp(30px, 2.9vw, 46px);
-  font-weight: 560;
-  line-height: 1.05;
-  letter-spacing: -.05em;
-}
-#customer-brand .appLovinCaseHero h3 strong {
-  color: var(--blue);
-  font-weight: 660;
-}
+#customer-brand .appLovinCaseIndex span { color: var(--blue); font-size: 12px; font-weight: 950; letter-spacing: .15em; }
+#customer-brand .appLovinCaseIndex b { color: #7b8799; font-size: 10px; font-weight: 700; letter-spacing: .15em; }
+#customer-brand .appLovinCaseTitle { padding: 20px 32px; }
+#customer-brand .appLovinLogo { width: 150px; height: auto; color: #121d30; }
 #customer-brand .appLovinCaseBody { padding: 28px 32px 34px; }
 #customer-brand .appLovinBlock { margin-top: 28px; }
 #customer-brand .appLovinBlock:first-of-type { margin-top: 0; }
