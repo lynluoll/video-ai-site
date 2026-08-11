@@ -443,34 +443,83 @@ export default function Home() {
       <section className="audienceSection customerCasesSection" id="customer-cases">
         <div className="shell">
           <div className="customerStories">
-            <article className="lorealCasePage" id="customer-brand" aria-label="典型全球品牌主业务模式">
-              <div className="lorealReportCanvas">
-                <section className="brandOwnerStudy" aria-label="典型全球品牌主的三层业务逻辑">
-                  <aside className="brandOwnerSpine">
-                    <span className="brandOwnerStudyNumber">2.1</span>
-                    <small><B zh="典型品牌主" en="TYPICAL BRAND OWNER" /></small>
-                    <h3><B zh="一个治理中枢，三层生产体系。" en="One governance spine. Three production layers." /></h3>
-                    <p><B zh="品牌资产、版权与合规由集团统一管理；具体生产需求在不同组织层完成决策与交付。" en="Brand assets, licensing, and compliance are governed centrally; production decisions and delivery happen across three operating layers." /></p>
-                    <div className="brandOwnerGovernance">
-                      <b><B zh="统一治理中枢" en="CENTRAL GOVERNANCE" /></b>
-                      <ul><li><B zh="品牌规范" en="Brand rules" /></li><li><B zh="资产与版权" en="Assets & rights" /></li><li><B zh="模型与额度" en="Models & credits" /></li><li><B zh="合规要求" en="Compliance" /></li></ul>
-                    </div>
-                  </aside>
+            <article className="appLovinCase" id="customer-brand" aria-label="AppLovin AI 创意规模化案例研究">
+              <header className="appLovinCaseBanner">
+                <h3><B zh="APPLOVIN：AI 驱动的创意规模化" en="APPLOVIN: AI-POWERED CREATIVE SCALING" /></h3>
+              </header>
 
-                  <div className="brandOwnerJourneys">
-                    <article className="brandOwnerJourney brandOwnerJourneyPlatform">
-                      <div className="brandOwnerJourneyIdentity"><span>01</span><div><small><B zh="集团平台" en="GROUP PLATFORM" /></small><h4><B zh="内部 AI 生产平台" en="Internal AI production platform" /></h4><p><B zh="决定哪些能力可获批并规模化使用。" en="Decides what can be approved and scaled." /></p></div></div>
-                      <ol><li><B zh="真实营销场景试点" en="Marketing use-case pilot" /></li><li><B zh="模型与额度池" en="Model & credit pool" /></li><li><B zh="IT / 法务 / 财务评估" en="IT / Legal / Finance review" /></li><li><B zh="集团规模化使用" en="Scaled group adoption" /></li></ol>
+              <div className="appLovinCaseBody">
+                <span className="appLovinCaseTag"><B zh="已验证方案" en="Proven Solution" /></span>
+
+                <section className="appLovinBlock appLovinChallenge">
+                  <small><B zh="创意挑战" en="THE CREATIVE CHALLENGE" /></small>
+                  <p>
+                    &ldquo;<B
+                      zh="月消耗约 $1M 的客户平均每月要上传约 150 条新素材，更大的广告主测试量可达数千条。AI 自动化是唯一能跟上这种规模的方式。"
+                      en="Clients spending $1M/mo often upload ~150 new assets monthly, while larger advertisers test thousands. AI automation is the only way to meet this scale."
+                    />&rdquo;
+                  </p>
+                  <cite>
+                    — AppLovin,{" "}
+                    <a href="https://www.applovin.com/en/blog/automating-creative" target="_blank" rel="noopener noreferrer">
+                      <B zh="《Automating creative to unlock scale》" en="Automating creative to unlock scale" />
+                    </a>
+                  </cite>
+                </section>
+
+                <section className="appLovinBlock appLovinSolution">
+                  <small><B zh="解决方案" en="SOLUTION" /></small>
+                  <h4><B zh="由 Seedance 与 Seedream 提供支持的自动化创意技术栈" en="Automated Creative Stack powered by Seedance and Seedream" /></h4>
+                  <div className="appLovinFormats">
+                    <article className="appLovinFormatCard">
+                      <div className="appLovinFormatHead">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 17l5-10 4 6 2-3 5 7H4z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg>
+                        <h5><B zh="互动广告" en="INTERACTIVE ADS" /></h5>
+                      </div>
+                      <p><B zh="几分钟内自动生成高转化的互动 HTML 广告层。" en="Auto-generate high-converting interactive HTML layers in minutes." /></p>
+                      <details className="appLovinFormatMedia">
+                        <summary><B zh="查看示例" en="View example" /><span className="appLovinFormatToggle" aria-hidden="true" /></summary>
+                        <video src="/media/applovin/automating-creative-01.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 互动广告自动生成示例" />
+                      </details>
                     </article>
-                    <article className="brandOwnerJourney brandOwnerJourneyTeams">
-                      <div className="brandOwnerJourneyIdentity"><span>02</span><div><small><B zh="业务团队" en="BUSINESS TEAMS" /></small><h4><B zh="品牌与市场团队" en="Brand and market teams" /></h4><p><B zh="将渠道目标转化为持续的内容需求。" en="Turns channel goals into recurring content demand." /></p></div></div>
-                      <ol><li><B zh="电商 / 社媒 / 官网需求" en="Commerce / social / web demand" /></li><li><B zh="完整素材清单" en="Complete asset plan" /></li><li><B zh="本地化与版本化" en="Localization & versioning" /></li><li><B zh="审核与多渠道交付" en="Review & delivery" /></li></ol>
+                    <article className="appLovinFormatCard">
+                      <div className="appLovinFormatHead">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2" stroke="currentColor" strokeWidth="1.6"/><path d="M16 10.5l5-3v9l-5-3" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg>
+                        <h5><B zh="视频广告" en="VIDEO ADS" /></h5>
+                      </div>
+                      <p><B zh="多智能体流水线规模化生成视频变体，稳定保持高产量。" en="Scalable video variants via multi-agent pipelines for consistent high volume." /></p>
+                      <details className="appLovinFormatMedia">
+                        <summary><B zh="查看示例" en="View example" /><span className="appLovinFormatToggle" aria-hidden="true" /></summary>
+                        <video src="/media/applovin/generating-video-01.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 视频广告自动生成示例" />
+                      </details>
                     </article>
-                    <article className="brandOwnerJourney brandOwnerJourneyPartners">
-                      <div className="brandOwnerJourneyIdentity"><span>03</span><div><small><B zh="外部交付" en="EXTERNAL DELIVERY" /></small><h4><B zh="代理商与制作伙伴" en="Agency and production partners" /></h4><p><B zh="交付品牌主片与大型广告项目。" en="Delivers hero films and major campaigns." /></p></div></div>
-                      <ol><li><B zh="品牌简报" en="Brand brief" /></li><li><B zh="创意与制作" en="Creative & production" /></li><li><B zh="母版与品牌审核" en="Master & brand review" /></li><li><B zh="短版剪辑与本地化" en="Cutdowns & localization" /></li></ol>
+                    <article className="appLovinFormatCard">
+                      <div className="appLovinFormatHead">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.6"/><circle cx="9" cy="10" r="1.6" fill="currentColor"/><path d="M4 17l5-5 4 4 3-3 4 4" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg>
+                        <h5><B zh="图片广告" en="IMAGE ADS" /></h5>
+                      </div>
+                      <p><B zh="动态生成并持续迭代图片素材，维持长期投放效果。" en="Dynamic image assets generated and iterated to maintain performance." /></p>
+                      <details className="appLovinFormatMedia">
+                        <summary><B zh="查看示例" en="View example" /><span className="appLovinFormatToggle" aria-hidden="true" /></summary>
+                        <video src="/media/applovin/automating-creative-04.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 图片广告自动生成示例" />
+                      </details>
                     </article>
                   </div>
+                </section>
+
+                <section className="appLovinBlock appLovinResult">
+                  <small><B zh="已验证结果" en="PROVEN RESULT" /></small>
+                  <div className="appLovinResultGrid">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/media/applovin/share-of-spend-chart.jpg" alt="Share of spend, AI-generated interactives" />
+                    <div className="appLovinResultCopy">
+                      <b>0% → ~9.5%</b>
+                      <p><B zh="首批上线广告主中，AI 生成互动广告占花费的比例（2026 年 2 月 1 日至 3 月 1 日）。" en="Share of spend on AI-generated interactives, for advertisers in the initial rollout (Feb 1 – Mar 1, 2026)." /></p>
+                    </div>
+                  </div>
+                  <p className="appLovinResultNote">
+                    <B zh="数据来自 AppLovin 官方博客，反映的是其自有互动广告产品的采用曲线。" en="Figures are from AppLovin's own blog and reflect adoption of their own AI-interactives product." />
+                  </p>
                 </section>
               </div>
             </article>
