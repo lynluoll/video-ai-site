@@ -23,8 +23,11 @@ test("server-renders the complete V3 advertising strategy", async () => {
   const sceneOverviewHtml = html.slice(html.indexOf('class="sceneLandscapePage"'), html.indexOf('class="sceneDemoPages"'));
   const sceneDemoHtml = html.slice(html.indexOf('class="sceneDemoPages"'), html.indexOf('class="customerFlowPage"'));
   const performanceSolutionHtml = html.slice(html.indexOf('class="solutionPage performanceSolutionPage"'), html.indexOf('class="solutionPage displaySolutionPage"'));
+  const marketTrendHtml = html.slice(html.indexOf('class="marketTrendSection"'), html.indexOf('class="sceneLandscapePage"'));
 
-  assert.match(html, /<title>BytePlus 广告行业素材生产方案<\/title>/);
+  assert.match(html, /<html lang="en">/);
+  assert.match(html, /<title>BytePlus Advertising Creative Production Solutions<\/title>/);
+  assert.match(html, /id="language-mode" type="checkbox"[^>]*checked=""/);
   assert.match(html, /<main class="siteRoot" id="top">/);
   assert.match(html, /视频成为主流/);
   assert.match(html, /AI 生产走向规模化/);
@@ -38,17 +41,27 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(html, /\$160B/);
   assert.match(html, /\$110B/);
   assert.match(html, /\$260B/);
-  assert.match(html, /\$25–30B/);
-  assert.match(html, /\$29\.4B/);
   assert.match(html, /2021–23 \+44%/);
   assert.match(html, /2023–26 \+63%/);
   assert.match(html, /2026–30 \+79%/);
-  assert.doesNotMatch(html, /VALUE CAPTURE|关键数字为方向性估算|参考页估算/);
+  assert.doesNotMatch(html, /\$25–30B|\$29\.4B|可替代劳动力盘|Replaceable labor pool|VALUE CAPTURE|关键数字为方向性估算|参考页估算/);
+
+  // Chapter 01 follows the migration plan: one verified chart, three trends,
+  // and a transition into the player chapter without unverified adoption data.
+  assert.match(html, /AI 正在重塑广告市场的供给方式/);
+  assert.match(html, /AI Is Reshaping How Advertising Supply Is Created/);
+  assert.equal((html.match(/class="marketTrendCard /g) ?? []).length, 3);
+  assert.match(html, /视频广告将在 2030 年成为第一大广告类型/);
+  assert.match(html, /Campaign Agent 在 2026 年进入规模化阶段/);
+  assert.match(html, /AI 成为创意团队的标准生产力/);
+  assert.match(html, /0→1.*1→3.*3→N/s);
+  assert.match(html, /下一章：主要参与者/);
+  assert.doesNotMatch(marketTrendHtml, /83%|60%/i);
 
   // The three-track overview and auto-reveal chart are present once.
   assert.equal((html.match(/class="marketFlowSvg"/g) ?? []).length, 1);
   assert.match(html, /查看三赛道/);
-  assert.equal((html.match(/class="sceneMatrixColumnHead sceneMatrixColumnHead-/g) ?? []).length, 3);
+  assert.equal((html.match(/class="sceneTrackCard sceneTrackCard-/g) ?? []).length, 3);
   assert.match(sceneOverviewHtml, /品牌广告.*效果广告.*静态展示图片广告/s);
   assert.match(sceneOverviewHtml, /Brand video.*Performance video.*Static display ads/s);
   assert.doesNotMatch(sceneOverviewHtml, /Shein|Temu|Amazon 卖家|Shopify 商家/);

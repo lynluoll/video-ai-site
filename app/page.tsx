@@ -421,9 +421,9 @@ export default function Home() {
   return (
     <main className="siteRoot" id="top">
       {process.env.NODE_ENV === "development" ? <InlineTextEditor /> : null}
-      <input className="langControl" id="language-mode" type="checkbox" aria-label="切换中英文" />
-      <nav className="nav shell" aria-label="主导航">
-        <a className="brand" href="#top" aria-label="BytePlus 广告行业素材生产方案首页">
+      <input className="langControl" id="language-mode" type="checkbox" defaultChecked aria-label="Switch between English and Chinese" />
+      <nav className="nav shell" aria-label="Primary navigation">
+        <a className="brand" href="#top" aria-label="BytePlus Advertising Creative Production Solutions home">
           <span className="brandMark">B</span>
           <span className="langZh">BytePlus 广告行业素材生产方案</span>
           <span className="langEn">ADS Creative Solution</span>
@@ -453,10 +453,11 @@ export default function Home() {
       <section className="marketHero marketFlowPage" id="market">
         <div className="marketFlowShell">
           <header className="marketFlowIntro">
-            <div className="marketFlowIndex"><span>01</span><b>BUDGET FLOW</b></div>
+            <div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div>
             <div className="marketFlowTitle">
-              <h1 className="langZh">AI 降低视频生产成本，<br /><span>视频广告成为全球投放第一大类型。</span></h1>
-              <h1 className="langEn">AI lowers video production cost.<br /><span>Video becomes the world’s No.1 ad format.</span></h1>
+              <h1 className="langZh">AI 正在重塑广告市场的供给方式</h1>
+              <h1 className="langEn">AI Is Reshaping How Advertising Supply Is Created</h1>
+              <p><B zh="视频成为最大的广告形态，Campaign Agent 开始规模化，AI 也正在成为每个创意团队的标准生产力。" en="Video is becoming the largest ad format, campaign agents are beginning to scale, and AI is becoming standard infrastructure for creative teams." /></p>
             </div>
             <div className="marketFlowScope" aria-label="全球数字广告与海外数字广告市场口径">
               <div><span><span className="langZh">2026 全球数字广告</span><span className="langEn">2026 GLOBAL DIGITAL ADS</span></span><strong>≈ $1T</strong></div>
@@ -475,6 +476,11 @@ export default function Home() {
             <svg className="marketFlowSvg" viewBox="0 0 1200 430" role="img" aria-label="2026 年四类海外数字广告基线，视频广告增长至 2030 年 2600 亿美元">
               <defs>
                 <pattern id="market-flow-grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="currentColor" strokeOpacity=".06" /></pattern>
+                <linearGradient id="market-flow-blue" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stopColor="#2149E6" />
+                  <stop offset=".58" stopColor="#3B6FE8" />
+                  <stop offset="1" stopColor="#63BCE8" />
+                </linearGradient>
               </defs>
               <rect width="1200" height="430" className="flowGrid" fill="url(#market-flow-grid)" />
               <g className="flowLabels">
@@ -562,11 +568,55 @@ export default function Home() {
             </div>
           </figure>
 
-          <section className="marketFlowAiBand" aria-label="2026 到 2030 AI 价值捕获">
-            <div className="marketFlowAiIntro"><h2 className="langZh">AI 把制作瓶颈，<br />变成可规模化供给。</h2><h2 className="langEn">AI turns a production bottleneck<br />into scalable supply.</h2></div>
-            <div className="marketFlowYear current"><header><strong>2026</strong><span>CURRENT</span></header><div className="marketFlowYearTotal"><span><span className="langZh">视频广告制作总成本</span><span className="langEn">Total video production cost</span></span><b>$25–30B</b></div><div className="marketFlowMetric agent"><span>AGENT</span><b>$2B</b><small><span className="langZh">≈ 成本 10%</span><span className="langEn">≈10% of cost</span></small></div><div className="marketFlowMetric api"><span>MODEL API</span><b>$1B</b><small><span className="langZh">≈ 成本 5%</span><span className="langEn">≈5% of cost</span></small></div></div>
-            <div className="marketFlowYear future"><header><strong>2030</strong><span>FORECAST</span></header><div className="marketFlowYearTotal"><span><span className="langZh">可替代劳动力盘</span><span className="langEn">Replaceable labor pool</span></span><b>≈ $60B</b></div><div className="marketFlowMetric api marketFlowMetricCombined"><span><span className="langZh">视频 + 图片 AI 整体 · AGENT + MODEL API</span><span className="langEn">VIDEO + IMAGE AI · AGENT + MODEL API</span></span><b>$29.4B</b><small>9.8×</small></div></div>
-            
+          <section className="marketTrendSection" aria-labelledby="market-trends-title">
+            <header className="marketTrendSectionHeader">
+              <span>01.2 · THREE MARKET SHIFTS</span>
+              <h2 id="market-trends-title"><B zh="三个变化，正在把广告生产推向持续供给。" en="Three shifts are turning advertising production into an always-on supply system." /></h2>
+            </header>
+
+            <div className="marketTrendGrid">
+              <article className="marketTrendCard marketTrendVideo">
+                <header><span>01</span><b>VIDEO</b></header>
+                <h3><B zh="视频广告将在 2030 年成为第一大广告类型" en="Video Becomes the Largest Ad Format by 2030" /></h3>
+                <p><B zh="视频本来就在互动和转化上占优，过去限制供给的是制作成本。AI 降低生产门槛后，视频素材开始走向规模化供给。" en="Video already performs strongly on engagement and conversion. As AI reduces production cost and complexity, creative supply can finally scale." /></p>
+                <footer>
+                  <strong><B zh="产品含义" en="PRODUCT IMPLICATION" /></strong>
+                  <span><B zh="视频模型从创意预演走向正式生产" en="Video models move from previsualization into production" /></span>
+                  <a href="#market-flow-heading"><B zh="查看上方市场主图" en="See the market chart above" /> ↑</a>
+                </footer>
+              </article>
+
+              <article className="marketTrendCard marketTrendAgent">
+                <header><span>02</span><b>CAMPAIGN AGENT</b></header>
+                <h3><B zh="Campaign Agent 在 2026 年进入规模化阶段" en="Campaign Agents Enter the Scaling Phase in 2026" /></h3>
+                <p><B zh="Ad Manager 正在演化为 Campaign Agent。Agent 串联策略、素材、投放与优化，人负责设定方向、选择和审核。" en="Ad managers are evolving into campaign agents that connect strategy, creative, activation, and optimization — while people direct, choose, and review." /></p>
+                <ol className="marketAgentStages" aria-label="Campaign Agent 规模化阶段">
+                  <li><small>2025</small><strong>0→1</strong><span><B zh="验证" en="VALIDATE" /></span></li>
+                  <li className="active"><small>2026</small><strong>1→3</strong><span><B zh="复制" en="REPLICATE" /></span></li>
+                  <li><small><B zh="未来" en="NEXT" /></small><strong>3→N</strong><span><B zh="普及" en="SCALE" /></span></li>
+                </ol>
+                <footer><strong><B zh="必要闭环" en="REQUIRED LOOP" /></strong><span><B zh="创意自动化必须留在 Campaign Agent 的端到端工作流内。" en="Creative automation must remain inside the campaign agent’s end-to-end workflow." /></span></footer>
+              </article>
+
+              <article className="marketTrendCard marketTrendCreator">
+                <header><span>03</span><b>CREATIVE TEAMS</b></header>
+                <h3><B zh="AI 成为创意团队的标准生产力" en="AI Becomes Standard Infrastructure for Creative Teams" /></h3>
+                <p><B zh="AI 的价值不再只是生成一条素材，而是持续覆盖创意、制作、本地化和版本延展等日常工作。" en="AI is moving beyond one-off generation to become an everyday layer across ideation, production, localization, and versioning." /></p>
+                <ul className="marketCreatorCoverage" aria-label="AI 覆盖的创意工作环节">
+                  <li><B zh="创意" en="IDEATION" /></li>
+                  <li><B zh="制作" en="PRODUCTION" /></li>
+                  <li><B zh="本地化" en="LOCALIZATION" /></li>
+                  <li><B zh="版本延展" en="VERSIONING" /></li>
+                </ul>
+                <footer><strong><B zh="衡量方式" en="HOW TO MEASURE" /></strong><span><B zh="关注团队采用率与工作流覆盖，而不是孤立的调用次数。" en="Measure team adoption and workflow coverage, not isolated generation counts." /></span></footer>
+              </article>
+            </div>
+
+            <div className="marketChapterTransition">
+              <span>01 → 02</span>
+              <p><B zh="这三项趋势不会同时作用于所有人。品牌主、代理商、AdTech 和媒体平台分别控制着不同的预算、资产和反馈信号。" en="These shifts do not affect every player in the same way. Brands, agencies, AdTech platforms, and media owners each control a different part of the budget, asset, and feedback loop." /></p>
+              <a href="#audience"><B zh="下一章：主要参与者" en="Next: Key Players" /> →</a>
+            </div>
           </section>
         </div>
       </section>
@@ -578,41 +628,29 @@ export default function Home() {
             <div><h2 id="scene-landscape-title"><span className="langZh">2. 主流广告场景<br /><span>和需求分析</span></span><span className="langEn">2. Mainstream ad scenarios<br /><span>and what they demand</span></span></h2></div>
           </header>
 
-          <div className="sceneComparisonMatrix" role="table" aria-label="品牌、效果与静态展示图片广告全景对比">
-            <div className="sceneMatrixCorner" role="columnheader">
-              <span><span className="langZh">评估维度</span><span className="langEn">Dimensions</span></span>
-              <b>5 DIMENSIONS</b>
-            </div>
+          <div className="sceneTrackCards" aria-label="品牌、效果与静态展示图片广告全景对比">
             {sceneLandscapeColumns.map((column) => (
-              <header className={`sceneMatrixColumnHead sceneMatrixColumnHead-${column.key}`} role="columnheader" key={`head-${column.key}`}>
-                <small>{column.index} / {column.eyebrow}</small>
-                <h3><B zh={column.title} en={column.titleEn} /></h3>
-              </header>
-            ))}
+              <article className={`sceneTrackCard sceneTrackCard-${column.key}`} key={column.key}>
+                <header className="sceneTrackHeader">
+                  <span>{column.index}</span>
+                  <div><small>{column.eyebrow}</small><h3><B zh={column.title} en={column.titleEn} /></h3></div>
+                </header>
 
-            <div className="sceneMatrixRowHead sceneMatrixMarketHead" role="rowheader"><span>01</span><div><b><B zh="2026 模型 API 潜在空间" en="2026 model API potential" /></b><small className="langZh">情景估算</small><small className="langEn">SCENARIO ESTIMATE</small></div></div>
-            {sceneLandscapeColumns.map((column) => (
-              <section className={`sceneMatrixCell sceneMatrixMarket sceneMatrixCell-${column.key}`} role="cell" key={`market-${column.key}`}>
-                <div><strong>{column.marketValue}</strong>{"marketShare" in column ? <b>{column.marketShare}</b> : null}</div>
-                <i><span style={{ width: column.key === "brand" ? "40%" : column.key === "performance" ? "60%" : "100%" }} /></i>
-              </section>
-            ))}
+                <section className="sceneTrackMarket">
+                  <div className="sceneTrackLabel"><span>01</span><div><b><B zh="2026 模型 API 潜在空间" en="2026 model API potential" /></b><small><B zh="情景估算" en="SCENARIO ESTIMATE" /></small></div></div>
+                  <div className="sceneTrackMetric"><strong>{column.marketValue}</strong>{"marketShare" in column ? <b>{column.marketShare}</b> : null}</div>
+                  <i><span style={{ width: column.key === "brand" ? "40%" : column.key === "performance" ? "60%" : "100%" }} /></i>
+                </section>
 
-            <div className="sceneMatrixRowHead" role="rowheader"><span>02</span><div><b><B zh="核心阵地" en="Where it runs" /></b><small>WHERE</small></div></div>
-            {sceneLandscapeColumns.map((column) => <section className="sceneMatrixCell" role="cell" key={`channels-${column.key}`}><p className="langZh">{column.channels.map((line) => <span key={line}>{line}</span>)}</p><p className="langEn">{column.channelsEn.map((line) => <span key={line}>{line}</span>)}</p></section>)}
+                <dl className="sceneTrackFacts">
+                  <div><dt><span>02</span><div><b><B zh="核心阵地" en="Where it runs" /></b><small>WHERE</small></div></dt><dd><p className="langZh">{column.channels.map((line) => <span key={line}>{line}</span>)}</p><p className="langEn">{column.channelsEn.map((line) => <span key={line}>{line}</span>)}</p></dd></div>
+                  <div><dt><span>03</span><div><b><B zh="核心目的" en="Objective" /></b><small>OBJECTIVE</small></div></dt><dd><p className="langZh">{column.objective.map((line) => <span key={line}>{line}</span>)}</p><p className="langEn">{column.objectiveEn.map((line) => <span key={line}>{line}</span>)}</p></dd></div>
+                  <div className="sceneTrackOutput"><dt><span>04</span><div><b><B zh="典型产出" en="Typical output" /></b><small>OUTPUT</small></div></dt><dd><strong>{column.output}</strong><p><B zh={column.outputNote} en={column.outputNoteEn} /></p></dd></div>
+                  <div><dt><span>05</span><div><b><B zh="典型客户" en="Who buys" /></b><small>WHO BUYS</small></div></dt><dd><p className="langZh">{column.buyers.map((line) => <span key={line}>{line}</span>)}</p><p className="langEn">{column.buyersEn.map((line) => <span key={line}>{line}</span>)}</p></dd></div>
+                </dl>
 
-            <div className="sceneMatrixRowHead" role="rowheader"><span>03</span><div><b><B zh="核心目的" en="Objective" /></b><small>OBJECTIVE</small></div></div>
-            {sceneLandscapeColumns.map((column) => <section className="sceneMatrixCell" role="cell" key={`objective-${column.key}`}><p className="langZh">{column.objective.map((line) => <span key={line}>{line}</span>)}</p><p className="langEn">{column.objectiveEn.map((line) => <span key={line}>{line}</span>)}</p></section>)}
-
-            <div className="sceneMatrixRowHead" role="rowheader"><span>04</span><div><b><B zh="典型产出" en="Typical output" /></b><small>OUTPUT</small></div></div>
-            {sceneLandscapeColumns.map((column) => <section className="sceneMatrixCell sceneMatrixOutput" role="cell" key={`output-${column.key}`}><strong>{column.output}</strong><p><B zh={column.outputNote} en={column.outputNoteEn} /></p></section>)}
-
-            <div className="sceneMatrixRowHead" role="rowheader"><span>05</span><div><b><B zh="典型客户" en="Who buys" /></b><small>WHO BUYS</small></div></div>
-            {sceneLandscapeColumns.map((column) => (
-              <section className="sceneMatrixCell sceneMatrixBuyers" role="cell" key={`buyers-${column.key}`}>
-                <p className="langZh">{column.buyers.map((line) => <span key={line}>{line}</span>)}</p><p className="langEn">{column.buyersEn.map((line) => <span key={line}>{line}</span>)}</p>
-                <a href={column.href}><B zh={column.link} en={column.linkEn} /><b>↘</b></a>
-              </section>
+                <a className="sceneTrackLink" href={column.href}><B zh={column.link} en={column.linkEn} /><b>↘</b></a>
+              </article>
             ))}
           </div>
         </div>

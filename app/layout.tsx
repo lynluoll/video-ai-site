@@ -7,26 +7,27 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://spc6kompcd6mjbinr9s5m.apigateway-ap-southeast-1.apigw-byteplus.com"),
-  title: "BytePlus 广告行业素材生产方案",
-  description: "视频成为主流，AI 生产走向规模化。",
+  title: "BytePlus Advertising Creative Production Solutions",
+  description: "Video is becoming mainstream. AI production is scaling.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   openGraph: {
-    title: "BytePlus 广告行业素材生产方案",
-    description: "视频成为主流，AI 生产走向规模化。",
+    title: "BytePlus Advertising Creative Production Solutions",
+    description: "Video is becoming mainstream. AI production is scaling.",
     type: "website",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "BytePlus 广告行业素材生产方案" }],
+    locale: "en_SG",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "BytePlus Advertising Creative Production Solutions" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BytePlus 广告行业素材生产方案",
-    description: "视频成为主流，AI 生产走向规模化。",
+    title: "BytePlus Advertising Creative Production Solutions",
+    description: "Video is becoming mainstream. AI production is scaling.",
     images: ["/og.png"],
   },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="zh-CN">
+    <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
     </html>
   );
