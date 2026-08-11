@@ -228,6 +228,20 @@ export default function Home() {
       </nav>
 
       <section className="coverPage" aria-labelledby="cover-title">
+        <video
+          className="coverBackgroundVideo"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/media/landing/brand-15-poster.jpg"
+          aria-hidden="true"
+          tabIndex={-1}
+        >
+          <source src="/media/landing/brand-15.mp4" type="video/mp4" />
+        </video>
+        <div className="coverBackgroundVeil" aria-hidden="true" />
         <div className="coverGlow" aria-hidden="true" />
         <div className="coverRule coverRuleTop" aria-hidden="true" />
         <div className="coverRule coverRuleBottom" aria-hidden="true" />

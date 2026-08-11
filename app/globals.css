@@ -11676,6 +11676,46 @@ body {
   gap: 4px;
 }
 
+/* v5.12 · Landing film reused from the reference demo site */
+.coverPage {
+  isolation: isolate;
+  background: #edf3fb;
+}
+.coverBackgroundVideo {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  opacity: .52;
+  filter: saturate(1.08) contrast(1.04);
+}
+.coverBackgroundVeil {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.88) 42%, rgba(255,255,255,.54) 72%, rgba(247,250,255,.38) 100%),
+    linear-gradient(180deg, rgba(255,255,255,.34), rgba(241,246,253,.68));
+}
+.coverPageInner { position: relative; z-index: 1; }
+
+@media (max-width: 760px) {
+  .coverBackgroundVideo { object-position: 58% center; opacity: .44; }
+  .coverBackgroundVeil {
+    background:
+      linear-gradient(90deg, rgba(255,255,255,.94), rgba(255,255,255,.74)),
+      linear-gradient(180deg, rgba(255,255,255,.2), rgba(241,246,253,.72));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coverBackgroundVideo { display: none; }
+}
+
 /* v5.10 · Market trends occupy one complete chapter viewport */
 @media (min-width: 1101px) {
   .marketTrendSection {
@@ -12172,6 +12212,7 @@ body {
 }
 #language-mode:checked ~ .moreDemosSection .langZh { display: none !important; }
 #language-mode:checked ~ .moreDemosSection .langEn { display: revert !important; }
+#language-mode:checked ~ .moreDemosSection .moreDemosActions a.langEn { display: inline-flex !important; }
 
 @keyframes moreDemosForward {
   to { transform: translateX(calc(-50% - var(--demo-gap) / 2)); }
