@@ -37,6 +37,7 @@
   padding: 30px;
   grid-template-rows: auto auto minmax(0, 1fr);
   gap: 18px;
+  overflow: visible;
   background:
     linear-gradient(rgba(18, 29, 48, .022) 1px, transparent 1px),
     linear-gradient(90deg, rgba(18, 29, 48, .022) 1px, transparent 1px),
@@ -279,126 +280,107 @@
   letter-spacing: -.02em;
 }
 
-#customer-agency .agencyOperatingCase {
-  min-height: 0;
-  padding: 24px;
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-  gap: 17px;
-  background: #121d30;
-  color: #ffffff;
+#customer-agency .agencyAdoptionDemo {
+  margin-top: 14px;
+  border-top: 1px solid #d9e0ea;
+  padding-top: 12px;
 }
-#customer-agency .agencyOperatingCase > summary {
+#customer-agency .agencyAdoptionDemo > summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 10px;
   cursor: pointer;
   list-style: none;
   user-select: none;
 }
-#customer-agency .agencyOperatingCase > summary::-webkit-details-marker { display: none; }
-#customer-agency .agencyOperatingCase > summary span {
-  color: #78aaff;
-  font-size: 10px;
+#customer-agency .agencyAdoptionDemo > summary::-webkit-details-marker { display: none; }
+#customer-agency .agencyAdoptionDemo > summary span {
+  color: var(--blue);
+  font-size: 9px;
   font-weight: 780;
-  letter-spacing: .16em;
+  letter-spacing: .13em;
 }
-#customer-agency .agencyOperatingCaseToggle {
+#customer-agency .agencyAdoptionDemoToggle {
   position: relative;
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  border: 1px solid #42516a;
+  border: 1px solid #b9c5d8;
   flex: 0 0 auto;
 }
-#customer-agency .agencyOperatingCaseToggle::before,
-#customer-agency .agencyOperatingCaseToggle::after {
+#customer-agency .agencyAdoptionDemoToggle::before,
+#customer-agency .agencyAdoptionDemoToggle::after {
   content: "";
   position: absolute;
-  background: #ffffff;
+  background: var(--blue);
   top: 50%;
   left: 50%;
 }
-#customer-agency .agencyOperatingCaseToggle::before { width: 9px; height: 1.6px; transform: translate(-50%, -50%); }
-#customer-agency .agencyOperatingCaseToggle::after { width: 1.6px; height: 9px; transform: translate(-50%, -50%); transition: transform .18s; }
-#customer-agency .agencyOperatingCase[open] .agencyOperatingCaseToggle::after { transform: translate(-50%, -50%) rotate(90deg); }
-#customer-agency .agencyOperatingClips {
-  min-height: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 42px minmax(0, 1fr);
+#customer-agency .agencyAdoptionDemoToggle::before { width: 8px; height: 1.4px; transform: translate(-50%, -50%); }
+#customer-agency .agencyAdoptionDemoToggle::after { width: 1.4px; height: 8px; transform: translate(-50%, -50%); transition: transform .18s; }
+#customer-agency .agencyAdoptionDemo[open] .agencyAdoptionDemoToggle::after { transform: translate(-50%, -50%) rotate(90deg); }
+#customer-agency .agencyAdoptionDemoClips {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   align-items: center;
-  gap: 10px;
 }
-#customer-agency .agencyOperatingClips figure {
-  min-width: 0;
-  height: 100%;
-  margin: 0;
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-}
-#customer-agency .agencyOperatingClips video {
+#customer-agency .agencyAdoptionDemoClips figure {
   width: 100%;
-  height: 100%;
-  min-height: 230px;
-  max-height: 390px;
+  margin: 0;
+}
+#customer-agency .agencyAdoptionDemoClips video {
+  width: 100%;
+  height: 120px;
   display: block;
   object-fit: cover;
   background: #08101d;
-  border: 1px solid #42516a;
+  border-radius: 4px;
 }
-#customer-agency .agencyOperatingClips > i {
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  color: #ffffff;
-  background: var(--blue);
-  border-radius: 50%;
-  font-size: 20px;
+#customer-agency .agencyAdoptionDemoClips > i {
+  color: var(--blue);
+  font-size: 14px;
   font-style: normal;
   font-weight: 800;
 }
-#customer-agency .agencyOperatingClips figcaption {
-  min-height: 44px;
-  padding-top: 10px;
-  display: grid;
-  grid-template-columns: 26px minmax(0, 1fr);
-  gap: 10px;
-  color: #e5ebf5;
-  font-size: 11px;
-  font-weight: 620;
+#customer-agency .agencyAdoptionDemoClips figcaption {
+  margin-top: 6px;
+  display: flex;
+  gap: 6px;
+  color: #505c70;
+  font-size: 10px;
+  font-weight: 560;
   line-height: 1.35;
 }
-#customer-agency .agencyOperatingClips figcaption > span {
-  color: #78aaff;
+#customer-agency .agencyAdoptionDemoClips figcaption > span {
+  color: var(--blue);
   font-weight: 780;
 }
-#customer-agency .agencyOperatingProof {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid #42516a;
-  border-bottom: 1px solid #42516a;
+#customer-agency .agencyAdoptionDemoProof {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
-#customer-agency .agencyOperatingProof > div {
-  min-width: 0;
-  padding: 13px 18px;
+#customer-agency .agencyAdoptionDemoProof > div {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 18px;
+  gap: 10px;
 }
-#customer-agency .agencyOperatingProof > div + div { border-left: 1px solid #42516a; }
-#customer-agency .agencyOperatingProof span {
-  color: #8d9bb0;
-  font-size: 9px;
+#customer-agency .agencyAdoptionDemoProof span {
+  color: #8d97a8;
+  font-size: 8px;
   font-weight: 760;
-  letter-spacing: .13em;
+  letter-spacing: .1em;
 }
-#customer-agency .agencyOperatingProof strong {
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 670;
+#customer-agency .agencyAdoptionDemoProof strong {
+  color: #172235;
+  font-size: 10px;
+  font-weight: 650;
+  text-align: right;
 }
 
 @media (max-width: 1180px) {
@@ -450,12 +432,7 @@
   #customer-agency .agencyOperatingWorkflow li:nth-child(3) { min-height: 0; border-top: 1px solid #d6deea; border-left: 0; }
   #customer-agency .agencyOperatingWorkflow li:first-child { border-top: 0; }
   #customer-agency .agencyOperatingWorkflow li::after { display: none !important; }
-  #customer-agency .agencyOperatingCase { padding: 18px; }
-  #customer-agency .agencyOperatingClips { grid-template-columns: 1fr; }
-  #customer-agency .agencyOperatingClips > i { margin: -2px auto; transform: rotate(90deg); }
-  #customer-agency .agencyOperatingClips video { min-height: 190px; }
-  #customer-agency .agencyOperatingProof { grid-template-columns: 1fr; }
-  #customer-agency .agencyOperatingProof > div + div { border-top: 1px solid #42516a; border-left: 0; }
+  #customer-agency .agencyAdoptionDemoClips video { height: 100px; }
 }
 
 /* Local copy editor — hidden until the user opens it. */
@@ -9611,13 +9588,10 @@ body {
 @media (min-width: 1101px) {
   #customer-agency.agencyOperatingPage {
     box-sizing: border-box;
-    height: calc(100svh - 72px);
     min-height: 720px;
-    max-height: 1080px;
     padding: 22px 26px 24px;
-    grid-template-rows: 128px 238px minmax(0, 1fr);
+    grid-template-rows: 128px auto;
     gap: 14px;
-    overflow: hidden;
   }
 
   #customer-agency .agencyOperatingHero {
@@ -9654,12 +9628,10 @@ body {
 
   #customer-agency .agencyAdoptionMap { min-height: 0; }
   #customer-agency .agencyAdoptionMap ol {
-    height: 168px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   #customer-agency .agencyAdoptionMap li {
-    min-height: 0;
-    height: 168px;
+    min-height: 168px;
     padding: 24px 34px 20px 22px;
     grid-template-columns: 31px minmax(0, 1fr);
     gap: 10px;
@@ -9684,30 +9656,7 @@ body {
     line-height: 1.35;
   }
 
-  #customer-agency .agencyOperatingCase {
-    padding: 15px 18px 14px;
-    grid-template-rows: auto minmax(0, 1fr) 38px;
-    gap: 10px;
-  }
-  #customer-agency .agencyOperatingCase > summary span { font-size: 8px; }
-  #customer-agency .agencyOperatingClips { gap: 8px; grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr); }
-  #customer-agency .agencyOperatingClips > i { width: 34px; height: 34px; font-size: 16px; }
-  #customer-agency .agencyOperatingClips video {
-    min-height: 0;
-    max-height: none;
-    height: 100%;
-  }
-  #customer-agency .agencyOperatingClips figcaption {
-    min-height: 31px;
-    padding-top: 6px;
-    grid-template-columns: 20px minmax(0, 1fr);
-    gap: 6px;
-    font-size: 9px;
-  }
-  #customer-agency .agencyOperatingProof { height: 38px; }
-  #customer-agency .agencyOperatingProof > div { padding: 7px 13px; }
-  #customer-agency .agencyOperatingProof span { font-size: 7.5px; }
-  #customer-agency .agencyOperatingProof strong { font-size: 10px; }
+  #customer-agency .agencyAdoptionDemo > summary span { font-size: 8px; }
 }
 
 @media (min-width: 1101px) and (max-height: 820px) {
@@ -9715,16 +9664,13 @@ body {
     min-height: 0;
     padding-top: 16px;
     padding-bottom: 16px;
-    grid-template-rows: 110px 220px minmax(0, 1fr);
+    grid-template-rows: 110px auto;
     gap: 10px;
   }
   #customer-agency .agencyOperatingHero { height: 110px; }
   #customer-agency .agencyOperatingTitle h3 { font-size: clamp(29px, 2.4vw, 40px); }
-  #customer-agency .agencyOperatingOutcome > a { display: none; }
-  #customer-agency .agencyAdoptionMap ol,
-  #customer-agency .agencyAdoptionMap li { height: 150px; }
+  #customer-agency .agencyAdoptionMap li { min-height: 150px; }
   #customer-agency .agencyAdoptionMap li p { font-size: 9px; }
-  #customer-agency .agencyOperatingCase { padding-top: 12px; }
 }
 
 /* v4.8 · Agency page without decorative borders.
@@ -9755,22 +9701,10 @@ body {
   border: 0;
   box-shadow: none;
 }
-#customer-agency .agencyOperatingClips video { border: 0; }
-#customer-agency .agencyOperatingProof {
-  gap: 8px;
-  border: 0;
-}
-#customer-agency .agencyOperatingProof > div,
-#customer-agency .agencyOperatingProof > div + div {
-  background: rgba(255, 255, 255, .065);
-  border: 0;
-}
-
 @media (max-width: 760px) {
   #customer-agency .agencyOperatingIndex,
   #customer-agency .agencyOperatingWorkflow li,
-  #customer-agency .agencyOperatingWorkflow li:nth-child(3),
-  #customer-agency .agencyOperatingProof > div + div {
+  #customer-agency .agencyOperatingWorkflow li:nth-child(3) {
     border: 0;
   }
 }

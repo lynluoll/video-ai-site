@@ -477,7 +477,33 @@ export default function Home() {
                   </li>
                   <li>
                     <span>02</span>
-                    <div><small>PRODUCTION · <B zh="初步应用" en="EMERGING" /></small><h4><B zh="实拍、CG 与 AI 混合制作" en="Live action, CG, and AI production" /></h4><p><B zh="先锁定产品、镜头与运动，再由模型完成环境、补充镜头和特效。" en="Lock product, camera, and motion first; use models for environments, extra shots, and VFX." /></p></div>
+                    <div>
+                      <small>PRODUCTION · <B zh="初步应用" en="EMERGING" /></small>
+                      <h4><B zh="实拍、CG 与 AI 混合制作" en="Live action, CG, and AI production" /></h4>
+                      <p><B zh="先锁定产品、镜头与运动，再由模型完成环境、补充镜头和特效。" en="Lock product, camera, and motion first; use models for environments, extra shots, and VFX." /></p>
+                      <details className="agencyAdoptionDemo" aria-label="典型代理商汽车广告混合制作示例">
+                        <summary>
+                          <span><B zh="制作案例 · 汽车广告" en="PRODUCTION DEMO · AUTOMOTIVE" /></span>
+                          <i className="agencyAdoptionDemoToggle" aria-hidden="true" />
+                        </summary>
+                        <div className="agencyAdoptionDemoClips">
+                          <figure>
+                            <video src="/media/wpp-auto-input.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="封闭场地实拍运动参考片段" />
+                            <figcaption><span>01</span><B zh="实拍参考：锁定车辆路径与镜头运动" en="Live-action reference: lock vehicle path and camera motion" /></figcaption>
+                          </figure>
+                          <i aria-hidden="true">↓</i>
+                          <figure>
+                            <video src="/media/wpp-auto-final.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="生成式汽车广告场景和特效成片片段" />
+                            <figcaption><span>02</span><B zh="生成式成片：重建环境、材质与特效" en="Generative final: rebuild environment, material, and VFX" /></figcaption>
+                          </figure>
+                        </div>
+                        <div className="agencyAdoptionDemoProof">
+                          <div><span><B zh="实拍保留" en="LIVE ACTION" /></span><strong><B zh="速度 · 路径 · 镜头" en="SPEED · PATH · CAMERA" /></strong></div>
+                          <div><span><B zh="AI 生成" en="AI LAYER" /></span><strong><B zh="环境 · 材质 · 特效" en="SCENE · LOOK · VFX" /></strong></div>
+                          <div><span><B zh="最终交付" en="DELIVERY" /></span><strong><B zh="母版 · 多版本" en="MASTER · VARIANTS" /></strong></div>
+                        </div>
+                      </details>
+                    </div>
                   </li>
                   <li>
                     <span>03</span>
@@ -485,31 +511,6 @@ export default function Home() {
                   </li>
                 </ol>
               </section>
-
-              <details className="agencyOperatingCase" aria-label="典型代理商汽车广告混合制作示例">
-                <summary>
-                  <span><B zh="制作案例 · 汽车广告" en="PRODUCTION DEMO · AUTOMOTIVE" /></span>
-                  <i className="agencyOperatingCaseToggle" aria-hidden="true" />
-                </summary>
-
-                <div className="agencyOperatingClips">
-                  <figure>
-                    <video src="/media/wpp-auto-input.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="封闭场地实拍运动参考片段" />
-                    <figcaption><span>01</span><B zh="实拍参考：锁定车辆路径与镜头运动" en="Live-action reference: lock vehicle path and camera motion" /></figcaption>
-                  </figure>
-                  <i aria-hidden="true">→</i>
-                  <figure>
-                    <video src="/media/wpp-auto-final.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="生成式汽车广告场景和特效成片片段" />
-                    <figcaption><span>02</span><B zh="生成式成片：重建环境、材质与特效" en="Generative final: rebuild environment, material, and VFX" /></figcaption>
-                  </figure>
-                </div>
-
-                <div className="agencyOperatingProof">
-                  <div><span><B zh="实拍保留" en="LIVE ACTION" /></span><strong><B zh="速度 · 路径 · 镜头" en="SPEED · PATH · CAMERA" /></strong></div>
-                  <div><span><B zh="AI 生成" en="AI LAYER" /></span><strong><B zh="环境 · 材质 · 特效" en="SCENE · LOOK · VFX" /></strong></div>
-                  <div><span><B zh="最终交付" en="DELIVERY" /></span><strong><B zh="母版 · 多版本" en="MASTER · VARIANTS" /></strong></div>
-                </div>
-              </details>
             </article>
 
             <article className="appLovinCase wppWorkPage" id="customer-brand" aria-label="AppLovin AI 创意规模化案例研究">
