@@ -478,8 +478,12 @@ export default function Home() {
                       </div>
                       <p><B zh="几分钟内自动生成高转化的互动 HTML 广告层。" en="Auto-generate high-converting interactive HTML layers in minutes." /></p>
                       <details className="appLovinFormatMedia">
-                        <summary><B zh="查看示例" en="View example" /><span className="appLovinFormatToggle" aria-hidden="true" /></summary>
-                        <video src="/media/applovin/automating-creative-01.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 互动广告自动生成示例" />
+                        <summary><B zh="查看示例（3 条）" en="View examples (3)" /><span className="appLovinFormatToggle" aria-hidden="true" /></summary>
+                        <div className="appLovinFormatClips">
+                          <video src="/media/applovin/automating-creative-01.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 互动广告自动生成示例 1" />
+                          <video src="/media/applovin/automating-creative-02.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 互动广告自动生成示例 2" />
+                          <video src="/media/applovin/automating-creative-03.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 互动广告自动生成示例 3" />
+                        </div>
                       </details>
                     </article>
                     <article className="appLovinFormatCard">
@@ -489,8 +493,12 @@ export default function Home() {
                       </div>
                       <p><B zh="多智能体流水线规模化生成视频变体，稳定保持高产量。" en="Scalable video variants via multi-agent pipelines for consistent high volume." /></p>
                       <details className="appLovinFormatMedia">
-                        <summary><B zh="查看示例" en="View example" /><span className="appLovinFormatToggle" aria-hidden="true" /></summary>
-                        <video src="/media/applovin/generating-video-01.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 视频广告自动生成示例" />
+                        <summary><B zh="查看示例（3 条）" en="View examples (3)" /><span className="appLovinFormatToggle" aria-hidden="true" /></summary>
+                        <div className="appLovinFormatClips">
+                          <video src="/media/applovin/generating-video-01.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 视频广告自动生成示例 1" />
+                          <video src="/media/applovin/generating-video-02.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 视频广告自动生成示例 2" />
+                          <video src="/media/applovin/generating-video-03.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 视频广告自动生成示例 3" />
+                        </div>
                       </details>
                     </article>
                     <article className="appLovinFormatCard">
@@ -500,8 +508,12 @@ export default function Home() {
                       </div>
                       <p><B zh="动态生成并持续迭代图片素材，维持长期投放效果。" en="Dynamic image assets generated and iterated to maintain performance." /></p>
                       <details className="appLovinFormatMedia">
-                        <summary><B zh="查看示例" en="View example" /><span className="appLovinFormatToggle" aria-hidden="true" /></summary>
-                        <video src="/media/applovin/automating-creative-04.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 图片广告自动生成示例" />
+                        <summary><B zh="查看示例（3 条）" en="View examples (3)" /><span className="appLovinFormatToggle" aria-hidden="true" /></summary>
+                        <div className="appLovinFormatClips">
+                          <video src="/media/applovin/automating-creative-04.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 图片广告自动生成示例 1" />
+                          <video src="/media/applovin/automating-creative-05.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 图片广告自动生成示例 2" />
+                          <video src="/media/applovin/automating-creative-06.mp4" controls loop muted playsInline preload="metadata" aria-label="AppLovin 图片广告自动生成示例 3" />
+                        </div>
                       </details>
                     </article>
                   </div>
@@ -517,8 +529,19 @@ export default function Home() {
                       <p><B zh="首批上线广告主中，AI 生成互动广告占花费的比例（2026 年 2 月 1 日至 3 月 1 日）。" en="Share of spend on AI-generated interactives, for advertisers in the initial rollout (Feb 1 – Mar 1, 2026)." /></p>
                     </div>
                   </div>
+                  <div className="appLovinResultStats">
+                    <div><b><B zh="数百家" en="A few hundred" /></b><span><B zh="广告主已开通该功能" en="advertisers opted into the feature" /></span></div>
+                    <div><b><B zh="数千条" en="Thousands of" /></b><span><B zh="AI 生成互动广告已上线投放" en="AI-generated interactives launched" /></span></div>
+                  </div>
+                  <blockquote className="appLovinResultQuote">
+                    <B
+                      zh="“这些质量很强……如果我们能自动化、批量拿到这样的素材，就能真正快速把创意规模在投放中放大。”"
+                      en="“I think these are very strong…if we can get assets like this in high volume automatically, we could really scale the creatives in our campaigns quickly.”"
+                    />
+                    <cite><B zh="— AppLovin 广告主，引自官方博客" en="— AppLovin advertiser, quoted in the official blog" /></cite>
+                  </blockquote>
                   <p className="appLovinResultNote">
-                    <B zh="数据来自 AppLovin 官方博客，反映的是其自有互动广告产品的采用曲线。" en="Figures are from AppLovin's own blog and reflect adoption of their own AI-interactives product." />
+                    <B zh="以上数据与评价均来自 AppLovin 官方博客，反映的是其自有互动广告产品的采用情况；未查到官方公开披露的具体效率提升百分比（如 CTR / CVR），故未编造该类数字。" en="Figures and quotes are from AppLovin's own blog and reflect adoption of their own AI-interactives product. We could not find a publicly disclosed efficiency-lift percentage (e.g. CTR/CVR) from AppLovin, so none is stated here." />
                   </p>
                 </section>
               </div>
