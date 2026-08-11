@@ -445,7 +445,7 @@ export default function Home() {
           <div className="customerStories">
             <article className="wppWorkPage agencyOperatingPage" id="customer-agency" aria-labelledby="agency-operating-title">
               <header className="agencyOperatingHero">
-                <div className="agencyOperatingIndex"><span>2.2</span><b><B zh="典型代理商" en="TYPICAL AGENCY" /></b></div>
+                <div className="agencyOperatingIndex"><span>2.2</span><b>WPP &amp; Havas</b></div>
                 <div className="agencyOperatingTitle">
                   <p><B zh="AI 采用路径" en="AI ADOPTION PATH" /></p>
                   <h3 id="agency-operating-title"><span className="langZh">从创意切入，<br /><strong>拓展至制作与媒体。</strong></span><span className="langEn">Start with Creative.<br /><strong>Expand into Production and Media.</strong></span></h3>
