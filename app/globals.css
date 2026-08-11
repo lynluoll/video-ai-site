@@ -12221,8 +12221,134 @@ body {
 }
 #customer-brand .appLovinCaseIndex span { color: var(--blue); font-size: 28px; font-weight: 700; line-height: .9; letter-spacing: -.02em; white-space: nowrap; }
 #customer-brand .appLovinCaseIndex b { color: #7b8799; font-size: 10px; font-weight: 760; letter-spacing: .15em; }
-#customer-brand .appLovinCaseTitle { padding: 20px 32px; }
-#customer-brand .appLovinLogo { width: 180px; height: auto; color: #121d30; }
+#customer-brand .appLovinCaseTitle { padding: 20px 32px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+#customer-brand .appLovinLogo { width: 150px; height: auto; color: #121d30; flex: 0 0 auto; }
+#customer-brand .appLovinCaseTitle h3 {
+  margin: 0;
+  color: #121d30;
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 640;
+  letter-spacing: -.03em;
+  line-height: 1.15;
+}
+
+#customer-brand .appLovinAxonStat {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  background: #f3f6fb;
+  border: 1px solid #d6deea;
+  border-radius: 6px;
+}
+#customer-brand .appLovinAxonStat > small { margin: 0; flex: 0 0 auto; }
+#customer-brand .appLovinAxonStatRow { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+#customer-brand .appLovinAxonStatRow b { color: var(--blue); font-size: clamp(20px, 2vw, 26px); font-weight: 800; letter-spacing: -.02em; }
+#customer-brand .appLovinAxonStatRow b span { font-size: 12px; font-weight: 700; color: #505c70; margin-left: 1px; }
+#customer-brand .appLovinAxonStatRow em { font-style: normal; font-size: 11px; color: #647084; margin-right: 4px; }
+#customer-brand .appLovinAxonStatRow i { color: #aab6c8; font-size: 15px; font-style: normal; }
+#customer-brand .appLovinAxonStat > p { margin: 0 0 0 auto; font-size: 12px; color: #505c70; }
+#customer-brand .appLovinAxonStat > p strong { color: #121d30; }
+
+#customer-brand .appLovinAxonCompare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+#customer-brand .appLovinAxonBefore,
+#customer-brand .appLovinAxonAfter {
+  padding: 20px 22px;
+  border-radius: 6px;
+  border: 1px solid #d6deea;
+}
+#customer-brand .appLovinAxonBefore { background: #fafbfd; }
+#customer-brand .appLovinAxonAfter { background: #eef3fc; border-color: #c9d9f2; }
+#customer-brand .appLovinAxonBefore > small,
+#customer-brand .appLovinAxonAfter > small {
+  display: block;
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 780;
+  letter-spacing: .1em;
+  margin-bottom: 8px;
+}
+#customer-brand .appLovinAxonBefore h4,
+#customer-brand .appLovinAxonAfter h4 {
+  margin: 0 0 16px;
+  color: #121d30;
+  font-size: clamp(16px, 1.4vw, 19px);
+  font-weight: 700;
+}
+
+#customer-brand .appLovinAxonFlow { display: flex; flex-direction: column; gap: 0; }
+#customer-brand .appLovinAxonFlow > div { display: grid; grid-template-columns: 30px minmax(0, 1fr) 20px; align-items: center; gap: 10px; padding: 10px 12px; background: #fff; border: 1px solid #e3e8f0; border-radius: 6px; }
+#customer-brand .appLovinAxonFlow > div + div { margin-top: 8px; }
+#customer-brand .appLovinAxonFlow > div > span { width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; background: #eef1f6; color: #505c70; font-size: 12px; font-weight: 800; }
+#customer-brand .appLovinAxonFlow b { display: block; font-size: 12.5px; font-weight: 700; color: #14161e; }
+#customer-brand .appLovinAxonFlow small { display: block; font-size: 10.5px; color: #7b8799; }
+#customer-brand .appLovinAxonFlow > div > i { color: #aab6c8; font-size: 13px; font-style: normal; text-align: center; }
+#customer-brand .appLovinAxonFlowCore { background: #14161e !important; border-color: #14161e !important; }
+#customer-brand .appLovinAxonFlowCore > span { background: var(--blue); color: #fff; }
+#customer-brand .appLovinAxonFlowCore b { color: #fff; }
+#customer-brand .appLovinAxonFlowCore small { color: #b9c5d8; }
+#customer-brand .appLovinAxonFlowCore > i { color: #5f6c80; }
+#customer-brand .appLovinAxonFlowLoop { color: var(--blue) !important; font-size: 15px !important; }
+#customer-brand .appLovinAxonBottleneck {
+  margin: 12px 0 0;
+  padding: 9px 12px;
+  background: #fdf1ef;
+  border: 1px solid #f3c9c2;
+  border-radius: 4px;
+  color: #b3402f;
+  font-size: 10.5px;
+  font-weight: 780;
+  letter-spacing: .04em;
+  text-align: center;
+}
+
+#customer-brand .appLovinAxonEngine { display: grid; grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1.15fr) 26px minmax(0, 1fr); align-items: center; gap: 6px; }
+#customer-brand .appLovinAxonEngineInputs { display: flex; flex-direction: column; gap: 6px; }
+#customer-brand .appLovinAxonEngineInputs span { padding: 8px 10px; background: #fff; border: 1px solid #d6deea; border-radius: 5px; font-size: 10.5px; font-weight: 650; color: #172235; text-align: center; }
+#customer-brand .appLovinAxonEngine > i { color: var(--blue); font-size: 14px; font-style: normal; text-align: center; }
+#customer-brand .appLovinAxonEngineCore { padding: 16px 10px; display: flex; flex-direction: column; align-items: center; gap: 4px; background: var(--blue); border-radius: 6px; text-align: center; }
+#customer-brand .appLovinAxonEngineCore span { width: 30px; height: 30px; display: grid; place-items: center; margin-bottom: 4px; border-radius: 50%; background: #fff; color: var(--blue); font-size: 11px; font-weight: 800; }
+#customer-brand .appLovinAxonEngineCore b { font-size: 12.5px; font-weight: 750; color: #fff; }
+#customer-brand .appLovinAxonEngineCore small { font-size: 9.5px; color: #dbe6ff; }
+#customer-brand .appLovinAxonEngineOutputs { display: flex; flex-direction: column; gap: 6px; }
+#customer-brand .appLovinAxonEngineOutputs > div { display: flex; align-items: center; gap: 6px; padding: 7px 10px; background: #fff; border: 1px solid #d6deea; border-radius: 5px; }
+#customer-brand .appLovinAxonEngineOutputs svg { width: 14px; height: 14px; color: var(--blue); flex: 0 0 auto; }
+#customer-brand .appLovinAxonEngineOutputs span { font-size: 9.5px; font-weight: 780; letter-spacing: .04em; color: #172235; }
+#customer-brand .appLovinAxonOutcome {
+  margin: 12px 0 0;
+  padding: 9px 12px;
+  background: #14161e;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-align: center;
+}
+
+#customer-brand .appLovinAxonFlywheel {
+  margin: 0;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: #121d30;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 750;
+  text-align: center;
+}
+#customer-brand .appLovinAxonFlywheel i { color: #6f9bff; font-style: normal; }
+
+@media (max-width: 700px) {
+  #customer-brand .appLovinAxonCompare { grid-template-columns: 1fr; }
+  #customer-brand .appLovinAxonEngine { grid-template-columns: 1fr; }
+  #customer-brand .appLovinAxonEngine > i { transform: rotate(90deg); }
+}
 #customer-brand .appLovinCaseBody { padding: 28px 32px 34px; }
 #customer-brand .appLovinBlock { margin-top: 28px; }
 #customer-brand .appLovinBlock:first-of-type { margin-top: 0; }
@@ -12235,35 +12361,6 @@ body {
   margin-bottom: 10px;
 }
 
-#customer-brand .appLovinChallenge {
-  background: #f3f6fb;
-  border: 1px solid #d6deea;
-  border-radius: 6px;
-  padding: 20px 24px;
-}
-#customer-brand .appLovinChallengeStats {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 18px;
-  margin-bottom: 14px;
-}
-#customer-brand .appLovinChallengeStats > div { min-width: 118px; }
-#customer-brand .appLovinChallengeStats b {
-  display: block;
-  font-size: clamp(24px, 2.6vw, 32px);
-  font-weight: 800;
-  color: var(--blue);
-  letter-spacing: -.02em;
-  line-height: 1;
-}
-#customer-brand .appLovinChallengeStats b span { font-size: 13px; font-weight: 700; color: #505c70; margin-left: 2px; }
-#customer-brand .appLovinChallengeStats p { margin: 6px 0 0; font-size: 12.5px; line-height: 1.4; color: #505c70; }
-#customer-brand .appLovinChallengeArrow { color: #aab6c8; font-size: 20px; font-weight: 700; font-style: normal; }
-
-@media (max-width: 560px) {
-  #customer-brand .appLovinChallengeArrow { display: none; }
-}
 
 #customer-brand .appLovinSolution h4 {
   color: #121d30;
