@@ -70,7 +70,7 @@ const solutionVideoDemos = {
       label: "HOSPITALITY / LIFESTYLE",
       title: "夜景光影与运动表现",
       titleEn: "Night lighting & motion performance",
-      meta: "酒店 · 奢旅 · 服务叙事",
+      meta: "酒店服务 · 奢华旅行",
       metaEn: "Hospitality · Luxury travel",
       src: "/media/brand-auto-demo.mp4",
       poster: "/media/brand-auto-demo.jpg",
@@ -83,7 +83,7 @@ const solutionVideoDemos = {
       label: "TECH / ELECTRONICS",
       title: "CMF 材质与产品微距",
       titleEn: "CMF materials & product macro",
-      meta: "科技 · 电子 · 软件",
+      meta: "科技 · 电子产品",
       metaEn: "Tech · Electronics",
       src: "/media/brand-tech-demo.mp4",
       poster: "/media/brand-tech-demo.jpg",
@@ -144,7 +144,7 @@ const solutionVideoDemos = {
     {
       order: "04",
       label: "BUMPER · SINGLE POINT",
-      title: "单卖点闪记",
+      title: "单卖点闪现",
       titleEn: "Single-Point Flash",
       meta: "快餐 · 超短促销提醒",
       metaEn: "QSR · ultra-short reminder",
@@ -165,9 +165,9 @@ const customerFlowStages = [
     index: "01",
     title: "品牌主",
     titleEn: "Brand owners",
-    budgetRole: "制定预算并管理品牌资产",
+    budgetRole: "负责预算与品牌资产",
     budgetRoleEn: "Set budgets and brand assets",
-    trend: "建设内部 AI 生产平台",
+    trend: "建设内部 AI 平台",
     trendEn: "Building in-house AI platforms",
     examples: "典型全球品牌主",
     examplesEn: "Global brand owners",
@@ -263,7 +263,7 @@ export default function Home() {
             <header className="marketFlowIntro">
             <div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div>
             <div className="marketFlowTitle">
-              <h1 className="langZh">AI 正在重塑广告市场的供给方式</h1>
+              <h1 className="langZh">AI 正在重塑广告供给的生产方式</h1>
               <h1 className="langEn">AI Is Reshaping How Advertising Supply Is Created</h1>
             </div>
             </header>
@@ -303,14 +303,14 @@ export default function Home() {
               </g>
               <g className="flowBaseline flowDisplay">
                 <rect x="18" y="301" width="205" height="52" />
-                <text x="35" y="324" className="flowName"><tspan className="langZh">图文展示</tspan><tspan className="langEn">Display</tspan></text><text x="35" y="342" className="flowMeta">24%</text><text x="203" y="334" textAnchor="end" className="flowValue">$160B</text>
+                <text x="35" y="324" className="flowName"><tspan className="langZh">展示广告</tspan><tspan className="langEn">Display</tspan></text><text x="35" y="342" className="flowMeta">24%</text><text x="203" y="334" textAnchor="end" className="flowValue">$160B</text>
               </g>
               <g className="flowBaseline flowRmn">
                 <rect x="18" y="368" width="170" height="47" />
                 <text x="35" y="389" className="flowName"><tspan className="langZh">零售媒体</tspan><tspan className="langEn">Retail</tspan></text><text x="35" y="405" className="flowMeta">17%</text><text x="169" y="399" textAnchor="end" className="flowValue">$110B</text>
               </g>
 
-              <text x="672" y="183" className="flowCrossTitle"><tspan className="langZh">3–4 年内跨过 $220B 搜索基准</tspan><tspan className="langEn">Crosses the $220B search benchmark in 3–4 years</tspan></text>
+              <text x="672" y="183" className="flowCrossTitle"><tspan className="langZh">3–4 年内跨过 $220B 搜索广告基准</tspan><tspan className="langEn">Crosses the $220B search benchmark in 3–4 years</tspan></text>
 
               <g className="flowOutcomeDefault">
                 <rect x="936" y="42" width="236" height="259" />
@@ -318,7 +318,7 @@ export default function Home() {
                 <text x="1148" y="118" textAnchor="end" className="flowDefaultRank">#1</text>
                 <line x1="955" y1="139" x2="1152" y2="139" />
                 <text x="955" y="175" className="flowDefaultSignal">3–4 YEARS</text>
-                <text x="955" y="199" className="flowDefaultCopy"><tspan className="langZh">超过搜索与图文展示广告</tspan><tspan className="langEn">Overtakes search and display</tspan></text>
+                <text x="955" y="199" className="flowDefaultCopy"><tspan className="langZh">超过搜索广告与展示广告</tspan><tspan className="langEn">Overtakes search and display</tspan></text>
                 <text x="955" y="244" className="flowDefaultSignal">AI-DRIVEN SUPPLY</text>
                 <text x="955" y="268" className="flowDefaultCopy"><tspan className="langZh">AI 使制作成本下降，视频供给规模化</tspan><tspan className="langEn">AI cuts production cost; supply scales</tspan></text>
               </g>
@@ -357,10 +357,10 @@ export default function Home() {
                 <div><span>24%</span><strong>$160B</strong></div>
                 <div><span>17%</span><strong>$110B</strong></div>
               </div>
-              <div className="mobileFlowArrow"><span>3–4 YEARS</span><b>↓</b><small><span className="langZh">跨过 $220B Search 基准</span><span className="langEn">crosses the $220B search benchmark</span></small></div>
+              <div className="mobileFlowArrow"><span>3–4 YEARS</span><b>↓</b><small><span className="langZh">跨过 $220B 搜索广告基准</span><span className="langEn">crosses the $220B search benchmark</span></small></div>
               <div className="mobileVideoOutcome">
                 <header><span>2030 · VIDEO #1</span><strong>$260B</strong></header>
-                <div className="mobileOutcomeSummary"><span>3–4 YEARS</span><b><span className="langZh">超过 Search / Display</span><span className="langEn">Overtakes Search / Display</span></b><small><span className="langZh">AI 降本释放规模化视频供给</span><span className="langEn">AI cost-down scales video supply</span></small></div>
+                <div className="mobileOutcomeSummary"><span>3–4 YEARS</span><b><span className="langZh">超过搜索广告 / 展示广告</span><span className="langEn">Overtakes Search / Display</span></b><small><span className="langZh">AI 降本释放规模化视频供给</span><span className="langEn">AI cost-down scales video supply</span></small></div>
                 <div className="mobileSegmentDetails">
                   <div><span>SOCIAL VIDEO</span><b>$115B</b><small>62 → 115 · +85%</small></div>
                   <div><span>CTV</span><b>$90B</b><small>45 → 90 · +100%</small></div>
@@ -374,13 +374,13 @@ export default function Home() {
           <section className="marketTrendSection" aria-labelledby="market-trends-title">
             <header className="marketTrendSectionHeader">
               <span>01 · MARKET OVERVIEW</span>
-              <h2 id="market-trends-title"><B zh={<>AI 在广告行业崛起：<strong>三个清晰趋势</strong></>} en="Advertising Is Moving Toward AI-Native Production" /></h2>
+              <h2 id="market-trends-title"><B zh={<>广告生产正在走向 <strong>AI 原生</strong></>} en="Advertising Is Moving Toward AI-Native Production" /></h2>
             </header>
 
             <div className="marketTrendGrid">
               <article className="marketTrendCard marketTrendVideo">
                 <header><span>01</span><b>VIDEO</b></header>
-                <h3><B zh="视频广告成为主流" en="Video Advertising Becomes the Dominant Format" /></h3>
+                <h3><B zh="视频广告成为主导广告形式" en="Video Advertising Becomes the Dominant Format" /></h3>
                 <div className="marketTrendVisual marketVideoChart" role="img" aria-label="视频广告从 2026 年 1600 亿美元增长至 2030 年 2600 亿美元，规模增长至 1.63 倍">
                   <div className="marketCompareBar current"><b>$160B</b><i /><span>2026</span></div>
                   <div className="marketCompareArrow"><b>1.63×</b><strong>→</strong><small>2026–30</small></div>
@@ -403,7 +403,7 @@ export default function Home() {
 
               <article className="marketTrendCard marketTrendCreator">
                 <header><span>03</span><b>CREATIVE TEAMS</b></header>
-                <h3><B zh="AI 成为创意团队的标准能力" en="AI Becomes Table Stakes for Creators" /></h3>
+                <h3><B zh="AI 成为创作者的基础能力" en="AI Becomes Table Stakes for Creators" /></h3>
                 <div className="marketTrendVisual marketCreatorAdoption" role="img" aria-label="创意流程中的 AI 部署率当前为 83%，高于 2024 年的 60%">
                   <div className="marketAdoptionDonut"><span>83%</span><small>CURRENT</small></div>
                   <strong>VS. 60% IN 2024</strong>
@@ -418,7 +418,7 @@ export default function Home() {
         <div className="customerFlowShell">
           <header className="customerFlowHeader">
             <div className="customerFlowIndex"><span>02</span><b><B zh="关键角色" en="KEY PLAYERS" /></b></div>
-            <div><h2 id="customer-flow-title"><span className="langZh">钱从上往下走，<br /><span>价值在中间放大。</span></span><span className="langEn">Money flows down.<br /><span>Value compounds in the middle.</span></span></h2></div>
+            <div><h2 id="customer-flow-title"><span className="langZh">资金向下流动，<br /><span>价值在中间复利增长。</span></span><span className="langEn">Money flows down.<br /><span>Value compounds in the middle.</span></span></h2></div>
           </header>
 
           <div className="customerFlowCanvas">
@@ -428,9 +428,9 @@ export default function Home() {
                 {customerFlowStages.map((stage) => (
                   <article className="customerFlowStage" key={stage.index}>
                     <div className="customerFlowIdentity"><span>{stage.index}</span><h3><B zh={stage.title} en={stage.titleEn} /></h3></div>
-                    <div className="customerFlowRole"><small><B zh="预算作用" en="BUDGET ROLE" /></small><h4><B zh={stage.budgetRole} en={stage.budgetRoleEn} /></h4></div>
+                    <div className="customerFlowRole"><small><B zh="预算角色" en="BUDGET ROLE" /></small><h4><B zh={stage.budgetRole} en={stage.budgetRoleEn} /></h4></div>
                     <div className="customerFlowTrend"><small><B zh="关键趋势" en="KEY TREND" /></small><h4><B zh={stage.trend} en={stage.trendEn} /></h4></div>
-                    <div className="customerFlowExamples"><small><B zh="代表企业" en="REPRESENTATIVE" /></small><b><B zh={stage.examples} en={stage.examplesEn ?? stage.examples} /></b></div>
+                    <div className="customerFlowExamples"><small><B zh="代表对象" en="REPRESENTATIVE" /></small><b><B zh={stage.examples} en={stage.examplesEn ?? stage.examples} /></b></div>
                   </article>
                 ))}
               </div>
@@ -449,7 +449,7 @@ export default function Home() {
                   <aside className="brandOwnerSpine">
                     <span className="brandOwnerStudyNumber">2.1</span>
                     <small><B zh="典型品牌主" en="TYPICAL BRAND OWNER" /></small>
-                    <h3><B zh="统一治理，分层生产。" en="One governance spine. Three production layers." /></h3>
+                    <h3><B zh="一个治理中枢，三层生产体系。" en="One governance spine. Three production layers." /></h3>
                     <p><B zh="品牌资产、版权与合规由集团统一管理；具体生产需求在不同组织层完成决策与交付。" en="Brand assets, licensing, and compliance are governed centrally; production decisions and delivery happen across three operating layers." /></p>
                     <div className="brandOwnerGovernance">
                       <b><B zh="统一治理中枢" en="CENTRAL GOVERNANCE" /></b>
@@ -459,16 +459,16 @@ export default function Home() {
 
                   <div className="brandOwnerJourneys">
                     <article className="brandOwnerJourney brandOwnerJourneyPlatform">
-                      <div className="brandOwnerJourneyIdentity"><span>01</span><div><small><B zh="集团平台" en="GROUP PLATFORM" /></small><h4><B zh="内部 AI 生产平台" en="Internal AI production platform" /></h4><p><B zh="决定什么能力可以被接入并规模化使用。" en="Decides what can be approved and scaled." /></p></div></div>
+                      <div className="brandOwnerJourneyIdentity"><span>01</span><div><small><B zh="集团平台" en="GROUP PLATFORM" /></small><h4><B zh="内部 AI 生产平台" en="Internal AI production platform" /></h4><p><B zh="决定哪些能力可获批并规模化使用。" en="Decides what can be approved and scaled." /></p></div></div>
                       <ol><li><B zh="真实营销场景试点" en="Marketing use-case pilot" /></li><li><B zh="模型与额度池" en="Model & credit pool" /></li><li><B zh="IT / 法务 / 财务评估" en="IT / Legal / Finance review" /></li><li><B zh="集团规模化使用" en="Scaled group adoption" /></li></ol>
                     </article>
                     <article className="brandOwnerJourney brandOwnerJourneyTeams">
-                      <div className="brandOwnerJourneyIdentity"><span>02</span><div><small><B zh="业务团队" en="BUSINESS TEAMS" /></small><h4><B zh="品牌与市场团队" en="Brand and market teams" /></h4><p><B zh="把渠道目标转化为持续的素材需求。" en="Turns channel goals into recurring content demand." /></p></div></div>
+                      <div className="brandOwnerJourneyIdentity"><span>02</span><div><small><B zh="业务团队" en="BUSINESS TEAMS" /></small><h4><B zh="品牌与市场团队" en="Brand and market teams" /></h4><p><B zh="将渠道目标转化为持续的内容需求。" en="Turns channel goals into recurring content demand." /></p></div></div>
                       <ol><li><B zh="电商 / 社媒 / 官网需求" en="Commerce / social / web demand" /></li><li><B zh="完整素材清单" en="Complete asset plan" /></li><li><B zh="本地化与版本化" en="Localization & versioning" /></li><li><B zh="审核与多渠道交付" en="Review & delivery" /></li></ol>
                     </article>
                     <article className="brandOwnerJourney brandOwnerJourneyPartners">
-                      <div className="brandOwnerJourneyIdentity"><span>03</span><div><small><B zh="外部交付" en="EXTERNAL DELIVERY" /></small><h4><B zh="代理商与制作伙伴" en="Agency and production partners" /></h4><p><B zh="承接主片与大型 Campaign 的专业制作。" en="Delivers hero films and major campaigns." /></p></div></div>
-                      <ol><li><B zh="品牌 Brief" en="Brand brief" /></li><li><B zh="创意与正式制作" en="Creative & production" /></li><li><B zh="母版制作与品牌审核" en="Master & brand review" /></li><li><B zh="切条与区域本地化" en="Cutdowns & localization" /></li></ol>
+                      <div className="brandOwnerJourneyIdentity"><span>03</span><div><small><B zh="外部交付" en="EXTERNAL DELIVERY" /></small><h4><B zh="代理商与制作伙伴" en="Agency and production partners" /></h4><p><B zh="交付品牌主片与大型广告项目。" en="Delivers hero films and major campaigns." /></p></div></div>
+                      <ol><li><B zh="品牌简报" en="Brand brief" /></li><li><B zh="创意与制作" en="Creative & production" /></li><li><B zh="母版与品牌审核" en="Master & brand review" /></li><li><B zh="短版剪辑与本地化" en="Cutdowns & localization" /></li></ol>
                     </article>
                   </div>
                 </section>
@@ -479,8 +479,8 @@ export default function Home() {
               <header className="agencyOperatingHero">
                 <div className="agencyOperatingIndex"><span>2.2</span><b><B zh="典型代理商" en="TYPICAL AGENCY" /></b></div>
                 <div className="agencyOperatingTitle">
-                  <p><B zh="AI 落地路径" en="AI ADOPTION PATH" /></p>
-                  <h3 id="agency-operating-title"><span className="langZh">先进入 Creative，<br /><strong>再深入 Production 与 Media。</strong></span><span className="langEn">Start with Creative.<br /><strong>Expand into Production and Media.</strong></span></h3>
+                  <p><B zh="AI 采用路径" en="AI ADOPTION PATH" /></p>
+                  <h3 id="agency-operating-title"><span className="langZh">从创意切入，<br /><strong>拓展至制作与媒体。</strong></span><span className="langEn">Start with Creative.<br /><strong>Expand into Production and Media.</strong></span></h3>
                 </div>
               </header>
 
@@ -488,22 +488,22 @@ export default function Home() {
                 <ol>
                   <li>
                     <span>01</span>
-                    <div><small>CREATIVE · <B zh="高渗透" en="HIGH ADOPTION" /></small><h4><B zh="洞察、概念与创意预演" en="Insight, concepts, and previsualization" /></h4><p><B zh="快速生成关键视觉、分镜与短片预演，缩短提案和审片周期。" en="Generate key visuals, boards, and short previews to accelerate pitches and reviews." /></p></div>
+                    <div><small>CREATIVE · <B zh="高采用率" en="HIGH ADOPTION" /></small><h4><B zh="洞察、概念与创意预演" en="Insight, concepts, and previsualization" /></h4><p><B zh="快速生成关键视觉、分镜与短片预演，缩短提案和审片周期。" en="Generate key visuals, boards, and short previews to accelerate pitches and reviews." /></p></div>
                   </li>
                   <li>
                     <span>02</span>
-                    <div><small>PRODUCTION · <B zh="逐步解锁" en="EMERGING" /></small><h4><B zh="实拍、CG 与 AI 混合制作" en="Live action, CG, and AI production" /></h4><p><B zh="先锁定产品、镜头与运动，再由模型完成环境、补充镜头和特效。" en="Lock product, camera, and motion first; use models for environments, extra shots, and VFX." /></p></div>
+                    <div><small>PRODUCTION · <B zh="初步应用" en="EMERGING" /></small><h4><B zh="实拍、CG 与 AI 混合制作" en="Live action, CG, and AI production" /></h4><p><B zh="先锁定产品、镜头与运动，再由模型完成环境、补充镜头和特效。" en="Lock product, camera, and motion first; use models for environments, extra shots, and VFX." /></p></div>
                   </li>
                   <li>
                     <span>03</span>
-                    <div><small>MEDIA · <B zh="规模化" en="SCALING" /></small><h4><B zh="母版延展与效果版本" en="Master versioning and media variants" /></h4><p><B zh="围绕审核母版生成语言、尺寸、Hook、CTA 和人群版本。" en="Turn an approved master into language, format, hook, CTA, and audience variants." /></p></div>
+                    <div><small>MEDIA · <B zh="规模化应用" en="SCALING" /></small><h4><B zh="母版版本化与媒体变体" en="Master versioning and media variants" /></h4><p><B zh="基于已审核母版生成不同语言、格式、开场钩子、行动引导和人群版本。" en="Turn an approved master into language, format, hook, CTA, and audience variants." /></p></div>
                   </li>
                 </ol>
               </section>
 
               <section className="agencyOperatingCase" aria-label="典型代理商汽车广告混合制作示例">
                 <header>
-                  <div><span><B zh="Production Demo · 汽车广告" en="PRODUCTION DEMO · AUTOMOTIVE" /></span></div>
+                  <div><span><B zh="制作案例 · 汽车广告" en="PRODUCTION DEMO · AUTOMOTIVE" /></span></div>
                 </header>
 
                 <div className="agencyOperatingClips">
@@ -538,7 +538,7 @@ export default function Home() {
               <div className="adtechGrowthCanvas">
                 <section className="adtechAgentPanel" aria-label="Campaign Agent 端到端标准流程">
                   <div className="adtechManagerStrip" aria-label="市场主流 Ad Manager 平台">
-                    <span><B zh="代表性广告管理平台与智能投放产品" en="REPRESENTATIVE AD MANAGERS AND CAMPAIGN PRODUCTS" /></span>
+                    <span><B zh="代表性广告管理平台与 Campaign 产品" en="REPRESENTATIVE AD MANAGERS AND CAMPAIGN PRODUCTS" /></span>
                     <ul>
                       <li><b>TikTok</b><small>Ads Manager · Smart+</small></li>
                       <li><b>Meta</b><small>Ads Manager · Advantage+</small></li>
@@ -586,7 +586,7 @@ export default function Home() {
           </div>
           <div className="solutionTransitionCopy">
             <p>BYTEPLUS CREATIVE PRODUCTION</p>
-            <h2 className="langZh" id="solution-transition-title">从行业工作流，进入 <strong>BytePlus 生产能力与方案。</strong></h2>
+            <h2 className="langZh" id="solution-transition-title">从行业工作流出发，进入 <strong>BytePlus 生产能力与解决方案。</strong></h2>
             <h2 className="langEn">From industry workflows to <strong>BytePlus production capabilities and solutions.</strong></h2>
           </div>
         </div>
@@ -599,7 +599,7 @@ export default function Home() {
             <header className="brandSolutionHeader">
               <div className="brandSolutionIndex"><span>3.1</span><b>BRAND PRODUCTION</b></div>
               <div className="brandSolutionTitle">
-                <h3 className="langZh" id="brand-solution-title">品牌广告制作方案</h3>
+                <h3 className="langZh" id="brand-solution-title">品牌广告生产解决方案</h3>
                 <h3 className="langEn">Brand Advertising Production Solution</h3>
               </div>
               <div className="solutionHeaderActions">
@@ -609,7 +609,7 @@ export default function Home() {
 
             <div className="brandSolutionBody">
               <section className="brandSofaPanel" aria-label="Sofa 品牌广告成片">
-                <header><span>SOFA DEMO</span><b className="langZh">从 Packshot 到品牌成片</b><b className="langEn">From packshot to brand film</b></header>
+                <header><span>SOFA DEMO</span><b className="langZh">从产品标准图到品牌成片</b><b className="langEn">From packshot to brand film</b></header>
                 <video src="/media/sofa/final-film.mp4" poster="/media/sofa/final-film-poster.jpg" controls loop playsInline preload="metadata" aria-label="Sofa CG 与 Seedance 品牌广告成片" />
               </section>
 
@@ -680,14 +680,14 @@ export default function Home() {
           <article className="solutionPage performanceSolutionPage" id="solution-performance">
             <header className="performanceSolutionHeader">
               <div className="performanceSolutionIndex"><span>3.2</span><b>PERFORMANCE ADS</b></div>
-              <div><h3><B zh="效果广告方案" en="Performance Ads Production Solution" /></h3></div>
+              <div><h3><B zh="效果广告生产解决方案" en="Performance Ads Production Solution" /></h3></div>
             </header>
 
             <div className="performanceSolutionBody">
               <section className="performanceProductionFlow" aria-label="效果广告五步运作链">
                 <ol>
                   <li className="performanceFlowInsight">
-                    <header><span>01</span><b><B zh="热点洞察" en="Trend insight" /></b></header>
+                    <header><span>01</span><b><B zh="趋势洞察" en="Trend insight" /></b></header>
                     <div className="performanceFlowSummary"><strong><B zh="发现高潜创意" en="Find high-potential ideas" /></strong><p><B zh="热点 · 舆情 · 竞品信号" en="Trends · sentiment · competitors" /></p></div>
                     <footer>Seed</footer>
                   </li>
@@ -698,7 +698,7 @@ export default function Home() {
                   </li>
                   <li className="performanceFlowFocus">
                     <header><span>03</span><b><B zh="AI 内容生产" en="AI production" /></b><em><B zh="核心" en="CORE" /></em></header>
-                    <div className="performanceFlowSummary"><strong><B zh="批量生成可投素材" en="Batch ready-to-run assets" /></strong><p><B zh="画面 · 视频 · 音频" en="Image · video · audio" /></p></div>
+                    <div className="performanceFlowSummary"><strong><B zh="批量生成可投素材" en="Batch ready-to-run assets" /></strong><p><B zh="图像 · 视频 · 音频" en="Image · video · audio" /></p></div>
                     <footer>Seedream + Seedance</footer>
                   </li>
                   <li className="performanceFlowTest">
@@ -707,12 +707,12 @@ export default function Home() {
                     <footer>Campaign Agent</footer>
                   </li>
                   <li className="performanceFlowReplicate">
-                    <header><span>05</span><b><B zh="爆款复刻" en="Clone winners" /></b></header>
-                    <div className="performanceFlowSummary"><strong><B zh="保留赢面，替换变量" en="Keep the win, swap variables" /></strong><p><B zh="换品 · 换人 · 换市场" en="Product · cast · market" /></p></div>
-                    <footer><B zh="爆款复刻 Agent" en="Winner-cloning agent" /></footer>
+                    <header><span>05</span><b><B zh="复刻胜出素材" en="Clone winners" /></b></header>
+                    <div className="performanceFlowSummary"><strong><B zh="保留胜出结构，替换变量" en="Keep the win, swap variables" /></strong><p><B zh="商品 · 人物 · 市场" en="Product · cast · market" /></p></div>
+                    <footer><B zh="胜出素材复刻 Agent" en="Winner-cloning agent" /></footer>
                   </li>
                 </ol>
-                <footer className="performanceFeedbackRail"><strong><B zh="↺ 跑赢素材回到洞察，持续迭代" en="↺ Winners feed back into insight — keep iterating" /></strong></footer>
+                <footer className="performanceFeedbackRail"><strong><B zh="↺ 胜出素材回流至洞察，持续迭代" en="↺ Winners feed back into insight — keep iterating" /></strong></footer>
               </section>
 
               <section className="performanceEvidenceGallery" id="solution-performance-demos" aria-label="效果广告四个视频 Demo 与能力证据">
@@ -739,7 +739,7 @@ export default function Home() {
           <article className="solutionPage displaySolutionPage" id="solution-display">
             <header className="displaySolutionHeader">
               <div className="displaySolutionIndex"><span>3.3</span><b>DISPLAY ADS</b></div>
-              <div><h3><span className="langZh">展示广告制作方法<br /><span>一个母版，规模化交付。</span></span><span className="langEn">Display ads method<br /><span>one master, delivered at scale.</span></span></h3></div>
+              <div><h3><span className="langZh">展示广告方法<br /><span>一个母版，规模化交付。</span></span><span className="langEn">Display ads method<br /><span>one master, delivered at scale.</span></span></h3></div>
             </header>
 
             <div className="displaySolutionBody">
@@ -806,11 +806,11 @@ export default function Home() {
             <header className="playableHeader">
               <div className="playableIndex"><span>3.4</span><b>PLAYABLE</b></div>
               <div className="playableTitle">
-                <h3 className="langZh">一个游戏素材，<br /><span>生成整套可投放广告。</span></h3>
+                <h3 className="langZh">一个游戏素材，<br /><span>生成一整套可玩广告。</span></h3>
                 <h3 className="langEn">One game asset.<br /><span>A full playable ad set.</span></h3>
               </div>
               <aside className="playableHeaderActions" aria-label="Playable 方案操作">
-                <a className="playableHeaderButton playableHeaderButtonPrimary" href="https://playable.byteplus-demo.com/" target="_blank" rel="noopener noreferrer"><span className="langZh">查看 Playable 方案</span><span className="langEn">View Playable solution</span><b>↗</b></a>
+                <a className="playableHeaderButton playableHeaderButtonPrimary" href="https://playable.byteplus-demo.com/" target="_blank" rel="noopener noreferrer"><span className="langZh">查看可玩广告方案</span><span className="langEn">View Playable solution</span><b>↗</b></a>
               </aside>
             </header>
 

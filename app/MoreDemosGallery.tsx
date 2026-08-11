@@ -127,7 +127,7 @@ export default function MoreDemosGallery() {
           <h2 className="langEn">More industries, formats and creative directions</h2>
         </div>
         <div className="moreDemosActions">
-          <a className="langZh" href="https://bytedance.larkoffice.com/wiki/SNVXw69gTi515kkVoi8c98BznKh" target="_blank" rel="noopener noreferrer">查看完整 Demo 库 <span>↗</span></a>
+          <a className="langZh" href="https://bytedance.larkoffice.com/wiki/SNVXw69gTi515kkVoi8c98BznKh" target="_blank" rel="noopener noreferrer">打开完整样片库 <span>↗</span></a>
           <a className="langEn" href="https://bytedance.sg.larkoffice.com/docx/TmsqdH9TeoPVYyxzpZ9lwH91g7c" target="_blank" rel="noopener noreferrer">Open full demo library <span>↗</span></a>
         </div>
       </header>

@@ -46,15 +46,15 @@ test("server-renders the complete V3 advertising strategy", async () => {
 
   // Chapter 01 follows the migration plan: one verified chart, three trends,
   // and a transition into the player chapter without unverified adoption data.
-  assert.match(html, /AI 正在重塑广告市场的供给方式/);
+  assert.match(html, /AI 正在重塑广告供给的生产方式/);
   assert.match(html, /AI Is Reshaping How Advertising Supply Is Created/);
   assert.equal((html.match(/class="marketTrendCard /g) ?? []).length, 3);
-  assert.match(html, /AI.*广告行业崛起.*三个清晰趋势/s);
+  assert.match(html, /广告生产正在走向.*AI 原生/s);
   assert.match(html, /Advertising Is Moving Toward AI-Native Production/);
-  assert.match(html, /视频广告成为主流/);
+  assert.match(html, /视频广告成为主导广告形式/);
   assert.match(html, /Video Advertising Becomes the Dominant Format/);
   assert.match(html, /Campaign Agent 在 2026 年进入规模化阶段/);
-  assert.match(html, /AI 成为创意团队的标准能力/);
+  assert.match(html, /AI 成为创作者的基础能力/);
   assert.match(marketTrendHtml, /\$160B.*1\.63×.*\$260B/s);
   assert.doesNotMatch(marketTrendHtml, /SEARCH BENCHMARK/);
   assert.match(marketTrendHtml, /\$60B.*\$75B.*3 QTRS/s);
@@ -94,7 +94,7 @@ test("server-renders the complete V3 advertising strategy", async () => {
   // The public brand-owner case study is a visual operating map: one central
   // governance spine feeding three production and decision journeys.
   const customerBrandHtml = html.slice(html.indexOf('id="customer-brand"'), html.indexOf('id="customer-agency"'));
-  assert.match(customerBrandHtml, /统一治理，分层生产.*统一治理中枢/s);
+  assert.match(customerBrandHtml, /一个治理中枢，三层生产体系.*统一治理中枢/s);
   assert.match(customerBrandHtml, /One governance spine.*Three production layers.*CENTRAL GOVERNANCE/s);
   assert.match(customerBrandHtml, /Internal AI production platform.*Marketing use-case pilot.*Scaled group adoption/s);
   assert.match(customerBrandHtml, /Brand and market teams.*Commerce \/ social \/ web demand.*Review &amp; delivery/s);
@@ -103,18 +103,18 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.doesNotMatch(customerBrandHtml, /L’Oréal|欧莱雅|CreTech|CreateAI|50.*BRANDS|150.*MARKETS|50–100.*万张|10–20.*万条/);
 
   const agencyHtml = html.slice(html.indexOf('id="customer-agency"'), html.indexOf('class="adtechCasePage"'));
-  assert.match(agencyHtml, /先进入 Creative.*再深入 Production 与 Media/s);
-  assert.match(agencyHtml, /洞察、概念与创意预演.*实拍、CG 与 AI 混合制作.*母版延展与效果版本/s);
+  assert.match(agencyHtml, /从创意切入.*拓展至制作与媒体/s);
+  assert.match(agencyHtml, /洞察、概念与创意预演.*实拍、CG 与 AI 混合制作.*母版版本化与媒体变体/s);
   assert.match(agencyHtml, /PRODUCTION DEMO · AUTOMOTIVE/);
   assert.match(agencyHtml, /实拍保留.*AI 生成.*最终交付/s);
   assert.doesNotMatch(agencyHtml, /WPP|Havas|Publicis|代表性代理商|REPRESENTATIVE AGENCIES/);
 
   // V3 contains the three solution pages and the selected performance demos.
   assert.equal((html.match(/class="solutionPage /g) ?? []).length, 3);
-  assert.match(html, /品牌广告制作方案/);
-  assert.match(html, /效果广告方案/);
+  assert.match(html, /品牌广告生产解决方案/);
+  assert.match(html, /效果广告生产解决方案/);
   assert.match(html, /Performance Ads Production Solution/);
-  assert.match(html, /展示广告制作方法/);
+  assert.match(html, /展示广告方法/);
   assert.equal((html.match(/class="performanceEvidenceCard"/g) ?? []).length, 4);
   assert.match(performanceSolutionHtml, /Demo \+ Card-to-Buy/);
   assert.match(performanceSolutionHtml, /1s Hook \+ Direct Selling/);
