@@ -440,6 +440,20 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="solutionChapterTransition" id="case-studies" aria-labelledby="case-study-transition-title">
+        <div className="solutionTransitionShell">
+          <div className="solutionTransitionIndex">
+            <span>02</span>
+            <b><B zh="案例研究" en="CASE STUDY" /></b>
+          </div>
+          <div className="solutionTransitionCopy">
+            <p>BYTEPLUS PARTNER PROOF</p>
+            <h2 className="langZh" id="case-study-transition-title">从关键角色格局出发，看<strong>头部客户如何验证 BytePlus。</strong></h2>
+            <h2 className="langEn">From the key-player landscape to <strong>proof from BytePlus&apos;s leading partners.</strong></h2>
+          </div>
+        </div>
+      </section>
+
       <section className="audienceSection customerCasesSection" id="customer-cases">
         <div className="shell">
           <div className="customerStories">
