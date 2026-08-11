@@ -500,6 +500,20 @@ a{color:inherit;text-decoration:none}
 .cs-link b{flex:1;font-size:15px;font-weight:600;letter-spacing:-.01em}
 .cs-link-go{color:var(--dim-2);font-size:15px}
 @media(max-width:860px){.cs-links{grid-template-columns:1fr}}
+
+/* ── wpp & havas: adoption chart + quotes ── */
+.wh-viz{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
+.wh-chart{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:22px 22px 18px}
+.wh-lab{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim-2);margin-bottom:10px}
+.wh-chart svg{width:100%;height:auto;display:block}
+.wh-quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
+.wh-q{margin:0;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);
+  padding:26px 26px 22px;border-left:3px solid var(--bl)}
+.wh-q p{margin:0 0 14px;font-size:14.5px;line-height:1.62;color:var(--txt);font-style:italic}
+.wh-q cite{font-style:normal;font-size:12.5px;color:var(--dim-2)}
+.wh-src{font-size:11.5px;color:var(--dim-2);margin:14px 0 0}
+.wh-src a{color:var(--cy)}
+@media(max-width:860px){.wh-viz,.wh-quotes{grid-template-columns:1fr}}
 .case-grid.three{grid-template-columns:repeat(3,1fr)}
 @media(max-width:1180px){.case-grid.three{grid-template-columns:1fr}}
 /* ═════════════ Seedance 2.5 advertising use cases ═════════════ */
