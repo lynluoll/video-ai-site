@@ -12282,10 +12282,10 @@ body {
   gap: 8px;
   border-right: 1px solid var(--line);
 }
-#customer-brand .appLovinCaseIndex span { color: var(--blue); font-size: 12px; font-weight: 950; letter-spacing: .15em; }
-#customer-brand .appLovinCaseIndex b { color: #7b8799; font-size: 10px; font-weight: 700; letter-spacing: .15em; }
+#customer-brand .appLovinCaseIndex span { color: var(--blue); font-size: 40px; font-weight: 540; line-height: .9; letter-spacing: -.03em; }
+#customer-brand .appLovinCaseIndex b { color: #7b8799; font-size: 10px; font-weight: 760; letter-spacing: .15em; }
 #customer-brand .appLovinCaseTitle { padding: 20px 32px; }
-#customer-brand .appLovinLogo { width: 150px; height: auto; color: #121d30; }
+#customer-brand .appLovinLogo { width: 180px; height: auto; color: #121d30; }
 #customer-brand .appLovinCaseBody { padding: 28px 32px 34px; }
 #customer-brand .appLovinBlock { margin-top: 28px; }
 #customer-brand .appLovinBlock:first-of-type { margin-top: 0; }
