@@ -162,63 +162,42 @@ const solutionVideoDemos = {
 const customerFlowStages = [
   {
     index: "01",
-    role: "预算源头",
-    roleEn: "BUDGET SOURCE",
     title: "品牌主",
     titleEn: "Brand owners",
-    flowRole: "制定预算、传播目标与品牌规范",
-    flowRoleEn: "Set budgets, objectives and brand rules",
-    flowNote: "年度传播目标与品牌资产形成 Brief，经品牌、法务与采购审核后交给内部团队或制作伙伴。",
-    trend: "Brief → 资产授权 → 品牌审核 → 制作交付",
-    trendEn: "Brief → asset rights → brand review → delivery",
-    opportunity: "模型 API 与资产权限管理，支持符合品牌规范的规模化生成。",
-    opportunityEn: "Model APIs and asset controls for brand-safe generation at scale.",
-    examples: "L’Oréal · Coca-Cola",
+    budgetRole: "制定预算并管理品牌资产",
+    budgetRoleEn: "Set budgets and brand assets",
+    trend: "建设内部 AI 生产平台",
+    trendEn: "Building in-house AI platforms",
+    examples: "L’Oréal · CreateAI",
   },
   {
     index: "02",
-    role: "制作放大",
-    roleEn: "PRODUCTION SCALE",
     title: "代理商",
     titleEn: "Agencies",
-    flowRole: "承接策略、创意与制作预算",
-    flowRoleEn: "Hold strategy, creative and production budgets",
-    flowNote: "接收品牌 Brief，完成策略、脚本与分镜，再进入制作、后期、审核和多渠道交付。",
-    trend: "Brief → 策略 / 分镜 → 制作 / 后期 → 交付",
-    trendEn: "Brief → strategy / boards → production / post → delivery",
-    opportunity: "用生成模型和工作流工具连接预演、成片制作、本地化与版本管理。",
-    opportunityEn: "Connect previsualization, production, localization and versioning with generative workflows.",
+    budgetRole: "承接创意与制作预算",
+    budgetRoleEn: "Hold creative and production budgets",
+    trend: "从创意预演进入正式制作",
+    trendEn: "From previews into production",
     examples: "WPP · Havas",
   },
   {
     index: "03",
-    role: "复利消耗",
-    roleEn: "COMPOUNDING USAGE",
     title: "AdTech / MarTech",
     titleEn: "AdTech / MarTech",
-    flowRole: "把投放目标转成持续素材生产",
-    flowRoleEn: "Turn campaign goals into continuous creative production",
-    flowNote: "连接商品、素材与投放约束，批量生成变体并依据实验结果持续迭代。",
-    trend: "素材接入 → 变体生成 → A/B 测试 → 自动迭代",
-    trendEn: "Asset ingest → variants → A/B tests → automated iteration",
-    opportunity: "把模型 API 嵌入 Campaign Agent，随素材与实验次数形成持续调用。",
-    opportunityEn: "Embed model APIs in campaign agents for recurring calls across assets and experiments.",
-    examples: "AppLovin · 钛动",
-    examplesEn: "AppLovin · TecDo",
+    budgetRole: "将媒体预算转化为持续素材生产",
+    budgetRoleEn: "Turn media budgets into continuous production",
+    trend: "Campaign Agent 从 1 进入 3",
+    trendEn: "Campaign agents enter 1 → 3",
+    examples: "AppLovin · Tenmax",
   },
   {
     index: "04",
-    role: "媒体反馈",
-    roleEn: "MEDIA FEEDBACK",
     title: "Paid Media",
     titleEn: "Paid media",
-    flowRole: "完成分发、优化并返回效果信号",
-    flowRoleEn: "Distribute, optimize and return performance signals",
-    flowNote: "按受众与版位完成投放优化，将聚合效果信号送回下一轮创意生产。",
-    trend: "分发 → 优化 → 聚合反馈 → 下一轮素材",
-    trendEn: "Delivery → optimization → aggregated feedback → next creative",
-    opportunity: "连接投放反馈与生成工作流，缩短下一轮素材迭代周期。",
-    opportunityEn: "Connect media feedback to generation workflows and shorten creative iteration cycles.",
+    budgetRole: "完成分发并返回效果信号",
+    budgetRoleEn: "Distribute and return performance signals",
+    trend: "效果信号回流至内容生产",
+    trendEn: "Signals flow back into production",
     examples: "Criteo · Pinterest",
   },
 ];
@@ -418,19 +397,18 @@ export default function Home() {
           <header className="customerFlowHeader">
             <div className="customerFlowIndex"><span>02</span><b><B zh="客群策略" en="CUSTOMER STRATEGY" /></b></div>
             <div><h2 id="customer-flow-title"><span className="langZh">钱从上往下走，<br /><span>价值在中间放大。</span></span><span className="langEn">Money flows down.<br /><span>Value compounds in the middle.</span></span></h2></div>
-            <p><B zh="品牌主掌握预算，代理商放大制作规模，AdTech / MarTech 把一次性交付变成持续调用，Paid Media 再把效果信号送回生产。" en="Brands hold the budget, agencies scale production, AdTech / MarTech turns one-off delivery into recurring calls, and paid media feeds performance signals back." /></p>
           </header>
 
           <div className="customerFlowCanvas">
-            <div className="customerFlowRoute" aria-label="品牌主到 Paid Media 的广告预算流向">
-              <div className="customerMoneySpine" aria-hidden="true"><span>$</span><i></i><em>↓</em></div>
+            <div className="customerFlowRoute" aria-label="广告产业四类参与者与关键趋势">
+              <div className="customerFlowMoneyRail" aria-hidden="true"><span>$</span><i></i><em>↓</em></div>
               <div className="customerFlowStages">
                 {customerFlowStages.map((stage) => (
-                  <article className={`customerFlowStage ${stage.index === "03" ? "customerFlowStageFocus" : ""}`} key={stage.index}>
-                    <div className="customerFlowIdentity"><span>{stage.index}</span><small><B zh={stage.role} en={stage.roleEn} /></small><h3><B zh={stage.title} en={stage.titleEn} /></h3></div>
-                    <div className="customerFlowRole"><small><B zh="预算作用" en="BUDGET ROLE" /></small><h4><B zh={stage.flowRole} en={stage.flowRoleEn} /></h4></div>
-                    <div className="customerFlowTrend"><small><B zh="标准工作流" en="STANDARD WORKFLOW" /></small><h4><B zh={stage.trend} en={stage.trendEn} /></h4><p className="customerFlowOpportunity"><strong><B zh="BYTEPLUS OFFER" en="BYTEPLUS OFFER" /></strong><B zh={stage.opportunity} en={stage.opportunityEn} /></p></div>
-                    <div className="customerFlowExamples"><small><B zh="公开行业示例" en="PUBLIC EXAMPLES" /></small><b><B zh={stage.examples} en={stage.examplesEn ?? stage.examples} /></b></div>
+                  <article className="customerFlowStage" key={stage.index}>
+                    <div className="customerFlowIdentity"><span>{stage.index}</span><h3><B zh={stage.title} en={stage.titleEn} /></h3></div>
+                    <div className="customerFlowRole"><small><B zh="预算作用" en="BUDGET ROLE" /></small><h4><B zh={stage.budgetRole} en={stage.budgetRoleEn} /></h4></div>
+                    <div className="customerFlowTrend"><small><B zh="关键趋势" en="KEY TREND" /></small><h4><B zh={stage.trend} en={stage.trendEn} /></h4></div>
+                    <div className="customerFlowExamples"><small><B zh="代表企业" en="REPRESENTATIVE" /></small><b>{stage.examples}</b></div>
                   </article>
                 ))}
               </div>

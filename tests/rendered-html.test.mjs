@@ -68,6 +68,17 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.doesNotMatch(html, /sceneLandscapePage|sceneDemoPages|sceneTrackCard|sceneDemoPage|SCENE LANDSCAPE|Mainstream ad scenarios/);
   assert.match(html, /class="customerFlowIndex"><span>02<\/span>/);
 
+  // Chapter 02 is a single flat player map. The verbose workflow and offer
+  // copy were intentionally removed so all four rows fit in one viewport.
+  const customerFlowHtml = html.slice(html.indexOf('class="customerFlowPage"'), html.indexOf('class="audienceSection customerCasesSection"'));
+  assert.equal((customerFlowHtml.match(/class="customerFlowStage"/g) ?? []).length, 4);
+  assert.match(customerFlowHtml, /Brand owners.*Set budgets and brand assets.*Building in-house AI platforms.*L’Oréal · CreateAI/s);
+  assert.match(customerFlowHtml, /Agencies.*Hold creative and production budgets.*From previews into production.*WPP · Havas/s);
+  assert.match(customerFlowHtml, /AdTech \/ MarTech.*Turn media budgets into continuous production.*Campaign agents enter 1 → 3.*AppLovin · Tenmax/s);
+  assert.match(customerFlowHtml, /Paid media.*Distribute and return performance signals.*Signals flow back into production.*Criteo · Pinterest/s);
+  assert.match(customerFlowHtml, /class="customerFlowMoneyRail"/);
+  assert.doesNotMatch(customerFlowHtml, /STANDARD WORKFLOW|BYTEPLUS OFFER|customerMoneySpine|Brands hold the budget/);
+
   // Public customer pages use generic operating models and omit internal specifics.
   assert.match(html, /全球品牌主业务模式.*一套品牌资产.*两条生产链路/s);
   assert.match(html, /品牌资产库.*高频素材.*品牌主片/s);
