@@ -557,14 +557,14 @@ Demo 墙下方只保留一个主 CTA：
 | --- | --- | --- | --- |
 | 01 | 市场概览 | Market Overview | `#market` |
 | 02 | 关键角色 | Key Players | `#players` |
-| 02.1 | 品牌主案例 | Brand Owner Case | `#case-brand-owner` |
-| 02.2 | 代理商案例 | Agency Case | `#case-agency` |
-| 02.3 | 广告技术与付费媒体案例 | AdTech & Paid Media Case | `#case-adtech` |
+| 2.1 | 品牌主案例 | Brand Owner Case | `#case-brand-owner` |
+| 2.2 | 代理商案例 | Agency Case | `#case-agency` |
+| 2.3 | 广告技术与付费媒体案例 | AdTech & Paid Media Case | `#case-adtech` |
 | 03 | 解决方案 | Solution | `#solutions` |
-| 03.1 | 品牌广告 | Brand | `#solution-brand` |
-| 03.2 | 效果广告 | Performance | `#solution-performance` |
-| 03.3 | 展示广告 | Display | `#solution-display` |
-| 03.4 | 可玩广告 | Playable | `#solution-playable` |
+| 3.1 | 品牌广告 | Brand | `#solution-brand` |
+| 3.2 | 效果广告 | Performance | `#solution-performance` |
+| 3.3 | 展示广告 | Display | `#solution-display` |
+| 3.4 | 可玩广告 | Playable | `#solution-playable` |
 | 04 | 更多 Demo | More Demos | `#demos` |
 
 ## 9. 内容迁移实施顺序

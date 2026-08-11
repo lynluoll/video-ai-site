@@ -2,6 +2,7 @@ import InlineTextEditor from "./InlineTextEditor";
 import ArchitectureImageLightbox from "./ArchitectureImageLightbox";
 import PlayableClipLightbox from "./PlayableClipLightbox";
 import MarketTrackAutoReveal from "./MarketTrackAutoReveal";
+import MoreDemosGallery from "./MoreDemosGallery";
 
 const B = ({ zh, en }: { zh: React.ReactNode; en: React.ReactNode }) => (
   <>
@@ -168,7 +169,8 @@ const customerFlowStages = [
     budgetRoleEn: "Set budgets and brand assets",
     trend: "建设内部 AI 生产平台",
     trendEn: "Building in-house AI platforms",
-    examples: "L’Oréal · CreateAI",
+    examples: "典型全球品牌主",
+    examplesEn: "Global brand owners",
   },
   {
     index: "02",
@@ -213,6 +215,12 @@ export default function Home() {
           <span className="langZh">BytePlus 广告行业素材生产方案</span>
           <span className="langEn">ADS Creative Solution</span>
         </a>
+        <div className="navChapterLinks" aria-label="章节导航">
+          <a href="#market"><span className="langZh">市场概览</span><span className="langEn">Market Overview</span></a>
+          <a href="#players"><span className="langZh">关键角色</span><span className="langEn">Key Players</span></a>
+          <a href="#solutions"><span className="langZh">解决方案</span><span className="langEn">Solutions</span></a>
+          <a href="#demos"><span className="langZh">更多样片</span><span className="langEn">More Demos</span></a>
+        </div>
         <label className="languageSwitch" htmlFor="language-mode">
           <span className="langZh">中&nbsp; / &nbsp;EN</span>
           <span className="langEn">EN&nbsp; / &nbsp;中</span>
@@ -392,10 +400,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="customerFlowPage" id="audience" aria-labelledby="customer-flow-title">
+      <section className="customerFlowPage" id="players" aria-labelledby="customer-flow-title">
         <div className="customerFlowShell">
           <header className="customerFlowHeader">
-            <div className="customerFlowIndex"><span>02</span><b><B zh="客群策略" en="CUSTOMER STRATEGY" /></b></div>
+            <div className="customerFlowIndex"><span>02</span><b><B zh="关键角色" en="KEY PLAYERS" /></b></div>
             <div><h2 id="customer-flow-title"><span className="langZh">钱从上往下走，<br /><span>价值在中间放大。</span></span><span className="langEn">Money flows down.<br /><span>Value compounds in the middle.</span></span></h2></div>
           </header>
 
@@ -408,7 +416,7 @@ export default function Home() {
                     <div className="customerFlowIdentity"><span>{stage.index}</span><h3><B zh={stage.title} en={stage.titleEn} /></h3></div>
                     <div className="customerFlowRole"><small><B zh="预算作用" en="BUDGET ROLE" /></small><h4><B zh={stage.budgetRole} en={stage.budgetRoleEn} /></h4></div>
                     <div className="customerFlowTrend"><small><B zh="关键趋势" en="KEY TREND" /></small><h4><B zh={stage.trend} en={stage.trendEn} /></h4></div>
-                    <div className="customerFlowExamples"><small><B zh="代表企业" en="REPRESENTATIVE" /></small><b>{stage.examples}</b></div>
+                    <div className="customerFlowExamples"><small><B zh="代表企业" en="REPRESENTATIVE" /></small><b><B zh={stage.examples} en={stage.examplesEn ?? stage.examples} /></b></div>
                   </article>
                 ))}
               </div>
@@ -421,175 +429,100 @@ export default function Home() {
       <section className="audienceSection customerCasesSection" id="customer-cases">
         <div className="shell">
           <div className="customerStories">
-            <article className="lorealCasePage" id="customer-brand" aria-labelledby="loreal-case-title">
-              <header className="lorealCaseHeader">
-                <div className="lorealCaseIndex"><span>01</span><b><B zh="欧莱雅" en="L’ORÉAL" /></b></div>
-                <div className="lorealCaseTitle">
-                  <h3 id="loreal-case-title"><span className="langZh">全球品牌主业务模式：<br /><span>一套品牌资产，两条生产链路。</span></span><span className="langEn">Global brand-owner model:<br /><span>one asset system, two production lanes.</span></span></h3>
-                </div>
-              </header>
-
+            <article className="lorealCasePage" id="customer-brand" aria-label="典型全球品牌主业务模式">
               <div className="lorealReportCanvas">
-                <section className="lorealReportCore" aria-labelledby="loreal-report-core-title">
-                  <header>
-                    <div><span><B zh="01 · 业务模式" en="01 · OPERATING MODEL" /></span><h4 id="loreal-report-core-title"><B zh="以欧莱雅为代表：总部统一管理品牌资产，全球与区域需求分流生产。" en="Using L’Oréal as a representative example: centrally managed brand assets feed global and regional briefs." /></h4></div>
-                    <p><strong>1</strong><small><B zh="套品牌资产体系" en="BRAND ASSET SYSTEM" /></small><i>→</i><strong>2</strong><small><B zh="条生产链路" en="PRODUCTION LANES" /></small></p>
-                  </header>
-
-                  <div className="lorealReportEngine">
-                    <section className="lorealReportAsset">
-                      <span><B zh="总部统一管理" en="CENTRALLY MANAGED" /></span>
-                      <h5><B zh="品牌资产库" en="Brand asset library" /></h5>
-                      <p><B zh="一套资产，为全球与区域生产提供统一标准。" en="One asset system sets the standard for global and regional production." /></p>
-                      <ul>
-                        <li><B zh="品牌规范" en="Brand rules" /></li>
-                        <li><B zh="产品图" en="Product imagery" /></li>
-                        <li><B zh="标识" en="Logos" /></li>
-                        <li><B zh="字体" en="Typography" /></li>
-                      </ul>
-                    </section>
-
-                    <i className="lorealReportConnector" aria-hidden="true">→</i>
-
-                    <div className="lorealReportRoutes">
-                      <article className="lorealReportRoute lorealReportRouteAlwaysOn">
-                        <header>
-                          <span>01</span>
-                          <div><small><B zh="链路一" en="LANE A" /></small><h5><B zh="高频素材" en="Always-on content" /></h5></div>
-                          <b><B zh="电商 · 社媒 · 官网" en="COMMERCE · SOCIAL · WEB" /></b>
-                        </header>
-                        <ol>
-                          <li><span>01</span><strong><B zh="区域市场素材需求" en="Regional content needs" /></strong></li>
-                          <li><span>02</span><strong><B zh="模板化生成与本地化" en="Templated generation and localization" /></strong></li>
-                          <li><span>03</span><strong><B zh="品牌与法务审核" en="Brand and legal review" /></strong></li>
-                          <li><span>04</span><strong><B zh="多渠道交付" en="Multi-channel delivery" /></strong></li>
-                        </ol>
-                      </article>
-
-                      <article className="lorealReportRoute lorealReportRouteHero">
-                        <header>
-                          <span>02</span>
-                          <div><small><B zh="链路二" en="LANE B" /></small><h5><B zh="品牌主片" en="Hero film" /></h5></div>
-                          <b><B zh="品牌主片 · 电视广告片" en="HERO FILM · TVC" /></b>
-                        </header>
-                        <ol>
-                          <li><span>01</span><strong><B zh="全球品牌主片需求" en="Global hero-film brief" /></strong></li>
-                          <li><span>02</span><strong><B zh="代理商与制作伙伴" en="Agency and production partner" /></strong></li>
-                          <li><span>03</span><strong><B zh="主片制作与品牌审核" en="Master production and brand review" /></strong></li>
-                          <li><span>04</span><strong><B zh="区域本地化交付" en="Regional localization and delivery" /></strong></li>
-                        </ol>
-                      </article>
+                <section className="brandOwnerStudy" aria-label="典型全球品牌主的三层业务逻辑">
+                  <aside className="brandOwnerSpine">
+                    <span className="brandOwnerStudyNumber">2.1</span>
+                    <small><B zh="典型品牌主" en="TYPICAL BRAND OWNER" /></small>
+                    <h3><B zh="统一治理，分层生产。" en="One governance spine. Three production layers." /></h3>
+                    <p><B zh="品牌资产、版权与合规由集团统一管理；具体生产需求在不同组织层完成决策与交付。" en="Brand assets, licensing, and compliance are governed centrally; production decisions and delivery happen across three operating layers." /></p>
+                    <div className="brandOwnerGovernance">
+                      <b><B zh="统一治理中枢" en="CENTRAL GOVERNANCE" /></b>
+                      <ul><li><B zh="品牌规范" en="Brand rules" /></li><li><B zh="资产与版权" en="Assets & rights" /></li><li><B zh="模型与额度" en="Models & credits" /></li><li><B zh="合规要求" en="Compliance" /></li></ul>
                     </div>
+                  </aside>
+
+                  <div className="brandOwnerJourneys">
+                    <article className="brandOwnerJourney brandOwnerJourneyPlatform">
+                      <div className="brandOwnerJourneyIdentity"><span>01</span><div><small><B zh="集团平台" en="GROUP PLATFORM" /></small><h4><B zh="内部 AI 生产平台" en="Internal AI production platform" /></h4><p><B zh="决定什么能力可以被接入并规模化使用。" en="Decides what can be approved and scaled." /></p></div></div>
+                      <ol><li><B zh="真实营销场景试点" en="Marketing use-case pilot" /></li><li><B zh="模型与额度池" en="Model & credit pool" /></li><li><B zh="IT / 法务 / 财务评估" en="IT / Legal / Finance review" /></li><li><B zh="集团规模化使用" en="Scaled group adoption" /></li></ol>
+                    </article>
+                    <article className="brandOwnerJourney brandOwnerJourneyTeams">
+                      <div className="brandOwnerJourneyIdentity"><span>02</span><div><small><B zh="业务团队" en="BUSINESS TEAMS" /></small><h4><B zh="品牌与市场团队" en="Brand and market teams" /></h4><p><B zh="把渠道目标转化为持续的素材需求。" en="Turns channel goals into recurring content demand." /></p></div></div>
+                      <ol><li><B zh="电商 / 社媒 / 官网需求" en="Commerce / social / web demand" /></li><li><B zh="完整素材清单" en="Complete asset plan" /></li><li><B zh="本地化与版本化" en="Localization & versioning" /></li><li><B zh="审核与多渠道交付" en="Review & delivery" /></li></ol>
+                    </article>
+                    <article className="brandOwnerJourney brandOwnerJourneyPartners">
+                      <div className="brandOwnerJourneyIdentity"><span>03</span><div><small><B zh="外部交付" en="EXTERNAL DELIVERY" /></small><h4><B zh="代理商与制作伙伴" en="Agency and production partners" /></h4><p><B zh="承接主片与大型 Campaign 的专业制作。" en="Delivers hero films and major campaigns." /></p></div></div>
+                      <ol><li><B zh="品牌 Brief" en="Brand brief" /></li><li><B zh="创意与正式制作" en="Creative & production" /></li><li><B zh="母版制作与品牌审核" en="Master & brand review" /></li><li><B zh="切条与区域本地化" en="Cutdowns & localization" /></li></ol>
+                    </article>
                   </div>
                 </section>
-
               </div>
-
             </article>
 
-            <article className="wppWorkPage wppMergedPage" id="customer-agency" aria-labelledby="wpp-work-title">
-              <header className="wppWorkHeader">
-                <div className="wppWorkIndex"><span>02</span><b><B zh="代表性代理商" en="AGENCY MODEL" /></b></div>
-                <div>
-                  <h3 id="wpp-work-title"><span className="langZh">全球代理商业务模式：<br /><span>从创意预演，到母版制作与媒体交付。</span></span><span className="langEn">Global agency operating model:<br /><span>from creative previsualization to master production and media delivery.</span></span></h3>
+            <article className="wppWorkPage agencyOperatingPage" id="customer-agency" aria-labelledby="agency-operating-title">
+              <header className="agencyOperatingHero">
+                <div className="agencyOperatingIndex"><span>2.2</span><b><B zh="典型代理商" en="TYPICAL AGENCY" /></b></div>
+                <div className="agencyOperatingTitle">
+                  <p><B zh="AI 落地路径" en="AI ADOPTION PATH" /></p>
+                  <h3 id="agency-operating-title"><span className="langZh">先进入 Creative，<br /><strong>再深入 Production 与 Media。</strong></span><span className="langEn">Start with Creative.<br /><strong>Expand into Production and Media.</strong></span></h3>
                 </div>
-                <aside className="wppMergedAgencies">
-                  <span><B zh="代表性代理商" en="REPRESENTATIVE AGENCIES" /></span>
-                  <strong>WPP · Havas · Publicis</strong>
-                  <a href="#solution-brand"><B zh="查看完整制作方案" en="View full production solution" /><b>↘</b></a>
-                </aside>
               </header>
 
-              <section className="wppMergedStages" aria-label="代理商创意、制作与媒体三类核心交付">
-                <article>
-                  <span>01 · <B zh="创意" en="CREATIVE" /></span>
-                  <h4><B zh="创意概念 → 可审阅预演" en="Creative concept → reviewable previz" /></h4>
-                  <p><B zh="把策略转成脚本、分镜与导演预演。" en="Turn strategy into scripts, boards and director-led previsualization." /></p>
-                </article>
-                <i aria-hidden="true">→</i>
-                <article>
-                  <span>02 · <B zh="制作" en="PRODUCTION" /></span>
-                  <h4><B zh="生产资产 → 高质量母版" en="Production assets → high-quality master" /></h4>
-                  <p><B zh="协同实拍、三维、生成与后期完成正式制作。" en="Combine live action, 3D, generation and post-production." /></p>
-                </article>
-                <i aria-hidden="true">→</i>
-                <article>
-                  <span>03 · <B zh="媒体" en="MEDIA" /></span>
-                  <h4><B zh="审核母版 → 多渠道版本" en="Approved master → channel variants" /></h4>
-                  <p><B zh="适配不同渠道、市场、语言与受众。" en="Adapt across channels, markets, languages and audiences." /></p>
-                </article>
+              <section className="agencyOperatingWorkflow agencyAdoptionMap" aria-label="典型代理商 Creative、Production 与 Media 三层 AI 渗透路径">
+                <ol>
+                  <li>
+                    <span>01</span>
+                    <div><small>CREATIVE · <B zh="高渗透" en="HIGH ADOPTION" /></small><h4><B zh="洞察、概念与创意预演" en="Insight, concepts, and previsualization" /></h4><p><B zh="快速生成关键视觉、分镜与短片预演，缩短提案和审片周期。" en="Generate key visuals, boards, and short previews to accelerate pitches and reviews." /></p></div>
+                  </li>
+                  <li>
+                    <span>02</span>
+                    <div><small>PRODUCTION · <B zh="逐步解锁" en="EMERGING" /></small><h4><B zh="实拍、CG 与 AI 混合制作" en="Live action, CG, and AI production" /></h4><p><B zh="先锁定产品、镜头与运动，再由模型完成环境、补充镜头和特效。" en="Lock product, camera, and motion first; use models for environments, extra shots, and VFX." /></p></div>
+                  </li>
+                  <li>
+                    <span>03</span>
+                    <div><small>MEDIA · <B zh="规模化" en="SCALING" /></small><h4><B zh="母版延展与效果版本" en="Master versioning and media variants" /></h4><p><B zh="围绕审核母版生成语言、尺寸、Hook、CTA 和人群版本。" en="Turn an approved master into language, format, hook, CTA, and audience variants." /></p></div>
+                  </li>
+                </ol>
               </section>
 
-              <div className="wppWorkCanvas">
-                <section className="wppWorkFlow" aria-label="代理商品牌广告四步工作方式">
-                  <header><span><B zh="团队与流程" en="TEAM &amp; WORKFLOW" /></span><h4><B zh="通用制作工作流" en="Standard production workflow" /></h4></header>
-                  <ol>
-                    <li>
-                      <span>01</span>
-                      <div><h5><B zh="创意与预演" en="Creative &amp; Previz" /></h5><p><B zh="导演主导创意概念，生成式预演分镜经过品牌审阅后进入制作。" en="Director-led concepts; generative previsualization boards move into production after brand review." /></p></div>
-                    </li>
-                    <li>
-                      <span>02</span>
-                      <div><h5><B zh="正式制作" en="Production" /></h5><p><B zh="实拍、三维制作与生成式渲染协同，确保帧级质量和跨镜头一致性。" en="Live action, 3D and generative rendering work together for frame-level quality and consistency." /></p></div>
-                    </li>
-                    <li>
-                      <span>03</span>
-                      <div><h5><B zh="后期与声音" en="Post-production &amp; audio" /></h5><p><B zh="完成特效、逐帧修补、剪辑、调色和声音制作，再形成可审阅母版。" en="Complete VFX, frame-level cleanup, editing, grading and audio before producing a reviewable master." /></p></div>
-                    </li>
-                    <li>
-                      <span>04</span>
-                      <div><h5><B zh="审核与交付" en="Review &amp; delivery" /></h5><p><B zh="经过品牌、法务和平台规范审核后，输出母版及各渠道交付版本。" en="After brand, legal and platform review, deliver the master and channel-ready versions." /></p></div>
-                    </li>
-                  </ol>
-                  <footer><B zh="高质量母版 · 多轮审核 · 多渠道版本交付" en="High-quality master · iterative review · multi-channel delivery" /></footer>
-                </section>
+              <section className="agencyOperatingCase" aria-label="典型代理商汽车广告混合制作示例">
+                <header>
+                  <div><span><B zh="Production Demo · 汽车广告" en="PRODUCTION DEMO · AUTOMOTIVE" /></span></div>
+                </header>
 
-                <section className="wppWorkCase" aria-label="汽车广告混合制作流程示例">
-                  <header>
-                    <span><B zh="流程示例 · 汽车广告" en="WORKFLOW EXAMPLE · AUTOMOTIVE" /></span>
-                    <h4><B zh="汽车广告混合制作：实拍锁定运动，Seedream + Seedance 完成场景与特效。" en="Hybrid automotive production: live action locks motion; Seedream + Seedance build the scene and VFX." /></h4>
-                    <p><B zh="先拍摄车辆运动参考，再生成环境、目标画面与特效版本，最后进入剪辑、调色和品牌审核。" en="Capture vehicle motion reference, generate environment, target frames and VFX variants, then move through edit, grade and brand review." /></p>
-                  </header>
-                  <div className="wppWorkCaseClips">
-                    <figure>
-                      <video src="/media/wpp-auto-input.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="封闭场地实拍运动参考片段" />
-                      <figcaption><B zh="实拍运动参考" en="REAL SHOOT · MOTION REF" /></figcaption>
-                    </figure>
-                    <i aria-hidden="true">→</i>
-                    <figure>
-                      <video src="/media/wpp-auto-final.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="Seedance 生成的巴黎街区 VFX 成片片段" />
-                      <figcaption><B zh="生成式特效成片" en="GENERATIVE VFX FINAL" /></figcaption>
-                    </figure>
-                  </div>
-                  <p className="wppWorkCasePipeline"><b><B zh="制作链路" en="PIPELINE" /></b><B zh="Seedream 生成环境板与目标帧" en="Seedream builds environment plates and target frames" /> <i>→</i> <B zh="Seedance 以视频参考锁运动、图像参考锁质感" en="Seedance locks motion via video ref and look via image refs" /></p>
-                  <div className="wppWorkCaseMetrics">
-                    <div><span><B zh="运动控制" en="MOTION CONTROL" /></span><strong><B zh="实拍参考" en="VIDEO REF" /></strong><small><B zh="保留车辆速度、路径与镜头运动" en="Preserves speed, path and camera motion" /></small></div>
-                    <div><span><B zh="视觉控制" en="VISUAL CONTROL" /></span><strong><B zh="目标帧" en="IMAGE REF" /></strong><small><B zh="锁定环境、材质、光线与特效风格" en="Locks environment, material, light and VFX style" /></small></div>
-                    <div><span><B zh="版本延展" en="VERSIONING" /></span><strong><B zh="批量变体" en="VARIANTS" /></strong><small><B zh="换色、换景与区域版本复用同一母版" en="Reuses one master across color, scene and market variants" /></small></div>
-                  </div>
-                </section>
-              </div>
+                <div className="agencyOperatingClips">
+                  <figure>
+                    <video src="/media/wpp-auto-input.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="封闭场地实拍运动参考片段" />
+                    <figcaption><span>01</span><B zh="实拍参考：锁定车辆路径与镜头运动" en="Live-action reference: lock vehicle path and camera motion" /></figcaption>
+                  </figure>
+                  <i aria-hidden="true">→</i>
+                  <figure>
+                    <video src="/media/wpp-auto-final.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="生成式汽车广告场景和特效成片片段" />
+                    <figcaption><span>02</span><B zh="生成式成片：重建环境、材质与特效" en="Generative final: rebuild environment, material, and VFX" /></figcaption>
+                  </figure>
+                </div>
+
+                <div className="agencyOperatingProof">
+                  <div><span><B zh="实拍保留" en="LIVE ACTION" /></span><strong><B zh="速度 · 路径 · 镜头" en="SPEED · PATH · CAMERA" /></strong></div>
+                  <div><span><B zh="AI 生成" en="AI LAYER" /></span><strong><B zh="环境 · 材质 · 特效" en="SCENE · LOOK · VFX" /></strong></div>
+                  <div><span><B zh="最终交付" en="DELIVERY" /></span><strong><B zh="母版 · 多版本" en="MASTER · VARIANTS" /></strong></div>
+                </div>
+              </section>
             </article>
 
             <article className="adtechCasePage" id="customer-adtech" aria-labelledby="adtech-case-title">
               <header className="adtechCaseHeader">
-                <div className="adtechCaseIndex"><span>03</span><b><B zh="广告技术 / 付费媒体" en="ADTECH / PAID MEDIA" /></b></div>
+                <div className="adtechCaseIndex"><span>2.3</span><b><B zh="广告技术 / 付费媒体" en="ADTECH / PAID MEDIA" /></b></div>
                 <div>
                   <p><B zh="投放智能体 · 标准工作流" en="CAMPAIGN AGENT · STANDARD WORKFLOW" /></p>
                   <h3 id="adtech-case-title"><span className="langZh">广告技术与付费媒体的素材闭环：<br /><span>从市场洞察到投放反馈。</span></span><span className="langEn">The AdTech and paid-media creative loop:<br /><span>from market insight to media feedback.</span></span></h3>
                 </div>
-                <aside className="adtechStageBadge" aria-label="投放智能体五步标准流程">
-                  <span><B zh="标准流程" en="STANDARD FLOW" /></span><strong>5</strong><b><B zh="步素材闭环" en="step creative loop" /></b>
-                </aside>
               </header>
 
               <div className="adtechGrowthCanvas">
-                <section className="adtechAgentPanel" aria-labelledby="adtech-agent-title">
-                  <header>
-                    <span><B zh="投放智能体 · 端到端" en="CAMPAIGN AGENT · END TO END" /></span>
-                    <h4 id="adtech-agent-title"><B zh="投放智能体的端到端标准流程。" en="The standard campaign-agent workflow, end to end." /></h4>
-                  </header>
-
+                <section className="adtechAgentPanel" aria-label="Campaign Agent 端到端标准流程">
                   <div className="adtechManagerStrip" aria-label="市场主流 Ad Manager 平台">
                     <span><B zh="代表性广告管理平台与智能投放产品" en="REPRESENTATIVE AD MANAGERS AND CAMPAIGN PRODUCTS" /></span>
                     <ul>
@@ -631,21 +564,32 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="solutionChapterTransition" id="solutions" aria-labelledby="solution-transition-title">
+        <div className="solutionTransitionShell">
+          <div className="solutionTransitionIndex">
+            <span>03</span>
+            <b><B zh="解决方案" en="SOLUTIONS" /></b>
+          </div>
+          <div className="solutionTransitionCopy">
+            <p>BYTEPLUS CREATIVE PRODUCTION</p>
+            <h2 className="langZh" id="solution-transition-title">从行业工作流，进入 <strong>BytePlus 生产能力与方案。</strong></h2>
+            <h2 className="langEn">From industry workflows to <strong>BytePlus production capabilities and solutions.</strong></h2>
+          </div>
+        </div>
+      </section>
+
       <div className="productionChapter">
-      <section className="section shell solutions" id="solution-focus">
+      <section className="section shell solutions">
         <div className="solutionPages">
           <article className="solutionPage brandSolutionPage" id="solution-brand" aria-labelledby="brand-solution-title">
             <header className="brandSolutionHeader">
-              <div className="brandSolutionIndex"><span>01</span><b>BRAND PRODUCTION</b></div>
+              <div className="brandSolutionIndex"><span>3.1</span><b>BRAND PRODUCTION</b></div>
               <div className="brandSolutionTitle">
-                <p className="langZh">CG + AI 混合制作 · 四个品牌样片</p><p className="langEn">CG + AI HYBRID PRODUCTION · 4 BRAND DEMOS</p>
                 <h3 className="langZh" id="brand-solution-title">品牌广告制作方案</h3>
                 <h3 className="langEn">Brand Advertising Production Solution</h3>
               </div>
               <div className="solutionHeaderActions">
                 <a className="solutionDetailLink" href="https://sofa-demo.byteplus-demo.com/" target="_blank" rel="noopener noreferrer"><span className="langZh">查看方案详情</span><span className="langEn">View solution details</span><b>↗</b></a>
-                <a className="solutionDetailLink langZh" href="https://bytedance.larkoffice.com/wiki/E96mwlJfsiLCvKkCPC0cjLIMnRg" target="_blank" rel="noopener noreferrer">查看更多 Seedance 样片<b>↗</b></a>
-                <a className="solutionDetailLink langEn" href="https://bytedance.sg.larkoffice.com/docx/SOrgdnSJ3oSr4Rx6EYMlKhBsgqc" target="_blank" rel="noopener noreferrer">View more Seedance demos<b>↗</b></a>
               </div>
             </header>
 
@@ -660,7 +604,7 @@ export default function Home() {
                 <div className="brandOriginalArchitecture">
                   <div className="brandOriginalFlow">
                     <section className="arch-stage">
-                      <header className="arch-stage__head"><span className="arch-stage__no">①</span><b className="langZh">输入资产</b><b className="langEn">Input Assets</b></header>
+                      <header className="arch-stage__head"><span className="arch-stage__no">01</span><b className="langZh">输入资产</b><b className="langEn">Input Assets</b></header>
                       <figure className="arch-input"><img src="/media/sofa/input-texture.jpg" alt="材质参考" /><figcaption>Texture · material<span className="arch-to">→ AI composite ④</span></figcaption></figure>
                       <figure className="arch-input"><img src="/media/sofa/input-environment.jpg" alt="环境参考" /><figcaption>Environment<span className="arch-to">→ scene ③ · video ⑤</span></figcaption></figure>
                       <figure className="arch-input"><img src="/media/sofa/input-packshot.jpg" alt="商品 Packshot" /><figcaption>Product · packshot<span className="arch-to">→ vision + 3D ②</span></figcaption></figure>
@@ -669,7 +613,7 @@ export default function Home() {
                     <i className="arch-arrow" aria-hidden="true">→</i>
 
                     <section className="arch-stage">
-                      <header className="arch-stage__head"><span className="arch-stage__no">②</span><b className="langZh">AI 理解 + 数字孪生</b><b className="langEn">AI Understanding + Digital Twin</b></header>
+                      <header className="arch-stage__head"><span className="arch-stage__no">02</span><b className="langZh">AI 理解 + 数字孪生</b><b className="langEn">AI Understanding + Digital Twin</b></header>
                       <div className="arch-node"><div className="arch-node__t arch-node__t--model">Vision LLM · Seed 2.1</div><div className="arch-node__m">Visual understanding · spec</div></div>
                       <div className="arch-down" aria-hidden="true">↓</div>
                       <div className="arch-node arch-node--ghost arch-spec"><div className="arch-node__t">Vision spec · anchor</div><div className="arch-spec__b">Solid oak sofa · linen <span>#E8E5DF</span><br />locks colour / material / size / structure</div></div>
@@ -678,14 +622,14 @@ export default function Home() {
                     <i className="arch-arrow" aria-hidden="true">→</i>
 
                     <section className="arch-stage">
-                      <header className="arch-stage__head"><span className="arch-stage__no">③</span><b className="langZh">CG 控制 · Blender</b><b className="langEn">CG Control · Blender</b></header>
+                      <header className="arch-stage__head"><span className="arch-stage__no">03</span><b className="langZh">CG 控制 · Blender</b><b className="langEn">CG Control · Blender</b></header>
                       <div className="arch-node"><div className="arch-node__t">Set design · camera control</div><div className="arch-node__m">Multi-angle · product consistency</div><div className="arch-thumbs arch-thumbs--row"><img src="/media/sofa/digital-twin.png" alt="" /><img src="/media/sofa/cg-angle.jpg" alt="" /><img src="/media/sofa/cg-scene.jpg" alt="" /></div></div>
                       <div className="arch-node"><div className="arch-node__t">Lighting control</div><div className="arch-node__m">Mood · shadows</div><div className="arch-thumbs arch-thumbs--2"><img src="/media/sofa/lighting-1.jpg" alt="" /><img src="/media/sofa/lighting-2.jpg" alt="" /></div></div>
                     </section>
                     <i className="arch-arrow" aria-hidden="true">→</i>
 
                     <section className="arch-stage">
-                      <header className="arch-stage__head"><span className="arch-stage__no">④</span><b className="langZh">图像渲染</b><b className="langEn">Image Rendering</b></header>
+                      <header className="arch-stage__head"><span className="arch-stage__no">04</span><b className="langZh">图像渲染</b><b className="langEn">Image Rendering</b></header>
                       <div className="arch-node"><div className="arch-node__t">Blender render</div><div className="arch-node__m">Composite plate · any angle</div><div className="arch-thumbs arch-thumbs--2x2"><img src="/media/sofa/cg-angle.jpg" alt="" /><img src="/media/sofa/cg-scene.jpg" alt="" /><img src="/media/sofa/render-detail.jpg" alt="" /><img src="/media/sofa/digital-twin.png" alt="" /></div></div>
                       <div className="arch-down" aria-hidden="true">↓</div>
                       <div className="arch-node"><div className="arch-node__t arch-node__t--model">Seedream 5.0 Pro</div><div className="arch-node__m">AI compositing</div><div className="arch-tags"><span>quality boost</span><span>environment</span><span>product</span><span>material</span><span>upscale</span></div></div>
@@ -693,7 +637,7 @@ export default function Home() {
                     <i className="arch-arrow" aria-hidden="true">→</i>
 
                     <section className="arch-stage">
-                      <header className="arch-stage__head"><span className="arch-stage__no">⑤</span><b className="langZh">最终输出 · KV + 视频</b><b className="langEn">Final Output · KV + Video</b></header>
+                      <header className="arch-stage__head"><span className="arch-stage__no">05</span><b className="langZh">最终输出 · KV + 视频</b><b className="langEn">Final Output · KV + Video</b></header>
                       <div className="arch-node"><div className="arch-node__t">Final KV</div><div className="arch-kv"><figure><img src="/media/sofa/kv-side.jpg" alt="侧面 KV" /></figure><figure><img src="/media/sofa/kv-mcu.jpg" alt="中近景 KV" /></figure><figure><img src="/media/sofa/kv-wide.jpg" alt="宽景 KV" /></figure><figure><img src="/media/sofa/kv-ultrawide.jpg" alt="超宽景 KV" /></figure></div></div>
                       <div className="arch-node arch-node--ghost arch-merge"><div className="arch-node__t">+ Prompt</div></div>
                       <div className="arch-node"><div className="arch-node__t arch-node__t--model">Seedance 2.0</div><div className="arch-node__m">Video generation</div></div>
@@ -707,12 +651,11 @@ export default function Home() {
               </section>
 
               <section className="brandDemoStrip" id="solution-brand-demos" aria-label="品牌广告四个视频 Demo">
-                <header><span>4 × BRAND DEMOS</span><b className="langZh">Branding Ads 样片</b><b className="langEn">Branding Ads demos</b></header>
+                <header><span>4 × BRAND DEMOS</span></header>
                 <div className="brandDemoCompactGrid">
                   {solutionVideoDemos.brand.map((demo) => (
                     <figure className="brandDemoCompactCard" key={demo.src}>
                       <div><video src={demo.src} poster={demo.poster} controls muted playsInline preload="metadata" aria-label={`${demo.title}品牌广告视频 Demo`} /><span>{demo.order}</span></div>
-                      <figcaption><small>{demo.label}</small><b className="langZh">{demo.title}</b><b className="langEn">{demo.titleEn}</b><p className="langZh">{demo.meta}</p><p className="langEn">{demo.metaEn}</p></figcaption>
                     </figure>
                   ))}
                 </div>
@@ -722,23 +665,12 @@ export default function Home() {
 
           <article className="solutionPage performanceSolutionPage" id="solution-performance">
             <header className="performanceSolutionHeader">
-              <div className="performanceSolutionIndex"><span>03</span><b>PERFORMANCE ADS</b></div>
-              <div><p><B zh="五步运作链 × 四个样片" en="5-STEP LOOP × 4 DEMOS" /></p><h3><span className="langZh">效果广告制作方案<br /><span>流程、样片与能力证据。</span></span><span className="langEn">Performance ads production<br /><span>process, demos and proof.</span></span></h3></div>
-              <div className="solutionHeaderAside">
-                <p><B zh="从洞察、生产到投放复刻，形成一条可持续迭代的素材生产闭环。" en="From insight and production to launch and cloning — one continuously iterating creative loop." /></p>
-                <div className="solutionHeaderLinks">
-                  <a className="solutionDetailLink" href="#solution-performance-demos"><B zh="查看效果广告样片" en="View performance demos" /><b>↓</b></a>
-                  <a className="solutionDetailLink langZh" href="https://bytedance.larkoffice.com/wiki/E96mwlJfsiLCvKkCPC0cjLIMnRg" target="_blank" rel="noopener noreferrer">查看更多 Seedance 样片<b>↗</b></a>
-                  <a className="solutionDetailLink langEn" href="https://bytedance.sg.larkoffice.com/docx/SOrgdnSJ3oSr4Rx6EYMlKhBsgqc" target="_blank" rel="noopener noreferrer">View more Seedance demos<b>↗</b></a>
-                </div>
-              </div>
+              <div className="performanceSolutionIndex"><span>3.2</span><b>PERFORMANCE ADS</b></div>
+              <div><h3><B zh="效果广告方案" en="Performance Ads Production Solution" /></h3></div>
             </header>
 
             <div className="performanceSolutionBody">
               <section className="performanceProductionFlow" aria-label="效果广告五步运作链">
-                <header className="performanceFlowTitle">
-                  <div><span>5 STEPS</span><b><B zh="洞察 → 生产 → 测试 → 复刻" en="Insight → produce → test → replicate" /></b></div>
-                </header>
                 <ol>
                   <li className="performanceFlowInsight">
                     <header><span>01</span><b><B zh="热点洞察" en="Trend insight" /></b></header>
@@ -773,14 +705,14 @@ export default function Home() {
                 {solutionVideoDemos.performance.map((demo) => (
                   <article className="performanceEvidenceCard" key={demo.src}>
                     <div className="performanceEvidenceVideo"><video src={demo.src} poster={demo.poster} controls muted playsInline preload="metadata" aria-label={`${demo.title}效果广告视频 Demo`} /><span>{demo.order}</span></div>
-                    <div className="performanceEvidenceMeta"><h4><B zh={demo.title} en={demo.titleEn} /></h4><strong><B zh={demo.proofTitle} en={demo.proofTitleEn} /></strong></div>
-                    <details className="performanceProofDisclosure">
-                      <summary><span><B zh="查看关键帧" en="VIEW KEY FRAMES" /></span><i>＋</i></summary>
+                    <div className="performanceEvidenceMeta"><h4><B zh={demo.title} en={demo.titleEn} /></h4></div>
+                    <details className="performanceProofDisclosure" name="performance-keyframes">
+                      <summary><span><B zh={`关键帧 · ${demo.title}`} en={`KEY FRAMES · ${demo.titleEn}`} /></span><i>＋</i></summary>
                       <div className="performanceProofDrawer">
                         <div className="performanceProofFrames" aria-label={`${demo.title}连续截图`}>
                           {demo.frames.map((frame, frameIndex) => <figure key={frame}><img src={frame} alt={`${demo.title}连续截图 ${frameIndex + 1}`} /><figcaption>{String(frameIndex + 1).padStart(2, "0")}</figcaption></figure>)}
                         </div>
-                        <div className="performanceProofCopy"><h5><B zh={demo.proofTitle} en={demo.proofTitleEn} /></h5><ul className="langZh">{demo.proofs.map((proof) => <li key={proof}>{proof}</li>)}</ul><ul className="langEn">{demo.proofsEn.map((proof) => <li key={proof}>{proof}</li>)}</ul></div>
+                        <div className="performanceProofCopy"><span>{demo.order}</span><h5><B zh={demo.proofTitle} en={demo.proofTitleEn} /></h5><ul className="langZh">{demo.proofs.map((proof) => <li key={proof}>{proof}</li>)}</ul><ul className="langEn">{demo.proofsEn.map((proof) => <li key={proof}>{proof}</li>)}</ul></div>
                       </div>
                     </details>
                   </article>
@@ -792,16 +724,14 @@ export default function Home() {
 
           <article className="solutionPage displaySolutionPage" id="solution-display">
             <header className="displaySolutionHeader">
-              <div className="displaySolutionIndex"><span>04</span><b>DISPLAY ADS</b></div>
-              <div><p><B zh="视觉母版 × 确定性扩展 · 三张图片样片" en="VISUAL MASTER × DETERMINISTIC SCALE · 3 IMAGE DEMOS" /></p><h3><span className="langZh">展示广告制作方法<br /><span>一个母版，规模化交付。</span></span><span className="langEn">Display ads method<br /><span>one master, delivered at scale.</span></span></h3></div>
-              <div className="solutionHeaderAside"><p><B zh="Seedream 负责视觉创意；模板与动态创意优化把母版准确扩展到每个尺寸、语言、商品与人群。" en="Seedream owns visual creative; templates and DCO expand the master into every size, language, SKU and audience." /></p><a className="solutionDetailLink" href="#solution-display-demos"><B zh="查看展示广告样片" en="View display demos" /><b>↓</b></a></div>
+              <div className="displaySolutionIndex"><span>3.3</span><b>DISPLAY ADS</b></div>
+              <div><h3><span className="langZh">展示广告制作方法<br /><span>一个母版，规模化交付。</span></span><span className="langEn">Display ads method<br /><span>one master, delivered at scale.</span></span></h3></div>
             </header>
 
             <div className="displaySolutionBody">
               <section className="displayArchitectureFocus" aria-label="Display Ads 五步生产架构">
                 <header>
-                  <div><span>PRODUCTION ARCHITECTURE</span><h4><B zh="一个 Brief，变成 Creative Matrix。" en="One brief becomes a creative matrix." /></h4></div>
-                  <p><b>MODEL</b> <B zh="做视觉创意" en="for visual creative" /> <i>→</i> <b>SYSTEM</b> <B zh="做确定性生产" en="for deterministic production" /></p>
+                  <span>PRODUCTION ARCHITECTURE</span>
                 </header>
 
                 <div className="displaySimpleFlow">
@@ -811,30 +741,25 @@ export default function Home() {
                   </article>
                   <article className="displaySimplePlanner">
                     <span>02 · DECIDE</span><h5>Creative Planner</h5>
-                    <p><B zh="拆解目标与渠道，输出构图策略和变体计划。" en="Breaks goals and channels into composition strategy and variant plans." /></p><strong>CREATIVE SPEC</strong>
+                    <p><B zh="拆解目标与渠道，输出构图策略和变体计划。" en="Breaks goals and channels into composition strategy and variant plans." /></p>
                   </article>
                   <article className="displaySimpleSeedream">
                     <span>03 · VISUAL</span><h5>Seedream</h5>
-                    <p><B zh="场景 · 构图 · 光影 · 材质" en="Scene · composition · light · material" /></p><small><B zh="负责非确定性创意" en="owns non-deterministic creative" /></small><strong>APPROVED MASTER</strong>
+                    <p><B zh="场景 · 构图 · 光影 · 材质" en="Scene · composition · light · material" /></p><small><B zh="负责非确定性创意" en="owns non-deterministic creative" /></small>
                   </article>
                   <article className="displaySimpleDco">
                     <span>04 · SCALE</span><h5>Template + DCO</h5>
-                    <p><B zh="Logo · 价格 · CTA · 多语言文字" en="Logo · price · CTA · multilingual text" /></p><small><B zh="尺寸 × 语言 × SKU × 人群" en="size × language × SKU × audience" /></small><strong>VARIANT FACTORY</strong>
+                    <p><B zh="Logo · 价格 · CTA · 多语言文字" en="Logo · price · CTA · multilingual text" /></p><small><B zh="尺寸 × 语言 × SKU × 人群" en="size × language × SKU × audience" /></small>
                   </article>
                   <article className="displaySimpleQa">
                     <span>05 · DELIVER</span><h5>QA Gate</h5>
-                    <p>VLM · Rules</p><small><B zh="统一质检与资产交付" en="unified QC and delivery" /></small><strong>ASSET HUB / API</strong>
+                    <p>VLM · Rules</p><small><B zh="统一质检与资产交付" en="unified QC and delivery" /></small>
                   </article>
                 </div>
-
-                <footer className="displaySimpleFeedback">
-                  <span>↺</span><div><b><B zh="投放反馈回到 Creative Planner" en="Feedback returns to the creative planner" /></b><small><B zh="胜出创意只替换已验证变量" en="winners swap only validated variables" /></small></div>
-                  <ul><li>CTR</li><li>CVR</li><li>CPA</li></ul>
-                </footer>
               </section>
 
               <section className="displayDemoGallery" id="solution-display-demos" aria-label="Display Ads 三张图片 Demo">
-                <header><div><span>3 × IMAGE DEMOS</span><h4><B zh="从母版到多规格交付。" en="From master to multi-spec delivery." /></h4></div><small><B zh="点击图片放大" en="Click to zoom" /></small></header>
+                <header><div><span>3 × IMAGE DEMOS</span><h4><B zh="从母版到多规格交付。" en="From master to multi-spec delivery." /></h4></div></header>
                 <div className="displayDemoGalleryGrid">
                   <a className="displayDemoTile displayDemoSquare" href="#display-lightbox-commerce" aria-label="放大商品信息流 Demo">
                     <figure><img src="/media/demo-display-commerce.jpg" alt="商品信息流 Display 广告案例" /><figcaption><b><B zh="商品信息流" en="Commerce feed" /></b><small>Retail Media</small><i>↗</i></figcaption></figure>
@@ -865,26 +790,23 @@ export default function Home() {
 
           <article className="playableSolution" id="solution-playable">
             <header className="playableHeader">
-              <div className="playableIndex"><span>06</span><b>PLAYABLE</b></div>
+              <div className="playableIndex"><span>3.4</span><b>PLAYABLE</b></div>
               <div className="playableTitle">
-                <p>AI PLAYABLE FACTORY</p>
                 <h3 className="langZh">一个游戏素材，<br /><span>生成整套可投放广告。</span></h3>
                 <h3 className="langEn">One game asset.<br /><span>A full playable ad set.</span></h3>
               </div>
-              <div className="playableHeaderCopy">
-                <p className="langZh">从一个截图或视频参考出发，自动形成 Hook × 视觉 × CTA 变体矩阵，并交付可直接试玩的 Playable 广告。</p>
-                <p className="langEn">Turn one screenshot or video reference into a Hook × Visual × CTA matrix and deployable playable ads.</p>
-              </div>
+              <aside className="playableHeaderActions" aria-label="Playable 方案操作">
+                <a className="playableHeaderButton playableHeaderButtonPrimary" href="https://playable.byteplus-demo.com/" target="_blank" rel="noopener noreferrer"><span className="langZh">查看 Playable 方案</span><span className="langEn">View Playable solution</span><b>↗</b></a>
+              </aside>
             </header>
 
             <div className="playableBody">
               <section className="playableArchitecture" aria-label="Playable 广告自动生产架构">
-                <header><span>PRODUCTION ARCHITECTURE</span><b className="langZh">一个素材输入，自动编排整套广告变体</b><b className="langEn">One input, an automatically orchestrated ad matrix</b></header>
                 <div className="playableFactoryGrid">
                   <div className="playableFactoryInput">
                     <span>INPUT</span>
                     <div className="playablePhone"><i aria-hidden="true" /><img src="https://carey.tos-ap-southeast-1.bytepluses.com/playables/factory/input_fish_sm.jpg" alt="节奏钓鱼游戏素材输入" /></div>
-                    <p><b className="langZh">一个游戏素材</b><b className="langEn">One game asset</b><small className="langZh">截图 / 视频 / URL 参考</small><small className="langEn">Screenshot / video / URL reference</small></p>
+                    <p><b className="langZh">一个游戏素材</b><b className="langEn">One game asset</b></p>
                   </div>
 
                   <i className="playableFlowArrow" aria-hidden="true"><span /></i>
@@ -892,9 +814,9 @@ export default function Home() {
                   <div className="playableFactoryStages">
                     <header><span className="langZh">自动流水线</span><span className="langEn">AUTOMATED PIPELINE</span><i><b /><b /><b /></i></header>
                     <ol>
-                      <li><em>1</em><p><b className="langZh">市场调研</b><b className="langEn">Market research</b><small className="langZh">拆解爆量素材的 Hook 与卖点</small><small className="langEn">Decode winning Hooks and selling points</small></p></li>
-                      <li><em>2</em><p><b className="langZh">创意策划</b><b className="langEn">Creative planning</b><small className="langZh">生成 Hook × 视觉 × CTA 变体脚本</small><small className="langEn">Create Hook × Visual × CTA scripts</small></p></li>
-                      <li><em>3</em><p><b className="langZh">自动生产</b><b className="langEn">Automated production</b><small className="langZh">输出合规可投的 Playable 包</small><small className="langEn">Deliver compliant playable packages</small></p></li>
+                      <li><em>1</em><p><b className="langZh">市场调研</b><b className="langEn">Market research</b></p></li>
+                      <li><em>2</em><p><b className="langZh">创意策划</b><b className="langEn">Creative planning</b></p></li>
+                      <li><em>3</em><p><b className="langZh">自动生产</b><b className="langEn">Automated production</b></p></li>
                     </ol>
                   </div>
 
@@ -912,7 +834,6 @@ export default function Home() {
               </section>
 
               <section className="playableDemoPanel" id="solution-playable-demos" aria-label="两个 Playable 试玩案例">
-                <header><span>2 × LIVE DEMOS</span></header>
                 <div className="playableDemoGrid">
                   {playableDemos.map((demo) => (
                     <article className="playableDemoCard" key={demo.title}>
@@ -921,57 +842,15 @@ export default function Home() {
                     </article>
                   ))}
                 </div>
-                <a className="playableAllDemos" href="https://playable.byteplus-demo.com/" target="_blank" rel="noopener noreferrer"><span className="langZh">查看 Playable 方案详情与更多案例</span><span className="langEn">View solution details and more demos</span><b>↗</b></a>
               </section>
             </div>
           </article>
         </div>
       </section>
 
-      <section className="roadmapPage" id="roadmap" aria-labelledby="roadmap-title">
-        <header className="roadmapPageHeader">
-          <div className="roadmapPageIndex"><span>07</span><b>ROADMAP</b></div>
-          <div><p>FROM SOTA RENDERING TO OMNI ENGINE</p><h2 id="roadmap-title"><span className="langZh">Seedance 从 SOTA 渲染层，<br /><span>走向端到端制作引擎。</span></span><span className="langEn">Seedance: from SOTA rendering<br /><span>to an end-to-end production engine.</span></span></h2></div>
-          <p><B zh="创意导演、3D 结构表现、编辑和渲染四层融合为统一 Omni 模型，对标 Google Omni 路线。" en="Creative direction, 3D structure, editing and rendering fuse into one Omni model — benchmarked against Google’s Omni path." /></p>
-        </header>
-
-        <div className="roadmapPageBody">
-          <section className="roadmapEvolution" aria-label="Seedance 从 SOTA 渲染层模型走向统一 Omni 制作引擎并替换百分之七十制作劳动力">
-            <article className="roadmapState roadmapStateCurrent">
-              <header><span>CURRENT</span><b>SOTA RENDERING</b></header>
-              <strong>10–15%</strong>
-              <h3><B zh="Seedance 强在渲染层。" en="Seedance leads at rendering." /></h3>
-              <p><B zh="仍是单点模型，尚未贯通完整制作链路。" en="Still a point model — not yet the full pipeline." /></p>
-            </article>
-
-            <i className="roadmapEvolutionArrow" aria-hidden="true">→</i>
-
-            <article className="roadmapEngine">
-              <header><span>FOUR-LAYER FUSION</span><b>SEEDANCE → UNIFIED OMNI</b></header>
-              <div className="roadmapEngineCore"><small>ORCHESTRATE</small><strong>OMNI</strong><span>CORE PRODUCTION ENGINE</span></div>
-              <div className="roadmapEngineInputs">
-                <p><span>01</span><b><B zh="创意导演层" en="Creative direction" /></b></p>
-                <p><span>02</span><b><B zh="3D 结构表现层" en="3D structure" /></b></p>
-                <p><span>03</span><b><B zh="编辑层" en="Editing" /></b></p>
-                <p><span>04</span><b><B zh="渲染层" en="Rendering" /></b></p>
-              </div>
-              <footer><B zh="四层融合，成为端到端核心制作引擎" en="Four layers fuse into the core production engine" /></footer>
-            </article>
-
-            <i className="roadmapEvolutionArrow" aria-hidden="true">→</i>
-
-            <article className="roadmapState roadmapStateFuture">
-              <header><span>TARGET</span><b>LABOR REPLACEMENT</b></header>
-              <strong>70%</strong>
-              <h3><B zh="替换制作劳动力。" en="Replaces production labor." /></h3>
-              <p><B zh="从局部渲染走向端到端规模生产。" en="From partial rendering to end-to-end scale." /></p>
-            </article>
-          </section>
-
-          <footer className="roadmapPageFooter"><span><B zh="SOTA 渲染层" en="SOTA rendering" /></span><i>→</i><strong><B zh="统一 Omni 模型" en="Unified Omni model" /></strong><i>→</i><span><B zh="70% 制作劳动力替换" en="70% labor replacement" /></span></footer>
-        </div>
-      </section>
       </div>
+
+      <MoreDemosGallery />
 
       <footer className="footer shell">
         <div className="brand"><span className="brandMark">B</span><span>ADS Creative Solution</span></div>

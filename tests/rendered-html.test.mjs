@@ -66,36 +66,54 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.equal((html.match(/class="marketFlowSvg"/g) ?? []).length, 1);
   assert.match(html, /查看三赛道/);
   assert.doesNotMatch(html, /sceneLandscapePage|sceneDemoPages|sceneTrackCard|sceneDemoPage|SCENE LANDSCAPE|Mainstream ad scenarios/);
-  assert.match(html, /class="customerFlowIndex"><span>02<\/span>/);
+  assert.match(html, /id="players"/);
+  assert.match(html, /class="customerFlowIndex"><span>02<\/span><b>.*KEY PLAYERS/s);
 
   // Chapter 02 is a single flat player map. The verbose workflow and offer
   // copy were intentionally removed so all four rows fit in one viewport.
   const customerFlowHtml = html.slice(html.indexOf('class="customerFlowPage"'), html.indexOf('class="audienceSection customerCasesSection"'));
   assert.equal((customerFlowHtml.match(/class="customerFlowStage"/g) ?? []).length, 4);
-  assert.match(customerFlowHtml, /Brand owners.*Set budgets and brand assets.*Building in-house AI platforms.*L’Oréal · CreateAI/s);
+  assert.match(customerFlowHtml, /Brand owners.*Set budgets and brand assets.*Building in-house AI platforms.*Global brand owners/s);
   assert.match(customerFlowHtml, /Agencies.*Hold creative and production budgets.*From previews into production.*WPP · Havas/s);
   assert.match(customerFlowHtml, /AdTech \/ MarTech.*Turn media budgets into continuous production.*Campaign agents enter 1 → 3.*AppLovin · Tenmax/s);
   assert.match(customerFlowHtml, /Paid media.*Distribute and return performance signals.*Signals flow back into production.*Criteo · Pinterest/s);
   assert.match(customerFlowHtml, /class="customerFlowMoneyRail"/);
   assert.doesNotMatch(customerFlowHtml, /STANDARD WORKFLOW|BYTEPLUS OFFER|customerMoneySpine|Brands hold the budget/);
 
-  // Public customer pages use generic operating models and omit internal specifics.
-  assert.match(html, /全球品牌主业务模式.*一套品牌资产.*两条生产链路/s);
-  assert.match(html, /品牌资产库.*高频素材.*品牌主片/s);
-  assert.match(html, /区域市场素材需求.*模板化生成与本地化.*多渠道交付/s);
-  assert.match(html, /Global brand-owner model.*one asset system, two production lanes/s);
-  assert.doesNotMatch(html, /CreTech|50.*BRANDS|150.*MARKETS|50–100.*万张|10–20.*万条/);
+  // Global hierarchy uses chapter.subchapter numbering for role cases and
+  // solution pages; internal workflow steps retain their local 01–05 labels.
+  assert.match(html, /brandOwnerStudyNumber">2\.1<\/span>/);
+  assert.match(html, /agencyOperatingIndex"><span>2\.2<\/span>/);
+  assert.match(html, /adtechCaseIndex"><span>2\.3<\/span>/);
+  assert.match(html, /id="solutions"/);
+  assert.match(html, /brandSolutionIndex"><span>3\.1<\/span>/);
+  assert.match(html, /performanceSolutionIndex"><span>3\.2<\/span>/);
+  assert.match(html, /displaySolutionIndex"><span>3\.3<\/span>/);
+  assert.match(html, /playableIndex"><span>3\.4<\/span>/);
 
-  const agencyHtml = html.slice(html.indexOf('class="wppWorkPage wppMergedPage"'), html.indexOf('class="adtechCasePage"'));
-  assert.match(agencyHtml, /全球代理商业务模式.*创意预演.*母版制作与媒体交付/s);
-  assert.match(agencyHtml, /Creative &amp; Previz.*Production.*Post-production &amp; audio.*Review &amp; delivery/s);
-  assert.match(agencyHtml, /汽车广告混合制作.*Seedream \+ Seedance/s);
-  assert.doesNotMatch(agencyHtml, /WPP Open|80,000\+|Time-and-Materials|Outcome-based/);
+  // The public brand-owner case study is a visual operating map: one central
+  // governance spine feeding three production and decision journeys.
+  const customerBrandHtml = html.slice(html.indexOf('id="customer-brand"'), html.indexOf('id="customer-agency"'));
+  assert.match(customerBrandHtml, /统一治理，分层生产.*统一治理中枢/s);
+  assert.match(customerBrandHtml, /One governance spine.*Three production layers.*CENTRAL GOVERNANCE/s);
+  assert.match(customerBrandHtml, /Internal AI production platform.*Marketing use-case pilot.*Scaled group adoption/s);
+  assert.match(customerBrandHtml, /Brand and market teams.*Commerce \/ social \/ web demand.*Review &amp; delivery/s);
+  assert.match(customerBrandHtml, /Agency and production partners.*Brand brief.*Cutdowns &amp; localization/s);
+  assert.doesNotMatch(customerBrandHtml, /<header|BYTEPLUS ENTRY|API first|Workflow \/ Agent|Previz and extensions/);
+  assert.doesNotMatch(customerBrandHtml, /L’Oréal|欧莱雅|CreTech|CreateAI|50.*BRANDS|150.*MARKETS|50–100.*万张|10–20.*万条/);
+
+  const agencyHtml = html.slice(html.indexOf('id="customer-agency"'), html.indexOf('class="adtechCasePage"'));
+  assert.match(agencyHtml, /先进入 Creative.*再深入 Production 与 Media/s);
+  assert.match(agencyHtml, /洞察、概念与创意预演.*实拍、CG 与 AI 混合制作.*母版延展与效果版本/s);
+  assert.match(agencyHtml, /PRODUCTION DEMO · AUTOMOTIVE/);
+  assert.match(agencyHtml, /实拍保留.*AI 生成.*最终交付/s);
+  assert.doesNotMatch(agencyHtml, /WPP|Havas|Publicis|代表性代理商|REPRESENTATIVE AGENCIES/);
 
   // V3 contains the three solution pages and the selected performance demos.
   assert.equal((html.match(/class="solutionPage /g) ?? []).length, 3);
   assert.match(html, /品牌广告制作方案/);
-  assert.match(html, /效果广告制作方案/);
+  assert.match(html, /效果广告方案/);
+  assert.match(html, /Performance Ads Production Solution/);
   assert.match(html, /展示广告制作方法/);
   assert.equal((html.match(/class="performanceEvidenceCard"/g) ?? []).length, 4);
   assert.match(performanceSolutionHtml, /Demo \+ Card-to-Buy/);
@@ -107,24 +125,19 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(performanceSolutionHtml, /performance-2026\/feature-demo\.mp4/);
   assert.match(performanceSolutionHtml, /performance-2026\/single-point\.mp4/);
 
-  // Chinese and English pages link to their matching Seedance libraries.
-  const zhSeedanceLinks = (html.match(/https:\/\/bytedance\.larkoffice\.com\/wiki\/E96mwlJfsiLCvKkCPC0cjLIMnRg/g) ?? []).length;
-  const enSeedanceLinks = (html.match(/https:\/\/bytedance\.sg\.larkoffice\.com\/docx\/SOrgdnSJ3oSr4Rx6EYMlKhBsgqc/g) ?? []).length;
-  assert.ok(zhSeedanceLinks >= 2);
-  assert.equal(zhSeedanceLinks, enSeedanceLinks);
-  assert.match(html, /查看更多 Seedance 样片/);
-  assert.match(html, /View more Seedance demos/);
+  // The performance header is intentionally reduced to a direct solution title.
+  assert.doesNotMatch(performanceSolutionHtml, /查看更多 Seedance 样片|View more Seedance demos/);
   assert.equal((html.match(/class="langZh"/g) ?? []).length, (html.match(/class="langEn"/g) ?? []).length);
 
   // The obsolete model-gap page was intentionally removed in V3.
   assert.doesNotMatch(html, /模型短期能力短板|class="productGatePage"|class="productGateCard/);
-  assert.match(html, /class="roadmapPage"/);
-  assert.match(html, /Seedance 从 SOTA 渲染层.*走向端到端制作引擎/s);
+  assert.doesNotMatch(html, /class="roadmapPage"|Seedance 从 SOTA 渲染层.*走向端到端制作引擎/s);
 });
 
 test("source contains the V3 media, interactions, and bilingual links", async () => {
   const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
   const reveal = await readFile(new URL("../app/MarketTrackAutoReveal.tsx", import.meta.url), "utf8");
+  const moreDemos = await readFile(new URL("../app/MoreDemosGallery.tsx", import.meta.url), "utf8");
 
   assert.match(page, /import MarketTrackAutoReveal/);
   assert.match(page, /<MarketTrackAutoReveal \/>/);
@@ -139,11 +152,17 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   }
   assert.doesNotMatch(page, /performance-generated\.mp4|performance-poster\.jpg|performance-[a-z]+-demo\.mp4/);
 
-  assert.match(page, /href="https:\/\/bytedance\.larkoffice\.com\/wiki\/E96mwlJfsiLCvKkCPC0cjLIMnRg"/);
-  assert.match(page, /href="https:\/\/bytedance\.sg\.larkoffice\.com\/docx\/SOrgdnSJ3oSr4Rx6EYMlKhBsgqc"/);
+  assert.match(page, /name="performance-keyframes"/);
   assert.match(page, /className="productionChapter"/);
-  assert.match(page, /wppWorkPage wppMergedPage/);
+  assert.match(page, /wppWorkPage agencyOperatingPage/);
   assert.doesNotMatch(page, /className="productGatePage"|模型短期能力短板/);
+  assert.match(page, /<MoreDemosGallery \/>/);
+  assert.match(moreDemos, /bytedance\.sg\.larkoffice\.com\/docx\/TmsqdH9TeoPVYyxzpZ9lwH91g7c/);
+  assert.match(moreDemos, /bytedance\.larkoffice\.com\/wiki\/SNVXw69gTi515kkVoi8c98BznKh/);
+  assert.match(moreDemos, /setActiveDemo\(demo\)/);
+  assert.match(moreDemos, /In-stream & Display/);
+  assert.match(moreDemos, /Dynamic Remarketing/);
+  assert.doesNotMatch(moreDemos, /Playable visual|fish_\$\{/);
 });
 
 test("keeps V3 desktop alignment, sticky media, language, and responsive safeguards", async () => {
