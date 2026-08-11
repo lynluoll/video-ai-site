@@ -414,13 +414,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="customerFlowPage" id="players" aria-labelledby="customer-flow-title">
-        <div className="customerFlowShell">
-          <header className="customerFlowHeader">
-            <div className="customerFlowIndex"><span>02</span><b><B zh="关键角色" en="KEY PLAYERS" /></b></div>
-            <div><h2 id="customer-flow-title"><span className="langZh">资金向下流动，<br /><span>价值在中间复利增长。</span></span><span className="langEn">Money flows down.<br /><span>Value compounds in the middle.</span></span></h2></div>
-          </header>
+      <section className="solutionChapterTransition" id="case-studies" aria-labelledby="case-study-transition-title">
+        <div className="solutionTransitionShell">
+          <div className="solutionTransitionIndex">
+            <span>02</span>
+            <b><B zh="案例研究" en="CASE STUDY" /></b>
+          </div>
+          <div className="solutionTransitionCopy">
+            <p>BYTEPLUS PARTNER PROOF</p>
+            <h2 className="langZh" id="case-study-transition-title">从关键角色格局出发，看<strong>头部客户如何验证 BytePlus。</strong></h2>
+            <h2 className="langEn">From the key-player landscape to <strong>proof from BytePlus&apos;s leading partners.</strong></h2>
+          </div>
+        </div>
+      </section>
 
+      <section className="customerFlowPage" id="players" aria-label="广告产业四类参与者与关键趋势">
+        <div className="customerFlowShell">
           <div className="customerFlowCanvas">
             <div className="customerFlowRoute" aria-label="广告产业四类参与者与关键趋势">
               <div className="customerFlowMoneyRail" aria-hidden="true"><span>$</span><i></i><em>↓</em></div>
@@ -437,20 +446,6 @@ export default function Home() {
             </div>
           </div>
 
-        </div>
-      </section>
-
-      <section className="solutionChapterTransition" id="case-studies" aria-labelledby="case-study-transition-title">
-        <div className="solutionTransitionShell">
-          <div className="solutionTransitionIndex">
-            <span>02</span>
-            <b><B zh="案例研究" en="CASE STUDY" /></b>
-          </div>
-          <div className="solutionTransitionCopy">
-            <p>BYTEPLUS PARTNER PROOF</p>
-            <h2 className="langZh" id="case-study-transition-title">从关键角色格局出发，看<strong>头部客户如何验证 BytePlus。</strong></h2>
-            <h2 className="langEn">From the key-player landscape to <strong>proof from BytePlus&apos;s leading partners.</strong></h2>
-          </div>
         </div>
       </section>
 
