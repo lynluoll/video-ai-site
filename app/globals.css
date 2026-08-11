@@ -12297,13 +12297,25 @@ body {
   border-radius: 6px;
   padding: 20px 24px;
 }
-#customer-brand .appLovinChallenge p {
-  color: var(--ink);
-  font-size: 15px;
-  line-height: 1.6;
-  font-style: italic;
-  margin: 0 0 10px;
+#customer-brand .appLovinChallengeStats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 14px;
 }
+#customer-brand .appLovinChallengeStats > div { min-width: 118px; }
+#customer-brand .appLovinChallengeStats b {
+  display: block;
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+#customer-brand .appLovinChallengeStats b span { font-size: 13px; font-weight: 700; color: #505c70; margin-left: 2px; }
+#customer-brand .appLovinChallengeStats p { margin: 6px 0 0; font-size: 12.5px; line-height: 1.4; color: #505c70; }
+#customer-brand .appLovinChallengeArrow { color: #aab6c8; font-size: 20px; font-weight: 700; font-style: normal; }
 #customer-brand .appLovinChallenge cite {
   display: block;
   font-style: normal;
@@ -12311,6 +12323,10 @@ body {
   color: #778294;
 }
 #customer-brand .appLovinChallenge cite a { color: var(--blue); text-decoration: underline; }
+
+@media (max-width: 560px) {
+  #customer-brand .appLovinChallengeArrow { display: none; }
+}
 
 #customer-brand .appLovinSolution h4 {
   color: #121d30;

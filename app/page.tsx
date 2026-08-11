@@ -503,12 +503,22 @@ export default function Home() {
               <div className="appLovinCaseBody">
                 <section className="appLovinBlock appLovinChallenge">
                   <small><B zh="创意挑战" en="THE CREATIVE CHALLENGE" /></small>
-                  <p>
-                    &ldquo;<B
-                      zh="月消耗约 $1M 的客户平均每月要上传约 150 条新素材，更大的广告主测试量可达数千条。AI 自动化是唯一能跟上这种规模的方式。"
-                      en="Clients spending $1M/mo often upload ~150 new assets monthly, while larger advertisers test thousands. AI automation is the only way to meet this scale."
-                    />&rdquo;
-                  </p>
+                  <div className="appLovinChallengeStats">
+                    <div>
+                      <b>$1M<span><B zh="/月" en="/mo" /></span></b>
+                      <p><B zh="客户月消耗量级" en="Client monthly ad spend" /></p>
+                    </div>
+                    <i className="appLovinChallengeArrow" aria-hidden="true">→</i>
+                    <div>
+                      <b>~150</b>
+                      <p><B zh="平均每月上传的新素材数" en="New creative assets uploaded per month" /></p>
+                    </div>
+                    <i className="appLovinChallengeArrow" aria-hidden="true">→</i>
+                    <div>
+                      <b><B zh="数千条" en="Thousands" /></b>
+                      <p><B zh="更大广告主的测试素材量" en="Assets tested by larger advertisers" /></p>
+                    </div>
+                  </div>
                   <cite>
                     — AppLovin,{" "}
                     <a href="https://www.applovin.com/en/blog/automating-creative" target="_blank" rel="noopener noreferrer">
