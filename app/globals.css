@@ -12259,8 +12259,17 @@ body {
   padding: 28px 32px 24px;
   border-bottom: 1px solid var(--line);
 }
+#customer-brand .appLovinCaseBrand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+#customer-brand .appLovinLogo { width: 108px; height: auto; color: #121d30; flex: 0 0 auto; }
 #customer-brand .appLovinCaseKicker {
-  margin: 0 0 12px;
+  margin: 0;
+  padding-left: 14px;
+  border-left: 1px solid var(--line);
   color: var(--blue);
   font-size: 10px;
   font-weight: 780;
@@ -12316,13 +12325,6 @@ body {
 #customer-brand .appLovinChallengeStats b span { font-size: 13px; font-weight: 700; color: #505c70; margin-left: 2px; }
 #customer-brand .appLovinChallengeStats p { margin: 6px 0 0; font-size: 12.5px; line-height: 1.4; color: #505c70; }
 #customer-brand .appLovinChallengeArrow { color: #aab6c8; font-size: 20px; font-weight: 700; font-style: normal; }
-#customer-brand .appLovinChallenge cite {
-  display: block;
-  font-style: normal;
-  font-size: 12px;
-  color: #778294;
-}
-#customer-brand .appLovinChallenge cite a { color: var(--blue); text-decoration: underline; }
 
 @media (max-width: 560px) {
   #customer-brand .appLovinChallengeArrow { display: none; }
