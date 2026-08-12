@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "updated": "2026-08-12",
+  "credential_policy": "No API key or signed response URL is stored in this manifest.",
+  "generators": {
+    "physical_masters": "OpenAI Image 2 built-in image generation",
+    "variants": "BytePlus Seedream 5.0 Pro (dola-seedream-5-0-pro-260628)"
+  },
+  "sets": [
+    {
+      "id": "multi-size-saas",
+      "headline": "SPEAK ANYWHERE",
+      "prompt_file": "prompts/variant-prompts.md",
+      "files": [
+        "final/multi-size/01-vertical-1000x1500.jpg",
+        "final/multi-size/02-square-1200x1200.png",
+        "final/multi-size/03-landscape-1200x628.jpg",
+        "final/multi-size/04-medium-rectangle-300x250.jpg",
+        "final/multi-size/04-medium-rectangle-preview-1200x1000.jpg",
+        "final/multi-size/05-leaderboard-728x90.jpg",
+        "final/multi-size/05-leaderboard-preview-2048x253.jpg"
+      ]
+    },
+    {
+      "id": "seasonal-localization",
+      "master_generator": "OpenAI Image 2 built-in image generation",
+      "master": "seasonal/gpt-master-approved/image-001.png",
+      "prompt_file": "prompts/variant-prompts.md",
+      "files": [
+        "final/seasonal/01-neutral-master.png",
+        "final/seasonal/02-christmas-en.png",
+        "final/seasonal/03-mothers-day-es.png",
+        "final/seasonal/04-valentines-pt.png",
+        "final/seasonal/05-lunar-new-year-zh.png"
+      ]
+    },
+    {
+      "id": "selling-points",
+      "master_generator": "OpenAI Image 2 built-in image generation",
+      "master": "selling-points/identity-sheet-v2/image-002-front-access.png",
+      "prompt_file": "prompts/variant-prompts.md",
+      "status": "final",
+      "identity_method": "C1-C3 are deterministic crops of one closed Image 2 master; C4-C5 are state variants constrained by one Image 2 multi-view identity sheet.",
+      "files": [
+        "final/selling-points/01-product-master.png",
+        "final/selling-points/02-shell.png",
+        "final/selling-points/03-wheels.png",
+        "final/selling-points/04-packing.png",
+        "final/selling-points/05-laptop-access.png"
+      ]
+    }
+  ]
+}

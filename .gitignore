@@ -41,6 +41,15 @@ next-env.d.ts
 /outputs/
 /work/
 
+# temporary signed image-generation responses
+/public/media/display-v2/**/response.json
+/public/media/display-v2/**/urls.txt
+/public/media/display-v2/multi-size/
+/public/media/display-v2/seasonal/
+/public/media/display-v2/selling-points/
+/public/media/display-v2/rejected/
+/public/media/display-v2/final/**/contact-sheet.png
+
 # generated local research and unused runtime artifacts
 /.vite/
 /diagrams/

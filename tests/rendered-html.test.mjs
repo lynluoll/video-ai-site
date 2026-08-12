@@ -138,6 +138,7 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
   const reveal = await readFile(new URL("../app/MarketTrackAutoReveal.tsx", import.meta.url), "utf8");
   const moreDemos = await readFile(new URL("../app/MoreDemosGallery.tsx", import.meta.url), "utf8");
+  const displayDemos = await readFile(new URL("../app/DisplayDemoGallery.tsx", import.meta.url), "utf8");
 
   assert.match(page, /import MarketTrackAutoReveal/);
   assert.match(page, /<MarketTrackAutoReveal \/>/);
@@ -163,6 +164,25 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   assert.match(moreDemos, /In-stream & Display/);
   assert.match(moreDemos, /Dynamic Remarketing/);
   assert.doesNotMatch(moreDemos, /Playable visual|fish_\$\{/);
+
+  // Display V2 keeps the solution page to three masters. Each opens a minimal,
+  // keyboard-dismissible board that shows all five assets at once.
+  assert.match(page, /import DisplayDemoGallery/);
+  assert.match(page, /<DisplayDemoGallery \/>/);
+  assert.match(displayDemos, /Multi-size adaptation/);
+  assert.match(displayDemos, /Seasonal localization/);
+  assert.match(displayDemos, /Selling-point visualization/);
+  assert.equal((displayDemos.match(/id: "(?:multi-size|seasonal|selling-points)"/g) ?? []).length, 3);
+  assert.equal((displayDemos.match(/\/media\/display-v2\/final\//g) ?? []).length, 20);
+  assert.match(displayDemos, /04-medium-rectangle-preview-1200x1000\.jpg/);
+  assert.match(displayDemos, /05-leaderboard-preview-2048x253\.jpg/);
+  assert.match(displayDemos, /event\.key === "Escape"/);
+  assert.match(displayDemos, /displayV2SetBoard-/);
+  assert.match(displayDemos, /displayV2SetAsset/);
+  assert.match(displayDemos, /setActiveAssetIndex\(index\)/);
+  assert.match(displayDemos, /aria-pressed=\{index === activeAssetIndex\}/);
+  assert.doesNotMatch(displayDemos, /Previous image|Next image|Choose image|View more demos/);
+  assert.doesNotMatch(page, /demo-display-commerce|demo-display-beauty|demo-display-diwali|display-lightbox-/);
 });
 
 test("keeps V3 desktop alignment, sticky media, language, and responsive safeguards", async () => {
