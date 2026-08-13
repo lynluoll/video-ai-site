@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "video-ai-site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vinext", "dev", "--port", "3021"],
+      "port": 3021
+    }
+  ]
+}

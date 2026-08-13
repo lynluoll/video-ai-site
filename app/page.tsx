@@ -374,8 +374,8 @@ export default function Home() {
 
           <section className="marketTrendSection" aria-labelledby="market-trends-title">
             <header className="marketTrendSectionHeader">
-              <span>01 · MARKET OVERVIEW</span>
-              <h2 id="market-trends-title"><B zh={<>Campaign Agent 规模化，并带来新标准：<strong>素材供给自动化</strong></>} en={<>Campaign Agents Scale with a new standard: <strong>Automating Creative Supply</strong></>} /></h2>
+              <div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div>
+              <h2 id="market-trends-title"><B zh={<>Campaign Agent 规模化，靠<strong>素材供给自动化</strong></>} en={<>Campaign Agents Scale on <strong>Automated Creative Supply</strong></>} /></h2>
             </header>
 
             <div className="marketTrendGrid">
@@ -423,7 +423,7 @@ export default function Home() {
 
 
               <article className="marketTrendCard goodtakeCase">
-                <header><b>01 · MARKET OVERVIEW</b></header>
+                <header><div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div></header>
                 <h3><B zh={<>从创意构想开始，<span>现在已经进入真实生产。</span></>} en={<>Starts with Ideation. <span>Now to Real Production.</span></>} /></h3>
 
                 <p className="goodtakeLede"><B zh="Goodtake 为麦当劳制作的两支 3D CGI 广告，与同期其他素材同场对比。" en="Two 3D CGI spots Goodtake produced for McDonald's, measured against the other assets running alongside them." /></p>
@@ -493,7 +493,6 @@ export default function Home() {
                 {customerFlowStages.map((stage) => (
                   <article className="customerFlowStage" key={stage.index}>
                     <div className="customerFlowIdentity"><span>{stage.index}</span><h3><B zh={stage.title} en={stage.titleEn} /></h3></div>
-                    <div className="customerFlowRole"><small><B zh="预算角色" en="BUDGET ROLE" /></small><h4><B zh={stage.budgetRole} en={stage.budgetRoleEn} /></h4></div>
                     <div className="customerFlowTrend"><small><B zh="关键趋势" en="KEY TREND" /></small><h4><B zh={stage.trend} en={stage.trendEn} /></h4></div>
                     <div className="customerFlowExamples"><small><B zh="代表对象" en="REPRESENTATIVE" /></small><b><B zh={stage.examples} en={stage.examplesEn ?? stage.examples} /></b></div>
                   </article>
@@ -531,59 +530,44 @@ export default function Home() {
                   <li>
                     <span>01</span>
                     <div>
-                      <small>CREATIVE · <B zh="高采用率" en="HIGH ADOPTION" /></small>
-                      <h5><B zh="洞察、概念与创意预演" en="Insight, concepts, and previsualization" /></h5>
-                      <p><B zh="WPP Open 内置的可选视频模型之一 —— 生成 pre-vis 短片和广告视频，用来赢下客户签字和预算。" en="One of the video models wired into WPP Open — generating pre-vis clips and ad video used to win sign-off and budget." /></p>
+                      <small>CREATIVE · <B zh="创意" en="IDEATION" /></small>
+                      <h5><B zh="Ogilvy · VML · AKQA · 约 5 万人" en="Ogilvy · VML · AKQA · ~50k people" /></h5>
+                      <p><B zh="brief → 洞察 → 概念 → pre-vis" en="Brief → insight → concept → pre-vis" /></p>
                     </div>
                   </li>
                   <li>
                     <span>02</span>
                     <div>
-                      <small>PRODUCTION · <B zh="初步应用" en="EMERGING" /></small>
-                      <h5><B zh="实拍、CG 与 AI 混合制作" en="Live action, CG, and AI production" /></h5>
-                      <p><B zh="先锁定产品、镜头与运动，再由模型完成环境、补充镜头和特效。" en="Lock product, camera, and motion first; use models for environments, extra shots, and VFX." /></p>
+                      <small>PRODUCTION · <B zh="制作" en="MAKING" /></small>
+                      <h5><B zh="Hogarth 与约 1 万制作人" en="Hogarth and ~10k makers" /></h5>
+                      <p><B zh="2026 年 1 月宣布组建 · 2 月 23 日生效 — 拍摄 / CG / 后期 → 变体与本地化" en="Announced Jan 2026 · effective Feb 23 — shoot / CG / post → variants & localization" /></p>
                     </div>
                   </li>
                   <li>
                     <span>03</span>
                     <div>
-                      <small>MEDIA · <B zh="规模化应用" en="SCALING" /></small>
-                      <h5><B zh="母版版本化与媒体变体" en="Master versioning and media variants" /></h5>
-                      <p><B zh="基于已审核母版生成不同语言、格式、开场钩子、行动引导和人群版本。" en="Turn an approved master into language, format, hook, CTA, and audience variants." /></p>
+                      <small>MEDIA · <B zh="投放" en="ACTIVATION" /></small>
+                      <h5><B zh="WPP Media：原 GroupM" en="WPP Media: formerly GroupM" /></h5>
+                      <p><B zh="投放计划 / 采买 / 优化 / 测量" en="Planning / buying / optimization / measurement" /></p>
                     </div>
                   </li>
                 </ol>
-                <section className="agencyProductProof" aria-labelledby="agency-product-proof-title">
-                  <header className="agencyProductProofHead">
-                    <span id="agency-product-proof-title"><B zh="产品实证 · WPP Open 工作台" en="PRODUCT PROOF · THE WPP OPEN WORKSPACE" /></span>
-                  </header>
-
+                <section className="agencyProductProof" aria-label="WPP Open workspace">
                   <div className="agencyProductProofGrid">
                     <figure className="agencyWorkspaceShot">
-                      <img src="/media/wpp/toolkit.png" alt="WPP Open 项目工作台与创意工具箱界面" loading="lazy" />
+                      <img src="/media/wpp/canvas.webp" alt="WPP Open Canvas：在 AI 生成的人群画像上验证创意概念" loading="lazy" />
                     </figure>
 
                     <div className="agencyProofPanel">
-                      <div className="agencyProofPoints" aria-label="WPP Open production workflow">
-                        <article>
-                          <span>01 · CREATIVE</span>
-                          <b><B zh="创意预演 → 客户签字" en="Pre-vis → client sign-off" /></b>
-                        </article>
-                        <article>
-                          <span>02 · PRODUCTION</span>
-                          <b><B zh="锁定镜头 → AI 成片" en="Locked motion → AI final" /></b>
-                        </article>
-                      </div>
-
                       <div className="agencyProofVideos">
                         <figure>
                           <video src="/media/wpp-auto-input.mp4" autoPlay loop muted playsInline preload="auto" aria-label="实拍汽车运动参考片段" />
-                          <figcaption><span>INPUT</span><b><B zh="运动参考" en="Motion reference" /></b></figcaption>
+                          <figcaption><span>INPUT</span></figcaption>
                         </figure>
                         <i aria-hidden="true">→</i>
                         <figure>
                           <video src="/media/wpp-auto-final.mp4" autoPlay loop muted playsInline preload="auto" aria-label="生成式汽车广告成片片段" />
-                          <figcaption><span>OUTPUT</span><b><B zh="生成式成片" en="Generated final" /></b></figcaption>
+                          <figcaption><span>OUTPUT</span></figcaption>
                         </figure>
                       </div>
                     </div>
@@ -592,12 +576,27 @@ export default function Home() {
               </section>
             </article>
 
+            <article className="wppWorkPage wppQuotePage" aria-label="WPP 对 Seedance 的评价">
+              <blockquote className="wppQuote">
+                <span className="wppQuoteMark" aria-hidden="true">&ldquo;</span>
+                <p>
+                  Production teams are telling me they&rsquo;re using Seedance 2.0 and that they prefer it
+                  over Veo. I&rsquo;ve spoken to teams in Singapore, Australia, Brazil, Mexico, the US, the
+                  UK and Spain &mdash; they&rsquo;re all telling me <strong>Seedance is way better, and the
+                  word is out.</strong>
+                </p>
+                <footer>
+                  <b>Akia Mitchell</b>
+                  <span>VP Global Strategic Partnerships, WPP</span>
+                </footer>
+              </blockquote>
+            </article>
+
             <article className="appLovinCase wppWorkPage" id="customer-brand" aria-label="AppLovin AI 创意规模化案例研究">
               <header className="appLovinCaseHero">
                 <div className="appLovinCaseIndex"><span>CASE 2</span><b><B zh="广告技术" en="ADTECH" /></b></div>
                 <div className="appLovinCaseTitle">
                   <span className="appLovinWordmarkText">AppLovin</span>
-                  <h3><B zh="创意规模化，带来更高 ROAS" en="Creative scale unlocks better ROAS" /></h3>
                 </div>
               </header>
 
@@ -611,7 +610,6 @@ export default function Home() {
                           <small><B zh="新增一环" en="NEW POINT" /></small>
                         </div>
                         <h4><B zh="更多创意输入" en="More creative inputs" /></h4>
-                        <p><B zh="生成 · 迭代 · 校验" en="Generate · Iterate · Validate" /></p>
                       </section>
 
                       <div
@@ -632,19 +630,16 @@ export default function Home() {
                       <section className="appLovinFlywheelClaim appLovinFlywheelClaimLearning">
                         <div className="appLovinFlywheelClaimMeta"><span>02</span><small>AXON</small></div>
                         <h4><B zh="更快 AXON 学习" en="Faster AXON learning" /></h4>
-                        <p><B zh="匹配 · 优化 · 预测" en="Match · Optimize · Predict" /></p>
                       </section>
 
                       <section className="appLovinFlywheelClaim appLovinFlywheelClaimEfficiency">
                         <div className="appLovinFlywheelClaimMeta"><span>03</span><small><B zh="效果回流" en="SIGNAL RETURN" /></small></div>
                         <h4><B zh="更高广告效率" en="Higher ads efficiency" /></h4>
-                        <p><B zh="效果 · 转化 · 消耗" en="Performance · Conversions · Spend" /></p>
                       </section>
                     </div>
 
                     <footer className="appLovinFlywheelFooter">
                       <h4 id="appLovin-flywheel-title"><B zh="AppLovin 规模飞轮" en="AppLovin Flywheel of Scale" /></h4>
-                      <p><B zh="更多创意 → 更快学习 → 更高效率 → 再投入" en="More Creatives → Faster learning → Higher efficiency → Reinvest" /></p>
                     </footer>
                   </article>
                 </section>
@@ -658,7 +653,6 @@ export default function Home() {
                 <ClipFullscreen />
                 <section className="appLovinBlock appLovinAxonCompare">
                   <article className="appLovinAxonAfter">
-                    <small><B zh="创意规模化" en="CREATIVE SCALE" /></small>
                     <div className="appLovinAxonEngine">
                       <div className="appLovinOutputs">
                       <div className="appLovinOutput">
