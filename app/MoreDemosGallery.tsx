@@ -73,7 +73,7 @@ function DemoCard({ demo, clone }: { demo: Demo; clone: boolean }) {
       tabIndex={clone ? -1 : 0}
       aria-hidden={clone || undefined}
     >
-      <video src={demo.src} poster={demo.poster} muted playsInline preload={clone ? "none" : "metadata"} aria-hidden="true" />
+      <video src={demo.src} poster={demo.poster} autoPlay loop muted playsInline preload="auto" aria-hidden="true" />
       <span className="moreDemoCardShade" aria-hidden="true" />
       <span className="moreDemoPlay" aria-hidden="true">▶</span>
       <span className="moreDemoCardCopy">
@@ -154,7 +154,7 @@ export default function MoreDemosGallery() {
           <button className="moreDemoLightboxBackdrop" type="button" aria-label="Close video" onClick={() => setActiveDemo(null)} />
           <article>
             <header><div><small className="langZh">{activeDemo.typeZh}</small><small className="langEn">{activeDemo.type}</small><h3 className="langZh">{activeDemo.titleZh}</h3><h3 className="langEn">{activeDemo.title}</h3></div><button type="button" aria-label="Close video" onClick={() => setActiveDemo(null)}>×</button></header>
-            <video key={activeDemo.src} src={activeDemo.src} poster={activeDemo.poster} autoPlay playsInline controls />
+            <video key={activeDemo.src} src={activeDemo.src} poster={activeDemo.poster} autoPlay loop muted playsInline controls />
           </article>
         </div>
       ) : null}
