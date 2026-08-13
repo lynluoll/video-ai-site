@@ -4,6 +4,7 @@ import PlayableClipLightbox from "./PlayableClipLightbox";
 import ClipFullscreen from "./ClipFullscreen";
 import MarketTrackAutoReveal from "./MarketTrackAutoReveal";
 import MoreDemosGallery from "./MoreDemosGallery";
+import DisplayDemoGallery from "./DisplayDemoGallery";
 
 const B = ({ zh, en }: { zh: React.ReactNode; en: React.ReactNode }) => (
   <>
@@ -952,33 +953,7 @@ export default function Home() {
                 </div>
               </section>
 
-              <section className="displayDemoGallery" id="solution-display-demos" aria-label="Display Ads 三张图片 Demo">
-                <header><div><span>3 × IMAGE DEMOS</span><h4><B zh="从母版到多规格交付。" en="From master to multi-spec delivery." /></h4></div></header>
-                <div className="displayDemoGalleryGrid">
-                  <a className="displayDemoTile displayDemoSquare" href="#display-lightbox-commerce" aria-label="放大商品信息流 Demo">
-                    <figure><img src="/media/demo-display-commerce.jpg" alt="商品信息流 Display 广告案例" /><figcaption><b><B zh="商品信息流" en="Commerce feed" /></b><small>Retail Media</small><i>↗</i></figcaption></figure>
-                  </a>
-                  <a className="displayDemoTile displayDemoLandscape" href="#display-lightbox-beauty" aria-label="放大横版商品 KV Demo">
-                    <figure><img src="/media/demo-display-beauty.jpg" alt="16比9美妆横版 Display 广告案例" /><figcaption><b><B zh="横版商品 KV" en="Landscape product KV" /></b><small>16:9 · Social / Retail Media</small><i>↗</i></figcaption></figure>
-                  </a>
-                  <a className="displayDemoTile displayDemoBanner" href="#display-lightbox-diwali" aria-label="放大区域促销套版 Demo">
-                    <figure><img src="/media/demo-display-diwali.jpg" alt="3比1本地化促销 Display Banner 案例" /><figcaption><b><B zh="区域促销套版" en="Regional promo template" /></b><small>3:1 · Programmatic</small><i>↗</i></figcaption></figure>
-                  </a>
-                </div>
-              </section>
-            </div>
-
-            <div className="displayLightbox" id="display-lightbox-commerce" role="dialog" aria-modal="true" aria-label="商品信息流放大图">
-              <a className="displayLightboxBackdrop" href="#solution-display-demos" aria-label="关闭放大图" />
-              <figure><a href="#solution-display-demos" aria-label="关闭放大图">×</a><img src="/media/demo-display-commerce.jpg" alt="放大的商品信息流 Display 广告案例" /><figcaption>商品信息流 · Retail Media</figcaption></figure>
-            </div>
-            <div className="displayLightbox" id="display-lightbox-beauty" role="dialog" aria-modal="true" aria-label="横版商品 KV 放大图">
-              <a className="displayLightboxBackdrop" href="#solution-display-demos" aria-label="关闭放大图" />
-              <figure><a href="#solution-display-demos" aria-label="关闭放大图">×</a><img src="/media/demo-display-beauty.jpg" alt="放大的横版商品 KV Display 广告案例" /><figcaption>横版商品 KV · 16:9 Social / Retail Media</figcaption></figure>
-            </div>
-            <div className="displayLightbox" id="display-lightbox-diwali" role="dialog" aria-modal="true" aria-label="区域促销套版放大图">
-              <a className="displayLightboxBackdrop" href="#solution-display-demos" aria-label="关闭放大图" />
-              <figure><a href="#solution-display-demos" aria-label="关闭放大图">×</a><img src="/media/demo-display-diwali.jpg" alt="放大的区域促销 Display Banner 案例" /><figcaption>区域促销套版 · 3:1 Programmatic</figcaption></figure>
+              <DisplayDemoGallery />
             </div>
           </article>
 

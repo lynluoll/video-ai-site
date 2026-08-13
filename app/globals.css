@@ -14055,4 +14055,267 @@ body {
   width: 100%;
   grid-column: auto;
   grid-row: auto;
+/* v6.0 · Display V2 — three masters, fifteen verified variants */
+.displayV2Gallery {
+  min-width: 0;
+  min-height: 0;
+  padding: 16px 20px 20px;
+  display: grid;
+  grid-template-rows: 42px minmax(0, 1fr);
+  gap: 12px;
+  overflow: hidden;
+  background: #edf3fb;
+  border-top: 4px solid var(--blue);
+}
+.displayV2GalleryHeader {
+  min-width: 0;
+  padding-bottom: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid #cfd9e7;
+}
+.displayV2GalleryHeader > span {
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .17em;
+}
+.displayV2GalleryHeader h4 {
+  margin: 0;
+  color: #5a687c;
+  font-size: 12px;
+  font-weight: 680;
+  letter-spacing: 0;
+}
+.displayV2Cards {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.displayV2Card {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  color: #ffffff;
+  background: #101828;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  isolation: isolate;
+}
+.displayV2Card::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  border: 2px solid transparent;
+  pointer-events: none;
+  transition: border-color .22s ease;
+}
+.displayV2Card:hover::after,
+.displayV2Card:focus-visible::after { border-color: #66e4ff; }
+.displayV2Card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform .45s cubic-bezier(.2,.7,.2,1), filter .35s ease;
+}
+.displayV2Card:hover img,
+.displayV2Card:focus-visible img { transform: scale(1.035); filter: saturate(1.06); }
+.displayV2CardShade {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8,16,31,.04) 35%, rgba(8,16,31,.9) 100%);
+}
+.displayV2CardIndex {
+  position: absolute;
+  z-index: 2;
+  top: 16px;
+  left: 16px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: var(--blue);
+  font-size: 11px;
+  font-weight: 900;
+}
+.displayV2CardCopy {
+  position: absolute;
+  z-index: 2;
+  right: 18px;
+  bottom: 16px;
+  left: 18px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 16px;
+}
+.displayV2CardCopy > b {
+  font-size: clamp(21px, 1.55vw, 29px);
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+.displayV2CardCopy > small {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #d7e3f3;
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: .13em;
+  white-space: nowrap;
+}
+.displayV2CardCopy i {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  color: #10203a;
+  background: #66e4ff;
+  border-radius: 50%;
+  font-size: 13px;
+  font-style: normal;
+}
+
+.displayV2Modal {
+  position: fixed;
+  z-index: 1400;
+  inset: 0;
+  padding: 26px;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+}
+.displayV2Backdrop {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  background: rgba(8,16,31,.91);
+  border: 0;
+  backdrop-filter: blur(15px);
+  cursor: zoom-out;
+}
+.displayV2SetBoard {
+  position: relative;
+  z-index: 1;
+  width: min(1500px, calc(100vw - 52px));
+  height: min(920px, calc(100svh - 52px));
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr) minmax(190px, 26%);
+  grid-auto-flow: dense;
+  gap: 8px;
+  overflow: hidden;
+  background: #111b2b;
+  box-shadow: 0 35px 120px rgba(0,0,0,.5);
+}
+.displayV2SetClose {
+  position: absolute;
+  z-index: 5;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  color: #ffffff;
+  background: rgba(10,20,37,.78);
+  border: 1px solid rgba(255,255,255,.48);
+  border-radius: 50%;
+  font-size: 23px;
+  font-weight: 300;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+.displayV2SetAsset {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  grid-row: 2;
+  background: #eef2f8;
+  transition: opacity .2s ease;
+}
+.displayV2SetAsset.isActive {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  order: -1;
+}
+.displayV2SetAsset > button {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  background: #eef2f8;
+  border: 0;
+  cursor: zoom-in;
+}
+.displayV2SetAsset.isActive > button { cursor: default; }
+.displayV2SetAsset > button:focus-visible { outline: 3px solid #66e4ff; outline-offset: -3px; }
+.displayV2SetAsset img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #eef2f8;
+}
+.displayV2SetLabel {
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  max-width: calc(100% - 14px);
+  padding: 5px 7px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #ffffff;
+  background: rgba(9,18,33,.72);
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1;
+  backdrop-filter: blur(7px);
+}
+.displayV2SetLabel small { color: #8eeaff; font-size: inherit; font-weight: 850; letter-spacing: .05em; }
+
+.displayV2SetBoard-seasonal .displayV2SetAsset img,
+.displayV2SetBoard-selling-points .displayV2SetAsset img { object-fit: contain; }
+
+@media (max-width: 1120px) {
+  .displayV2Gallery { min-height: 430px; }
+  .displayV2CardCopy { grid-template-columns: 1fr; }
+  .displayV2CardCopy > small { display: none; }
+}
+
+@media (max-width: 760px) {
+  .displayV2Gallery { padding: 14px; grid-template-rows: auto auto; }
+  .displayV2GalleryHeader { align-items: flex-start; flex-direction: column; gap: 5px; }
+  .displayV2Cards { grid-template-columns: 1fr; }
+  .displayV2Card { min-height: 230px; }
+  .displayV2Modal { padding: 0; }
+  .displayV2SetBoard {
+    width: 100vw;
+    height: auto;
+    min-height: 100svh;
+    padding: 7px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: minmax(340px, 56svh);
+    grid-auto-rows: minmax(190px, 31svh);
+    gap: 7px;
+    overflow: visible;
+  }
+  .displayV2SetBoard .displayV2SetAsset { grid-column: auto; grid-row: auto; order: 0; }
+  .displayV2SetBoard .displayV2SetAsset.isActive { grid-column: 1 / -1; grid-row: 1; order: -1; }
+  .displayV2SetLabel { right: 5px; bottom: 5px; font-size: 7px; }
 }
