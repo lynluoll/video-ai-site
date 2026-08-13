@@ -237,9 +237,8 @@
   margin: 0;
   padding: 0;
   display: grid;
-  /* Media (03) carries the longest line now — 01/02 shrink slightly in
-     its favour. */
-  grid-template-columns: minmax(0, .94fr) minmax(0, .94fr) minmax(0, 1.12fr);
+  /* Media (03) is the shortest story — it takes the smaller share. */
+  grid-template-columns: minmax(0, 1.06fr) minmax(0, 1.06fr) minmax(0, .88fr);
   align-items: stretch;
   gap: var(--bp-gap);
   list-style: none;
