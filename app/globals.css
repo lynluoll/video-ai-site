@@ -14055,6 +14055,8 @@ body {
   width: 100%;
   grid-column: auto;
   grid-row: auto;
+}
+
 /* v6.0 · Display V2 — three masters, fifteen verified variants */
 .displayV2Gallery {
   min-width: 0;

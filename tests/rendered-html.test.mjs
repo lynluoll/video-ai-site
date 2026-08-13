@@ -39,27 +39,18 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(html, /\$160B/);
   assert.match(html, /\$110B/);
   assert.match(html, /\$260B/);
-  assert.match(html, /2021–23 \+44%/);
-  assert.match(html, /2023–26 \+63%/);
-  assert.match(html, /2026–30 \+79%/);
+  // The 2021–30 CAGR captions were dropped with the market-chart redesign;
+  // the dollar figures above are the stable assertions.
   assert.doesNotMatch(html, /\$25–30B|\$29\.4B|可替代劳动力盘|Replaceable labor pool|VALUE CAPTURE|关键数字为方向性估算|参考页估算/);
 
-  // Chapter 01 follows the migration plan: one verified chart, three trends,
-  // and a transition into the player chapter without unverified adoption data.
-  assert.match(html, /AI 正在重塑广告供给的生产方式/);
-  assert.match(html, /AI Is Reshaping How Advertising Supply Is Created/);
-  assert.equal((html.match(/class="marketTrendCard /g) ?? []).length, 3);
-  assert.match(html, /广告生产正在走向.*AI 原生/s);
-  assert.match(html, /Advertising Is Moving Toward AI-Native Production/);
-  assert.match(html, /视频广告成为主导广告形式/);
-  assert.match(html, /Video Advertising Becomes the Dominant Format/);
-  assert.match(html, /Campaign Agent 在 2026 年进入规模化阶段/);
-  assert.match(html, /AI 成为创作者的基础能力/);
-  assert.match(marketTrendHtml, /\$160B.*1\.63×.*\$260B/s);
-  assert.doesNotMatch(marketTrendHtml, /SEARCH BENCHMARK/);
-  assert.match(marketTrendHtml, /\$60B.*\$75B.*3 QTRS/s);
-  assert.match(marketTrendHtml, /83%.*60% IN 2024/s);
-  assert.doesNotMatch(marketTrendHtml, /CORE SIGNAL|SOURCE|Meta Advantage\+ annual run-rate|IAB · The AI Ad Gap Widens|下一章：主要参与者|Next: Key Players/);
+  // Chapter 01: the campaign-agent thesis with two trend cards (agent loop
+  // and the Goodtake production case).
+  assert.match(html, /Campaign Agent 规模化/);
+  assert.match(html, /Campaign Agents Scale on/);
+  assert.equal((html.match(/class="marketTrendCard /g) ?? []).length, 2);
+  assert.match(marketTrendHtml, /Every major ad manager now ships a campaign agent/);
+  assert.match(marketTrendHtml, /Starts with Ideation\./);
+  assert.doesNotMatch(marketTrendHtml, /SEARCH BENCHMARK|CORE SIGNAL|Meta Advantage\+ annual run-rate|IAB · The AI Ad Gap Widens|下一章：主要参与者|Next: Key Players/);
 
   // The verified market chart remains, while the redundant Scene Landscape
   // overview and its three standalone demo pages are removed completely.
@@ -67,47 +58,47 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(html, /查看三赛道/);
   assert.doesNotMatch(html, /sceneLandscapePage|sceneDemoPages|sceneTrackCard|sceneDemoPage|SCENE LANDSCAPE|Mainstream ad scenarios/);
   assert.match(html, /id="players"/);
-  assert.match(html, /class="customerFlowIndex"><span>02<\/span><b>.*KEY PLAYERS/s);
 
-  // Chapter 02 is a single flat player map. The verbose workflow and offer
-  // copy were intentionally removed so all four rows fit in one viewport.
-  const customerFlowHtml = html.slice(html.indexOf('class="customerFlowPage"'), html.indexOf('class="audienceSection customerCasesSection"'));
+  // Chapter 02 is a single flat player map: four rows, the budget-role
+  // column removed so KEY TREND owns the centre of each row.
+  const customerFlowHtml = html.slice(html.indexOf('class="customerFlowPage"'), html.indexOf('customerCasesSection'));
   assert.equal((customerFlowHtml.match(/class="customerFlowStage"/g) ?? []).length, 4);
-  assert.match(customerFlowHtml, /Brand owners.*Set budgets and brand assets.*Building in-house AI platforms.*Global brand owners/s);
-  assert.match(customerFlowHtml, /Agencies.*Hold creative and production budgets.*From previews into production.*WPP · Havas/s);
-  assert.match(customerFlowHtml, /AdTech \/ MarTech.*Turn media budgets into continuous production.*Campaign agents enter 1 → 3.*AppLovin · Tenmax/s);
-  assert.match(customerFlowHtml, /Paid media.*Distribute and return performance signals.*Signals flow back into production.*Criteo · Pinterest/s);
+  assert.doesNotMatch(customerFlowHtml, /BUDGET ROLE|预算角色/);
+  assert.match(customerFlowHtml, /Brand owners.*Building in-house AI platforms/s);
+  assert.match(customerFlowHtml, /Agencies.*From previews into production.*WPP · Havas/s);
+  assert.match(customerFlowHtml, /Paid media.*Signals flow back into production/s);
   assert.match(customerFlowHtml, /class="customerFlowMoneyRail"/);
   assert.doesNotMatch(customerFlowHtml, /STANDARD WORKFLOW|BYTEPLUS OFFER|customerMoneySpine|Brands hold the budget/);
 
-  // Global hierarchy uses chapter.subchapter numbering for role cases and
-  // solution pages; internal workflow steps retain their local 01–05 labels.
-  assert.match(html, /brandOwnerStudyNumber">2\.1<\/span>/);
-  assert.match(html, /agencyOperatingIndex"><span>2\.2<\/span>/);
-  assert.match(html, /adtechCaseIndex"><span>2\.3<\/span>/);
+  // Customer cases run as CASE 1/2/3; solution pages keep 3.x numbering.
+  assert.match(html, /agencyOperatingIndex"><span>CASE 1<\/span>/);
+  assert.match(html, /appLovinCaseIndex"><span>CASE 2<\/span>/);
+  assert.match(html, /adtechCaseIndex"><span>CASE 3<\/span>/);
   assert.match(html, /id="solutions"/);
   assert.match(html, /brandSolutionIndex"><span>3\.1<\/span>/);
   assert.match(html, /performanceSolutionIndex"><span>3\.2<\/span>/);
   assert.match(html, /displaySolutionIndex"><span>3\.3<\/span>/);
   assert.match(html, /playableIndex"><span>3\.4<\/span>/);
 
-  // The public brand-owner case study is a visual operating map: one central
-  // governance spine feeding three production and decision journeys.
-  const customerBrandHtml = html.slice(html.indexOf('id="customer-brand"'), html.indexOf('id="customer-agency"'));
-  assert.match(customerBrandHtml, /一个治理中枢，三层生产体系.*统一治理中枢/s);
-  assert.match(customerBrandHtml, /One governance spine.*Three production layers.*CENTRAL GOVERNANCE/s);
-  assert.match(customerBrandHtml, /Internal AI production platform.*Marketing use-case pilot.*Scaled group adoption/s);
-  assert.match(customerBrandHtml, /Brand and market teams.*Commerce \/ social \/ web demand.*Review &amp; delivery/s);
-  assert.match(customerBrandHtml, /Agency and production partners.*Brand brief.*Cutdowns &amp; localization/s);
-  assert.doesNotMatch(customerBrandHtml, /<header|BYTEPLUS ENTRY|API first|Workflow \/ Agent|Previz and extensions/);
-  assert.doesNotMatch(customerBrandHtml, /L’Oréal|欧莱雅|CreTech|CreateAI|50.*BRANDS|150.*MARKETS|50–100.*万张|10–20.*万条/);
+  // CASE 1 · WPP Open: three org-logic stage cards, the Canvas capture, and
+  // the input→output automotive pair.
+  const agencyHtml = html.slice(html.indexOf('id="customer-agency"'), html.indexOf('class="wppWorkPage wppQuotePage"'));
+  assert.match(agencyHtml, /Start with Creative\./);
+  assert.match(agencyHtml, /Ogilvy · VML · AKQA · ~50k people/);
+  assert.match(agencyHtml, /Hogarth and ~10k makers/);
+  assert.match(agencyHtml, /WPP Media: formerly GroupM/);
+  assert.match(agencyHtml, /\/media\/wpp\/canvas\.webp/);
 
-  const agencyHtml = html.slice(html.indexOf('id="customer-agency"'), html.indexOf('class="adtechCasePage"'));
-  assert.match(agencyHtml, /从创意切入.*拓展至制作与媒体/s);
-  assert.match(agencyHtml, /洞察、概念与创意预演.*实拍、CG 与 AI 混合制作.*母版版本化与媒体变体/s);
-  assert.match(agencyHtml, /PRODUCTION DEMO · AUTOMOTIVE/);
-  assert.match(agencyHtml, /实拍保留.*AI 生成.*最终交付/s);
-  assert.doesNotMatch(agencyHtml, /WPP|Havas|Publicis|代表性代理商|REPRESENTATIVE AGENCIES/);
+  // The WPP testimonial slide sits between the WPP and AppLovin cases.
+  assert.match(html, /Akia Mitchell/);
+  assert.match(html, /Seedance is way better, and the\s*word is out/);
+
+  // CASE 2 · AppLovin: flywheel, full Creative Set capture, four demo clips.
+  const appLovinHtml = html.slice(html.indexOf('id="customer-brand"'), html.indexOf('id="customer-adtech"'));
+  assert.match(appLovinHtml, /AppLovin Flywheel of Scale/);
+  assert.match(appLovinHtml, /More creative inputs/);
+  assert.match(appLovinHtml, /creative-set-dashboard\.png/);
+  assert.equal((appLovinHtml.match(/class="appLovinClip"/g) ?? []).length, 4);
 
   // V3 contains the three solution pages and the selected performance demos.
   assert.equal((html.match(/class="solutionPage /g) ?? []).length, 3);
