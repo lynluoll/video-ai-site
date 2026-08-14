@@ -586,11 +586,19 @@ export default function Home() {
                   UK and Spain &mdash; they&rsquo;re all telling me <strong>Seedance is way better, and the
                   word is out.</strong>
                 </p>
+                <span className="wppQuoteMark wppQuoteMarkClose" aria-hidden="true">&rdquo;</span>
                 <footer>
                   <b>Akia Mitchell</b>
                   <span>VP Global Strategic Partnerships, WPP</span>
                 </footer>
               </blockquote>
+
+              <aside className="wppQuoteAside">
+                <span className="wppQuoteAsideKicker">BYTEPLUS X WPP HEX</span>
+                <figure>
+                  <img src="/media/wpp/wpp-hex.png" alt="WPP launches HEX — a new kind of talent pipeline designed for the AI era" loading="lazy" />
+                </figure>
+              </aside>
             </article>
 
             <article className="appLovinCase wppWorkPage" id="customer-brand" aria-label="AppLovin AI 创意规模化案例研究">
@@ -598,6 +606,7 @@ export default function Home() {
                 <div className="appLovinCaseIndex"><span>CASE 2</span><b><B zh="广告技术" en="ADTECH" /></b></div>
                 <div className="appLovinCaseTitle">
                   <span className="appLovinWordmarkText">AppLovin</span>
+                  <p className="appLovinCaseIntro"><B zh="全球最大的移动广告平台之一 —— AXON 引擎把创意规模直接转化为 ROAS。" en="One of the world's largest mobile ad platforms — its AXON engine turns creative volume directly into ROAS." /></p>
                 </div>
               </header>
 
@@ -856,6 +865,15 @@ export default function Home() {
                 </div>
               </section>
             </div>
+          </article>
+
+          <article className="solutionPage seedanceDemoPage" id="solution-brand-seedance25" aria-label="Seedance 2.5 香水广告 Demo">
+            <header className="seedanceDemoHeader">
+              <span>SEEDANCE 2.5 DEMO</span>
+            </header>
+            <figure className="seedanceDemoStage">
+              <video src="/media/seedance25-perfume-ads.mp4" controls autoPlay loop muted playsInline preload="metadata" aria-label="Seedance 2.5 生成的香水广告完整 Demo" />
+            </figure>
           </article>
 
           <article className="solutionPage performanceSolutionPage" id="solution-performance">

@@ -2740,6 +2740,32 @@ button, summary { font: inherit; }
 .solutions { padding-top: 0; padding-bottom: 0; }
 .solutionPages { display: grid; gap: 34px; margin-top: 0; }
 .solutionPage { overflow: hidden; color: var(--ink); background: #f4f6fa; border: 1px solid #dce2ea; box-shadow: 0 28px 70px rgba(0,0,0,.16); }
+
+/* Seedance 2.5 demo interstitial after 3.1 — one kicker, one full-bleed film. */
+.seedanceDemoPage {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 18px;
+  padding: 32px 36px 36px;
+}
+.seedanceDemoHeader > span {
+  color: var(--bp-blue);
+  font-size: var(--bp-t-card);
+  font-weight: var(--bp-w-display);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.seedanceDemoStage { min-width: 0; min-height: 0; margin: 0; }
+.seedanceDemoStage video {
+  width: 100%;
+  max-height: min(66vh, 720px);
+  display: block;
+  margin-inline: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #111827;
+  border-radius: var(--bp-radius-card);
+}
 .solutionPageHeader { display: grid; grid-template-columns: 54px minmax(0, 1.08fr) minmax(280px, .78fr); gap: 26px; align-items: end; padding: 36px 36px 32px; border-bottom: 1px solid #dce2ea; }
 .solutionPageHeader > span { align-self: start; color: var(--orange); font-size: 11px; font-weight: 800; letter-spacing: .15em; }
 .solutionPageHeader small { display: block; margin-bottom: 15px; color: #7b8799; font-size: 9px; font-weight: 800; letter-spacing: .15em; }
@@ -6000,10 +6026,36 @@ html.marketTrackTransitionLock { overscroll-behavior: none; }
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 56px;
   /* Full 16:9 slide, same as the case pages around it. */
   aspect-ratio: 16 / 9;
   min-height: 620px;
   max-height: 900px;
+}
+/* The HEX launch visual beside the quote: kicker on top, rounded image. */
+.wppQuoteAside {
+  flex: 0 1 42%;
+  min-width: 0;
+}
+.wppQuoteAsideKicker {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--bp-blue);
+  font-size: var(--bp-t-card);
+  font-weight: var(--bp-w-display);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.wppQuoteAside figure { margin: 0; }
+.wppQuoteAside img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--bp-radius-card);
+}
+@media (max-width: 1000px) {
+  .wppQuotePage.wppQuotePage { flex-direction: column; aspect-ratio: auto; max-height: none; gap: 32px; padding-block: 48px; }
+  .wppQuoteAside { flex: none; width: min(560px, 100%); }
 }
 .wppQuote {
   position: relative;
@@ -6017,6 +6069,13 @@ html.marketTrackTransitionLock { overscroll-behavior: none; }
   font-size: 96px;
   font-weight: var(--bp-w-display);
   line-height: .6;
+}
+/* Mirrored closing mark: same glyph treatment as the opener, right-aligned
+   under the last line. The negative margin absorbs the glyph's built-in
+   ascender space so it hugs the paragraph. */
+.wppQuoteMarkClose {
+  margin: 6px 0 -34px;
+  text-align: right;
 }
 .wppQuote p {
   margin: 18px 0 0;
