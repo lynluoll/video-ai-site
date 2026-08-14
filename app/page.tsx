@@ -1,5 +1,6 @@
 import InlineTextEditor from "./InlineTextEditor";
 import PlayableClipLightbox from "./PlayableClipLightbox";
+import ClipFullscreen from "./ClipFullscreen";
 import MarketTrackAutoReveal from "./MarketTrackAutoReveal";
 import MoreDemosGallery from "./MoreDemosGallery";
 import DisplayDemoGallery from "./DisplayDemoGallery";
@@ -232,8 +233,8 @@ export default function Home() {
       <input className="langControl" id="language-mode" type="checkbox" defaultChecked aria-label="Switch between English and Chinese" />
       <nav className="nav shell" aria-label="Primary navigation">
         <a className="brand" href="#top" aria-label="BytePlus Advertising Creative Production Solutions home">
-          <span className="brandMark">B</span>
-          <span className="langZh">BytePlus 广告行业素材生产方案</span>
+          <img className="brandLogo" src="/byteplus-logo.png" alt="BytePlus" width="381" height="71" />
+          <span className="langZh">广告行业素材生产方案</span>
           <span className="langEn">ADS Creative Solution</span>
         </a>
         <div className="navChapterLinks" aria-label="章节导航">
@@ -284,8 +285,8 @@ export default function Home() {
             <header className="marketFlowIntro">
             <div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div>
             <div className="marketFlowTitle">
-              <h1 className="langZh">AI 正在重塑广告供给的生产方式</h1>
-              <h1 className="langEn">AI Is Reshaping How Advertising Supply Is Created</h1>
+              <h1 className="langZh"><span>视频广告</span>成为主导形式</h1>
+              <h1 className="langEn"><span>Video Ads</span> Become the Dominant</h1>
             </div>
             </header>
 
@@ -300,38 +301,38 @@ export default function Home() {
               <defs>
                 <pattern id="market-flow-grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="currentColor" strokeOpacity=".06" /></pattern>
                 <linearGradient id="market-flow-blue" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0" stopColor="#2149E6" />
-                  <stop offset=".58" stopColor="#3B6FE8" />
-                  <stop offset="1" stopColor="#63BCE8" />
+                  <stop offset="0" stopColor="#2149E6" stopOpacity=".96" />
+                  <stop offset=".55" stopColor="#3B6FE8" stopOpacity=".72" />
+                  <stop offset="1" stopColor="#63BCE8" stopOpacity=".42" />
                 </linearGradient>
               </defs>
               <rect width="1200" height="430" className="flowGrid" fill="url(#market-flow-grid)" />
               <g className="flowLabels">
-                <text x="18" y="24" className="flowOverline">2026 · CURRENT MARKET</text>
-                <text x="936" y="24" className="flowOverline">2030 · VIDEO OUTCOME</text>
+                <text x="18" y="24" className="flowOverline"><tspan className="langZh">2026E 数字广告支出（不含中国）</tspan><tspan className="langEn">2026E Digital Ad Spend (ex-China)</tspan></text>
+                <text x="936" y="24" className="flowOverline"><tspan className="langZh">2030E 视频广告预测</tspan><tspan className="langEn">2030E Video Forecast</tspan></text>
               </g>
 
               <g className="flowBaseline flowSearch">
-                <rect x="18" y="46" width="236" height="60" />
+                <rect x="18" y="46" width="236" height="60" rx="10" />
                 <text x="35" y="70" className="flowName"><tspan className="langZh">搜索广告</tspan><tspan className="langEn">Search ads</tspan></text><text x="35" y="88" className="flowMeta">33%</text><text x="232" y="82" textAnchor="end" className="flowValue">$220B</text>
               </g>
 
               <path className="flowVideoRiver" d="M254 125 C470 127 630 94 820 55 C875 44 914 42 936 42 L936 301 C877 301 825 304 756 307 C575 315 426 284 254 282Z" />
               <g className="flowBaseline flowVideo">
-                <rect x="18" y="125" width="236" height="157" />
+                <rect x="18" y="125" width="236" height="157" rx="10" />
+                <rect x="18" y="125" width="4" height="157" className="flowVideoRail" />
                 <text x="35" y="155" className="flowName"><tspan className="langZh">视频广告</tspan><tspan className="langEn">Video ads</tspan></text><text x="35" y="176" className="flowMeta">26%</text><text x="35" y="229" className="flowHeroValue">$160B</text>
                 <text x="35" y="259" className="flowNote"><tspan className="langZh">CTR / CVR 更优，但制作成本曾限制供给</tspan><tspan className="langEn">Better CTR / CVR — production cost capped supply</tspan></text>
               </g>
               <g className="flowBaseline flowDisplay">
-                <rect x="18" y="301" width="205" height="52" />
+                <rect x="18" y="301" width="205" height="52" rx="10" />
                 <text x="35" y="324" className="flowName"><tspan className="langZh">展示广告</tspan><tspan className="langEn">Display</tspan></text><text x="35" y="342" className="flowMeta">24%</text><text x="203" y="334" textAnchor="end" className="flowValue">$160B</text>
               </g>
               <g className="flowBaseline flowRmn">
-                <rect x="18" y="368" width="170" height="47" />
+                <rect x="18" y="368" width="170" height="47" rx="10" />
                 <text x="35" y="389" className="flowName"><tspan className="langZh">零售媒体</tspan><tspan className="langEn">Retail</tspan></text><text x="35" y="405" className="flowMeta">17%</text><text x="169" y="399" textAnchor="end" className="flowValue">$110B</text>
               </g>
 
-              <text x="672" y="183" className="flowCrossTitle"><tspan className="langZh">3–4 年内跨过 $220B 搜索广告基准</tspan><tspan className="langEn">Crosses the $220B search benchmark in 3–4 years</tspan></text>
 
               <g className="flowOutcomeDefault">
                 <rect x="936" y="42" width="236" height="259" />
@@ -346,30 +347,30 @@ export default function Home() {
               <g className="flowSegments">
                 <g className="flowSegmentTrack flowSegmentTrackSocial">
                   <rect x="936" y="42" width="236" height="113" className="flowSocial" />
-                  <text x="955" y="68" className="flowSegmentName">SOCIAL VIDEO</text><text x="955" y="105" className="flowSegmentValue">62 → 115B</text><text x="1148" y="69" textAnchor="end" className="flowSegmentDelta">+85%</text>
+                  <text x="955" y="68" className="flowSegmentName"><tspan className="langZh">社交视频</tspan><tspan className="langEn">Social Video</tspan></text>
+                  <text x="955" y="105" className="flowSegmentValue">62 → 115B</text>
+                  <g className="flowDeltaPill"><rect x="1100" y="56" width="48" height="18" rx="9" /><text x="1124" y="69" textAnchor="middle" className="flowSegmentDelta">+85%</text></g>
                 </g>
                 <g className="flowSegmentTrack flowSegmentTrackCtv">
                   <rect x="936" y="155" width="236" height="88" className="flowCtv" />
-                  <text x="955" y="181" className="flowSegmentName">CTV</text><text x="955" y="215" className="flowSegmentValue">45 → 90B</text><text x="1148" y="181" textAnchor="end" className="flowSegmentDelta">+100%</text>
+                  <text x="955" y="181" className="flowSegmentName">CTV</text>
+                  <text x="955" y="215" className="flowSegmentValue">45 → 90B</text>
+                  <g className="flowDeltaPill"><rect x="1094" y="168" width="54" height="18" rx="9" /><text x="1121" y="181" textAnchor="middle" className="flowSegmentDelta">+100%</text></g>
                 </g>
                 <g className="flowSegmentTrack flowSegmentTrackOlv">
                   <rect x="936" y="243" width="236" height="58" className="flowOlv" />
-                  <text x="955" y="267" className="flowSegmentName">OLV</text><text x="955" y="291" className="flowSegmentValue small">38 → 55B</text><text x="1148" y="267" textAnchor="end" className="flowSegmentDelta dark">+45%</text>
+                  <text x="955" y="267" className="flowSegmentName dark">OLV</text>
+                  <text x="955" y="291" className="flowSegmentValue small">38 → 55B</text>
+                  <g className="flowDeltaPill dark"><rect x="1100" y="254" width="48" height="18" rx="9" /><text x="1124" y="267" textAnchor="middle" className="flowSegmentDelta dark">+45%</text></g>
                 </g>
               </g>
               <g className="flowOutcome">
-                <text x="936" y="334" className="flowOutcomeOverline">2030 TOTAL VIDEO BUDGET</text><text x="936" y="383" className="flowOutcomeValue">$260B</text><text x="1158" y="383" textAnchor="end" className="flowOutcomeRank">#1</text><line x1="936" y1="396" x2="1172" y2="396" />
+                <rect x="936" y="312" width="236" height="80" rx="10" />
+                <text x="955" y="337" className="flowOutcomeOverline"><tspan className="langZh">2030 视频广告总预算</tspan><tspan className="langEn">2030 TOTAL VIDEO BUDGET</tspan></text>
+                <text x="955" y="378" className="flowOutcomeValue">$260B</text>
+                <text x="1153" y="378" textAnchor="end" className="flowOutcomeRank">#1</text>
               </g>
 
-              <g className="flowTimeline">
-                <line x1="300" y1="375" x2="835" y2="375" />
-                <g className="flowGrowthTag base" transform="translate(300 354)"><rect x="-27" y="-12" width="54" height="18" rx="9" /><text y="1" textAnchor="middle"><tspan className="langZh">基期</tspan><tspan className="langEn">Base</tspan></text></g>
-                <g className="flowGrowthTag" transform="translate(470 354)"><rect x="-42" y="-12" width="84" height="18" rx="9" /><text y="1" textAnchor="middle">2021–23 +44%</text></g>
-                <g className="flowGrowthTag" transform="translate(640 354)"><rect x="-42" y="-12" width="84" height="18" rx="9" /><text y="1" textAnchor="middle">2023–26 +63%</text></g>
-                <g className="flowGrowthTag finish" transform="translate(835 354)"><rect x="-42" y="-12" width="84" height="18" rx="9" /><text y="1" textAnchor="middle">2026–30 +79%</text></g>
-                <circle cx="300" cy="375" r="5" /><circle cx="470" cy="375" r="5" /><circle cx="640" cy="375" r="6" className="active" /><circle cx="835" cy="375" r="8" className="finish" />
-                <text x="300" y="399" className="flowTimelineText">2021 · $62B</text><text x="470" y="399" textAnchor="middle" className="flowTimelineText">2023 · $89B</text><text x="640" y="399" textAnchor="middle" className="flowTimelineText">2026 · $145B</text><text x="835" y="399" textAnchor="middle" className="flowTimelineFinish">2030 · $260B</text>
-              </g>
             </svg>
             <div className="marketFlowMobile" aria-label="移动端预算迁移流">
               <div className="mobileMarketRows">
@@ -394,54 +395,118 @@ export default function Home() {
 
           <section className="marketTrendSection" aria-labelledby="market-trends-title">
             <header className="marketTrendSectionHeader">
-              <span>01 · MARKET OVERVIEW</span>
-              <h2 id="market-trends-title"><B zh={<>广告生产正在走向 <strong>AI 原生</strong></>} en="Advertising Is Moving Toward AI-Native Production" /></h2>
+              <div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div>
+              <h2 id="market-trends-title"><B zh={<>Campaign Agent 规模化，靠<strong>素材供给自动化</strong></>} en={<>Campaign Agents Scale on <strong>Automated Creative Supply</strong></>} /></h2>
             </header>
 
             <div className="marketTrendGrid">
-              <article className="marketTrendCard marketTrendVideo">
-                <header><span>01</span><b>VIDEO</b></header>
-                <h3><B zh="视频广告成为主导广告形式" en="Video Advertising Becomes the Dominant Format" /></h3>
-                <div className="marketTrendVisual marketVideoChart" role="img" aria-label="视频广告从 2026 年 1600 亿美元增长至 2030 年 2600 亿美元，规模增长至 1.63 倍">
-                  <div className="marketCompareBar current"><b>$160B</b><i /><span>2026</span></div>
-                  <div className="marketCompareArrow"><b>1.63×</b><strong>→</strong><small>2026–30</small></div>
-                  <div className="marketCompareBar video"><b>$260B</b><i /><span>2030</span><em>#1</em></div>
-                </div>
-              </article>
-
               <article className="marketTrendCard marketTrendAgent">
-                <header><span>02</span><b>CAMPAIGN AGENT</b></header>
-                <h3><B zh="Campaign Agent 在 2026 年进入规模化阶段" en="Campaign Agents Scale in 2026" /></h3>
-                <div className="marketTrendVisual marketAgentAdoption" role="img" aria-label="Campaign Agent 自动化采用的年度运行规模在三个季度内从 600 亿美元增长至 750 亿美元">
-                  <div className="marketAgentAdoptionTitle"><span>AD MANAGER</span><i>→</i><strong>CAMPAIGN AGENT</strong></div>
-                  <div className="marketAdoptionBars">
-                    <div className="before"><b>$60B</b><i /></div>
-                    <div className="after"><b>$75B</b><i /></div>
-                  </div>
-                  <p>$60B → $75B <span>3 QTRS</span></p>
+                <div className="marketTrendVisual agentPlatformBoard">
+                  <p className="agentPlatformLede"><B zh="主流 Ad Manager 都在内建 Campaign Agent" en="Every major ad manager now ships a campaign agent" /></p>
+
+                  <ol className="agentLoop" aria-label="Campaign Agent 的五步闭环">
+                    <li><span>01</span><b><B zh="市场洞察" en="Market insight" /></b></li>
+                    <li><span>02</span><b><B zh="广告脚本" en="Ad scripts" /></b></li>
+                    <li className="agentLoopCore"><span>03</span><b><B zh="素材自动生产" en="Automated creative production" /></b></li>
+                    <li><span>04</span><b><B zh="投放测试" en="Launch and test" /></b></li>
+                    <li><span>05</span><b><B zh="复刻胜出素材" en="Iterate winners" /></b></li>
+                  </ol>
+
+                  <p className="agentPlatformTier"><B zh="付费媒体平台" en="PAID MEDIA PLATFORMS" /></p>
+                  <ul className="agentPlatformRow">
+                    <li><img src="/logos/meta-color.svg" alt="" aria-hidden="true" /><div><b>Meta</b><em>Meta Ads Manager · Advantage+</em></div></li>
+                    <li><img src="/logos/google-color.svg" alt="" aria-hidden="true" /><div><b>Google</b><em>Google Ads · Performance Max · AI Max</em></div></li>
+                    <li><img src="/logos/tiktok-color.svg" alt="" aria-hidden="true" /><div><b>TikTok</b><em>TikTok Ads Manager · Smart+ · Symphony</em></div></li>
+                    <li><img src="/logos/amazon-color.svg" alt="" aria-hidden="true" /><div><b>Amazon</b><em>Amazon Ads · Creative Agent</em></div></li>
+                    <li><img src="/logos/snapchat-color.svg" alt="" aria-hidden="true" /><div><b>Snap</b><em>Snap Ads Manager · Smart Assistant</em></div></li>
+                    <li><img src="/logos/pinterest-color.svg" alt="" aria-hidden="true" /><div><b>Pinterest</b><em>Pinterest Ads · Performance+ · Canvas</em></div></li>
+                    <li><img src="/logos/reddit-color.svg" alt="" aria-hidden="true" /><div><b>Reddit</b><em>Reddit Ads · Max · AI copywriter</em></div></li>
+                  </ul>
+
+                  <p className="agentPlatformTier"><B zh="广告技术" en="ADTECH" /></p>
+                  <ul className="agentPlatformRow">
+                    <li><img src="/logos/applovin-color.svg" alt="" aria-hidden="true" /><div><b>AppLovin</b><em>AXON · Creative Sets</em></div></li>
+                    <li><img src="/logos/thetradedesk-color.png" alt="" aria-hidden="true" /><div><b>The Trade Desk</b><em>Kokai · Koa Agents</em></div></li>
+                    <li><img src="/logos/criteo-color.png" alt="" aria-hidden="true" /><div><b>Criteo</b><em>Commerce Media Platform</em></div></li>
+                    <li><img src="/logos/nativex-color.png" alt="" aria-hidden="true" /><div><b>Nativex</b><em>Navos</em></div></li>
+                  </ul>
+
+                  <p className="agentPlatformTier"><B zh="创意技术" en="CREATIVE TECH" /></p>
+                  <ul className="agentPlatformRow">
+                    <li><img src="/logos/smartly-color.svg" alt="" aria-hidden="true" /><div><b>Smartly.io</b><em>Smartly · AI Studio</em></div></li>
+                    <li><img className="agentLogoWide" src="/logos/celtra-color.svg" alt="" aria-hidden="true" /><div><b>Celtra</b><em>Celtra · Creative Automation</em></div></li>
+                    <li><img src="/logos/bannerflow-color.svg" alt="" aria-hidden="true" /><div><b>Bannerflow</b><em>Bannerflow · Creative Automation</em></div></li>
+                    <li><img src="/logos/storyteq-color.svg" alt="" aria-hidden="true" /><div><b>Storyteq</b><em>Storyteq · Creative Automation</em></div></li>
+                  </ul>
+
                 </div>
               </article>
 
-              <article className="marketTrendCard marketTrendCreator">
-                <header><span>03</span><b>CREATIVE TEAMS</b></header>
-                <h3><B zh="AI 成为创作者的基础能力" en="AI Becomes Table Stakes for Creators" /></h3>
-                <div className="marketTrendVisual marketCreatorAdoption" role="img" aria-label="创意流程中的 AI 部署率当前为 83%，高于 2024 年的 60%">
-                  <div className="marketAdoptionDonut"><span>83%</span><small>CURRENT</small></div>
-                  <strong>VS. 60% IN 2024</strong>
+
+              <article className="marketTrendCard goodtakeCase">
+                <header><div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div></header>
+                <h3><B zh={<>从创意构想开始，<span>现在已经进入真实生产。</span></>} en={<>Starts with Ideation. <span>Now to Real Production.</span></>} /></h3>
+
+                <p className="goodtakeLede"><B zh="Goodtake 为麦当劳制作的两支 3D CGI 广告，与同期其他素材同场对比。" en="Two 3D CGI spots Goodtake produced for McDonald's, measured against the other assets running alongside them." /></p>
+
+                <div className="goodtakeGrid">
+                  <figure className="goodtakeItem">
+                    <video src="/media/goodtake/mcdonaldland.mp4" autoPlay controls loop muted playsInline preload="auto" aria-label="Goodtake 为麦当劳制作的 McDonaldland 3D CGI 广告" />
+                    <figcaption>
+                      <b>McDonaldland</b><em>Q4&rsquo;25</em>
+                      <table>
+                        <thead><tr><th /><th><B zh="3D CGI" en="3D CGI" /></th><th><B zh="其他素材" en="Others" /></th></tr></thead>
+                        <tbody>
+                          <tr><th>CTR</th><td>0.30%</td><td>0.26%</td></tr>
+                          <tr><th>ER</th><td>1.23%</td><td>0.50%</td></tr>
+                          <tr><th>2s VTR</th><td>35.09%</td><td>11.06%</td></tr>
+                          <tr><th>6s VTR</th><td>13.69%</td><td>2.66%</td></tr>
+                        </tbody>
+                      </table>
+                    </figcaption>
+                  </figure>
+
+                  <figure className="goodtakeItem">
+                    <video src="/media/goodtake/grimace.mp4" autoPlay controls loop muted playsInline preload="auto" aria-label="Goodtake 为麦当劳制作的 Grimace 3D CGI 广告" />
+                    <figcaption>
+                      <b>Grimace</b><em>Q2&rsquo;26</em>
+                      <table>
+                        <thead><tr><th /><th><B zh="3D CGI" en="3D CGI" /></th><th><B zh="其他素材" en="Others" /></th></tr></thead>
+                        <tbody>
+                          <tr><th>CTR</th><td>0.50%</td><td>0.40%</td></tr>
+                          <tr><th>ER</th><td>1.05%</td><td>0.65%</td></tr>
+                          <tr><th>2s VTR</th><td>26.55%</td><td>23.81%</td></tr>
+                          <tr><th>6s VTR</th><td>10.61%</td><td>7.97%</td></tr>
+                        </tbody>
+                      </table>
+                    </figcaption>
+                  </figure>
                 </div>
+
+                <p className="goodtakeTakeaway"><B zh="两轮投放里 3D CGI 在四项指标上全部胜出 —— 完播类指标差距最大：McDonaldland 的 2s VTR 是其他素材的 3.2 倍，6s VTR 是 5.1 倍。" en="3D CGI won on all four metrics in both flights — the gap is widest on watch-through: McDonaldland's 2s VTR is 3.2× the other assets, and 6s VTR is 5.1×." /></p>
+                <p className="goodtakeSource"><B zh="来源：Goodtake × 麦当劳投放数据 · 内部机密，请勿外传" en="Source: Goodtake × McDonald's campaign data · confidential and proprietary" /></p>
               </article>
             </div>
           </section>
         </div>
       </section>
 
-      <section className="customerFlowPage" id="players" aria-labelledby="customer-flow-title">
-        <div className="customerFlowShell">
-          <header className="customerFlowHeader">
-            <div className="customerFlowIndex"><span>02</span><b><B zh="关键角色" en="KEY PLAYERS" /></b></div>
-            <div><h2 id="customer-flow-title"><span className="langZh">资金向下流动，<br /><span>价值在中间复利增长。</span></span><span className="langEn">Money flows down.<br /><span>Value compounds in the middle.</span></span></h2></div>
-          </header>
+      <section className="solutionChapterTransition" id="case-studies" aria-labelledby="case-study-transition-title">
+        <div className="solutionTransitionShell">
+          <div className="solutionTransitionIndex">
+            <span>02</span>
+            <b><B zh="案例研究" en="CASE STUDY" /></b>
+          </div>
+          <div className="solutionTransitionCopy">
+            <p>BYTEPLUS PARTNER PROOF</p>
+            <h2 className="langZh" id="case-study-transition-title">从关键角色格局出发，看<strong>头部客户如何验证 BytePlus。</strong></h2>
+            <h2 className="langEn">From the key-player landscape to <strong>proof from BytePlus&apos;s leading partners.</strong></h2>
+          </div>
+        </div>
+      </section>
 
+      <section className="customerFlowPage" id="players" aria-label="广告产业四类参与者与关键趋势">
+        <div className="customerFlowShell">
           <div className="customerFlowCanvas">
             <div className="customerFlowRoute" aria-label="广告产业四类参与者与关键趋势">
               <div className="customerFlowMoneyRail" aria-hidden="true"><span>$</span><i></i><em>↓</em></div>
@@ -449,7 +514,6 @@ export default function Home() {
                 {customerFlowStages.map((stage) => (
                   <article className="customerFlowStage" key={stage.index}>
                     <div className="customerFlowIdentity"><span>{stage.index}</span><h3><B zh={stage.title} en={stage.titleEn} /></h3></div>
-                    <div className="customerFlowRole"><small><B zh="预算角色" en="BUDGET ROLE" /></small><h4><B zh={stage.budgetRole} en={stage.budgetRoleEn} /></h4></div>
                     <div className="customerFlowTrend"><small><B zh="关键趋势" en="KEY TREND" /></small><h4><B zh={stage.trend} en={stage.trendEn} /></h4></div>
                     <div className="customerFlowExamples"><small><B zh="代表对象" en="REPRESENTATIVE" /></small><b><B zh={stage.examples} en={stage.examplesEn ?? stage.examples} /></b></div>
                   </article>
@@ -464,135 +528,251 @@ export default function Home() {
       <section className="audienceSection customerCasesSection" id="customer-cases">
         <div className="shell">
           <div className="customerStories">
-            <article className="lorealCasePage" id="customer-brand" aria-label="典型全球品牌主业务模式">
-              <div className="lorealReportCanvas">
-                <section className="brandOwnerStudy" aria-label="典型全球品牌主的三层业务逻辑">
-                  <aside className="brandOwnerSpine">
-                    <span className="brandOwnerStudyNumber">2.1</span>
-                    <small><B zh="典型品牌主" en="TYPICAL BRAND OWNER" /></small>
-                    <h3><B zh="一个治理中枢，三层生产体系。" en="One governance spine. Three production layers." /></h3>
-                    <p><B zh="品牌资产、版权与合规由集团统一管理；具体生产需求在不同组织层完成决策与交付。" en="Brand assets, licensing, and compliance are governed centrally; production decisions and delivery happen across three operating layers." /></p>
-                    <div className="brandOwnerGovernance">
-                      <b><B zh="统一治理中枢" en="CENTRAL GOVERNANCE" /></b>
-                      <ul><li><B zh="品牌规范" en="Brand rules" /></li><li><B zh="资产与版权" en="Assets & rights" /></li><li><B zh="模型与额度" en="Models & credits" /></li><li><B zh="合规要求" en="Compliance" /></li></ul>
-                    </div>
-                  </aside>
-
-                  <div className="brandOwnerJourneys">
-                    <article className="brandOwnerJourney brandOwnerJourneyPlatform">
-                      <div className="brandOwnerJourneyIdentity"><span>01</span><div><small><B zh="集团平台" en="GROUP PLATFORM" /></small><h4><B zh="内部 AI 生产平台" en="Internal AI production platform" /></h4><p><B zh="决定哪些能力可获批并规模化使用。" en="Decides what can be approved and scaled." /></p></div></div>
-                      <ol><li><B zh="真实营销场景试点" en="Marketing use-case pilot" /></li><li><B zh="模型与额度池" en="Model & credit pool" /></li><li><B zh="IT / 法务 / 财务评估" en="IT / Legal / Finance review" /></li><li><B zh="集团规模化使用" en="Scaled group adoption" /></li></ol>
-                    </article>
-                    <article className="brandOwnerJourney brandOwnerJourneyTeams">
-                      <div className="brandOwnerJourneyIdentity"><span>02</span><div><small><B zh="业务团队" en="BUSINESS TEAMS" /></small><h4><B zh="品牌与市场团队" en="Brand and market teams" /></h4><p><B zh="将渠道目标转化为持续的内容需求。" en="Turns channel goals into recurring content demand." /></p></div></div>
-                      <ol><li><B zh="电商 / 社媒 / 官网需求" en="Commerce / social / web demand" /></li><li><B zh="完整素材清单" en="Complete asset plan" /></li><li><B zh="本地化与版本化" en="Localization & versioning" /></li><li><B zh="审核与多渠道交付" en="Review & delivery" /></li></ol>
-                    </article>
-                    <article className="brandOwnerJourney brandOwnerJourneyPartners">
-                      <div className="brandOwnerJourneyIdentity"><span>03</span><div><small><B zh="外部交付" en="EXTERNAL DELIVERY" /></small><h4><B zh="代理商与制作伙伴" en="Agency and production partners" /></h4><p><B zh="交付品牌主片与大型广告项目。" en="Delivers hero films and major campaigns." /></p></div></div>
-                      <ol><li><B zh="品牌简报" en="Brand brief" /></li><li><B zh="创意与制作" en="Creative & production" /></li><li><B zh="母版与品牌审核" en="Master & brand review" /></li><li><B zh="短版剪辑与本地化" en="Cutdowns & localization" /></li></ol>
-                    </article>
-                  </div>
-                </section>
-              </div>
-            </article>
-
             <article className="wppWorkPage agencyOperatingPage" id="customer-agency" aria-labelledby="agency-operating-title">
               <header className="agencyOperatingHero">
-                <div className="agencyOperatingIndex"><span>2.2</span><b><B zh="典型代理商" en="TYPICAL AGENCY" /></b></div>
+                <div className="agencyOperatingIndex"><span>CASE 1</span><b><B zh="典型代理商" en="TYPICAL AGENCY" /></b></div>
                 <div className="agencyOperatingTitle">
-                  <p><B zh="AI 采用路径" en="AI ADOPTION PATH" /></p>
-                  <h3 id="agency-operating-title"><span className="langZh">从创意切入，<br /><strong>拓展至制作与媒体。</strong></span><span className="langEn">Start with Creative.<br /><strong>Expand into Production and Media.</strong></span></h3>
+                  <h3 id="agency-operating-title">WPP Open</h3>
+                </div>
+                <div className="agencyOperatingPlatform">
+                  <span><B zh="代理商自建 AI 平台" en="IN-HOUSE AGENCY AI PLATFORM" /></span>
+                  <b>WPP Open</b>
+                  <strong>80,000+</strong>
+                  <em><B zh="覆盖的 WPP 员工" en="WPP employees covered" /></em>
                 </div>
               </header>
 
-              <section className="agencyOperatingWorkflow agencyAdoptionMap" aria-label="典型代理商 Creative、Production 与 Media 三层 AI 渗透路径">
-                <ol>
+              <section className="agencyOperatingWorkflow agencyLanes" aria-label="WPP Open 三段采用路径与 Seedance 应用">
+                <header className="agencyAdoptionIntro">
+                  <h4><B zh={<>从创意切入，<strong>拓展至制作与媒体。</strong></>} en={<>Start with Creative. <strong>Expand into Production and Media.</strong></>} /></h4>
+                </header>
+
+                <ol className="agencyStages">
                   <li>
                     <span>01</span>
-                    <div><small>CREATIVE · <B zh="高采用率" en="HIGH ADOPTION" /></small><h4><B zh="洞察、概念与创意预演" en="Insight, concepts, and previsualization" /></h4><p><B zh="快速生成关键视觉、分镜与短片预演，缩短提案和审片周期。" en="Generate key visuals, boards, and short previews to accelerate pitches and reviews." /></p></div>
+                    <div>
+                      <small>CREATIVE · <B zh="创意" en="IDEATION" /></small>
+                      <h5><B zh="Ogilvy · VML · AKQA · 约 5 万人" en="Ogilvy · VML · AKQA · ~50k people" /></h5>
+                      <p><B zh="brief → 洞察 → 概念 → pre-vis" en="Brief → insight → concept → pre-vis" /></p>
+                    </div>
                   </li>
                   <li>
                     <span>02</span>
-                    <div><small>PRODUCTION · <B zh="初步应用" en="EMERGING" /></small><h4><B zh="实拍、CG 与 AI 混合制作" en="Live action, CG, and AI production" /></h4><p><B zh="先锁定产品、镜头与运动，再由模型完成环境、补充镜头和特效。" en="Lock product, camera, and motion first; use models for environments, extra shots, and VFX." /></p></div>
+                    <div>
+                      <small>PRODUCTION · <B zh="制作" en="MAKING" /></small>
+                      <h5><B zh="Hogarth 与约 1 万制作人" en="Hogarth and ~10k makers" /></h5>
+                      <p><B zh="2026 年 1 月宣布组建 · 2 月 23 日生效 — 拍摄 / CG / 后期 → 变体与本地化" en="Announced Jan 2026 · effective Feb 23 — shoot / CG / post → variants & localization" /></p>
+                    </div>
                   </li>
                   <li>
                     <span>03</span>
-                    <div><small>MEDIA · <B zh="规模化应用" en="SCALING" /></small><h4><B zh="母版版本化与媒体变体" en="Master versioning and media variants" /></h4><p><B zh="基于已审核母版生成不同语言、格式、开场钩子、行动引导和人群版本。" en="Turn an approved master into language, format, hook, CTA, and audience variants." /></p></div>
+                    <div>
+                      <small>MEDIA · <B zh="投放" en="ACTIVATION" /></small>
+                      <h5><B zh="WPP Media：原 GroupM" en="WPP Media: formerly GroupM" /></h5>
+                      <p><B zh="投放计划 / 采买 / 优化 / 测量" en="Planning / buying / optimization / measurement" /></p>
+                    </div>
                   </li>
                 </ol>
+                <section className="agencyProductProof" aria-label="WPP Open workspace">
+                  <div className="agencyProductProofGrid">
+                    <figure className="agencyWorkspaceShot">
+                      <img src="/media/wpp/canvas.webp" alt="WPP Open Canvas：在 AI 生成的人群画像上验证创意概念" loading="lazy" />
+                    </figure>
+
+                    <div className="agencyProofPanel">
+                      <div className="agencyProofVideos">
+                        <figure>
+                          <video src="/media/wpp-auto-input.mp4" autoPlay loop muted playsInline preload="auto" aria-label="实拍汽车运动参考片段" />
+                          <figcaption><span>INPUT</span></figcaption>
+                        </figure>
+                        <i aria-hidden="true">→</i>
+                        <figure>
+                          <video src="/media/wpp-auto-final.mp4" autoPlay loop muted playsInline preload="auto" aria-label="生成式汽车广告成片片段" />
+                          <figcaption><span>OUTPUT</span></figcaption>
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                </section>
               </section>
+            </article>
 
-              <section className="agencyOperatingCase" aria-label="典型代理商汽车广告混合制作示例">
-                <header>
-                  <div><span><B zh="制作案例 · 汽车广告" en="PRODUCTION DEMO · AUTOMOTIVE" /></span></div>
-                </header>
+            <article className="wppWorkPage wppQuotePage" aria-label="WPP 对 Seedance 的评价">
+              <blockquote className="wppQuote">
+                <span className="wppQuoteMark" aria-hidden="true">&ldquo;</span>
+                <p>
+                  Production teams are telling me they&rsquo;re using Seedance 2.0 and that they prefer it
+                  over Veo. I&rsquo;ve spoken to teams in Singapore, Australia, Brazil, Mexico, the US, the
+                  UK and Spain &mdash; they&rsquo;re all telling me <strong>Seedance is way better, and the
+                  word is out.</strong>
+                </p>
+                <footer>
+                  <b>Akia Mitchell</b>
+                  <span>VP Global Strategic Partnerships, WPP</span>
+                </footer>
+              </blockquote>
+            </article>
 
-                <div className="agencyOperatingClips">
-                  <figure>
-                    <video src="/media/wpp-auto-input.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="封闭场地实拍运动参考片段" />
-                    <figcaption><span>01</span><B zh="实拍参考：锁定车辆路径与镜头运动" en="Live-action reference: lock vehicle path and camera motion" /></figcaption>
-                  </figure>
-                  <i aria-hidden="true">→</i>
-                  <figure>
-                    <video src="/media/wpp-auto-final.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="生成式汽车广告场景和特效成片片段" />
-                    <figcaption><span>02</span><B zh="生成式成片：重建环境、材质与特效" en="Generative final: rebuild environment, material, and VFX" /></figcaption>
-                  </figure>
+            <article className="appLovinCase wppWorkPage" id="customer-brand" aria-label="AppLovin AI 创意规模化案例研究">
+              <header className="appLovinCaseHero">
+                <div className="appLovinCaseIndex"><span>CASE 2</span><b><B zh="广告技术" en="ADTECH" /></b></div>
+                <div className="appLovinCaseTitle">
+                  <span className="appLovinWordmarkText">AppLovin</span>
                 </div>
+              </header>
 
-                <div className="agencyOperatingProof">
-                  <div><span><B zh="实拍保留" en="LIVE ACTION" /></span><strong><B zh="速度 · 路径 · 镜头" en="SPEED · PATH · CAMERA" /></strong></div>
-                  <div><span><B zh="AI 生成" en="AI LAYER" /></span><strong><B zh="环境 · 材质 · 特效" en="SCENE · LOOK · VFX" /></strong></div>
-                  <div><span><B zh="最终交付" en="DELIVERY" /></span><strong><B zh="母版 · 多版本" en="MASTER · VARIANTS" /></strong></div>
-                </div>
-              </section>
+              <div className="appLovinCaseBody">
+                <section className="appLovinBlock appLovinFlywheelBlock">
+                  <article className="appLovinFlywheel" aria-labelledby="appLovin-flywheel-title">
+                    <div className="appLovinFlywheelCanvas">
+                      <section className="appLovinFlywheelClaim appLovinFlywheelClaimInputs">
+                        <div className="appLovinFlywheelClaimMeta">
+                          <span>01</span>
+                          <small><B zh="新增一环" en="NEW POINT" /></small>
+                        </div>
+                        <h4><B zh="更多创意输入" en="More creative inputs" /></h4>
+                      </section>
+
+                      <div
+                        className="appLovinFlywheelCycle"
+                        role="img"
+                        aria-label="更多创意输入驱动 AXON 更快学习，带来更高广告效率，并循环回到下一轮创意输入"
+                      >
+                        <div className="appLovinFlywheelRing" aria-hidden="true">
+                          <i className="appLovinFlywheelArrow appLovinFlywheelArrowInput" />
+                          <i className="appLovinFlywheelArrow appLovinFlywheelArrowLearn" />
+                          <i className="appLovinFlywheelArrow appLovinFlywheelArrowScale" />
+                        </div>
+                        <div className="appLovinFlywheelCore">
+                          <img src="/media/applovin/app-lovin-logo.png" alt="AppLovin" />
+                        </div>
+                      </div>
+
+                      <section className="appLovinFlywheelClaim appLovinFlywheelClaimLearning">
+                        <div className="appLovinFlywheelClaimMeta"><span>02</span><small>AXON</small></div>
+                        <h4><B zh="更快 AXON 学习" en="Faster AXON learning" /></h4>
+                      </section>
+
+                      <section className="appLovinFlywheelClaim appLovinFlywheelClaimEfficiency">
+                        <div className="appLovinFlywheelClaimMeta"><span>03</span><small><B zh="效果回流" en="SIGNAL RETURN" /></small></div>
+                        <h4><B zh="更高广告效率" en="Higher ads efficiency" /></h4>
+                      </section>
+                    </div>
+
+                    <footer className="appLovinFlywheelFooter">
+                      <h4 id="appLovin-flywheel-title"><B zh="AppLovin 规模飞轮" en="AppLovin Flywheel of Scale" /></h4>
+                    </footer>
+                  </article>
+                </section>
+
+                <section className="appLovinBlock appLovinCreativeSetProof" aria-label="AppLovin Creative Set product interface">
+                  <figure>
+                    <img src="/media/applovin/creative-set-dashboard.png" alt="AppLovin Ads Creative Set 素材管理界面，支持添加视频、互动广告和图片素材" />
+                  </figure>
+                </section>
+
+                <ClipFullscreen />
+                <section className="appLovinBlock appLovinAxonCompare">
+                  <article className="appLovinAxonAfter">
+                    <div className="appLovinAxonEngine">
+                      <div className="appLovinOutputs">
+                      <div className="appLovinOutput">
+                        <div className="appLovinOutputHead">
+                          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 17l5-10 4 6 2-3 5 7H4z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg>
+                          <b><B zh="互动广告" en="INTERACTIVE" /></b>
+                        </div>
+                        <div className="appLovinOutputClips">
+                          <div className="appLovinClip"><video src="/media/applovin/automating-creative-01.mp4" autoPlay loop muted playsInline preload="auto" aria-label="AppLovin 互动广告自动生成示例 1" /><button type="button" className="appLovinClipFs" aria-label="全屏播放：AppLovin 互动广告自动生成示例 1"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button></div>
+                          <div className="appLovinClip"><video src="/media/applovin/automating-creative-02.mp4" autoPlay loop muted playsInline preload="auto" aria-label="AppLovin 互动广告自动生成示例 2" /><button type="button" className="appLovinClipFs" aria-label="全屏播放：AppLovin 互动广告自动生成示例 2"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button></div>
+                        </div>
+                      </div>
+
+                      <div className="appLovinOutput">
+                        <div className="appLovinOutputHead">
+                          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2" stroke="currentColor" strokeWidth="1.6"/><path d="M16 10.5l5-3v9l-5-3" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg>
+                          <b><B zh="视频广告" en="VIDEO" /></b>
+                        </div>
+                        <div className="appLovinOutputClips">
+                          <div className="appLovinClip"><video src="/media/applovin/generating-video-01.mp4" autoPlay loop muted playsInline preload="auto" aria-label="AppLovin 视频广告自动生成示例 1" /><button type="button" className="appLovinClipFs" aria-label="全屏播放：AppLovin 视频广告自动生成示例 1"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button></div>
+                          <div className="appLovinClip"><video src="/media/applovin/generating-video-02.mp4" autoPlay loop muted playsInline preload="auto" aria-label="AppLovin 视频广告自动生成示例 2" /><button type="button" className="appLovinClipFs" aria-label="全屏播放：AppLovin 视频广告自动生成示例 2"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button></div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+
+                  </article>
+                </section>
+
+              </div>
             </article>
 
             <article className="adtechCasePage" id="customer-adtech" aria-labelledby="adtech-case-title">
               <header className="adtechCaseHeader">
-                <div className="adtechCaseIndex"><span>2.3</span><b><B zh="广告技术 / 付费媒体" en="ADTECH / PAID MEDIA" /></b></div>
-                <div>
-                  <p><B zh="投放智能体 · 标准工作流" en="CAMPAIGN AGENT · STANDARD WORKFLOW" /></p>
-                  <h3 id="adtech-case-title"><span className="langZh">广告技术与付费媒体的素材闭环：<br /><span>从市场洞察到投放反馈。</span></span><span className="langEn">The AdTech and paid-media creative loop:<br /><span>from market insight to media feedback.</span></span></h3>
+                <div className="adtechCaseIndex"><span>CASE 3</span><b><B zh="付费媒体" en="PAID MEDIA" /></b></div>
+                <div className="adtechCaseTitle">
+                  <h3 id="adtech-case-title">TikTok · Smart+</h3>
+                  <p>CREATIVES ENABLEMENT</p>
                 </div>
               </header>
 
               <div className="adtechGrowthCanvas">
-                <section className="adtechAgentPanel" aria-label="Campaign Agent 端到端标准流程">
-                  <div className="adtechManagerStrip" aria-label="市场主流 Ad Manager 平台">
-                    <span><B zh="代表性广告管理平台与 Campaign 产品" en="REPRESENTATIVE AD MANAGERS AND CAMPAIGN PRODUCTS" /></span>
-                    <ul>
-                      <li><b>TikTok</b><small>Ads Manager · Smart+</small></li>
-                      <li><b>Meta</b><small>Ads Manager · Advantage+</small></li>
-                      <li><b>YouTube</b><small>Google Ads · PMax</small></li>
-                      <li><b>AppLovin</b><small>AXON</small></li>
-                      <li><b>AdTech</b><small><B zh="钛动 Navos · Smartly.io" en="TecDo Navos · Smartly.io" /></small></li>
-                    </ul>
+                <section className="tiktokCreativeEnablement" aria-labelledby="tiktok-creative-enablement-title">
+                  <header className="tiktokCreativeIntro">
+                    <h4 id="tiktok-creative-enablement-title">
+                      <B
+                        zh={<>超越自动出价与定向，<strong>更进一步赋能创意。</strong></>}
+                        en={<>Beyond automated bidding &amp;targeting, <strong>more on Creatives enablement.</strong></>}
+                      />
+                    </h4>
+                    <a className="tiktokCreativeDetails" href="https://bytedance.sg.larkoffice.com/docx/Zdpvd5J8ioXVxmxeiTzlDVfDg5E" target="_blank" rel="noreferrer">
+                      More details <span aria-hidden="true">↗</span>
+                    </a>
+                  </header>
+
+                  <div className="tiktokCreativeGrid">
+                    <article className="tiktokCreativeCapability" tabIndex={0} aria-label="Recommended Creatives and Automatic Enhancements">
+                      <header>
+                        <span>01</span>
+                        <div>
+                          <small>SMART+ CREATIVE</small>
+                          <h5><B zh="推荐创意与自动增强" en="Recommended Creatives and Automatic Enhancements" /></h5>
+                        </div>
+                      </header>
+                      <figure>
+                        <img src="/media/tiktok/creative-recommendations.png" alt="TikTok Ads Manager 推荐创意、自动生成素材，以及视频与图片自动增强界面" loading="lazy" />
+                      </figure>
+                      <p><B zh="基于落地页与历史效果推荐素材，并在投放过程中自动完成视频和图片增强。" en="Recommends assets from destination and performance signals, then applies video and image enhancements during delivery." /></p>
+                    </article>
+
+                    <article className="tiktokCreativeCapability" tabIndex={0} aria-label="More Ad Formats">
+                      <header>
+                        <span>02</span>
+                        <div>
+                          <small>FORMAT EXPANSION</small>
+                          <h5><B zh="更多广告形式" en="More Ad Formats" /></h5>
+                        </div>
+                      </header>
+                      <figure>
+                        <img src="/media/tiktok/more-ad-formats.png" alt="TikTok Ads Manager 使用商品信息创建个性化广告变体并实时预览的界面" loading="lazy" />
+                      </figure>
+                      <p><B zh="用商品信息与卖点快速生成多种广告变体，并直接在版位预览中校验呈现效果。" en="Turns product information and selling points into more ad variations, with direct placement preview." /></p>
+                    </article>
+
+                    <article className="tiktokCreativeCapability" tabIndex={0} aria-label="Flexible Catalog Ads Creation">
+                      <header>
+                        <span>03</span>
+                        <div>
+                          <small>CATALOG SCALE</small>
+                          <h5><B zh="灵活的商品目录广告创建" en="Flexible Catalog Ads Creation" /></h5>
+                        </div>
+                      </header>
+                      <figure>
+                        <img src="/media/tiktok/flexible-catalog-ads.png" alt="TikTok Ads Manager 从商品目录选择产品并自动生成 Catalog Carousel 广告的界面" loading="lazy" />
+                      </figure>
+                      <p><B zh="从商品目录灵活选择产品、关联素材，并自动生成可规模化投放的目录广告变体。" en="Selects products and linked creatives flexibly, then generates scalable catalog ad variations automatically." /></p>
+                    </article>
                   </div>
-
-                  <ol className="adtechAgentSteps" aria-label="Campaign Agent 端到端五步流程">
-                    <li>
-                      <span>01</span>
-                      <div><h5><B zh="市场洞察" en="Market insight" /></h5><p><B zh="追踪社媒热点、舆情与竞品信号，找出高潜创意方向。" en="Track social trends, sentiment and competitor signals for high-potential directions." /></p></div>
-                    </li>
-                    <li>
-                      <span>02</span>
-                      <div><h5><B zh="广告脚本" en="Ad scripts" /></h5><p><B zh="自动生成开场创意、分镜与行动引导，形成可执行脚本。" en="Generate executable scripts with hooks, boards and calls to action." /></p></div>
-                    </li>
-                    <li>
-                      <span>03</span>
-                      <div><h5><B zh="素材自动化生产" en="Automated creative production" /></h5><p><B zh="调用 Seedream + Seedance 批量生成可投素材，素材自动化嵌入主链路，成为每次投放的必要能力。" en="Seedream + Seedance batch-produce ready-to-run assets — creative automation embedded in the main loop, required on every launch." /></p></div>
-                    </li>
-                    <li>
-                      <span>04</span>
-                      <div><h5><B zh="投放与测试" en="Launch and test" /></h5><p><B zh="小预算多变体上线，近实时归因筛选胜出素材。" en="Small-budget multi-variant launches with near-real-time attribution." /></p></div>
-                    </li>
-                    <li>
-                      <span>05</span>
-                      <div><h5><B zh="胜出素材迭代" en="Iterate winning creative" /></h5><p><B zh="将聚合效果信号回流到洞察与脚本，保留胜出结构并替换商品、人物或市场变量。" en="Feed aggregated performance signals back into insight and scripts; keep winning structures while changing product, cast or market variables." /></p></div>
-                    </li>
-                  </ol>
                 </section>
-
               </div>
             </article>
           </div>
@@ -958,7 +1138,7 @@ export default function Home() {
       <MoreDemosGallery />
 
       <footer className="footer shell">
-        <div className="brand"><span className="brandMark">B</span><span>ADS Creative Solution</span></div>
+        <div className="brand"><img className="brandLogo" src="/byteplus-logo.png" alt="BytePlus" width="381" height="71" /><span>ADS Creative Solution</span></div>
         <p>Advertising Industry AI Creative Production Strategy · 2026</p>
         <a href="#top"><B zh="回到顶部 ↑" en="Back to top ↑" /></a>
       </footer>
