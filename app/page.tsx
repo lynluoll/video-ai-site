@@ -1,9 +1,12 @@
 import InlineTextEditor from "./InlineTextEditor";
-import ArchitectureImageLightbox from "./ArchitectureImageLightbox";
 import PlayableClipLightbox from "./PlayableClipLightbox";
 import MarketTrackAutoReveal from "./MarketTrackAutoReveal";
 import MoreDemosGallery from "./MoreDemosGallery";
 import DisplayDemoGallery from "./DisplayDemoGallery";
+import PauseWhenHiddenVideo from "./PauseWhenHiddenVideo";
+import BrandCapabilityImage from "./BrandCapabilityImage";
+import PerformanceLocalizationDemo from "./PerformanceLocalizationDemo";
+import { projectVideoUrl } from "./media";
 
 const B = ({ zh, en }: { zh: React.ReactNode; en: React.ReactNode }) => (
   <>
@@ -160,6 +163,23 @@ const solutionVideoDemos = {
     },
   ],
 };
+
+const performanceSkuAssets = [
+  { index: "01", src: "/media/performance-2026/multi-sku-skus/01-khaki-trench-coat.png", zh: "卡其风衣", en: "Trench coat" },
+  { index: "02", src: "/media/performance-2026/multi-sku-skus/02-white-crew-neck-top.png", zh: "白色圆领上衣", en: "Crew-neck top" },
+  { index: "03", src: "/media/performance-2026/multi-sku-skus/03-dark-blue-straight-jeans.png", zh: "深蓝直筒牛仔裤", en: "Straight jeans" },
+  { index: "04", src: "/media/performance-2026/multi-sku-skus/04-light-blue-mini-dress.png", zh: "浅蓝短裙", en: "Mini dress" },
+  { index: "05", src: "/media/performance-2026/multi-sku-skus/05-denim-overshirt.png", zh: "牛仔外套", en: "Denim overshirt" },
+  { index: "06", src: "/media/performance-2026/multi-sku-skus/06-cream-cardigan.png", zh: "奶油色开衫", en: "Cream cardigan" },
+  { index: "07", src: "/media/performance-2026/multi-sku-skus/07-cream-square-neck-top.png", zh: "方领上衣", en: "Square-neck top" },
+  { index: "08", src: "/media/performance-2026/multi-sku-skus/08-cream-wide-leg-pants.png", zh: "阔腿裤", en: "Wide-leg pants" },
+  { index: "09", src: "/media/performance-2026/multi-sku-skus/09-white-cropped-zip-hoodie.png", zh: "短款连帽衫", en: "Cropped hoodie" },
+  { index: "10", src: "/media/performance-2026/multi-sku-skus/10-white-jogger-pants.png", zh: "白色运动裤", en: "White joggers" },
+  { index: "11", src: "/media/performance-2026/multi-sku-skus/11-gray-quarter-zip-sweatshirt.png", zh: "灰色拉链卫衣", en: "Zip sweatshirt" },
+  { index: "12", src: "/media/performance-2026/multi-sku-skus/12-black-maxi-dress.png", zh: "黑色长裙", en: "Maxi dress" },
+  { index: "13", src: "/media/performance-2026/multi-sku-skus/13-woven-straw-tote.png", zh: "编织手提包", en: "Woven tote" },
+  { index: "14", src: "/media/performance-2026/multi-sku-skus/14-gray-sweatpants.png", zh: "灰色运动裤", en: "Gray sweatpants" },
+];
 
 const customerFlowStages = [
   {
@@ -596,144 +616,240 @@ export default function Home() {
       <div className="productionChapter">
       <section className="section shell solutions">
         <div className="solutionPages">
-          <article className="solutionPage brandSolutionPage" id="solution-brand" aria-labelledby="brand-solution-title">
-            <header className="brandSolutionHeader">
-              <div className="brandSolutionIndex"><span>3.1</span><b>BRAND PRODUCTION</b></div>
-              <div className="brandSolutionTitle">
-                <h3 className="langZh" id="brand-solution-title">品牌广告生产解决方案</h3>
-                <h3 className="langEn">Brand Advertising Production Solution</h3>
+          <article className="solutionPage brandHeroPage" id="solution-brand" aria-labelledby="brand-hero-title">
+            <header className="brandHeroHeader">
+              <div className="brandHeroIndex"><span>3.1A</span><b>BRAND FILM</b></div>
+              <div className="brandHeroCopy">
+                <p>HERO FILM</p>
+                <h3 id="brand-hero-title"><B zh="多种镜头，直出一支完整品牌片。" en="Multiple shots. One coherent brand film." /></h3>
               </div>
-              <div className="solutionHeaderActions">
-                <a className="solutionDetailLink" href="https://sofa-demo.byteplus-demo.com/" target="_blank" rel="noopener noreferrer"><span className="langZh">查看方案详情</span><span className="langEn">View solution details</span><b>↗</b></a>
+              <div className="brandHeroLinks">
+                <a className="brandHeroLink langZh" href="https://bytedance.larkoffice.com/wiki/SNVXw69gTi515kkVoi8c98BznKh" target="_blank" rel="noopener noreferrer">查看更多样片 <b>↗</b></a>
+                <a className="brandHeroLink langEn" href="https://bytedance.sg.larkoffice.com/docx/TmsqdH9TeoPVYyxzpZ9lwH91g7c" target="_blank" rel="noopener noreferrer">View more demos <b>↗</b></a>
+              </div>
+            </header>
+            <div className="brandHeroStage">
+              <PauseWhenHiddenVideo
+                className="brandHeroVideo"
+                src={projectVideoUrl("media/brand-fragrance/hero-film.mp4")}
+                poster="/media/brand-fragrance/hero-poster.jpg"
+                ariaLabel="Fragrance brand film"
+              />
+            </div>
+          </article>
+
+          <article className="solutionPage brandCapabilitiesPage" id="solution-brand-capabilities" aria-labelledby="brand-capabilities-title">
+            <header className="brandCapabilitiesHeader">
+              <div className="brandCapabilitiesIndex"><span>3.1B</span><b>MODEL CAPABILITIES</b></div>
+              <div>
+                <p>BRAND-FILM EVIDENCE</p>
+                <h3 id="brand-capabilities-title"><B zh="一支生产可用的品牌片，背后是四项模型能力。" en="Four capabilities behind a production-ready brand film." /></h3>
               </div>
             </header>
 
-            <div className="brandSolutionBody">
-              <section className="brandSofaPanel" aria-label="Sofa 品牌广告成片">
-                <header><span>SOFA DEMO</span><b className="langZh">从产品标准图到品牌成片</b><b className="langEn">From packshot to brand film</b></header>
-                <video src="/media/sofa/final-film.mp4" poster="/media/sofa/final-film-poster.jpg" controls loop playsInline preload="metadata" aria-label="Sofa CG 与 Seedance 品牌广告成片" />
-              </section>
-
-              <section className="brandArchitecturePanel" aria-label="Sofa CG 与 AI 五阶段制作架构">
-                <header><span>PRODUCTION ARCHITECTURE</span><b className="langZh">CG 锁定控制，AI 完成输出</b><b className="langEn">CG locks control. AI delivers output.</b></header>
-                <div className="brandOriginalArchitecture">
-                  <div className="brandOriginalFlow">
-                    <section className="arch-stage">
-                      <header className="arch-stage__head"><span className="arch-stage__no">01</span><b className="langZh">输入资产</b><b className="langEn">Input Assets</b></header>
-                      <figure className="arch-input"><img src="/media/sofa/input-texture.jpg" alt="材质参考" /><figcaption>Texture · material<span className="arch-to">→ AI composite ④</span></figcaption></figure>
-                      <figure className="arch-input"><img src="/media/sofa/input-environment.jpg" alt="环境参考" /><figcaption>Environment<span className="arch-to">→ scene ③ · video ⑤</span></figcaption></figure>
-                      <figure className="arch-input"><img src="/media/sofa/input-packshot.jpg" alt="商品 Packshot" /><figcaption>Product · packshot<span className="arch-to">→ vision + 3D ②</span></figcaption></figure>
-                      <figure className="arch-input"><img src="/media/sofa/input-character.jpg" alt="人物参考" /><figcaption>Character<span className="arch-to">→ reference</span></figcaption></figure>
-                    </section>
-                    <i className="arch-arrow" aria-hidden="true">→</i>
-
-                    <section className="arch-stage">
-                      <header className="arch-stage__head"><span className="arch-stage__no">02</span><b className="langZh">AI 理解 + 数字孪生</b><b className="langEn">AI Understanding + Digital Twin</b></header>
-                      <div className="arch-node"><div className="arch-node__t arch-node__t--model">Vision LLM · Seed 2.1</div><div className="arch-node__m">Visual understanding · spec</div></div>
-                      <div className="arch-down" aria-hidden="true">↓</div>
-                      <div className="arch-node arch-node--ghost arch-spec"><div className="arch-node__t">Vision spec · anchor</div><div className="arch-spec__b">Solid oak sofa · linen <span>#E8E5DF</span><br />locks colour / material / size / structure</div></div>
-                      <div className="arch-node arch-twin"><div className="arch-node__t arch-node__t--model">3D model · Seed3D 2.0</div><div className="arch-node__m">Image → 3D digital twin</div><div className="arch-twin__viewer"><img src="/media/sofa/digital-twin-poster.png" alt="沙发 3D 数字孪生" /></div></div>
-                    </section>
-                    <i className="arch-arrow" aria-hidden="true">→</i>
-
-                    <section className="arch-stage">
-                      <header className="arch-stage__head"><span className="arch-stage__no">03</span><b className="langZh">CG 控制 · Blender</b><b className="langEn">CG Control · Blender</b></header>
-                      <div className="arch-node"><div className="arch-node__t">Set design · camera control</div><div className="arch-node__m">Multi-angle · product consistency</div><div className="arch-thumbs arch-thumbs--row"><img src="/media/sofa/digital-twin.png" alt="" /><img src="/media/sofa/cg-angle.jpg" alt="" /><img src="/media/sofa/cg-scene.jpg" alt="" /></div></div>
-                      <div className="arch-node"><div className="arch-node__t">Lighting control</div><div className="arch-node__m">Mood · shadows</div><div className="arch-thumbs arch-thumbs--2"><img src="/media/sofa/lighting-1.jpg" alt="" /><img src="/media/sofa/lighting-2.jpg" alt="" /></div></div>
-                    </section>
-                    <i className="arch-arrow" aria-hidden="true">→</i>
-
-                    <section className="arch-stage">
-                      <header className="arch-stage__head"><span className="arch-stage__no">04</span><b className="langZh">图像渲染</b><b className="langEn">Image Rendering</b></header>
-                      <div className="arch-node"><div className="arch-node__t">Blender render</div><div className="arch-node__m">Composite plate · any angle</div><div className="arch-thumbs arch-thumbs--2x2"><img src="/media/sofa/cg-angle.jpg" alt="" /><img src="/media/sofa/cg-scene.jpg" alt="" /><img src="/media/sofa/render-detail.jpg" alt="" /><img src="/media/sofa/digital-twin.png" alt="" /></div></div>
-                      <div className="arch-down" aria-hidden="true">↓</div>
-                      <div className="arch-node"><div className="arch-node__t arch-node__t--model">Seedream 5.0 Pro</div><div className="arch-node__m">AI compositing</div><div className="arch-tags"><span>quality boost</span><span>environment</span><span>product</span><span>material</span><span>upscale</span></div></div>
-                    </section>
-                    <i className="arch-arrow" aria-hidden="true">→</i>
-
-                    <section className="arch-stage">
-                      <header className="arch-stage__head"><span className="arch-stage__no">05</span><b className="langZh">最终输出 · KV + 视频</b><b className="langEn">Final Output · KV + Video</b></header>
-                      <div className="arch-node"><div className="arch-node__t">Final KV</div><div className="arch-kv"><figure><img src="/media/sofa/kv-side.jpg" alt="侧面 KV" /></figure><figure><img src="/media/sofa/kv-mcu.jpg" alt="中近景 KV" /></figure><figure><img src="/media/sofa/kv-wide.jpg" alt="宽景 KV" /></figure><figure><img src="/media/sofa/kv-ultrawide.jpg" alt="超宽景 KV" /></figure></div></div>
-                      <div className="arch-node arch-node--ghost arch-merge"><div className="arch-node__t">+ Prompt</div></div>
-                      <div className="arch-node"><div className="arch-node__t arch-node__t--model">Seedance 2.0</div><div className="arch-node__m">Video generation</div></div>
-                      <div className="arch-node"><div className="arch-node__t">Editing · sound</div><div className="arch-node__m">CapCut</div></div>
-                      <div className="arch-node arch-node--final"><div className="arch-node__t">▸ Production-ready videos</div></div>
-                    </section>
-                  </div>
-                  <footer>CG DELIVERS CONTROL · AI DELIVERS OUTPUT</footer>
+            <div className="brandCapabilitiesBody">
+              <section className="brandCapabilityRow">
+                <div className="brandCapabilityCopy"><span>01</span><h4><B zh="人物真实感与自然表演" en="Photoreal Characters & Natural Performance" /></h4><p><B zh="自然肤质、眼神、表情与手部互动在不同镜头中持续可信。" en="Natural skin, eyes, expressions and hand–object interaction remain convincing across shots." /></p></div>
+                <div className="brandCapabilityFrames">
+                  <BrandCapabilityImage src="/media/brand-fragrance/human-side.jpg" alt="Side-lit human performance" />
+                  <BrandCapabilityImage src="/media/brand-fragrance/human-front.jpg" alt="Front portrait with natural catchlights" />
+                  <BrandCapabilityImage src="/media/brand-fragrance/human-hand.jpg" alt="Hand interacting with light fabric" />
                 </div>
-                <ArchitectureImageLightbox />
               </section>
 
-              <section className="brandDemoStrip" id="solution-brand-demos" aria-label="品牌广告四个视频 Demo">
-                <header><span>4 × BRAND DEMOS</span></header>
-                <div className="brandDemoCompactGrid">
-                  {solutionVideoDemos.brand.map((demo) => (
-                    <figure className="brandDemoCompactCard" key={demo.src}>
-                      <div><video src={demo.src} poster={demo.poster} controls muted playsInline preload="metadata" aria-label={`${demo.title}品牌广告视频 Demo`} /><span>{demo.order}</span></div>
-                    </figure>
-                  ))}
+              <section className="brandCapabilityRow">
+                <div className="brandCapabilityCopy"><span>02</span><h4><B zh="商品与材质影视级写实" en="Photoreal Products & Materials" /></h4><p><B zh="玻璃、金属、液体、花瓣和织物保持真实的光学与材质表现。" en="Glass, metal, liquid, petals and fabric preserve realistic optical and material behavior." /></p></div>
+                <div className="brandCapabilityFrames">
+                  <BrandCapabilityImage src="/media/brand-fragrance/material-macro.jpg" alt="Perfume bottle material macro" />
+                  <BrandCapabilityImage src="/media/brand-fragrance/material-bottle.jpg" alt="Perfume bottle in natural light" />
+                  <BrandCapabilityImage src="/media/brand-fragrance/material-water.jpg" alt="Water and petal macro detail" />
+                </div>
+              </section>
+
+              <section className="brandCapabilityRow">
+                <div className="brandCapabilityCopy"><span>03</span><h4><B zh="多种镜头原生直出" en="Multiple Shot Types, Generated Natively" /></h4><p><B zh="一次直出全景、运动镜头与商品特写，并保持人物、商品和光影连续。" en="Directly outputs establishing, motion and product close-up shots while preserving character, product and lighting continuity." /></p></div>
+                <div className="brandCapabilityFrames">
+                  <BrandCapabilityImage src="/media/brand-fragrance/story-wide.jpg" alt="Wide establishing shot" />
+                  <BrandCapabilityImage src="/media/brand-fragrance/story-motion.jpg" alt="Motion shot through lavender" />
+                  <BrandCapabilityImage src="/media/brand-fragrance/story-product.jpg" alt="Product close-up in narrative context" />
+                </div>
+              </section>
+
+              <section className="brandCapabilityRow brandCapabilityDelivery">
+                <div className="brandCapabilityCopy"><span>04</span><h4><B zh="生产级母版交付" en="Production-Ready Mastering" /></h4><p><B zh="时长、格式、色彩、码率与原生声音均可衔接品牌制作流程。" en="Duration, format, color, bitrate and native audio align with professional brand-production workflows." /></p></div>
+                <div className="brandDeliverySpecs" aria-label="Production-ready output specifications">
+                  <div><strong>30s</strong><span><B zh="原生时长" en="Native duration" /></span></div>
+                  <div><strong>MOV</strong><span><B zh="直接输出" en="Direct output" /></span></div>
+                  <div><strong>4K</strong><span><B zh="原生分辨率" en="Native resolution" /></span></div>
+                  <div><strong>10-bit</strong><span><B zh="专业色深" en="Professional color depth" /></span></div>
+                  <div><strong><B zh="高码率" en="High bitrate" /></strong><span><B zh="母版级画质" en="Master-quality image" /></span></div>
+                  <div><strong><B zh="原生声音" en="Native audio" /></strong><span><B zh="对白 · 音乐 · 音效" en="Dialogue · Music · SFX" /></span></div>
                 </div>
               </section>
             </div>
           </article>
 
-          <article className="solutionPage performanceSolutionPage" id="solution-performance">
-            <header className="performanceSolutionHeader">
-              <div className="performanceSolutionIndex"><span>3.2</span><b>PERFORMANCE ADS</b></div>
-              <div><h3><B zh="效果广告生产解决方案" en="Performance Ads Production Solution" /></h3></div>
+          <article className="solutionPage performanceSolutionPage performanceDemoPage" id="solution-performance">
+            <header className="performanceV2Header">
+              <div className="performanceV2Index"><span>3.2</span><b>PERFORMANCE ADS</b></div>
+              <div className="performanceV2Title">
+                <span>MULTI-SKU VIDEO GENERATION</span>
+                <h3><span className="langZh">多件 SKU 输入，<br /><em>一支稳定一致的效果广告成片。</em></span><span className="langEn">Multiple SKUs in.<br /><em>One consistent performance video out.</em></span></h3>
+              </div>
+              <div className="performanceV2Ratio" aria-label="14 SKU inputs become one performance video"><strong>14</strong><span>SKU INPUTS</span><i>→</i><strong>1</strong><span>VIDEO</span></div>
+              <a className="performanceV2More" href="#demos"><B zh="更多样片" en="More demos" /><i>↗</i></a>
             </header>
 
-            <div className="performanceSolutionBody">
-              <section className="performanceProductionFlow" aria-label="效果广告五步运作链">
-                <ol>
-                  <li className="performanceFlowInsight">
-                    <header><span>01</span><b><B zh="趋势洞察" en="Trend insight" /></b></header>
-                    <div className="performanceFlowSummary"><strong><B zh="发现高潜创意" en="Find high-potential ideas" /></strong><p><B zh="热点 · 舆情 · 竞品信号" en="Trends · sentiment · competitors" /></p></div>
-                    <footer>Seed</footer>
-                  </li>
-                  <li className="performanceFlowScript">
-                    <header><span>02</span><b><B zh="广告脚本" en="Ad scripts" /></b></header>
-                    <div className="performanceFlowSummary"><strong><B zh="生成可执行脚本" en="Executable scripts" /></strong><p><B zh="Hook · 分镜 · CTA" en="Hooks · boards · CTAs" /></p></div>
-                    <footer>Seed</footer>
-                  </li>
-                  <li className="performanceFlowFocus">
-                    <header><span>03</span><b><B zh="AI 内容生产" en="AI production" /></b><em><B zh="核心" en="CORE" /></em></header>
-                    <div className="performanceFlowSummary"><strong><B zh="批量生成可投素材" en="Batch ready-to-run assets" /></strong><p><B zh="图像 · 视频 · 音频" en="Image · video · audio" /></p></div>
-                    <footer>Seedream + Seedance</footer>
-                  </li>
-                  <li className="performanceFlowTest">
-                    <header><span>04</span><b><B zh="投放测试" en="Launch tests" /></b></header>
-                    <div className="performanceFlowSummary"><strong><B zh="小预算筛选胜出素材" en="Small budgets pick winners" /></strong><p><B zh="归因 · 本地化 · 预审" en="Attribution · localization · pre-check" /></p></div>
-                    <footer>Campaign Agent</footer>
-                  </li>
-                  <li className="performanceFlowReplicate">
-                    <header><span>05</span><b><B zh="复刻胜出素材" en="Clone winners" /></b></header>
-                    <div className="performanceFlowSummary"><strong><B zh="保留胜出结构，替换变量" en="Keep the win, swap variables" /></strong><p><B zh="商品 · 人物 · 市场" en="Product · cast · market" /></p></div>
-                    <footer><B zh="胜出素材复刻 Agent" en="Winner-cloning agent" /></footer>
-                  </li>
-                </ol>
-                <footer className="performanceFeedbackRail"><strong><B zh="↺ 胜出素材回流至洞察，持续迭代" en="↺ Winners feed back into insight — keep iterating" /></strong></footer>
+            <div className="performanceV2DemoBody">
+              <section className="performanceV2SkuPanel" aria-label="14 个 SKU 输入素材">
+                <header><span>INPUT ASSETS</span><strong>14 SKU</strong></header>
+                <div className="performanceV2SkuMosaic">
+                  {performanceSkuAssets.map((sku) => (
+                    <figure key={sku.src}><img src={sku.src} alt={sku.en} /></figure>
+                  ))}
+                </div>
               </section>
 
-              <section className="performanceEvidenceGallery" id="solution-performance-demos" aria-label="效果广告四个视频 Demo 与能力证据">
-                {solutionVideoDemos.performance.map((demo) => (
-                  <article className="performanceEvidenceCard" key={demo.src}>
-                    <div className="performanceEvidenceVideo"><video src={demo.src} poster={demo.poster} controls muted playsInline preload="metadata" aria-label={`${demo.title}效果广告视频 Demo`} /><span>{demo.order}</span></div>
-                    <div className="performanceEvidenceMeta"><h4><B zh={demo.title} en={demo.titleEn} /></h4></div>
-                    <details className="performanceProofDisclosure" name="performance-keyframes">
-                      <summary><span><B zh={`关键帧 · ${demo.title}`} en={`KEY FRAMES · ${demo.titleEn}`} /></span><i>＋</i></summary>
-                      <div className="performanceProofDrawer">
-                        <div className="performanceProofFrames" aria-label={`${demo.title}连续截图`}>
-                          {demo.frames.map((frame, frameIndex) => <figure key={frame}><img src={frame} alt={`${demo.title}连续截图 ${frameIndex + 1}`} /><figcaption>{String(frameIndex + 1).padStart(2, "0")}</figcaption></figure>)}
+              <section className="performanceV2VideoPanel" aria-label="Multi-SKU Sweep 效果广告 Demo">
+                <div className="performanceV2VideoFrame">
+                  <video src="/media/performance-2026/multi-sku.mp4" poster="/media/performance-2026/multi-sku.jpg" controls playsInline preload="metadata" aria-label="Multi-SKU Sweep performance ad demo" />
+                </div>
+              </section>
+            </div>
+          </article>
+
+          <article className="solutionPage performanceCapabilityPage" id="solution-performance-capabilities">
+            <header className="performanceCapabilityHeader">
+              <div className="performanceV2Index"><span>3.2</span><b>MODEL CAPABILITIES</b></div>
+              <div className="performanceV2Title">
+                <h3><B zh="Seedance 2.5 如何规模化生产效果广告素材" en="Why Seedance 2.5 Scales Performance Creative" /></h3>
+              </div>
+            </header>
+
+            <div className="performanceCapabilityBody performanceCapabilityV3">
+              <section className="performanceCapabilityPrimary" aria-label="Multimodal input and consistent output">
+                <header className="performanceCapabilityCardTitle">
+                  <span>01</span>
+                  <div><h4><B zh="多模态输入，稳定一致输出" en="Multimodal input, consistent output" /></h4></div>
+                </header>
+
+                <div className="performanceReferenceMetric">
+                  <strong>50</strong>
+                  <p><B zh="个多模态参考进入同一次生成任务" en="multimodal references in one generation task" /></p>
+                </div>
+
+                <div className="performanceInputTypes" aria-label="30 images, 10 videos and 10 audios">
+                  <div><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="2" /><circle cx="11" cy="12" r="2.5" /><path d="m5 24 7-7 5 5 4-4 6 6" /></svg><strong>30</strong><span>IMAGES</span></div>
+                  <div><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="20" height="20" rx="2" /><path d="m23 13 6-4v14l-6-4z" /></svg><strong>10</strong><span>VIDEOS</span></div>
+                  <div><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 18v-4M10 23V9M15 27V5M20 23V9M25 19v-6M30 17v-2" /></svg><strong>10</strong><span>AUDIOS</span></div>
+                </div>
+
+                <div className="performanceReferenceAssets" aria-label="Hero video reference assets">
+                  {performanceSkuAssets.slice(0, 6).map((sku) => <figure key={sku.src}><img src={sku.src} alt={sku.en} /></figure>)}
+                </div>
+
+              </section>
+
+              <section className="performanceCapabilityFormats" aria-label="Ad format coverage">
+                <header className="performanceCapabilityCardTitle">
+                  <span>02</span>
+                  <div><h4><B zh="覆盖主流效果广告版位" en="Built for the formats performance ads use" /></h4></div>
+                </header>
+                <div className="performanceFormatMetrics"><strong>4–30s</strong><span>21:9 · 16:9 · 4:3 · 1:1 · 3:4 · 9:16</span></div>
+                <div className="performanceFormatWall">
+                  <div className="performancePlatformRow">
+                    <div className="performancePlatformLogo"><img src="/media/brand-logos/meta.svg" alt="Meta" /><strong>Meta</strong></div>
+                    <div className="performancePlatformProducts">
+                      <span><b>Reels</b><em>6–15s</em></span>
+                      <span><b>Stories</b><em>6–15s</em></span>
+                      <span><b>Feed</b><em>6–15s</em></span>
+                    </div>
+                  </div>
+                  <div className="performancePlatformRow">
+                    <div className="performancePlatformLogo"><img src="/media/brand-logos/tiktok.svg" alt="TikTok" /><strong>TikTok</strong></div>
+                    <div className="performancePlatformProducts">
+                      <span><b>In-Feed</b><em>9–15s</em></span>
+                      <span><b>Spark</b><em>9–15s</em></span>
+                      <span><b>TopView</b><em>9–15s</em></span>
+                    </div>
+                  </div>
+                  <div className="performancePlatformRow">
+                    <div className="performancePlatformLogo"><img src="/media/brand-logos/youtube.svg" alt="YouTube" /><strong>YouTube</strong></div>
+                    <div className="performancePlatformProducts">
+                      <span><b>Shorts</b><em>10–30s</em></span>
+                      <span><b>Bumper</b><em>≤6s</em></span>
+                      <span><b>In-Feed</b><em>10–30s</em></span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <div className="performanceCapabilityComingRow">
+                <PerformanceLocalizationDemo />
+
+                <section className="performanceCapabilityComing performanceCapabilityEditingV3" aria-label="Precise editing demos">
+                  <header className="performanceCapabilityCardTitle">
+                    <span>04</span>
+                    <div><h4><B zh="精确编辑" en="Precise editing" /></h4></div>
+                  </header>
+                  <div className="performanceEditingDemos">
+                    <figure className="performanceEditingOriginal">
+                      <video
+                        src={projectVideoUrl("media/performance-precise-editing/master/master.mp4")}
+                        poster="/media/performance-precise-editing/master/master.jpg"
+                        controls
+                        playsInline
+                        preload="metadata"
+                        aria-label="Original video before precise editing"
+                      />
+                      <figcaption><B zh="原片" en="Original" /></figcaption>
+                    </figure>
+                    <span className="performanceEditingArrow" aria-hidden="true">→</span>
+                    <div className="performanceEditingOutputs">
+                      <article className="performanceEditingOutputCard performanceEditingSkuCard">
+                        <div className="performanceEditingSkuSpec">
+                          <img
+                            src="/media/performance-precise-editing/references/cobalt-blender.png"
+                            alt="Cobalt-blue portable blender used as the replacement SKU"
+                          />
+                          <div>
+                            <span><B zh="替换为" en="New SKU" /></span>
+                            <strong><B zh="钴蓝色便携榨汁机" en="Cobalt-blue blender" /></strong>
+                          </div>
                         </div>
-                        <div className="performanceProofCopy"><span>{demo.order}</span><h5><B zh={demo.proofTitle} en={demo.proofTitleEn} /></h5><ul className="langZh">{demo.proofs.map((proof) => <li key={proof}>{proof}</li>)}</ul><ul className="langEn">{demo.proofsEn.map((proof) => <li key={proof}>{proof}</li>)}</ul></div>
-                      </div>
-                    </details>
-                  </article>
-                ))}
-              </section>
-
+                        <figure>
+                          <video
+                            src={projectVideoUrl("media/performance-precise-editing/variants/sku-replacement.mp4")}
+                            poster="/media/performance-precise-editing/variants/sku-replacement.jpg"
+                            controls
+                            playsInline
+                            preload="metadata"
+                            aria-label="Video after SKU replacement"
+                          />
+                          <figcaption><B zh="商品替换结果" en="SKU replacement" /></figcaption>
+                        </figure>
+                      </article>
+                      <article className="performanceEditingOutputCard performanceEditingTextCard">
+                        <div className="performanceEditingTextSpec" aria-label="Copy changes made in the edited video">
+                          <span><del>SMOOTHIE IN 30 SECONDS</del><b>BLEND ANYWHERE</b></span>
+                          <span><del>SHOP NOW</del><b>GET YOURS</b></span>
+                        </div>
+                        <figure>
+                          <video
+                            src={projectVideoUrl("media/performance-precise-editing/variants/text-replacement.mp4")}
+                            poster="/media/performance-precise-editing/variants/text-replacement.jpg"
+                            controls
+                            playsInline
+                            preload="metadata"
+                            aria-label="Video after text replacement"
+                          />
+                          <figcaption><B zh="文案替换结果" en="Text replacement" /></figcaption>
+                        </figure>
+                      </article>
+                    </div>
+                  </div>
+                </section>
+              </div>
             </div>
           </article>
 

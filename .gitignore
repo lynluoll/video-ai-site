@@ -57,3 +57,10 @@ next-env.d.ts
 /output/
 /public/media/sofa/haven-sofa.glb
 /public/media/sofa/model-viewer.min.js
+
+# Runtime video belongs in TOS/CDN, not Git. Existing legacy videos remain
+# tracked, but all newly added video assets are ignored.
+/public/**/*.mp4
+/public/**/*.mov
+/public/**/*.webm
+/public/**/*.m4v

@@ -20,7 +20,7 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  const performanceSolutionHtml = html.slice(html.indexOf('class="solutionPage performanceSolutionPage"'), html.indexOf('class="solutionPage displaySolutionPage"'));
+  const performanceSolutionHtml = html.slice(html.indexOf('id="solution-performance"'), html.indexOf('id="solution-display"'));
   const marketTrendHtml = html.slice(html.indexOf('class="marketTrendSection"'), html.indexOf('class="customerFlowPage"'));
 
   assert.match(html, /<html lang="en">/);
@@ -86,8 +86,9 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(html, /agencyOperatingIndex"><span>2\.2<\/span>/);
   assert.match(html, /adtechCaseIndex"><span>2\.3<\/span>/);
   assert.match(html, /id="solutions"/);
-  assert.match(html, /brandSolutionIndex"><span>3\.1<\/span>/);
-  assert.match(html, /performanceSolutionIndex"><span>3\.2<\/span>/);
+  assert.match(html, /brandHeroIndex"><span>3\.1A<\/span>/);
+  assert.match(html, /brandCapabilitiesIndex"><span>3\.1B<\/span>/);
+  assert.match(html, /performanceV2Index"><span>3\.2<\/span>/);
   assert.match(html, /displaySolutionIndex"><span>3\.3<\/span>/);
   assert.match(html, /playableIndex"><span>3\.4<\/span>/);
 
@@ -109,24 +110,42 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(agencyHtml, /实拍保留.*AI 生成.*最终交付/s);
   assert.doesNotMatch(agencyHtml, /WPP|Havas|Publicis|代表性代理商|REPRESENTATIVE AGENCIES/);
 
-  // V3 contains the three solution pages and the selected performance demos.
-  assert.equal((html.match(/class="solutionPage /g) ?? []).length, 3);
-  assert.match(html, /品牌广告生产解决方案/);
-  assert.match(html, /效果广告生产解决方案/);
-  assert.match(html, /Performance Ads Production Solution/);
+  // Branding is split into one hero-film page and one evidence page; the
+  // performance is split into SKU proof and capability pages.
+  assert.equal((html.match(/class="solutionPage /g) ?? []).length, 5);
+  assert.match(html, /多种镜头，直出一支完整品牌片/);
+  assert.match(html, /Multiple shots\. One coherent brand film/);
+  assert.match(html, /一支生产可用的品牌片，背后是四项模型能力/);
+  assert.match(html, /Photoreal Characters &amp; Natural Performance/);
+  assert.match(html, /Photoreal Products &amp; Materials/);
+  assert.match(html, /Multiple Shot Types, Generated Natively/);
+  assert.match(html, /Production-Ready Mastering/);
+  assert.match(html, /30s.*MOV.*4K.*10-bit.*High bitrate.*Native audio.*Dialogue · Music · SFX/s);
+  assert.match(html, /carey\.tos-ap-southeast-1\.bytepluses\.com\/video-ai-site\/branch-solution-displays\/media\/brand-fragrance\/hero-film\.mp4/);
+  assert.match(html, /多件 SKU 输入/);
+  assert.match(html, /一支稳定一致的效果广告成片/);
+  assert.match(html, /Multiple SKUs in\./);
+  assert.match(html, /One consistent performance video out/);
   assert.match(html, /展示广告方法/);
-  assert.equal((html.match(/class="performanceEvidenceCard"/g) ?? []).length, 4);
-  assert.match(performanceSolutionHtml, /Demo \+ Card-to-Buy/);
-  assert.match(performanceSolutionHtml, /1s Hook \+ Direct Selling/);
-  assert.match(performanceSolutionHtml, /Feature Demo Selling/);
-  assert.match(performanceSolutionHtml, /Single-Point Flash/);
-  assert.match(performanceSolutionHtml, /performance-2026\/shoppable\.mp4/);
-  assert.match(performanceSolutionHtml, /performance-2026\/hook-direct\.mp4/);
-  assert.match(performanceSolutionHtml, /performance-2026\/feature-demo\.mp4/);
-  assert.match(performanceSolutionHtml, /performance-2026\/single-point\.mp4/);
-
-  // The performance header is intentionally reduced to a direct solution title.
-  assert.doesNotMatch(performanceSolutionHtml, /查看更多 Seedance 样片|View more Seedance demos/);
+  assert.match(performanceSolutionHtml, /class="performanceV2SkuMosaic"/);
+  assert.match(performanceSolutionHtml, /multi-sku-skus\/01-khaki-trench-coat\.png/);
+  assert.match(performanceSolutionHtml, /multi-sku-skus\/14-gray-sweatpants\.png/);
+  assert.match(performanceSolutionHtml, /Multiple SKUs in\./);
+  assert.match(performanceSolutionHtml, /One consistent performance video out\./);
+  assert.match(performanceSolutionHtml, /performance-2026\/multi-sku\.mp4/);
+  assert.match(performanceSolutionHtml, /Multimodal input, consistent output/);
+  assert.match(performanceSolutionHtml, /30.*IMAGES.*10.*VIDEOS.*10.*AUDIOS/s);
+  assert.match(performanceSolutionHtml, /Built for the formats performance ads use/);
+  assert.match(performanceSolutionHtml, /4–30s/);
+  assert.match(performanceSolutionHtml, /21:9 · 16:9 · 4:3 · 1:1 · 3:4 · 9:16/);
+  assert.match(performanceSolutionHtml, /brand-logos\/meta\.svg.*Reels.*6–15s.*Stories.*6–15s.*Feed.*6–15s/s);
+  assert.match(performanceSolutionHtml, /brand-logos\/tiktok\.svg.*In-Feed.*9–15s.*Spark.*9–15s.*TopView.*9–15s/s);
+  assert.match(performanceSolutionHtml, /brand-logos\/youtube\.svg.*Shorts.*10–30s.*Bumper.*≤6s.*In-Feed.*10–30s/s);
+  assert.match(performanceSolutionHtml, /Localization at market speed/);
+  assert.match(performanceSolutionHtml, /portable-blender-master\.png/);
+  assert.match(performanceSolutionHtml, /performance-localization\/videos\/01-zh-cn\.jpg/);
+  assert.match(performanceSolutionHtml, /Precise editing/);
+  assert.doesNotMatch(performanceSolutionHtml, /ONE GENERATION TASK · FOUR MODEL ADVANTAGES|PRIMARY PROOF · CONSISTENCY AT SCALE|shoppable-frames\/01\.jpg/);
   assert.equal((html.match(/class="langZh"/g) ?? []).length, (html.match(/class="langEn"/g) ?? []).length);
 
   // The obsolete model-gap page was intentionally removed in V3.
@@ -139,6 +158,7 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   const reveal = await readFile(new URL("../app/MarketTrackAutoReveal.tsx", import.meta.url), "utf8");
   const moreDemos = await readFile(new URL("../app/MoreDemosGallery.tsx", import.meta.url), "utf8");
   const displayDemos = await readFile(new URL("../app/DisplayDemoGallery.tsx", import.meta.url), "utf8");
+  const localizationDemos = await readFile(new URL("../app/PerformanceLocalizationDemo.tsx", import.meta.url), "utf8");
 
   assert.match(page, /import MarketTrackAutoReveal/);
   assert.match(page, /<MarketTrackAutoReveal \/>/);
@@ -153,7 +173,9 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   }
   assert.doesNotMatch(page, /performance-generated\.mp4|performance-poster\.jpg|performance-[a-z]+-demo\.mp4/);
 
-  assert.match(page, /name="performance-keyframes"/);
+  assert.match(page, /className="performanceV2SkuMosaic"/);
+  assert.match(page, /className="performanceCapabilityBody performanceCapabilityV3"/);
+  assert.match(page, /className="performanceFormatWall"/);
   assert.match(page, /className="productionChapter"/);
   assert.match(page, /wppWorkPage agencyOperatingPage/);
   assert.doesNotMatch(page, /className="productGatePage"|模型短期能力短板/);
@@ -183,6 +205,17 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   assert.match(displayDemos, /aria-pressed=\{index === activeAssetIndex\}/);
   assert.doesNotMatch(displayDemos, /Previous image|Next image|Choose image|View more demos/);
   assert.doesNotMatch(page, /demo-display-commerce|demo-display-beauty|demo-display-diwali|display-lightbox-/);
+
+  assert.match(page, /import PerformanceLocalizationDemo/);
+  assert.match(page, /<PerformanceLocalizationDemo \/>/);
+  assert.match(localizationDemos, /portable-blender-master\.png/);
+  assert.equal((localizationDemos.match(/src: projectVideoUrl\("media\/performance-localization\/videos\/.+?\.mp4"\)/g) ?? []).length, 11);
+  assert.match(localizationDemos, /videos\/01-zh-cn\.mp4/);
+  assert.match(localizationDemos, /videos\/12-international-master\.mp4/);
+  assert.match(localizationDemos, /setActiveDemo\(demo\)/);
+  assert.match(localizationDemos, /performanceLocalizationTrack/);
+  assert.match(localizationDemos, /createPortal/);
+  assert.match(localizationDemos, /controls/);
 });
 
 test("keeps V3 desktop alignment, sticky media, language, and responsive safeguards", async () => {
