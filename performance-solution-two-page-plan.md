@@ -1,0 +1,98 @@
+# Performance Solution 两页改造概要
+
+> 状态：Page 1 已完成；Page 2 回到能力定义阶段。先确认模型能力和业务价值，再重新选择逐项对应的 Demo 证据。
+
+## 核心逻辑
+
+- **Page 1 讲结果**：Demo 是否具备 Hook、商品证明和转化节奏。
+- **Page 2 讲原因**：为什么 Seedance 2.5 能稳定做出并规模化复制这些结果。
+
+## Page 1 — Performance Demo
+
+- 主 Demo 使用 9:16 的 `Multi-SKU Sweep`。
+- 页面采用左右结构：
+  - **左侧：SKU 输入资产**。从视频中逐一拆出人物穿戴的服装、裤子和配饰等 SKU，并用图片模型整理为干净、统一的商品图；视频中的编织包作为独立 SKU 展示。
+  - **右侧：生成结果**。播放完整视频，让用户直接对照“输入了哪些 SKU”与“模型如何把它们稳定地放进同一条视频”。
+- SKU 图片不做复杂卡片，只采用紧凑的商品矩阵；按视频出现顺序排列，并使用简短编号与视频中的 SKU 对应。
+- SKU 图制作流程：从原视频抽取清晰关键帧 → 裁出每件商品 → 用图片模型补全为独立商品图 → 逐张对照视频校验颜色、版型、纹理与配件，避免生成出视频中不存在的设计。
+- 页面一句结论：`Multiple SKUs in. One consistent performance video out.`
+- 页面重点证明：多 SKU 输入、人物与服装的一致性、自然换装和完整的 `Hook → Product Proof → CTA`。
+- 右上角增加 `More demos` 按钮，使用站内锚点直接跳转到现有 More Demos 章节，不打开新的播放器集合。
+
+## Page 2 — Why Seedance 2.5
+
+第二页只保留以下四项模型能力，不再增加其他能力或泛化的效果广告卖点。
+
+### 1. Multimodal input, consistent output
+
+- **产品能力**：单次生成任务最多接收 50 个多模态参考，明确拆分为 `30 images + 10 videos + 10 audios`。
+- **页面证据**：复用 Page 1 Hero Video 的少量代表性 SKU 输入图，并加入 IMAGE / VIDEO / AUDIO 三类输入图标。
+- **一致性结果**：多类输入共同约束输出，在连续镜头中保持商品、人物和造型稳定。
+- **口径约束**：50 是多模态参考总数，不是 SKU 数量。
+
+### 2. Ad-format coverage
+
+- **时长覆盖**：原生生成 `4–30s`。
+- **画幅覆盖**：支持 `21:9 / 16:9 / 4:3 / 1:1 / 3:4 / 9:16`。
+- **页面证据**：用简洁的广告产品名称墙映射真实投放版位：
+  - Meta：Reels Ads / Stories Ads / Feed Video / In-stream
+  - TikTok：In-Feed Ads / Spark Ads / TopView
+  - YouTube：Shorts Ads / Bumper Ads / In-feed Video / Skippable In-stream
+- **展示原则**：强调模型输出能够覆盖多种时长与版位，不宣称平台产品本身全部支持所有画幅。
+
+### 3. Localization at market speed
+
+- **核心概念**：`One winning master → 11 native market versions`。不制作 11 条互不相关的视频，而是用同一个效果广告母版证明规模化本地化。
+- **统一母版**：选择一个无真实品牌、全球通用且容易做动作证明的虚拟消费电子产品。所有版本保持同一产品、镜头结构、动作节奏和 CTA 时点。
+- **统一结构**：每条建议 `6–8s`，采用同一条 `Hook → Product proof → CTA` 时间线；只改变对白语言、人物市场特征、当地环境与文化细节。
+- **11 个明确版本**：中文、英语、西班牙语、印尼语、葡萄牙语、日语、马来语、泰语、阿拉伯语、越南语、韩语。页面不强调存在冲突的“10/11 种”计数，而是直接展示完整名单。
+- **市场映射**：中文—中国城市；英语—新加坡；西班牙语—墨西哥；印尼语—雅加达；葡萄牙语—圣保罗；日语—东京；马来语—吉隆坡；泰语—曼谷；阿拉伯语—迪拜；越南语—胡志明市；韩语—首尔。
+- **展示交互**：横向无缝滚动墙一次露出 4–5 个版本；卡片仅显示 `语言 + 市场`。悬停暂停，点击后放大并播放有声版本，用户可直接判断对白、口型和市场环境是否自然。
+- **验收重点**：产品外观保持一致；人物与环境具有市场差异但不使用刻板符号；对白自然、口型同步；不同版本的镜头、动作、节奏和 CTA 时间点保持一致。
+- **页面文案**：`One winning master. Native in every market.`
+
+### 4. Precise editing
+
+- **产品能力**：保留胜出广告的镜头、动作和节奏，只修改商品、人物、服装、背景、对白等指定变量。
+- **后续 Demo**：展示 5 个 SKU 图片；点击任一 SKU 后播放对应视频，视频中只改变人物手持商品。
+- **本轮页面**：只放交互结构占位，不使用未经验证的素材。
+
+### Demo 选择原则（下一阶段）
+
+- 第一项直接复用 Hero Video 的证据：少量 SKU 输入 + 图片、视频、音频输入图标 + 成片关键帧。
+- 第三、第四项必须使用能够直接证明该能力的素材，不能使用只有“画面好看”但无法形成对照的截图。
+- 一张图只证明一个核心命题；需要展示变化时，必须使用 master / edited / localized 或 reference / output 的成组对照。
+- 在素材确认前，Page 2 不进入最终视觉排版。
+
+### 调研依据
+
+- TikTok 官方：In-Feed 支持 `5–60s`，推荐 `9–15s`：https://ads.tiktok.com/help/article/tiktok-reservation-in-feed-ads-reach-frequency
+- Meta 官方：视频广告通常建议不超过 `15s`：https://www.facebook.com/business/ads/video-ad-format
+- Google Ads 官方：YouTube action-oriented vertical ads 建议 `10–30s`；Bumper 为 `6s`：https://support.google.com/google-ads/answer/16041697 与 https://support.google.com/google-ads/answer/2375464
+- Seedance 2.5 官方能力口径以本地同步的 BytePlus 文档为准：生成时长 `4–30s`；编辑可翻译对白并重新同步口型；多语言不宣称固定数量，直接列出当前文档明确支持的语言。
+
+### 页面视觉
+
+- 四个有清晰主次的能力区域，不做表格，不用一条数字链混淆能力与 Demo 结果。
+- 第一项为视觉主角：Hero Video 的输入素材 + 三类输入图标 + `30 / 10 / 10` 组成。
+- 第二项集中展示 `4–30s`、六种画幅与广告产品名称墙。
+- 第三、第四项只保留简洁的 Demo 占位与未来交互方向。
+- 每项只保留“硬能力 + 直接证据”，不放泛泛口号和大段小字。
+
+页面主标题：
+
+- EN：`Why Seedance 2.5 Scales Performance Creative`
+- ZH：`Seedance 2.5 如何规模化生产效果广告素材`
+
+## 口径约束
+
+- `50` 指 **单次请求最多 50 个多模态参考资产**，不等同于 50 个 SKU。
+- `30s` 指 **单次原生视频生成时长**。
+- 目前未找到“单条视频官方支持 30 个 SKU”的产品规格依据；在确认前不作为模型上限对外表述。
+- 如果某支真实 Demo 确实展示了 30 个 SKU，可以写成该 Demo 的结果：`30 SKUs demonstrated in one video`，不能写成通用产品规格。
+
+## 验收
+
+- Page 1 回答“广告效果结构是否成立”。
+- Page 2 回答“为什么 Seedance 2.5 能做到，且其他模型不一定能稳定做到”。
+- 所有能力均由数字或画面对照证明；英文为标准，中文同步。
