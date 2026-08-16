@@ -447,43 +447,30 @@ export default function Home() {
                 <header><div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div></header>
                 <h3><B zh={<>从创意构想开始，<span>现在已经进入真实生产。</span></>} en={<>Starts with Ideation. <span>Now to Real Production.</span></>} /></h3>
 
-                <p className="goodtakeLede"><B zh="Goodtake 为麦当劳制作的两支 3D CGI 广告，与同期其他素材同场对比。" en="Two 3D CGI spots Goodtake produced for McDonald's, measured against the other assets running alongside them." /></p>
+                <p className="goodtakeLede"><B zh="Goodtake 的真实生产：为联合利华韩国 Snuggle 制作的品牌广告，以及麦当劳两支 3D CGI 的投放实证。" en="Goodtake in real production: a brand spot for Unilever Korea's Snuggle, and two McDonald's 3D CGI flights with in-market proof." /></p>
 
-                <div className="goodtakeGrid">
-                  <figure className="goodtakeItem">
-                    <video src="/media/goodtake/mcdonaldland.mp4" autoPlay controls loop muted playsInline preload="auto" aria-label="Goodtake 为麦当劳制作的 McDonaldland 3D CGI 广告" />
-                    <figcaption>
-                      <b>McDonaldland</b><em>Q4&rsquo;25</em>
-                      <table>
-                        <thead><tr><th /><th><B zh="3D CGI" en="3D CGI" /></th><th><B zh="其他素材" en="Others" /></th></tr></thead>
-                        <tbody>
-                          <tr><th>CTR</th><td>0.30%</td><td>0.26%</td></tr>
-                          <tr><th>ER</th><td>1.23%</td><td>0.50%</td></tr>
-                          <tr><th>2s VTR</th><td>35.09%</td><td>11.06%</td></tr>
-                          <tr><th>6s VTR</th><td>13.69%</td><td>2.66%</td></tr>
-                        </tbody>
-                      </table>
-                    </figcaption>
+                <div className="goodtakeGrid goodtakeGridV2">
+                  <figure className="goodtakeFeature">
+                    <video src="/media/goodtake/snuggle.mp4" autoPlay controls loop muted playsInline preload="metadata" aria-label="Goodtake 为联合利华韩国 Snuggle 制作的品牌广告" />
+                    <figcaption><b>Snuggle</b><em>Unilever Korea</em></figcaption>
                   </figure>
 
-                  <figure className="goodtakeItem">
-                    <video src="/media/goodtake/grimace.mp4" autoPlay controls loop muted playsInline preload="auto" aria-label="Goodtake 为麦当劳制作的 Grimace 3D CGI 广告" />
-                    <figcaption>
-                      <b>Grimace</b><em>Q2&rsquo;26</em>
-                      <table>
-                        <thead><tr><th /><th><B zh="3D CGI" en="3D CGI" /></th><th><B zh="其他素材" en="Others" /></th></tr></thead>
-                        <tbody>
-                          <tr><th>CTR</th><td>0.50%</td><td>0.40%</td></tr>
-                          <tr><th>ER</th><td>1.05%</td><td>0.65%</td></tr>
-                          <tr><th>2s VTR</th><td>26.55%</td><td>23.81%</td></tr>
-                          <tr><th>6s VTR</th><td>10.61%</td><td>7.97%</td></tr>
-                        </tbody>
-                      </table>
-                    </figcaption>
-                  </figure>
+                  <div className="goodtakeSide">
+                    <figure className="goodtakeSideItem">
+                      <video src="/media/goodtake/mcdonaldland.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="Goodtake 为麦当劳制作的 McDonaldland 3D CGI 广告" />
+                      <figcaption><b>McDonaldland</b><em>Q4&rsquo;25</em></figcaption>
+                    </figure>
+                    <figure className="goodtakeSideItem">
+                      <video src="/media/goodtake/grimace.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="Goodtake 为麦当劳制作的 Grimace 3D CGI 广告" />
+                      <figcaption><b>Grimace</b><em>Q2&rsquo;26</em></figcaption>
+                    </figure>
+                    <div className="goodtakeStat">
+                      <span>PERFORMANCE ADS</span>
+                      <p><B zh={<>McDonaldland 的 2s VTR 是其他素材的 <strong>3.2 倍</strong>，6s VTR 是 <strong>5.1 倍</strong>。</>} en={<>McDonaldland&rsquo;s 2s VTR is <strong>3.2&times;</strong> the other assets, and 6s VTR is <strong>5.1&times;</strong>.</>} /></p>
+                    </div>
+                  </div>
                 </div>
 
-                <p className="goodtakeTakeaway"><B zh="两轮投放里 3D CGI 在四项指标上全部胜出 —— 完播类指标差距最大：McDonaldland 的 2s VTR 是其他素材的 3.2 倍，6s VTR 是 5.1 倍。" en="3D CGI won on all four metrics in both flights — the gap is widest on watch-through: McDonaldland's 2s VTR is 3.2× the other assets, and 6s VTR is 5.1×." /></p>
                 <p className="goodtakeSource"><B zh="来源：Goodtake × 麦当劳投放数据 · 内部机密，请勿外传" en="Source: Goodtake × McDonald's campaign data · confidential and proprietary" /></p>
               </article>
             </div>

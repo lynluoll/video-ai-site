@@ -12665,6 +12665,96 @@ body {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
+/* V2: the Snuggle brand film leads; the two McDonald's 9:16 captures sit
+   paired on the side with one core stat underneath instead of full tables. */
+.goodtakeGridV2 { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: stretch; }
+.goodtakeFeature {
+  margin: 0;
+  min-width: 0;
+  padding: 16px;
+  background: var(--bp-surface);
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-radius: var(--bp-radius);
+}
+.goodtakeFeature video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: contain;
+  background: var(--bp-ink);
+  border-radius: var(--bp-radius-card);
+}
+.goodtakeFeature figcaption { margin-top: 12px; }
+.goodtakeFeature figcaption > b {
+  color: var(--bp-ink);
+  font-size: var(--bp-t-card);
+  font-weight: var(--bp-w-label);
+  letter-spacing: var(--bp-track-tight);
+}
+.goodtakeFeature figcaption > em {
+  margin-left: 10px;
+  color: var(--bp-ink-3);
+  font-size: var(--bp-t-micro);
+  font-style: normal;
+  font-weight: var(--bp-w-label);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.goodtakeSide {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 12px;
+  padding: 16px;
+  background: var(--bp-surface);
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-radius: var(--bp-radius);
+}
+.goodtakeSideItem { margin: 0; min-width: 0; min-height: 0; }
+.goodtakeSideItem video {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  display: block;
+  object-fit: contain;
+  background: var(--bp-ink);
+  border-radius: var(--bp-radius-card);
+}
+.goodtakeSideItem figcaption { margin-top: 8px; }
+.goodtakeSideItem figcaption > b {
+  color: var(--bp-ink);
+  font-size: var(--bp-t-body);
+  font-weight: var(--bp-w-label);
+}
+.goodtakeSideItem figcaption > em {
+  margin-left: 8px;
+  color: var(--bp-ink-3);
+  font-size: var(--bp-t-micro);
+  font-style: normal;
+}
+.goodtakeStat {
+  grid-column: 1 / -1;
+  padding: 12px 14px;
+  background: var(--bp-blue-wash-2);
+  border-left: var(--bp-accent-bar) solid var(--bp-blue);
+}
+.goodtakeStat > span {
+  color: var(--bp-blue);
+  font-size: var(--bp-t-label);
+  font-weight: var(--bp-w-label);
+  letter-spacing: var(--bp-track-label);
+}
+.goodtakeStat > p {
+  margin: 6px 0 0;
+  color: var(--bp-ink);
+  font-size: var(--bp-t-body-l);
+  line-height: 1.45;
+}
+.goodtakeStat strong { color: var(--bp-blue); font-weight: var(--bp-w-display); }
+@media (max-width: 900px) {
+  .goodtakeGridV2 { grid-template-columns: 1fr; }
+}
 .goodtakeItem {
   margin: 0;
   min-width: 0;
