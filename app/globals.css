@@ -24,8 +24,8 @@
   --lime: #2bdcff;           /* cyan reserved for small signals */
 
   /* geometry & type */
-  --font-sans: var(--font-geist-sans), "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
-  --font-mono: var(--font-geist-mono), "SFMono-Regular", Menlo, monospace;
+  --font-sans: var(--font-tech);
+  --font-mono: var(--font-geist-mono);
   --shadow-card: 0 24px 64px rgba(23,42,92,.11);
 }
 
@@ -56,9 +56,10 @@
   position: relative;
   box-sizing: border-box;
   /* This case carries less copy than its neighbours. Sized to its own
-     content with a floor, rather than forced to a full viewport — that
-     is what left 324px of bare background under the v4.7 rules. */
-  min-height: min(520px, calc(100svh - 160px));
+     content — no floor: since the walkthrough moved to its own page the
+     three-stage lane is all that is left, and a 520px floor put ~200px of
+     empty card under it. */
+  min-height: 0;
   margin-top: 0;
   padding: 0;
   display: grid;
@@ -82,6 +83,143 @@
   gap: 0 32px;
   border: 0;
   border-bottom: var(--bp-hairline) solid var(--bp-rule);
+}
+
+/* CASE 1 header as a partnership lockup: BytePlus | WPP, on the site's
+   recessed panel tone. The `.agencyLockupHero` modifier wins over the
+   3-column hero rules below by specificity. */
+/* CASE 1 is a full 16:9 title slide: the index badge pinned top-left, the
+   BytePlus | WPP lockup large and dead-centre. */
+#customer-agency.agencyOperatingPage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  min-height: 620px;
+  max-height: 900px;
+  padding: 0;
+  display: block;
+  gap: 0;
+  background: var(--bp-surface-2);
+}
+#customer-agency .agencyOperatingHero.agencyLockupHero {
+  position: static;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  border-bottom: 0;
+  background: transparent;
+}
+#customer-agency .agencyLockupHero .agencyLockup { grid-column: 1; grid-row: 1; width: 100%; }
+#customer-agency .agencyLockupHero .agencyOperatingIndex {
+  position: absolute;
+  top: 26px;
+  left: 26px;
+  align-self: auto;
+}
+#customer-agency .agencyLockup {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 72px;
+}
+#customer-agency .agencyLockupByteplus { height: 96px; width: auto; display: block; }
+#customer-agency .agencyLockupWpp { height: 116px; width: auto; display: block; }
+#customer-agency .agencyLockupDivider {
+  display: block;
+  width: 2px;
+  height: 150px;
+  background: var(--bp-ink);
+  opacity: .5;
+}
+/* Generic partnership title slide (used for CASE 2 · AppLovin): the same
+   16:9 canvas, badge top-left, BytePlus | partner lockup dead-centre. */
+.caseLockupPage.caseLockupPage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  min-height: 620px;
+  max-height: 900px;
+  padding: 0;
+  display: grid;
+  grid-template-rows: 1fr;
+  place-items: center;
+  gap: 0;
+  background: var(--bp-surface-2);
+}
+.caseLockupIndex {
+  position: absolute;
+  top: 26px;
+  left: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.caseLockupIndex > span {
+  color: var(--bp-blue);
+  font-size: var(--bp-t-section);
+  font-weight: var(--bp-w-display);
+  line-height: 1;
+  letter-spacing: var(--bp-track-tight);
+  white-space: nowrap;
+}
+.caseLockupIndex b,
+.caseLockupIndex .langZh,
+.caseLockupIndex .langEn {
+  color: var(--bp-ink-3);
+  font-size: var(--bp-t-label);
+  font-weight: var(--bp-w-label);
+  line-height: 1.3;
+  letter-spacing: var(--bp-track-label);
+}
+.caseLockup {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 72px;
+}
+.caseLockupByteplus { height: 96px; width: auto; display: block; }
+.caseLockupDivider { display: block; width: 2px; height: 150px; background: var(--bp-ink); opacity: .5; }
+/* AppLovin has no large raster mark in the repo — compose it from the
+   vector icon plus a wordmark set in the site face, sized to sit level
+   with the BytePlus mark. */
+.caseLockupAppLovin { display: inline-flex; align-items: center; gap: 22px; }
+.caseLockupAppLovin img { height: 88px; width: auto; display: block; }
+.caseLockupAppLovin b {
+  color: var(--bp-ink);
+  font-size: 96px;
+  font-weight: var(--bp-w-medium);
+  line-height: 1;
+  letter-spacing: -.045em;
+  white-space: nowrap;
+}
+@media (max-width: 700px) {
+  .caseLockupPage.caseLockupPage { aspect-ratio: auto; min-height: 360px; }
+  .caseLockup { gap: 28px; }
+  .caseLockupByteplus { height: 44px; }
+  .caseLockupDivider { height: 64px; }
+  .caseLockupAppLovin img { height: 40px; }
+  .caseLockupAppLovin b { font-size: 44px; }
+}
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 700px) {
+  #customer-agency.agencyOperatingPage { aspect-ratio: auto; min-height: 360px; }
+  #customer-agency .agencyLockup { gap: 28px; }
+  #customer-agency .agencyLockupByteplus { height: 44px; }
+  #customer-agency .agencyLockupWpp { height: 52px; }
+  #customer-agency .agencyLockupDivider { height: 64px; }
 }
 
 /* The hero's right slot: the platform these two agencies actually run on.
@@ -950,7 +1088,27 @@ body.is-copy-editing [data-copy-hidden="true"]::after {
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-x: clip; }
-body { margin: 0; min-width: 280px; overflow-x: clip; background: var(--ink); color: var(--white); font-family: var(--font-sans); text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+body { margin: 0; min-width: 280px; overflow-x: clip; background: var(--ink); color: var(--white); font-family: var(--font-tech); line-height: 1.5; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* ---- type system (spec, 2026-08-16) -------------------------------
+   Inter throughout; JetBrains Mono for figures. The spec's
+   `body { color: #fff }` is for a dark canvas and is NOT applied — this
+   site is a white editorial canvas and section rules set their own ink. */
+h1, .hero-title {
+  font-family: var(--font-tech);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+.section-tag, .badge {
+  font-family: var(--font-tech);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+code, kbd, samp, pre { font-family: var(--font-mono); }
 img, video { max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button, summary { font: inherit; }
@@ -6019,9 +6177,431 @@ html.marketTrackTransitionLock { overscroll-behavior: none; }
 }
 
 /* v2.3 · Agency case study page (Bojie: how agencies work + automotive case) */
-/* Testimonial slide between the WPP Open case and AppLovin. One voice, one
-   claim — deck idiom: oversized blue quote mark, bold statement, quiet
-   attribution. The quote stays English in both language modes. */
+/* BytePlus × WPP HEX — the operating model.
+   Three swimlanes sharing one column template so the org cards, the
+   talent cells and the loop bar all line up: label gutter, three cells,
+   two connector gutters. The source sketch was navy + orange; re-cut to
+   the house system — HEX keeps the ink panel it has on the ladder page,
+
+/* WPP OPEN · case flow. Three lanes over seven steps with two hand-off
+   pills. Rebuilt on the site's white canvas: the lane headers take the
+   blue wash instead of the source's three-colour scheme. One 16:9 page. */
+.caseFlowPage.caseFlowPage {
+  aspect-ratio: 16 / 9;
+  min-height: 620px;
+  max-height: 900px;
+  padding: 36px 48px 32px;
+  display: grid;
+  grid-template-rows: auto auto;
+  align-content: center;
+  gap: 30px;
+}
+.caseFlowHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+.caseFlowHead h3 {
+  margin: 0;
+  color: var(--bp-ink);
+  font-size: clamp(40px, 3.6vw, 56px);
+  font-weight: var(--bp-w-display);
+  line-height: 1;
+  letter-spacing: .04em;
+}
+.caseFlowHead p { margin: 14px 0 0; color: var(--bp-ink-2); font-size: var(--bp-t-sub); }
+.caseFlowTag {
+  flex: none;
+  padding: 12px 26px;
+  color: var(--bp-blue);
+  font-size: var(--bp-t-label);
+  font-weight: var(--bp-w-label);
+  letter-spacing: var(--bp-track-label);
+  border: 2px solid var(--bp-blue);
+  border-radius: 999px;
+}
+.caseFlowGrid {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-rows: auto auto auto;
+  gap: 20px 16px;
+  align-content: start;
+}
+.caseFlowLane {
+  align-self: start;
+  padding: 18px 24px;
+  background: var(--bp-blue-wash);
+  border-left: var(--bp-accent-bar) solid var(--bp-blue);
+  border-radius: var(--bp-radius-card);
+}
+.caseFlowLaneCreative { grid-column: 1 / span 3; }
+.caseFlowLaneProduction { grid-column: 4 / span 2; }
+.caseFlowLaneMedia { grid-column: 6 / span 2; }
+.caseFlowLane small {
+  display: block;
+  color: var(--bp-blue);
+  font-size: var(--bp-t-label);
+  font-weight: var(--bp-w-label);
+  letter-spacing: var(--bp-track-label);
+}
+.caseFlowLane { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; row-gap: 4px; }
+.caseFlowLane small { flex-basis: 100%; }
+.caseFlowLane b { color: var(--bp-ink); font-size: var(--bp-t-section); font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-tight); line-height: 1.1; white-space: nowrap; }
+.caseFlowLane em { color: var(--bp-ink-2); font-size: var(--bp-t-body); font-style: normal; white-space: nowrap; }
+.caseFlowStep {
+  min-height: 260px;
+  padding: 26px 24px 24px;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 14px;
+  background: var(--bp-surface);
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-radius: var(--bp-radius-card);
+}
+.caseFlowStep > span { color: var(--bp-blue); font-size: var(--bp-t-lede); font-weight: var(--bp-w-display); }
+.caseFlowStep b { color: var(--bp-ink); font-size: var(--bp-t-card); font-weight: var(--bp-w-label); line-height: 1.25; letter-spacing: var(--bp-track-tight); }
+.caseFlowStep b::after { content: ""; display: block; grid-row: 3; }
+.caseFlowStep p { margin: 0; align-self: end; padding-top: 14px; color: var(--bp-ink-2); font-size: var(--bp-t-body-l); border-top: var(--bp-hairline) solid var(--bp-rule); }
+.caseFlowHandoff {
+  justify-self: center;
+  white-space: nowrap;
+  padding: 12px 26px;
+  color: var(--bp-ink);
+  font-size: var(--bp-t-lede);
+  background: var(--bp-surface-2);
+  border: var(--bp-hairline) solid var(--bp-rule-2);
+  border-radius: 999px;
+}
+.caseFlowHandoffA { grid-column: 3 / span 2; }
+.caseFlowHandoffB { grid-column: 5 / span 2; }
+@media (max-width: 1000px) {
+  .caseFlowPage.caseFlowPage { aspect-ratio: auto; max-height: none; padding: 26px 22px; }
+  .caseFlowGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto; }
+  .caseFlowLaneCreative, .caseFlowLaneProduction, .caseFlowLaneMedia, .caseFlowHandoffA, .caseFlowHandoffB { grid-column: 1 / -1; }
+}
+
+   blue stays the only accent. */
+.hexModelPage.hexModelPage {
+  aspect-ratio: 16 / 9;
+  min-height: 620px;
+  max-height: 900px;
+  /* Wider side margins than its neighbours: the diagram reads better with
+     the flow band narrower than the full slide width. */
+  padding: 26px 92px 24px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 16px;
+}
+/* Two lines of the same display type — the partner lockup reads as the
+   first line of the title, not as a kicker above it. */
+.hexModelHead { --hex-model-title: clamp(24px, 2.1vw, 32px); }
+.hexModelKicker {
+  display: block;
+  color: var(--bp-blue);
+  font-size: var(--hex-model-title);
+  font-weight: var(--bp-w-display);
+  line-height: 1.22;
+  letter-spacing: var(--bp-track-tight);
+  text-transform: none;
+}
+.hexModelHead h3 {
+  margin: 8px 0 0;
+  color: var(--bp-ink);
+  font-size: var(--hex-model-title);
+  font-weight: var(--bp-w-display);
+  line-height: 1.22;
+  letter-spacing: var(--bp-track-tight);
+}
+.hexModelHead h3 strong { color: var(--bp-blue); font-weight: inherit; }
+.hexModelQuote {
+  margin: 20px 0 0;
+  padding-left: 16px;
+  border-left: var(--bp-accent-bar) solid var(--bp-blue);
+  color: var(--bp-ink-2);
+  font-size: var(--bp-t-body-l);
+  font-style: italic;
+  line-height: 1.4;
+}
+.hexModelQuote em { color: var(--bp-ink); font-weight: var(--bp-w-label); }
+.hexModelQuote span { margin-left: 12px; font-style: normal; font-size: var(--bp-t-body); white-space: nowrap; }
+.hexModelMark { object-fit: contain; }
+.hexModelBoard {
+  --model-cols: 116px minmax(0, 1fr) 96px minmax(0, 1fr) 96px minmax(0, 1fr);
+  --model-gap: 10px;
+  min-height: 0;
+  display: grid;
+  /* Every lane sizes to its content; the board as a whole centres in the
+     remaining slide height. A 1fr talent lane used to soak up ~165px of
+     dead space around a 113px block. */
+  grid-template-rows: auto auto auto auto;
+  align-content: center;
+  row-gap: 4px;
+}
+.hexModelLane {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: var(--model-cols);
+  column-gap: var(--model-gap);
+  align-items: center;
+}
+.hexModelLaneProvide,
+.hexModelLaneTalent,
+.hexModelLaneLoop { border-top: var(--bp-hairline) solid var(--bp-rule); }
+.hexModelLaneOrgs { padding-bottom: 18px; }
+.hexModelLaneProvide { padding: 16px 0; }
+.hexModelLaneTalent { padding: 16px 0; }
+.hexModelLaneLoop { padding-top: 16px; }
+.hexModelLaneLabel {
+  align-self: center;
+  color: var(--bp-ink-3);
+  font-size: var(--bp-t-micro);
+  font-weight: var(--bp-w-label);
+  letter-spacing: .08em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+/* ---- lane 1 · the three organisations, compressed to name plates ----
+   The bullet lists that used to sit here moved into the "what we provide"
+   row below; the flow band only has to carry who is who. */
+.hexModelOrg {
+  min-width: 0;
+  padding: 14px 18px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  border-radius: var(--bp-radius-card);
+}
+.hexModelNum {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  font-size: var(--bp-t-body);
+  font-style: normal;
+  font-weight: var(--bp-w-display);
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+}
+.hexModelOrg b {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: var(--bp-t-card);
+  font-weight: var(--bp-w-display);
+  line-height: 1.15;
+  letter-spacing: var(--bp-track-tight);
+}
+.hexModelIcon { flex: none; width: 21px; height: 21px; }
+/* Sentence case, not the tracked uppercase used elsewhere: at this width
+   the caps version wrapped onto a second line in every plate. */
+.hexModelOrg > div > span {
+  display: block;
+  margin-top: 3px;
+  font-size: var(--bp-t-body);
+  font-weight: var(--bp-w-medium);
+  line-height: 1.3;
+}
+.hexModelOrgVendor { background: var(--bp-blue-wash-2); border: var(--bp-hairline) solid var(--bp-rule); }
+.hexModelOrgVendor .hexModelNum { color: var(--bp-ink-2); background: #d6e0f2; }
+.hexModelOrgVendor b { color: var(--bp-ink); }
+.hexModelOrgVendor > div > span { color: var(--bp-blue); }
+/* HEX is the emphasised middle, same ink panel it gets on the ladder page. */
+.hexModelOrgHex { background: #0f1633; }
+.hexModelOrgHex .hexModelNum { color: #fff; background: var(--bp-blue); }
+.hexModelOrgHex b { color: #fff; }
+.hexModelOrgHex > div > span { color: var(--bp-blue); }
+.hexModelOrgClients { background: var(--bp-surface-2); border: var(--bp-hairline) solid var(--bp-rule-2); }
+.hexModelOrgClients .hexModelNum { color: #fff; background: #6b6f77; }
+.hexModelOrgClients b { color: var(--bp-ink); }
+.hexModelOrgClients > div > span { color: var(--bp-ink-2); }
+/* ---- lane 2 · what BytePlus puts in, titles only ---- */
+.hexModelProvide {
+  grid-column: 2 / -1;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  list-style: none;
+}
+.hexModelProvide li {
+  min-width: 0;
+  padding: 10px 14px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  background: var(--bp-blue-wash-2);
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-radius: var(--bp-radius-card);
+}
+.hexModelProvide i {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  color: var(--bp-blue);
+  background: var(--bp-blue-wash);
+  font-size: var(--bp-t-micro);
+  font-style: normal;
+  font-weight: var(--bp-w-display);
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+}
+.hexModelProvide b {
+  color: var(--bp-ink);
+  font-size: var(--bp-t-body);
+  font-weight: var(--bp-w-label);
+  line-height: 1.3;
+}
+/* ---- connectors ---- */
+.hexModelLink {
+  min-width: 0;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  color: var(--bp-ink-3);
+  font-style: normal;
+}
+.hexModelLink b {
+  color: var(--bp-ink-2);
+  font-size: var(--bp-t-micro);
+  font-weight: var(--bp-w-medium);
+  line-height: 1.3;
+  text-align: center;
+}
+.hexModelLink svg { width: 100%; height: 8px; }
+.hexModelLinkShaft { stroke: currentColor; stroke-width: 1; fill: none; }
+.hexModelLinkHead { fill: currentColor; stroke: none; }
+/* ---- lane 2 · the people ---- */
+.hexModelTalent {
+  min-width: 0;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  text-align: center;
+}
+.hexModelTalent b {
+  max-width: 30ch;
+  color: var(--bp-ink);
+  font-size: var(--bp-t-body);
+  font-weight: var(--bp-w-label);
+  line-height: 1.35;
+}
+.talentGlyphs { display: flex; align-items: flex-end; gap: 6px; }
+.talentGlyphs svg { width: 26px; height: 26px; }
+.hexModelTalentSeed .talentGlyphs { color: var(--bp-ink-3); }
+.hexModelTalentCohort .talentGlyphs { color: var(--bp-blue); }
+.hexModelTalentClients .talentGlyphs { color: var(--bp-ink-2); }
+/* The drop from the org card above into the talent cell. */
+.hexModelDrop {
+  position: relative;
+  padding-top: 22px;
+  color: var(--bp-blue);
+  font-size: var(--bp-t-micro);
+  font-weight: var(--bp-w-label);
+  letter-spacing: var(--bp-track-label);
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+.hexModelDrop::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -14px;
+  width: var(--bp-hairline);
+  height: 26px;
+  background: currentColor;
+  transform: translateX(-50%);
+}
+.hexModelDrop::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid currentColor;
+  transform: translateX(-50%);
+}
+.hexModelTalentClients .hexModelDrop { color: var(--bp-ink-3); }
+/* ---- lane 3 · the loop ---- */
+.hexModelLoop {
+  grid-column: 2 / -1;
+  padding: 15px 22px;
+  display: grid;
+  justify-items: center;
+  background: var(--bp-blue-wash);
+  border-radius: var(--bp-radius-card);
+  text-align: center;
+}
+.hexModelLoop b {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  color: var(--bp-blue);
+  font-size: var(--bp-t-body-l);
+  font-weight: var(--bp-w-label);
+  letter-spacing: var(--bp-track-tight);
+}
+/* ---- Comfortable one-page sizing ---------------------------------
+   The diagram had been squeezed to ~60% of the slide with 11–13px type.
+   Every text step goes up one notch, cards and lanes breathe, and the
+   board fills the page height. Overrides the compact values above. */
+@media (min-width: 1181px) {
+  .hexModelPage.hexModelPage {
+    padding: 34px 56px 32px;
+    gap: 22px;
+  }
+  .hexModelHead { --hex-model-title: clamp(28px, 2.4vw, 36px); }
+  .hexModelQuote { font-size: var(--bp-t-lede); }
+  .hexModelQuote span { font-size: var(--bp-t-body-l); }
+
+  .hexModelBoard {
+    --model-cols: 132px minmax(0, 1fr) 112px minmax(0, 1fr) 112px minmax(0, 1fr);
+    --model-gap: 14px;
+    align-content: stretch;
+    grid-template-rows: auto minmax(0, 1fr) auto auto;
+    row-gap: 0;
+  }
+  .hexModelLaneOrgs { padding-bottom: 24px; }
+  .hexModelLaneTalent { padding: 24px 0; }
+  .hexModelLaneLoop { padding-top: 22px; padding-bottom: 6px; }
+  .hexModelLaneProvide { padding: 20px 0 0; }
+
+  .hexModelLaneLabel { font-size: var(--bp-t-label); }
+  .hexModelOrg { padding: 18px 22px; gap: 16px; }
+  .hexModelNum { width: 50px; height: 50px; font-size: var(--bp-t-body-l); }
+  .hexModelOrg b { font-size: var(--bp-t-sub); gap: 10px; white-space: nowrap; }
+  .hexModelIcon { width: 24px; height: 24px; }
+  .hexModelOrg > div > span { font-size: var(--bp-t-body); white-space: nowrap; }
+
+  .hexModelLink b, .hexModelLink span { font-size: var(--bp-t-body); }
+  .hexModelTalent b { max-width: 34ch; font-size: var(--bp-t-lede); }
+  .talentGlyphs { gap: 8px; }
+  .talentGlyphs svg { width: 34px; height: 34px; }
+  .hexModelDrop { font-size: var(--bp-t-label); }
+  .hexModelDrop::before { height: 34px; }
+
+  .hexModelLoop { padding: 20px 26px; font-size: var(--bp-t-lede); }
+  .hexModelProvide { padding: 16px 20px; gap: 14px; }
+  .hexModelProvide i { width: 32px; height: 32px; font-size: var(--bp-t-label); }
+  .hexModelProvide b { font-size: var(--bp-t-body-l); }
+}
+@media (max-width: 1180px) {
+  .hexModelBoard { --model-cols: 74px minmax(0, 1fr) 74px minmax(0, 1fr) 74px minmax(0, 1fr); }
+}
+@media (max-width: 900px) {
+  .hexModelPage.hexModelPage { aspect-ratio: auto; max-height: none; padding: 28px 22px; }
+  .hexModelBoard { --model-cols: minmax(0, 1fr); }
+  .hexModelLane { row-gap: 14px; }
+  .hexModelLink svg { transform: rotate(90deg); width: 40px; }
+  .hexModelProvide { grid-column: 1 / -1; grid-template-columns: minmax(0, 1fr); }
+  .hexModelLoop { grid-column: 1 / -1; }
+}
+
+/* Testimonial slide (retired; styles kept for the retained class names). */
 .wppQuotePage.wppQuotePage {
   display: flex;
   align-items: center;
@@ -11146,6 +11726,41 @@ body {
   color: #dceaff;
   font-weight: inherit;
 }
+/* CASE STUDY banner + Key Players table share one viewport. The banner is
+   compressed to a slim strip and the players page takes the remainder, so
+   the pair reads as a single slide instead of a full-height title card
+   followed by a second full-height page. */
+@media (min-width: 1101px) {
+  #case-studies.solutionChapterTransition {
+    min-height: 0;
+    height: 168px;
+    padding: 0 5vw;
+  }
+  #case-studies .solutionTransitionShell {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 32px;
+  }
+  #case-studies .solutionTransitionIndex {
+    min-height: 0;
+    padding-right: 24px;
+  }
+  #case-studies .solutionTransitionIndex > span { font-size: 56px; }
+  #case-studies .solutionTransitionIndex > b { margin-top: 10px; }
+  #case-studies .solutionTransitionCopy > p { margin-bottom: 8px; }
+  #case-studies .solutionTransitionCopy h2 { font-size: clamp(30px, 2.6vw, 40px); line-height: 1.02; }
+
+  #players.customerFlowPage {
+    height: calc(100svh - 72px - 168px);
+    padding: 16px 5vw 20px;
+  }
+  #players .customerFlowStage,
+  #players.customerFlowPage .customerFlowStageFocus { padding: 0 20px; }
+  #players .customerFlowIdentity > span { font-size: 30px; }
+  #players .customerFlowIdentity h3 { font-size: clamp(22px, 1.9vw, 30px); }
+  #players .customerFlowTrend h4 { font-size: clamp(16px, 1.25vw, 20px); margin-top: 8px; }
+  #players .customerFlowExamples b { padding: 7px 14px; font-size: 14px; }
+}
+
 .productionChapter { padding-top: 28px; }
 .productionChapter > .solutions { padding: 0; }
 
@@ -12667,7 +13282,11 @@ body {
 }
 /* V2: the Snuggle brand film leads; the two McDonald's 9:16 captures sit
    paired on the side with one core stat underneath instead of full tables. */
-.goodtakeGridV2 { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: stretch; }
+/* 1.51 : 1 is the ratio at which the 16:9 feature and the paired 9:16
+   captures come out the same pixel height once padding and the inner gap
+   are taken off — matched by resizing, never by cropping (every video
+   keeps object-fit: contain). */
+.goodtakeGridV2 { grid-template-columns: minmax(0, 1.51fr) minmax(0, 1fr); align-items: stretch; }
 .goodtakeFeature {
   margin: 0;
   min-width: 0;
@@ -12675,6 +13294,30 @@ body {
   background: var(--bp-surface);
   border: var(--bp-hairline) solid var(--bp-rule);
   border-radius: var(--bp-radius);
+}
+.goodtakeMedia { position: relative; min-height: 0; }
+/* Model version rides on the frame, where it reads at a glance, instead of
+   hiding in the caption line. */
+.goodtakeModelTag {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 5px 10px;
+  color: #fff;
+  background: var(--bp-blue);
+  font-size: var(--bp-t-label);
+  font-weight: var(--bp-w-label);
+  letter-spacing: var(--bp-track-label);
+  line-height: 1;
+  text-transform: uppercase;
+  border-radius: var(--bp-radius);
+}
+.goodtakeSideItem .goodtakeModelTag {
+  left: 8px;
+  top: 8px;
+  padding: 4px 7px;
+  font-size: var(--bp-t-micro);
+  letter-spacing: .1em;
 }
 .goodtakeFeature video {
   width: 100%;
@@ -12711,11 +13354,20 @@ body {
   border: var(--bp-hairline) solid var(--bp-rule);
   border-radius: var(--bp-radius);
 }
-.goodtakeSideItem { margin: 0; min-width: 0; min-height: 0; }
+/* Grid rows give the video a real box to cap against, so max-height can
+   hold it inside the row instead of pushing the column taller. */
+.goodtakeSideItem {
+  margin: 0;
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
 .goodtakeSideItem video {
   width: 100%;
   height: auto;
   max-height: 100%;
+  margin-inline: auto;
   display: block;
   object-fit: contain;
   background: var(--bp-ink);
@@ -12746,12 +13398,28 @@ body {
   letter-spacing: var(--bp-track-label);
 }
 .goodtakeStat > p {
-  margin: 6px 0 0;
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
   color: var(--bp-ink);
-  font-size: var(--bp-t-body-l);
-  line-height: 1.45;
+  line-height: 1;
 }
-.goodtakeStat strong { color: var(--bp-blue); font-weight: var(--bp-w-display); }
+.goodtakeStat > p > b {
+  font-size: var(--bp-t-lede);
+  font-weight: var(--bp-w-label);
+}
+.goodtakeStat strong {
+  color: var(--bp-blue);
+  font-size: var(--bp-t-figure);
+  font-weight: var(--bp-w-display);
+  letter-spacing: var(--bp-track-tight);
+}
+.goodtakeStat strong i {
+  margin-right: 2px;
+  font-size: .72em;
+  font-style: normal;
+}
 @media (max-width: 900px) {
   .goodtakeGridV2 { grid-template-columns: 1fr; }
 }
@@ -13975,17 +14643,29 @@ body {
   #customer-brand.appLovinCase .appLovinFlywheelCycle {
     grid-column: 1;
     grid-row: 1;
-    width: min(100%, 190px);
-    margin: 4px auto 10px;
+    width: min(100%, 250px);
+    margin: 4px auto 14px;
   }
+  /* Bigger, and the whole group centred in the column: the claim rows
+     shrink to their content and are centred, with badge + text scaled up
+     over the compact defaults set a few rules above. */
   #customer-brand.appLovinCase .appLovinFlywheelClaimInputs,
   #customer-brand.appLovinCase .appLovinFlywheelClaimLearning,
   #customer-brand.appLovinCase .appLovinFlywheelClaimEfficiency {
     grid-column: 1;
+    width: max-content;
+    max-width: 100%;
+    margin-inline: auto;
     align-self: center;
-    padding: 8px 6px;
+    padding: 9px 6px;
+    grid-template-columns: 38px minmax(0, 1fr);
+    column-gap: 14px;
     text-align: left;
   }
+  #customer-brand.appLovinCase .appLovinFlywheelClaimMeta > span { width: 36px; height: 36px; font-size: 13px; }
+  #customer-brand.appLovinCase .appLovinFlywheelClaim h4 { font-size: 19px; }
+  #customer-brand.appLovinCase .appLovinFlywheelFooter { text-align: center; }
+  #customer-brand.appLovinCase .appLovinFlywheelFooter h4 { font-size: 22px; }
   #customer-brand.appLovinCase .appLovinFlywheelClaimInputs { grid-row: 2; }
   #customer-brand.appLovinCase .appLovinFlywheelClaimLearning { grid-row: 3; }
   #customer-brand.appLovinCase .appLovinFlywheelClaimEfficiency { grid-row: 4; }
@@ -14077,9 +14757,14 @@ body {
   #customer-agency .agencyOperatingHero {
     grid-template-columns: 132px minmax(0, 1fr) minmax(300px, auto);
   }
-  #customer-brand .appLovinCaseHero,
   #customer-adtech .adtechCaseHeader {
     grid-template-columns: 132px minmax(0, 1fr);
+  }
+  /* AppLovin: the index column shrinks to "CASE 2" so the wordmark and its
+     intro line pull left instead of floating 56px off the badge. */
+  #customer-brand .appLovinCaseHero {
+    grid-template-columns: max-content minmax(0, 1fr);
+    column-gap: 20px;
   }
   #customer-adtech .adtechCaseHeader::before { display: none; }
 
@@ -14130,7 +14815,7 @@ body {
 
   #customer-brand .appLovinCaseTitle {
     align-self: auto;
-    padding: 0 0 0 28px;
+    padding: 0;
     align-items: baseline;
     gap: 24px;
   }
@@ -14156,158 +14841,626 @@ body {
   }
 }
 
-/* Case 1 product proof — rebuilt as one clean PPT-style evidence panel. */
+/* Two rows now: the adoption lead-in and the three-stage lane. The six
+   product screens moved to their own page (#customer-agency-previs), and
+   the Seedance proof panel below them was removed — so the lane must size
+   to its own copy instead of stretching into the space they used to fill. */
 #customer-agency .agencyLanes {
-  grid-template-rows: auto auto minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-content: start;
   gap: 16px;
 }
-#customer-agency .agencyProductProof {
+
+/* ============================================================
+   #customer-agency-production — the adoption proof page that
+   follows the pre-vis walkthrough. Four stat cards on the left
+   (reusing .bpCard + the deck's blue figure), demo reel on the
+   right. The source sketch used orange figures and soft grey
+   panels; both are re-cut to the house system — blue is the only
+   accent here, cards keep the 4px blue cap.
+   ============================================================ */
+#customer-agency-production.prodSidePage {
+  aspect-ratio: 16 / 9;
+  min-height: 620px;
+  max-height: 900px;
+  padding: 36px 48px 34px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 24px;
+}
+#customer-agency-production .prodSideKicker {
+  display: block;
+  color: var(--bp-blue);
+  font-size: var(--bp-t-label);
+  font-weight: var(--bp-w-label);
+  letter-spacing: var(--bp-track-label);
+  text-transform: uppercase;
+}
+#customer-agency-production .prodSideHead h3 {
+  max-width: 30ch;
+  margin: 10px 0 0;
+  color: var(--bp-ink);
+  font-size: clamp(26px, 2.3vw, 36px);
+  font-weight: var(--bp-w-display);
+  line-height: 1.14;
+  letter-spacing: var(--bp-track-tight);
+}
+#customer-agency-production .prodSideHead h3 strong { color: var(--bp-blue); font-weight: inherit; }
+#customer-agency-production .prodSideLede {
+  max-width: 62ch;
+  margin: 10px 0 0;
+  color: var(--bp-ink-2);
+  font-size: var(--bp-t-body-l);
+  font-weight: var(--bp-w-body);
+  line-height: 1.5;
+}
+#customer-agency-production .prodSideBody {
+  min-height: 0;
+  display: grid;
+  /* The demo reel carries the page; the stat cards have slack to give up. */
+  grid-template-columns: minmax(0, .88fr) minmax(0, 1.18fr);
+  gap: 26px;
+}
+#customer-agency-production .prodSideStats {
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 16px;
+  list-style: none;
+}
+#customer-agency-production .prodSideStat {
+  min-height: 0;
+  padding: calc(var(--bp-pad-card) + var(--bp-accent-bar)) 22px 20px;
+  display: grid;
+  align-content: center;
+  gap: 12px;
+}
+#customer-agency-production .prodSideFigure {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+#customer-agency-production .prodSideFigure b {
+  color: var(--bp-blue);
+  font-size: clamp(30px, 2.7vw, 42px);
+  font-weight: var(--bp-w-display);
+  line-height: 1;
+  letter-spacing: var(--bp-track-tight);
+}
+#customer-agency-production .prodSideFigure span {
+  color: var(--bp-ink);
+  font-size: var(--bp-t-body-l);
+  font-weight: var(--bp-w-label);
+  letter-spacing: var(--bp-track-tight);
+}
+#customer-agency-production .prodSideCopy {
+  margin: 0;
+  color: var(--bp-ink-2);
+  font-size: var(--bp-t-body);
+  font-weight: var(--bp-w-body);
+  line-height: 1.55;
+}
+#customer-agency-production .prodSideCopy strong { color: var(--bp-ink); font-weight: var(--bp-w-label); }
+/* Demo rail. The frame holds a 16:9 reel; until the asset lands it
+   reads as a labelled slot rather than a broken player. */
+#customer-agency-production .prodSideDemo {
   min-width: 0;
-  padding-top: 14px;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 12px;
+}
+#customer-agency-production .prodSideDemoHead b {
+  display: block;
+  margin-top: 6px;
+  color: var(--bp-ink);
+  font-size: var(--bp-t-body-l);
+  font-weight: var(--bp-w-label);
+  letter-spacing: var(--bp-track-tight);
+}
+#customer-agency-production .prodSideDemoFrame {
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  background: var(--bp-surface-2);
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-radius: var(--bp-radius);
+}
+#customer-agency-production .prodSideDemoFrame > span {
+  color: var(--bp-ink-3);
+  font-size: var(--bp-t-label);
+  font-weight: var(--bp-w-label);
+  letter-spacing: var(--bp-track-label);
+  text-transform: uppercase;
+}
+#customer-agency-production .prodSideDemoFrame video,
+#customer-agency-production .prodSideDemoFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 900px) {
+  #customer-agency-production.prodSidePage { aspect-ratio: auto; max-height: none; padding: 28px 22px; }
+  #customer-agency-production .prodSideBody { grid-template-columns: minmax(0, 1fr); }
+  #customer-agency-production .prodSideStats { grid-template-columns: minmax(0, 1fr); grid-auto-rows: auto; }
+  #customer-agency-production .prodSideDemoFrame { aspect-ratio: 16 / 9; }
+}
+
+/* ============================================================
+   #customer-agency-previs — the pre-vis walkthrough, one screen
+   at a time. Split out of Case 1 because six captures side by
+   side were unreadable: at three columns each product screen
+   landed ~418px wide, where WPP Open's own UI type is illegible.
+   One stage at ~1000px plus arrows keeps every screen readable.
+   ============================================================ */
+#customer-agency-previs.previsPage {
+  padding: 34px 40px 36px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 22px;
+}
+/* Header left-aligned like the neighbouring slides: kicker over title. */
+#customer-agency-previs .previsPageHead { display: grid; gap: 8px; text-align: left; }
+#customer-agency-previs .previsKicker {
+  color: var(--bp-blue);
+  font-size: var(--bp-t-label);
+  font-weight: var(--bp-w-label);
+  letter-spacing: var(--bp-track-label);
+  text-transform: uppercase;
+}
+#customer-agency-previs .previsPageHead h3 {
+  margin: 0;
+  color: var(--bp-ink);
+  font-size: clamp(28px, 2.6vw, 40px);
+  font-weight: var(--bp-w-display);
+  line-height: 1.15;
+  letter-spacing: var(--bp-track-tight);
+}
+#customer-agency-previs .previsPageHead h3 strong { color: var(--bp-blue); font-weight: inherit; }
+
+/* Six-cell workflow: two phase blocks, three cells each. Cell = capture,
+   hex badge + title/tool, then one or two short points. Step 6 (the
+   deliverable) is the ink panel with the blue badge. */
+#customer-agency-previs .previsGridWrap { min-height: 0; display: grid; grid-template-rows: auto auto; gap: 18px; align-content: start; }
+#customer-agency-previs .previsPhaseBlock { min-width: 0; }
+#customer-agency-previs .previsPhase {
+  margin: 0 0 10px;
+  color: var(--bp-ink-2);
+  font-size: var(--bp-t-body-l);
+  font-weight: var(--bp-w-label);
+}
+#customer-agency-previs .previsGrid {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  list-style: none;
+}
+#customer-agency-previs .previsCell {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 12px;
+  padding: 14px;
+  background: var(--bp-blue-wash-2);
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-radius: var(--bp-radius-card);
+}
+#customer-agency-previs .previsCellShot {
+  width: 100%;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  background: none;
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-radius: var(--bp-radius-card);
+  cursor: zoom-in;
+}
+#customer-agency-previs .previsCellShot img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1988 / 1080;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  transform-origin: center;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1);
+}
+/* Hover: the capture grows 1.5× inside its own frame (a magnifier over the
+   product UI); click opens the full-screen view. */
+@media (hover: hover) {
+  #customer-agency-previs .previsCellShot:hover img,
+  #customer-agency-previs .previsCellShot:focus-visible img { transform: scale(1.5); }
+}
+/* STEP + title badge floating over the top-left of the lightbox image. */
+.previsZoom figure { position: relative; }
+.previsZoomStep {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100% - 32px);
+  padding: 10px 16px;
+  color: #fff;
+  font-size: var(--bp-t-body-l);
+  font-weight: var(--bp-w-medium);
+  line-height: 1.2;
+  background: rgba(15, 22, 51, .92);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+.previsZoomStep b {
+  padding: 4px 10px;
+  color: #fff;
+  font-size: var(--bp-t-label);
+  font-weight: var(--bp-w-label);
+  letter-spacing: var(--bp-track-label);
+  background: var(--bp-blue);
+  border-radius: 999px;
+}
+.previsZoomStep i { color: rgba(255,255,255,.55); font-style: normal; }
+#customer-agency-previs .previsCellHead { display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: center; gap: 12px; }
+#customer-agency-previs .previsBadge {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: var(--bp-ink-2);
+  font-size: var(--bp-t-body-l);
+  font-weight: var(--bp-w-display);
+  background: #d6e0f2;
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+}
+#customer-agency-previs .previsCellHead b { display: block; color: var(--bp-ink); font-size: var(--bp-t-sub); font-weight: var(--bp-w-label); line-height: 1.2; letter-spacing: var(--bp-track-tight); }
+#customer-agency-previs .previsCellHead em { display: block; margin-top: 3px; color: var(--bp-ink-2); font-size: var(--bp-t-body); font-style: normal; }
+#customer-agency-previs .previsCellPoints { margin: 0; padding: 0 0 0 16px; color: var(--bp-ink-2); font-size: var(--bp-t-body); line-height: 1.45; }
+#customer-agency-previs .previsCellPoints li + li { margin-top: 4px; }
+#customer-agency-previs .previsCell.isDeliverable { background: #0f1633; border-color: #0f1633; }
+#customer-agency-previs .previsCell.isDeliverable .previsBadge { color: #fff; background: var(--bp-blue); }
+#customer-agency-previs .previsCell.isDeliverable .previsCellHead b { color: #fff; }
+#customer-agency-previs .previsCell.isDeliverable .previsCellHead em { color: #9fc4ff; }
+#customer-agency-previs .previsCell.isDeliverable .previsCellPoints { color: #d7dcea; }
+#customer-agency-previs .previsCell.isDeliverable .previsCellShot { border-color: rgba(255,255,255,.18); }
+@media (max-width: 900px) {
+  #customer-agency-previs .previsGrid { grid-template-columns: 1fr; }
+}
+
+#customer-agency-previs .previsCarousel {
+  min-width: 0;
+  display: grid;
+  gap: 20px;
+  outline: none;
+}
+/* Arrows live in the gutters beside the frame, not on top of it —
+   the captures run edge to edge and an overlay would sit on product UI. */
+#customer-agency-previs .previsStage {
+  min-width: 0;
+  display: grid;
+  /* The capture takes the whole track — no 1000px cap — so it reads as
+     the page's dominant element rather than a boxed thumbnail. */
+  grid-template-columns: 52px minmax(0, 1fr) 52px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+#customer-agency-previs .previsArrow {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  color: var(--bp-blue);
+  font-size: 22px;
+  font-weight: var(--bp-w-label);
+  line-height: 1;
+  background: var(--bp-surface);
+  border: var(--bp-hairline) solid var(--bp-rule-2);
+  border-radius: var(--bp-radius);
+  cursor: pointer;
+  transition: background .16s ease, border-color .16s ease, color .16s ease;
+}
+#customer-agency-previs .previsArrow:hover {
+  color: var(--bp-surface);
+  background: var(--bp-blue);
+  border-color: var(--bp-blue);
+}
+#customer-agency-previs .previsArrow:focus-visible {
+  outline: 2px solid var(--bp-blue);
+  outline-offset: 2px;
+}
+#customer-agency-previs .previsShot {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: var(--bp-surface-2);
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-radius: var(--bp-radius);
+}
+/* The frame is a button so the capture can be opened full-screen; it must
+   not inherit any button chrome. */
+#customer-agency-previs .previsShot > button {
+  width: 100%;
+  padding: 0;
+  display: block;
+  background: none;
+  border: 0;
+  cursor: zoom-in;
+}
+#customer-agency-previs .previsShot img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1988 / 1080;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  transform-origin: center;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1);
+}
+/* Hover zoom: the picture scales up inside its own frame (the frame is
+   overflow:hidden), so the layout around it never moves. Click still opens
+   the full-screen view. */
+@media (hover: hover) {
+  #customer-agency-previs .previsShot > button:hover img,
+  #customer-agency-previs .previsShot > button:focus-visible img { transform: scale(1.06); }
+}
+#customer-agency-previs .previsShot > button:focus-visible {
+  outline: 2px solid var(--bp-blue);
+  outline-offset: 2px;
+}
+
+/* ---- full-screen view of one capture ----
+   Its own overlay rather than the older .architectureLightbox: that one
+   still carries the pre-token palette (lime button, navy card, 100px
+   shadow) and would drag it onto this screen. */
+.previsZoom {
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+  /* 88px side gutters keep the prev/next buttons clear of the capture. */
+  padding: 40px 88px;
+  display: grid;
+  place-items: center;
+}
+.previsZoomBackdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(15, 23, 42, .93);
+  cursor: zoom-out;
+}
+.previsZoom figure {
+  position: relative;
+  z-index: 1;
+  max-width: min(1720px, calc(100vw - 176px));
+  margin: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  background: var(--bp-surface);
+  border-radius: var(--bp-radius);
+}
+.previsZoom img {
+  max-width: 100%;
+  max-height: calc(94vh - 74px);
+  display: block;
+  object-fit: contain;
+  border-radius: var(--bp-radius-card);
+}
+.previsZoom figcaption {
+  padding: 14px 20px 16px;
+  display: grid;
+  gap: 5px;
   border-top: var(--bp-hairline) solid var(--bp-rule);
 }
-#customer-agency .agencyProductProofHead {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-#customer-agency .agencyProductProofHead::after {
-  content: "";
-  height: var(--bp-hairline);
-  flex: 1 1 auto;
-  background: var(--bp-rule);
-}
-#customer-agency .agencyProductProofHead > span {
-  flex: 0 0 auto;
+.previsZoom figcaption > span {
   color: var(--bp-blue);
   font-size: var(--bp-t-label);
   font-weight: var(--bp-w-label);
   line-height: 1;
   letter-spacing: var(--bp-track-label);
-  white-space: nowrap;
 }
-#customer-agency .agencyProductProofGrid {
-  min-width: 0;
-  margin-top: 12px;
-  display: grid;
-  /* Canvas capture kept deliberately smaller than the video pair. */
-  grid-template-columns: minmax(0, .78fr) minmax(360px, 1.22fr);
-  gap: 14px;
-  align-items: stretch;
-}
-#customer-agency .agencyWorkspaceShot {
-  min-width: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: #f3f6fa;
-  border: var(--bp-hairline) solid var(--bp-rule);
-  border-radius: var(--bp-radius);
-}
-/* Keep the UI capture at its native ratio: no crop and no forced-height squash. */
-#customer-agency .agencyWorkspaceShot img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-#customer-agency .agencyProofPanel {
-  min-width: 0;
-  padding: 12px;
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  gap: 12px;
-  background: var(--bp-blue-wash-2);
-  border: var(--bp-hairline) solid var(--bp-rule);
-  border-radius: var(--bp-radius);
-}
-#customer-agency .agencyProofPoints {
-  min-width: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-}
-#customer-agency .agencyProofPoints article {
-  min-width: 0;
-  padding: 9px 10px 10px;
-  display: grid;
-  gap: 5px;
-  background: var(--bp-surface);
-  border-top: 3px solid var(--bp-blue);
-}
-#customer-agency .agencyProofPoints span {
-  color: var(--bp-blue);
-  font-size: var(--bp-t-micro);
-  font-weight: var(--bp-w-label);
-  letter-spacing: .1em;
-}
-#customer-agency .agencyProofPoints b {
-  overflow-wrap: anywhere;
+.previsZoom figcaption > span i { color: var(--bp-ink-3); font-style: normal; }
+.previsZoom figcaption b {
   color: var(--bp-ink);
-  font-size: var(--bp-t-body);
+  font-size: var(--bp-t-body-l);
   font-weight: var(--bp-w-label);
-  line-height: 1.25;
+  line-height: 1.3;
 }
-#customer-agency .agencyProofVideos {
-  min-width: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr);
-  gap: 8px;
-  align-items: center;
-}
-#customer-agency .agencyProofVideos figure {
-  min-width: 0;
-  margin: 0;
-  overflow: hidden;
-  background: var(--bp-surface);
-  border: var(--bp-hairline) solid var(--bp-rule);
+.previsZoomNav,
+.previsZoomClose {
+  position: absolute;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  color: var(--bp-surface);
+  font-size: 21px;
+  font-weight: var(--bp-w-label);
+  line-height: 1;
+  background: rgba(255, 255, 255, .12);
+  border: var(--bp-hairline) solid rgba(255, 255, 255, .34);
   border-radius: var(--bp-radius);
+  cursor: pointer;
+  transition: background .16s ease, border-color .16s ease;
 }
-#customer-agency .agencyProofVideos video {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  display: block;
-  object-fit: cover;
-  background: var(--bp-ink);
+.previsZoomNav:hover,
+.previsZoomClose:hover {
+  background: var(--bp-blue);
+  border-color: var(--bp-blue);
 }
-#customer-agency .agencyProofVideos > i {
-  color: var(--bp-blue);
-  font-size: 20px;
-  font-style: normal;
-  font-weight: var(--bp-w-display);
+.previsZoomNav:focus-visible,
+.previsZoomClose:focus-visible {
+  outline: 2px solid var(--bp-surface);
+  outline-offset: 2px;
+}
+.previsZoomPrev { top: 50%; left: 16px; transform: translateY(-50%); }
+.previsZoomNext { top: 50%; right: 16px; transform: translateY(-50%); }
+.previsZoomClose { top: 16px; right: 16px; }
+
+@media (max-width: 640px) {
+  .previsZoom { padding: 16px 56px; }
+  .previsZoom figure { max-width: calc(100vw - 112px); }
+  .previsZoomNav,
+  .previsZoomClose { width: 40px; height: 40px; font-size: 18px; }
+  .previsZoomPrev { left: 8px; }
+  .previsZoomNext { right: 8px; }
+}
+
+/* Caption follows the workflow-diagram reference: phase line, numbered
+   badge + title + the tool it happens in, then one or two terse points. */
+#customer-agency-previs .previsCaption {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
   text-align: center;
 }
-#customer-agency .agencyProofVideos figcaption {
-  padding: 7px 8px 8px;
-  display: grid;
-  gap: 2px;
-}
-#customer-agency .agencyProofVideos figcaption span {
+#customer-agency-previs .previsPhase {
   color: var(--bp-blue);
-  font-size: 9px;
+  font-size: var(--bp-t-label);
   font-weight: var(--bp-w-label);
-  letter-spacing: .12em;
+  line-height: 1;
+  letter-spacing: var(--bp-track-label);
 }
-#customer-agency .agencyProofVideos figcaption b {
-  color: var(--bp-ink);
-  font-size: var(--bp-t-micro);
+#customer-agency-previs .previsCaptionHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+}
+#customer-agency-previs .previsBadge {
+  align-self: center;
+  width: 32px;
+  height: 32px;
+  color: var(--bp-surface);
+  font-size: var(--bp-t-body);
   font-weight: var(--bp-w-label);
-  line-height: 1.2;
+  line-height: 32px;
+  text-align: center;
+  background: var(--bp-blue);
+  border-radius: var(--bp-radius);
+}
+#customer-agency-previs .previsCaption b {
+  color: var(--bp-ink);
+  font-size: var(--bp-t-section);
+  font-weight: var(--bp-w-label);
+  line-height: 1.25;
+  letter-spacing: var(--bp-track-tight);
+}
+#customer-agency-previs .previsCaptionHead em {
+  color: var(--bp-ink-3);
+  font-size: var(--bp-t-body);
+  font-style: normal;
+  font-weight: var(--bp-w-body);
+}
+#customer-agency-previs .previsPoints {
+  max-width: 78ch;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+  list-style: none;
+}
+#customer-agency-previs .previsPoints li {
+  color: var(--bp-ink-2);
+  font-size: var(--bp-t-body-l);
+  font-weight: var(--bp-w-body);
+  line-height: 1.5;
+}
+/* Step 06 is the hand-off: the reference gives it the one inverted card. */
+#customer-agency-previs .previsCarousel.isDeliverable .previsCaptionHead em {
+  color: var(--bp-blue);
+  font-weight: var(--bp-w-label);
+}
+#customer-agency-previs .previsCarousel.isDeliverable .previsPoints li:last-child {
+  color: var(--bp-ink);
+  font-weight: var(--bp-w-medium);
+}
+
+/* The rail is grouped by phase, mirroring the two-band workflow diagram. */
+#customer-agency-previs .previsRail {
+  min-width: 0;
+  max-width: 1144px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 24px;
+}
+#customer-agency-previs .previsRailGroup {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+}
+#customer-agency-previs .previsRailGroup > span {
+  color: var(--bp-ink-3);
+  font-size: var(--bp-t-label);
+  font-weight: var(--bp-w-label);
+  line-height: 1;
+  letter-spacing: var(--bp-track-label);
+}
+#customer-agency-previs .previsRailGroup > div {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+#customer-agency-previs .previsRailStep {
+  min-width: 0;
+  padding: 10px 12px 12px;
+  display: grid;
+  gap: 5px;
+  text-align: left;
+  background: var(--bp-surface);
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-top: var(--bp-accent-bar) solid var(--bp-rule-2);
+  border-radius: var(--bp-radius);
+  cursor: pointer;
+  transition: border-color .16s ease;
+}
+#customer-agency-previs .previsRailStep:hover { border-top-color: var(--bp-blue); }
+#customer-agency-previs .previsRailStep.isActive { border-top-color: var(--bp-blue); }
+#customer-agency-previs .previsRailStep:focus-visible {
+  outline: 2px solid var(--bp-blue);
+  outline-offset: 2px;
+}
+#customer-agency-previs .previsRailStep > span {
+  color: var(--bp-ink-3);
+  font-size: var(--bp-t-label);
+  font-weight: var(--bp-w-label);
+  line-height: 1;
+  letter-spacing: var(--bp-track-label);
+}
+#customer-agency-previs .previsRailStep.isActive > span { color: var(--bp-blue); }
+#customer-agency-previs .previsRailStep > em {
+  color: var(--bp-ink-2);
+  font-size: var(--bp-t-micro);
+  font-style: normal;
+  font-weight: var(--bp-w-body);
+  line-height: 1.35;
+}
+#customer-agency-previs .previsRailStep.isActive > em {
+  color: var(--bp-ink);
+  font-weight: var(--bp-w-label);
 }
 
 @media (max-width: 1100px) {
-  #customer-agency .agencyProductProofGrid { grid-template-columns: 1fr; }
-  #customer-agency .agencyProofPanel { grid-template-columns: minmax(0, .62fr) minmax(0, 1.38fr); grid-template-rows: auto; }
-  #customer-agency .agencyProofPoints { grid-template-columns: 1fr; }
+  #customer-agency-previs .previsStage { grid-template-columns: 44px minmax(0, 1fr) 44px; gap: 12px; }
+  #customer-agency-previs .previsArrow { width: 44px; height: 44px; font-size: 19px; }
+  #customer-agency-previs .previsRail { grid-template-columns: minmax(0, 1fr); gap: 14px; }
 }
 @media (max-width: 640px) {
-  #customer-agency .agencyProductProofHead > span { white-space: normal; line-height: 1.35; }
-  #customer-agency .agencyProofPanel { grid-template-columns: 1fr; }
-  #customer-agency .agencyProofPoints { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  #customer-agency .agencyProofVideos { grid-template-columns: 1fr; }
-  #customer-agency .agencyProofVideos > i { transform: rotate(90deg); }
+  #customer-agency-previs.previsPage { padding: 24px 0 28px; gap: 18px; }
+  #customer-agency-previs .previsStage { grid-template-columns: 38px minmax(0, 1fr) 38px; gap: 8px; }
+  #customer-agency-previs .previsArrow { width: 38px; height: 38px; font-size: 17px; }
+  #customer-agency-previs .previsCaptionHead { flex-wrap: wrap; gap: 8px; }
+  #customer-agency-previs .previsRailStep { padding: 8px 10px 9px; justify-items: center; }
+  #customer-agency-previs .previsRailStep > em { display: none; }
 }
 
 /* AppLovin slide: remove inherited implicit grid columns and spend the space

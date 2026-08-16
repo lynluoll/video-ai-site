@@ -23,7 +23,7 @@ test("server-renders the complete V3 advertising strategy", async () => {
   const performanceSolutionHtml = html.slice(html.indexOf('id="solution-performance"'), html.indexOf('id="solution-display"'));
   const marketTrendHtml = html.slice(html.indexOf('class="marketTrendSection"'), html.indexOf('class="customerFlowPage"'));
 
-  assert.match(html, /<html lang="en">/);
+  assert.match(html, /<html lang="en"(?: class="[^"]*")?>/);
   assert.match(html, /<title>BytePlus Advertising Creative Production Solutions<\/title>/);
   assert.match(html, /id="language-mode" type="checkbox"[^>]*checked=""/);
   assert.match(html, /<main class="siteRoot" id="top">/);
@@ -81,20 +81,27 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(html, /displaySolutionIndex"><span>3\.3<\/span>/);
   assert.match(html, /playableIndex"><span>3\.4<\/span>/);
 
-  // CASE 1 · WPP Open: three org-logic stage cards, the Canvas capture, and
-  // the input→output automotive pair.
-  const agencyHtml = html.slice(html.indexOf('id="customer-agency"'), html.indexOf('class="wppWorkPage wppQuotePage"'));
-  assert.match(agencyHtml, /Start with Creative\./);
-  assert.match(agencyHtml, /Ogilvy · VML · AKQA · ~50k people/);
-  assert.match(agencyHtml, /Hogarth and ~10k makers/);
-  assert.match(agencyHtml, /WPP Media: formerly GroupM/);
-  assert.match(agencyHtml, /\/media\/wpp\/canvas\.webp/);
+  // CASE 1 · BytePlus × WPP: lockup cover, WPP OPEN case-flow, six-cell
+  // campaign workflow, production side, HEX model — then the CASE 2 cover.
+  const agencyHtml = html.slice(html.indexOf('id="customer-agency"'), html.indexOf('id="customer-brand-cover"'));
+  assert.match(agencyHtml, /class="agencyLockup"/);
+  assert.match(agencyHtml, /\/byteplus-logo\.png/);
+  assert.match(agencyHtml, /\/logos\/wpp-halftone\.svg/);
+  assert.doesNotMatch(agencyHtml, /Start with Creative\.|Ogilvy · VML · AKQA · ~50k people|Hogarth and ~10k makers|WPP Media: formerly GroupM/);
+  assert.match(agencyHtml, /id="customer-agency-flow"/);
+  assert.match(agencyHtml, /WPP OPEN/);
+  assert.match(agencyHtml, /id="customer-agency-previs"/);
+  assert.match(agencyHtml, /CAMPAIGN WORKFLOW/);
+  assert.equal((agencyHtml.match(/class="previsCell(?: isDeliverable)?"/g) ?? []).length, 6);
+  assert.match(agencyHtml, /\/media\/wpp\/toolkit\.png/);
+  assert.match(agencyHtml, /\/media\/wpp\/flow\/previs-canvas\.png/);
+  assert.match(agencyHtml, /id="customer-agency-hex-model"/);
+  assert.match(agencyHtml, /Co-build an FDE cohort/);
+  assert.doesNotMatch(html, /Akia Mitchell/);
 
-  // The WPP testimonial slide sits between the WPP and AppLovin cases.
-  assert.match(html, /Akia Mitchell/);
-  assert.match(html, /Seedance is way better, and the\s*word is out/);
-
-  // CASE 2 · AppLovin: flywheel, full Creative Set capture, four demo clips.
+  // CASE 2 · AppLovin: BytePlus × AppLovin cover, then flywheel, full
+  // Creative Set capture, four demo clips.
+  assert.match(html, /id="customer-brand-cover"[\s\S]*class="caseLockup"/);
   const appLovinHtml = html.slice(html.indexOf('id="customer-brand"'), html.indexOf('id="customer-adtech"'));
   assert.match(appLovinHtml, /AppLovin Flywheel of Scale/);
   assert.match(appLovinHtml, /More creative inputs/);
