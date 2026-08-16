@@ -6411,7 +6411,7 @@ html.marketTrackTransitionLock { overscroll-behavior: none; }
 .hexModelOrgHex { background: #0f1633; }
 .hexModelOrgHex .hexModelNum { color: #fff; background: var(--bp-blue); }
 .hexModelOrgHex b { color: #fff; }
-.hexModelOrgHex > div > span { color: var(--bp-blue); }
+.hexModelOrgHex > div > span { color: rgba(255,255,255,.82); }
 .hexModelOrgClients { background: var(--bp-surface-2); border: var(--bp-hairline) solid var(--bp-rule-2); }
 .hexModelOrgClients .hexModelNum { color: #fff; background: #6b6f77; }
 .hexModelOrgClients b { color: var(--bp-ink); }
@@ -6551,8 +6551,13 @@ html.marketTrackTransitionLock { overscroll-behavior: none; }
    board fills the page height. Overrides the compact values above. */
 @media (min-width: 1181px) {
   .hexModelPage.hexModelPage {
-    padding: 34px 56px 32px;
-    gap: 22px;
+    /* Matched to the six-cell workflow page beside it (825px at 1296 wide)
+       instead of the strict 16:9 the other slides use. */
+    aspect-ratio: auto;
+    height: 825px;
+    max-height: none;
+    padding: 40px 56px 38px;
+    gap: 26px;
   }
   .hexModelHead { --hex-model-title: clamp(28px, 2.4vw, 36px); }
   .hexModelQuote { font-size: var(--bp-t-lede); }
