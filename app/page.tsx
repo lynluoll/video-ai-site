@@ -1026,15 +1026,6 @@ export default function Home() {
             </div>
           </article>
 
-          <article className="solutionPage seedanceDemoPage" id="solution-brand-seedance25" aria-label="Seedance 2.5 香水广告 Demo">
-            <header className="seedanceDemoHeader">
-              <span>SEEDANCE 2.5 DEMO</span>
-            </header>
-            <figure className="seedanceDemoStage">
-              <video src="/media/seedance25-perfume-ads.mp4" controls autoPlay loop muted playsInline preload="metadata" aria-label="Seedance 2.5 生成的香水广告完整 Demo" />
-            </figure>
-          </article>
-
           <article className="solutionPage performanceSolutionPage performanceDemoPage" id="solution-performance">
             <header className="performanceV2Header">
               <div className="performanceV2Index"><span>3.2</span><b>PERFORMANCE ADS</b></div>

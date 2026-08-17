@@ -110,11 +110,8 @@ test("server-renders the complete V3 advertising strategy", async () => {
 
   // Branding is split into one hero-film page and one evidence page; the
   // performance is split into SKU proof and capability pages.
-  // 6 = brand hero, brand capabilities, the Seedance 2.5 demo interstitial,
-  // performance V2, display, playable.
-  assert.equal((html.match(/class="solutionPage /g) ?? []).length, 6);
-  assert.match(html, /SEEDANCE 2\.5 DEMO/);
-  assert.match(html, /\/media\/seedance25-perfume-ads\.mp4/);
+  // 5 = brand hero, brand capabilities, performance demo, performance capabilities, display.
+  assert.equal((html.match(/class="solutionPage /g) ?? []).length, 5);
   assert.match(html, /多种镜头，直出一支完整品牌片/);
   assert.match(html, /Multiple shots\. One coherent brand film/);
   assert.match(html, /一支生产可用的品牌片，背后是四项模型能力/);
