@@ -1,0 +1,73 @@
+version: 2.0.0
+agentPool: public/prod-v2-public
+
+sources:
+  - name: video-ai-site
+    type: Github
+    url: https://github.com/lynluoll/video-ai-site.git
+    branch: main
+    branchingModel: false
+    credential:
+      type: serviceConnection
+      serviceConnectionId: itVzFZUUhFl3nLp9mSoM
+    cloneDepth: 1
+
+stages:
+  - stage: build
+    displayName: Build and test
+    tasks:
+      - task: build-image
+        displayName: Build website image
+        timeout: 2h
+        steps:
+          - step: build-vefaas-image
+            displayName: Test, build, and push image
+            component: build@2.0.0/buildkit-cr@4.0.0
+            inputs:
+              buildParams: ""
+              compression: gzip
+              contextPath: .
+              disableSSLVerify: false
+              dockerfiles:
+                default:
+                  path: Dockerfile.vefaas
+              loginCredential: []
+              namespace: ads-ai-strategy
+              region: ap-southeast-1
+              registryInstance: creative-agents-cicd
+              repo: ads-ai-strategy
+              tag: $DATETIME
+              useCache: true
+        outputs:
+          - imageOutput_build-vefaas-image
+        workspace:
+          resources:
+            - ref: video-ai-site
+              directory: $(CP_WORKSPACE)
+        resourcesPolicy: all
+        resources:
+          limits:
+            cpu: 2C
+            memory: 4Gi
+
+  - stage: deploy
+    displayName: Deploy to production
+    tasks:
+      - task: deploy-vefaas
+        displayName: Deploy ads-ai-strategy
+        component: deploy@1.0.0/faas-deploy
+        inputs:
+          artifact:
+            mode: output
+            type: image
+            value: $(stages.build.tasks.build-image.outputs.imageOutput_build-vefaas-image)
+          deployPolicy:
+            type: full
+          functionId: idf1lciy
+          functionVersion: "0"
+          region: ap-southeast-1
+        outputs:
+          - releaseId
+          - releaseStatus
+          - details
+        workspace: {}
