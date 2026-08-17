@@ -19,8 +19,12 @@ jobs:
           test -n "$WEBHOOK_URL"
           curl --fail-with-body \
             --request POST \
+            --user-agent "GitHub-Hookshot/${GITHUB_RUN_ID}" \
             --header "Content-Type: application/json" \
             --header "X-GitHub-Event: push" \
             --header "X-GitHub-Delivery: ${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" \
+            --header "X-GitHub-Hook-ID: ${GITHUB_RUN_ID}" \
+            --header "X-GitHub-Hook-Installation-Target-ID: ${GITHUB_REPOSITORY_ID}" \
+            --header "X-GitHub-Hook-Installation-Target-Type: repository" \
             --data-binary "@${GITHUB_EVENT_PATH}" \
             "$WEBHOOK_URL"
