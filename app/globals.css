@@ -2741,31 +2741,6 @@ button, summary { font: inherit; }
 .solutionPages { display: grid; gap: 34px; margin-top: 0; }
 .solutionPage { overflow: hidden; color: var(--ink); background: #f4f6fa; border: 1px solid #dce2ea; box-shadow: 0 28px 70px rgba(0,0,0,.16); }
 
-/* Seedance 2.5 demo interstitial after 3.1 — one kicker, one full-bleed film. */
-.seedanceDemoPage {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  gap: 18px;
-  padding: 32px 36px 36px;
-}
-.seedanceDemoHeader > span {
-  color: var(--bp-blue);
-  font-size: var(--bp-t-card);
-  font-weight: var(--bp-w-display);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-.seedanceDemoStage { min-width: 0; min-height: 0; margin: 0; }
-.seedanceDemoStage video {
-  width: 100%;
-  max-height: min(66vh, 720px);
-  display: block;
-  margin-inline: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
-  background: #111827;
-  border-radius: var(--bp-radius-card);
-}
 .solutionPageHeader { display: grid; grid-template-columns: 54px minmax(0, 1.08fr) minmax(280px, .78fr); gap: 26px; align-items: end; padding: 36px 36px 32px; border-bottom: 1px solid #dce2ea; }
 .solutionPageHeader > span { align-self: start; color: var(--orange); font-size: 11px; font-weight: 800; letter-spacing: .15em; }
 .solutionPageHeader small { display: block; margin-bottom: 15px; color: #7b8799; font-size: 9px; font-weight: 800; letter-spacing: .15em; }
