@@ -11,6 +11,12 @@ sources:
       type: serviceConnection
       serviceConnectionId: itVzFZUUhFl3nLp9mSoM
     cloneDepth: 1
+    trigger:
+      triggerExecutionType: OnlyLatest
+      triggerEvents:
+        - eventType: Push
+          branchFilters:
+            - main
 
 stages:
   - stage: build
