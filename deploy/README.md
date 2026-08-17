@@ -18,13 +18,13 @@ inside BytePlus CodePipeline.
 3. The resulting image is pushed to the `creative-agents-cicd` Container
    Registry instance under `ads-ai-strategy/ads-ai-strategy`.
 4. The built-in `faas-deploy` step performs a full release to VeFaaS function
-   `idf1lciy` in `ap-southeast-1`.
+   `mj0739ha` (`ads-ai-strategy-image`) in `ap-southeast-1`.
 
 The checked-in pipeline definition is [`deploy/codepipeline.yaml`](codepipeline.yaml).
 The production endpoint is <https://ads.byteplus-demo.com/>.
 
 ## Rollback
 
-Use the VeFaaS release history for function `ads-ai-strategy` and move 100% of
+Use the VeFaaS release history for function `ads-ai-strategy-image` and move 100% of
 traffic back to the last known-good revision. Do not rebuild an old commit when
 an existing healthy revision is available.
