@@ -9,6 +9,7 @@ COPY app ./app
 COPY build ./build
 COPY public ./public
 COPY tests ./tests
+COPY .openai ./.openai
 COPY next.config.ts vite.config.ts tsconfig.json postcss.config.mjs eslint.config.mjs ./
 
 # The test command also produces the static export in dist/client.
