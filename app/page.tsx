@@ -783,8 +783,8 @@ export default function Home() {
           </div>
           <div className="solutionTransitionCopy">
             <p>BYTEPLUS CREATIVE PRODUCTION</p>
-            <h2 className="langZh" id="solution-transition-title">从行业工作流出发，进入 <strong>BytePlus 生产能力与解决方案。</strong></h2>
-            <h2 className="langEn">From industry workflows to <strong>BytePlus production capabilities and solutions.</strong></h2>
+            <h2 className="langZh" id="solution-transition-title"><strong>BytePlus AI 原生广告创意生产解决方案。</strong></h2>
+            <h2 className="langEn"><strong>BytePlus Solutions for AI-Native Creative Production.</strong></h2>
           </div>
         </div>
       </section>
