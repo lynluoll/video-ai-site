@@ -17670,3 +17670,492 @@ body {
   .performancePlatformRow { grid-template-columns: 1fr; gap: 8px; }
   .performancePlatformProducts span:first-child { border-left: 0; padding-left: 0; }
 }
+
+/* v10.3 — performance capabilities split into two focused presentation pages */
+.performanceCapabilityPage.performanceCapabilityFoundationPage,
+.performanceCapabilityPage.performanceCapabilityExecutionPage {
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(100vh - 72px);
+  min-height: 648px;
+  max-height: 1088px;
+  display: grid;
+  grid-template-rows: 120px minmax(0, 1fr);
+  overflow: hidden;
+  color: #151b2a;
+  background: #ffffff;
+  border: 0;
+  border-top: 5px solid #0b67ff;
+  box-shadow: none;
+  scroll-margin-top: 0;
+}
+.performanceCapabilityExecutionPage .performanceCapabilityHeader {
+  padding-top: 16px;
+  padding-bottom: 14px;
+}
+
+/* Page 1: one continuous work surface with two clearly weighted capabilities. */
+.performanceCapabilityFoundationBody {
+  padding: 18px 28px 26px;
+  grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 12px;
+  background: #f2f6fb;
+}
+.performanceCapabilityFoundationBody > .performanceCapabilityPrimary,
+.performanceCapabilityFoundationBody > .performanceCapabilityFormats {
+  padding: clamp(28px, 2.15vw, 42px);
+  border-top: 0;
+  box-shadow: none;
+}
+.performanceCapabilityFoundationBody > .performanceCapabilityPrimary {
+  z-index: 1;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 0 100%, rgba(35, 118, 255, .42), transparent 47%),
+    linear-gradient(145deg, #0a1730 0%, #142b56 100%);
+}
+.performanceCapabilityFoundationBody > .performanceCapabilityFormats {
+  overflow: visible;
+  background:
+    radial-gradient(circle at 100% 0, rgba(11, 103, 255, .07), transparent 38%),
+    #ffffff;
+  border-top: 5px solid #0b67ff;
+}
+.performanceCapabilityFoundationBody .performanceCapabilityCardTitle {
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 16px;
+}
+.performanceCapabilityFoundationBody .performanceCapabilityCardTitle > span {
+  font-size: 15px;
+}
+.performanceCapabilityFoundationBody .performanceCapabilityCardTitle h4 {
+  max-width: 720px;
+  font-size: clamp(27px, 2vw, 38px);
+  line-height: .98;
+}
+.performanceCapabilityFoundationBody .performanceCapabilityPrimary .performanceCapabilityCardTitle > span {
+  color: #5be5f1;
+}
+.performanceCapabilityFoundationBody .performanceCapabilityPrimary .performanceCapabilityCardTitle h4 {
+  color: #ffffff;
+}
+.performanceCapabilityFoundationBody .performanceReferenceMetric,
+.performanceCapabilityFoundationBody .performanceInputTypes,
+.performanceCapabilityFoundationBody .performanceReferenceAssets,
+.performanceCapabilityFoundationBody .performanceFormatMetrics,
+.performanceCapabilityFoundationBody .performanceFormatWall {
+  margin-left: 60px;
+}
+.performanceCapabilityFoundationBody .performanceReferenceMetric {
+  margin-top: clamp(30px, 3.8vh, 52px);
+  margin-bottom: 24px;
+  align-items: center;
+}
+.performanceCapabilityFoundationBody .performanceReferenceMetric strong {
+  color: #ffffff;
+  font-size: clamp(82px, 7.2vw, 126px);
+}
+.performanceCapabilityFoundationBody .performanceReferenceMetric p {
+  max-width: 260px;
+  color: #d7e2f2;
+  font-size: clamp(15px, 1.08vw, 20px);
+  line-height: 1.08;
+}
+.performanceCapabilityFoundationBody .performanceInputTypes {
+  border-color: rgba(205, 220, 244, .24);
+}
+.performanceCapabilityFoundationBody .performanceInputTypes > div {
+  min-height: 66px;
+  padding: 12px 11px;
+  background: rgba(255, 255, 255, .055);
+}
+.performanceCapabilityFoundationBody .performanceInputTypes > div + div {
+  border-color: rgba(205, 220, 244, .24);
+}
+.performanceCapabilityFoundationBody .performanceInputTypes svg {
+  width: 25px;
+  height: 25px;
+  stroke: #5be5f1;
+}
+.performanceCapabilityFoundationBody .performanceInputTypes strong {
+  color: #ffffff;
+  font-size: 24px;
+}
+.performanceCapabilityFoundationBody .performanceInputTypes span {
+  color: #aebbd0;
+}
+.performanceCapabilityFoundationBody .performanceReferenceAssets {
+  min-height: clamp(128px, 18vh, 225px);
+  margin-top: clamp(28px, 4.2vh, 62px);
+  margin-bottom: 0;
+  padding: 8px;
+  gap: 8px;
+  background: rgba(255, 255, 255, .10);
+}
+.performanceCapabilityFoundationBody .performanceReferenceAssets figure {
+  background: #f5f7fa;
+}
+.performanceCapabilityFoundationBody .performanceReferenceAssets img {
+  min-height: 100%;
+  object-fit: contain;
+}
+.performanceCapabilityFoundationBody .performanceFormatMetrics {
+  margin-top: clamp(34px, 4.5vh, 64px);
+  margin-bottom: 22px;
+  padding-bottom: 24px;
+  display: grid;
+  grid-template-columns: auto minmax(180px, 1fr);
+  align-items: end;
+  border-bottom-color: #ccd8e8;
+}
+.performanceCapabilityFoundationBody .performanceFormatMetrics strong {
+  font-size: clamp(74px, 6.2vw, 112px);
+}
+.performanceCapabilityFoundationBody .performanceFormatMetrics span {
+  max-width: 320px;
+  justify-self: end;
+  padding-bottom: 7px;
+  font-size: clamp(12px, .83vw, 15px);
+  line-height: 1.45;
+}
+.performanceCapabilityFoundationBody .performanceFormatWall {
+  gap: 0;
+  border-bottom: 1px solid #d6e0ec;
+}
+.performanceCapabilityFoundationBody .performancePlatformRow {
+  min-height: 92px;
+  padding: 15px 8px;
+  grid-template-columns: 148px minmax(0, 1fr);
+  background: transparent;
+  border-top: 1px solid #d6e0ec;
+}
+.performanceCapabilityFoundationBody .performancePlatformLogo img {
+  width: 34px;
+  height: 34px;
+}
+.performanceCapabilityFoundationBody .performanceFormatWall strong {
+  font-size: 20px;
+}
+.performanceCapabilityFoundationBody .performancePlatformProducts span {
+  min-height: 32px;
+  padding: 0 16px;
+}
+.performanceCapabilityFoundationBody .performancePlatformProducts b {
+  font-size: clamp(12px, .82vw, 15px);
+}
+.performanceCapabilityFoundationBody .performancePlatformProducts em {
+  font-size: clamp(12px, .78vw, 14px);
+}
+.performanceCapabilityFoundationBody > .performanceCapabilityFormats::before {
+  content: "→";
+  position: absolute;
+  top: 50%;
+  left: -29px;
+  z-index: 3;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: #0b67ff;
+  border: 6px solid #f2f6fb;
+  border-radius: 50%;
+  font-size: 19px;
+  font-weight: 750;
+  line-height: 1;
+  box-shadow: 0 10px 24px rgba(11, 103, 255, .22);
+}
+
+/* Page 2: localization owns the visual field; editing remains a compact proof strip. */
+.performanceCapabilityExecutionBody {
+  padding: 18px 28px 26px;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 14px;
+  background:
+    linear-gradient(180deg, #edf4fd 0%, #f7f9fc 52%, #edf3fa 100%);
+}
+.performanceCapabilityExecutionBody > .performanceLocalizationDemo,
+.performanceCapabilityExecutionBody > .performanceCapabilityEditingV3 {
+  min-width: 0;
+  min-height: 0;
+  border: 0;
+  border-top: 5px solid #0b67ff;
+  box-shadow: none;
+}
+.performanceCapabilityExecutionBody > .performanceLocalizationDemo {
+  padding: clamp(20px, 1.45vw, 28px) clamp(22px, 1.8vw, 34px) clamp(18px, 1.35vw, 26px);
+  background:
+    radial-gradient(circle at 5% 100%, rgba(77, 217, 236, .17), transparent 34%),
+    linear-gradient(120deg, #edf5ff 0%, #ffffff 48%, #f4f8ff 100%);
+}
+.performanceCapabilityExecutionBody .performanceLocalizationTitle {
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  gap: 18px;
+}
+.performanceCapabilityExecutionBody .performanceLocalizationTitle > span {
+  font-size: 17px;
+}
+.performanceCapabilityExecutionBody .performanceLocalizationTitle h4 {
+  font-size: clamp(27px, 2vw, 38px);
+}
+.performanceCapabilityExecutionBody .performanceLocalizationTitle > strong b {
+  font-size: clamp(32px, 2.8vw, 50px);
+}
+.performanceCapabilityExecutionBody .performanceLocalizationWall {
+  margin: clamp(14px, 1.45vh, 22px) 0 0 60px;
+  grid-template-columns: clamp(205px, 14vw, 260px) 54px minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+.performanceCapabilityExecutionBody .performanceLocalizationMaster {
+  min-height: 0;
+  aspect-ratio: auto;
+  padding: clamp(14px, 1.2vw, 22px);
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 35%, #ffffff 0%, #f4f8ff 52%, #dfeafa 100%);
+  box-shadow: inset 0 0 0 1px rgba(143, 165, 199, .28);
+}
+.performanceCapabilityExecutionBody .performanceLocalizationMaster img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  box-shadow: 0 18px 38px rgba(34, 60, 98, .13);
+}
+.performanceCapabilityExecutionBody .performanceLocalizationWallArrow {
+  align-self: center;
+  position: relative;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: #0b67ff;
+  border-radius: 50%;
+  font-size: 26px;
+  box-shadow: 0 12px 28px rgba(11, 103, 255, .22);
+}
+.performanceCapabilityExecutionBody .performanceLocalizationMarquees {
+  height: 100%;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.performanceCapabilityExecutionBody .performanceLocalizationMarquee {
+  display: flex;
+}
+.performanceCapabilityExecutionBody .performanceLocalizationTrack {
+  height: 100%;
+  gap: 12px;
+}
+.performanceCapabilityExecutionBody .performanceLocalizationTile {
+  width: clamp(210px, 14vw, 270px);
+  height: 100%;
+  aspect-ratio: auto;
+  border-bottom: 3px solid #0b67ff;
+}
+.performanceCapabilityExecutionBody .performanceLocalizationTile > span {
+  right: 10px;
+  bottom: 9px;
+  left: 10px;
+  font-size: clamp(10px, .68vw, 12px);
+}
+.performanceCapabilityExecutionBody > .performanceCapabilityEditingV3 {
+  padding: 18px 26px 20px;
+  background: #ffffff;
+}
+.performanceCapabilityExecutionBody .performanceCapabilityEditingV3 .performanceCapabilityCardTitle {
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 14px;
+}
+.performanceCapabilityExecutionBody .performanceCapabilityEditingV3 .performanceCapabilityCardTitle h4 {
+  font-size: clamp(23px, 1.55vw, 30px);
+}
+.performanceCapabilityExecutionBody .performanceEditingDemos {
+  margin: 14px 0 0 50px;
+  grid-template-columns: minmax(150px, .72fr) 34px minmax(0, 2fr);
+  gap: 12px;
+}
+.performanceCapabilityExecutionBody .performanceEditingOutputs {
+  gap: 10px;
+}
+.performanceCapabilityExecutionBody .performanceEditingOutputCard {
+  grid-template-rows: 44px minmax(0, 1fr);
+  border-top-width: 2px;
+}
+.performanceCapabilityExecutionBody .performanceEditingArrow {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  box-shadow: 0 8px 20px rgba(11, 103, 255, .2);
+}
+
+@media (max-width: 1120px) {
+  .performanceCapabilityPage.performanceCapabilityFoundationPage,
+  .performanceCapabilityPage.performanceCapabilityExecutionPage {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    grid-template-rows: auto auto;
+  }
+  .performanceCapabilityFoundationBody,
+  .performanceCapabilityExecutionBody {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .performanceCapabilityFoundationBody > .performanceCapabilityFormats {
+    border-left: 0;
+    border-top-color: #6e95d8;
+  }
+  .performanceCapabilityFoundationBody > .performanceCapabilityFormats::before {
+    content: "↓";
+    top: -29px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .performanceCapabilityExecutionBody > .performanceLocalizationDemo,
+  .performanceCapabilityExecutionBody > .performanceCapabilityEditingV3 {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 700px) {
+  .performanceCapabilityFoundationBody,
+  .performanceCapabilityExecutionBody { padding: 14px 16px 20px; }
+  .performanceCapabilityFoundationBody > .performanceCapabilityPrimary,
+  .performanceCapabilityFoundationBody > .performanceCapabilityFormats,
+  .performanceCapabilityExecutionBody > .performanceLocalizationDemo,
+  .performanceCapabilityExecutionBody > .performanceCapabilityEditingV3 { padding: 22px 16px; }
+  .performanceCapabilityFoundationBody .performanceReferenceMetric,
+  .performanceCapabilityFoundationBody .performanceInputTypes,
+  .performanceCapabilityFoundationBody .performanceReferenceAssets,
+  .performanceCapabilityFoundationBody .performanceFormatMetrics,
+  .performanceCapabilityFoundationBody .performanceFormatWall,
+  .performanceCapabilityExecutionBody .performanceLocalizationWall,
+  .performanceCapabilityExecutionBody .performanceEditingDemos { margin-left: 0; }
+  .performanceCapabilityExecutionBody .performanceLocalizationWall {
+    grid-template-columns: 90px 24px minmax(0, 1fr);
+    gap: 8px;
+  }
+  .performanceCapabilityExecutionBody .performanceLocalizationTile { width: 98px; }
+}
+
+/* v10.4 — portrait-first presentation for native 9:16 performance videos. */
+.performanceCapabilityExecutionBody .performanceLocalizationWall {
+  grid-template-columns: clamp(160px, 11vw, 210px) 44px minmax(0, 1fr);
+  gap: 16px;
+}
+.performanceCapabilityExecutionBody .performanceLocalizationMaster {
+  align-self: center;
+  height: min(100%, 260px);
+}
+.performanceCapabilityExecutionBody .performanceLocalizationMaster img {
+  width: min(100%, 170px);
+}
+.performanceCapabilityExecutionBody .performanceLocalizationMarquees {
+  height: 100%;
+  display: block;
+  overflow: hidden;
+}
+.performanceCapabilityExecutionBody .performanceLocalizationMarquee,
+.performanceCapabilityExecutionBody .performanceLocalizationTrack {
+  height: 100%;
+}
+.performanceCapabilityExecutionBody .performanceLocalizationTrack {
+  gap: 10px;
+  animation-duration: 48s;
+}
+.performanceCapabilityExecutionBody .performanceLocalizationTile {
+  width: auto;
+  height: 100%;
+  aspect-ratio: 9 / 16;
+  flex: 0 0 auto;
+  border: 1px solid rgba(126, 151, 189, .34);
+  border-bottom: 4px solid #0b67ff;
+  background: #0d1729;
+}
+.performanceCapabilityExecutionBody .performanceLocalizationTile img {
+  object-fit: cover;
+}
+.performanceCapabilityExecutionBody .performanceLocalizationTile > span {
+  right: 8px;
+  bottom: 8px;
+  left: 8px;
+  font-size: clamp(9px, .62vw, 11px);
+}
+.performanceCapabilityExecutionBody .performanceLocalizationTile > i {
+  width: 24px;
+  height: 24px;
+  font-size: 8px;
+}
+
+.performanceCapabilityExecutionBody .performanceEditingDemos {
+  grid-template-columns: minmax(120px, .6fr) 34px minmax(0, 1.55fr);
+  align-items: stretch;
+}
+.performanceCapabilityExecutionBody .performanceEditingOriginal {
+  width: auto;
+  height: 100%;
+  aspect-ratio: 9 / 16;
+  justify-self: center;
+}
+.performanceCapabilityExecutionBody .performanceEditingOutputs {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+.performanceCapabilityExecutionBody .performanceEditingOutputCard {
+  justify-items: center;
+  background: #f4f7fc;
+}
+.performanceCapabilityExecutionBody .performanceEditingSkuSpec,
+.performanceCapabilityExecutionBody .performanceEditingTextSpec {
+  width: 100%;
+  box-sizing: border-box;
+}
+.performanceCapabilityExecutionBody .performanceEditingOutputCard figure {
+  width: auto;
+  height: 100%;
+  aspect-ratio: 9 / 16;
+  justify-self: center;
+}
+.performanceCapabilityExecutionBody .performanceEditingDemos figure,
+.performanceCapabilityExecutionBody .performanceEditingDemos video {
+  background: #0d1729;
+}
+
+@media (max-width: 1120px) {
+  .performanceCapabilityExecutionBody .performanceLocalizationMarquees {
+    min-height: 300px;
+  }
+  .performanceCapabilityExecutionBody .performanceLocalizationTile {
+    width: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .performanceCapabilityExecutionBody .performanceLocalizationWall {
+    grid-template-columns: 78px 24px minmax(0, 1fr);
+  }
+  .performanceCapabilityExecutionBody .performanceLocalizationMarquees {
+    min-height: 220px;
+  }
+  .performanceCapabilityExecutionBody .performanceLocalizationTile {
+    width: auto;
+  }
+  .performanceCapabilityExecutionBody .performanceEditingDemos {
+    grid-template-columns: 1fr;
+  }
+  .performanceCapabilityExecutionBody .performanceEditingArrow {
+    transform: rotate(90deg);
+    justify-self: center;
+  }
+  .performanceCapabilityExecutionBody .performanceEditingOriginal,
+  .performanceCapabilityExecutionBody .performanceEditingOutputCard figure {
+    width: min(100%, 220px);
+    height: auto;
+  }
+}

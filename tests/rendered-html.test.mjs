@@ -23,7 +23,9 @@ test("server-renders the complete V3 advertising strategy", async () => {
   const performanceSolutionHtml = html.slice(html.indexOf('id="solution-performance"'), html.indexOf('id="solution-display"'));
   const marketTrendHtml = html.slice(html.indexOf('class="marketTrendSection"'), html.indexOf('class="customerFlowPage"'));
 
-  assert.match(html, /<html lang="en"(?: class="[^"]*")?>/);
+  assert.match(html, /<html lang="en" class="[^"]*styles-pending[^"]*">/);
+  assert.match(html, /Loading experience\\2026/);
+  assert.match(html, /classList\.add\("styles-ready"\)/);
   assert.match(html, /<title>BytePlus Advertising Creative Production Solutions<\/title>/);
   assert.match(html, /id="language-mode" type="checkbox"[^>]*checked=""/);
   assert.match(html, /<main class="siteRoot" id="top">/);
@@ -109,9 +111,10 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.equal((appLovinHtml.match(/class="appLovinClip"/g) ?? []).length, 4);
 
   // Branding is split into one hero-film page and one evidence page; the
-  // performance is split into SKU proof and capability pages.
-  // 5 = brand hero, brand capabilities, performance demo, performance capabilities, display.
-  assert.equal((html.match(/class="solutionPage /g) ?? []).length, 5);
+  // performance section uses one SKU-proof page plus two focused capability pages.
+  // 6 = brand hero, brand capabilities, performance demo, capability foundation,
+  // capability localization/editing, and display.
+  assert.equal((html.match(/class="solutionPage /g) ?? []).length, 6);
   assert.match(html, /多种镜头，直出一支完整品牌片/);
   assert.match(html, /Multiple shots\. One coherent brand film/);
   assert.match(html, /一支生产可用的品牌片，背后是四项模型能力/);
@@ -173,7 +176,8 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   assert.doesNotMatch(page, /performance-generated\.mp4|performance-poster\.jpg|performance-[a-z]+-demo\.mp4/);
 
   assert.match(page, /className="performanceV2SkuMosaic"/);
-  assert.match(page, /className="performanceCapabilityBody performanceCapabilityV3"/);
+  assert.match(page, /className="performanceCapabilityBody performanceCapabilityV3 performanceCapabilityFoundationBody"/);
+  assert.match(page, /className="performanceCapabilityBody performanceCapabilityV3 performanceCapabilityExecutionBody"/);
   assert.match(page, /className="performanceFormatWall"/);
   assert.match(page, /className="productionChapter"/);
   assert.match(page, /wppWorkPage agencyOperatingPage/);
@@ -210,7 +214,7 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   assert.match(localizationDemos, /portable-blender-master\.png/);
   assert.equal((localizationDemos.match(/src: projectVideoUrl\("media\/performance-localization\/videos\/.+?\.mp4"\)/g) ?? []).length, 11);
   assert.match(localizationDemos, /videos\/01-zh-cn\.mp4/);
-  assert.match(localizationDemos, /videos\/12-international-master\.mp4/);
+  assert.match(localizationDemos, /videos\/02-en-gb\.mp4/);
   assert.match(localizationDemos, /setActiveDemo\(demo\)/);
   assert.match(localizationDemos, /performanceLocalizationTrack/);
   assert.match(localizationDemos, /createPortal/);
