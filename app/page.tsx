@@ -495,7 +495,7 @@ export default function Home() {
                 <header><div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div></header>
                 <h3><B zh={<>从创意构想开始，<span>现在已经进入真实生产。</span></>} en={<>Starts with Ideation. <span>Now to Real Production.</span></>} /></h3>
 
-                <p className="goodtakeLede"><B zh="Goodtake 的真实生产：为联合利华韩国 Snuggle 制作的品牌广告，以及麦当劳两支 3D CGI 的投放实证。" en="Goodtake in real production: a brand spot for Unilever Korea's Snuggle, and two McDonald's 3D CGI flights with in-market proof." /></p>
+                <p className="goodtakeLede"><B zh="真实生产，两家伙伴：Goodtake 为联合利华韩国 Snuggle 制作的品牌广告，以及 WPP 用 AI 生成的可口可乐广告片。" en="Real production, two partners: Goodtake's brand spot for Unilever Korea's Snuggle, and WPP's AI-generated Coca-Cola films." /></p>
 
                 <div className="goodtakeGrid goodtakeGridV2">
                   <figure className="goodtakeFeature">
@@ -507,27 +507,22 @@ export default function Home() {
                   </figure>
 
                   <div className="goodtakeSide">
-                    <figure className="goodtakeSideItem">
+                    <figure className="goodtakeSideItem goodtakeSideLandscape">
                       <div className="goodtakeMedia">
-                        <video src="/media/goodtake/mcdonaldland.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="Goodtake 为麦当劳制作的 McDonaldland 3D CGI 广告" />
+                        <video src="/media/wpp/cocacola-16x9.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="WPP 为可口可乐制作的 AI 生成横版广告" />
                         <span className="goodtakeModelTag">Seedance 2.0</span>
                       </div>
-                      <figcaption><b>Goodtake &times; McDonaldland</b><em>Q4&rsquo;25</em></figcaption>
+                      <figcaption><b>WPP &times; Coca-Cola</b><em>16:9</em></figcaption>
                     </figure>
                     <figure className="goodtakeSideItem">
                       <div className="goodtakeMedia">
-                        <video src="/media/goodtake/grimace.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="Goodtake 为麦当劳制作的 Grimace 3D CGI 广告" />
+                        <video src="/media/wpp/cocacola-9x16.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="WPP 为可口可乐制作的 AI 生成竖版广告" />
                         <span className="goodtakeModelTag">Seedance 2.0</span>
                       </div>
-                      <figcaption><b>Goodtake &times; Grimace</b><em>Q2&rsquo;26</em></figcaption>
+                      <figcaption><b>WPP &times; Coca-Cola</b><em>9:16</em></figcaption>
                     </figure>
-                    <div className="goodtakeStat">
-                      <p><b>6s VTR</b><strong><i aria-hidden="true">&uarr;</i>410%</strong></p>
-                    </div>
                   </div>
                 </div>
-
-                <p className="goodtakeSource"><B zh="来源：Goodtake × 麦当劳投放数据 · 内部机密，请勿外传" en="Source: Goodtake × McDonald's campaign data · confidential and proprietary" /></p>
               </article>
             </div>
           </section>

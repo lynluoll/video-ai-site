@@ -13335,8 +13335,12 @@ body {
 .goodtakeSide {
   min-width: 0;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: minmax(0, 1fr) auto;
+  /* 16:9 beside 9:16 in one row: the portrait's height is what the pair
+     is allowed to be, and the landscape sits centred against it. Keeps the
+     side column level with the Snuggle feature instead of towering. */
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  align-items: center;
   gap: 12px;
   padding: 16px;
   background: var(--bp-surface);
@@ -13358,6 +13362,7 @@ body {
   max-height: 100%;
   margin-inline: auto;
   display: block;
+  border-radius: var(--bp-radius-card);
   object-fit: contain;
   background: var(--bp-ink);
   border-radius: var(--bp-radius-card);
@@ -13411,6 +13416,7 @@ body {
 }
 @media (max-width: 900px) {
   .goodtakeGridV2 { grid-template-columns: 1fr; }
+  .goodtakeSide { grid-template-columns: 1fr; grid-template-rows: auto auto; }
 }
 .goodtakeItem {
   margin: 0;
