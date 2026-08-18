@@ -13276,6 +13276,31 @@ body {
    are taken off — matched by resizing, never by cropping (every video
    keeps object-fit: contain). */
 .goodtakeGridV2 { grid-template-columns: minmax(0, 1.51fr) minmax(0, 1fr); align-items: stretch; }
+/* V3: three films in one row at equal height. Column widths are set in the
+   ratio of the aspect ratios (16:9 · 16:9 · 9:16 = 1.778 : 1.778 : 0.5625),
+   so width-driven videos land at identical heights and every caption sits
+   on the same baseline. */
+.goodtakeGridV3 {
+  /* Each tile carries 32px of horizontal padding on top of its video, so
+     the columns are aspect-ratio × H plus that padding. Solving for the
+     equal video height at this row width gives the fixed-plus-fraction
+     tracks below (calc keeps them proportional as the width changes). */
+  grid-template-columns:
+    calc(1.778 * (100% - 3 * 32px - 2 * 16px) / 4.118 + 32px)
+    calc(1.778 * (100% - 3 * 32px - 2 * 16px) / 4.118 + 32px)
+    calc(0.5625 * (100% - 3 * 32px - 2 * 16px) / 4.118 + 32px);
+  align-items: start;
+  gap: 16px;
+}
+.goodtakeGridV3 .goodtakeTile16 video { aspect-ratio: 16 / 9; }
+.goodtakeGridV3 .goodtakeTile9 video { aspect-ratio: 9 / 16; }
+.goodtakeGridV3 .goodtakeFeature figcaption > b { font-size: var(--bp-t-sub); }
+.goodtakeGridV3 .goodtakeTile9 figcaption > b { font-size: var(--bp-t-body-l); }
+.goodtakeGridV3 .goodtakeTile9 figcaption > em { display: block; margin: 4px 0 0; }
+@media (max-width: 900px) {
+  .goodtakeGridV3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .goodtakeGridV3 .goodtakeTile16:first-child { grid-column: 1 / -1; }
+}
 .goodtakeFeature {
   margin: 0;
   min-width: 0;

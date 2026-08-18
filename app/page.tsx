@@ -497,31 +497,28 @@ export default function Home() {
 
                 <p className="goodtakeLede"><B zh="真实生产，两家伙伴：Goodtake 为联合利华韩国 Snuggle 制作的品牌广告，以及 WPP 用 AI 生成的可口可乐广告片。" en="Real production, two partners: Goodtake's brand spot for Unilever Korea's Snuggle, and WPP's AI-generated Coca-Cola films." /></p>
 
-                <div className="goodtakeGrid goodtakeGridV2">
-                  <figure className="goodtakeFeature">
+                <div className="goodtakeGrid goodtakeGridV3">
+                  <figure className="goodtakeFeature goodtakeTile16">
                     <div className="goodtakeMedia">
                       <video src="/media/goodtake/snuggle.mp4" autoPlay controls loop muted playsInline preload="metadata" aria-label="Goodtake 为联合利华韩国 Snuggle 制作的品牌广告" />
                       <span className="goodtakeModelTag">Seedance 2.5</span>
                     </div>
                     <figcaption><b>Goodtake &times; Unilever&rsquo;s Snuggle</b><em>Unilever Korea</em></figcaption>
                   </figure>
-
-                  <div className="goodtakeSide">
-                    <figure className="goodtakeSideItem goodtakeSideLandscape">
-                      <div className="goodtakeMedia">
-                        <video src="/media/wpp/cocacola-16x9.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="WPP 为可口可乐制作的 AI 生成横版广告" />
-                        <span className="goodtakeModelTag">Seedance 2.0</span>
-                      </div>
-                      <figcaption><b>WPP &times; Coca-Cola</b><em>16:9</em></figcaption>
-                    </figure>
-                    <figure className="goodtakeSideItem">
-                      <div className="goodtakeMedia">
-                        <video src="/media/wpp/cocacola-9x16.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="WPP 为可口可乐制作的 AI 生成竖版广告" />
-                        <span className="goodtakeModelTag">Seedance 2.0</span>
-                      </div>
-                      <figcaption><b>WPP &times; Coca-Cola</b><em>9:16</em></figcaption>
-                    </figure>
-                  </div>
+                  <figure className="goodtakeFeature goodtakeTile16">
+                    <div className="goodtakeMedia">
+                      <video src="/media/wpp/cocacola-16x9.mp4" autoPlay controls loop muted playsInline preload="metadata" aria-label="WPP 为可口可乐制作的 AI 生成横版广告" />
+                      <span className="goodtakeModelTag">Seedance 2.0</span>
+                    </div>
+                    <figcaption><b>WPP &times; Coca-Cola</b><em>16:9</em></figcaption>
+                  </figure>
+                  <figure className="goodtakeFeature goodtakeTile9">
+                    <div className="goodtakeMedia">
+                      <video src="/media/wpp/cocacola-9x16.mp4" autoPlay controls loop muted playsInline preload="metadata" aria-label="WPP 为可口可乐制作的 AI 生成竖版广告" />
+                      <span className="goodtakeModelTag">Seedance 2.0</span>
+                    </div>
+                    <figcaption><b>WPP &times; Coca-Cola</b><em>9:16</em></figcaption>
+                  </figure>
                 </div>
               </article>
             </div>
