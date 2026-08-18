@@ -260,7 +260,7 @@ const customerFlowStages = [
     budgetRoleEn: "Turn media budgets into continuous production",
     trend: "Campaign Agent 从 1 进入 3",
     trendEn: "Campaign agents enter 1 → 3",
-    examples: "AppLovin · Tenmax",
+    examples: "AppLovin · Tec-do",
   },
   {
     index: "04",
@@ -270,7 +270,7 @@ const customerFlowStages = [
     budgetRoleEn: "Distribute and return performance signals",
     trend: "效果信号回流至内容生产",
     trendEn: "Signals flow back into production",
-    examples: "Criteo · Pinterest",
+    examples: "TikTok",
   },
 ];
 
@@ -283,7 +283,7 @@ export default function Home() {
         <a className="brand" href="#top" aria-label="BytePlus Advertising Creative Production Solutions home">
           <img className="brandLogo" src="/byteplus-logo.png" alt="BytePlus" width="381" height="71" />
           <span className="langZh">广告行业素材生产方案</span>
-          <span className="langEn">ADS Creative Solution</span>
+          <span className="langEn">Ads Creative Solution</span>
         </a>
         <div className="navChapterLinks" aria-label="章节导航">
           <a href="#market"><span className="langZh">市场概览</span><span className="langEn">Market Overview</span></a>
@@ -317,11 +317,11 @@ export default function Home() {
         <div className="coverRule coverRuleBottom" aria-hidden="true" />
         <div className="shell coverPageInner">
           <h1 className="langZh" id="cover-title">
-            <span>视频成为主流，</span>
+            <span>视频广告正在成为第一大广告形式，</span>
             <strong>AI 生产走向规模化。</strong>
           </h1>
           <h1 className="langEn">
-            <span>Video goes mainstream.</span>
+            <span>Video ads are becoming the No.1 ad format.</span>
             <strong>AI production scales.</strong>
           </h1>
         </div>
@@ -462,26 +462,26 @@ export default function Home() {
 
                   <p className="agentPlatformTier"><B zh="付费媒体平台" en="PAID MEDIA PLATFORMS" /></p>
                   <ul className="agentPlatformRow">
-                    <li><img src="/logos/meta-color.svg" alt="" aria-hidden="true" /><div><b>Meta</b><em>Meta Ads Manager · Advantage+</em></div></li>
-                    <li><img src="/logos/google-color.svg" alt="" aria-hidden="true" /><div><b>Google</b><em>Google Ads · Performance Max · AI Max</em></div></li>
-                    <li><img src="/logos/tiktok-color.svg" alt="" aria-hidden="true" /><div><b>TikTok</b><em>TikTok Ads Manager · Smart+ · Symphony</em></div></li>
-                    <li><img src="/logos/amazon-color.svg" alt="" aria-hidden="true" /><div><b>Amazon</b><em>Amazon Ads · Creative Agent</em></div></li>
-                    <li><img src="/logos/snapchat-color.svg" alt="" aria-hidden="true" /><div><b>Snap</b><em>Snap Ads Manager · Smart Assistant</em></div></li>
-                    <li><img src="/logos/pinterest-color.svg" alt="" aria-hidden="true" /><div><b>Pinterest</b><em>Pinterest Ads · Performance+ · Canvas</em></div></li>
-                    <li><img src="/logos/reddit-color.svg" alt="" aria-hidden="true" /><div><b>Reddit</b><em>Reddit Ads · Max · AI copywriter</em></div></li>
+                    <li><img src="/logos/meta-color.svg" alt="" aria-hidden="true" /><div><b>Meta</b><em>Meta Ads Manager · Advantage+</em><small><B zh="生成背景 / 图片扩展 / 文案变体 / 视频动效" en="Generates backgrounds, image expansion, text variations, video animation" /></small></div></li>
+                    <li><img src="/logos/google-color.svg" alt="" aria-hidden="true" /><div><b>Google</b><em>Google Ads · Performance Max · AI Max</em><small><B zh="Gemini 生成图片与文案素材，自动组合投放" en="Gemini-generated image and text assets, auto-assembled per placement" /></small></div></li>
+                    <li><img src="/logos/tiktok-color.svg" alt="" aria-hidden="true" /><div><b>TikTok</b><em>TikTok Ads Manager · Smart+ · Symphony</em><small><B zh="脚本→视频、数字人、多语翻译，直出可投放的短视频" en="Script-to-video, digital avatars, translation — ready-to-run short video" /></small></div></li>
+                    <li><img src="/logos/amazon-color.svg" alt="" aria-hidden="true" /><div><b>Amazon</b><em>Amazon Ads · Creative Agent</em><small><B zh="从商品页生成图片与视频广告" en="Image and video ads generated from the product page" /></small></div></li>
+                    <li><img src="/logos/snapchat-color.svg" alt="" aria-hidden="true" /><div><b>Snap</b><em>Snap Ads Manager · Smart Assistant</em><small><B zh="生成式 Lens 与广告创意辅助" en="Generative Lenses and creative assist" /></small></div></li>
+                    <li><img src="/logos/pinterest-color.svg" alt="" aria-hidden="true" /><div><b>Pinterest</b><em>Pinterest Ads · Performance+ · Canvas</em><small><B zh="生成式背景，把商品图变成生活方式场景" en="Generative backgrounds that turn product shots into lifestyle scenes" /></small></div></li>
+                    <li><img src="/logos/reddit-color.svg" alt="" aria-hidden="true" /><div><b>Reddit</b><em>Reddit Ads · Max · AI copywriter</em><small><B zh="按社区语境生成广告文案" en="Ad copy generated for each community’s tone" /></small></div></li>
                   </ul>
 
                   <p className="agentPlatformTier"><B zh="广告技术" en="ADTECH" /></p>
                   <ul className="agentPlatformRow">
-                    <li><img src="/logos/applovin-color.svg" alt="" aria-hidden="true" /><div><b>AppLovin</b><em>AXON · Creative Sets</em></div></li>
-                    <li><img src="/logos/thetradedesk-color.png" alt="" aria-hidden="true" /><div><b>The Trade Desk</b><em>Kokai · Koa Agents</em></div></li>
+                    <li><img src="/logos/applovin-color.svg" alt="" aria-hidden="true" /><div><b>AppLovin</b><em>AXON · Creative Sets</em><small><B zh="上传素材 → 自动组合成可玩 / 视频 / 图片广告" en="Upload assets → auto-composed playable, video and image ads" /></small></div></li>
+                    <li><img src="/logos/thetradedesk-color.png" alt="" aria-hidden="true" /><div><b>The Trade Desk</b><em>Kokai · Koa Agents</em><small><B zh="投放决策 agent；素材生成靠合作方" en="Buying-decision agents; creative generation via partners" /></small></div></li>
                     <li><img src="/logos/criteo-color.png" alt="" aria-hidden="true" /><div><b>Criteo</b><em>Commerce Media Platform</em></div></li>
                     <li><img src="/logos/nativex-color.png" alt="" aria-hidden="true" /><div><b>Nativex</b><em>Navos</em></div></li>
                   </ul>
 
                   <p className="agentPlatformTier"><B zh="创意技术" en="CREATIVE TECH" /></p>
                   <ul className="agentPlatformRow">
-                    <li><img src="/logos/smartly-color.svg" alt="" aria-hidden="true" /><div><b>Smartly.io</b><em>Smartly · AI Studio</em></div></li>
+                    <li><img src="/logos/smartly-color.svg" alt="" aria-hidden="true" /><div><b>Smartly.io</b><em>Smartly · AI Studio</em><small><B zh="生成图片 / 视频变体并跨平台投放" en="Generates image and video variants and ships them across platforms" /></small></div></li>
                     <li><img className="agentLogoWide" src="/logos/celtra-color.svg" alt="" aria-hidden="true" /><div><b>Celtra</b><em>Celtra · Creative Automation</em></div></li>
                     <li><img src="/logos/bannerflow-color.svg" alt="" aria-hidden="true" /><div><b>Bannerflow</b><em>Bannerflow · Creative Automation</em></div></li>
                     <li><img src="/logos/storyteq-color.svg" alt="" aria-hidden="true" /><div><b>Storyteq</b><em>Storyteq · Creative Automation</em></div></li>
@@ -542,8 +542,8 @@ export default function Home() {
           </div>
           <div className="solutionTransitionCopy">
             <p>BYTEPLUS PARTNER PROOF</p>
-            <h2 className="langZh" id="case-study-transition-title">从关键角色格局出发，看<strong>头部客户如何验证 BytePlus。</strong></h2>
-            <h2 className="langEn">From the key-player landscape to <strong>proof from BytePlus&apos;s leading partners.</strong></h2>
+            <h2 className="langZh" id="case-study-transition-title"><strong>头部客户</strong>怎么用 BytePlus。</h2>
+            <h2 className="langEn">How <strong>leading partners</strong> use BytePlus.</h2>
           </div>
         </div>
       </section>
@@ -944,8 +944,8 @@ export default function Home() {
           </div>
           <div className="solutionTransitionCopy">
             <p>BYTEPLUS CREATIVE PRODUCTION</p>
-            <h2 className="langZh" id="solution-transition-title">从行业工作流出发，进入 <strong>BytePlus 生产能力与解决方案。</strong></h2>
-            <h2 className="langEn">From industry workflows to <strong>BytePlus production capabilities and solutions.</strong></h2>
+            <h2 className="langZh" id="solution-transition-title">BytePlus <strong>能做什么。</strong></h2>
+            <h2 className="langEn">What <strong>BytePlus</strong> brings to production.</h2>
           </div>
         </div>
       </section>
@@ -1295,7 +1295,7 @@ export default function Home() {
       <MoreDemosGallery />
 
       <footer className="footer shell">
-        <div className="brand"><img className="brandLogo" src="/byteplus-logo.png" alt="BytePlus" width="381" height="71" /><span>ADS Creative Solution</span></div>
+        <div className="brand"><img className="brandLogo" src="/byteplus-logo.png" alt="BytePlus" width="381" height="71" /><span>Ads Creative Solution</span></div>
         <p>Advertising Industry AI Creative Production Strategy · 2026</p>
         <a href="#top"><B zh="回到顶部 ↑" en="Back to top ↑" /></a>
       </footer>

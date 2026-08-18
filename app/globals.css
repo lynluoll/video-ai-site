@@ -13160,6 +13160,15 @@ body {
   font-style: normal;
   line-height: 1.35;
 }
+/* Third line: what the platform's agent actually generates. Ink-2 so it
+   reads as the substance, above the grey product-name line. */
+.agentPlatformRow small {
+  display: block;
+  margin-top: 5px;
+  color: var(--bp-ink-2);
+  font-size: var(--bp-t-body);
+  line-height: 1.4;
+}
 @media (max-width: 1100px) {
   .agentPlatformRow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
