@@ -270,7 +270,7 @@ const customerFlowStages = [
     budgetRoleEn: "Distribute and return performance signals",
     trend: "效果信号回流至内容生产",
     trendEn: "Signals flow back into production",
-    examples: "TikTok",
+    examples: "Perplexity",
   },
 ];
 
@@ -852,76 +852,6 @@ export default function Home() {
                   </article>
                 </section>
 
-              </div>
-            </article>
-
-            <article className="adtechCasePage" id="customer-adtech" aria-labelledby="adtech-case-title">
-              <header className="adtechCaseHeader">
-                <div className="adtechCaseIndex"><span>CASE 3</span><b><B zh="付费媒体" en="PAID MEDIA" /></b></div>
-                <div className="adtechCaseTitle">
-                  <h3 id="adtech-case-title">TikTok · Smart+</h3>
-                  <p>CREATIVES ENABLEMENT</p>
-                </div>
-              </header>
-
-              <div className="adtechGrowthCanvas">
-                <section className="tiktokCreativeEnablement" aria-labelledby="tiktok-creative-enablement-title">
-                  <header className="tiktokCreativeIntro">
-                    <h4 id="tiktok-creative-enablement-title">
-                      <B
-                        zh={<>超越自动出价与定向，<strong>更进一步赋能创意。</strong></>}
-                        en={<>Beyond automated bidding &amp;targeting, <strong>more on Creatives enablement.</strong></>}
-                      />
-                    </h4>
-                    <a className="tiktokCreativeDetails" href="https://bytedance.sg.larkoffice.com/docx/Zdpvd5J8ioXVxmxeiTzlDVfDg5E" target="_blank" rel="noreferrer">
-                      More details <span aria-hidden="true">↗</span>
-                    </a>
-                  </header>
-
-                  <div className="tiktokCreativeGrid">
-                    <article className="tiktokCreativeCapability" tabIndex={0} aria-label="Recommended Creatives and Automatic Enhancements">
-                      <header>
-                        <span>01</span>
-                        <div>
-                          <small>SMART+ CREATIVE</small>
-                          <h5><B zh="推荐创意与自动增强" en="Recommended Creatives and Automatic Enhancements" /></h5>
-                        </div>
-                      </header>
-                      <figure>
-                        <img src="/media/tiktok/creative-recommendations.png" alt="TikTok Ads Manager 推荐创意、自动生成素材，以及视频与图片自动增强界面" loading="lazy" />
-                      </figure>
-                      <p><B zh="基于落地页与历史效果推荐素材，并在投放过程中自动完成视频和图片增强。" en="Recommends assets from destination and performance signals, then applies video and image enhancements during delivery." /></p>
-                    </article>
-
-                    <article className="tiktokCreativeCapability" tabIndex={0} aria-label="More Ad Formats">
-                      <header>
-                        <span>02</span>
-                        <div>
-                          <small>FORMAT EXPANSION</small>
-                          <h5><B zh="更多广告形式" en="More Ad Formats" /></h5>
-                        </div>
-                      </header>
-                      <figure>
-                        <img src="/media/tiktok/more-ad-formats.png" alt="TikTok Ads Manager 使用商品信息创建个性化广告变体并实时预览的界面" loading="lazy" />
-                      </figure>
-                      <p><B zh="用商品信息与卖点快速生成多种广告变体，并直接在版位预览中校验呈现效果。" en="Turns product information and selling points into more ad variations, with direct placement preview." /></p>
-                    </article>
-
-                    <article className="tiktokCreativeCapability" tabIndex={0} aria-label="Flexible Catalog Ads Creation">
-                      <header>
-                        <span>03</span>
-                        <div>
-                          <small>CATALOG SCALE</small>
-                          <h5><B zh="灵活的商品目录广告创建" en="Flexible Catalog Ads Creation" /></h5>
-                        </div>
-                      </header>
-                      <figure>
-                        <img src="/media/tiktok/flexible-catalog-ads.png" alt="TikTok Ads Manager 从商品目录选择产品并自动生成 Catalog Carousel 广告的界面" loading="lazy" />
-                      </figure>
-                      <p><B zh="从商品目录灵活选择产品、关联素材，并自动生成可规模化投放的目录广告变体。" en="Selects products and linked creatives flexibly, then generates scalable catalog ad variations automatically." /></p>
-                    </article>
-                  </div>
-                </section>
               </div>
             </article>
           </div>

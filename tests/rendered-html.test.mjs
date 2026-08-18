@@ -66,14 +66,14 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.doesNotMatch(customerFlowHtml, /BUDGET ROLE|预算角色/);
   assert.match(customerFlowHtml, /Brand owners.*Building in-house AI platforms/s);
   assert.match(customerFlowHtml, /Agencies.*From previews into production.*WPP · Havas/s);
-  assert.match(customerFlowHtml, /Paid media.*Signals flow back into production/s);
+  assert.match(customerFlowHtml, /Paid media.*Signals flow back into production.*Perplexity/s);
   assert.match(customerFlowHtml, /class="customerFlowMoneyRail"/);
   assert.doesNotMatch(customerFlowHtml, /STANDARD WORKFLOW|BYTEPLUS OFFER|customerMoneySpine|Brands hold the budget/);
 
   // Customer cases run as CASE 1/2/3; solution pages keep 3.x numbering.
   assert.match(html, /agencyOperatingIndex"><span>CASE 1<\/span>/);
   assert.match(html, /appLovinCaseIndex"><span>CASE 2<\/span>/);
-  assert.match(html, /adtechCaseIndex"><span>CASE 3<\/span>/);
+  assert.doesNotMatch(html, /adtechCasePage|TikTok · Smart\+/);
   assert.match(html, /id="solutions"/);
   assert.match(html, /brandHeroIndex"><span>3\.1A<\/span>/);
   assert.match(html, /brandCapabilitiesIndex"><span>3\.1B<\/span>/);
@@ -102,7 +102,7 @@ test("server-renders the complete V3 advertising strategy", async () => {
   // CASE 2 · AppLovin: BytePlus × AppLovin cover, then flywheel, full
   // Creative Set capture, four demo clips.
   assert.match(html, /id="customer-brand-cover"[\s\S]*class="caseLockup"/);
-  const appLovinHtml = html.slice(html.indexOf('id="customer-brand"'), html.indexOf('id="customer-adtech"'));
+  const appLovinHtml = html.slice(html.indexOf('id="customer-brand"'), html.indexOf('id="solutions"'));
   assert.match(appLovinHtml, /AppLovin Flywheel of Scale/);
   assert.match(appLovinHtml, /More creative inputs/);
   assert.match(appLovinHtml, /creative-set-dashboard\.png/);
