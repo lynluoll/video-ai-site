@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import PauseWhenHiddenVideo from "./PauseWhenHiddenVideo";
 
 export default function PlayableClipLightbox() {
   const [activeSrc, setActiveSrc] = useState<string | null>(null);
@@ -14,14 +15,14 @@ export default function PlayableClipLightbox() {
       const video = (event.target as Element | null)?.closest<HTMLVideoElement>("video");
       if (!video || !root.contains(video)) return;
       event.preventDefault();
-      setActiveSrc(video.currentSrc || video.src);
+      setActiveSrc(video.dataset.videoSrc || video.currentSrc || video.src);
     };
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "Enter" && event.key !== " ") return;
       const video = (event.target as Element | null)?.closest<HTMLVideoElement>("video");
       if (!video || !root.contains(video)) return;
       event.preventDefault();
-      setActiveSrc(video.currentSrc || video.src);
+      setActiveSrc(video.dataset.videoSrc || video.currentSrc || video.src);
     };
 
     videos.forEach((video) => {
@@ -59,7 +60,7 @@ export default function PlayableClipLightbox() {
       <button className="architectureLightboxBackdrop" type="button" aria-label="关闭放大预览" onClick={() => setActiveSrc(null)} />
       <figure>
         <button type="button" aria-label="关闭放大预览" onClick={() => setActiveSrc(null)}>×</button>
-        <video src={activeSrc} autoPlay loop muted playsInline controls />
+        <PauseWhenHiddenVideo src={activeSrc} autoPlay loop muted playsInline controls loadImmediately ariaLabel="Playable 广告视觉变体放大预览" />
       </figure>
     </div>
   );

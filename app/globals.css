@@ -704,6 +704,176 @@ body {
   }
 }
 
+/* v10.8 — legible market labels and an explicit precise-editing proof. */
+.performanceLocalizationMarketRail button > span {
+  right: 3px;
+  bottom: 3px;
+  left: 3px;
+  min-height: 20px;
+  padding: 5px 4px 3px;
+  gap: 3px;
+  align-items: flex-end;
+  background: linear-gradient(180deg, transparent 0%, rgba(5, 13, 27, .9) 48%);
+  font-size: 8.5px;
+  line-height: 1.05;
+}
+
+.performanceLocalizationMarketRail button > span b {
+  flex: 0 0 auto;
+  font-size: 9.5px;
+}
+
+.performanceLocalizationCurrent figcaption {
+  font-size: 10px;
+}
+
+.performancePreciseStage {
+  grid-template-rows: auto 44px minmax(0, 1fr) 82px;
+}
+
+.performanceEditShowcase {
+  min-width: 0;
+  min-height: 0;
+  padding: 14px 22px 12px;
+  display: grid;
+  grid-template-columns: minmax(190px, .88fr) minmax(240px, 1.12fr);
+  align-items: center;
+  gap: 24px;
+}
+
+.performanceEditShowcase .performanceEditCurrent {
+  height: min(43vh, 430px);
+  margin-top: 0;
+}
+
+.performanceEditDetail {
+  min-width: 0;
+  padding: 24px 0 22px 24px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  border-left: 3px solid #0b67ff;
+}
+
+.performanceEditDetailKicker {
+  color: #0b67ff;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+
+.performanceEditDetail h5 {
+  margin: 10px 0 8px;
+  color: #151b2a;
+  font-size: clamp(22px, 1.45vw, 28px);
+  font-weight: 720;
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+
+.performanceEditDetail > p {
+  max-width: 390px;
+  margin: 0;
+  color: #657288;
+  font-size: 12px;
+  font-weight: 560;
+  line-height: 1.4;
+}
+
+.performanceEditReference {
+  margin-top: 18px;
+  padding: 9px;
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  background: #eef4fd;
+}
+
+.performanceEditReference img {
+  width: 74px;
+  height: 74px;
+  display: block;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.performanceEditReference span {
+  color: #4f6078;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .13em;
+}
+
+.performanceEditChange {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 11px;
+}
+
+.performanceEditChange > div {
+  min-width: 0;
+  padding-top: 10px;
+  border-top: 1px solid #cbd7e6;
+}
+
+.performanceEditChange small {
+  display: block;
+  margin-bottom: 7px;
+  color: #8491a5;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+
+.performanceEditChange strong {
+  display: block;
+  color: #1b2434;
+  font-size: 12px;
+  font-weight: 720;
+  line-height: 1.25;
+}
+
+.performanceEditChange i {
+  color: #0b67ff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+@media (max-width: 1500px) {
+  .performanceEditShowcase {
+    grid-template-columns: minmax(175px, .82fr) minmax(210px, 1.18fr);
+    gap: 16px;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .performanceEditDetail {
+    padding-left: 18px;
+  }
+}
+
+@media (max-width: 1120px) {
+  .performanceEditShowcase {
+    grid-template-columns: minmax(210px, .75fr) minmax(260px, 1.25fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .performanceEditShowcase {
+    grid-template-columns: 1fr;
+    overflow: auto;
+  }
+
+  .performanceEditDetail {
+    border-top: 3px solid #0b67ff;
+    border-left: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .navChapterLinks a::after,
@@ -6257,7 +6427,7 @@ html.marketTrackTransitionLock { overscroll-behavior: none; }
   .caseFlowLaneCreative, .caseFlowLaneProduction, .caseFlowLaneMedia, .caseFlowHandoffA, .caseFlowHandoffB { grid-column: 1 / -1; }
 }
 
-   blue stays the only accent. */
+/* Blue stays the only accent. */
 .hexModelPage.hexModelPage {
   aspect-ratio: 16 / 9;
   min-height: 620px;
@@ -12372,7 +12542,9 @@ body {
   cursor: pointer;
   text-align: left;
 }
-.moreDemoCard video {
+.moreDemoCard video,
+.moreDemoCard > img,
+.moreDemoCardPlaceholder {
   width: 100%;
   height: 100%;
   display: block;
@@ -12422,7 +12594,9 @@ body {
   white-space: nowrap;
 }
 .moreDemoCard:hover video,
-.moreDemoCard:focus-visible video { filter: brightness(.78); transform: scale(1.025); }
+.moreDemoCard:focus-visible video,
+.moreDemoCard:hover > img,
+.moreDemoCard:focus-visible > img { filter: brightness(.78); transform: scale(1.025); }
 .moreDemoLightbox {
   position: fixed;
   inset: 0;
@@ -12523,7 +12697,8 @@ body {
   .moreDemosViewport { overflow-x: auto; }
   .moreDemosRail { animation: none; }
   .moreDemosSet[aria-hidden="true"] { display: none; }
-  .moreDemoCard video { transition: none; }
+  .moreDemoCard video,
+  .moreDemoCard > img { transition: none; }
 }
 
 /* ═════════════════════ AppLovin case study (between 2.2 and 2.3) ═════════════════════ */
@@ -18157,5 +18332,788 @@ body {
   .performanceCapabilityExecutionBody .performanceEditingOutputCard figure {
     width: min(100%, 220px);
     height: auto;
+  }
+}
+/* v10.8 final cascade: market labels must stay readable after legacy overrides. */
+.performanceCapabilityExecutionBody .performanceLocalizationMarketRail button > span {
+  right: 3px;
+  bottom: 3px;
+  left: 3px;
+  min-height: 20px;
+  padding: 5px 4px 3px;
+  gap: 3px;
+  align-items: flex-end;
+  background: linear-gradient(180deg, transparent 0%, rgba(5, 13, 27, .92) 48%);
+  font-size: 10px;
+  line-height: 1.05;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationMarketRail button > span b {
+  flex: 0 0 auto;
+  font-size: 11px;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationCurrent figcaption {
+  font-size: 10px;
+}
+
+/* v10.7 — one editorial stage, two focused interactive proofs. */
+.performanceCapabilityExecutionPage .performanceCapabilityHeader {
+  grid-template-columns: 164px minmax(0, 1fr);
+  gap: 24px;
+  padding: 14px 28px 12px;
+}
+
+.performanceCapabilityExecutionPage .performanceV2Title h3 {
+  max-width: none;
+  font-size: clamp(36px, 2.7vw, 52px);
+  line-height: .94;
+  white-space: nowrap;
+}
+
+.performanceCapabilityExecutionBody {
+  position: relative;
+  padding: 0 28px 24px;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 0;
+  background: #eef4fb;
+  border-top: 5px solid #0b67ff;
+}
+
+.performanceCapabilityExecutionBody > .performanceLocalizationStage,
+.performanceCapabilityExecutionBody > .performancePreciseStage {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  border: 0;
+  box-shadow: none;
+}
+
+.performanceLocalizationStage,
+.performancePreciseStage {
+  padding: 26px 30px 24px;
+  display: grid;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.performanceLocalizationStage {
+  grid-template-rows: auto minmax(0, 1fr) 86px;
+}
+
+.performancePreciseStage {
+  grid-template-rows: auto 44px minmax(0, 1fr) 82px;
+  border-left: 1px solid #cfdae9 !important;
+  background:
+    linear-gradient(145deg, rgba(232, 243, 255, .65), transparent 42%),
+    #ffffff;
+}
+
+.performanceStageHeading {
+  min-width: 0;
+  min-height: 58px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.performanceStageHeading > div {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+}
+
+.performanceStageHeading > div > span {
+  padding-top: 5px;
+  color: #0b67ff;
+  font-size: 15px;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.performanceStageHeading h4 {
+  margin: 0;
+  color: #151b2a;
+  font-size: clamp(25px, 1.65vw, 32px);
+  font-weight: 690;
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+
+.performanceStageHeading > strong {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #0b67ff;
+  font-weight: 620;
+  line-height: .82;
+  letter-spacing: -.06em;
+  white-space: nowrap;
+}
+
+.performanceStageHeading > strong b {
+  font-size: clamp(36px, 2.6vw, 50px);
+}
+
+.performanceStageHeading > strong small {
+  color: #8290a5;
+  font-size: 17px;
+  letter-spacing: 0;
+}
+
+.performanceLocalizationFeature {
+  min-width: 0;
+  min-height: 0;
+  padding: 18px 22px;
+  display: grid;
+  grid-template-columns: 126px 32px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(47, 116, 255, .25), transparent 34%),
+    linear-gradient(145deg, #0b172c 0%, #142d58 100%);
+}
+
+.performanceLocalizationSource,
+.performanceLocalizationCurrent,
+.performanceEditCurrent {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+}
+
+.performanceLocalizationSource {
+  padding: 14px 12px 32px;
+  display: grid;
+  place-items: center;
+  background: #f6f9fd;
+  border: 1px solid rgba(255, 255, 255, .26);
+}
+
+.performanceLocalizationSource img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.performanceLocalizationSource figcaption,
+.performanceLocalizationCurrent figcaption,
+.performanceEditCurrent figcaption {
+  position: absolute;
+  z-index: 2;
+  color: #ffffff;
+  background: rgba(8, 18, 34, .86);
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: .12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.performanceLocalizationSource figcaption {
+  right: 8px;
+  bottom: 8px;
+  padding: 6px 7px;
+}
+
+.performanceStageFlow {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: #0b67ff;
+  border-radius: 50%;
+  font-size: 17px;
+  font-weight: 850;
+}
+
+.performanceLocalizationCurrent {
+  height: min(49vh, 485px);
+  justify-self: center;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: #050a13;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, .34);
+}
+
+.performanceLocalizationCurrent video,
+.performanceEditCurrent video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #050a13;
+}
+
+.performanceLocalizationCurrent figcaption {
+  right: 10px;
+  bottom: 36px;
+  padding: 7px 9px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.performanceLocalizationCurrent figcaption b {
+  color: #58e0f2;
+}
+
+.performanceLocalizationMarketRail {
+  min-width: 0;
+  padding-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+  gap: 5px;
+  overflow: hidden;
+}
+
+.performanceLocalizationMarketRail button,
+.performanceEditFilmstrip button,
+.performanceEditTabs button {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  appearance: none;
+  cursor: pointer;
+}
+
+.performanceLocalizationMarketRail button {
+  position: relative;
+  height: 68px;
+  overflow: hidden;
+  background: #111c30;
+  border-bottom: 3px solid transparent;
+  opacity: .62;
+  transition: opacity .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.performanceLocalizationMarketRail button:hover,
+.performanceLocalizationMarketRail button.is-active {
+  opacity: 1;
+  border-bottom-color: #0b67ff;
+}
+
+.performanceLocalizationMarketRail button.is-active {
+  transform: translateY(-3px);
+}
+
+.performanceLocalizationMarketRail img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.performanceLocalizationMarketRail button > span {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  left: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #ffffff;
+  font-size: 7px;
+  font-style: normal;
+  font-weight: 750;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.performanceLocalizationMarketRail button > span b {
+  color: #58e0f2;
+}
+
+.performanceLocalizationMarketRail button > span em {
+  min-width: 0;
+  overflow: hidden;
+  font-style: normal;
+  text-overflow: ellipsis;
+}
+
+.performancePreciseHeading {
+  min-height: 58px;
+}
+
+.performanceEditTabs {
+  width: min(100%, 430px);
+  justify-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #ced9e8;
+}
+
+.performanceEditTabs button {
+  position: relative;
+  padding: 9px 10px 11px;
+  color: #6b788c;
+  background: transparent;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.performanceEditTabs button::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  bottom: -1px;
+  left: 12px;
+  height: 3px;
+  background: transparent;
+}
+
+.performanceEditTabs button.is-active {
+  color: #0b67ff;
+}
+
+.performanceEditTabs button.is-active::after {
+  background: #0b67ff;
+}
+
+.performanceEditCurrent {
+  height: min(48vh, 470px);
+  margin-top: 14px;
+  justify-self: center;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: #050a13;
+  box-shadow: 0 22px 50px rgba(22, 48, 84, .2);
+}
+
+.performanceEditCurrent figcaption {
+  top: 10px;
+  left: 10px;
+  padding: 7px 9px;
+}
+
+.performanceEditFilmstrip {
+  width: min(100%, 430px);
+  padding-top: 12px;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.performanceEditFilmstrip button {
+  position: relative;
+  height: 68px;
+  overflow: hidden;
+  background: #111c30;
+  border-bottom: 3px solid transparent;
+  opacity: .56;
+  transition: opacity .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.performanceEditFilmstrip button:hover,
+.performanceEditFilmstrip button.is-active {
+  opacity: 1;
+  border-bottom-color: #0b67ff;
+}
+
+.performanceEditFilmstrip button.is-active {
+  transform: translateY(-3px);
+}
+
+.performanceEditFilmstrip img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.performanceEditFilmstrip button > span {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  left: 5px;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .08em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1120px) {
+  .performanceCapabilityExecutionBody {
+    padding: 0 18px 22px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .performanceLocalizationStage,
+  .performancePreciseStage {
+    min-height: 720px;
+  }
+
+  .performancePreciseStage {
+    border-left: 0 !important;
+    border-top: 1px solid #cfdae9 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .performanceLocalizationStage,
+  .performancePreciseStage {
+    padding: 22px 16px;
+  }
+
+  .performanceLocalizationFeature {
+    grid-template-columns: 86px 24px minmax(0, 1fr);
+    padding: 14px 10px;
+  }
+
+  .performanceLocalizationMarketRail {
+    grid-template-columns: repeat(11, 70px);
+    overflow-x: auto;
+  }
+}
+
+/* v10.5 — give the three 9:16 precise-editing proofs real viewing area. */
+.performanceCapabilityExecutionBody {
+  grid-template-rows: minmax(0, .84fr) minmax(0, 1.16fr);
+}
+
+.performanceCapabilityExecutionBody > .performanceCapabilityEditingV3 {
+  padding: 14px 22px 18px;
+}
+
+.performanceCapabilityExecutionBody .performanceEditingDemos {
+  margin: 10px 0 0 46px;
+  grid-template-columns: minmax(190px, .9fr) 42px minmax(0, 2fr);
+  gap: 16px;
+  min-height: 0;
+}
+
+.performanceCapabilityExecutionBody .performanceEditingOriginal {
+  width: auto;
+  height: 100%;
+  max-height: none;
+  aspect-ratio: 9 / 16;
+}
+
+.performanceCapabilityExecutionBody .performanceEditingOutputs {
+  gap: 18px;
+}
+
+.performanceCapabilityExecutionBody .performanceEditingOutputCard {
+  position: relative;
+  grid-template-rows: minmax(0, 1fr);
+  min-width: 0;
+  background: transparent;
+}
+
+.performanceCapabilityExecutionBody .performanceEditingSkuSpec,
+.performanceCapabilityExecutionBody .performanceEditingTextSpec {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  z-index: 3;
+  width: min(215px, calc(100% - 16px));
+  min-height: 38px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(255, 255, 255, .28);
+  background: rgba(8, 20, 40, .84);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+}
+
+.performanceCapabilityExecutionBody .performanceEditingSkuSpec span,
+.performanceCapabilityExecutionBody .performanceEditingSkuSpec strong,
+.performanceCapabilityExecutionBody .performanceEditingTextSpec span,
+.performanceCapabilityExecutionBody .performanceEditingTextSpec b {
+  color: #ffffff;
+}
+
+.performanceCapabilityExecutionBody .performanceEditingSkuSpec img {
+  display: none;
+}
+
+.performanceCapabilityExecutionBody .performanceEditingTextSpec del {
+  color: rgba(255, 255, 255, .58);
+}
+
+.performanceCapabilityExecutionBody .performanceEditingOutputCard figure {
+  width: auto;
+  height: 100%;
+  max-height: none;
+  aspect-ratio: 9 / 16;
+}
+
+.performanceCapabilityExecutionBody .performanceEditingOriginal,
+.performanceCapabilityExecutionBody .performanceEditingOutputCard figure {
+  box-shadow: 0 14px 32px rgba(18, 42, 78, .14);
+}
+
+@media (max-width: 1120px) {
+  .performanceCapabilityExecutionBody {
+    grid-template-rows: auto;
+  }
+}
+
+/* v10.6 — pair the two portrait-video capabilities side by side. */
+.performanceCapabilityExecutionBody {
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 18px;
+}
+
+.performanceCapabilityExecutionBody > .performanceLocalizationDemo,
+.performanceCapabilityExecutionBody > .performanceCapabilityEditingV3 {
+  height: 100%;
+  min-height: 0;
+}
+
+.performanceCapabilityExecutionBody > .performanceLocalizationDemo {
+  padding: 22px 24px 24px;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationTitle {
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  gap: 12px;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationTitle h4,
+.performanceCapabilityExecutionBody .performanceCapabilityEditingV3 .performanceCapabilityCardTitle h4 {
+  font-size: clamp(24px, 1.65vw, 32px);
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationTitle > strong b {
+  font-size: clamp(34px, 2.55vw, 48px);
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationWall {
+  margin: 24px 0 0;
+  grid-template-columns: clamp(132px, 8.8vw, 176px) 38px minmax(0, 1fr);
+  gap: 12px;
+  min-height: 0;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationMaster {
+  width: 100%;
+  height: auto;
+  max-height: 330px;
+  aspect-ratio: 4 / 5;
+  padding: 14px;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationMaster img {
+  width: 100%;
+  max-width: 150px;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationWallArrow {
+  width: 38px;
+  height: 38px;
+  font-size: 20px;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationMarquees {
+  height: min(100%, 520px);
+  align-self: center;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationTile {
+  height: 100%;
+  max-height: 520px;
+}
+
+.performanceCapabilityExecutionBody > .performanceCapabilityEditingV3 {
+  padding: 22px 22px 24px;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+}
+
+.performanceCapabilityExecutionBody .performanceEditingDemos {
+  margin: 24px 0 0;
+  grid-template-columns: minmax(170px, .92fr) 34px minmax(0, 2fr);
+  gap: 12px;
+  align-items: center;
+  min-height: 0;
+}
+
+.performanceCapabilityExecutionBody .performanceEditingOriginal,
+.performanceCapabilityExecutionBody .performanceEditingOutputCard figure {
+  width: 100%;
+  height: auto;
+  max-height: 540px;
+  aspect-ratio: 9 / 16;
+}
+
+.performanceCapabilityExecutionBody .performanceEditingOutputs {
+  gap: 12px;
+  align-items: center;
+}
+
+.performanceCapabilityExecutionBody .performanceEditingOutputCard {
+  align-self: center;
+}
+
+@media (max-width: 1120px) {
+  .performanceCapabilityExecutionBody {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .performanceCapabilityExecutionBody > .performanceLocalizationDemo,
+  .performanceCapabilityExecutionBody > .performanceCapabilityEditingV3 {
+    height: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .performanceCapabilityExecutionBody .performanceLocalizationWall {
+    grid-template-columns: 78px 24px minmax(0, 1fr);
+    margin-top: 16px;
+  }
+
+  .performanceCapabilityExecutionBody .performanceEditingDemos {
+    grid-template-columns: 1fr;
+    margin-top: 16px;
+  }
+}
+
+/* v10.9 — final execution-page readability overrides. */
+.performanceCapabilityExecutionBody .performancePreciseStage {
+  grid-template-rows: auto 44px minmax(0, 1fr);
+}
+
+.performanceCapabilityExecutionBody .performanceEditShowcase {
+  height: 100%;
+  overflow: hidden;
+}
+
+.performanceCapabilityExecutionBody .performanceEditShowcase .performanceEditCurrent {
+  height: min(100%, 430px);
+  max-height: 100%;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationMarketRail {
+  grid-template-columns: repeat(11, minmax(78px, 1fr));
+  overflow-x: auto;
+  scrollbar-color: #0b67ff transparent;
+  scrollbar-width: thin;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationMarketRail button > span {
+  right: 3px;
+  bottom: 3px;
+  left: 3px;
+  min-height: 20px;
+  padding: 5px 4px 3px;
+  gap: 3px;
+  align-items: flex-end;
+  background: linear-gradient(180deg, transparent 0%, rgba(5, 13, 27, .92) 48%);
+  font-size: 8.5px;
+  line-height: 1.05;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationMarketRail button > span b {
+  flex: 0 0 auto;
+  font-size: 9.5px;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationCurrent figcaption {
+  font-size: 10px;
+}
+
+@media (min-width: 1700px) {
+  .performanceCapabilityExecutionBody .performanceLocalizationMarketRail {
+    grid-template-columns: repeat(11, minmax(0, 1fr));
+    overflow-x: hidden;
+  }
+}
+
+/* v10.10 — readable market identity and plain-language editing controls. */
+.performanceCapabilityExecutionBody .performanceLocalizationFeature {
+  grid-template-columns: clamp(150px, 13vw, 205px) 32px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationContext {
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationMarketTitle {
+  min-width: 0;
+  padding-left: 14px;
+  border-left: 4px solid #58e0f2;
+  color: #ffffff;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationMarketTitle small {
+  display: block;
+  margin-bottom: 8px;
+  color: #9fb5d5;
+  font-size: 9px;
+  font-weight: 850;
+  line-height: 1;
+  letter-spacing: .16em;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationMarketTitle strong {
+  display: block;
+  color: #58e0f2;
+  font-size: clamp(30px, 2.5vw, 46px);
+  font-weight: 760;
+  line-height: .9;
+  letter-spacing: -.04em;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationMarketTitle h5 {
+  margin: 8px 0 0;
+  color: #ffffff;
+  font-size: clamp(18px, 1.25vw, 24px);
+  font-weight: 660;
+  line-height: 1.05;
+  letter-spacing: -.025em;
+  overflow-wrap: anywhere;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationContext .performanceLocalizationSource {
+  width: min(100%, 150px);
+  justify-self: start;
+  padding: 10px 10px 30px;
+}
+
+.performanceCapabilityExecutionBody .performanceLocalizationCurrent figcaption {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .performanceCapabilityExecutionBody .performanceLocalizationFeature {
+    grid-template-columns: 108px 26px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .performanceCapabilityExecutionBody .performanceLocalizationContext {
+    gap: 14px;
+  }
+
+  .performanceCapabilityExecutionBody .performanceLocalizationMarketTitle {
+    padding-left: 9px;
+  }
+
+  .performanceCapabilityExecutionBody .performanceLocalizationMarketTitle small {
+    font-size: 7px;
   }
 }

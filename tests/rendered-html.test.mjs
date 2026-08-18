@@ -212,13 +212,15 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   assert.match(page, /import PerformanceLocalizationDemo/);
   assert.match(page, /<PerformanceLocalizationDemo \/>/);
   assert.match(localizationDemos, /portable-blender-master\.png/);
-  assert.equal((localizationDemos.match(/src: projectVideoUrl\("media\/performance-localization\/videos\/.+?\.mp4"\)/g) ?? []).length, 11);
+  assert.equal((localizationDemos.match(/src: projectVideoUrl\("media\/performance-localization\/videos\/.+?\.mp4"\)/g) ?? []).length, 10);
   assert.match(localizationDemos, /videos\/01-zh-cn\.mp4/);
-  assert.match(localizationDemos, /videos\/02-en-gb\.mp4/);
-  assert.match(localizationDemos, /setActiveDemo\(demo\)/);
-  assert.match(localizationDemos, /performanceLocalizationTrack/);
-  assert.match(localizationDemos, /createPortal/);
+  assert.match(localizationDemos, /performance-precise-editing\/master\/master\.mp4/);
+  assert.match(localizationDemos, /setSelectedIndex\(index\)/);
+  assert.match(localizationDemos, /performanceLocalizationMarketRail/);
+  assert.match(localizationDemos, /aria-pressed=\{index === selectedIndex\}/);
   assert.match(localizationDemos, /controls/);
+  assert.match(page, /import PerformancePreciseEditingDemo/);
+  assert.match(page, /<PerformancePreciseEditingDemo \/>/);
 });
 
 test("keeps V3 desktop alignment, sticky media, language, and responsive safeguards", async () => {
