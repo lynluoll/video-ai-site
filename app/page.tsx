@@ -7,6 +7,8 @@ import DisplayDemoGallery from "./DisplayDemoGallery";
 import PauseWhenHiddenVideo from "./PauseWhenHiddenVideo";
 import BrandCapabilityImage from "./BrandCapabilityImage";
 import PerformanceLocalizationDemo from "./PerformanceLocalizationDemo";
+import PerformancePreciseEditingDemo from "./PerformancePreciseEditingDemo";
+import WppPrevisCarousel from "./WppPrevisCarousel";
 import { projectVideoUrl } from "./media";
 
 const B = ({ zh, en }: { zh: React.ReactNode; en: React.ReactNode }) => (
@@ -14,6 +16,53 @@ const B = ({ zh, en }: { zh: React.ReactNode; en: React.ReactNode }) => (
     <span className="langZh">{zh}</span>
     <span className="langEn">{en}</span>
   </>
+);
+
+/* Head-and-shoulders glyph, repeated to show a cohort growing from one
+   trainer to a team. Stroke inherits colour so each lane can tint it. */
+const TalentGlyphs = ({ count }: { count: number }) => (
+  <span className="talentGlyphs" aria-hidden="true">
+    {Array.from({ length: count }, (_, i) => (
+      <svg key={i} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <circle cx="12" cy="7.2" r="4" />
+        <path d="M3.6 21c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4" strokeLinecap="round" />
+      </svg>
+    ))}
+  </span>
+);
+
+/* One line icon per organisation on the operating-model page: a slate for
+   the delivery arm, buildings for the demand side. BytePlus uses its real
+   logomark instead. Stroke inherits colour so the ink panel can flip them. */
+const OrgIcon = ({ kind }: { kind: "hex" | "clients" }) => (
+  <svg className="hexModelIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    {kind === "hex" && (
+      <>
+        <rect x="2.6" y="4.6" width="18.8" height="14.8" rx="1.6" />
+        <path d="M2.6 9.2h18.8" />
+        <path d="M10.2 11.6l4.8 2.9-4.8 2.9z" fill="currentColor" stroke="none" />
+      </>
+    )}
+    {kind === "clients" && (
+      <>
+        <path d="M2.4 20.6h19.2" />
+        <rect x="3.6" y="10" width="7" height="10.6" />
+        <rect x="13" y="4.4" width="7.4" height="16.2" />
+        <path d="M15.4 8.2h2.6M15.4 11.8h2.6M15.4 15.4h2.6M5.8 13.6h2.6M5.8 17h2.6" />
+      </>
+    )}
+  </svg>
+);
+
+/* Labelled connector that sits in the gutter between two diagram cells. */
+const FlowArrow = ({ zh, en }: { zh: React.ReactNode; en: React.ReactNode }) => (
+  <i className="hexModelLink">
+    <b><B zh={zh} en={en} /></b>
+    <svg viewBox="0 0 64 8" preserveAspectRatio="none" aria-hidden="true">
+      <path className="hexModelLinkShaft" d="M0 4H55" />
+      <path className="hexModelLinkHead" d="M55 1l7 3-7 3z" />
+    </svg>
+  </i>
 );
 
 const playableOutputClips = Array.from({ length: 9 }, (_, index) =>
@@ -451,22 +500,30 @@ export default function Home() {
 
                 <div className="goodtakeGrid goodtakeGridV2">
                   <figure className="goodtakeFeature">
-                    <video src="/media/goodtake/snuggle.mp4" autoPlay controls loop muted playsInline preload="metadata" aria-label="Goodtake 为联合利华韩国 Snuggle 制作的品牌广告" />
-                    <figcaption><b>Snuggle</b><em>Unilever Korea</em></figcaption>
+                    <div className="goodtakeMedia">
+                      <video src="/media/goodtake/snuggle.mp4" autoPlay controls loop muted playsInline preload="metadata" aria-label="Goodtake 为联合利华韩国 Snuggle 制作的品牌广告" />
+                      <span className="goodtakeModelTag">Seedance 2.5</span>
+                    </div>
+                    <figcaption><b>Goodtake &times; Unilever&rsquo;s Snuggle</b><em>Unilever Korea</em></figcaption>
                   </figure>
 
                   <div className="goodtakeSide">
                     <figure className="goodtakeSideItem">
-                      <video src="/media/goodtake/mcdonaldland.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="Goodtake 为麦当劳制作的 McDonaldland 3D CGI 广告" />
-                      <figcaption><b>McDonaldland</b><em>Q4&rsquo;25</em></figcaption>
+                      <div className="goodtakeMedia">
+                        <video src="/media/goodtake/mcdonaldland.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="Goodtake 为麦当劳制作的 McDonaldland 3D CGI 广告" />
+                        <span className="goodtakeModelTag">Seedance 2.0</span>
+                      </div>
+                      <figcaption><b>Goodtake &times; McDonaldland</b><em>Q4&rsquo;25</em></figcaption>
                     </figure>
                     <figure className="goodtakeSideItem">
-                      <video src="/media/goodtake/grimace.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="Goodtake 为麦当劳制作的 Grimace 3D CGI 广告" />
-                      <figcaption><b>Grimace</b><em>Q2&rsquo;26</em></figcaption>
+                      <div className="goodtakeMedia">
+                        <video src="/media/goodtake/grimace.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="Goodtake 为麦当劳制作的 Grimace 3D CGI 广告" />
+                        <span className="goodtakeModelTag">Seedance 2.0</span>
+                      </div>
+                      <figcaption><b>Goodtake &times; Grimace</b><em>Q2&rsquo;26</em></figcaption>
                     </figure>
                     <div className="goodtakeStat">
-                      <span>PERFORMANCE ADS</span>
-                      <p><B zh={<>McDonaldland 的 2s VTR 是其他素材的 <strong>3.2 倍</strong>，6s VTR 是 <strong>5.1 倍</strong>。</>} en={<>McDonaldland&rsquo;s 2s VTR is <strong>3.2&times;</strong> the other assets, and 6s VTR is <strong>5.1&times;</strong>.</>} /></p>
+                      <p><b>6s VTR</b><strong><i aria-hidden="true">&uarr;</i>410%</strong></p>
                     </div>
                   </div>
                 </div>
@@ -516,96 +573,201 @@ export default function Home() {
         <div className="shell">
           <div className="customerStories">
             <article className="wppWorkPage agencyOperatingPage" id="customer-agency" aria-labelledby="agency-operating-title">
-              <header className="agencyOperatingHero">
+              <header className="agencyOperatingHero agencyLockupHero">
                 <div className="agencyOperatingIndex"><span>CASE 1</span><b><B zh="典型代理商" en="TYPICAL AGENCY" /></b></div>
-                <div className="agencyOperatingTitle">
-                  <h3 id="agency-operating-title">WPP Open</h3>
+                <div className="agencyLockup" role="img" aria-label="BytePlus × WPP">
+                  <img className="agencyLockupByteplus" src="/byteplus-logo.png" alt="BytePlus" />
+                  <i className="agencyLockupDivider" aria-hidden="true" />
+                  <img className="agencyLockupWpp" src="/logos/wpp-halftone.svg" alt="WPP" />
                 </div>
-                <div className="agencyOperatingPlatform">
-                  <span><B zh="代理商自建 AI 平台" en="IN-HOUSE AGENCY AI PLATFORM" /></span>
-                  <b>WPP Open</b>
-                  <strong>80,000+</strong>
-                  <em><B zh="覆盖的 WPP 员工" en="WPP employees covered" /></em>
+                <h3 id="agency-operating-title" className="srOnly">BytePlus × WPP</h3>
+              </header>
+
+            </article>
+
+            <article className="wppWorkPage caseFlowPage" id="customer-agency-flow" aria-labelledby="case-flow-title">
+              <header className="caseFlowHead">
+                <div>
+                  <h3 id="case-flow-title">WPP OPEN</h3>
+                  <p><B zh="创意代理商运营流 · 从 brief 到可衡量的效果" en="Creative agency operating flow · from brief to measurable impact" /></p>
                 </div>
               </header>
 
-              <section className="agencyOperatingWorkflow agencyLanes" aria-label="WPP Open 三段采用路径与 Seedance 应用">
-                <header className="agencyAdoptionIntro">
-                  <h4><B zh={<>从创意切入，<strong>拓展至制作与媒体。</strong></>} en={<>Start with Creative. <strong>Expand into Production and Media.</strong></>} /></h4>
-                </header>
+              <div className="caseFlowGrid">
+                <div className="caseFlowLane caseFlowLaneCreative">
+                  <small>01 · CREATIVE</small>
+                  <b><B zh="拥有创意 + pre-vis" en="Own the idea + pre-vis" /></b>
+                  <em>Ogilvy / VML / AKQA</em>
+                </div>
+                <div className="caseFlowLane caseFlowLaneProduction">
+                  <small>02 · PRODUCTION</small>
+                  <b><B zh="做出来 + 做变体" en="Make it + adapt it" /></b>
+                  <em>ex-Hogarth</em>
+                </div>
+                <div className="caseFlowLane caseFlowLaneMedia">
+                  <small>03 · MEDIA</small>
+                  <b><B zh="投出去 + 优化" en="Run it + optimise" /></b>
+                  <em>ex-GroupM</em>
+                </div>
 
-                <ol className="agencyStages">
-                  <li>
-                    <span>01</span>
-                    <div>
-                      <small>CREATIVE · <B zh="创意" en="IDEATION" /></small>
-                      <h5><B zh="Ogilvy · VML · AKQA · 约 5 万人" en="Ogilvy · VML · AKQA · ~50k people" /></h5>
-                      <p><B zh="brief → 洞察 → 概念 → pre-vis" en="Brief → insight → concept → pre-vis" /></p>
-                    </div>
-                  </li>
-                  <li>
-                    <span>02</span>
-                    <div>
-                      <small>PRODUCTION · <B zh="制作" en="MAKING" /></small>
-                      <h5><B zh="Hogarth 与约 1 万制作人" en="Hogarth and ~10k makers" /></h5>
-                      <p><B zh="2026 年 1 月宣布组建 · 2 月 23 日生效 — 拍摄 / CG / 后期 → 变体与本地化" en="Announced Jan 2026 · effective Feb 23 — shoot / CG / post → variants & localization" /></p>
-                    </div>
-                  </li>
-                  <li>
-                    <span>03</span>
-                    <div>
-                      <small>MEDIA · <B zh="投放" en="ACTIVATION" /></small>
-                      <h5><B zh="WPP Media：原 GroupM" en="WPP Media: formerly GroupM" /></h5>
-                      <p><B zh="投放计划 / 采买 / 优化 / 测量" en="Planning / buying / optimization / measurement" /></p>
-                    </div>
-                  </li>
-                </ol>
-                <section className="agencyProductProof" aria-label="WPP Open workspace">
-                  <div className="agencyProductProofGrid">
-                    <figure className="agencyWorkspaceShot">
-                      <img src="/media/wpp/canvas.webp" alt="WPP Open Canvas：在 AI 生成的人群画像上验证创意概念" loading="lazy" />
-                    </figure>
+                <div className="caseFlowStep"><span>01</span><b><B zh={<>Brief<br />+ 策略</>} en={<>Brief<br />+ strategy</>} /></b><p><B zh="对齐诉求" en="Align the ask" /></p></div>
+                <div className="caseFlowStep"><span>02</span><b><B zh={<>洞察<br />+ 人群</>} en={<>Insight<br />+ audience</>} /></b><p><B zh="找到信号" en="Find the signal" /></p></div>
+                <div className="caseFlowStep"><span>03</span><b><B zh={<>概念<br />+ pre-vis</>} en={<>Concept<br />+ pre-vis</>} /></b><p><B zh="批准创意" en="Approve the idea" /></p></div>
+                <div className="caseFlowStep"><span>04</span><b><B zh={<>制作 /<br />实拍 / 3D</>} en={<>Produce /<br />shoot / 3D</>} /></b><p><B zh="做成实物" en="Make it real" /></p></div>
+                <div className="caseFlowStep"><span>05</span><b><B zh={<>改编<br />+ 本地化</>} en={<>Adapt<br />+ localise</>} /></b><p><B zh="生成变体" en="Build variants" /></p></div>
+                <div className="caseFlowStep"><span>06</span><b><B zh={<>上线<br />+ 媒介</>} en={<>Launch<br />+ media</>} /></b><p><B zh="触达受众" en="Reach the audience" /></p></div>
+                <div className="caseFlowStep"><span>07</span><b><B zh={<>衡量<br />+ 优化</>} en={<>Measure<br />+ optimise</>} /></b><p><B zh="学习并改进" en="Learn and improve" /></p></div>
 
-                    <div className="agencyProofPanel">
-                      <div className="agencyProofVideos">
-                        <figure>
-                          <video src="/media/wpp-auto-input.mp4" autoPlay loop muted playsInline preload="auto" aria-label="实拍汽车运动参考片段" />
-                          <figcaption><span>INPUT</span></figcaption>
-                        </figure>
-                        <i aria-hidden="true">→</i>
-                        <figure>
-                          <video src="/media/wpp-auto-final.mp4" autoPlay loop muted playsInline preload="auto" aria-label="生成式汽车广告成片片段" />
-                          <figcaption><span>OUTPUT</span></figcaption>
-                        </figure>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </section>
+                <div className="caseFlowHandoff caseFlowHandoffA"><B zh="→ 已批准的 pre-vis + 预算签字" en="→ approved pre-vis + budget sign-off" /></div>
+                <div className="caseFlowHandoff caseFlowHandoffB"><B zh="→ 成片母版 + 变体" en="→ finished master + variants" /></div>
+              </div>
             </article>
 
-            <article className="wppWorkPage wppQuotePage" aria-label="WPP 对 Seedance 的评价">
-              <blockquote className="wppQuote">
-                <span className="wppQuoteMark" aria-hidden="true">&ldquo;</span>
-                <p>
-                  Production teams are telling me they&rsquo;re using Seedance 2.0 and that they prefer it
-                  over Veo. I&rsquo;ve spoken to teams in Singapore, Australia, Brazil, Mexico, the US, the
-                  UK and Spain &mdash; they&rsquo;re all telling me <strong>Seedance is way better, and the
-                  word is out.</strong>
-                </p>
-                <span className="wppQuoteMark wppQuoteMarkClose" aria-hidden="true">&rdquo;</span>
-                <footer>
-                  <b>Akia Mitchell</b>
-                  <span>VP Global Strategic Partnerships, WPP</span>
-                </footer>
-              </blockquote>
+            <article className="wppWorkPage previsPage" id="customer-agency-previs" aria-labelledby="previs-title">
+              <header className="previsPageHead">
+                <span className="previsKicker">CAMPAIGN WORKFLOW</span>
+                <h3 id="previs-title"><B zh={<>WPP Open：一场创意 campaign <strong>在平台上到底怎么跑。</strong></>} en={<>WPP Open: how a creative campaign <strong>actually runs on the platform.</strong></>} /></h3>
+              </header>
+              <WppPrevisCarousel />
+            </article>
 
-              <aside className="wppQuoteAside">
-                <span className="wppQuoteAsideKicker">BYTEPLUS X WPP HEX</span>
-                <figure>
-                  <img src="/media/wpp/wpp-hex.png" alt="WPP launches HEX — a new kind of talent pipeline designed for the AI era" loading="lazy" />
+            <article className="wppWorkPage prodSidePage" id="customer-agency-production" aria-labelledby="prod-side-title">
+              <header className="prodSideHead">
+                <span className="prodSideKicker">BYTEPLUS X WPP · PRODUCTION SIDE</span>
+                <h3 id="prod-side-title"><B zh={<>它已经不是试点了——渗透率从 <strong>15%</strong> 走到 <strong>30%</strong>。</>} en={<>Past the pilot — penetration climbing from <strong>15%</strong> to <strong>30%</strong>.</>} /></h3>
+                <p className="prodSideLede"><B zh="真正在用的是制作团队，不是创新部门。下面四个数字来自他们的实际任务量。" en="It is the production teams using it, not an innovation unit. These four numbers come off their real task volume." /></p>
+              </header>
+
+              <div className="prodSideBody">
+                <ul className="prodSideStats">
+                  <li className="bpCard prodSideStat">
+                    <p className="prodSideFigure"><b>6+</b><span><B zh="个市场" en="markets" /></span></p>
+                    <p className="prodSideCopy"><B zh={<>制作团队已经在用 Seedance 2.5——用他们自己的话说，<strong>&ldquo;they love it&rdquo;</strong>。</>} en={<>Production teams already running Seedance 2.5 — in their own words, <strong>&ldquo;they love it.&rdquo;</strong></>} /></p>
+                  </li>
+                  <li className="bpCard prodSideStat">
+                    <p className="prodSideFigure"><b>100+</b><span><B zh="名一线用户" en="end users" /></span></p>
+                    <p className="prodSideCopy"><B zh="经我们的 workshop 完成培训，已能独立开工。" en="Trained hands-on in the workshops we ran, now working unaided." /></p>
+                  </li>
+                  <li className="bpCard prodSideStat">
+                    <p className="prodSideFigure"><b>77.9%</b><span>R2V</span></p>
+                    <p className="prodSideCopy"><B zh={<>4,000 个任务里走的是<strong>分镜 + 参考图转视频</strong>——导演式工作流，而不是靠提示词赌一把。</>} en={<>of 4,000 tasks run <strong>storyboard + reference-to-video</strong> — a director&rsquo;s workflow, not prompt roulette.</>} /></p>
+                  </li>
+                  <li className="bpCard prodSideStat">
+                    <p className="prodSideFigure"><b>72.5%</b><span>16:9</span></p>
+                    <p className="prodSideCopy"><B zh={<>4,000 个任务的画幅集中在横屏——投向的是<strong>品牌 TVC 与商业片</strong>，不是社交碎片素材。</>} en={<>of 4,000 tasks are landscape — aimed at <strong>brand commercials</strong>, not social offcuts.</>} /></p>
+                  </li>
+                </ul>
+
+                <figure className="prodSideDemo">
+                  <figcaption className="prodSideDemoHead">
+                    <span className="prodSideKicker">DEMO</span>
+                    <b><B zh="产线上真实跑出来的成片" en="Straight off that production line" /></b>
+                  </figcaption>
+                  <div className="prodSideDemoFrame" role="img" aria-label="WPP 产线 Seedance 2.5 成片演示位">
+                    <span><B zh="演示视频位 · 16:9" en="Demo reel · 16:9" /></span>
+                  </div>
                 </figure>
-              </aside>
+              </div>
+            </article>
+
+            <article className="wppWorkPage hexModelPage" id="customer-agency-hex-model" aria-labelledby="hex-model-title">
+              <header className="hexModelHead">
+                <span className="hexModelKicker">Byteplus x WPP HEX</span>
+                <h3 id="hex-model-title"><B zh={<>共建 FDE 人才梯队，<strong>不止于模型接入。</strong></>} en={<>Co-build an FDE cohort, <strong>beyond model integration.</strong></>} /></h3>
+                <blockquote className="hexModelQuote">
+                  <em>&ldquo;Powerful AI tools aren&rsquo;t enough. What matters is the human talent using them.&rdquo;</em>
+                  <span>&mdash; WPP HEX</span>
+                </blockquote>
+              </header>
+
+              <div className="hexModelBoard">
+                <section className="hexModelLane hexModelLaneOrgs" aria-label="组织层">
+                  <span className="hexModelLaneLabel"><B zh="组织" en="Organizations" /></span>
+
+                  <article className="hexModelOrg hexModelOrgVendor">
+                    <i className="hexModelNum" aria-hidden="true">01</i>
+                    <div>
+                      <b><img className="hexModelIcon hexModelMark" src="/logos/byteplus-mark.png" alt="" aria-hidden="true" />BytePlus</b>
+                      <span><B zh="模型供给方 · 军火库" en="Model vendor · the arsenal" /></span>
+                    </div>
+                  </article>
+
+                  <FlowArrow zh="模型 + 赋能" en="Models + enablement" />
+
+                  <article className="hexModelOrg hexModelOrgHex">
+                    <i className="hexModelNum" aria-hidden="true">02</i>
+                    <div>
+                      <b><OrgIcon kind="hex" />WPP HEX</b>
+                      <span><B zh="共建的 FDE · 交付臂膀" en="Co-built FDE · delivery arm" /></span>
+                    </div>
+                  </article>
+
+                  <FlowArrow zh="交付" en="Delivery" />
+
+                  <article className="hexModelOrg hexModelOrgClients">
+                    <i className="hexModelNum" aria-hidden="true">03</i>
+                    <div>
+                      <b><OrgIcon kind="clients" /><B zh="品牌客户" en="Brand clients" /></b>
+                      <span><B zh="需求侧" en="The demand side" /></span>
+                    </div>
+                  </article>
+                </section>
+
+
+                <section className="hexModelLane hexModelLaneTalent" aria-label="人才层">
+                  <span className="hexModelLaneLabel"><B zh="人才" en="Individual talent" /></span>
+
+                  <div className="hexModelTalent hexModelTalentSeed">
+                    <TalentGlyphs count={3} />
+                    <b><B zh="我们的科学家 / 讲师" en="Our scientists / educators" /></b>
+                  </div>
+
+                  <FlowArrow zh="培训与认证" en="Training and certification" />
+
+                  <div className="hexModelTalent hexModelTalentCohort">
+                    <span className="hexModelDrop"><B zh="嵌入客户团队" en="Embedded into client teams" /></span>
+                    <TalentGlyphs count={5} />
+                    <b><B zh="伙伴出资的创意技术梯队" en="The partner-funded cohort of creative technologists" /></b>
+                  </div>
+
+                  <FlowArrow zh="并肩做真实项目" en="Collaborate on live work" />
+
+                  <div className="hexModelTalent hexModelTalentClients">
+                    <span className="hexModelDrop"><B zh="并入客户在跑的项目" en="Onto live client work" /></span>
+                    <TalentGlyphs count={5} />
+                    <b><B zh="客户团队" en="Client teams" /></b>
+                  </div>
+                </section>
+
+                <section className="hexModelLane hexModelLaneLoop" aria-label="反馈闭环">
+                  <span className="hexModelLaneLabel"><B zh="闭环" en="Workflow &amp; feedback" /></span>
+                  <div className="hexModelLoop">
+                    <b><span aria-hidden="true">&larr;</span><B zh="生产反馈 · AI 人才升级 · 收入增长 · 联合案例" en="Production feedback · Upskilled AI talent · Revenue growth · Joint cases" /><span aria-hidden="true">&rarr;</span></b>
+                  </div>
+                </section>
+                <section className="hexModelLane hexModelLaneProvide" aria-label="我们提供什么">
+                  <span className="hexModelLaneLabel"><B zh="我们提供" en="What we provide" /></span>
+                  <ol className="hexModelProvide">
+                    <li><i aria-hidden="true">01</i><b><B zh="模型使用权与新版本优先体验" en="Model access &amp; early releases" /></b></li>
+                    <li><i aria-hidden="true">02</i><b><B zh="Academy：培训与认证" en="Academy: training &amp; certification" /></b></li>
+                    <li><i aria-hidden="true">03</i><b><B zh="常在线的技术支持" en="Always-on technical support" /></b></li>
+                    <li><i aria-hidden="true">04</i><b><B zh="平台与工作流集成" en="Platform &amp; workflow integration" /></b></li>
+                  </ol>
+                </section>
+              </div>
+
+            </article>
+
+            <article className="wppWorkPage caseLockupPage" id="customer-brand-cover" aria-label="BytePlus × AppLovin">
+              <div className="caseLockupIndex"><span>CASE 2</span><b><B zh="广告技术" en="ADTECH" /></b></div>
+              <div className="caseLockup" role="img" aria-label="BytePlus × AppLovin">
+                <img className="caseLockupByteplus" src="/byteplus-logo.png" alt="BytePlus" />
+                <i className="caseLockupDivider" aria-hidden="true" />
+                <span className="caseLockupAppLovin">
+                  <img src="/logos/applovin-color.svg" alt="" aria-hidden="true" />
+                  <b>AppLovin</b>
+                </span>
+              </div>
             </article>
 
             <article className="appLovinCase wppWorkPage" id="customer-brand" aria-label="AppLovin AI 创意规模化案例研究">
@@ -894,15 +1056,15 @@ export default function Home() {
             </div>
           </article>
 
-          <article className="solutionPage performanceCapabilityPage" id="solution-performance-capabilities">
+          <article className="solutionPage performanceCapabilityPage performanceCapabilityFoundationPage" id="solution-performance-capabilities">
             <header className="performanceCapabilityHeader">
-              <div className="performanceV2Index"><span>3.2</span><b>MODEL CAPABILITIES</b></div>
+              <div className="performanceV2Index"><span>3.2</span><b>PERFORMANCE ADS</b></div>
               <div className="performanceV2Title">
                 <h3><B zh="Seedance 2.5 如何规模化生产效果广告素材" en="Why Seedance 2.5 Scales Performance Creative" /></h3>
               </div>
             </header>
 
-            <div className="performanceCapabilityBody performanceCapabilityV3">
+            <div className="performanceCapabilityBody performanceCapabilityV3 performanceCapabilityFoundationBody">
               <section className="performanceCapabilityPrimary" aria-label="Multimodal input and consistent output">
                 <header className="performanceCapabilityCardTitle">
                   <span>01</span>
@@ -959,73 +1121,20 @@ export default function Home() {
                   </div>
                 </div>
               </section>
+            </div>
+          </article>
 
-              <div className="performanceCapabilityComingRow">
-                <PerformanceLocalizationDemo />
-
-                <section className="performanceCapabilityComing performanceCapabilityEditingV3" aria-label="Precise editing demos">
-                  <header className="performanceCapabilityCardTitle">
-                    <span>04</span>
-                    <div><h4><B zh="精确编辑" en="Precise editing" /></h4></div>
-                  </header>
-                  <div className="performanceEditingDemos">
-                    <figure className="performanceEditingOriginal">
-                      <video
-                        src={projectVideoUrl("media/performance-precise-editing/master/master.mp4")}
-                        poster="/media/performance-precise-editing/master/master.jpg"
-                        controls
-                        playsInline
-                        preload="metadata"
-                        aria-label="Original video before precise editing"
-                      />
-                      <figcaption><B zh="原片" en="Original" /></figcaption>
-                    </figure>
-                    <span className="performanceEditingArrow" aria-hidden="true">→</span>
-                    <div className="performanceEditingOutputs">
-                      <article className="performanceEditingOutputCard performanceEditingSkuCard">
-                        <div className="performanceEditingSkuSpec">
-                          <img
-                            src="/media/performance-precise-editing/references/cobalt-blender.png"
-                            alt="Cobalt-blue portable blender used as the replacement SKU"
-                          />
-                          <div>
-                            <span><B zh="替换为" en="New SKU" /></span>
-                            <strong><B zh="钴蓝色便携榨汁机" en="Cobalt-blue blender" /></strong>
-                          </div>
-                        </div>
-                        <figure>
-                          <video
-                            src={projectVideoUrl("media/performance-precise-editing/variants/sku-replacement.mp4")}
-                            poster="/media/performance-precise-editing/variants/sku-replacement.jpg"
-                            controls
-                            playsInline
-                            preload="metadata"
-                            aria-label="Video after SKU replacement"
-                          />
-                          <figcaption><B zh="商品替换结果" en="SKU replacement" /></figcaption>
-                        </figure>
-                      </article>
-                      <article className="performanceEditingOutputCard performanceEditingTextCard">
-                        <div className="performanceEditingTextSpec" aria-label="Copy changes made in the edited video">
-                          <span><del>SMOOTHIE IN 30 SECONDS</del><b>BLEND ANYWHERE</b></span>
-                          <span><del>SHOP NOW</del><b>GET YOURS</b></span>
-                        </div>
-                        <figure>
-                          <video
-                            src={projectVideoUrl("media/performance-precise-editing/variants/text-replacement.mp4")}
-                            poster="/media/performance-precise-editing/variants/text-replacement.jpg"
-                            controls
-                            playsInline
-                            preload="metadata"
-                            aria-label="Video after text replacement"
-                          />
-                          <figcaption><B zh="文案替换结果" en="Text replacement" /></figcaption>
-                        </figure>
-                      </article>
-                    </div>
-                  </div>
-                </section>
+          <article className="solutionPage performanceCapabilityPage performanceCapabilityExecutionPage" id="solution-performance-localization">
+            <header className="performanceCapabilityHeader">
+              <div className="performanceV2Index"><span>3.2</span><b>PERFORMANCE ADS</b></div>
+              <div className="performanceV2Title">
+                <h3><B zh="Seedance 2.5 如何规模化生产效果广告素材" en="Why Seedance 2.5 Scales Performance Creative" /></h3>
               </div>
+            </header>
+
+            <div className="performanceCapabilityBody performanceCapabilityV3 performanceCapabilityExecutionBody">
+              <PerformanceLocalizationDemo />
+              <PerformancePreciseEditingDemo />
             </div>
           </article>
 

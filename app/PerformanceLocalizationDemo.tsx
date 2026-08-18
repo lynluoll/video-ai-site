@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
+import { useState } from "react";
 import { projectVideoUrl } from "./media";
 
 type LocalizationDemo = {
@@ -14,7 +13,7 @@ type LocalizationDemo = {
 
 const demos: LocalizationDemo[] = [
   { code: "ZH", city: "Shanghai", cityZh: "上海", src: projectVideoUrl("media/performance-localization/videos/01-zh-cn.mp4"), poster: "/media/performance-localization/videos/01-zh-cn.jpg" },
-  { code: "EN", city: "Global", cityZh: "全球", src: projectVideoUrl("media/performance-localization/videos/12-international-master.mp4"), poster: "/media/performance-localization/videos/12-international-master.jpg" },
+  { code: "EN", city: "London", cityZh: "伦敦", src: projectVideoUrl("media/performance-precise-editing/master/master.mp4"), poster: "/media/performance-precise-editing/master/master.jpg" },
   { code: "ES", city: "Mexico City", cityZh: "墨西哥城", src: projectVideoUrl("media/performance-localization/videos/03-es-mx.mp4"), poster: "/media/performance-localization/videos/03-es-mx.jpg" },
   { code: "ID", city: "Jakarta", cityZh: "雅加达", src: projectVideoUrl("media/performance-localization/videos/04-id-id.mp4"), poster: "/media/performance-localization/videos/04-id-id.jpg" },
   { code: "PT", city: "São Paulo", cityZh: "圣保罗", src: projectVideoUrl("media/performance-localization/videos/05-pt-br.mp4"), poster: "/media/performance-localization/videos/05-pt-br.jpg" },
@@ -26,91 +25,61 @@ const demos: LocalizationDemo[] = [
   { code: "KO", city: "Seoul", cityZh: "首尔", src: projectVideoUrl("media/performance-localization/videos/11-ko-kr.mp4"), poster: "/media/performance-localization/videos/11-ko-kr.jpg" },
 ];
 
-const demoRows = [demos.slice(0, 6), demos.slice(6)];
-
 export default function PerformanceLocalizationDemo() {
-  const [activeDemo, setActiveDemo] = useState<LocalizationDemo | null>(null);
-
-  useEffect(() => {
-    if (!activeDemo) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setActiveDemo(null);
-    };
-    window.addEventListener("keydown", closeOnEscape);
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", closeOnEscape);
-    };
-  }, [activeDemo]);
+  const [selectedIndex, setSelectedIndex] = useState(2);
+  const selected = demos[selectedIndex];
 
   return (
-    <section className="performanceLocalizationDemo" aria-label="Localization at market speed">
-      <header className="performanceCapabilityCardTitle performanceLocalizationTitle">
-        <span>03</span>
-        <h4><span className="langZh">以市场速度完成本地化</span><span className="langEn">Localization at market speed</span></h4>
+    <section className="performanceLocalizationDemo performanceLocalizationStage" aria-label="Localization at market speed">
+      <header className="performanceStageHeading">
+        <div><span>03</span><h4><span className="langZh">以市场速度完成本地化</span><span className="langEn">Localization at market speed</span></h4></div>
         <strong><b>1</b><small>→</small><b>11</b></strong>
       </header>
 
-      <div className="performanceLocalizationWall">
-        <figure className="performanceLocalizationMaster">
-          <img src="/media/performance-localization/portable-blender-master.png" alt="Portable blender product reference" />
-          <figcaption><span className="langZh">产品母版</span><span className="langEn">PRODUCT</span></figcaption>
-        </figure>
+      <div className="performanceLocalizationFeature">
+        <div className="performanceLocalizationContext">
+          <div className="performanceLocalizationMarketTitle">
+            <small><span className="langZh">当前市场版本</span><span className="langEn">LOCALIZED VERSION</span></small>
+            <strong>{selected.code}</strong>
+            <h5><span className="langZh">{selected.cityZh}</span><span className="langEn">{selected.city}</span></h5>
+          </div>
 
-        <span className="performanceLocalizationWallArrow" aria-hidden="true">→</span>
-
-        <div className="performanceLocalizationMarquees" aria-label="Eleven localized video demos">
-          {demoRows.map((row, rowIndex) => (
-            <div className="performanceLocalizationMarquee" key={rowIndex}>
-              <div className={`performanceLocalizationTrack performanceLocalizationTrack${rowIndex + 1}`}>
-                {[...row, ...row].map((demo, index) => {
-                  const duplicate = index >= row.length;
-                  return (
-                    <button
-                      type="button"
-                      className="performanceLocalizationTile"
-                      key={`${rowIndex}-${demo.code}-${index}`}
-                      onClick={() => setActiveDemo(demo)}
-                      aria-label={`Play ${demo.city} localization demo`}
-                      aria-hidden={duplicate || undefined}
-                      tabIndex={duplicate ? -1 : 0}
-                    >
-                      <img src={demo.poster} alt="" />
-                      <span><b>{demo.code}</b> {demo.city}</span>
-                      <i aria-hidden="true">▶</i>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+          <figure className="performanceLocalizationSource">
+            <img src="/media/performance-localization/portable-blender-master.png" alt="Portable blender product reference" />
+            <figcaption><span className="langZh">产品母版</span><span className="langEn">MASTER PRODUCT</span></figcaption>
+          </figure>
         </div>
-      </div>
 
-      {activeDemo && typeof document !== "undefined" ? createPortal(
-        <div
-          className="performanceLocalizationPlayer"
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${activeDemo.city} localization video`}
-          onClick={() => setActiveDemo(null)}
-        >
-          <button type="button" className="performanceLocalizationClose" onClick={() => setActiveDemo(null)} aria-label="Close video">×</button>
+        <span className="performanceStageFlow" aria-hidden="true">→</span>
+
+        <figure className="performanceLocalizationCurrent">
           <video
-            src={activeDemo.src}
-            poster={activeDemo.poster}
+            key={selected.src}
+            src={selected.src}
+            poster={selected.poster}
             controls
-            autoPlay
             playsInline
             preload="metadata"
-            onClick={(event) => event.stopPropagation()}
+            aria-label={`${selected.city} localization video`}
           />
-          <span><b>{activeDemo.code}</b> <span className="langZh">{activeDemo.cityZh}</span><span className="langEn">{activeDemo.city}</span></span>
-        </div>,
-        document.body,
-      ) : null}
+        </figure>
+      </div>
+
+      <div className="performanceLocalizationMarketRail" aria-label="Choose a localized market version">
+        {demos.map((demo, index) => (
+          <button
+            type="button"
+            className={index === selectedIndex ? "is-active" : ""}
+            key={demo.code}
+            onClick={() => setSelectedIndex(index)}
+            aria-pressed={index === selectedIndex}
+            aria-label={`Show ${demo.city} localization demo`}
+          >
+            <img src={demo.poster} alt="" />
+            <span><b>{demo.code}</b><em className="langZh">{demo.cityZh}</em><em className="langEn">{demo.city}</em></span>
+          </button>
+        ))}
+      </div>
     </section>
   );
 }
