@@ -299,19 +299,18 @@ export default function Home() {
       </nav>
 
       <section className="coverPage" aria-labelledby="cover-title">
-        <video
+        <PauseWhenHiddenVideo
           className="coverBackgroundVideo"
+          src="/media/landing/brand-15.mp4"
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
           poster="/media/landing/brand-15-poster.jpg"
           aria-hidden="true"
+          ariaLabel=""
           tabIndex={-1}
-        >
-          <source src="/media/landing/brand-15.mp4" type="video/mp4" />
-        </video>
+        />
         <div className="coverBackgroundVeil" aria-hidden="true" />
         <div className="coverGlow" aria-hidden="true" />
         <div className="coverRule coverRuleTop" aria-hidden="true" />
@@ -501,7 +500,7 @@ export default function Home() {
                 <div className="goodtakeGrid goodtakeGridV2">
                   <figure className="goodtakeFeature">
                     <div className="goodtakeMedia">
-                      <video src="/media/goodtake/snuggle.mp4" autoPlay controls loop muted playsInline preload="metadata" aria-label="Goodtake 为联合利华韩国 Snuggle 制作的品牌广告" />
+                      <PauseWhenHiddenVideo src="/media/goodtake/snuggle.mp4" autoPlay controls loop muted playsInline ariaLabel="Goodtake 为联合利华韩国 Snuggle 制作的品牌广告" />
                       <span className="goodtakeModelTag">Seedance 2.5</span>
                     </div>
                     <figcaption><b>Goodtake &times; Unilever&rsquo;s Snuggle</b><em>Unilever Korea</em></figcaption>
@@ -510,14 +509,14 @@ export default function Home() {
                   <div className="goodtakeSide">
                     <figure className="goodtakeSideItem">
                       <div className="goodtakeMedia">
-                        <video src="/media/goodtake/mcdonaldland.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="Goodtake 为麦当劳制作的 McDonaldland 3D CGI 广告" />
+                        <PauseWhenHiddenVideo src="/media/goodtake/mcdonaldland.mp4" autoPlay loop muted playsInline ariaLabel="Goodtake 为麦当劳制作的 McDonaldland 3D CGI 广告" />
                         <span className="goodtakeModelTag">Seedance 2.0</span>
                       </div>
                       <figcaption><b>Goodtake &times; McDonaldland</b><em>Q4&rsquo;25</em></figcaption>
                     </figure>
                     <figure className="goodtakeSideItem">
                       <div className="goodtakeMedia">
-                        <video src="/media/goodtake/grimace.mp4" autoPlay loop muted playsInline preload="metadata" aria-label="Goodtake 为麦当劳制作的 Grimace 3D CGI 广告" />
+                        <PauseWhenHiddenVideo src="/media/goodtake/grimace.mp4" autoPlay loop muted playsInline ariaLabel="Goodtake 为麦当劳制作的 Grimace 3D CGI 广告" />
                         <span className="goodtakeModelTag">Seedance 2.0</span>
                       </div>
                       <figcaption><b>Goodtake &times; Grimace</b><em>Q2&rsquo;26</em></figcaption>
@@ -840,8 +839,8 @@ export default function Home() {
                           <b><B zh="互动广告" en="INTERACTIVE" /></b>
                         </div>
                         <div className="appLovinOutputClips">
-                          <div className="appLovinClip"><video src="/media/applovin/automating-creative-01.mp4" autoPlay loop muted playsInline preload="auto" aria-label="AppLovin 互动广告自动生成示例 1" /><button type="button" className="appLovinClipFs" aria-label="全屏播放：AppLovin 互动广告自动生成示例 1"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button></div>
-                          <div className="appLovinClip"><video src="/media/applovin/automating-creative-02.mp4" autoPlay loop muted playsInline preload="auto" aria-label="AppLovin 互动广告自动生成示例 2" /><button type="button" className="appLovinClipFs" aria-label="全屏播放：AppLovin 互动广告自动生成示例 2"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button></div>
+                          <div className="appLovinClip"><PauseWhenHiddenVideo src="/media/applovin/automating-creative-01.mp4" autoPlay loop muted playsInline ariaLabel="AppLovin 互动广告自动生成示例 1" /><button type="button" className="appLovinClipFs" aria-label="全屏播放：AppLovin 互动广告自动生成示例 1"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button></div>
+                          <div className="appLovinClip"><PauseWhenHiddenVideo src="/media/applovin/automating-creative-02.mp4" autoPlay loop muted playsInline ariaLabel="AppLovin 互动广告自动生成示例 2" /><button type="button" className="appLovinClipFs" aria-label="全屏播放：AppLovin 互动广告自动生成示例 2"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button></div>
                         </div>
                       </div>
 
@@ -851,8 +850,8 @@ export default function Home() {
                           <b><B zh="视频广告" en="VIDEO" /></b>
                         </div>
                         <div className="appLovinOutputClips">
-                          <div className="appLovinClip"><video src="/media/applovin/generating-video-01.mp4" autoPlay loop muted playsInline preload="auto" aria-label="AppLovin 视频广告自动生成示例 1" /><button type="button" className="appLovinClipFs" aria-label="全屏播放：AppLovin 视频广告自动生成示例 1"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button></div>
-                          <div className="appLovinClip"><video src="/media/applovin/generating-video-02.mp4" autoPlay loop muted playsInline preload="auto" aria-label="AppLovin 视频广告自动生成示例 2" /><button type="button" className="appLovinClipFs" aria-label="全屏播放：AppLovin 视频广告自动生成示例 2"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button></div>
+                          <div className="appLovinClip"><PauseWhenHiddenVideo src="/media/applovin/generating-video-01.mp4" autoPlay loop muted playsInline ariaLabel="AppLovin 视频广告自动生成示例 1" /><button type="button" className="appLovinClipFs" aria-label="全屏播放：AppLovin 视频广告自动生成示例 1"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button></div>
+                          <div className="appLovinClip"><PauseWhenHiddenVideo src="/media/applovin/generating-video-02.mp4" autoPlay loop muted playsInline ariaLabel="AppLovin 视频广告自动生成示例 2" /><button type="button" className="appLovinClipFs" aria-label="全屏播放：AppLovin 视频广告自动生成示例 2"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button></div>
                         </div>
                       </div>
                       </div>
@@ -972,6 +971,8 @@ export default function Home() {
                 src={projectVideoUrl("media/brand-fragrance/hero-film.mp4")}
                 poster="/media/brand-fragrance/hero-poster.jpg"
                 ariaLabel="Fragrance brand film"
+                controls
+                playsInline
               />
             </div>
           </article>
@@ -1050,7 +1051,7 @@ export default function Home() {
 
               <section className="performanceV2VideoPanel" aria-label="Multi-SKU Sweep 效果广告 Demo">
                 <div className="performanceV2VideoFrame">
-                  <video src="/media/performance-2026/multi-sku.mp4" poster="/media/performance-2026/multi-sku.jpg" controls playsInline preload="metadata" aria-label="Multi-SKU Sweep performance ad demo" />
+                  <PauseWhenHiddenVideo src="/media/performance-2026/multi-sku.mp4" poster="/media/performance-2026/multi-sku.jpg" controls playsInline ariaLabel="Multi-SKU Sweep performance ad demo" />
                 </div>
               </section>
             </div>
@@ -1215,7 +1216,7 @@ export default function Home() {
                   <div className="playableFactoryOutput">
                     <span>OUTPUT</span>
                     <div className="playableMatrix" aria-label="九种 Playable 广告视觉变体">
-                      {playableOutputClips.map((src, index) => <video key={src} src={src} autoPlay loop muted playsInline preload={index < 3 ? "metadata" : "none"} aria-label={`Playable 广告视觉变体 ${index + 1}，点击放大`} />)}
+                      {playableOutputClips.map((src, index) => <PauseWhenHiddenVideo key={src} src={src} autoPlay loop muted playsInline ariaLabel={`Playable 广告视觉变体 ${index + 1}，点击放大`} />)}
                     </div>
                     <PlayableClipLightbox />
                     <p><b className="langZh">可投放广告包</b><b className="langEn">Deployable ad package</b><small>Hook × Visual × CTA Matrix</small></p>

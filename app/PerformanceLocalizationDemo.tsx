@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { projectVideoUrl } from "./media";
+import PauseWhenHiddenVideo from "./PauseWhenHiddenVideo";
 
 type LocalizationDemo = {
   code: string;
@@ -53,14 +54,15 @@ export default function PerformanceLocalizationDemo() {
         <span className="performanceStageFlow" aria-hidden="true">→</span>
 
         <figure className="performanceLocalizationCurrent">
-          <video
+          <PauseWhenHiddenVideo
             key={selected.src}
             src={selected.src}
             poster={selected.poster}
             controls
             playsInline
-            preload="metadata"
-            aria-label={`${selected.city} localization video`}
+            preload="auto"
+            loadImmediately
+            ariaLabel={`${selected.city} localization video`}
           />
         </figure>
       </div>

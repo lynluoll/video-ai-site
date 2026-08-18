@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import PauseWhenHiddenVideo from "./PauseWhenHiddenVideo";
 
 type Demo = {
   title: string;
@@ -31,8 +32,8 @@ const demoTracks: DemoTrack[] = [
       { title: "Product fidelity & lifestyle", titleZh: "产品保真与生活化叙事", type: "Brand / Beverage", typeZh: "品牌广告 / 饮品", src: "/media/brand-beverage-demo.mp4", poster: "/media/brand-beverage-demo.jpg" },
       { title: "Night lighting & motion", titleZh: "夜景光影与运动表现", type: "Brand / Lifestyle", typeZh: "品牌广告 / 生活方式", src: "/media/brand-auto-demo.mp4", poster: "/media/brand-auto-demo.jpg" },
       { title: "CMF materials & product macro", titleZh: "CMF 材质与产品微距", type: "Brand / Electronics", typeZh: "品牌广告 / 电子产品", src: "/media/brand-tech-demo.mp4", poster: "/media/brand-tech-demo.jpg" },
-      { title: "Live-action motion reference", titleZh: "实拍运动参考", type: "Agency / Automotive", typeZh: "代理商 / 汽车", src: "/media/wpp-auto-input.mp4" },
-      { title: "Generative automotive final", titleZh: "生成式汽车成片", type: "Agency / Automotive", typeZh: "代理商 / 汽车", src: "/media/wpp-auto-final.mp4" },
+      { title: "Live-action motion reference", titleZh: "实拍运动参考", type: "Agency / Automotive", typeZh: "代理商 / 汽车", src: "/media/wpp-auto-input.mp4", poster: "/media/wpp/wpp-auto-input-poster.jpg" },
+      { title: "Generative automotive final", titleZh: "生成式汽车成片", type: "Agency / Automotive", typeZh: "代理商 / 汽车", src: "/media/wpp-auto-final.mp4", poster: "/media/wpp/wpp-auto-final-poster.jpg" },
     ],
   },
   {
@@ -63,17 +64,18 @@ const demoTracks: DemoTrack[] = [
   },
 ];
 
-function DemoCard({ demo, clone }: { demo: Demo; clone: boolean }) {
+function DemoCard({ demo, clone, onOpen }: { demo: Demo; clone: boolean; onOpen: (demo: Demo) => void }) {
   return (
     <button
       className="moreDemoCard"
       type="button"
       data-demo-src={demo.src}
       data-demo-title={demo.title}
+      onClick={() => onOpen(demo)}
       tabIndex={clone ? -1 : 0}
       aria-hidden={clone || undefined}
     >
-      <video src={demo.src} poster={demo.poster} autoPlay loop muted playsInline preload="auto" aria-hidden="true" />
+      {demo.poster ? <img src={demo.poster} alt="" loading="lazy" aria-hidden="true" /> : <span className="moreDemoCardPlaceholder" aria-hidden="true" />}
       <span className="moreDemoCardShade" aria-hidden="true" />
       <span className="moreDemoPlay" aria-hidden="true">▶</span>
       <span className="moreDemoCardCopy">
@@ -88,21 +90,6 @@ function DemoCard({ demo, clone }: { demo: Demo; clone: boolean }) {
 
 export default function MoreDemosGallery() {
   const [activeDemo, setActiveDemo] = useState<Demo | null>(null);
-
-  useEffect(() => {
-    const gallery = document.querySelector<HTMLElement>(".moreDemosTracks");
-    if (!gallery) return;
-
-    const handleClick = (event: Event) => {
-      const card = (event.target as Element | null)?.closest<HTMLButtonElement>(".moreDemoCard");
-      if (!card || !gallery.contains(card)) return;
-      const demo = demoTracks.flatMap((track) => track.demos).find((item) => item.src === card.dataset.demoSrc);
-      if (demo) setActiveDemo(demo);
-    };
-
-    gallery.addEventListener("click", handleClick);
-    return () => gallery.removeEventListener("click", handleClick);
-  }, []);
 
   useEffect(() => {
     if (!activeDemo) return;
@@ -140,7 +127,7 @@ export default function MoreDemosGallery() {
               <div className={`moreDemosRail ${track.direction === "reverse" ? "isReverse" : ""}`} style={{ "--demo-speed": track.speed } as React.CSSProperties}>
                 {[false, true].map((clone) => (
                   <div className="moreDemosSet" key={clone ? "clone" : "primary"} aria-hidden={clone || undefined}>
-                    {track.demos.map((demo) => <DemoCard key={`${clone ? "clone" : "primary"}-${demo.src}`} demo={demo} clone={clone} />)}
+                    {track.demos.map((demo) => <DemoCard key={`${clone ? "clone" : "primary"}-${demo.src}`} demo={demo} clone={clone} onOpen={(demo) => setActiveDemo(demo)} />)}
                   </div>
                 ))}
               </div>
@@ -154,7 +141,7 @@ export default function MoreDemosGallery() {
           <button className="moreDemoLightboxBackdrop" type="button" aria-label="Close video" onClick={() => setActiveDemo(null)} />
           <article>
             <header><div><small className="langZh">{activeDemo.typeZh}</small><small className="langEn">{activeDemo.type}</small><h3 className="langZh">{activeDemo.titleZh}</h3><h3 className="langEn">{activeDemo.title}</h3></div><button type="button" aria-label="Close video" onClick={() => setActiveDemo(null)}>×</button></header>
-            <video key={activeDemo.src} src={activeDemo.src} poster={activeDemo.poster} autoPlay loop muted playsInline controls />
+            <PauseWhenHiddenVideo key={activeDemo.src} src={activeDemo.src} poster={activeDemo.poster} autoPlay loop playsInline controls loadImmediately ariaLabel={activeDemo.title} />
           </article>
         </div>
       ) : null}

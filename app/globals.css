@@ -12543,7 +12543,9 @@ body {
   cursor: pointer;
   text-align: left;
 }
-.moreDemoCard video {
+.moreDemoCard video,
+.moreDemoCard > img,
+.moreDemoCardPlaceholder {
   width: 100%;
   height: 100%;
   display: block;
@@ -12593,7 +12595,9 @@ body {
   white-space: nowrap;
 }
 .moreDemoCard:hover video,
-.moreDemoCard:focus-visible video { filter: brightness(.78); transform: scale(1.025); }
+.moreDemoCard:focus-visible video,
+.moreDemoCard:hover > img,
+.moreDemoCard:focus-visible > img { filter: brightness(.78); transform: scale(1.025); }
 .moreDemoLightbox {
   position: fixed;
   inset: 0;
@@ -12694,7 +12698,8 @@ body {
   .moreDemosViewport { overflow-x: auto; }
   .moreDemosRail { animation: none; }
   .moreDemosSet[aria-hidden="true"] { display: none; }
-  .moreDemoCard video { transition: none; }
+  .moreDemoCard video,
+  .moreDemoCard > img { transition: none; }
 }
 
 /* ═════════════════════ AppLovin case study (between 2.2 and 2.3) ═════════════════════ */

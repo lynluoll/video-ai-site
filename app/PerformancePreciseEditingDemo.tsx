@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { projectVideoUrl } from "./media";
+import PauseWhenHiddenVideo from "./PauseWhenHiddenVideo";
 
 const edits = [
   {
@@ -87,14 +88,13 @@ export default function PerformancePreciseEditingDemo() {
 
       <div className="performanceEditShowcase">
         <figure className="performanceEditCurrent">
-          <video
+          <PauseWhenHiddenVideo
             key={selected.src}
             src={selected.src}
             poster={selected.poster}
             controls
             playsInline
-            preload="metadata"
-            aria-label={`${selected.labelEn} precise editing video`}
+            ariaLabel={`${selected.labelEn} precise editing video`}
           />
           <figcaption><span className="langZh">{selected.noteZh}</span><span className="langEn">{selected.noteEn}</span></figcaption>
         </figure>
