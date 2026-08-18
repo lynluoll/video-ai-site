@@ -203,7 +203,6 @@
   .caseLockupAppLovin img { height: 40px; }
   .caseLockupAppLovin b { font-size: 44px; }
 }
-
 .srOnly {
   position: absolute;
   width: 1px;
@@ -18335,7 +18334,6 @@ body {
     height: auto;
   }
 }
-
 /* v10.8 final cascade: market labels must stay readable after legacy overrides. */
 .performanceCapabilityExecutionBody .performanceLocalizationMarketRail button > span {
   right: 3px;
