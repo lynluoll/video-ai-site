@@ -14,7 +14,7 @@ type LocalizationDemo = {
 
 const demos: LocalizationDemo[] = [
   { code: "ZH", city: "Shanghai", cityZh: "上海", src: projectVideoUrl("media/performance-localization/videos/01-zh-cn.mp4"), poster: "/media/performance-localization/videos/01-zh-cn.jpg" },
-  { code: "EN", city: "Global", cityZh: "全球", src: projectVideoUrl("media/performance-localization/videos/12-international-master.mp4"), poster: "/media/performance-localization/videos/12-international-master.jpg" },
+  { code: "EN", city: "London", cityZh: "伦敦", src: projectVideoUrl("media/performance-localization/videos/02-en-gb.mp4"), poster: "/media/performance-localization/videos/02-en-gb.jpg" },
   { code: "ES", city: "Mexico City", cityZh: "墨西哥城", src: projectVideoUrl("media/performance-localization/videos/03-es-mx.mp4"), poster: "/media/performance-localization/videos/03-es-mx.jpg" },
   { code: "ID", city: "Jakarta", cityZh: "雅加达", src: projectVideoUrl("media/performance-localization/videos/04-id-id.mp4"), poster: "/media/performance-localization/videos/04-id-id.jpg" },
   { code: "PT", city: "São Paulo", cityZh: "圣保罗", src: projectVideoUrl("media/performance-localization/videos/05-pt-br.mp4"), poster: "/media/performance-localization/videos/05-pt-br.jpg" },
@@ -25,8 +25,6 @@ const demos: LocalizationDemo[] = [
   { code: "VI", city: "Ho Chi Minh City", cityZh: "胡志明市", src: projectVideoUrl("media/performance-localization/videos/10-vi-vn.mp4"), poster: "/media/performance-localization/videos/10-vi-vn.jpg" },
   { code: "KO", city: "Seoul", cityZh: "首尔", src: projectVideoUrl("media/performance-localization/videos/11-ko-kr.mp4"), poster: "/media/performance-localization/videos/11-ko-kr.jpg" },
 ];
-
-const demoRows = [demos.slice(0, 6), demos.slice(6)];
 
 export default function PerformanceLocalizationDemo() {
   const [activeDemo, setActiveDemo] = useState<LocalizationDemo | null>(null);
@@ -62,30 +60,28 @@ export default function PerformanceLocalizationDemo() {
         <span className="performanceLocalizationWallArrow" aria-hidden="true">→</span>
 
         <div className="performanceLocalizationMarquees" aria-label="Eleven localized video demos">
-          {demoRows.map((row, rowIndex) => (
-            <div className="performanceLocalizationMarquee" key={rowIndex}>
-              <div className={`performanceLocalizationTrack performanceLocalizationTrack${rowIndex + 1}`}>
-                {[...row, ...row].map((demo, index) => {
-                  const duplicate = index >= row.length;
-                  return (
-                    <button
-                      type="button"
-                      className="performanceLocalizationTile"
-                      key={`${rowIndex}-${demo.code}-${index}`}
-                      onClick={() => setActiveDemo(demo)}
-                      aria-label={`Play ${demo.city} localization demo`}
-                      aria-hidden={duplicate || undefined}
-                      tabIndex={duplicate ? -1 : 0}
-                    >
-                      <img src={demo.poster} alt="" />
-                      <span><b>{demo.code}</b> {demo.city}</span>
-                      <i aria-hidden="true">▶</i>
-                    </button>
-                  );
-                })}
-              </div>
+          <div className="performanceLocalizationMarquee">
+            <div className="performanceLocalizationTrack">
+              {[...demos, ...demos].map((demo, index) => {
+                const duplicate = index >= demos.length;
+                return (
+                  <button
+                    type="button"
+                    className="performanceLocalizationTile"
+                    key={`${demo.code}-${index}`}
+                    onClick={() => setActiveDemo(demo)}
+                    aria-label={`Play ${demo.city} localization demo`}
+                    aria-hidden={duplicate || undefined}
+                    tabIndex={duplicate ? -1 : 0}
+                  >
+                    <img src={demo.poster} alt="" />
+                    <span><b>{demo.code}</b> {demo.city}</span>
+                    <i aria-hidden="true">▶</i>
+                  </button>
+                );
+              })}
             </div>
-          ))}
+          </div>
         </div>
       </div>
 

@@ -1055,15 +1055,15 @@ export default function Home() {
             </div>
           </article>
 
-          <article className="solutionPage performanceCapabilityPage" id="solution-performance-capabilities">
+          <article className="solutionPage performanceCapabilityPage performanceCapabilityFoundationPage" id="solution-performance-capabilities">
             <header className="performanceCapabilityHeader">
-              <div className="performanceV2Index"><span>3.2</span><b>MODEL CAPABILITIES</b></div>
+              <div className="performanceV2Index"><span>3.2</span><b>PERFORMANCE ADS</b></div>
               <div className="performanceV2Title">
                 <h3><B zh="Seedance 2.5 如何规模化生产效果广告素材" en="Why Seedance 2.5 Scales Performance Creative" /></h3>
               </div>
             </header>
 
-            <div className="performanceCapabilityBody performanceCapabilityV3">
+            <div className="performanceCapabilityBody performanceCapabilityV3 performanceCapabilityFoundationBody">
               <section className="performanceCapabilityPrimary" aria-label="Multimodal input and consistent output">
                 <header className="performanceCapabilityCardTitle">
                   <span>01</span>
@@ -1120,73 +1120,82 @@ export default function Home() {
                   </div>
                 </div>
               </section>
+            </div>
+          </article>
 
-              <div className="performanceCapabilityComingRow">
-                <PerformanceLocalizationDemo />
-
-                <section className="performanceCapabilityComing performanceCapabilityEditingV3" aria-label="Precise editing demos">
-                  <header className="performanceCapabilityCardTitle">
-                    <span>04</span>
-                    <div><h4><B zh="精确编辑" en="Precise editing" /></h4></div>
-                  </header>
-                  <div className="performanceEditingDemos">
-                    <figure className="performanceEditingOriginal">
-                      <video
-                        src={projectVideoUrl("media/performance-precise-editing/master/master.mp4")}
-                        poster="/media/performance-precise-editing/master/master.jpg"
-                        controls
-                        playsInline
-                        preload="metadata"
-                        aria-label="Original video before precise editing"
-                      />
-                      <figcaption><B zh="原片" en="Original" /></figcaption>
-                    </figure>
-                    <span className="performanceEditingArrow" aria-hidden="true">→</span>
-                    <div className="performanceEditingOutputs">
-                      <article className="performanceEditingOutputCard performanceEditingSkuCard">
-                        <div className="performanceEditingSkuSpec">
-                          <img
-                            src="/media/performance-precise-editing/references/cobalt-blender.png"
-                            alt="Cobalt-blue portable blender used as the replacement SKU"
-                          />
-                          <div>
-                            <span><B zh="替换为" en="New SKU" /></span>
-                            <strong><B zh="钴蓝色便携榨汁机" en="Cobalt-blue blender" /></strong>
-                          </div>
-                        </div>
-                        <figure>
-                          <video
-                            src={projectVideoUrl("media/performance-precise-editing/variants/sku-replacement.mp4")}
-                            poster="/media/performance-precise-editing/variants/sku-replacement.jpg"
-                            controls
-                            playsInline
-                            preload="metadata"
-                            aria-label="Video after SKU replacement"
-                          />
-                          <figcaption><B zh="商品替换结果" en="SKU replacement" /></figcaption>
-                        </figure>
-                      </article>
-                      <article className="performanceEditingOutputCard performanceEditingTextCard">
-                        <div className="performanceEditingTextSpec" aria-label="Copy changes made in the edited video">
-                          <span><del>SMOOTHIE IN 30 SECONDS</del><b>BLEND ANYWHERE</b></span>
-                          <span><del>SHOP NOW</del><b>GET YOURS</b></span>
-                        </div>
-                        <figure>
-                          <video
-                            src={projectVideoUrl("media/performance-precise-editing/variants/text-replacement.mp4")}
-                            poster="/media/performance-precise-editing/variants/text-replacement.jpg"
-                            controls
-                            playsInline
-                            preload="metadata"
-                            aria-label="Video after text replacement"
-                          />
-                          <figcaption><B zh="文案替换结果" en="Text replacement" /></figcaption>
-                        </figure>
-                      </article>
-                    </div>
-                  </div>
-                </section>
+          <article className="solutionPage performanceCapabilityPage performanceCapabilityExecutionPage" id="solution-performance-localization">
+            <header className="performanceCapabilityHeader">
+              <div className="performanceV2Index"><span>3.2</span><b>PERFORMANCE ADS</b></div>
+              <div className="performanceV2Title">
+                <h3><B zh="Seedance 2.5 如何规模化生产效果广告素材" en="Why Seedance 2.5 Scales Performance Creative" /></h3>
               </div>
+            </header>
+
+            <div className="performanceCapabilityBody performanceCapabilityV3 performanceCapabilityExecutionBody">
+              <PerformanceLocalizationDemo />
+
+              <section className="performanceCapabilityComing performanceCapabilityEditingV3" aria-label="Precise editing demos">
+                <header className="performanceCapabilityCardTitle">
+                  <span>04</span>
+                  <div><h4><B zh="精确编辑" en="Precise editing" /></h4></div>
+                </header>
+                <div className="performanceEditingDemos">
+                  <figure className="performanceEditingOriginal">
+                    <video
+                      src={projectVideoUrl("media/performance-precise-editing/master/master.mp4")}
+                      poster="/media/performance-precise-editing/master/master.jpg"
+                      controls
+                      playsInline
+                      preload="metadata"
+                      aria-label="Original video before precise editing"
+                    />
+                    <figcaption><B zh="原片" en="Original" /></figcaption>
+                  </figure>
+                  <span className="performanceEditingArrow" aria-hidden="true">→</span>
+                  <div className="performanceEditingOutputs">
+                    <article className="performanceEditingOutputCard performanceEditingSkuCard">
+                      <div className="performanceEditingSkuSpec">
+                        <img
+                          src="/media/performance-precise-editing/references/cobalt-blender.png"
+                          alt="Cobalt-blue portable blender used as the replacement SKU"
+                        />
+                        <div>
+                          <span><B zh="替换为" en="New SKU" /></span>
+                          <strong><B zh="钴蓝色便携榨汁机" en="Cobalt-blue blender" /></strong>
+                        </div>
+                      </div>
+                      <figure>
+                        <video
+                          src={projectVideoUrl("media/performance-precise-editing/variants/sku-replacement.mp4")}
+                          poster="/media/performance-precise-editing/variants/sku-replacement.jpg"
+                          controls
+                          playsInline
+                          preload="metadata"
+                          aria-label="Video after SKU replacement"
+                        />
+                        <figcaption><B zh="商品替换结果" en="SKU replacement" /></figcaption>
+                      </figure>
+                    </article>
+                    <article className="performanceEditingOutputCard performanceEditingTextCard">
+                      <div className="performanceEditingTextSpec" aria-label="Copy changes made in the edited video">
+                        <span><del>SMOOTHIE IN 30 SECONDS</del><b>BLEND ANYWHERE</b></span>
+                        <span><del>SHOP NOW</del><b>GET YOURS</b></span>
+                      </div>
+                      <figure>
+                        <video
+                          src={projectVideoUrl("media/performance-precise-editing/variants/text-replacement.mp4")}
+                          poster="/media/performance-precise-editing/variants/text-replacement.jpg"
+                          controls
+                          playsInline
+                          preload="metadata"
+                          aria-label="Video after text replacement"
+                        />
+                        <figcaption><B zh="文案替换结果" en="Text replacement" /></figcaption>
+                      </figure>
+                    </article>
+                  </div>
+                </div>
+              </section>
             </div>
           </article>
 
