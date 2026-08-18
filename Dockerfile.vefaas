@@ -1,0 +1,32 @@
+FROM node:22-bookworm-slim AS build
+
+WORKDIR /workspace
+
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY app ./app
+COPY build ./build
+COPY public ./public
+COPY tests ./tests
+COPY worker ./worker
+COPY .openai ./.openai
+COPY next.config.ts vite.config.ts tsconfig.json postcss.config.mjs eslint.config.mjs ./
+
+# The test command also produces the static export in dist/client.
+RUN npm test
+
+FROM python:3.12-slim
+
+WORKDIR /opt/application
+
+COPY deploy/vefaas/server.py ./server.py
+COPY deploy/vefaas/run.sh ./run.sh
+COPY --from=build /workspace/dist/client ./site
+
+RUN chmod +x /opt/application/run.sh
+
+ENV PORT=8080
+EXPOSE 8080
+
+CMD ["/opt/application/run.sh"]
