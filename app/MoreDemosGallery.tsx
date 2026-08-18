@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import PauseWhenHiddenVideo from "./PauseWhenHiddenVideo";
+import { projectVideoUrl } from "./media";
 
 type Demo = {
   title: string;
@@ -45,7 +46,7 @@ const demoTracks: DemoTrack[] = [
       { title: "Demo + Card-to-Buy", titleZh: "演示 + 商品卡即购", type: "Performance / Fashion", typeZh: "效果广告 / 服饰", src: "/media/performance-2026/shoppable.mp4", poster: "/media/performance-2026/shoppable.jpg" },
       { title: "1s Hook + Direct Selling", titleZh: "1 秒钩子 + 直给卖点", type: "Performance / Skincare", typeZh: "效果广告 / 护肤", src: "/media/performance-2026/hook-direct.mp4", poster: "/media/performance-2026/hook-direct.jpg" },
       { title: "Feature Demo Selling", titleZh: "功能演示导购", type: "Performance / Sports", typeZh: "效果广告 / 运动", src: "/media/performance-2026/feature-demo.mp4", poster: "/media/performance-2026/feature-demo.jpg" },
-      { title: "Single-Point Flash", titleZh: "单卖点闪记", type: "Performance / QSR", typeZh: "效果广告 / 快餐", src: "/media/performance-2026/single-point.mp4", poster: "/media/performance-2026/single-point.jpg" },
+      { title: "Cinematic Burger Launch", titleZh: "电影感汉堡新品发布", type: "Performance / QSR", typeZh: "效果广告 / 快餐", src: projectVideoUrl("media/performance-2026/burger-king-originals.mp4"), poster: "/media/performance-2026/burger-king-originals.jpg" },
     ],
   },
   {
