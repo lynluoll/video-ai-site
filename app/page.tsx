@@ -200,7 +200,7 @@ export default function Home() {
                 <ul>
                   <li><B zh={<><strong>横屏 16:9 占比最高 42.6%</strong>（YouTube / TVC），社交竖屏 9:16 第二 23.0%——对照大盘，9:16 的增长空间更大。</>} en={<><strong>Landscape 16:9 leads at 42.6%</strong> (YouTube / TVC); social 9:16 is second at 23.0% — yet 9:16 has the bigger headroom against the market mix.</>} /></li>
                   <li><B zh={<><strong>720p 约 50%</strong>，由社交广告增长驱动；1080p（14.8%）是品牌 / TVC。</>} en={<><strong>720p is ~50%</strong> of output, driven by social-ad growth; 1080p (14.8%) is brand / TVC.</>} /></li>
-                  <li><B zh={<><strong>月环比 ×2</strong>：维持下去，12 月约 <strong>160 万条 / 天</strong>（预测）。</>} en={<><strong>Doubling MoM</strong>: holding ×2 puts us at <strong>~1.6M videos a day by December</strong> (projection).</>} /></li>
+                  <li><B zh={<><strong>月环比 ×2</strong>：按此增速，12 月将达 <strong>100 万+ 条 / 天</strong>（预测）。</>} en={<><strong>Doubling MoM</strong>: at this pace we reach <strong>1M+ videos a day by December</strong> (projection).</>} /></li>
                 </ul>
               </aside>
 
@@ -253,8 +253,8 @@ export default function Home() {
                 <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "52.4%", "--y": "61%" } as React.CSSProperties}><small>AGENCY NETWORK</small><img src="/logos/customers/havas.svg" alt="Havas" /></div>
                 <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "59.1%", "--y": "48%" } as React.CSSProperties}><small>BRAND OWNER</small><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></div>
                 <div className="gbsMilestone gbsMilestoneRight" style={{ "--x": "62.1%", "--y": "14%" } as React.CSSProperties}><small>14/08 · MODEL API</small><b>Seedance 2.5</b></div>
-                <div className="gbsMilestone gbsMilestoneProj" style={{ "--x": "99%", "--y": "0%" } as React.CSSProperties}><small><B zh="26/12 · 预测 · 维持 ×2 月环比" en="26/12 · PROJECTION · IF ×2 MoM HOLDS" /></small><b>~1.6M <span><B zh="条 / 天" en="videos / day" /></span></b></div>
-                <div className="gbsAxis">{["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].map((m, i) => <span key={m} style={{ "--x": `${(i / 12) * 100}%` } as React.CSSProperties}>{m} 26</span>)}</div>
+                <div className="gbsMilestone gbsMilestoneProj" style={{ "--x": "99%", "--y": "0%" } as React.CSSProperties}><small><B zh="26/12 · 预测" en="26/12 · PROJECTION" /></small><b>~1M+ <span><B zh="条 / 天" en="videos / day" /></span></b></div>
+                <div className="gbsAxis">{[["Jan", 0], ["Apr", 3], ["Jul", 6], ["Oct", 9], ["Dec", 11.97]].map(([m, i]) => <span key={m} style={{ "--x": `${(Number(i) / 12) * 100}%` } as React.CSSProperties}>{m} 26</span>)}</div>
                 <div className="gbsPhases">
                   <span className="isBlank" aria-hidden="true" />
                   <span><B zh="代理商平台接入" en="Agency platforms" /></span>

@@ -8054,6 +8054,7 @@ body {
 .gbsAxis { position: relative; height: 18px; color: var(--bp-ink-2); font-size: var(--bp-t-body); font-weight: var(--bp-w-medium); }
 .gbsAxis span { position: absolute; left: var(--x); top: 0; transform: translateX(-50%); white-space: nowrap; }
 .gbsAxis span:first-child { transform: none; }
+.gbsAxis span:last-child { transform: translateX(-100%); }
 /* Month-true timeline Jan–Dec 26. Cells: Jan blank / Feb–Jul agency platforms / Jul–Aug brand scale / Aug–Dec projection. */
 .gbsPhases { display: grid; grid-template-columns: 8.3fr 40fr 16.7fr 35fr; gap: 6px; }
 .gbsPhases span { white-space: nowrap; }
