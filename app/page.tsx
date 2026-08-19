@@ -201,9 +201,13 @@ export default function Home() {
                 <em><B zh="条视频 / 天 · 月环比 ×2" en="videos / day · MoM ×2" /></em>
                 <hr />
                 <span><B zh="按画幅" en="BY FORMAT" /></span>
-                <p><strong>~70%</strong> <B zh="竖屏 9:16 · TikTok / Reels" en="portrait 9:16 · TikTok / Reels" /></p>
-                <p><strong>~30%</strong> <B zh="横屏 16:9 · CTV / 品牌" en="landscape 16:9 · CTV / brand" /></p>
+                <p><strong>42.8%</strong> <B zh="竖屏 9:16 · TikTok / Reels" en="portrait 9:16 · TikTok / Reels" /></p>
+                <p><strong>39.0%</strong> <B zh="横屏 16:9 · YouTube / CTV" en="landscape 16:9 · YouTube / CTV" /></p>
+                <hr />
+                <span><B zh="按分辨率" en="BY RESOLUTION" /></span>
+                <p className="gbsKpiRow"><span><strong>49.0%</strong>720p</span><span><strong>35.4%</strong>480p</span><span><strong>14.8%</strong>1080p</span></p>
               </aside>
+              <p className="gbsInsight"><b><B zh="解读" en="READ" /></b><B zh="代理商等客户的真实 AIGC 用量里，横屏（YouTube、CTV）仍几乎与竖屏持平。与 TikTok 联手，我们可以帮这些客户把竖屏社交视频做得更多、更好——TikTok 视频广告投放的增长空间仍然很大。" en="In agencies’ real AIGC usage, landscape (YouTube, CTV) still runs almost level with portrait. Working with TikTok, we can move these customers into more — and better — 9:16 social video; TikTok video-ad spend has plenty of headroom." /></p>
 
               <figure className="gbsChart" role="img" aria-label="Daily ad-video volume rising from early 2026 to 100k+ per day by August, with product milestones marked along the curve">
                 <svg viewBox="0 0 900 380" preserveAspectRatio="none" aria-hidden="true">
@@ -237,7 +241,7 @@ export default function Home() {
                 <span className="gbsChartEnd">100k+</span>
                 <div className="gbsMilestone" style={{ "--x": "31%", "--y": "34%" } as React.CSSProperties}><small>26/03 · MODEL</small><b>Seedance 2.0</b></div>
                 <div className="gbsMilestone" style={{ "--x": "62%", "--y": "8%" } as React.CSSProperties}><small>26/06 · PLATFORM</small><b>WPP Open · API live</b></div>
-                <div className="gbsMilestone gbsMilestoneTop" style={{ "--x": "80%", "--y": "-6%" } as React.CSSProperties}><small>14/08 · MODEL API</small><b>Seedance 2.5</b></div>
+                <div className="gbsMilestone gbsMilestoneTop" style={{ "--x": "80%", "--y": "-14%" } as React.CSSProperties}><small>14/08 · MODEL API</small><b>Seedance 2.5</b></div>
                 <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "12%", "--y": "36%" } as React.CSSProperties}><small>ADTECH · GAMING</small><img src="/logos/customers/applovin.png" alt="AppLovin" /></div>
                 <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "23%", "--y": "51%" } as React.CSSProperties}><small>AGENCY · E-COMMERCE</small><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></div>
                 <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "67%", "--y": "57%" } as React.CSSProperties}><small>AGENCY NETWORK</small><img src="/logos/customers/havas.svg" alt="Havas" /></div>
