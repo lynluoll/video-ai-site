@@ -207,9 +207,8 @@ export default function Home() {
                 <span><B zh="按分辨率" en="BY RESOLUTION" /></span>
                 <p className="gbsKpiRow"><span><strong>49.0%</strong>720p</span><span><strong>35.4%</strong>480p</span><span><strong>14.8%</strong>1080p</span></p>
               </aside>
-              <p className="gbsInsight"><b><B zh="解读" en="READ" /></b><B zh="代理商等客户的真实 AIGC 用量里，横屏（YouTube、CTV）仍几乎与竖屏持平。与 TikTok 联手，我们可以帮这些客户把竖屏社交视频做得更多、更好——TikTok 视频广告投放的增长空间仍然很大。" en="In agencies’ real AIGC usage, landscape (YouTube, CTV) still runs almost level with portrait. Working with TikTok, we can move these customers into more — and better — 9:16 social video; TikTok video-ad spend has plenty of headroom." /></p>
 
-              <figure className="gbsChart" role="img" aria-label="Daily ad-video volume rising from early 2026 to 100k+ per day by August, with product milestones marked along the curve">
+              <figure className="gbsChart" role="img" aria-label="Daily ad-video volume on a log scale: ~10k in January 2026 to 100k+ by mid-August, with a dashed projection to ~1.6M a day by December if the month-on-month doubling holds; model releases and customer go-lives marked along the curve">
                 <svg viewBox="0 0 900 380" preserveAspectRatio="none" aria-hidden="true">
                   <defs>
                     <linearGradient id="gbsFill" x1="0" y1="0" x2="0" y2="1">
@@ -217,43 +216,65 @@ export default function Home() {
                       <stop offset="1" stopColor="#0066fc" stopOpacity="0" />
                     </linearGradient>
                   </defs>
-                  <path d="M0 340 C120 335 200 325 280 300 C360 275 420 250 500 205 C580 160 640 130 720 92 C790 60 840 42 900 30 L900 380 L0 380 Z" fill="url(#gbsFill)" />
-                  <path d="M0 340 C120 335 200 325 280 300 C360 275 420 250 500 205 C580 160 640 130 720 92 C790 60 840 42 900 30" fill="none" stroke="#0066fc" strokeWidth="4" strokeLinecap="round" />
+                  {/* Log scale: 10k = y340 · 100k = y199 · 1.6M = y30. Jan 1 = x0, 75px per month, Aug 19 = x570. */}
+                  <path d="M0 340 C76 338 127 334 177 323 C228 311 266 300 317 280 C367 258 405 244 456 227 C500 213 532 205 570 199 L570 380 L0 380 Z" fill="url(#gbsFill)" />
+                  <path d="M0 340 C76 338 127 334 177 323 C228 311 266 300 317 280 C367 258 405 244 456 227 C500 213 532 205 570 199" fill="none" stroke="#0066fc" strokeWidth="4" strokeLinecap="round" />
+                  {/* Projection: doubling every month is a straight line on a log scale. */}
+                  <line x1="570" y1="199" x2="900" y2="30" stroke="#0066fc" strokeWidth="3" strokeDasharray="7 7" strokeLinecap="round" opacity=".85" />
                   <g stroke="#b7bcc4" strokeDasharray="3 5" strokeWidth="1.5">
-                    <line x1="162" y1="331" x2="162" y2="250" />
-                    <line x1="648" y1="120" x2="648" y2="40" />
-                    <line x1="882" y1="33" x2="882" y2="8" />
-                    <line x1="297" y1="295" x2="297" y2="210" />
-                    <line x1="414" y1="247" x2="414" y2="140" />
-                    <line x1="747" y1="80" x2="747" y2="170" />
-                    <line x1="837" y1="45" x2="837" y2="110" />
+                    <line x1="22" y1="339" x2="22" y2="118" />
+                    <line x1="105" y1="334" x2="105" y2="256" />
+                    <line x1="188" y1="320" x2="188" y2="176" />
+                    <line x1="262" y1="301" x2="262" y2="236" />
+                    <line x1="412" y1="244" x2="412" y2="96" />
+                    <line x1="472" y1="223" x2="472" y2="240" />
+                    <line x1="532" y1="207" x2="532" y2="156" />
+                    <line x1="559" y1="201" x2="559" y2="76" />
                   </g>
                   <g fill="#0066fc">
-                    <circle cx="297" cy="295" r="4" />
-                    <circle cx="414" cy="247" r="4" />
-                    <circle cx="747" cy="80" r="4" />
-                    <circle cx="837" cy="45" r="4" />
+                    <circle cx="22" cy="339" r="4" />
+                    <circle cx="105" cy="334" r="4" />
+                    <circle cx="188" cy="320" r="4" />
+                    <circle cx="262" cy="301" r="4" />
+                    <circle cx="412" cy="244" r="4" />
+                    <circle cx="472" cy="223" r="4" />
+                    <circle cx="532" cy="207" r="4" />
+                    <circle cx="559" cy="201" r="4" />
                   </g>
                   <circle cx="0" cy="340" r="6" fill="#0066fc" />
-                  <circle cx="900" cy="30" r="7" fill="#0066fc" />
+                  <circle cx="570" cy="199" r="7" fill="#0066fc" />
+                  <circle cx="900" cy="30" r="7" fill="#fff" stroke="#0066fc" strokeWidth="3" />
                 </svg>
                 <span className="gbsChartStart">~10k</span>
-                <div className="gbsMilestone" style={{ "--x": "18%", "--y": "63%" } as React.CSSProperties}><small>26/02 · MODEL</small><b>Seedance 2.0</b></div>
-                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "72%", "--y": "2%" } as React.CSSProperties}><small>26/06 · WPP OPEN · API LIVE</small><img src="/logos/customers/wpp.svg" alt="WPP" /></div>
-                <div className="gbsMilestone gbsMilestoneTop" style={{ "--x": "98%", "--y": "-14%" } as React.CSSProperties}><small>14/08 · MODEL API</small><b>Seedance 2.5</b></div>
-                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "33%", "--y": "51%" } as React.CSSProperties}><small>ADTECH · GAMING</small><img src="/logos/customers/applovin.png" alt="AppLovin" /></div>
-                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "46%", "--y": "31%" } as React.CSSProperties}><small>AGENCY · E-COMMERCE</small><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></div>
-                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "83%", "--y": "40%" } as React.CSSProperties}><small>AGENCY NETWORK</small><img src="/logos/customers/havas.svg" alt="Havas" /></div>
-                <div className="gbsMilestone gbsMilestoneLogo gbsMilestoneBelow" style={{ "--x": "93%", "--y": "22%" } as React.CSSProperties}><small>BRAND OWNER</small><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></div>
-                <div className="gbsAxis">{["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"].map((m, i) => <span key={m} style={{ "--x": `${(i / 7.6) * 100}%` } as React.CSSProperties}>{m} 26</span>)}</div>
+                <span className="gbsChartNow"><b>100k+</b> <B zh="今天" en="today" /></span>
+                <div className="gbsLegend" aria-hidden="true"><i className="isModel" /><B zh="模型发布" en="Model release" /><i className="isCustomer" /><B zh="客户上线" en="Customer live" /><i className="isProj" /><B zh="×2 月环比预测" en="×2 MoM projection" /></div>
+                <div className="gbsMilestone gbsMilestoneLogo gbsMilestoneStart" style={{ "--x": "2.4%", "--y": "27%" } as React.CSSProperties}><small>AGENCY · AI STUDIO</small><img src="/logos/customers/goodtake.png" alt="goodtake.ai" /></div>
+                <div className="gbsMilestone" style={{ "--x": "11.7%", "--y": "62%" } as React.CSSProperties}><small>26/02 · MODEL</small><b>Seedance 2.0</b></div>
+                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "20.9%", "--y": "42%" } as React.CSSProperties}><small>ADTECH · GAMING</small><img src="/logos/customers/applovin.png" alt="AppLovin" /></div>
+                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "29.1%", "--y": "57%" } as React.CSSProperties}><small>AGENCY · E-COMMERCE</small><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></div>
+                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "45.8%", "--y": "22%" } as React.CSSProperties}><small>26/06 · WPP OPEN · API LIVE</small><img src="/logos/customers/wpp.svg" alt="WPP" /></div>
+                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "52.4%", "--y": "60%" } as React.CSSProperties}><small>AGENCY NETWORK</small><img src="/logos/customers/havas.svg" alt="Havas" /></div>
+                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "59.1%", "--y": "39%" } as React.CSSProperties}><small>BRAND OWNER</small><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></div>
+                <div className="gbsMilestone gbsMilestoneRight" style={{ "--x": "62.1%", "--y": "19.5%" } as React.CSSProperties}><small>14/08 · MODEL API</small><b>Seedance 2.5</b></div>
+                <div className="gbsMilestone gbsMilestoneProj" style={{ "--x": "100%", "--y": "3%" } as React.CSSProperties}><small><B zh="26/12 · 预测 · 维持 ×2 月环比" en="26/12 · PROJECTION · IF ×2 MoM HOLDS" /></small><b>~1.6M <span><B zh="条 / 天" en="videos / day" /></span></b></div>
+                <div className="gbsAxis">{["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].map((m, i) => <span key={m} style={{ "--x": `${(i / 12) * 100}%` } as React.CSSProperties}>{m} 26</span>)}</div>
                 <div className="gbsPhases">
                   <span className="isBlank" aria-hidden="true" />
                   <span><B zh="代理商平台接入" en="Agency platforms" /></span>
                   <span><B zh="品牌规模化" en="Brand scale" /></span>
+                  <span className="isProj"><B zh="预测区间" en="Projection" /></span>
                 </div>
               </figure>
             </div>
-            <p className="gbsFoot"><B zh="数据：BytePlus 广告行业客户生成量；日均条数、画幅占比与里程碑日期待确认。" en="Data: BytePlus ads-industry customer volume; daily counts, format split and milestone dates to be confirmed." /></p>
+            <div className="gbsTakeaways">
+              <b><B zh="结论" en="TAKEAWAYS" /></b>
+              <ul>
+                <li><B zh={<><strong>竖屏 9:16 占 42.8%</strong>领先，横屏 16:9（YouTube / CTV）以 39.0% 紧随——对照市场大盘，9:16 社交视频的增长空间更大。</>} en={<><strong>Portrait 9:16 leads at 42.8%</strong>, landscape 16:9 (YouTube / CTV) close behind at 39.0% — against the market mix, 9:16 social still has the larger headroom.</>} /></li>
+                <li><B zh={<><strong>720p 占 49.0%</strong>：产量由社交广告驱动；1080p（14.8%）是品牌 / CTV 的活。</>} en={<><strong>720p is 49.0%</strong> of output — volume is social-ad driven; 1080p (14.8%) is brand / CTV work.</>} /></li>
+                <li><B zh={<><strong>月环比翻倍</strong>：维持 ×2，到 12 月约 <strong>160 万条 / 天</strong>（预测）。</>} en={<><strong>Doubling month on month</strong>: holding ×2 puts us at <strong>~1.6M videos a day by December</strong> (projection).</>} /></li>
+              </ul>
+              <small><B zh="数据：BytePlus 广告客户生成量，2026-08；里程碑日期待确认。" en="Source: BytePlus ads customers, Aug 2026 · milestone dates to be confirmed." /></small>
+            </div>
           </section>
 
           {/* ---- GBS pitch · P3 four layers as one system ------------------
