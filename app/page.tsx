@@ -196,7 +196,7 @@ export default function Home() {
 
             <div className="gbsGrowthBody">
               <aside className="gbsKpi">
-                <span><B zh="广告客户日均生成" en="ADS CUSTOMERS · DAILY VOLUME" /></span>
+                <span><B zh="今日 · 广告客户日均生成" en="TODAY · ADS CUSTOMERS" /></span>
                 <b>100k<i>+</i></b>
                 <em><B zh="条视频 / 天 · 月环比 ×2" en="videos / day · MoM ×2" /></em>
                 <hr />
@@ -223,14 +223,14 @@ export default function Home() {
                     <line x1="280" y1="300" x2="280" y2="150" />
                     <line x1="560" y1="170" x2="560" y2="60" />
                     <line x1="720" y1="92" x2="720" y2="8" />
-                    <line x1="110" y1="336" x2="110" y2="200" />
-                    <line x1="205" y1="322" x2="205" y2="250" />
+                    <line x1="415" y1="246" x2="415" y2="180" />
+                    <line x1="441" y1="232" x2="441" y2="262" />
                     <line x1="600" y1="150" x2="600" y2="230" />
                     <line x1="800" y1="52" x2="800" y2="130" />
                   </g>
                   <g fill="#0066fc">
-                    <circle cx="110" cy="336" r="4" />
-                    <circle cx="205" cy="322" r="4" />
+                    <circle cx="415" cy="246" r="4" />
+                    <circle cx="441" cy="232" r="4" />
                     <circle cx="600" cy="150" r="4" />
                     <circle cx="800" cy="52" r="4" />
                   </g>
@@ -238,12 +238,11 @@ export default function Home() {
                   <circle cx="900" cy="30" r="7" fill="#0066fc" />
                 </svg>
                 <span className="gbsChartStart">~10k</span>
-                <span className="gbsChartEnd">100k+</span>
                 <div className="gbsMilestone" style={{ "--x": "31%", "--y": "34%" } as React.CSSProperties}><small>26/03 · MODEL</small><b>Seedance 2.0</b></div>
                 <div className="gbsMilestone" style={{ "--x": "62%", "--y": "8%" } as React.CSSProperties}><small>26/06 · PLATFORM</small><b>WPP Open · API live</b></div>
                 <div className="gbsMilestone gbsMilestoneTop" style={{ "--x": "80%", "--y": "-14%" } as React.CSSProperties}><small>14/08 · MODEL API</small><b>Seedance 2.5</b></div>
-                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "12%", "--y": "36%" } as React.CSSProperties}><small>ADTECH · GAMING</small><img src="/logos/customers/applovin.png" alt="AppLovin" /></div>
-                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "23%", "--y": "51%" } as React.CSSProperties}><small>AGENCY · E-COMMERCE</small><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></div>
+                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "46%", "--y": "37%" } as React.CSSProperties}><small>ADTECH · GAMING</small><img src="/logos/customers/applovin.png" alt="AppLovin" /></div>
+                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "49%", "--y": "66%" } as React.CSSProperties}><small>AGENCY · E-COMMERCE</small><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></div>
                 <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "67%", "--y": "57%" } as React.CSSProperties}><small>AGENCY NETWORK</small><img src="/logos/customers/havas.svg" alt="Havas" /></div>
                 <div className="gbsMilestone gbsMilestoneLogo gbsMilestoneBelow" style={{ "--x": "89%", "--y": "28%" } as React.CSSProperties}><small>BRAND OWNER</small><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></div>
                 <div className="gbsAxis"><span>Jan 26</span><span>Apr 26</span><span>Jul 26</span><span>Aug 26</span></div>
