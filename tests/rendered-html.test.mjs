@@ -57,9 +57,10 @@ test("server-renders the complete V3 advertising strategy", async () => {
   // GBS edition: the Key Players map is gone; nav 02 points at the case
   // chapter instead.
   assert.doesNotMatch(html, /id="players"|class="customerFlowPage"|class="customerFlowStage"/);
-  assert.match(html, /href="#case-studies"[^>]*>.*?Case Studies/s);
+  assert.match(html, /href="#client-showcases"[^>]*>.*?Case Studies/s);
+  assert.doesNotMatch(html, /id="case-studies"|How leading partners use BytePlus/);
   // Client showcases page sits right before the case chapter.
-  assert.match(html, /id="client-showcases"[\s\S]*?id="case-studies"/);
+  assert.match(html, /id="client-showcases"[\s\S]*?id="customer-cases"/);
   assert.equal((html.match(/class="gbsClients"/g) ?? []).length, 1);
 
   // Solution pages keep 3.x numbering (cases are asserted below).

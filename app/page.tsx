@@ -206,7 +206,7 @@ export default function Home() {
         </a>
         <div className="navChapterLinks" aria-label="章节导航">
           <a href="#market"><span className="langZh">市场概览</span><span className="langEn">Market Overview</span></a>
-          <a href="#case-studies"><span className="langZh">客户案例</span><span className="langEn">Case Studies</span></a>
+          <a href="#client-showcases"><span className="langZh">客户案例</span><span className="langEn">Case Studies</span></a>
           <a href="#solutions"><span className="langZh">解决方案</span><span className="langEn">Solutions</span></a>
           <a href="#demos"><span className="langZh">更多样片</span><span className="langEn">More Demos</span></a>
         </div>
@@ -535,20 +535,6 @@ export default function Home() {
             <p className="gbsFoot"><B zh="Goodtake（麦当劳、联合利华）等更多客户见案例章节。" en="More partners — Goodtake for McDonald’s and Unilever among them — in the case chapter." /></p>
           </section>
 
-        </div>
-      </section>
-
-      <section className="solutionChapterTransition" id="case-studies" aria-labelledby="case-study-transition-title">
-        <div className="solutionTransitionShell">
-          <div className="solutionTransitionIndex">
-            <span>02</span>
-            <b><B zh="案例研究" en="CASE STUDY" /></b>
-          </div>
-          <div className="solutionTransitionCopy">
-            <p>BYTEPLUS PARTNER PROOF</p>
-            <h2 className="langZh" id="case-study-transition-title"><strong>头部客户</strong>怎么用 BytePlus。</h2>
-            <h2 className="langEn">How <strong>leading partners</strong> use BytePlus.</h2>
-          </div>
         </div>
       </section>
 
