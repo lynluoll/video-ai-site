@@ -239,7 +239,7 @@ export default function Home() {
                 </svg>
                 <span className="gbsChartStart">~10k</span>
                 <div className="gbsMilestone" style={{ "--x": "18%", "--y": "63%" } as React.CSSProperties}><small>26/02 · MODEL</small><b>Seedance 2.0</b></div>
-                <div className="gbsMilestone" style={{ "--x": "72%", "--y": "2%" } as React.CSSProperties}><small>26/06 · PLATFORM</small><b>WPP Open · API live</b></div>
+                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "72%", "--y": "2%" } as React.CSSProperties}><small>26/06 · WPP OPEN · API LIVE</small><img src="/logos/customers/wpp.svg" alt="WPP" /></div>
                 <div className="gbsMilestone gbsMilestoneTop" style={{ "--x": "98%", "--y": "-14%" } as React.CSSProperties}><small>14/08 · MODEL API</small><b>Seedance 2.5</b></div>
                 <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "33%", "--y": "51%" } as React.CSSProperties}><small>ADTECH · GAMING</small><img src="/logos/customers/applovin.png" alt="AppLovin" /></div>
                 <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "46%", "--y": "31%" } as React.CSSProperties}><small>AGENCY · E-COMMERCE</small><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></div>
