@@ -2,7 +2,6 @@ import InlineTextEditor from "./InlineTextEditor";
 import PlayableClipLightbox from "./PlayableClipLightbox";
 import ClipFullscreen from "./ClipFullscreen";
 import MarketTrackAutoReveal from "./MarketTrackAutoReveal";
-import MoreDemosGallery from "./MoreDemosGallery";
 import DisplayDemoGallery from "./DisplayDemoGallery";
 import PauseWhenHiddenVideo from "./PauseWhenHiddenVideo";
 import GbsCase from "./GbsCase";
@@ -208,7 +207,6 @@ export default function Home() {
           <a href="#market"><span className="langZh">市场概览</span><span className="langEn">Market Overview</span></a>
           <a href="#client-showcases"><span className="langZh">客户案例</span><span className="langEn">Case Studies</span></a>
           <a href="#solutions"><span className="langZh">解决方案</span><span className="langEn">Solutions</span></a>
-          <a href="#demos"><span className="langZh">更多样片</span><span className="langEn">More Demos</span></a>
         </div>
         <label className="languageSwitch" htmlFor="language-mode">
           <span className="langZh">中&nbsp; / &nbsp;EN</span>
@@ -780,7 +778,6 @@ export default function Home() {
                 <h3><span className="langZh">多件 SKU 输入，<br /><em>一支稳定一致的效果广告成片。</em></span><span className="langEn">Multiple SKUs in.<br /><em>One consistent performance video out.</em></span></h3>
               </div>
               <div className="performanceV2Ratio" aria-label="14 SKU inputs become one performance video"><strong>14</strong><span>SKU INPUTS</span><i>→</i><strong>1</strong><span>VIDEO</span></div>
-              <a className="performanceV2More" href="#demos"><B zh="更多样片" en="More demos" /><i>↗</i></a>
             </header>
 
             <div className="performanceV2DemoBody">
@@ -984,8 +981,6 @@ export default function Home() {
       </section>
 
       </div>
-
-      <MoreDemosGallery />
 
       <footer className="footer shell">
         <div className="brand"><img className="brandLogo" src="/byteplus-logo.png" alt="BytePlus" width="381" height="71" /><span>Ads Creative Solution</span></div>

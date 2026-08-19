@@ -138,7 +138,6 @@ test("server-renders the complete V3 advertising strategy", async () => {
 test("source contains the V3 media, interactions, and bilingual links", async () => {
   const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
   const reveal = await readFile(new URL("../app/MarketTrackAutoReveal.tsx", import.meta.url), "utf8");
-  const moreDemos = await readFile(new URL("../app/MoreDemosGallery.tsx", import.meta.url), "utf8");
   const displayDemos = await readFile(new URL("../app/DisplayDemoGallery.tsx", import.meta.url), "utf8");
   const localizationDemos = await readFile(new URL("../app/PerformanceLocalizationDemo.tsx", import.meta.url), "utf8");
 
@@ -163,13 +162,8 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   assert.match(page, /import GbsCase from "\.\/GbsCase"/);
   assert.equal((page.match(/<GbsCase\b/g) ?? []).length, 5);
   assert.doesNotMatch(page, /className="productGatePage"|模型短期能力短板/);
-  assert.match(page, /<MoreDemosGallery \/>/);
-  assert.match(moreDemos, /bytedance\.sg\.larkoffice\.com\/docx\/TmsqdH9TeoPVYyxzpZ9lwH91g7c/);
-  assert.match(moreDemos, /bytedance\.larkoffice\.com\/wiki\/SNVXw69gTi515kkVoi8c98BznKh/);
-  assert.match(moreDemos, /setActiveDemo\(demo\)/);
-  assert.match(moreDemos, /In-stream & Display/);
-  assert.match(moreDemos, /Dynamic Remarketing/);
-  assert.doesNotMatch(moreDemos, /Playable visual|fish_\$\{/);
+  // GBS edition ends at chapter 03: no More Demos gallery.
+  assert.doesNotMatch(page, /<MoreDemosGallery|href="#demos"/);
 
   // Display V2 keeps the solution page to three masters. Each opens a minimal,
   // keyboard-dismissible board that shows all five assets at once.
