@@ -558,9 +558,9 @@ export default function Home() {
               headline={{ value: <span className="isQuote">&ldquo;they love it&rdquo;</span>, label: <B zh="WPP 制作团队对 Seedance 2.5 的原话" en="Production teams on Seedance 2.5, in their words" /> }}
               phaseLayout="rows"
               phases={[
-                { tag: "BRANDING", when: "Seedance 2.5", copy: <B zh="新加坡小贩中心的一场戏：朋友们举杯喝可乐，桌上一包“Chope liao”纸巾。多人物、嘈杂背景、真实的肤质与布料——整段由 Seedance 2.5 生成，无需实拍。" en="A Singapore hawker-centre scene: friends toast with Coke over dinner, a “Chope liao” tissue pack on the table. Multiple characters, a busy background, real skin and fabric — generated end-to-end on Seedance 2.5, no shoot." />,
+                { tag: "HAWKER CENTRE", when: "Seedance 2.5 sample", copy: <B zh="新加坡小贩中心的一场戏：朋友们举杯喝可乐，桌上一包“Chope liao”纸巾。多人物、嘈杂背景、真实的肤质与布料——整段由 Seedance 2.5 生成，无需实拍。" en="A Singapore hawker-centre scene: friends toast with Coke over dinner, a “Chope liao” tissue pack on the table. Multiple characters, a busy background, real skin and fabric — generated end-to-end on Seedance 2.5, no shoot." />,
                   media: { kind: "video", src: "/media/wpp/seedance25-case-09.mp4", ratio: "16x9", label: "Seedance 2.5 sample film — live-action-grade" } },
-                { tag: "COCA-COLA BRANDING", when: "2026 Q2–Q3", copy: <B zh="WPP × 可口可乐片子里的产品特写：瓶身上凝结的水珠、俯拍的瓶口拉近。Seedance 逐镜头保住产品外形、标签和高光——品牌团队肯签字的一致性。" en="Product macro from a WPP × Coca-Cola film: condensation beading on the glass, a top-down pull on the bottle mouth. Seedance holds the product’s shape, label and highlights shot to shot — the consistency brand teams sign off on." />,
+                { tag: "COCA-COLA", when: "Product macro · 2026 Q2–Q3", copy: <B zh="WPP × 可口可乐片子里的产品特写：瓶身上凝结的水珠、俯拍的瓶口拉近。Seedance 逐镜头保住产品外形、标签和高光——品牌团队肯签字的一致性。" en="Product macro from a WPP × Coca-Cola film: condensation beading on the glass, a top-down pull on the bottle mouth. Seedance holds the product’s shape, label and highlights shot to shot — the consistency brand teams sign off on." />,
                   media: { kind: "video", src: "/media/wpp/cocacola-16x9.mp4", ratio: "16x9", label: "WPP × Coca-Cola AI-generated film" } },
               ]}
               footnote={<B zh="用量数据来自 BytePlus 侧 4,000 个任务统计；闭门材料。" en="Usage figures from BytePlus-side stats over 4,000 tasks; closed-door material." />}
@@ -582,11 +582,11 @@ export default function Home() {
               ]}
               headline={{ value: <B zh="待签" en="Commitment" />, label: <B zh="预估签约后进入 1,000+/天" en="1,000+/day expected once signed" /> }}
               phases={[
-                { tag: "CRAWL", when: "2026 H1", copy: <B zh="CreaTech 接入 API，内部团队试用 2.0。" en="CreaTech integrates the API; internal teams trial 2.0." />,
+                { tag: "CREATECH API", when: "2026 H1", copy: <B zh="CreaTech 接入 API，内部团队试用 2.0。" en="CreaTech integrates the API; internal teams trial 2.0." />,
                   media: { kind: "placeholder", note: <B zh="样片待复现（王文杰 · 需 account id）" en="Sample pending — 王文杰 to reproduce from prompts (needs account id)" /> } },
-                { tag: "WALK", when: "2026 Aug", copy: <B zh="Seedance 2.5 发布，C 端团队周内上到 100+ 条 / 天。" en="Seedance 2.5 ships; consumer teams reach 100+ videos a day within the week." />,
+                { tag: "SEEDANCE 2.5", when: "2026 Aug", copy: <B zh="Seedance 2.5 发布，C 端团队周内上到 100+ 条 / 天。" en="Seedance 2.5 ships; consumer teams reach 100+ videos a day within the week." />,
                   media: { kind: "placeholder", note: <B zh="样片待复现" en="Sample pending" /> } },
-                { tag: "RUN", when: "2026 H2", copy: <B zh="签 commitment，进入 1,000+ 条 / 天的品牌内容生产。" en="Sign the commitment; move to 1,000+ videos a day of brand content." />,
+                { tag: "1,000+ / DAY", when: "2026 H2", copy: <B zh="签 commitment，进入 1,000+ 条 / 天的品牌内容生产。" en="Sign the commitment; move to 1,000+ videos a day of brand content." />,
                   media: { kind: "placeholder", note: <B zh="样片待复现" en="Sample pending" /> } },
               ]}
               footnote={<B zh="用量为内部观测值，闭门材料；样片由王文杰按同 prompt 复现后替换。" en="Volumes are internal observations, closed-door; samples to be replaced once 王文杰 reproduces from the same prompts." />}
@@ -608,11 +608,11 @@ export default function Home() {
               ]}
               headline={{ value: <>&uarr;410%</>, label: <B zh="6s VTR · McDonaldland Q4’25" en="6s VTR · McDonaldland Q4’25" /> }}
               phases={[
-                { tag: "CRAWL", when: "2025 Q4", copy: <B zh="McDonaldland：第一支 3D CGI 社交视频，四项指标全胜。" en="McDonaldland: first 3D CGI social spot; wins on all four metrics." />,
+                { tag: "MCDONALDLAND", when: "2025 Q4", copy: <B zh="McDonaldland：第一支 3D CGI 社交视频，四项指标全胜。" en="McDonaldland: first 3D CGI social spot; wins on all four metrics." />,
                   media: { kind: "video", src: "/media/goodtake/mcdonaldland.mp4", label: "Goodtake × McDonaldland" } },
-                { tag: "WALK", when: "2026 Q2", copy: <B zh="Grimace：第二轮投放，Seedance 2.0。" en="Grimace: second flight on Seedance 2.0." />,
+                { tag: "GRIMACE", when: "2026 Q2", copy: <B zh="Grimace：第二轮投放，Seedance 2.0。" en="Grimace: second flight on Seedance 2.0." />,
                   media: { kind: "video", src: "/media/goodtake/grimace.mp4", label: "Goodtake × Grimace" } },
-                { tag: "RUN", when: "2026 Q3", copy: <B zh="Snuggle 品牌片：Seedance 2.5，真人实拍级质感。" en="Snuggle brand film on Seedance 2.5 — live-action-grade quality." />,
+                { tag: "SNUGGLE", when: "Unilever · 2026 Q3", copy: <B zh="Snuggle 品牌片：Seedance 2.5，真人实拍级质感。" en="Snuggle brand film on Seedance 2.5 — live-action-grade quality." />,
                   media: { kind: "video", src: "/media/goodtake/snuggle.mp4", poster: "/media/goodtake/snuggle-poster.jpg", label: "Goodtake × Unilever Snuggle",
                     stills: [
                       { src: "/media/goodtake/snuggle-still-01.jpg", alt: "Snuggle bear in a meadow — fur and daylight detail" },
