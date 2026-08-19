@@ -20,7 +20,6 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  const performanceSolutionHtml = html.slice(html.indexOf('id="solution-performance"'), html.indexOf('id="solution-display"'));
 
   assert.match(html, /<html lang="en" class="[^"]*styles-pending[^"]*">/);
   assert.match(html, /Loading experience\\2026/);
@@ -54,26 +53,24 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.equal((html.match(/class="marketFlowSvg"/g) ?? []).length, 1);
   assert.match(html, /查看三赛道/);
   assert.doesNotMatch(html, /sceneLandscapePage|sceneDemoPages|sceneTrackCard|sceneDemoPage|SCENE LANDSCAPE|Mainstream ad scenarios/);
-  // GBS edition: the Key Players map is gone; nav 02 points at the case
-  // chapter instead.
+  // GBS edition: the Key Players map is gone; the nav is three chapters —
+  // Market overview / What we offer / Showcases.
   assert.doesNotMatch(html, /id="players"|class="customerFlowPage"|class="customerFlowStage"/);
-  assert.match(html, /href="#client-showcases"[^>]*>.*?Case Studies/s);
+  assert.match(html, /href="#market"[^>]*>.*?Market overview/s);
+  assert.match(html, /href="#gbs-offer"[^>]*>.*?What we offer/s);
+  assert.match(html, /href="#client-showcases"[^>]*>.*?Showcases/s);
+  assert.equal((html.match(/class="navChapterLinks"[\s\S]*?<\/div>/)?.[0].match(/<a /g) ?? []).length, 3);
   assert.doesNotMatch(html, /id="case-studies"|How leading partners use BytePlus/);
   // Client showcases page sits right before the case chapter.
   assert.match(html, /id="client-showcases"[\s\S]*?id="customer-cases"/);
   assert.equal((html.match(/class="gbsClients"/g) ?? []).length, 1);
 
-  // Solution pages keep 3.x numbering (cases are asserted below).
-  assert.match(html, /id="solutions"/);
-  assert.match(html, /brandHeroIndex"><span>3\.1A<\/span>/);
-  assert.match(html, /brandCapabilitiesIndex"><span>3\.1B<\/span>/);
-  assert.match(html, /performanceV2Index"><span>3\.2<\/span>/);
-  assert.match(html, /displaySolutionIndex"><span>3\.3<\/span>/);
-  assert.match(html, /playableIndex"><span>3\.4<\/span>/);
+  // GBS edition ends with the cases: no Solutions chapter at all.
+  assert.doesNotMatch(html, /id="solutions"|class="solutionPage |class="productionChapter"|brandHeroIndex|performanceV2Index|displaySolutionIndex|playableIndex/);
 
   // GBS edition: five customer cases in one frame — objective + KPI tiles
   // + three crawl/walk/run phases — WPP, L'Oréal, Goodtake, Tec-do, AppLovin.
-  const casesHtml = html.slice(html.indexOf('class="customerStories gbsCases"'), html.indexOf('id="solutions"'));
+  const casesHtml = html.slice(html.indexOf('class="customerStories gbsCases"'), html.indexOf('<footer'));
   assert.equal((casesHtml.match(/class="gbsCase( isWideLeft)?"/g) ?? []).length, 5);
   for (const id of ["case-wpp", "case-loreal", "case-goodtake", "case-tecdo", "case-applovin"]) {
     assert.match(casesHtml, new RegExp(`id="${id}"`));
@@ -90,44 +87,6 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(html, /id="gbs-usage"[\s\S]*Growing[\s\S]*produced Ads[\s\S]*monthly/);
   assert.match(html, /id="gbs-offer"[\s\S]*AIGC ATTRIBUTION/);
 
-  // Branding is split into one hero-film page and one evidence page; the
-  // performance section uses one SKU-proof page plus two focused capability pages.
-  // 6 = brand hero, brand capabilities, performance demo, capability foundation,
-  // capability localization/editing, and display.
-  assert.equal((html.match(/class="solutionPage /g) ?? []).length, 6);
-  assert.match(html, /多种镜头，直出一支完整品牌片/);
-  assert.match(html, /Multiple shots\. One coherent brand film/);
-  assert.match(html, /一支生产可用的品牌片，背后是四项模型能力/);
-  assert.match(html, /Photoreal Characters &amp; Natural Performance/);
-  assert.match(html, /Photoreal Products &amp; Materials/);
-  assert.match(html, /Multiple Shot Types, Generated Natively/);
-  assert.match(html, /Production-Ready Mastering/);
-  assert.match(html, /30s.*MOV.*4K.*10-bit.*High bitrate.*Native audio.*Dialogue · Music · SFX/s);
-  assert.match(html, /carey\.tos-ap-southeast-1\.bytepluses\.com\/video-ai-site\/branch-solution-displays\/media\/brand-fragrance\/hero-film\.mp4/);
-  assert.match(html, /多件 SKU 输入/);
-  assert.match(html, /一支稳定一致的效果广告成片/);
-  assert.match(html, /Multiple SKUs in\./);
-  assert.match(html, /One consistent performance video out/);
-  assert.match(html, /展示广告方法/);
-  assert.match(performanceSolutionHtml, /class="performanceV2SkuMosaic"/);
-  assert.match(performanceSolutionHtml, /multi-sku-skus\/01-khaki-trench-coat\.png/);
-  assert.match(performanceSolutionHtml, /multi-sku-skus\/14-gray-sweatpants\.png/);
-  assert.match(performanceSolutionHtml, /Multiple SKUs in\./);
-  assert.match(performanceSolutionHtml, /One consistent performance video out\./);
-  assert.match(performanceSolutionHtml, /performance-2026\/multi-sku\.mp4/);
-  assert.match(performanceSolutionHtml, /Multimodal input, consistent output/);
-  assert.match(performanceSolutionHtml, /30.*IMAGES.*10.*VIDEOS.*10.*AUDIOS/s);
-  assert.match(performanceSolutionHtml, /Built for the formats performance ads use/);
-  assert.match(performanceSolutionHtml, /4–30s/);
-  assert.match(performanceSolutionHtml, /21:9 · 16:9 · 4:3 · 1:1 · 3:4 · 9:16/);
-  assert.match(performanceSolutionHtml, /brand-logos\/meta\.svg.*Reels.*6–15s.*Stories.*6–15s.*Feed.*6–15s/s);
-  assert.match(performanceSolutionHtml, /brand-logos\/tiktok\.svg.*In-Feed.*9–15s.*Spark.*9–15s.*TopView.*9–15s/s);
-  assert.match(performanceSolutionHtml, /brand-logos\/youtube\.svg.*Shorts.*10–30s.*Bumper.*≤6s.*In-Feed.*10–30s/s);
-  assert.match(performanceSolutionHtml, /Localization at market speed/);
-  assert.match(performanceSolutionHtml, /portable-blender-master\.png/);
-  assert.match(performanceSolutionHtml, /performance-localization\/videos\/01-zh-cn\.jpg/);
-  assert.match(performanceSolutionHtml, /Precise editing/);
-  assert.doesNotMatch(performanceSolutionHtml, /ONE GENERATION TASK · FOUR MODEL ADVANTAGES|PRIMARY PROOF · CONSISTENCY AT SCALE|shoppable-frames\/01\.jpg/);
   assert.equal((html.match(/class="langZh"/g) ?? []).length, (html.match(/class="langEn"/g) ?? []).length);
 
   // The obsolete model-gap page was intentionally removed in V3.
@@ -135,11 +94,9 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.doesNotMatch(html, /class="roadmapPage"|Seedance 从 SOTA 渲染层.*走向端到端制作引擎/s);
 });
 
-test("source contains the V3 media, interactions, and bilingual links", async () => {
+test("source keeps the GBS page structure and interactions", async () => {
   const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
   const reveal = await readFile(new URL("../app/MarketTrackAutoReveal.tsx", import.meta.url), "utf8");
-  const displayDemos = await readFile(new URL("../app/DisplayDemoGallery.tsx", import.meta.url), "utf8");
-  const localizationDemos = await readFile(new URL("../app/PerformanceLocalizationDemo.tsx", import.meta.url), "utf8");
 
   assert.match(page, /import MarketTrackAutoReveal/);
   assert.match(page, /<MarketTrackAutoReveal \/>/);
@@ -148,54 +105,12 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   assert.match(reveal, /window\.scrollTo/);
   assert.match(reveal, /segmentControl/);
 
-  for (const slug of ["shoppable", "hook-direct", "feature-demo", "single-point"]) {
-    assert.match(page, new RegExp(`/media/performance-2026/${slug}\\.mp4`));
-    assert.match(page, new RegExp(`/media/performance-2026/${slug}-frames/01\\.jpg`));
-  }
-  assert.doesNotMatch(page, /performance-generated\.mp4|performance-poster\.jpg|performance-[a-z]+-demo\.mp4/);
-
-  assert.match(page, /className="performanceV2SkuMosaic"/);
-  assert.match(page, /className="performanceCapabilityBody performanceCapabilityV3 performanceCapabilityFoundationBody"/);
-  assert.match(page, /className="performanceCapabilityBody performanceCapabilityV3 performanceCapabilityExecutionBody"/);
-  assert.match(page, /className="performanceFormatWall"/);
-  assert.match(page, /className="productionChapter"/);
   assert.match(page, /import GbsCase from "\.\/GbsCase"/);
   assert.equal((page.match(/<GbsCase\b/g) ?? []).length, 5);
   assert.doesNotMatch(page, /className="productGatePage"|模型短期能力短板/);
-  // GBS edition ends at chapter 03: no More Demos gallery.
-  assert.doesNotMatch(page, /<MoreDemosGallery|href="#demos"/);
-
-  // Display V2 keeps the solution page to three masters. Each opens a minimal,
-  // keyboard-dismissible board that shows all five assets at once.
-  assert.match(page, /import DisplayDemoGallery/);
-  assert.match(page, /<DisplayDemoGallery \/>/);
-  assert.match(displayDemos, /Multi-size adaptation/);
-  assert.match(displayDemos, /Seasonal localization/);
-  assert.match(displayDemos, /Selling-point visualization/);
-  assert.equal((displayDemos.match(/id: "(?:multi-size|seasonal|selling-points)"/g) ?? []).length, 3);
-  assert.equal((displayDemos.match(/\/media\/display-v2\/final\//g) ?? []).length, 20);
-  assert.match(displayDemos, /04-medium-rectangle-preview-1200x1000\.jpg/);
-  assert.match(displayDemos, /05-leaderboard-preview-2048x253\.jpg/);
-  assert.match(displayDemos, /event\.key === "Escape"/);
-  assert.match(displayDemos, /displayV2SetBoard-/);
-  assert.match(displayDemos, /displayV2SetAsset/);
-  assert.match(displayDemos, /setActiveAssetIndex\(index\)/);
-  assert.match(displayDemos, /aria-pressed=\{index === activeAssetIndex\}/);
-  assert.doesNotMatch(displayDemos, /Previous image|Next image|Choose image|View more demos/);
-  assert.doesNotMatch(page, /demo-display-commerce|demo-display-beauty|demo-display-diwali|display-lightbox-/);
-
-  assert.match(page, /import PerformanceLocalizationDemo/);
-  assert.match(page, /<PerformanceLocalizationDemo \/>/);
-  assert.match(localizationDemos, /portable-blender-master\.png/);
-  assert.equal((localizationDemos.match(/src: projectVideoUrl\("media\/performance-localization\/videos\/.+?\.mp4"\)/g) ?? []).length, 10);
-  assert.match(localizationDemos, /videos\/01-zh-cn\.mp4/);
-  assert.match(localizationDemos, /performance-precise-editing\/master\/master\.mp4/);
-  assert.match(localizationDemos, /setSelectedIndex\(index\)/);
-  assert.match(localizationDemos, /performanceLocalizationMarketRail/);
-  assert.match(localizationDemos, /aria-pressed=\{index === selectedIndex\}/);
-  assert.match(localizationDemos, /controls/);
-  assert.match(page, /import PerformancePreciseEditingDemo/);
-  assert.match(page, /<PerformancePreciseEditingDemo \/>/);
+  // GBS edition ends with the cases: no Solutions chapter, no More Demos.
+  assert.doesNotMatch(page, /<MoreDemosGallery|href="#demos"|<DisplayDemoGallery|<PerformanceLocalizationDemo|<PerformancePreciseEditingDemo|className="productionChapter"/);
+  assert.doesNotMatch(page, /import (PlayableClipLightbox|ClipFullscreen|DisplayDemoGallery|BrandCapabilityImage|PerformanceLocalizationDemo|PerformancePreciseEditingDemo)/);
 });
 
 test("keeps V3 desktop alignment, sticky media, language, and responsive safeguards", async () => {
