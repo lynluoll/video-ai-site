@@ -60,7 +60,7 @@ export default function PlayableClipLightbox() {
       <button className="architectureLightboxBackdrop" type="button" aria-label="关闭放大预览" onClick={() => setActiveSrc(null)} />
       <figure>
         <button type="button" aria-label="关闭放大预览" onClick={() => setActiveSrc(null)}>×</button>
-        <PauseWhenHiddenVideo src={activeSrc} autoPlay loop muted playsInline controls loadImmediately ariaLabel="Playable 广告视觉变体放大预览" />
+        <PauseWhenHiddenVideo src={activeSrc} autoPlay loop muted playsInline controls loadImmediately noHoverStage ariaLabel="Playable 广告视觉变体放大预览" />
       </figure>
     </div>
   );

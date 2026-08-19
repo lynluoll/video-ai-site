@@ -9,7 +9,7 @@ import PauseWhenHiddenVideo from "./PauseWhenHiddenVideo";
 
 export type GbsMedia =
   | { kind: "image"; src: string; alt: string; fit?: "cover" | "contain" }
-  | { kind: "video"; src: string; poster?: string; label: string }
+  | { kind: "video"; src: string; poster?: string; label: string; stills?: { src: string; alt: string }[] }
   | { kind: "placeholder"; note: ReactNode };
 
 export type GbsPhase = { tag: string; when: string; copy: ReactNode; media: GbsMedia };
@@ -31,7 +31,23 @@ export type GbsCaseProps = {
 
 function Media({ m }: { m: GbsMedia }) {
   if (m.kind === "video") {
-    return <PauseWhenHiddenVideo src={m.src} poster={m.poster} autoPlay loop muted playsInline preload="metadata" ariaLabel={m.label} />;
+    const video = <PauseWhenHiddenVideo src={m.src} poster={m.poster} autoPlay loop muted playsInline preload="metadata" ariaLabel={m.label} />;
+    /* A 16:9 asset alone in a portrait-height stage leaves two thirds of the
+       column empty. Stacking the film with two key frames from it fills the
+       same footprint as the portrait clips beside it. */
+    if (m.stills?.length) {
+      return (
+        <>
+          <span className="gbsCaseStackCell">{video}</span>
+          {m.stills.map((s) => (
+            <span className="gbsCaseStackCell" key={s.src}>
+              <img src={s.src} alt={s.alt} loading="lazy" />
+            </span>
+          ))}
+        </>
+      );
+    }
+    return video;
   }
   if (m.kind === "image") {
     return <img src={m.src} alt={m.alt} loading="lazy" style={m.fit ? { objectFit: m.fit } : undefined} />;
@@ -81,7 +97,7 @@ export default function GbsCase(p: GbsCaseProps) {
                 <span>{ph.when}</span>
               </header>
               <p>{ph.copy}</p>
-              <figure className={`gbsCaseMedia is-${ph.media.kind}`}>
+              <figure className={`gbsCaseMedia is-${ph.media.kind}${ph.media.kind === "video" && ph.media.stills?.length ? " is-stack" : ""}`}>
                 <Media m={ph.media} />
               </figure>
             </li>

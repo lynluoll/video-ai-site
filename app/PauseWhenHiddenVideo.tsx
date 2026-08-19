@@ -1,17 +1,40 @@
 "use client";
 
-import { useEffect, useRef, useState, type VideoHTMLAttributes } from "react";
+import { useCallback, useEffect, useRef, useState, type VideoHTMLAttributes } from "react";
+import { createPortal } from "react-dom";
 
 type PauseWhenHiddenVideoProps = Omit<VideoHTMLAttributes<HTMLVideoElement>, "src" | "poster" | "aria-label"> & {
   src: string;
   poster?: string;
   ariaLabel: string;
   loadImmediately?: boolean;
+  /* Backgrounds and clips that already open in their own lightbox skip the
+     hover stage — nothing to enlarge. */
+  noHoverStage?: boolean;
 };
 
-export default function PauseWhenHiddenVideo({ src, poster, ariaLabel, autoPlay, loadImmediately = false, preload, ...videoProps }: PauseWhenHiddenVideoProps) {
+/* Hovering a clip for a beat lifts it onto a full-viewport stage. The native
+   Fullscreen API needs a real user gesture (a hover is not one), so the stage
+   is an in-page overlay; it leaves on pointer-out, Esc or a click. */
+const HOVER_INTENT_MS = 420;
+
+export default function PauseWhenHiddenVideo({
+  src,
+  poster,
+  ariaLabel,
+  autoPlay,
+  loadImmediately = false,
+  preload,
+  noHoverStage = false,
+  ...videoProps
+}: PauseWhenHiddenVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const stageRef = useRef<HTMLVideoElement>(null);
+  const hoverTimer = useRef<number | undefined>(undefined);
   const [shouldLoad, setShouldLoad] = useState(loadImmediately);
+  const [staged, setStaged] = useState(false);
+
+  const stageEnabled = !noHoverStage && videoProps["aria-hidden"] !== true && videoProps["aria-hidden"] !== "true";
 
   useEffect(() => {
     const video = videoRef.current;
@@ -45,18 +68,82 @@ export default function PauseWhenHiddenVideo({ src, poster, ariaLabel, autoPlay,
     void video.play().catch(() => undefined);
   }, [autoPlay, shouldLoad, src]);
 
+  /* Publish the real aspect ratio so the frame can hug the picture instead of
+     padding it out with letterbox bars. */
+  const publishRatio = useCallback((video: HTMLVideoElement | null) => {
+    if (!video || !video.videoWidth || !video.videoHeight) return;
+    const ratio = `${video.videoWidth} / ${video.videoHeight}`;
+    video.style.setProperty("--v-ar", ratio);
+    video.parentElement?.style.setProperty("--v-ar", ratio);
+  }, []);
+
+  const closeStage = useCallback(() => {
+    window.clearTimeout(hoverTimer.current);
+    setStaged(false);
+  }, []);
+
+  useEffect(() => {
+    if (!staged) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeStage();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [staged, closeStage]);
+
+  useEffect(() => () => window.clearTimeout(hoverTimer.current), []);
+
   return (
-    <video
-      ref={videoRef}
-      {...videoProps}
-      src={shouldLoad ? src : undefined}
-      data-video-src={src}
-      poster={poster}
-      autoPlay={autoPlay}
-      preload={shouldLoad ? (preload ?? (loadImmediately ? "auto" : "metadata")) : "none"}
-      onPointerEnter={() => setShouldLoad(true)}
-      onFocus={() => setShouldLoad(true)}
-      aria-label={ariaLabel}
-    />
+    <>
+      <video
+        ref={videoRef}
+        {...videoProps}
+        src={shouldLoad ? src : undefined}
+        data-video-src={src}
+        poster={poster}
+        autoPlay={autoPlay}
+        preload={shouldLoad ? (preload ?? (loadImmediately ? "auto" : "metadata")) : "none"}
+        onLoadedMetadata={(e) => publishRatio(e.currentTarget)}
+        onPointerEnter={(e) => {
+          setShouldLoad(true);
+          if (!stageEnabled || e.pointerType === "touch") return;
+          window.clearTimeout(hoverTimer.current);
+          hoverTimer.current = window.setTimeout(() => setStaged(true), HOVER_INTENT_MS);
+        }}
+        onPointerLeave={() => window.clearTimeout(hoverTimer.current)}
+        onFocus={() => setShouldLoad(true)}
+        aria-label={ariaLabel}
+      />
+
+      {staged && typeof document !== "undefined"
+        ? createPortal(
+            <div className="videoHoverStage" role="dialog" aria-label={ariaLabel} onPointerLeave={closeStage} onClick={closeStage}>
+              <video
+                ref={stageRef}
+                className="videoHoverStageFilm"
+                src={src}
+                poster={poster}
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+                preload="auto"
+                aria-label={ariaLabel}
+                onLoadedMetadata={(e) => {
+                  publishRatio(e.currentTarget);
+                  const source = videoRef.current;
+                  if (source && Number.isFinite(source.currentTime)) e.currentTarget.currentTime = source.currentTime;
+                }}
+                onClick={(e) => e.stopPropagation()}
+              />
+              <button type="button" className="videoHoverStageClose" onClick={closeStage} aria-label="Close">
+                &times;
+              </button>
+            </div>,
+            document.body,
+          )
+        : null}
+    </>
   );
 }

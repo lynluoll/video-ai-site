@@ -7797,6 +7797,31 @@ body {
 .gbsCaseMedia { min-height: 0; margin: 0; overflow: hidden; background: var(--bp-surface-2); border: var(--bp-hairline) solid var(--bp-rule); border-radius: var(--bp-radius-card); }
 .gbsCaseMedia img, .gbsCaseMedia video { width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; }
 .gbsCaseMedia.is-video video { background: var(--bp-ink); object-fit: contain; }
+/* Landscape asset in a portrait-height stage. One 16:9 strip alone leaves two
+   thirds of the column as black void; the film plus two key frames from it
+   stack into the same footprint the portrait clips beside it occupy. */
+.gbsCaseMedia.is-stack {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  justify-items: center;
+  overflow: visible;
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+.gbsCaseStackCell {
+  height: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  overflow: hidden;
+  background: var(--bp-surface-2);
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-radius: var(--bp-radius-card);
+}
+.gbsCaseMedia.is-stack video { background: none; object-fit: cover; }
+.gbsCaseMedia.is-stack img { object-fit: cover; }
 
 .gbsCasePlaceholder { height: 100%; min-height: 160px; display: grid; place-items: center; padding: 20px; text-align: center; background: repeating-linear-gradient(135deg, #f4f6fa 0 10px, #eef1f6 10px 20px); }
 .gbsCasePlaceholder span { max-width: 22ch; color: var(--bp-ink-3); font-size: var(--bp-t-body); font-weight: var(--bp-w-medium); line-height: 1.4; }
@@ -7806,6 +7831,8 @@ body {
   .gbsCaseBody { grid-template-columns: 1fr; }
   .gbsCasePhases { grid-template-columns: 1fr; }
   .gbsCasePhase p { min-height: 0; }
+  .gbsCaseMedia.is-stack { grid-template-rows: repeat(3, auto); }
+  .gbsCaseStackCell { width: 100%; height: auto; }
 }
 
 /* ---- GBS pitch pages (P2 usage · P3 offering) --------------------------

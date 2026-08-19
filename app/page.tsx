@@ -412,7 +412,7 @@ export default function Home() {
                 <span className="gbsChartEnd">100k+</span>
                 <div className="gbsMilestone" style={{ "--x": "31%", "--y": "34%" } as React.CSSProperties}><small>26/03 · MODEL</small><b>Seedance 2.0</b></div>
                 <div className="gbsMilestone" style={{ "--x": "62%", "--y": "8%" } as React.CSSProperties}><small>26/06 · PLATFORM</small><b>WPP Open · API live</b></div>
-                <div className="gbsMilestone gbsMilestoneTop" style={{ "--x": "80%", "--y": "-6%" } as React.CSSProperties}><small>26/08 · MODEL</small><b>Seedance 2.5</b></div>
+                <div className="gbsMilestone gbsMilestoneTop" style={{ "--x": "80%", "--y": "-6%" } as React.CSSProperties}><small>14/08 · MODEL API</small><b>Seedance 2.5</b></div>
                 <div className="gbsAxis"><span>Jan 26</span><span>Apr 26</span><span>Jul 26</span><span>Aug 26</span></div>
                 <div className="gbsPhases">
                   <span><B zh="API 打底" en="API foundation" /></span>
@@ -433,7 +433,7 @@ export default function Home() {
             <header className="gbsPageHead">
               <span className="gbsKicker">FOUR LAYERS · ONE SYSTEM</span>
               <h2 id="gbs-offer-title"><B zh={<>我们的差异化：<strong>模型 + agent + FDE + 归因</strong>，一套系统。</>} en={<>Our differentiation: <strong>model + agent + FDE + attribution</strong>, working as one system.</>} /></h2>
-              <p className="gbsSub"><B zh="前三层给客户把广告做出来；第四层让 GBS 看得见 AI 带来了多少投放。" en="Three layers make the ads for the customer; the fourth lets GBS see how much spend AI brought in." /></p>
+              <p className="gbsSub"><B zh="前三层把广告做出来；第四层让 AI 创意带动的投放看得见、算得清。" en="Three layers produce the ads; the fourth makes the media spend driven by AI creative visible and measurable." /></p>
             </header>
 
             <div className="gbsSystem">
@@ -482,8 +482,8 @@ export default function Home() {
               <div className="gbsSysLoop" aria-label="Layer 04: attribution loop">
                 <i className="gbsSysNum isGbs">04</i>
                 <b><B zh="AIGC 归因 · 暗水印" en="AIGC ATTRIBUTION · INVISIBLE WATERMARK" /></b>
-                <p><B zh="投放侧看到有多少视频是 Seedance 生成 —— 对上 GBS “AI 内容带动 10% 广告支出” 目标。" en="Shows how much running video is Seedance-made — feeding GBS’s 10%-of-spend-from-AI target." /></p>
-                <span className="gbsSysLoopTag">FOR GBS</span>
+                <p><B zh="投放侧看到有多少在跑的视频是 Seedance 生成 —— AI 创意带来的广告支出可以被计量，而不是估算。" en="Shows how much running video is Seedance-made — so ad spend driven by AI creative is measured, not guessed." /></p>
+                <span className="gbsSysLoopTag">MEASUREMENT</span>
               </div>
             </div>
 
@@ -614,7 +614,11 @@ export default function Home() {
                 { tag: "WALK", when: "2026 Q2", copy: <B zh="Grimace：第二轮投放，Seedance 2.0。" en="Grimace: second flight on Seedance 2.0." />,
                   media: { kind: "video", src: "/media/goodtake/grimace.mp4", label: "Goodtake × Grimace" } },
                 { tag: "RUN", when: "2026 Q3", copy: <B zh="Snuggle 品牌片：Seedance 2.5，真人实拍级质感。" en="Snuggle brand film on Seedance 2.5 — live-action-grade quality." />,
-                  media: { kind: "video", src: "/media/goodtake/snuggle.mp4", label: "Goodtake × Unilever Snuggle" } },
+                  media: { kind: "video", src: "/media/goodtake/snuggle.mp4", poster: "/media/goodtake/snuggle-poster.jpg", label: "Goodtake × Unilever Snuggle",
+                    stills: [
+                      { src: "/media/goodtake/snuggle-still-01.jpg", alt: "Snuggle bear in a meadow — fur and daylight detail" },
+                      { src: "/media/goodtake/snuggle-still-02.jpg", alt: "Snuggle bear hero close-up with the fragrance capsule" },
+                    ] } },
               ]}
               footnote={<B zh="来源：Goodtake × 麦当劳投放数据 · 内部机密。" en="Source: Goodtake × McDonald’s campaign data · confidential." />}
             />

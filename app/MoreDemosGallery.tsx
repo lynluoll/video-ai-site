@@ -142,7 +142,7 @@ export default function MoreDemosGallery() {
           <button className="moreDemoLightboxBackdrop" type="button" aria-label="Close video" onClick={() => setActiveDemo(null)} />
           <article>
             <header><div><small className="langZh">{activeDemo.typeZh}</small><small className="langEn">{activeDemo.type}</small><h3 className="langZh">{activeDemo.titleZh}</h3><h3 className="langEn">{activeDemo.title}</h3></div><button type="button" aria-label="Close video" onClick={() => setActiveDemo(null)}>×</button></header>
-            <PauseWhenHiddenVideo key={activeDemo.src} src={activeDemo.src} poster={activeDemo.poster} autoPlay loop playsInline controls loadImmediately ariaLabel={activeDemo.title} />
+            <PauseWhenHiddenVideo key={activeDemo.src} src={activeDemo.src} poster={activeDemo.poster} autoPlay loop playsInline controls loadImmediately noHoverStage ariaLabel={activeDemo.title} />
           </article>
         </div>
       ) : null}
