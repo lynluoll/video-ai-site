@@ -484,12 +484,12 @@ export default function Home() {
               ]}
               phases={[
                 {
-                  tag: "SEPHORA", when: "Beauty", copy: <B zh="Rare Beauty × Sephora 西语市场投放素材，商品图生视频。" en="Rare Beauty × Sephora, Spanish-market ad — product image to video." />,
-                  media: { kind: "video", src: "/media/tecdo/sample-1.mp4", label: "Tec-do sample ad — Rare Beauty × Sephora" }
+                  tag: "INPUT REFERENCE", when: "Reference clip", copy: <B zh="输入的参考视频：客户提供的原始素材，作为 Navos 生成的参考。" en="Input reference clip: the client-supplied source used as the reference for Navos." />,
+                  media: { kind: "video", src: "https://carey.tos-ap-southeast-1.bytepluses.com/video-ai-site/branch-solution-displays/media/tecdo/tecdo-input-reference.mp4", label: "Tec-do input reference clip" }
                 },
                 {
-                  tag: "FRESH", when: "Beauty", copy: <B zh="Fresh 玫瑰面霜：同一流程跑不同品牌与语言。" en="Fresh Rose face cream — same pipeline, another brand and language." />,
-                  media: { kind: "video", src: "/media/tecdo/sample-2.mp4", label: "Tec-do sample ad — Fresh Rose face cream" }
+                  tag: "NAVOS OUTPUT", when: "AI-generated", copy: <B zh="Navos 生成的爆款输出视频：同一流程可直接投放。" en="Navos-generated hit output video — ready to run from the same pipeline." />,
+                  media: { kind: "video", src: "https://carey.tos-ap-southeast-1.bytepluses.com/video-ai-site/branch-solution-displays/media/tecdo/tecdo-navos-output.mp4", label: "Tec-do Navos-generated output video" }
                 },
               ]}
               footnote={<B zh="效果数据来自钛动提供的材料。" en="Uplift figures from Tec-do’s own materials." />}
