@@ -58,6 +58,9 @@ test("server-renders the complete V3 advertising strategy", async () => {
   // chapter instead.
   assert.doesNotMatch(html, /id="players"|class="customerFlowPage"|class="customerFlowStage"/);
   assert.match(html, /href="#case-studies"[^>]*>.*?Case Studies/s);
+  // Client showcases page sits right before the case chapter.
+  assert.match(html, /id="client-showcases"[\s\S]*?id="case-studies"/);
+  assert.equal((html.match(/class="gbsClients"/g) ?? []).length, 1);
 
   // Solution pages keep 3.x numbering (cases are asserted below).
   assert.match(html, /id="solutions"/);

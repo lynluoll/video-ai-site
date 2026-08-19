@@ -498,6 +498,43 @@ export default function Home() {
             </div>
           </section>
 
+          <section className="gbsPage gbsClientsPage" id="client-showcases" aria-labelledby="client-showcases-title">
+            <header className="gbsPageHead">
+              <span className="gbsKicker">CLIENT SHOWCASES</span>
+              <h2 id="client-showcases-title"><B zh={<>已经在用 BytePlus 做广告创意的<strong>客户</strong>。</>} en={<>Who is already producing ads with <strong>BytePlus</strong>.</>} /></h2>
+              <p className="gbsSub"><B zh="代理商网络、品牌主、AdTech 与效果代理——每一家都有下一章的案例。" en="Agency networks, a brand owner, AdTech and a performance agency — each with a case in the next chapter." /></p>
+            </header>
+
+            <ul className="gbsClients">
+              <li>
+                <figure><img src="/logos/customers/wpp.svg" alt="WPP" /></figure>
+                <b><B zh="全球代理商网络" en="Global agency network" /></b>
+                <span><B zh="Seedance 接入 WPP Open · 6+ 市场制作" en="Seedance inside WPP Open · production in 6+ markets" /></span>
+              </li>
+              <li>
+                <figure><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></figure>
+                <b><B zh="全球品牌主" en="Global brand owner" /></b>
+                <span><B zh="美妆品类的 AI 创意生产" en="AI creative production for beauty" /></span>
+              </li>
+              <li>
+                <figure><img src="/logos/customers/havas.svg" alt="Havas" /></figure>
+                <b><B zh="代理商网络" en="Agency network" /></b>
+                <span><B zh="从预演到成片" en="From previews into production" /></span>
+              </li>
+              <li>
+                <figure><img src="/logos/customers/applovin.png" alt="AppLovin" /></figure>
+                <b><B zh="AdTech · 游戏 / App" en="AdTech · gaming / apps" /></b>
+                <span><B zh="互动创意规模化，喂给 AXON" en="Interactive creative at scale, feeding AXON" /></span>
+              </li>
+              <li>
+                <figure><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></figure>
+                <b><B zh="跨境电商效果代理" en="Cross-border e-commerce agency" /></b>
+                <span><B zh="商品图批量变成投放视频" en="Catalog images into ad video at scale" /></span>
+              </li>
+            </ul>
+            <p className="gbsFoot"><B zh="Goodtake（麦当劳、联合利华）等更多客户见案例章节。" en="More partners — Goodtake for McDonald’s and Unilever among them — in the case chapter." /></p>
+          </section>
+
         </div>
       </section>
 
