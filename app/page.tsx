@@ -765,14 +765,15 @@ export default function Home() {
               kicker={<B zh="游戏 / App · 互动广告" en="GAMING / APPS · INTERACTIVE" />}
               title="BytePlus × AppLovin"
               titleNote={<B zh="Creative Sets · AXON" en="Creative Sets · AXON" />}
-              objectiveTitle={<B zh="创意规模化，喂给 AXON" en="Creative scale that feeds AXON" />}
-              objective={<B zh="AppLovin 用上传的素材自动组合成可玩、视频与图片广告；更多创意输入 → AXON 学得更快 → 广告效率更高。" en="AppLovin auto-composes uploaded assets into playable, video and image ads; more creative inputs → faster AXON learning → higher ads efficiency." />}
+              objectiveTitle={<B zh="互动创意规模化" en="Interactive creative at scale" />}
+              objective={<B zh="上传素材自动组合成可玩、视频与图片广告，全品类、游戏为主。更多创意输入 → AXON 学得更快 → 效率更高。" en="Uploaded assets auto-compose into playable, video and image ads — every category, games first. More creative in → faster AXON learning → higher efficiency." />}
               kpis={[
-                { value: "3", label: <B zh="输出格式：可玩 / 视频 / 图片" en="formats: playable / video / image" /> },
-                { value: "AXON", label: <B zh="投放引擎，创意量直接进模型" en="engine — creative volume feeds the model" /> },
-                { value: "Games", label: <B zh="品类 know-how：游戏 / App" en="category know-how: gaming / apps" /> },
-                { value: "—", label: <B zh="效果数字未公开" en="uplift not disclosed" /> },
+                { value: "60K+", label: <B zh="每月广告创意" en="ad creatives / month" /> },
+                { value: "1B+", label: <B zh="日活 · 10,000+ 应用" en="DAU across 10,000+ apps" /> },
+                { value: "$11B+", label: <B zh="AppLovin 年度投放" en="annual ad spend on AppLovin" /> },
+                { value: "35s", label: <B zh="广告中位互动时长" en="median ad engagement" /> },
               ]}
+              headline={{ value: "80%", label: <B zh="网页转化在 24h 内完成" en="web conversions within 24h" /> }}
               phases={[
                 { tag: "PARADISE PAWS", when: "Gaming", copy: <B zh="可玩广告：直接在广告里试玩，再进安装。" en="Playable: try the game inside the ad, then install." />,
                   media: { kind: "video", src: "/media/applovin/sample-02.mp4", label: "AppLovin playable ad — Paradise Paws", portrait: true } },
@@ -781,7 +782,7 @@ export default function Home() {
                 { tag: "TYMO", when: "Electronics", copy: <B zh="多 SKU 陈列式互动广告：一支覆盖整条产品线。" en="Multi-SKU showcase: one interactive unit covers the whole line." />,
                   media: { kind: "video", src: "/media/applovin/electronics-008.mp4", label: "AppLovin interactive ad — TYMO hair tools", portrait: true } },
               ]}
-              footnote={<B zh="AppLovin 未公开效果数字；此处只展示样片与机制。" en="AppLovin has not disclosed uplift; samples and mechanism only." />}
+              footnote={<B zh="平台数据来自 applovin.com（consumer-brands / gaming-apps 页，2026-08 读取）；60K+ 为 BytePlus 侧创意生成量。AppLovin 未公开单案例效果数字。" en="Platform figures from applovin.com (consumer-brands / gaming-apps pages, read Aug 2026); 60K+ is BytePlus-side creative volume. AppLovin has not disclosed per-campaign uplift." />}
             />
           </div>
         </div>
