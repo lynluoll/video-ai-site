@@ -195,17 +195,13 @@ export default function Home() {
             </header>
 
             <div className="gbsGrowthBody">
-              <aside className="gbsKpi">
-                <span><B zh="今日 · 广告客户日均生成" en="TODAY · ADS CUSTOMERS" /></span>
-                <b>100k<i>+</i></b>
-                <em><B zh="条视频 / 天 · 月环比 ×2" en="videos / day · MoM ×2" /></em>
-                <hr />
-                <span><B zh="按画幅" en="BY FORMAT" /></span>
-                <p><strong>42.6%</strong> <B zh="横屏 16:9 · YouTube / TVC" en="landscape 16:9 · YouTube / TVC" /></p>
-                <p><strong>23.0%</strong> <B zh="竖屏 9:16 · TikTok / Reels" en="portrait 9:16 · TikTok / Reels" /></p>
-                <hr />
-                <span><B zh="按分辨率" en="BY RESOLUTION" /></span>
-                <p className="gbsKpiRow"><span><strong>49.0%</strong>720p</span><span><strong>35.4%</strong>480p</span><span><strong>14.8%</strong>1080p</span></p>
+              <aside className="gbsKpi gbsKpiTakeaways">
+                <span><B zh="核心结论" en="KEY TAKEAWAYS" /></span>
+                <ul>
+                  <li><B zh={<><strong>横屏 16:9 占比最高 42.6%</strong>（YouTube / TVC），社交竖屏 9:16 第二 23.0%——对照大盘，9:16 的增长空间更大。</>} en={<><strong>Landscape 16:9 leads at 42.6%</strong> (YouTube / TVC); social 9:16 is second at 23.0% — yet 9:16 has the bigger headroom against the market mix.</>} /></li>
+                  <li><B zh={<><strong>720p 约 50%</strong>，由社交广告增长驱动；1080p（14.8%）是品牌 / TVC。</>} en={<><strong>720p is ~50%</strong> of output, driven by social-ad growth; 1080p (14.8%) is brand / TVC.</>} /></li>
+                  <li><B zh={<><strong>月环比 ×2</strong>：维持下去，12 月约 <strong>160 万条 / 天</strong>（预测）。</>} en={<><strong>Doubling MoM</strong>: holding ×2 puts us at <strong>~1.6M videos a day by December</strong> (projection).</>} /></li>
+                </ul>
               </aside>
 
               <figure className="gbsChart" role="img" aria-label="Daily ad-video volume on a log scale: ~10k in January 2026 to 100k+ by mid-August, with a dashed projection to ~1.6M a day by December if the month-on-month doubling holds; model releases and customer go-lives marked along the curve">
@@ -247,7 +243,6 @@ export default function Home() {
                 </svg>
                 <span className="gbsChartStart">~10k</span>
                 <span className="gbsChartNow"><b>100k+</b> <B zh="今天" en="today" /></span>
-                <div className="gbsLegend" aria-hidden="true"><i className="isModel" /><B zh="模型发布" en="Model release" /><i className="isCustomer" /><B zh="客户上线" en="Customer live" /><i className="isProj" /><B zh="×2 月环比预测" en="×2 MoM projection" /></div>
                 <div className="gbsMilestone gbsMilestoneLogo gbsMilestoneStart" style={{ "--x": "2.4%", "--y": "27%" } as React.CSSProperties}><small>AGENCY · AI STUDIO</small><img src="/logos/customers/goodtake.png" alt="goodtake.ai" /></div>
                 <div className="gbsMilestone" style={{ "--x": "11.7%", "--y": "62%" } as React.CSSProperties}><small>26/02 · MODEL</small><b>Seedance 2.0</b></div>
                 <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "20.9%", "--y": "42%" } as React.CSSProperties}><small>ADTECH · GAMING</small><img src="/logos/customers/applovin.png" alt="AppLovin" /></div>
@@ -265,14 +260,6 @@ export default function Home() {
                   <span className="isProj"><B zh="预测区间" en="Projection" /></span>
                 </div>
               </figure>
-            </div>
-            <div className="gbsTakeaways">
-              <b><B zh="结论" en="TAKEAWAYS" /></b>
-              <ul>
-                <li><B zh={<><strong>横屏 16:9（YouTube / TVC）占比最高 42.6%</strong>，社交竖屏 9:16 排第二 23.0%——但对照市场大盘，9:16 的增长空间更大。</>} en={<><strong>Landscape 16:9 (YouTube / TVC) is the largest format at 42.6%</strong>; social 9:16 is second at 23.0% — but against the market mix, 9:16 has the bigger headroom.</>} /></li>
-                <li><B zh={<><strong>720p 约占 50%</strong>，主要由社交广告的增长驱动；1080p（14.8%）是品牌 / TVC 的活。</>} en={<><strong>720p is ~50%</strong> of output — driven mainly by social-ad growth; 1080p (14.8%) is brand / TVC work.</>} /></li>
-                <li><B zh={<><strong>月环比翻倍</strong>：维持 ×2，到 12 月约 <strong>160 万条 / 天</strong>（预测）。</>} en={<><strong>Doubling month on month</strong>: holding ×2 puts us at <strong>~1.6M videos a day by December</strong> (projection).</>} /></li>
-              </ul>
             </div>
           </section>
 

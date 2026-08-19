@@ -7978,22 +7978,20 @@ body {
 .gbsGrowthBody {
   min-height: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 250px;
+  grid-template-columns: minmax(0, 1fr) 300px;
   grid-template-rows: minmax(0, 1fr);
   gap: 16px 24px;
   align-items: stretch;
 }
-.gbsGrowthPage { grid-template-rows: auto minmax(0, 1fr) auto; gap: 20px; }
-/* Takeaways: 2–3 conclusions + source line, replacing the old read strip and footnote. */
-.gbsTakeaways { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto; column-gap: 16px; row-gap: 6px; padding: 12px 16px; background: var(--bp-blue-wash-2); border-left: var(--bp-accent-bar) solid var(--bp-blue); border-radius: 0 var(--bp-radius-card) var(--bp-radius-card) 0; }
-.gbsTakeaways > b { grid-row: 1; align-self: start; padding-top: 2px; color: var(--bp-blue); font-size: var(--bp-t-micro); font-weight: var(--bp-w-label); letter-spacing: .08em; }
-.gbsTakeaways ul { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; color: var(--bp-ink-2); font-size: var(--bp-t-body); line-height: 1.4; }
-.gbsTakeaways li strong { color: var(--bp-ink); font-weight: var(--bp-w-label); }
-.gbsTakeaways small { grid-column: 2; color: var(--bp-ink-3); font-size: var(--bp-t-micro); }
+.gbsGrowthPage { grid-template-rows: auto minmax(0, 1fr); gap: 24px; }
 /* Chart left, KPI card right: the card's 100k+ doubles as the curve's
    end label, so the figure is shown once. */
 .gbsGrowthBody .gbsChart { grid-column: 1; grid-row: 1; }
-.gbsGrowthBody .gbsKpi { grid-column: 2; grid-row: 1; align-self: start; margin-top: 24px; }
+.gbsGrowthBody .gbsKpi { grid-column: 2; grid-row: 1; align-self: center; }
+.gbsKpiTakeaways ul { margin: 10px 0 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+.gbsKpiTakeaways li { padding-left: 14px; position: relative; color: var(--bp-ink-2); font-size: var(--bp-t-body-l); line-height: 1.42; }
+.gbsKpiTakeaways li::before { content: ""; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; border-radius: 50%; background: var(--bp-blue); }
+.gbsKpiTakeaways li strong { color: var(--bp-ink); font-weight: var(--bp-w-label); }
 .gbsKpiRow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 .gbsKpiRow span { display: grid; }
 .gbsKpiRow strong { margin: 0; }
@@ -8026,12 +8024,8 @@ body {
 .gbsChartStart, .gbsChartEnd { position: absolute; color: var(--bp-blue); font-weight: var(--bp-w-display); letter-spacing: var(--bp-track-tight); line-height: 1; }
 .gbsChartStart { left: 6px; bottom: 128px; font-size: var(--bp-t-body-l); color: var(--bp-ink-2); }
 .gbsChartNow { position: absolute; left: calc(63.3% + 26px); top: 52%; color: var(--bp-ink-2); font-size: var(--bp-t-body); white-space: nowrap; }
-.gbsChartNow b { color: var(--bp-blue); font-size: var(--bp-t-lede); font-weight: var(--bp-w-display); letter-spacing: var(--bp-track-tight); }
-.gbsLegend { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 6px 8px; color: var(--bp-ink-3); font-size: var(--bp-t-micro); font-weight: var(--bp-w-label); letter-spacing: .06em; text-transform: uppercase; }
-.gbsLegend i { display: inline-block; width: 14px; height: 3px; margin-left: 10px; border-radius: 2px; background: var(--bp-blue); }
-.gbsLegend i:first-child { margin-left: 0; }
-.gbsLegend i.isCustomer { background: #0f1633; }
-.gbsLegend i.isProj { background: repeating-linear-gradient(90deg, var(--bp-blue) 0 4px, transparent 4px 7px); }
+.gbsChartNow b { color: var(--bp-blue); font-size: var(--bp-t-h1); font-weight: var(--bp-w-display); letter-spacing: var(--bp-track-tight); }
+.gbsChartNow { font-size: var(--bp-t-body-l); }
 .gbsMilestone {
   position: absolute;
   left: var(--x);
@@ -8052,7 +8046,7 @@ body {
 .gbsMilestoneStart { transform: none; }
 /* Customer go-lives: ink top bar + grey label, so they read apart from the
    blue model-release cards. */
-.gbsMilestoneLogo { border-top-color: #0f1633; }
+.gbsMilestoneLogo { padding: 0 4px; background: none; border: 0; box-shadow: none; }
 .gbsMilestoneLogo small { color: var(--bp-ink-3); }
 .gbsMilestoneLogo img { display: block; margin-top: 6px; height: 16px; width: auto; max-width: 120px; }
 .gbsMilestoneLogo img[alt="WPP"] { height: 18px; }
