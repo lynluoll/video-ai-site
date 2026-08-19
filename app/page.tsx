@@ -368,6 +368,7 @@ export default function Home() {
             <header className="gbsPageHead">
               <span className="gbsKicker">PRODUCT MILESTONES · ADS WORKLOAD</span>
               <h2 id="gbs-usage-title"><B zh={<>月度广告生成量<strong>持续增长</strong></>} en={<>Growing <strong>produced Ads</strong> monthly</>} /></h2>
+              <p className="gbsSub"><B zh="BytePlus 上的视频广告日产量持续攀升——已达 100k+ 条/天，月环比 +100%。" en="BytePlus sees video-ad production growing every day — now 100k+ a day, +100% month over month." /></p>
             </header>
 
             <div className="gbsGrowthBody">
@@ -395,6 +396,16 @@ export default function Home() {
                     <line x1="280" y1="300" x2="280" y2="150" />
                     <line x1="560" y1="170" x2="560" y2="60" />
                     <line x1="720" y1="92" x2="720" y2="8" />
+                    <line x1="110" y1="336" x2="110" y2="200" />
+                    <line x1="205" y1="322" x2="205" y2="250" />
+                    <line x1="600" y1="150" x2="600" y2="230" />
+                    <line x1="800" y1="52" x2="800" y2="130" />
+                  </g>
+                  <g fill="#0066fc">
+                    <circle cx="110" cy="336" r="4" />
+                    <circle cx="205" cy="322" r="4" />
+                    <circle cx="600" cy="150" r="4" />
+                    <circle cx="800" cy="52" r="4" />
                   </g>
                   <circle cx="0" cy="340" r="6" fill="#0066fc" />
                   <circle cx="900" cy="30" r="7" fill="#0066fc" />
@@ -404,17 +415,16 @@ export default function Home() {
                 <div className="gbsMilestone" style={{ "--x": "31%", "--y": "34%" } as React.CSSProperties}><small>26/03 · MODEL</small><b>Seedance 2.0</b></div>
                 <div className="gbsMilestone" style={{ "--x": "62%", "--y": "8%" } as React.CSSProperties}><small>26/06 · PLATFORM</small><b>WPP Open · API live</b></div>
                 <div className="gbsMilestone gbsMilestoneTop" style={{ "--x": "80%", "--y": "-6%" } as React.CSSProperties}><small>14/08 · MODEL API</small><b>Seedance 2.5</b></div>
+                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "12%", "--y": "36%" } as React.CSSProperties}><small>ADTECH · GAMING</small><img src="/logos/customers/applovin.png" alt="AppLovin" /></div>
+                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "23%", "--y": "51%" } as React.CSSProperties}><small>AGENCY · E-COMMERCE</small><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></div>
+                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "67%", "--y": "57%" } as React.CSSProperties}><small>AGENCY NETWORK</small><img src="/logos/customers/havas.svg" alt="Havas" /></div>
+                <div className="gbsMilestone gbsMilestoneLogo gbsMilestoneBelow" style={{ "--x": "89%", "--y": "28%" } as React.CSSProperties}><small>BRAND OWNER</small><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></div>
                 <div className="gbsAxis"><span>Jan 26</span><span>Apr 26</span><span>Jul 26</span><span>Aug 26</span></div>
                 <div className="gbsPhases">
                   <span><B zh="API 打底" en="API foundation" /></span>
                   <span><B zh="代理商平台接入" en="Agency platforms" /></span>
                   <span><B zh="品牌规模化" en="Brand scale" /></span>
                 </div>
-                <ul className="gbsPhaseLogos" aria-label="Customers onboarded per phase">
-                  <li><img src="/logos/customers/applovin.png" alt="AppLovin" /><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></li>
-                  <li><img src="/logos/customers/wpp.svg" alt="WPP" /><img src="/logos/customers/havas.svg" alt="Havas" /></li>
-                  <li><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></li>
-                </ul>
               </figure>
             </div>
             <p className="gbsFoot"><B zh="数据：BytePlus 广告行业客户生成量；日均条数、画幅占比与里程碑日期待确认。" en="Data: BytePlus ads-industry customer volume; daily counts, format split and milestone dates to be confirmed." /></p>

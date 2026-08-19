@@ -7982,7 +7982,7 @@ body {
   min-height: 0;
   margin: 0;
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto auto auto;
+  grid-template-rows: minmax(0, 1fr) auto auto;
   gap: 10px;
   padding-top: 56px;   /* room for the topmost milestone callout */
 }
@@ -8006,6 +8006,11 @@ body {
 .gbsMilestone small { display: block; color: var(--bp-blue); font-size: var(--bp-t-micro); font-weight: var(--bp-w-label); letter-spacing: .08em; }
 .gbsMilestone b { display: block; margin-top: 2px; color: var(--bp-ink); font-size: var(--bp-t-body-l); font-weight: var(--bp-w-label); }
 .gbsMilestoneTop { transform: translate(-70%, 0); }
+/* Customer callouts: same card, a logo instead of the bold line. */
+.gbsMilestoneLogo img { display: block; margin-top: 6px; height: 16px; width: auto; max-width: 120px; }
+.gbsMilestoneLogo img[alt="WPP"] { height: 18px; }
+.gbsMilestoneLogo img[alt="Tec-do"] { height: 13px; max-width: 130px; }
+.gbsMilestoneBelow { transform: translate(-72%, 0); }
 .gbsAxis { display: flex; justify-content: space-between; color: var(--bp-ink-2); font-size: var(--bp-t-body); font-weight: var(--bp-w-medium); }
 .gbsPhases { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
 .gbsPhases span {
@@ -8018,13 +8023,6 @@ body {
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 12px 50%);
 }
 .gbsPhases span:first-child { clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%); }
-/* Customer logos on the timeline: one lane under the phase bar, each cell
-   holding the customers that came on in that phase. */
-.gbsPhaseLogos { margin: 2px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
-.gbsPhaseLogos li { display: flex; align-items: center; justify-content: center; gap: 22px; height: 26px; }
-.gbsPhaseLogos img { max-height: 18px; max-width: 110px; width: auto; height: auto; display: block; filter: grayscale(1); opacity: .8; }
-.gbsPhaseLogos img[alt="WPP"] { max-height: 20px; }
-.gbsPhaseLogos img[alt="Tec-do"] { max-height: 14px; max-width: 130px; }
 .gbsFoot { margin: 0; color: var(--bp-ink-3); font-size: var(--bp-t-micro); }
 
 /* Client showcases: five logo tiles in one row, role + one-line proof under
