@@ -8110,6 +8110,7 @@ body {
 .gbsSysEnd > em { color: var(--bp-blue); font-size: var(--bp-t-body-l); font-style: normal; font-weight: var(--bp-w-label); }
 .gbsSysArrow { align-self: center; color: var(--bp-blue); font-size: 26px; font-style: normal; font-weight: var(--bp-w-display); text-align: center; }
 .gbsSysBox {
+  position: relative;
   min-width: 0;
   padding: 16px 18px 14px;
   display: grid;
@@ -8124,6 +8125,10 @@ body {
 .gbsSysBox b { color: var(--bp-ink); font-size: var(--bp-t-card); font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-tight); line-height: 1.2; }
 .gbsSysBox ul { margin: 0; padding: 0; display: grid; gap: 8px; list-style: none; align-content: start; }
 .gbsSysBox li { padding: 8px 12px; color: var(--bp-ink-2); font-size: var(--bp-t-body); line-height: 1.3; background: var(--bp-blue-wash-2); border-radius: 6px; }
+.gbsSysBox li strong { color: var(--bp-ink); font-weight: var(--bp-w-display); }
+.gbsSysBox li.isHot { color: var(--bp-ink); font-weight: var(--bp-w-label); border-left: 3px solid var(--bp-blue); }
+/* Which customer team each layer talks to. */
+.gbsSysFor { position: absolute; top: 16px; right: 14px; max-width: 56%; padding: 5px 10px; text-align: right; line-height: 1.25; color: var(--bp-ink-2); font-size: var(--bp-t-micro); font-weight: var(--bp-w-label); letter-spacing: .06em; border: var(--bp-hairline) solid var(--bp-rule); border-radius: 999px; }
 .gbsSysLoop {
   grid-column: 1 / -1;
   display: grid;

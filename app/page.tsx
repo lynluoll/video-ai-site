@@ -286,7 +286,7 @@ export default function Home() {
             <header className="gbsPageHead">
               <span className="gbsKicker">FOUR LAYERS · ONE SYSTEM</span>
               <h2 id="gbs-offer-title"><B zh={<>我们的差异化：<strong>模型 + agent + FDE + 归因</strong>，一套系统。</>} en={<>Our differentiation: <strong>model + agent + FDE + attribution</strong>, working as one system.</>} /></h2>
-              <p className="gbsSub"><B zh="前三层把广告做出来；第四层让 AI 创意带动的投放看得见、算得清。" en="Three layers produce the ads; the fourth makes the media spend driven by AI creative visible and measurable." /></p>
+              <p className="gbsSub"><B zh="每一层对到客户的一个团队：平台 / 产品、创意、媒介。" en="Each layer maps to a team on the customer side — platform / product, creative, media." /></p>
             </header>
 
             <div className="gbsSystem">
@@ -300,10 +300,10 @@ export default function Home() {
                 <i className="gbsSysNum">01</i>
                 <b><B zh="模型家族 · API" en="Model family · API" /></b>
                 <ul>
-                  <li>Seedance · Seedream</li>
-                  <li>Seed Audio · Seed LLM</li>
-                  <li><B zh="品牌 + 效果广告都适配" en="Brand + performance ads" /></li>
+                  <li><strong>Seedance</strong> <B zh="— 首推视频模型" en="— lead video model" /></li>
+                  <li><B zh="Seedream 出关键视觉 · Seed LLM 写文案与提示词" en="Seedream for key visuals · Seed LLM for copy &amp; prompts" /></li>
                 </ul>
+                <span className="gbsSysFor"><B zh="对接 · 平台 / 产品团队" en="FOR · PLATFORM &amp; PRODUCT TEAM" /></span>
               </article>
               <i className="gbsSysArrow" aria-hidden="true">→</i>
               <article className="gbsSysBox">
@@ -314,16 +314,18 @@ export default function Home() {
                   <li>→ assets → launch</li>
                   <li><B zh="接进客户自己的平台" en="Wired into the customer’s platform" /></li>
                 </ul>
+                <span className="gbsSysFor"><B zh="对接 · 平台 / 产品团队" en="FOR · PLATFORM &amp; PRODUCT TEAM" /></span>
               </article>
               <i className="gbsSysArrow" aria-hidden="true">→</i>
               <article className="gbsSysBox">
                 <i className="gbsSysNum">03</i>
                 <b><B zh="FDE 服务" en="FDE service" /></b>
                 <ul>
-                  <li><B zh="提示词与一致性调优" en="Prompt &amp; consistency tuning" /></li>
-                  <li><B zh="品牌规范落地" en="Brand-kit adherence" /></li>
+                  <li className="isHot"><B zh="品牌 + 效果广告解决方案" en="Brand + performance ad solutions" /></li>
+                  <li><B zh="提示词与一致性调优 · 品牌规范落地" en="Prompt &amp; consistency tuning · brand-kit adherence" /></li>
                   <li><B zh="嵌入客户团队" en="Embedded in the team" /></li>
                 </ul>
+                <span className="gbsSysFor"><B zh="对接 · 创意团队" en="FOR · CREATIVE TEAM" /></span>
               </article>
               <i className="gbsSysArrow" aria-hidden="true">→</i>
               <div className="gbsSysEnd gbsSysOutput">
@@ -336,7 +338,7 @@ export default function Home() {
                 <i className="gbsSysNum isGbs">04</i>
                 <b><B zh="AIGC 归因 · 暗水印" en="AIGC ATTRIBUTION · INVISIBLE WATERMARK" /></b>
                 <p><B zh="投放侧看到有多少在跑的视频是 Seedance 生成 —— AI 创意带来的广告支出可以被计量，而不是估算。" en="Shows how much running video is Seedance-made — so ad spend driven by AI creative is measured, not guessed." /></p>
-                <span className="gbsSysLoopTag">MEASUREMENT</span>
+                <span className="gbsSysLoopTag"><B zh="对接 · 媒介团队" en="FOR · MEDIA TEAM" /></span>
               </div>
             </div>
 
@@ -345,7 +347,6 @@ export default function Home() {
               <ul>
                 <li className="isHot">Seedance 2.5</li>
                 <li>Seedream 5.0 Pro</li>
-                <li>Seed Audio</li>
                 <li>Seed LLM</li>
               </ul>
             </div>
