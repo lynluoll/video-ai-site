@@ -379,15 +379,6 @@ export default function Home() {
                 <span><B zh="按画幅" en="BY FORMAT" /></span>
                 <p><strong>~70%</strong> <B zh="竖屏 9:16 · TikTok / Reels" en="portrait 9:16 · TikTok / Reels" /></p>
                 <p><strong>~30%</strong> <B zh="横屏 16:9 · CTV / 品牌" en="landscape 16:9 · CTV / brand" /></p>
-                <hr />
-                <span><B zh="部分广告客户" en="SELECTED ADS CUSTOMERS" /></span>
-                <ul className="gbsKpiLogos" aria-label="Selected ads customers">
-                  <li><img src="/logos/customers/wpp.svg" alt="WPP" /></li>
-                  <li><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></li>
-                  <li><img src="/logos/customers/applovin.png" alt="AppLovin" /></li>
-                  <li><img src="/logos/customers/havas.svg" alt="Havas" /></li>
-                  <li><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></li>
-                </ul>
               </aside>
 
               <figure className="gbsChart" role="img" aria-label="Daily ad-video volume rising from early 2026 to 100k+ per day by August, with product milestones marked along the curve">
@@ -419,6 +410,11 @@ export default function Home() {
                   <span><B zh="代理商平台接入" en="Agency platforms" /></span>
                   <span><B zh="品牌规模化" en="Brand scale" /></span>
                 </div>
+                <ul className="gbsPhaseLogos" aria-label="Customers onboarded per phase">
+                  <li><img src="/logos/customers/applovin.png" alt="AppLovin" /><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></li>
+                  <li><img src="/logos/customers/wpp.svg" alt="WPP" /><img src="/logos/customers/havas.svg" alt="Havas" /></li>
+                  <li><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></li>
+                </ul>
               </figure>
             </div>
             <p className="gbsFoot"><B zh="数据：BytePlus 广告行业客户生成量；日均条数、画幅占比与里程碑日期待确认。" en="Data: BytePlus ads-industry customer volume; daily counts, format split and milestone dates to be confirmed." /></p>

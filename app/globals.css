@@ -7976,19 +7976,13 @@ body {
 .gbsKpi hr { margin: 18px 0 14px; border: 0; border-top: var(--bp-hairline) solid var(--bp-rule); }
 .gbsKpi p { margin: 6px 0 0; color: var(--bp-ink-2); font-size: var(--bp-t-body); }
 .gbsKpi p strong { color: var(--bp-ink); font-size: var(--bp-t-lede); font-weight: var(--bp-w-display); margin-right: 6px; }
-/* Customer logos: mono-ish, one row of two + a row of three, all sized to
-   a common cap height. */
-.gbsKpiLogos { margin: 10px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 16px; align-items: center; }
-.gbsKpiLogos li { display: flex; align-items: center; justify-content: center; height: 20px; }
-.gbsKpiLogos li:nth-child(5) { grid-column: 1 / -1; height: 18px; }
-.gbsKpiLogos img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; filter: grayscale(1); opacity: .85; }
 .gbsChart {
   position: relative;
   min-width: 0;
   min-height: 0;
   margin: 0;
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto auto;
+  grid-template-rows: minmax(0, 1fr) auto auto auto;
   gap: 10px;
   padding-top: 56px;   /* room for the topmost milestone callout */
 }
@@ -8024,6 +8018,13 @@ body {
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 12px 50%);
 }
 .gbsPhases span:first-child { clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%); }
+/* Customer logos on the timeline: one lane under the phase bar, each cell
+   holding the customers that came on in that phase. */
+.gbsPhaseLogos { margin: 2px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+.gbsPhaseLogos li { display: flex; align-items: center; justify-content: center; gap: 22px; height: 26px; }
+.gbsPhaseLogos img { max-height: 18px; max-width: 110px; width: auto; height: auto; display: block; filter: grayscale(1); opacity: .8; }
+.gbsPhaseLogos img[alt="WPP"] { max-height: 20px; }
+.gbsPhaseLogos img[alt="Tec-do"] { max-height: 14px; max-width: 130px; }
 .gbsFoot { margin: 0; color: var(--bp-ink-3); font-size: var(--bp-t-micro); }
 
 /* Client showcases: five logo tiles in one row, role + one-line proof under
