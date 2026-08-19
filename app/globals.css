@@ -7789,7 +7789,8 @@ body {
 .gbsCasePhases { min-height: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; list-style: none; }
 /* Pair: two portrait clips sit next to each other; the columns hug the
    media (auto width) instead of spreading across the whole row. */
-.gbsCasePhases.isPair { grid-template-columns: repeat(2, minmax(0, 260px)); justify-content: space-evenly; gap: 24px; padding-left: 40px; }
+.gbsCasePhases.isPair { grid-template-columns: repeat(2, minmax(0, 300px)); justify-content: end; gap: 40px; padding-top: 14px; }
+.gbsCasePhases.isPair .gbsCasePhase { grid-template-rows: auto auto minmax(0, 1fr); gap: 14px; }
 .gbsCasePhases.isPair .gbsCaseMedia.isPortrait { justify-self: start; }
 /* twoUp: phase texts stacked on the left, one media cluster on the right —
    two portrait clips over a landscape film, outer edges aligned. */
