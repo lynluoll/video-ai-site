@@ -84,7 +84,7 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.doesNotMatch(html, /Akia Mitchell|adtechCasePage|TikTok · Smart\+|id="customer-agency-hex-model"/);
 
   // GBS opening pages after the trend chart.
-  assert.match(html, /id="gbs-usage"[\s\S]*Growing[\s\S]*produced Ads[\s\S]*monthly/);
+  assert.match(html, /id="gbs-usage"[\s\S]*growing video ads production daily[\s\S]*100k\+, MoM \+100%/);
   assert.match(html, /id="gbs-offer"[\s\S]*AIGC ATTRIBUTION/);
 
   assert.equal((html.match(/class="langZh"/g) ?? []).length, (html.match(/class="langEn"/g) ?? []).length);

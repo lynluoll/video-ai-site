@@ -7966,6 +7966,7 @@ body {
 .gbsSub { margin: 14px 0 0; color: var(--bp-ink-2); font-size: var(--bp-t-lede); }
 
 /* P2 · KPI card left, growth curve with milestone callouts, phase bar */
+.gbsGrowthPage .gbsPageHead h2 { max-width: 44ch; font-size: clamp(28px, 2.4vw, 36px); }
 .gbsGrowthPage { grid-template-rows: auto minmax(0, 1fr) auto; gap: 22px; }
 .gbsGrowthBody {
   min-height: 0;

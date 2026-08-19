@@ -191,8 +191,7 @@ export default function Home() {
           <section className="gbsPage gbsGrowthPage" id="gbs-usage" aria-labelledby="gbs-usage-title">
             <header className="gbsPageHead">
               <span className="gbsKicker">PRODUCT MILESTONES · ADS WORKLOAD</span>
-              <h2 id="gbs-usage-title"><B zh={<>月度广告生成量<strong>持续增长</strong></>} en={<>Growing <strong>produced Ads</strong> monthly</>} /></h2>
-              <p className="gbsSub"><B zh="BytePlus 上的视频广告日产量持续攀升——已达 100k+ 条/天，月环比 +100%。" en="BytePlus sees video-ad production growing every day — now 100k+ a day, +100% month over month." /></p>
+              <h2 id="gbs-usage-title"><B zh={<>BytePlus 上的视频广告日产量持续增长，<strong>已达 100k+，月环比 +100%</strong></>} en={<>BytePlus sees a growing video ads production daily, <strong>reach 100k+, MoM +100%</strong></>} /></h2>
             </header>
 
             <div className="gbsGrowthBody">
