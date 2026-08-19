@@ -77,20 +77,45 @@ export default function GbsCase(p: GbsCaseProps) {
           ) : null}
         </aside>
 
-        <ol className={`gbsCasePhases${p.phaseLayout === "twoUp" ? " isTwoUp" : ""}${p.phases.length === 2 ? " isPair" : ""}`}>
-          {p.phases.map((ph, i) => (
-            <li key={i} className="gbsCasePhase">
-              <header>
-                <b>{ph.tag}</b>
-                <span>{ph.when}</span>
-              </header>
-              <p>{ph.copy}</p>
-              <figure className={`gbsCaseMedia is-${ph.media.kind}${ph.media.kind === "video" && ph.media.portrait ? " isPortrait" : ""}`}>
-                <Media m={ph.media} />
-              </figure>
-            </li>
-          ))}
-        </ol>
+        {p.phaseLayout === "twoUp" ? (
+          /* Text column + one media cluster (portrait pair over a landscape
+             film) so the visuals read as a single composed block. */
+          <div className="gbsCaseTwoUp">
+            <ol className="gbsCasePhases isText">
+              {p.phases.map((ph, i) => (
+                <li key={i} className="gbsCasePhase">
+                  <header>
+                    <b>{ph.tag}</b>
+                    <span>{ph.when}</span>
+                  </header>
+                  <p>{ph.copy}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="gbsCaseCluster">
+              {p.phases.map((ph, i) => (
+                <figure key={i} className={`gbsCaseMedia is-${ph.media.kind}`} aria-label={ph.tag}>
+                  <Media m={ph.media} />
+                </figure>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <ol className={`gbsCasePhases${p.phases.length === 2 ? " isPair" : ""}`}>
+            {p.phases.map((ph, i) => (
+              <li key={i} className="gbsCasePhase">
+                <header>
+                  <b>{ph.tag}</b>
+                  <span>{ph.when}</span>
+                </header>
+                <p>{ph.copy}</p>
+                <figure className={`gbsCaseMedia is-${ph.media.kind}${ph.media.kind === "video" && ph.media.portrait ? " isPortrait" : ""}`}>
+                  <Media m={ph.media} />
+                </figure>
+              </li>
+            ))}
+          </ol>
+        )}
       </div>
 
       {p.footnote ? <p className="gbsCaseFoot">{p.footnote}</p> : null}

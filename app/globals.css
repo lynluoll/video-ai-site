@@ -7791,18 +7791,17 @@ body {
    media (auto width) instead of spreading across the whole row. */
 .gbsCasePhases.isPair { grid-template-columns: repeat(2, minmax(0, 250px)); justify-content: start; gap: 24px; }
 .gbsCasePhases.isPair .gbsCaseMedia.isPortrait { justify-self: start; }
-/* twoUp: portrait pair on top, landscape film across the bottom. Every
-   phase becomes text-left / media-right so the clip takes the full row
-   height and keeps its own aspect ratio (no letterboxing). */
-.gbsCasePhases.isTwoUp { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(0, 1.5fr) minmax(0, 1fr); gap: 16px 22px; }
-.gbsCasePhases.isTwoUp .gbsCasePhase { grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto minmax(0, 1fr); column-gap: 18px; row-gap: 10px; }
-.gbsCasePhases.isTwoUp .gbsCasePhase header { grid-column: 1; }
-.gbsCasePhases.isTwoUp .gbsCasePhase p { grid-column: 1; min-height: 0; font-size: var(--bp-t-body); }
-.gbsCasePhases.isTwoUp .gbsCasePhase .gbsCaseMedia { grid-column: 2; grid-row: 1 / 3; align-self: stretch; width: auto; height: 100%; }
-.gbsCasePhases.isTwoUp .gbsCasePhase:nth-child(-n+2) .gbsCaseMedia { aspect-ratio: 9 / 16; }
-.gbsCasePhases.isTwoUp .gbsCasePhase:nth-child(-n+2) .gbsCaseMedia video { object-fit: cover; }
-.gbsCasePhases.isTwoUp .gbsCasePhase:nth-child(3) { grid-column: 1 / -1; grid-template-columns: 300px minmax(0, 1fr); }
-.gbsCasePhases.isTwoUp .gbsCasePhase:nth-child(3) .gbsCaseMedia { aspect-ratio: 16 / 9; justify-self: start; }
+/* twoUp: phase texts stacked on the left, one media cluster on the right —
+   two portrait clips over a landscape film, outer edges aligned. */
+.gbsCaseTwoUp { min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; align-items: stretch; }
+.gbsCasePhases.isText { grid-template-columns: minmax(0, 1fr); grid-template-rows: repeat(3, auto); align-content: space-between; gap: 22px; padding-bottom: 6px; }
+.gbsCasePhases.isText .gbsCasePhase { grid-template-rows: auto auto; gap: 8px; }
+.gbsCasePhases.isText .gbsCasePhase p { font-size: var(--bp-t-body); }
+.gbsCaseCluster { min-height: 0; height: 100%; display: grid; grid-template-columns: repeat(2, auto); grid-template-rows: minmax(0, 1.55fr) minmax(0, 1fr); gap: 12px; justify-content: end; }
+.gbsCaseCluster .gbsCaseMedia { height: 100%; width: auto; }
+.gbsCaseCluster .gbsCaseMedia:nth-child(-n+2) { aspect-ratio: 9 / 16; }
+.gbsCaseCluster .gbsCaseMedia:nth-child(-n+2) video { object-fit: cover; }
+.gbsCaseCluster .gbsCaseMedia:nth-child(3) { grid-column: 1 / -1; justify-self: center; aspect-ratio: 16 / 9; }
 .gbsCasePhase { min-width: 0; min-height: 0; display: grid; grid-template-rows: auto auto minmax(0, 1fr); gap: 12px; }
 .gbsCasePhase header { padding-bottom: 8px; display: flex; align-items: baseline; gap: 8px; border-bottom: 2px solid var(--bp-blue); }
 .gbsCasePhase header b { color: var(--bp-blue); font-size: var(--bp-t-sub); font-weight: var(--bp-w-display); letter-spacing: .04em; }
