@@ -8051,6 +8051,7 @@ body {
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 12px 50%);
 }
 .gbsPhases span:first-child { clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%); }
+.gbsPhases span.isBlank { background: none; border: 0; clip-path: none; }
 .gbsFoot { margin: 0; color: var(--bp-ink-3); font-size: var(--bp-t-micro); }
 
 /* Client showcases: five logo tiles in one row, role + one-line proof under

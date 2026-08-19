@@ -248,7 +248,7 @@ export default function Home() {
                 <div className="gbsMilestone gbsMilestoneLogo gbsMilestoneBelow" style={{ "--x": "89%", "--y": "28%" } as React.CSSProperties}><small>BRAND OWNER</small><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></div>
                 <div className="gbsAxis"><span>Jan 26</span><span>Apr 26</span><span>Jul 26</span><span>Aug 26</span></div>
                 <div className="gbsPhases">
-                  <span><B zh="API 打底" en="API foundation" /></span>
+                  <span className="isBlank" aria-hidden="true" />
                   <span><B zh="代理商平台接入" en="Agency platforms" /></span>
                   <span><B zh="品牌规模化" en="Brand scale" /></span>
                 </div>
