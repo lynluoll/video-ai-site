@@ -211,14 +211,17 @@ export default function Home() {
                       <stop offset="0" stopColor="#0066fc" stopOpacity=".18" />
                       <stop offset="1" stopColor="#0066fc" stopOpacity="0" />
                     </linearGradient>
+                    <marker id="gbsArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth">
+                      <path d="M0 0 L10 5 L0 10 Z" fill="#0066fc" />
+                    </marker>
                   </defs>
                   {/* Log scale: 10k = y340 · 100k = y199 · 1.6M = y30. Jan 1 = x0, 75px per month, Aug 19 = x570. */}
                   <path d="M0 340 C76 338 127 334 177 323 C228 311 266 300 317 280 C367 258 405 244 456 227 C500 213 532 205 570 199 L570 380 L0 380 Z" fill="url(#gbsFill)" />
                   <path d="M0 340 C76 338 127 334 177 323 C228 311 266 300 317 280 C367 258 405 244 456 227 C500 213 532 205 570 199" fill="none" stroke="#0066fc" strokeWidth="4" strokeLinecap="round" />
                   {/* Projection: doubling every month is a straight line on a log scale. */}
-                  <line x1="570" y1="199" x2="900" y2="30" stroke="#0066fc" strokeWidth="3" strokeDasharray="7 7" strokeLinecap="round" opacity=".85" />
+                  <path d="M570 199 C690 188 800 140 886 48" fill="none" stroke="#0066fc" strokeWidth="3" strokeDasharray="7 7" strokeLinecap="round" opacity=".85" markerEnd="url(#gbsArrow)" />
                   <g stroke="#b7bcc4" strokeDasharray="3 5" strokeWidth="1.5">
-                    <line x1="22" y1="339" x2="22" y2="118" />
+                    <line x1="567" y1="200" x2="567" y2="262" />
                     <line x1="105" y1="334" x2="105" y2="256" />
                     <line x1="188" y1="320" x2="188" y2="176" />
                     <line x1="262" y1="301" x2="262" y2="236" />
@@ -228,7 +231,7 @@ export default function Home() {
                     <line x1="559" y1="201" x2="559" y2="76" />
                   </g>
                   <g fill="#0066fc">
-                    <circle cx="22" cy="339" r="4" />
+                    <circle cx="567" cy="200" r="4" />
                     <circle cx="105" cy="334" r="4" />
                     <circle cx="188" cy="320" r="4" />
                     <circle cx="262" cy="301" r="4" />
@@ -239,11 +242,10 @@ export default function Home() {
                   </g>
                   <circle cx="0" cy="340" r="6" fill="#0066fc" />
                   <circle cx="570" cy="199" r="7" fill="#0066fc" />
-                  <circle cx="900" cy="30" r="7" fill="#fff" stroke="#0066fc" strokeWidth="3" />
                 </svg>
                 <span className="gbsChartStart">~10k</span>
                 <span className="gbsChartNow"><b>100k+</b> <B zh="今天" en="today" /></span>
-                <div className="gbsMilestone gbsMilestoneLogo gbsMilestoneStart" style={{ "--x": "2.4%", "--y": "27%" } as React.CSSProperties}><small>AGENCY · AI STUDIO</small><img src="/logos/customers/goodtake.png" alt="goodtake.ai" /></div>
+                <div className="gbsMilestone gbsMilestoneLogo gbsMilestoneStart" style={{ "--x": "64%", "--y": "63%" } as React.CSSProperties}><small>AGENCY · AI STUDIO</small><img src="/logos/customers/goodtake.png" alt="goodtake.ai" /></div>
                 <div className="gbsMilestone" style={{ "--x": "11.7%", "--y": "62%" } as React.CSSProperties}><small>26/02 · MODEL</small><b>Seedance 2.0</b></div>
                 <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "20.9%", "--y": "42%" } as React.CSSProperties}><small>ADTECH · GAMING</small><img src="/logos/customers/applovin.png" alt="AppLovin" /></div>
                 <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "29.1%", "--y": "57%" } as React.CSSProperties}><small>AGENCY · E-COMMERCE</small><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></div>
@@ -251,7 +253,7 @@ export default function Home() {
                 <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "52.4%", "--y": "60%" } as React.CSSProperties}><small>AGENCY NETWORK</small><img src="/logos/customers/havas.svg" alt="Havas" /></div>
                 <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "59.1%", "--y": "39%" } as React.CSSProperties}><small>BRAND OWNER</small><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></div>
                 <div className="gbsMilestone gbsMilestoneRight" style={{ "--x": "62.1%", "--y": "19.5%" } as React.CSSProperties}><small>14/08 · MODEL API</small><b>Seedance 2.5</b></div>
-                <div className="gbsMilestone gbsMilestoneProj" style={{ "--x": "100%", "--y": "3%" } as React.CSSProperties}><small><B zh="26/12 · 预测 · 维持 ×2 月环比" en="26/12 · PROJECTION · IF ×2 MoM HOLDS" /></small><b>~1.6M <span><B zh="条 / 天" en="videos / day" /></span></b></div>
+                <div className="gbsMilestone gbsMilestoneProj" style={{ "--x": "94%", "--y": "10%" } as React.CSSProperties}><small><B zh="26/12 · 预测 · 维持 ×2 月环比" en="26/12 · PROJECTION · IF ×2 MoM HOLDS" /></small><b>~1.6M <span><B zh="条 / 天" en="videos / day" /></span></b></div>
                 <div className="gbsAxis">{["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].map((m, i) => <span key={m} style={{ "--x": `${(i / 12) * 100}%` } as React.CSSProperties}>{m} 26</span>)}</div>
                 <div className="gbsPhases">
                   <span className="isBlank" aria-hidden="true" />
