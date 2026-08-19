@@ -27,9 +27,9 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(html, /<title>BytePlus Advertising Creative Production Solutions<\/title>/);
   assert.match(html, /id="language-mode" type="checkbox"[^>]*checked=""/);
   assert.match(html, /<main class="siteRoot" id="top">/);
-  assert.match(html, /视频广告正在成为第一大广告形式/);
+  assert.match(html, /<em>视频广告<\/em>正在成为<em>第一大<\/em>广告形式/);
   assert.match(html, /AI 生产走向规模化/);
-  assert.match(html, /Video ads are becoming the No\.1 ad format/);
+  assert.match(html, /<em>Video ads<\/em> are becoming the <em>No\.1<\/em> ad format/);
   assert.match(html, /AI production scales/);
   assert.doesNotMatch(html, /网页文字编辑器|编辑文字/);
 

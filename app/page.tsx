@@ -60,11 +60,11 @@ export default function Home() {
         <div className="coverRule coverRuleBottom" aria-hidden="true" />
         <div className="shell coverPageInner">
           <h1 className="langZh" id="cover-title">
-            <span>视频广告正在成为第一大广告形式，</span>
+            <span><em>视频广告</em>正在成为<em>第一大</em>广告形式，</span>
             <strong>AI 生产走向规模化。</strong>
           </h1>
           <h1 className="langEn">
-            <span>Video ads are becoming the No.1 ad format.</span>
+            <span><em>Video ads</em> are becoming the <em>No.1</em> ad format.</span>
             <strong>AI production scales.</strong>
           </h1>
         </div>

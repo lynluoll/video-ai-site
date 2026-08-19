@@ -4342,6 +4342,7 @@ button, summary { font: inherit; }
 .coverPage h1 { width: 100%; max-width: 1460px; margin: 0; font-size: clamp(76px, 9.3vw, 150px); line-height: .98; letter-spacing: -.078em; font-weight: 800; }
 .coverPage h1 span, .coverPage h1 strong { display: block; }
 .coverPage h1 span { color: #ffffff; }
+.coverPage h1 span em { color: var(--bp-blue); font-style: normal; }
 .coverPage h1 strong { margin-top: 0; color: var(--orange); font-weight: inherit; }
 .coverPage h1.langEn { font-size: clamp(67px, 8.2vw, 132px); line-height: .86; letter-spacing: -.065em; }
 
