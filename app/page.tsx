@@ -201,8 +201,8 @@ export default function Home() {
                 <em><B zh="条视频 / 天 · 月环比 ×2" en="videos / day · MoM ×2" /></em>
                 <hr />
                 <span><B zh="按画幅" en="BY FORMAT" /></span>
-                <p><strong>42.8%</strong> <B zh="竖屏 9:16 · TikTok / Reels" en="portrait 9:16 · TikTok / Reels" /></p>
-                <p><strong>39.0%</strong> <B zh="横屏 16:9 · YouTube / CTV" en="landscape 16:9 · YouTube / CTV" /></p>
+                <p><strong>42.6%</strong> <B zh="横屏 16:9 · YouTube / TVC" en="landscape 16:9 · YouTube / TVC" /></p>
+                <p><strong>23.0%</strong> <B zh="竖屏 9:16 · TikTok / Reels" en="portrait 9:16 · TikTok / Reels" /></p>
                 <hr />
                 <span><B zh="按分辨率" en="BY RESOLUTION" /></span>
                 <p className="gbsKpiRow"><span><strong>49.0%</strong>720p</span><span><strong>35.4%</strong>480p</span><span><strong>14.8%</strong>1080p</span></p>
@@ -269,11 +269,10 @@ export default function Home() {
             <div className="gbsTakeaways">
               <b><B zh="结论" en="TAKEAWAYS" /></b>
               <ul>
-                <li><B zh={<><strong>竖屏 9:16 占 42.8%</strong>领先，横屏 16:9（YouTube / CTV）以 39.0% 紧随——对照市场大盘，9:16 社交视频的增长空间更大。</>} en={<><strong>Portrait 9:16 leads at 42.8%</strong>, landscape 16:9 (YouTube / CTV) close behind at 39.0% — against the market mix, 9:16 social still has the larger headroom.</>} /></li>
-                <li><B zh={<><strong>720p 占 49.0%</strong>：产量由社交广告驱动；1080p（14.8%）是品牌 / CTV 的活。</>} en={<><strong>720p is 49.0%</strong> of output — volume is social-ad driven; 1080p (14.8%) is brand / CTV work.</>} /></li>
+                <li><B zh={<><strong>横屏 16:9（YouTube / TVC）占比最高 42.6%</strong>，社交竖屏 9:16 排第二 23.0%——但对照市场大盘，9:16 的增长空间更大。</>} en={<><strong>Landscape 16:9 (YouTube / TVC) is the largest format at 42.6%</strong>; social 9:16 is second at 23.0% — but against the market mix, 9:16 has the bigger headroom.</>} /></li>
+                <li><B zh={<><strong>720p 约占 50%</strong>，主要由社交广告的增长驱动；1080p（14.8%）是品牌 / TVC 的活。</>} en={<><strong>720p is ~50%</strong> of output — driven mainly by social-ad growth; 1080p (14.8%) is brand / TVC work.</>} /></li>
                 <li><B zh={<><strong>月环比翻倍</strong>：维持 ×2，到 12 月约 <strong>160 万条 / 天</strong>（预测）。</>} en={<><strong>Doubling month on month</strong>: holding ×2 puts us at <strong>~1.6M videos a day by December</strong> (projection).</>} /></li>
               </ul>
-              <small><B zh="数据：BytePlus 广告客户生成量，2026-08；里程碑日期待确认。" en="Source: BytePlus ads customers, Aug 2026 · milestone dates to be confirmed." /></small>
             </div>
           </section>
 
