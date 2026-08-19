@@ -383,11 +383,11 @@ export default function Home() {
               phases={[
                 {
                   tag: "HAWKER CENTRE", when: "Seedance 2.5 sample", copy: <B zh="新加坡小贩中心的一场戏：朋友们举杯喝可乐，桌上一包“Chope liao”纸巾。多人物、嘈杂背景、真实的肤质与布料——整段由 Seedance 2.5 生成，无需实拍。" en="A Singapore hawker-centre scene: friends toast with Coke over dinner, a “Chope liao” tissue pack on the table. Multiple characters, a busy background, real skin and fabric — generated end-to-end on Seedance 2.5, no shoot." />,
-                  media: { kind: "video", src: "/media/wpp/seedance25-case-09.mp4", ratio: "16x9", label: "Seedance 2.5 sample film — live-action-grade" }
+                  media: { kind: "video", src: "https://carey.tos-ap-southeast-1.bytepluses.com/video-ai-site/branch-solution-displays/media/wpp/seedance25-case-09.mp4", ratio: "16x9", label: "Seedance 2.5 sample film — live-action-grade" }
                 },
                 {
                   tag: "COCA-COLA", when: "Product macro · 2026 Q2–Q3", copy: <B zh="WPP × 可口可乐片子里的产品特写：瓶身上凝结的水珠、俯拍的瓶口拉近。Seedance 逐镜头保住产品外形、标签和高光——品牌团队肯签字的一致性。" en="Product macro from a WPP × Coca-Cola film: condensation beading on the glass, a top-down pull on the bottle mouth. Seedance holds the product’s shape, label and highlights shot to shot — the consistency brand teams sign off on." />,
-                  media: { kind: "video", src: "/media/wpp/cocacola-16x9.mp4", ratio: "16x9", label: "WPP × Coca-Cola AI-generated film" }
+                  media: { kind: "video", src: "https://carey.tos-ap-southeast-1.bytepluses.com/video-ai-site/branch-solution-displays/media/wpp/cocacola-16x9.mp4", ratio: "16x9", label: "WPP × Coca-Cola AI-generated film" }
                 },
               ]}
             />
