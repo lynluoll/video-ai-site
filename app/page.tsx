@@ -220,32 +220,32 @@ export default function Home() {
                   <path d="M0 340 C120 335 200 325 280 300 C360 275 420 250 500 205 C580 160 640 130 720 92 C790 60 840 42 900 30 L900 380 L0 380 Z" fill="url(#gbsFill)" />
                   <path d="M0 340 C120 335 200 325 280 300 C360 275 420 250 500 205 C580 160 640 130 720 92 C790 60 840 42 900 30" fill="none" stroke="#0066fc" strokeWidth="4" strokeLinecap="round" />
                   <g stroke="#b7bcc4" strokeDasharray="3 5" strokeWidth="1.5">
-                    <line x1="280" y1="300" x2="280" y2="150" />
-                    <line x1="560" y1="170" x2="560" y2="60" />
-                    <line x1="720" y1="92" x2="720" y2="8" />
-                    <line x1="415" y1="246" x2="415" y2="180" />
-                    <line x1="441" y1="232" x2="441" y2="262" />
-                    <line x1="600" y1="150" x2="600" y2="230" />
-                    <line x1="800" y1="52" x2="800" y2="130" />
+                    <line x1="162" y1="331" x2="162" y2="250" />
+                    <line x1="648" y1="120" x2="648" y2="40" />
+                    <line x1="882" y1="33" x2="882" y2="8" />
+                    <line x1="297" y1="295" x2="297" y2="210" />
+                    <line x1="414" y1="247" x2="414" y2="140" />
+                    <line x1="747" y1="80" x2="747" y2="170" />
+                    <line x1="837" y1="45" x2="837" y2="110" />
                   </g>
                   <g fill="#0066fc">
-                    <circle cx="415" cy="246" r="4" />
-                    <circle cx="441" cy="232" r="4" />
-                    <circle cx="600" cy="150" r="4" />
-                    <circle cx="800" cy="52" r="4" />
+                    <circle cx="297" cy="295" r="4" />
+                    <circle cx="414" cy="247" r="4" />
+                    <circle cx="747" cy="80" r="4" />
+                    <circle cx="837" cy="45" r="4" />
                   </g>
                   <circle cx="0" cy="340" r="6" fill="#0066fc" />
                   <circle cx="900" cy="30" r="7" fill="#0066fc" />
                 </svg>
                 <span className="gbsChartStart">~10k</span>
-                <div className="gbsMilestone" style={{ "--x": "31%", "--y": "34%" } as React.CSSProperties}><small>26/03 · MODEL</small><b>Seedance 2.0</b></div>
-                <div className="gbsMilestone" style={{ "--x": "62%", "--y": "8%" } as React.CSSProperties}><small>26/06 · PLATFORM</small><b>WPP Open · API live</b></div>
-                <div className="gbsMilestone gbsMilestoneTop" style={{ "--x": "80%", "--y": "-14%" } as React.CSSProperties}><small>14/08 · MODEL API</small><b>Seedance 2.5</b></div>
-                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "46%", "--y": "37%" } as React.CSSProperties}><small>ADTECH · GAMING</small><img src="/logos/customers/applovin.png" alt="AppLovin" /></div>
-                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "49%", "--y": "66%" } as React.CSSProperties}><small>AGENCY · E-COMMERCE</small><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></div>
-                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "67%", "--y": "57%" } as React.CSSProperties}><small>AGENCY NETWORK</small><img src="/logos/customers/havas.svg" alt="Havas" /></div>
-                <div className="gbsMilestone gbsMilestoneLogo gbsMilestoneBelow" style={{ "--x": "89%", "--y": "28%" } as React.CSSProperties}><small>BRAND OWNER</small><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></div>
-                <div className="gbsAxis"><span>Jan 26</span><span>Apr 26</span><span>Jul 26</span><span>Aug 26</span></div>
+                <div className="gbsMilestone" style={{ "--x": "18%", "--y": "63%" } as React.CSSProperties}><small>26/02 · MODEL</small><b>Seedance 2.0</b></div>
+                <div className="gbsMilestone" style={{ "--x": "72%", "--y": "2%" } as React.CSSProperties}><small>26/06 · PLATFORM</small><b>WPP Open · API live</b></div>
+                <div className="gbsMilestone gbsMilestoneTop" style={{ "--x": "98%", "--y": "-14%" } as React.CSSProperties}><small>14/08 · MODEL API</small><b>Seedance 2.5</b></div>
+                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "33%", "--y": "51%" } as React.CSSProperties}><small>ADTECH · GAMING</small><img src="/logos/customers/applovin.png" alt="AppLovin" /></div>
+                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "46%", "--y": "31%" } as React.CSSProperties}><small>AGENCY · E-COMMERCE</small><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></div>
+                <div className="gbsMilestone gbsMilestoneLogo" style={{ "--x": "83%", "--y": "40%" } as React.CSSProperties}><small>AGENCY NETWORK</small><img src="/logos/customers/havas.svg" alt="Havas" /></div>
+                <div className="gbsMilestone gbsMilestoneLogo gbsMilestoneBelow" style={{ "--x": "93%", "--y": "22%" } as React.CSSProperties}><small>BRAND OWNER</small><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></div>
+                <div className="gbsAxis">{["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"].map((m, i) => <span key={m} style={{ "--x": `${(i / 7.6) * 100}%` } as React.CSSProperties}>{m} 26</span>)}</div>
                 <div className="gbsPhases">
                   <span className="isBlank" aria-hidden="true" />
                   <span><B zh="代理商平台接入" en="Agency platforms" /></span>

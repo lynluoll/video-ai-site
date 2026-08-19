@@ -8041,8 +8041,11 @@ body {
 .gbsMilestoneLogo img[alt="WPP"] { height: 18px; }
 .gbsMilestoneLogo img[alt="Tec-do"] { height: 13px; max-width: 130px; }
 .gbsMilestoneBelow { transform: translate(-72%, 0); }
-.gbsAxis { display: flex; justify-content: space-between; color: var(--bp-ink-2); font-size: var(--bp-t-body); font-weight: var(--bp-w-medium); }
-.gbsPhases { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+.gbsAxis { position: relative; height: 18px; color: var(--bp-ink-2); font-size: var(--bp-t-body); font-weight: var(--bp-w-medium); }
+.gbsAxis span { position: absolute; left: var(--x); top: 0; transform: translateX(-50%); white-space: nowrap; }
+.gbsAxis span:first-child { transform: none; }
+/* Month-true timeline: Jan 1 → Aug 19 (7.6 months). Cells: Jan–Apr / Apr–Jul / Jul–Aug. */
+.gbsPhases { display: grid; grid-template-columns: 39.5fr 39.5fr 21fr; gap: 6px; }
 .gbsPhases span {
   padding: 8px 14px;
   color: var(--bp-ink-2);
