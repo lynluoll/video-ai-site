@@ -555,7 +555,7 @@ export default function Home() {
                 { value: "77.9%", label: <B zh="任务走 storyboard + R2V" en="of tasks storyboard + R2V" /> },
                 { value: "72.5%", label: <B zh="任务为 16:9 品牌片" en="of tasks landscape brand film" /> },
               ]}
-              headline={{ value: <>&ldquo;they love it&rdquo;</>, label: <B zh="WPP 制作团队对 Seedance 2.5 的原话" en="Production teams on Seedance 2.5, in their words" /> }}
+              headline={{ value: <span className="isQuote">&ldquo;they love it&rdquo;</span>, label: <B zh="WPP 制作团队对 Seedance 2.5 的原话" en="Production teams on Seedance 2.5, in their words" /> }}
               phaseLayout="rows"
               phases={[
                 { tag: "BRANDING", when: "Seedance 2.5", copy: <B zh="新加坡小贩中心的一场戏：朋友们举杯喝可乐，桌上一包“Chope liao”纸巾。多人物、嘈杂背景、真实的肤质与布料——整段由 Seedance 2.5 生成，无需实拍。" en="A Singapore hawker-centre scene: friends toast with Coke over dinner, a “Chope liao” tissue pack on the table. Multiple characters, a busy background, real skin and fabric — generated end-to-end on Seedance 2.5, no shoot." />,

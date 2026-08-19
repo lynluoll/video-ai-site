@@ -7785,6 +7785,7 @@ body {
 .gbsCaseKpis span { display: block; margin-top: 6px; color: var(--bp-ink-2); font-size: var(--bp-t-micro); line-height: 1.3; letter-spacing: .02em; }
 .gbsCaseHeadline { padding: 16px 18px; text-align: center; background: var(--bp-surface); border: var(--bp-hairline) solid var(--bp-rule-2); border-radius: var(--bp-radius-card); }
 .gbsCaseHeadline b { display: block; color: var(--bp-blue); font-size: var(--bp-t-h1); font-weight: var(--bp-w-display); line-height: 1; letter-spacing: var(--bp-track-tight); }
+.gbsCaseHeadline b .isQuote { font-size: var(--bp-t-section); }
 .gbsCaseHeadline span { display: block; margin-top: 8px; color: var(--bp-ink-2); font-size: var(--bp-t-label); font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-label); text-transform: uppercase; }
 .gbsCasePhases { min-height: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; list-style: none; }
 /* Pair: two phases keep the same column width as the three-up frame. */
