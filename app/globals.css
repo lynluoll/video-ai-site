@@ -7742,6 +7742,131 @@ body {
 }
 .marketFlowFigure { min-height: 610px; }
 
+/* ---- GBS pitch pages (P2 usage · P3 offering) --------------------------
+   Two 16:9 slides that sit between the trend chart and the campaign-agent
+   board. White editorial canvas, blue as the only accent, generous type. */
+.gbsPage {
+  box-sizing: border-box;
+  aspect-ratio: 16 / 9;
+  min-height: 620px;
+  max-height: 900px;
+  margin: 28px 0;
+  padding: 44px 48px 40px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 28px;
+  color: var(--bp-ink);
+  background: var(--bp-surface);
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.gbsPageHead { min-width: 0; }
+.gbsKicker {
+  display: block;
+  color: var(--bp-blue);
+  font-size: var(--bp-t-label);
+  font-weight: var(--bp-w-label);
+  letter-spacing: var(--bp-track-label);
+  text-transform: uppercase;
+}
+.gbsPageHead h2 {
+  max-width: 30ch;
+  margin: 12px 0 0;
+  color: var(--bp-ink);
+  font-size: clamp(30px, 2.8vw, 42px);
+  font-weight: var(--bp-w-display);
+  line-height: 1.12;
+  letter-spacing: var(--bp-track-tight);
+}
+.gbsPageHead h2 strong { color: var(--bp-blue); font-weight: inherit; }
+.gbsSub { margin: 14px 0 0; color: var(--bp-ink-2); font-size: var(--bp-t-lede); }
+
+/* P2 · three cards: monthly growth · format split · customers */
+.gbsUsageGrid {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 18px;
+}
+.gbsUsageCard {
+  min-width: 0;
+  min-height: 0;
+  padding: 22px 24px 18px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 16px;
+  background: var(--bp-blue-wash-2);
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-radius: var(--bp-radius-card);
+}
+.gbsCardKicker { color: var(--bp-ink-3); font-size: var(--bp-t-label); font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-label); }
+.gbsCardNote { margin: 0; color: var(--bp-ink-3); font-size: var(--bp-t-micro); }
+.gbsBars {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: end;
+  gap: 14px;
+  padding-top: 40px;
+}
+.gbsBar {
+  position: relative;
+  height: var(--h);
+  min-height: 12px;
+  background: #cfe0ff;
+  border-radius: 6px 6px 0 0;
+}
+.gbsBar.isNow { background: var(--bp-blue); }
+.gbsBar em { position: absolute; left: 0; right: 0; bottom: -22px; color: var(--bp-ink-2); font-size: var(--bp-t-micro); font-style: normal; text-align: center; }
+.gbsBar b { position: absolute; left: 0; right: 0; bottom: calc(100% + 6px); color: var(--bp-blue); font-size: var(--bp-t-card); font-weight: var(--bp-w-display); text-align: center; white-space: nowrap; }
+.gbsSplit { min-height: 0; display: grid; grid-template-rows: var(--w, 70%) minmax(0, 1fr); gap: 8px; }
+.gbsSplitPortrait, .gbsSplitLandscape { display: grid; align-content: center; padding: 16px 18px; border-radius: 8px; }
+.gbsSplitPortrait { color: #fff; background: var(--bp-blue); }
+.gbsSplitLandscape { color: var(--bp-ink); background: #dbe4f5; }
+.gbsSplit b { font-size: var(--bp-t-h2); font-weight: var(--bp-w-display); line-height: 1; letter-spacing: var(--bp-track-tight); }
+.gbsSplit span { margin-top: 6px; font-size: var(--bp-t-body); opacity: .85; }
+.gbsLogoRow { min-height: 0; margin: 0; padding: 0; display: grid; align-content: center; gap: 12px; list-style: none; }
+.gbsLogoRow li { display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 8px 14px; background: var(--bp-surface); border: var(--bp-hairline) solid var(--bp-rule); border-radius: 8px; }
+.gbsLogoRow img { height: 22px; width: auto; }
+.gbsLogoRow b { color: var(--bp-ink); font-size: var(--bp-t-lede); font-weight: var(--bp-w-label); }
+
+/* P3 · four layers */
+.gbsLayers { min-height: 0; margin: 0; padding: 0; display: grid; grid-template-rows: repeat(4, minmax(0, 1fr)); gap: 12px; list-style: none; }
+.gbsLayer {
+  min-height: 0;
+  padding: 0 28px;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 140px;
+  align-items: center;
+  gap: 24px;
+  background: var(--bp-blue-wash-2);
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-radius: var(--bp-radius-card);
+}
+.gbsLayer i {
+  display: grid; place-items: center;
+  width: 56px; height: 56px;
+  color: var(--bp-ink-2);
+  font-size: var(--bp-t-body-l); font-style: normal; font-weight: var(--bp-w-display);
+  background: #d6e0f2;
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+}
+.gbsLayer b { display: block; color: var(--bp-ink); font-size: var(--bp-t-card); font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-tight); line-height: 1.2; }
+.gbsLayer p { margin: 6px 0 0; color: var(--bp-ink-2); font-size: var(--bp-t-body-l); line-height: 1.4; }
+.gbsLayer > span { justify-self: end; padding: 8px 14px; color: var(--bp-blue); font-size: var(--bp-t-label); font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-label); background: var(--bp-surface); border: var(--bp-hairline) solid var(--bp-rule); border-radius: 999px; white-space: nowrap; }
+.gbsLayer.isGbs { background: #0f1633; border-color: #0f1633; }
+.gbsLayer.isGbs i { color: #fff; background: var(--bp-blue); }
+.gbsLayer.isGbs b { color: #fff; }
+.gbsLayer.isGbs p { color: rgba(255,255,255,.82); }
+.gbsLayer.isGbs > span { color: #fff; background: var(--bp-blue); border-color: var(--bp-blue); }
+@media (max-width: 1000px) {
+  .gbsPage { aspect-ratio: auto; max-height: none; padding: 28px 22px; }
+  .gbsUsageGrid { grid-template-columns: 1fr; }
+  .gbsLayer { grid-template-columns: 44px minmax(0, 1fr); padding: 16px; row-gap: 10px; }
+  .gbsLayer > span { grid-column: 2; justify-self: start; }
+}
+
 .marketTrendSection {
   min-width: 0;
   display: grid;

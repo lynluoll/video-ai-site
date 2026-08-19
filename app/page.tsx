@@ -441,6 +441,94 @@ export default function Home() {
             </figure>
           </div>
 
+          {/* ---- GBS pitch · P2 usage analysis -------------------------------
+              Numbers marked "待确认" are placeholders until 王文杰 pulls the
+              daily volume and portrait/landscape split. */}
+          <section className="gbsPage gbsUsagePage" id="gbs-usage" aria-labelledby="gbs-usage-title">
+            <header className="gbsPageHead">
+              <span className="gbsKicker">BYTEPLUS · ADS WORKLOAD</span>
+              <h2 id="gbs-usage-title"><B zh={<>广告客户日均生成 <strong>10 万+ 条</strong>视频，月环比翻倍。</>} en={<>Ad customers generate <strong>100k+ videos a day</strong>, doubling month over month.</>} /></h2>
+              <p className="gbsSub"><B zh="都来自代理商与品牌主 —— 与 GBS 的客户高度重叠。" en="All from agencies and brand owners — the same customers GBS sells into." /></p>
+            </header>
+
+            <div className="gbsUsageGrid">
+              <article className="gbsUsageCard gbsUsageGrowth">
+                <span className="gbsCardKicker"><B zh="日均生成量 · 月度" en="DAILY VOLUME · BY MONTH" /></span>
+                <div className="gbsBars" role="img" aria-label="Monthly daily-average video volume, doubling month over month">
+                  <div className="gbsBar" style={{ "--h": "18%" } as React.CSSProperties}><em>May</em></div>
+                  <div className="gbsBar" style={{ "--h": "30%" } as React.CSSProperties}><em>Jun</em></div>
+                  <div className="gbsBar" style={{ "--h": "52%" } as React.CSSProperties}><em>Jul</em></div>
+                  <div className="gbsBar isNow" style={{ "--h": "100%" } as React.CSSProperties}><b>100k+</b><em>Aug</em></div>
+                </div>
+                <p className="gbsCardNote"><B zh="MoM ×2 · 数字待王文杰确认" en="MoM ×2 · figures pending 王文杰" /></p>
+              </article>
+
+              <article className="gbsUsageCard gbsUsageFormat">
+                <span className="gbsCardKicker"><B zh="按画幅 · 竖屏 = social" en="BY FORMAT · PORTRAIT = SOCIAL" /></span>
+                <div className="gbsSplit" role="img" aria-label="Portrait vs landscape share">
+                  <div className="gbsSplitPortrait" style={{ "--w": "70%" } as React.CSSProperties}><b>~70%</b><span>9:16 · TikTok / Reels</span></div>
+                  <div className="gbsSplitLandscape"><b>~30%</b><span>16:9 · CTV / brand</span></div>
+                </div>
+                <p className="gbsCardNote"><B zh="竖屏占大头 · 占比待确认" en="Portrait dominates · split pending" /></p>
+              </article>
+
+              <article className="gbsUsageCard gbsUsageCustomers">
+                <span className="gbsCardKicker"><B zh="典型客户" en="TYPICAL CUSTOMERS" /></span>
+                <ul className="gbsLogoRow">
+                  <li><img src="/logos/wpp-halftone.svg" alt="WPP" /></li>
+                  <li><b>L&rsquo;Or&eacute;al</b></li>
+                  <li><b>Goodtake</b></li>
+                  <li><b>Tec-do</b></li>
+                  <li><img src="/logos/applovin-color.svg" alt="" aria-hidden="true" /><b>AppLovin</b></li>
+                </ul>
+                <p className="gbsCardNote"><B zh="代理商 · 品牌主 · 游戏" en="Agencies · brand owners · gaming" /></p>
+              </article>
+            </div>
+          </section>
+
+          {/* ---- GBS pitch · P3 what BytePlus brings ---------------------- */}
+          <section className="gbsPage gbsOfferPage" id="gbs-offer" aria-labelledby="gbs-offer-title">
+            <header className="gbsPageHead">
+              <span className="gbsKicker">WHAT BYTEPLUS BRINGS</span>
+              <h2 id="gbs-offer-title"><B zh={<>不只是模型 API：<strong>四层能力</strong>，一起把 AI 视频广告在 TikTok 上做大。</>} en={<>More than a model API: <strong>four layers</strong> to grow AI video ads on TikTok together.</>} /></h2>
+            </header>
+
+            <ol className="gbsLayers">
+              <li className="gbsLayer">
+                <i>01</i>
+                <div>
+                  <b><B zh="最好的模型家族 · API" en="Best-in-class model family · API" /></b>
+                  <p><B zh="Seedance · Seedream · Seed Audio · Seed —— 品牌广告与效果广告都能适配。" en="Seedance · Seedream · Seed Audio · Seed — fits both brand and performance ads." /></p>
+                </div>
+                <span><B zh="给客户" en="FOR CUSTOMERS" /></span>
+              </li>
+              <li className="gbsLayer">
+                <i>02</i>
+                <div>
+                  <b><B zh="Campaign agent 最佳实践 · 原型" en="Campaign-agent best practice · prototypes" /></b>
+                  <p><B zh="参照 WPP、AppLovin 已在跑的形态：brief → 人设 → 概念 → 素材 → 投放，一步步接进客户自己的平台。" en="Modelled on what WPP and AppLovin already run: brief → personas → concept → assets → launch, wired into the customer’s own platform." /></p>
+                </div>
+                <span><B zh="给客户" en="FOR CUSTOMERS" /></span>
+              </li>
+              <li className="gbsLayer">
+                <i>03</i>
+                <div>
+                  <b><B zh="FDE 服务" en="FDE service" /></b>
+                  <p><B zh="嵌入客户团队的前线工程师：提示词、一致性、品牌调优 —— 把模型能力变成可交付的广告。" en="Forward-deployed engineers inside the customer’s team: prompts, consistency, brand tuning — turning model capability into deliverable ads." /></p>
+                </div>
+                <span><B zh="给客户" en="FOR CUSTOMERS" /></span>
+              </li>
+              <li className="gbsLayer isGbs">
+                <i>04</i>
+                <div>
+                  <b><B zh="AIGC 视频归因 · 暗水印" en="AIGC video attribution · invisible watermark" /></b>
+                  <p><B zh="让 TikTok 看到投放视频里有多少是 Seedance 生成的 —— 直接对上 GBS “AI 内容带动 10% 广告支出” 的目标。" en="Lets TikTok see how much of the video running on the platform is Seedance-made — feeding GBS’s target of 10% of ad spend driven by AI content." /></p>
+                </div>
+                <span><B zh="给 GBS" en="FOR GBS" /></span>
+              </li>
+            </ol>
+          </section>
+
           <section className="marketTrendSection" aria-labelledby="market-trends-title">
             <header className="marketTrendSectionHeader">
               <div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div>
