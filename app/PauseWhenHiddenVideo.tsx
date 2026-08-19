@@ -80,6 +80,26 @@ export default function PauseWhenHiddenVideo({
     return () => document.removeEventListener("keydown", onKey);
   }, [staged, closeStage]);
 
+  // Unmute and play the staged film as soon as it mounts. Opened from a real
+  // user gesture (a click), so audio is allowed. Doing it here instead of in
+  // onLoadedMetadata is more reliable when the media is already cached and the
+  // metadata event may not fire again.
+  useEffect(() => {
+    if (!staged) return;
+    const stage = stageRef.current;
+    if (!stage) return;
+    const start = () => {
+      const source = videoRef.current;
+      if (source && Number.isFinite(source.currentTime)) stage.currentTime = source.currentTime;
+      stage.muted = false;
+      stage.volume = 1;
+      void stage.play().catch(() => undefined);
+    };
+    if (stage.readyState >= 1) start();
+    else stage.addEventListener("loadedmetadata", start, { once: true });
+    return () => stage.removeEventListener("loadedmetadata", start);
+  }, [staged]);
+
   return (
     <>
       <video
@@ -116,13 +136,6 @@ export default function PauseWhenHiddenVideo({
               controls
               preload="auto"
               aria-label={ariaLabel}
-              onLoadedMetadata={(e) => {
-                const source = videoRef.current;
-                if (source && Number.isFinite(source.currentTime)) e.currentTarget.currentTime = source.currentTime;
-                // Opened by a real user gesture, so the film may play with sound.
-                e.currentTarget.muted = false;
-                void e.currentTarget.play().catch(() => undefined);
-              }}
               onClick={(e) => e.stopPropagation()}
             />
             <button type="button" className="videoHoverStageClose" onClick={closeStage} aria-label="Close">
