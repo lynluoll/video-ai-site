@@ -558,11 +558,11 @@ export default function Home() {
               headline={{ value: <>&ldquo;they love it&rdquo;</>, label: <B zh="WPP 制作团队对 Seedance 2.5 的原话" en="Production teams on Seedance 2.5, in their words" /> }}
               phases={[
                 { tag: "CRAWL", when: "2026 Q1", copy: <B zh="Seedance 成为 WPP Open 里可选的视频模型；创意团队用它做 pre-vis 拿签字与预算。" en="Seedance wired into WPP Open as a model option; creative teams use it for pre-vis to win sign-off and budget." />,
-                  media: { kind: "video", src: "/media/wpp/seedance25-case-09.mp4", label: "Seedance 2.5 sample film — live-action-grade", aspect: "wide" } },
+                  media: { kind: "video", src: "/media/wpp/seedance25-case-09.mp4", label: "Seedance 2.5 sample film — live-action-grade" } },
                 { tag: "WALK", when: "2026 Q2–Q3", copy: <B zh="制作团队在 6+ 市场跑真活：可口可乐等大品牌的横竖版广告片。" en="Production teams in 6+ markets on live work — landscape and portrait films for brands like Coca-Cola." />,
-                  media: { kind: "video", src: "/media/wpp/cocacola-16x9.mp4", label: "WPP × Coca-Cola AI-generated film", aspect: "wide" } },
+                  media: { kind: "video", src: "/media/wpp/cocacola-16x9.mp4", label: "WPP × Coca-Cola AI-generated film" } },
                 { tag: "RUN", when: "2026 H2", copy: <B zh="WPP HEX：共建 FDE 人才梯队，嵌入客户团队，把能力留在 WPP 手里。" en="WPP HEX: co-built FDE cohort embedded in client teams — the capability stays with WPP." />,
-                  media: { kind: "video", src: "/media/wpp/seedance25-case-19.mp4", label: "Seedance 2.5 sample — retail promo", aspect: "square" } },
+                  media: { kind: "video", src: "/media/wpp/seedance25-case-19.mp4", label: "Seedance 2.5 sample — retail promo" } },
               ]}
               footnote={<B zh="用量数据来自 BytePlus 侧 4,000 个任务统计；闭门材料。" en="Usage figures from BytePlus-side stats over 4,000 tasks; closed-door material." />}
             />
@@ -608,7 +608,6 @@ export default function Home() {
                 { value: "1.23%", label: <B zh="ER（其他 0.50%）" en="ER (others 0.50%)" /> },
               ]}
               headline={{ value: <>&uarr;410%</>, label: <B zh="6s VTR · McDonaldland Q4’25" en="6s VTR · McDonaldland Q4’25" /> }}
-              phaseLayout="twoUp"
               phases={[
                 { tag: "CRAWL", when: "2025 Q4", copy: <B zh="McDonaldland：第一支 3D CGI 社交视频，四项指标全胜。" en="McDonaldland: first 3D CGI social spot; wins on all four metrics." />,
                   media: { kind: "video", src: "/media/goodtake/mcdonaldland.mp4", label: "Goodtake × McDonaldland" } },
@@ -636,9 +635,9 @@ export default function Home() {
               ]}
               phases={[
                 { tag: "SEPHORA", when: "Beauty", copy: <B zh="Rare Beauty × Sephora 西语市场投放素材，商品图生视频。" en="Rare Beauty × Sephora, Spanish-market ad — product image to video." />,
-                  media: { kind: "video", src: "/media/tecdo/sample-1.mp4", label: "Tec-do sample ad — Rare Beauty × Sephora", portrait: true } },
+                  media: { kind: "video", src: "/media/tecdo/sample-1.mp4", label: "Tec-do sample ad — Rare Beauty × Sephora" } },
                 { tag: "FRESH", when: "Beauty", copy: <B zh="Fresh 玫瑰面霜：同一流程跑不同品牌与语言。" en="Fresh Rose face cream — same pipeline, another brand and language." />,
-                  media: { kind: "video", src: "/media/tecdo/sample-2.mp4", label: "Tec-do sample ad — Fresh Rose face cream", portrait: true } },
+                  media: { kind: "video", src: "/media/tecdo/sample-2.mp4", label: "Tec-do sample ad — Fresh Rose face cream" } },
               ]}
               footnote={<B zh="效果数据来自钛动提供的材料。" en="Uplift figures from Tec-do’s own materials." />}
             />
@@ -660,11 +659,11 @@ export default function Home() {
               headline={{ value: "80%", label: <B zh="网页转化在 24h 内完成" en="web conversions within 24h" /> }}
               phases={[
                 { tag: "PARADISE PAWS", when: "Gaming", copy: <B zh="可玩广告：直接在广告里试玩，再进安装。" en="Playable: try the game inside the ad, then install." />,
-                  media: { kind: "video", src: "/media/applovin/sample-02.mp4", label: "AppLovin playable ad — Paradise Paws", portrait: true } },
+                  media: { kind: "video", src: "/media/applovin/sample-02.mp4", label: "AppLovin playable ad — Paradise Paws" } },
                 { tag: "ILIA", when: "Beauty", copy: <B zh="互动电商广告：产品特写 + 促销，一键 Shop Now。" en="Interactive commerce: product close-up + offer, one-tap Shop Now." />,
-                  media: { kind: "video", src: "/media/applovin/beauty-011.mp4", label: "AppLovin interactive ad — ILIA mascara", portrait: true } },
+                  media: { kind: "video", src: "/media/applovin/beauty-011.mp4", label: "AppLovin interactive ad — ILIA mascara" } },
                 { tag: "TYMO", when: "Electronics", copy: <B zh="多 SKU 陈列式互动广告：一支覆盖整条产品线。" en="Multi-SKU showcase: one interactive unit covers the whole line." />,
-                  media: { kind: "video", src: "/media/applovin/electronics-008.mp4", label: "AppLovin interactive ad — TYMO hair tools", portrait: true } },
+                  media: { kind: "video", src: "/media/applovin/electronics-008.mp4", label: "AppLovin interactive ad — TYMO hair tools" } },
               ]}
               footnote={<B zh="平台数据来自 applovin.com（consumer-brands / gaming-apps 页，2026-08 读取）；60K+ 为 BytePlus 侧创意生成量。AppLovin 未公开单案例效果数字。" en="Platform figures from applovin.com (consumer-brands / gaming-apps pages, read Aug 2026); 60K+ is BytePlus-side creative volume. AppLovin has not disclosed per-campaign uplift." />}
             />

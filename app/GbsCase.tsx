@@ -9,7 +9,7 @@ import PauseWhenHiddenVideo from "./PauseWhenHiddenVideo";
 
 export type GbsMedia =
   | { kind: "image"; src: string; alt: string; fit?: "cover" | "contain" }
-  | { kind: "video"; src: string; poster?: string; label: string; portrait?: boolean; aspect?: "wide" | "square" }
+  | { kind: "video"; src: string; poster?: string; label: string }
   | { kind: "placeholder"; note: ReactNode };
 
 export type GbsPhase = { tag: string; when: string; copy: ReactNode; media: GbsMedia };
@@ -26,10 +26,6 @@ export type GbsCaseProps = {
   kpis: GbsKpi[];
   headline?: { value: ReactNode; label: ReactNode };
   phases: [GbsPhase, GbsPhase] | [GbsPhase, GbsPhase, GbsPhase];
-  /* "row" (default): three equal columns. "twoUp": phases 1–2 side by side,
-     phase 3 full-width underneath — for a pair of portrait clips over one
-     landscape film. */
-  phaseLayout?: "row" | "twoUp";
   footnote?: ReactNode;
 };
 
@@ -77,45 +73,20 @@ export default function GbsCase(p: GbsCaseProps) {
           ) : null}
         </aside>
 
-        {p.phaseLayout === "twoUp" ? (
-          /* Text column + one media cluster (portrait pair over a landscape
-             film) so the visuals read as a single composed block. */
-          <div className="gbsCaseTwoUp">
-            <ol className="gbsCasePhases isText">
-              {p.phases.map((ph, i) => (
-                <li key={i} className="gbsCasePhase">
-                  <header>
-                    <b>{ph.tag}</b>
-                    <span>{ph.when}</span>
-                  </header>
-                  <p>{ph.copy}</p>
-                </li>
-              ))}
-            </ol>
-            <div className="gbsCaseCluster">
-              {p.phases.map((ph, i) => (
-                <figure key={i} className={`gbsCaseMedia is-${ph.media.kind}`} aria-label={ph.tag}>
-                  <Media m={ph.media} />
-                </figure>
-              ))}
-            </div>
-          </div>
-        ) : (
-          <ol className={`gbsCasePhases${p.phases.length === 2 ? " isPair" : ""}`}>
-            {p.phases.map((ph, i) => (
-              <li key={i} className="gbsCasePhase">
-                <header>
-                  <b>{ph.tag}</b>
-                  <span>{ph.when}</span>
-                </header>
-                <p>{ph.copy}</p>
-                <figure className={`gbsCaseMedia is-${ph.media.kind}${ph.media.kind === "video" && ph.media.portrait ? " isPortrait" : ""}${ph.media.kind === "video" && ph.media.aspect === "wide" ? " isWide" : ""}${ph.media.kind === "video" && ph.media.aspect === "square" ? " isSquare" : ""}`}>
-                  <Media m={ph.media} />
-                </figure>
-              </li>
-            ))}
-          </ol>
-        )}
+        <ol className={`gbsCasePhases${p.phases.length === 2 ? " isPair" : ""}`}>
+          {p.phases.map((ph, i) => (
+            <li key={i} className="gbsCasePhase">
+              <header>
+                <b>{ph.tag}</b>
+                <span>{ph.when}</span>
+              </header>
+              <p>{ph.copy}</p>
+              <figure className={`gbsCaseMedia is-${ph.media.kind}`}>
+                <Media m={ph.media} />
+              </figure>
+            </li>
+          ))}
+        </ol>
       </div>
 
       {p.footnote ? <p className="gbsCaseFoot">{p.footnote}</p> : null}
