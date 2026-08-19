@@ -7789,7 +7789,11 @@ body {
 .gbsCaseHeadline span { display: block; margin-top: 8px; color: var(--bp-ink-2); font-size: var(--bp-t-label); font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-label); text-transform: uppercase; }
 .gbsCasePhases { min-height: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; list-style: none; }
 /* Pair: two phases keep the same column width as the three-up frame. */
-.gbsCasePhases.isPair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.gbsCase.isWideLeft .gbsCaseBody { grid-template-columns: 420px minmax(0, 1fr); gap: 40px; }
+.gbsCase.isWideLeft .gbsCaseKpis b { font-size: var(--bp-t-h1); }
+.gbsCase.isWideLeft .gbsCaseKpis span { font-size: var(--bp-t-body); }
+.gbsCase.isWideLeft .gbsCaseNotes { font-size: var(--bp-t-body-l); }
+.gbsCasePhases.isPair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .gbsCasePhases.isPair .gbsCasePhase p { max-width: 34em; }
 /* Rows: two landscape films stacked, text to the left of each, media
    height-led so both fill their row and share one right edge. */

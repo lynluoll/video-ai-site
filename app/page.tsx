@@ -624,6 +624,7 @@ export default function Home() {
 
             <GbsCase
               id="case-tecdo"
+              leftWidth="wide"
               index="CASE 4"
               kicker={<B zh="代理商 · 电商效果" en="AGENCY · E-COMMERCE PERFORMANCE" />}
               title="BytePlus × Tec-do"

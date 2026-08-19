@@ -32,6 +32,8 @@ export type GbsCaseProps = {
   /* "rows": phases stack vertically, text left / media right — for a
      couple of landscape films that deserve width. */
   phaseLayout?: "rows";
+  /* Wider left column (objective + KPIs) for cases with fewer phases. */
+  leftWidth?: "wide";
   phases: [GbsPhase, GbsPhase] | [GbsPhase, GbsPhase, GbsPhase];
   footnote?: ReactNode;
 };
@@ -64,7 +66,7 @@ function Media({ m }: { m: GbsMedia }) {
 
 export default function GbsCase(p: GbsCaseProps) {
   return (
-    <article className="gbsCase" id={p.id} aria-labelledby={`${p.id}-title`}>
+    <article className={`gbsCase${p.leftWidth === "wide" ? " isWideLeft" : ""}`} id={p.id} aria-labelledby={`${p.id}-title`}>
       <header className="gbsCaseHead">
         <span className="gbsCaseKicker">{p.kicker}</span>
         <h3 id={`${p.id}-title`}>
