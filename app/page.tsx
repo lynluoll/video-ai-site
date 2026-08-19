@@ -558,9 +558,9 @@ export default function Home() {
               headline={{ value: <>&ldquo;they love it&rdquo;</>, label: <B zh="WPP 制作团队对 Seedance 2.5 的原话" en="Production teams on Seedance 2.5, in their words" /> }}
               phaseLayout="rows"
               phases={[
-                { tag: "BRANDING", when: "Seedance 2.5", copy: <B zh="Seedance 成为 WPP Open 里可选的视频模型；创意团队用它做 pre-vis 拿签字与预算。" en="Seedance wired into WPP Open as a model option; creative teams use it for pre-vis to win sign-off and budget." />,
+                { tag: "BRANDING", when: "Seedance 2.5", copy: <B zh="新加坡小贩中心的一场戏：朋友们举杯喝可乐，桌上一包“Chope liao”纸巾。多人物、嘈杂背景、真实的肤质与布料——整段由 Seedance 2.5 生成，无需实拍。" en="A Singapore hawker-centre scene: friends toast with Coke over dinner, a “Chope liao” tissue pack on the table. Multiple characters, a busy background, real skin and fabric — generated end-to-end on Seedance 2.5, no shoot." />,
                   media: { kind: "video", src: "/media/wpp/seedance25-case-09.mp4", ratio: "16x9", label: "Seedance 2.5 sample film — live-action-grade" } },
-                { tag: "COCA-COLA BRANDING", when: "2026 Q2–Q3", copy: <B zh="制作团队在 6+ 市场跑真活：可口可乐等大品牌的横竖版广告片。" en="Production teams in 6+ markets on live work — landscape and portrait films for brands like Coca-Cola." />,
+                { tag: "COCA-COLA BRANDING", when: "2026 Q2–Q3", copy: <B zh="WPP × 可口可乐片子里的产品特写：瓶身上凝结的水珠、俯拍的瓶口拉近。Seedance 逐镜头保住产品外形、标签和高光——品牌团队肯签字的一致性。" en="Product macro from a WPP × Coca-Cola film: condensation beading on the glass, a top-down pull on the bottle mouth. Seedance holds the product’s shape, label and highlights shot to shot — the consistency brand teams sign off on." />,
                   media: { kind: "video", src: "/media/wpp/cocacola-16x9.mp4", ratio: "16x9", label: "WPP × Coca-Cola AI-generated film" } },
               ]}
               footnote={<B zh="用量数据来自 BytePlus 侧 4,000 个任务统计；闭门材料。" en="Usage figures from BytePlus-side stats over 4,000 tasks; closed-door material." />}
