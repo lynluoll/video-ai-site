@@ -29,6 +29,9 @@ export type GbsCaseProps = {
      line ends level with the media wells (used when a case has only two
      phases and the left column would otherwise stop short). */
   notes?: ReactNode[];
+  /* "rows": phases stack vertically, text left / media right — for a
+     couple of landscape films that deserve width. */
+  phaseLayout?: "rows";
   phases: [GbsPhase, GbsPhase] | [GbsPhase, GbsPhase, GbsPhase];
   footnote?: ReactNode;
 };
@@ -98,7 +101,7 @@ export default function GbsCase(p: GbsCaseProps) {
           ) : null}
         </aside>
 
-        <ol className={`gbsCasePhases${p.phases.length === 2 ? " isPair" : ""}`}>
+        <ol className={`gbsCasePhases${p.phaseLayout === "rows" ? " isRows" : p.phases.length === 2 ? " isPair" : ""}`}>
           {p.phases.map((ph, i) => (
             <li key={i} className="gbsCasePhase">
               <header>

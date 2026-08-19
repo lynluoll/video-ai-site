@@ -556,21 +556,12 @@ export default function Home() {
                 { value: "72.5%", label: <B zh="任务为 16:9 品牌片" en="of tasks landscape brand film" /> },
               ]}
               headline={{ value: <>&ldquo;they love it&rdquo;</>, label: <B zh="WPP 制作团队对 Seedance 2.5 的原话" en="Production teams on Seedance 2.5, in their words" /> }}
+              phaseLayout="rows"
               phases={[
-                { tag: "CRAWL", when: "2026 Q1", copy: <B zh="Seedance 成为 WPP Open 里可选的视频模型；创意团队用它做 pre-vis 拿签字与预算。" en="Seedance wired into WPP Open as a model option; creative teams use it for pre-vis to win sign-off and budget." />,
-                  media: { kind: "video", src: "/media/wpp/seedance25-case-09.mp4", ratio: "16x9", label: "Seedance 2.5 sample film — live-action-grade",
-                    stills: [
-                      { src: "/media/wpp/case-09-still-01.jpg", alt: "Hawker-centre scene from the Seedance 2.5 sample film" },
-                      { src: "/media/wpp/case-09-still-02.jpg", alt: "Friends toasting — Seedance 2.5 sample film" },
-                    ] } },
-                { tag: "WALK", when: "2026 Q2–Q3", copy: <B zh="制作团队在 6+ 市场跑真活：可口可乐等大品牌的横竖版广告片。" en="Production teams in 6+ markets on live work — landscape and portrait films for brands like Coca-Cola." />,
-                  media: { kind: "video", src: "/media/wpp/cocacola-16x9.mp4", ratio: "16x9", label: "WPP × Coca-Cola AI-generated film",
-                    stills: [
-                      { src: "/media/wpp/cocacola-still-01.jpg", alt: "Condensation macro on the bottle — WPP × Coca-Cola" },
-                      { src: "/media/wpp/cocacola-still-02.jpg", alt: "Bottle mouth top-down — WPP × Coca-Cola" },
-                    ] } },
-                { tag: "RUN", when: "2026 H2", copy: <B zh="WPP HEX：共建 FDE 人才梯队，嵌入客户团队，把能力留在 WPP 手里。" en="WPP HEX: co-built FDE cohort embedded in client teams — the capability stays with WPP." />,
-                  media: { kind: "video", src: "/media/wpp/seedance25-case-19.mp4", ratio: "1x1", label: "Seedance 2.5 sample — retail promo" } },
+                { tag: "BRANDING", when: "Seedance 2.5", copy: <B zh="Seedance 成为 WPP Open 里可选的视频模型；创意团队用它做 pre-vis 拿签字与预算。" en="Seedance wired into WPP Open as a model option; creative teams use it for pre-vis to win sign-off and budget." />,
+                  media: { kind: "video", src: "/media/wpp/seedance25-case-09.mp4", ratio: "16x9", label: "Seedance 2.5 sample film — live-action-grade" } },
+                { tag: "COCA-COLA BRANDING", when: "2026 Q2–Q3", copy: <B zh="制作团队在 6+ 市场跑真活：可口可乐等大品牌的横竖版广告片。" en="Production teams in 6+ markets on live work — landscape and portrait films for brands like Coca-Cola." />,
+                  media: { kind: "video", src: "/media/wpp/cocacola-16x9.mp4", ratio: "16x9", label: "WPP × Coca-Cola AI-generated film" } },
               ]}
               footnote={<B zh="用量数据来自 BytePlus 侧 4,000 个任务统计；闭门材料。" en="Usage figures from BytePlus-side stats over 4,000 tasks; closed-door material." />}
             />

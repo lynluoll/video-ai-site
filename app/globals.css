@@ -7790,6 +7790,14 @@ body {
 /* Pair: two phases keep the same column width as the three-up frame. */
 .gbsCasePhases.isPair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
 .gbsCasePhases.isPair .gbsCasePhase p { max-width: 34em; }
+/* Rows: two landscape films stacked, text to the left of each, media
+   height-led so both fill their row and share one right edge. */
+.gbsCasePhases.isRows { grid-template-columns: minmax(0, 1fr); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.gbsCasePhases.isRows .gbsCasePhase { grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto minmax(0, 1fr); column-gap: 24px; row-gap: 10px; }
+.gbsCasePhases.isRows .gbsCasePhase header { grid-column: 1; }
+.gbsCasePhases.isRows .gbsCasePhase p { grid-column: 1; min-height: 0; max-width: 30em; }
+.gbsCasePhases.isRows .gbsCaseMedia { grid-column: 2; grid-row: 1 / 3; align-self: stretch; }
+.gbsCasePhases.isRows .gbsCaseMedia.is-video video { width: auto; height: 100%; max-width: none; max-height: 100%; aspect-ratio: 16 / 9; }
 /* Notes list pinned to the bottom of the left column. */
 .gbsCaseLeft.hasNotes { grid-template-rows: auto auto minmax(0, 1fr); align-content: stretch; }
 .gbsCaseNotes { margin: 0; padding: 0 0 0 18px; align-self: end; color: var(--bp-ink-2); font-size: var(--bp-t-body); line-height: 1.45; }
