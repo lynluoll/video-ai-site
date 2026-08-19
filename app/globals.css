@@ -7796,7 +7796,28 @@ body {
 .gbsCasePhase p { margin: 0; min-height: 3.6em; color: var(--bp-ink-2); font-size: var(--bp-t-body-l); line-height: 1.45; }
 .gbsCaseMedia { min-height: 0; margin: 0; overflow: hidden; background: var(--bp-surface-2); border: var(--bp-hairline) solid var(--bp-rule); border-radius: var(--bp-radius-card); }
 .gbsCaseMedia img, .gbsCaseMedia video { width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; }
-.gbsCaseMedia.is-video video { background: var(--bp-ink); object-fit: contain; }
+/* No letterbox. The frame is sized from the clip's own ratio (--v-ar, published
+   on loadedmetadata), so the picture reaches every edge of its border and the
+   leftover column space stays page surface rather than a black slab. */
+.gbsCaseMedia.is-video:not(.is-stack) {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  overflow: visible;
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+.gbsCaseMedia.is-video:not(.is-stack) video {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  aspect-ratio: var(--v-ar, 9 / 16);
+  object-fit: cover;
+  background: none;
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-radius: var(--bp-radius-card);
+}
 /* Landscape asset in a portrait-height stage. One 16:9 strip alone leaves two
    thirds of the column as black void; the film plus two key frames from it
    stack into the same footprint the portrait clips beside it occupy. */
@@ -7953,11 +7974,11 @@ body {
    each. Logos sit in a fixed-height well so wordmarks of very different
    proportions read at the same visual weight. */
 .gbsClientsPage { grid-template-rows: auto minmax(0, 1fr) auto; gap: 28px; }
-.gbsClients { min-height: 0; margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; align-content: center; }
+.gbsClients { min-height: 0; margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; align-content: center; }
 .gbsClients li { min-width: 0; padding: 26px 22px 24px; display: grid; grid-template-rows: auto auto auto; gap: 10px; text-align: center; background: var(--bp-surface); border: var(--bp-hairline) solid var(--bp-rule-2); border-top: var(--bp-accent-bar) solid var(--bp-blue); border-radius: var(--bp-radius-card); }
 .gbsClients figure { margin: 0 0 8px; height: 88px; display: grid; place-items: center; }
 .gbsClients img { max-width: 78%; max-height: 44px; width: auto; height: auto; display: block; }
-.gbsClients li:nth-child(5) img { max-width: 92%; }
+.gbsClients li:nth-child(4) img { max-width: 92%; }
 .gbsClients b { color: var(--bp-ink); font-size: var(--bp-t-body-l); font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-tight); }
 .gbsClients span { color: var(--bp-ink-2); font-size: var(--bp-t-body); line-height: 1.4; }
 

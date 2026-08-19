@@ -501,8 +501,7 @@ export default function Home() {
           <section className="gbsPage gbsClientsPage" id="client-showcases" aria-labelledby="client-showcases-title">
             <header className="gbsPageHead">
               <span className="gbsKicker">CLIENT SHOWCASES</span>
-              <h2 id="client-showcases-title"><B zh={<>已经在用 BytePlus 做广告创意的<strong>客户</strong>。</>} en={<>Who is already producing ads with <strong>BytePlus</strong>.</>} /></h2>
-              <p className="gbsSub"><B zh="代理商网络、品牌主、AdTech 与效果代理——每一家都有下一章的案例。" en="Agency networks, a brand owner, AdTech and a performance agency — each with a case in the next chapter." /></p>
+              <h2 id="client-showcases-title"><B zh={<><strong>Case study</strong></>} en={<><strong>Case study</strong></>} /></h2>
             </header>
 
             <ul className="gbsClients">
@@ -515,11 +514,6 @@ export default function Home() {
                 <figure><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></figure>
                 <b><B zh="全球品牌主" en="Global brand owner" /></b>
                 <span><B zh="美妆品类的 AI 创意生产" en="AI creative production for beauty" /></span>
-              </li>
-              <li>
-                <figure><img src="/logos/customers/havas.svg" alt="Havas" /></figure>
-                <b><B zh="代理商网络" en="Agency network" /></b>
-                <span><B zh="从预演到成片" en="From previews into production" /></span>
               </li>
               <li>
                 <figure><img src="/logos/customers/applovin.png" alt="AppLovin" /></figure>
