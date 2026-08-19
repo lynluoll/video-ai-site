@@ -552,11 +552,19 @@ export default function Home() {
               headline={{ value: <>&ldquo;they love it&rdquo;</>, label: <B zh="WPP 制作团队对 Seedance 2.5 的原话" en="Production teams on Seedance 2.5, in their words" /> }}
               phases={[
                 { tag: "CRAWL", when: "2026 Q1", copy: <B zh="Seedance 成为 WPP Open 里可选的视频模型；创意团队用它做 pre-vis 拿签字与预算。" en="Seedance wired into WPP Open as a model option; creative teams use it for pre-vis to win sign-off and budget." />,
-                  media: { kind: "video", src: "/media/wpp/seedance25-case-09.mp4", label: "Seedance 2.5 sample film — live-action-grade" } },
+                  media: { kind: "video", src: "/media/wpp/seedance25-case-09.mp4", ratio: "16x9", label: "Seedance 2.5 sample film — live-action-grade",
+                    stills: [
+                      { src: "/media/wpp/case-09-still-01.jpg", alt: "Hawker-centre scene from the Seedance 2.5 sample film" },
+                      { src: "/media/wpp/case-09-still-02.jpg", alt: "Friends toasting — Seedance 2.5 sample film" },
+                    ] } },
                 { tag: "WALK", when: "2026 Q2–Q3", copy: <B zh="制作团队在 6+ 市场跑真活：可口可乐等大品牌的横竖版广告片。" en="Production teams in 6+ markets on live work — landscape and portrait films for brands like Coca-Cola." />,
-                  media: { kind: "video", src: "/media/wpp/cocacola-16x9.mp4", label: "WPP × Coca-Cola AI-generated film" } },
+                  media: { kind: "video", src: "/media/wpp/cocacola-16x9.mp4", ratio: "16x9", label: "WPP × Coca-Cola AI-generated film",
+                    stills: [
+                      { src: "/media/wpp/cocacola-still-01.jpg", alt: "Condensation macro on the bottle — WPP × Coca-Cola" },
+                      { src: "/media/wpp/cocacola-still-02.jpg", alt: "Bottle mouth top-down — WPP × Coca-Cola" },
+                    ] } },
                 { tag: "RUN", when: "2026 H2", copy: <B zh="WPP HEX：共建 FDE 人才梯队，嵌入客户团队，把能力留在 WPP 手里。" en="WPP HEX: co-built FDE cohort embedded in client teams — the capability stays with WPP." />,
-                  media: { kind: "video", src: "/media/wpp/seedance25-case-19.mp4", label: "Seedance 2.5 sample — retail promo" } },
+                  media: { kind: "video", src: "/media/wpp/seedance25-case-19.mp4", ratio: "1x1", label: "Seedance 2.5 sample — retail promo" } },
               ]}
               footnote={<B zh="用量数据来自 BytePlus 侧 4,000 个任务统计；闭门材料。" en="Usage figures from BytePlus-side stats over 4,000 tasks; closed-door material." />}
             />
@@ -630,6 +638,11 @@ export default function Home() {
                 { value: "+22%", label: <B zh="CTR 提升" en="CTR uplift" /> },
                 { value: "2.5×", label: <B zh="AI 使每周创意素材产量提升至 2.5 倍" en="weekly creative output with AI" /> },
                 { value: "90%", label: <B zh="A/B 测试以 90% 置信度选出胜出版本" en="A/B-test confidence picking the winner" /> },
+              ]}
+              notes={[
+                <B key="1" zh="输入：商品图 + SKU 表；输出：可直接投放的 9:16 视频" en="In: product images + SKU sheet. Out: ready-to-run 9:16 video." />,
+                <B key="2" zh="同一条流水线跑不同品牌、市场和语言" en="One pipeline across brands, markets and languages." />,
+                <B key="3" zh="在投放中 A/B 测试，胜出版本放量" en="A/B-tested in-market; winners get the budget." />,
               ]}
               phases={[
                 { tag: "SEPHORA", when: "Beauty", copy: <B zh="Rare Beauty × Sephora 西语市场投放素材，商品图生视频。" en="Rare Beauty × Sephora, Spanish-market ad — product image to video." />,

@@ -9,7 +9,7 @@ import PauseWhenHiddenVideo from "./PauseWhenHiddenVideo";
 
 export type GbsMedia =
   | { kind: "image"; src: string; alt: string; fit?: "cover" | "contain" }
-  | { kind: "video"; src: string; poster?: string; label: string; stills?: { src: string; alt: string }[] }
+  | { kind: "video"; src: string; poster?: string; label: string; ratio?: "16x9" | "1x1"; stills?: { src: string; alt: string }[] }
   | { kind: "placeholder"; note: ReactNode };
 
 export type GbsPhase = { tag: string; when: string; copy: ReactNode; media: GbsMedia };
@@ -25,6 +25,10 @@ export type GbsCaseProps = {
   objective: ReactNode;
   kpis: GbsKpi[];
   headline?: { value: ReactNode; label: ReactNode };
+  /* Optional bullet list pinned to the bottom of the left column so its last
+     line ends level with the media wells (used when a case has only two
+     phases and the left column would otherwise stop short). */
+  notes?: ReactNode[];
   phases: [GbsPhase, GbsPhase] | [GbsPhase, GbsPhase, GbsPhase];
   footnote?: ReactNode;
 };
@@ -68,7 +72,7 @@ export default function GbsCase(p: GbsCaseProps) {
       </header>
 
       <div className="gbsCaseBody">
-        <aside className="gbsCaseLeft">
+        <aside className={`gbsCaseLeft${p.notes?.length ? " hasNotes" : ""}`}>
           <div className="gbsCaseObjective">
             <b>{p.objectiveTitle}</b>
             <p>{p.objective}</p>
@@ -87,6 +91,11 @@ export default function GbsCase(p: GbsCaseProps) {
               <span>{p.headline.label}</span>
             </div>
           ) : null}
+          {p.notes?.length ? (
+            <ul className="gbsCaseNotes">
+              {p.notes.map((n, i) => <li key={i}>{n}</li>)}
+            </ul>
+          ) : null}
         </aside>
 
         <ol className={`gbsCasePhases${p.phases.length === 2 ? " isPair" : ""}`}>
@@ -97,7 +106,10 @@ export default function GbsCase(p: GbsCaseProps) {
                 <span>{ph.when}</span>
               </header>
               <p>{ph.copy}</p>
-              <figure className={`gbsCaseMedia is-${ph.media.kind}${ph.media.kind === "video" && ph.media.stills?.length ? " is-stack" : ""}`}>
+              <figure
+                className={`gbsCaseMedia is-${ph.media.kind}${ph.media.kind === "video" && ph.media.stills?.length ? " is-stack" : ""}`}
+                data-ar={ph.media.kind === "video" ? (ph.media.ratio ?? "9x16") : undefined}
+              >
                 <Media m={ph.media} />
               </figure>
             </li>

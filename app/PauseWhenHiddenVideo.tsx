@@ -16,7 +16,7 @@ type PauseWhenHiddenVideoProps = Omit<VideoHTMLAttributes<HTMLVideoElement>, "sr
 /* Hovering a clip for a beat lifts it onto a full-viewport stage. The native
    Fullscreen API needs a real user gesture (a hover is not one), so the stage
    is an in-page overlay; it leaves on pointer-out, Esc or a click. */
-const HOVER_INTENT_MS = 420;
+const HOVER_INTENT_MS = 2000;
 
 export default function PauseWhenHiddenVideo({
   src,

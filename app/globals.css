@@ -7788,7 +7788,14 @@ body {
 .gbsCaseHeadline span { display: block; margin-top: 8px; color: var(--bp-ink-2); font-size: var(--bp-t-label); font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-label); text-transform: uppercase; }
 .gbsCasePhases { min-height: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; list-style: none; }
 /* Pair: two phases keep the same column width as the three-up frame. */
-.gbsCasePhases.isPair { grid-template-columns: repeat(2, calc((100% - 44px) / 3)); justify-content: start; }
+.gbsCasePhases.isPair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.gbsCasePhases.isPair .gbsCasePhase p { max-width: 34em; }
+/* Notes list pinned to the bottom of the left column. */
+.gbsCaseLeft.hasNotes { grid-template-rows: auto auto minmax(0, 1fr); align-content: stretch; }
+.gbsCaseNotes { margin: 0; padding: 0 0 0 18px; align-self: end; color: var(--bp-ink-2); font-size: var(--bp-t-body); line-height: 1.45; }
+.gbsCaseNotes li { margin: 0 0 6px; }
+.gbsCaseNotes li:last-child { margin-bottom: 0; }
+.gbsCaseNotes li::marker { color: var(--bp-blue); }
 .gbsCasePhase { min-width: 0; min-height: 0; display: grid; grid-template-rows: auto auto minmax(0, 1fr); gap: 12px; }
 .gbsCasePhase header { padding-bottom: 8px; display: flex; align-items: baseline; gap: 8px; border-bottom: 2px solid var(--bp-blue); }
 .gbsCasePhase header b { color: var(--bp-blue); font-size: var(--bp-t-sub); font-weight: var(--bp-w-display); letter-spacing: .04em; }
@@ -7800,9 +7807,9 @@ body {
    intrinsic ratio, so the picture reaches every edge of its border and the
    leftover column space stays page surface rather than a black slab. */
 .gbsCaseMedia.is-video:not(.is-stack) {
-  display: grid;
-  align-content: center;
-  justify-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: visible;
   background: none;
   border: 0;
@@ -7812,11 +7819,18 @@ body {
   width: auto;
   height: 100%;
   max-width: 100%;
-  object-fit: contain;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
   background: none;
   border: var(--bp-hairline) solid var(--bp-rule);
   border-radius: var(--bp-radius-card);
 }
+/* Declared per asset so the frame is right on first paint, before metadata.
+   Landscape and square clips are width-led; portraits are height-led. */
+.gbsCaseMedia.is-video[data-ar="16x9"]:not(.is-stack) video,
+.gbsCaseMedia.is-video[data-ar="1x1"]:not(.is-stack) video { width: 100%; height: auto; max-height: 100%; }
+.gbsCaseMedia.is-video[data-ar="16x9"] video { aspect-ratio: 16 / 9; }
+.gbsCaseMedia.is-video[data-ar="1x1"] video { aspect-ratio: 1 / 1; }
 /* Landscape asset in a portrait-height stage. One 16:9 strip alone leaves two
    thirds of the column as black void; the film plus two key frames from it
    stack into the same footprint the portrait clips beside it occupy. */
