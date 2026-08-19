@@ -411,20 +411,12 @@ export default function Home() {
               ]}
               headline={{ value: <B zh="待签" en="Commitment" />, label: <B zh="预估签约后进入 1,000+/天" en="1,000+/day expected once signed" /> }}
               phases={[
-                {
-                  tag: "CREATECH API", when: "2026 H1", copy: <B zh="CreaTech 接入 API，内部团队试用 2.0。" en="CreaTech integrates the API; internal teams trial 2.0." />,
-                  media: { kind: "placeholder", note: <B zh="样片待复现（王文杰 · 需 account id）" en="Sample pending — 王文杰 to reproduce from prompts (needs account id)" /> }
-                },
-                {
-                  tag: "SEEDANCE 2.5", when: "2026 Aug", copy: <B zh="Seedance 2.5 发布，C 端团队周内上到 100+ 条 / 天。" en="Seedance 2.5 ships; consumer teams reach 100+ videos a day within the week." />,
-                  media: { kind: "placeholder", note: <B zh="样片待复现" en="Sample pending" /> }
-                },
-                {
-                  tag: "1,000+ / DAY", when: "2026 H2", copy: <B zh="签 commitment，进入 1,000+ 条 / 天的品牌内容生产。" en="Sign the commitment; move to 1,000+ videos a day of brand content." />,
-                  media: { kind: "placeholder", note: <B zh="样片待复现" en="Sample pending" /> }
-                },
+                { tag: "YSL · FRAGRANCE FILM", when: "Seedance 2.5 · 16:9", copy: <B zh="YSL 香水产品片：一只手托起瓶身、徽标金属反光、液体质感——L’Oréal Luxe 级别的商品一致性。" en="YSL fragrance product film: a hand presents the bottle — gold logo reflections, liquid depth — product consistency at L’Oréal Luxe standard." />,
+                  media: { kind: "video", src: "/media/loreal/case-13.mp4", ratio: "16x9", label: "L’Oréal Luxe · YSL fragrance film" } },
+                { tag: "YSL · PORTRAIT CUT", when: "Seedance 2.5 · 3:4", copy: <B zh="同一品牌世界的人物叙事：灯笼光下的男主与香水——真人质感与氛围光由模型直接生成。" en="Same brand world, character-led: a man in lantern light with the fragrance — photoreal skin and mood lighting straight from the model." />,
+                  media: { kind: "video", src: "/media/loreal/case-20.mp4", ratio: "3x4", label: "L’Oréal Luxe · YSL portrait cut" } },
               ]}
-              footnote={<B zh="用量为内部观测值，闭门材料；样片由王文杰按同 prompt 复现后替换。" en="Volumes are internal observations, closed-door; samples to be replaced once 王文杰 reproduces from the same prompts." />}
+              footnote={<B zh="用量为内部观测值，闭门材料；样片：L’Oréal Luxe（YSL）香水内容，Seedance 2.5 生成。" en="Volumes are internal observations, closed-door; samples: L’Oréal Luxe (YSL) fragrance content generated on Seedance 2.5." />}
             />
 
             <GbsCase

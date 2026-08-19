@@ -7849,6 +7849,7 @@ body {
 .gbsCaseMedia.is-video[data-ar="1x1"]:not(.is-stack) video { width: 100%; height: auto; max-height: 100%; }
 .gbsCaseMedia.is-video[data-ar="16x9"] video { aspect-ratio: 16 / 9; }
 .gbsCaseMedia.is-video[data-ar="1x1"] video { aspect-ratio: 1 / 1; }
+.gbsCaseMedia.is-video[data-ar="3x4"]:not(.is-stack) video { width: auto; height: 100%; max-width: 100%; aspect-ratio: 3 / 4; }
 /* Landscape asset in a portrait-height stage. One 16:9 strip alone leaves two
    thirds of the column as black void; the film plus two key frames from it
    stack into the same footprint the portrait clips beside it occupy. */

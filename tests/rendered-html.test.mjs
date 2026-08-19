@@ -80,7 +80,7 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(casesHtml, /BytePlus × Goodtake[\s\S]*410%/);
   assert.match(casesHtml, /BytePlus × Tec-do/);
   assert.match(casesHtml, /BytePlus × AppLovin/);
-  assert.equal((casesHtml.match(/class="gbsCasePhase"/g) ?? []).length, 14); // WPP 2 + L’Oréal 3 + Goodtake 4 + Tec-do 2 + AppLovin 3
+  assert.equal((casesHtml.match(/class="gbsCasePhase"/g) ?? []).length, 13); // WPP 2 + L’Oréal 2 + Goodtake 4 + Tec-do 2 + AppLovin 3
   assert.doesNotMatch(html, /Akia Mitchell|adtechCasePage|TikTok · Smart\+|id="customer-agency-hex-model"/);
 
   // GBS opening pages after the trend chart.

@@ -9,7 +9,7 @@ import PauseWhenHiddenVideo from "./PauseWhenHiddenVideo";
 
 export type GbsMedia =
   | { kind: "image"; src: string; alt: string; fit?: "cover" | "contain" }
-  | { kind: "video"; src: string; poster?: string; label: string; ratio?: "16x9" | "1x1"; stills?: { src: string; alt: string }[] }
+  | { kind: "video"; src: string; poster?: string; label: string; ratio?: "16x9" | "1x1" | "3x4"; stills?: { src: string; alt: string }[] }
   | { kind: "placeholder"; note: ReactNode };
 
 export type GbsPhase = { tag: string; when: string; copy: ReactNode; media: GbsMedia };
