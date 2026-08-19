@@ -329,7 +329,7 @@ export default function Home() {
               <i className="gbsSysArrow" aria-hidden="true">→</i>
               <div className="gbsSysEnd gbsSysOutput">
                 <span>OUTPUT</span>
-                <b><B zh="投到 TikTok 上的广告" en="Ads running on TikTok" /></b>
+                <b><B zh="TikTok 爆款广告" en="TikTok viral ads" /></b>
                 <em><B zh="视频广告支出 ↑" en="Video ad spend ↑" /></em>
               </div>
 
