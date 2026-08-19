@@ -74,112 +74,112 @@ export default function Home() {
         <div className="marketFlowShell">
           <div className="marketOverviewPage">
             <header className="marketFlowIntro">
-            <div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div>
-            <div className="marketFlowTitle">
-              <h1 className="langZh"><span>视频广告</span>成为主导形式</h1>
-              <h1 className="langEn"><span>Video Ads</span> Become the Dominant</h1>
-            </div>
+              <div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div>
+              <div className="marketFlowTitle">
+                <h1 className="langZh"><span>视频广告</span>成为主导形式</h1>
+                <h1 className="langEn"><span>Video Ads</span> Become the Dominant</h1>
+              </div>
             </header>
 
             <figure className="marketFlowFigure" aria-labelledby="market-flow-heading">
-            <MarketTrackAutoReveal />
-            <div className="marketFlowFigureHead">
-              <div><strong id="market-flow-heading"><span className="langZh">海外数字广告市场规模与增速</span><span className="langEn">Overseas digital ad market · size and growth</span></strong></div>
-              <label className="marketFlowToggle" htmlFor="video-segment-mode"><span className="segmentClosedText"><span className="langZh">查看三赛道</span><span className="langEn">View 3 tracks</span></span><span className="segmentOpenText"><span className="langZh">收起三赛道</span><span className="langEn">Hide 3 tracks</span></span><i aria-hidden="true">＋</i></label>
-            </div>
-
-            <svg className="marketFlowSvg" viewBox="0 0 1200 430" role="img" aria-label="2026 年四类海外数字广告基线，视频广告增长至 2030 年 2600 亿美元">
-              <defs>
-                <pattern id="market-flow-grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="currentColor" strokeOpacity=".06" /></pattern>
-                <linearGradient id="market-flow-blue" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0" stopColor="#2149E6" stopOpacity=".96" />
-                  <stop offset=".55" stopColor="#3B6FE8" stopOpacity=".72" />
-                  <stop offset="1" stopColor="#63BCE8" stopOpacity=".42" />
-                </linearGradient>
-              </defs>
-              <rect width="1200" height="430" className="flowGrid" fill="url(#market-flow-grid)" />
-              <g className="flowLabels">
-                <text x="18" y="24" className="flowOverline"><tspan className="langZh">2026E 数字广告支出（不含中国）</tspan><tspan className="langEn">2026E Digital Ad Spend (ex-China)</tspan></text>
-                <text x="936" y="24" className="flowOverline"><tspan className="langZh">2030E 视频广告预测</tspan><tspan className="langEn">2030E Video Forecast</tspan></text>
-              </g>
-
-              <g className="flowBaseline flowSearch">
-                <rect x="18" y="46" width="236" height="60" rx="10" />
-                <text x="35" y="70" className="flowName"><tspan className="langZh">搜索广告</tspan><tspan className="langEn">Search ads</tspan></text><text x="35" y="88" className="flowMeta">33%</text><text x="232" y="82" textAnchor="end" className="flowValue">$220B</text>
-              </g>
-
-              <path className="flowVideoRiver" d="M254 125 C470 127 630 94 820 55 C875 44 914 42 936 42 L936 301 C877 301 825 304 756 307 C575 315 426 284 254 282Z" />
-              <g className="flowBaseline flowVideo">
-                <rect x="18" y="125" width="236" height="157" rx="10" />
-                <rect x="18" y="125" width="4" height="157" className="flowVideoRail" />
-                <text x="35" y="155" className="flowName"><tspan className="langZh">视频广告</tspan><tspan className="langEn">Video ads</tspan></text><text x="35" y="176" className="flowMeta">26%</text><text x="35" y="229" className="flowHeroValue">$160B</text>
-                <text x="35" y="259" className="flowNote"><tspan className="langZh">CTR / CVR 更优，但制作成本曾限制供给</tspan><tspan className="langEn">Better CTR / CVR — production cost capped supply</tspan></text>
-              </g>
-              <g className="flowBaseline flowDisplay">
-                <rect x="18" y="301" width="205" height="52" rx="10" />
-                <text x="35" y="324" className="flowName"><tspan className="langZh">展示广告</tspan><tspan className="langEn">Display</tspan></text><text x="35" y="342" className="flowMeta">24%</text><text x="203" y="334" textAnchor="end" className="flowValue">$160B</text>
-              </g>
-              <g className="flowBaseline flowRmn">
-                <rect x="18" y="368" width="170" height="47" rx="10" />
-                <text x="35" y="389" className="flowName"><tspan className="langZh">零售媒体</tspan><tspan className="langEn">Retail</tspan></text><text x="35" y="405" className="flowMeta">17%</text><text x="169" y="399" textAnchor="end" className="flowValue">$110B</text>
-              </g>
-
-              <g className="flowOutcomeDefault">
-                <rect x="936" y="42" width="236" height="259" />
-                <text x="955" y="119" className="flowDefaultValue">$260B</text>
-                <text x="1148" y="118" textAnchor="end" className="flowDefaultRank">#1</text>
-                <line x1="955" y1="139" x2="1152" y2="139" />
-                <text x="955" y="175" className="flowDefaultSignal">3–4 YEARS</text>
-                <text x="955" y="199" className="flowDefaultCopy"><tspan className="langZh">超过搜索广告与展示广告</tspan><tspan className="langEn">Overtakes search and display</tspan></text>
-                <text x="955" y="244" className="flowDefaultSignal">AI-DRIVEN SUPPLY</text>
-                <text x="955" y="268" className="flowDefaultCopy"><tspan className="langZh">AI 使制作成本下降，视频供给规模化</tspan><tspan className="langEn">AI cuts production cost; supply scales</tspan></text>
-              </g>
-              <g className="flowSegments">
-                <g className="flowSegmentTrack flowSegmentTrackSocial">
-                  <rect x="936" y="42" width="236" height="113" className="flowSocial" />
-                  <text x="955" y="68" className="flowSegmentName"><tspan className="langZh">社交视频</tspan><tspan className="langEn">Social Video</tspan></text>
-                  <text x="955" y="105" className="flowSegmentValue">62 → 115B</text>
-                  <g className="flowDeltaPill"><rect x="1100" y="56" width="48" height="18" rx="9" /><text x="1124" y="69" textAnchor="middle" className="flowSegmentDelta">+85%</text></g>
-                </g>
-                <g className="flowSegmentTrack flowSegmentTrackCtv">
-                  <rect x="936" y="155" width="236" height="88" className="flowCtv" />
-                  <text x="955" y="181" className="flowSegmentName">CTV</text>
-                  <text x="955" y="215" className="flowSegmentValue">45 → 90B</text>
-                  <g className="flowDeltaPill"><rect x="1094" y="168" width="54" height="18" rx="9" /><text x="1121" y="181" textAnchor="middle" className="flowSegmentDelta">+100%</text></g>
-                </g>
-                <g className="flowSegmentTrack flowSegmentTrackOlv">
-                  <rect x="936" y="243" width="236" height="58" className="flowOlv" />
-                  <text x="955" y="267" className="flowSegmentName dark">OLV</text>
-                  <text x="955" y="291" className="flowSegmentValue small">38 → 55B</text>
-                  <g className="flowDeltaPill dark"><rect x="1100" y="254" width="48" height="18" rx="9" /><text x="1124" y="267" textAnchor="middle" className="flowSegmentDelta dark">+45%</text></g>
-                </g>
-              </g>
-              <g className="flowOutcome">
-                <rect x="936" y="312" width="236" height="80" rx="10" />
-                <text x="955" y="337" className="flowOutcomeOverline"><tspan className="langZh">2030 视频广告总预算</tspan><tspan className="langEn">2030 TOTAL VIDEO BUDGET</tspan></text>
-                <text x="955" y="378" className="flowOutcomeValue">$260B</text>
-                <text x="1153" y="378" textAnchor="end" className="flowOutcomeRank">#1</text>
-              </g>
-
-            </svg>
-            <div className="marketFlowMobile" aria-label="移动端预算迁移流">
-              <div className="mobileMarketRows">
-                <div><span>33%</span><strong>$220B</strong></div>
-                <div className="active"><span>26%</span><strong>$160B</strong><small><span className="langZh">AI 降本释放规模供给</span><span className="langEn">AI cost-down unlocks supply</span></small></div>
-                <div><span>24%</span><strong>$160B</strong></div>
-                <div><span>17%</span><strong>$110B</strong></div>
+              <MarketTrackAutoReveal />
+              <div className="marketFlowFigureHead">
+                <div><strong id="market-flow-heading"><span className="langZh">海外数字广告市场规模与增速</span><span className="langEn">Overseas digital ad market · size and growth</span></strong></div>
+                <label className="marketFlowToggle" htmlFor="video-segment-mode"><span className="segmentClosedText"><span className="langZh">查看三赛道</span><span className="langEn">View 3 tracks</span></span><span className="segmentOpenText"><span className="langZh">收起三赛道</span><span className="langEn">Hide 3 tracks</span></span><i aria-hidden="true">＋</i></label>
               </div>
-              <div className="mobileFlowArrow"><span>3–4 YEARS</span><b>↓</b><small><span className="langZh">跨过 $220B 搜索广告基准</span><span className="langEn">crosses the $220B search benchmark</span></small></div>
-              <div className="mobileVideoOutcome">
-                <header><span>2030 · VIDEO #1</span><strong>$260B</strong></header>
-                <div className="mobileOutcomeSummary"><span>3–4 YEARS</span><b><span className="langZh">超过搜索广告 / 展示广告</span><span className="langEn">Overtakes Search / Display</span></b><small><span className="langZh">AI 降本释放规模化视频供给</span><span className="langEn">AI cost-down scales video supply</span></small></div>
-                <div className="mobileSegmentDetails">
-                  <div><span>SOCIAL VIDEO</span><b>$115B</b><small>62 → 115 · +85%</small></div>
-                  <div><span>CTV</span><b>$90B</b><small>45 → 90 · +100%</small></div>
-                  <div><span>OLV</span><b>$55B</b><small>38 → 55 · +45%</small></div>
+
+              <svg className="marketFlowSvg" viewBox="0 0 1200 430" role="img" aria-label="2026 年四类海外数字广告基线，视频广告增长至 2030 年 2600 亿美元">
+                <defs>
+                  <pattern id="market-flow-grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="currentColor" strokeOpacity=".06" /></pattern>
+                  <linearGradient id="market-flow-blue" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stopColor="#2149E6" stopOpacity=".96" />
+                    <stop offset=".55" stopColor="#3B6FE8" stopOpacity=".72" />
+                    <stop offset="1" stopColor="#63BCE8" stopOpacity=".42" />
+                  </linearGradient>
+                </defs>
+                <rect width="1200" height="430" className="flowGrid" fill="url(#market-flow-grid)" />
+                <g className="flowLabels">
+                  <text x="18" y="24" className="flowOverline"><tspan className="langZh">2026E 数字广告支出（不含中国）</tspan><tspan className="langEn">2026E Digital Ad Spend (ex-China)</tspan></text>
+                  <text x="936" y="24" className="flowOverline"><tspan className="langZh">2030E 视频广告预测</tspan><tspan className="langEn">2030E Video Forecast</tspan></text>
+                </g>
+
+                <g className="flowBaseline flowSearch">
+                  <rect x="18" y="46" width="236" height="60" rx="10" />
+                  <text x="35" y="70" className="flowName"><tspan className="langZh">搜索广告</tspan><tspan className="langEn">Search ads</tspan></text><text x="35" y="88" className="flowMeta">33%</text><text x="232" y="82" textAnchor="end" className="flowValue">$220B</text>
+                </g>
+
+                <path className="flowVideoRiver" d="M254 125 C470 127 630 94 820 55 C875 44 914 42 936 42 L936 301 C877 301 825 304 756 307 C575 315 426 284 254 282Z" />
+                <g className="flowBaseline flowVideo">
+                  <rect x="18" y="125" width="236" height="157" rx="10" />
+                  <rect x="18" y="125" width="4" height="157" className="flowVideoRail" />
+                  <text x="35" y="155" className="flowName"><tspan className="langZh">视频广告</tspan><tspan className="langEn">Video ads</tspan></text><text x="35" y="176" className="flowMeta">26%</text><text x="35" y="229" className="flowHeroValue">$160B</text>
+                  <text x="35" y="259" className="flowNote"><tspan className="langZh">CTR / CVR 更优，但制作成本曾限制供给</tspan><tspan className="langEn">Better CTR / CVR — production cost capped supply</tspan></text>
+                </g>
+                <g className="flowBaseline flowDisplay">
+                  <rect x="18" y="301" width="205" height="52" rx="10" />
+                  <text x="35" y="324" className="flowName"><tspan className="langZh">展示广告</tspan><tspan className="langEn">Display</tspan></text><text x="35" y="342" className="flowMeta">24%</text><text x="203" y="334" textAnchor="end" className="flowValue">$160B</text>
+                </g>
+                <g className="flowBaseline flowRmn">
+                  <rect x="18" y="368" width="170" height="47" rx="10" />
+                  <text x="35" y="389" className="flowName"><tspan className="langZh">零售媒体</tspan><tspan className="langEn">Retail</tspan></text><text x="35" y="405" className="flowMeta">17%</text><text x="169" y="399" textAnchor="end" className="flowValue">$110B</text>
+                </g>
+
+                <g className="flowOutcomeDefault">
+                  <rect x="936" y="42" width="236" height="259" />
+                  <text x="955" y="119" className="flowDefaultValue">$260B</text>
+                  <text x="1148" y="118" textAnchor="end" className="flowDefaultRank">#1</text>
+                  <line x1="955" y1="139" x2="1152" y2="139" />
+                  <text x="955" y="175" className="flowDefaultSignal">3–4 YEARS</text>
+                  <text x="955" y="199" className="flowDefaultCopy"><tspan className="langZh">超过搜索广告与展示广告</tspan><tspan className="langEn">Overtakes search and display</tspan></text>
+                  <text x="955" y="244" className="flowDefaultSignal">AI-DRIVEN SUPPLY</text>
+                  <text x="955" y="268" className="flowDefaultCopy"><tspan className="langZh">AI 使制作成本下降，视频供给规模化</tspan><tspan className="langEn">AI cuts production cost; supply scales</tspan></text>
+                </g>
+                <g className="flowSegments">
+                  <g className="flowSegmentTrack flowSegmentTrackSocial">
+                    <rect x="936" y="42" width="236" height="113" className="flowSocial" />
+                    <text x="955" y="68" className="flowSegmentName"><tspan className="langZh">社交视频</tspan><tspan className="langEn">Social Video</tspan></text>
+                    <text x="955" y="105" className="flowSegmentValue">62 → 115B</text>
+                    <g className="flowDeltaPill"><rect x="1100" y="56" width="48" height="18" rx="9" /><text x="1124" y="69" textAnchor="middle" className="flowSegmentDelta">+85%</text></g>
+                  </g>
+                  <g className="flowSegmentTrack flowSegmentTrackCtv">
+                    <rect x="936" y="155" width="236" height="88" className="flowCtv" />
+                    <text x="955" y="181" className="flowSegmentName">CTV</text>
+                    <text x="955" y="215" className="flowSegmentValue">45 → 90B</text>
+                    <g className="flowDeltaPill"><rect x="1094" y="168" width="54" height="18" rx="9" /><text x="1121" y="181" textAnchor="middle" className="flowSegmentDelta">+100%</text></g>
+                  </g>
+                  <g className="flowSegmentTrack flowSegmentTrackOlv">
+                    <rect x="936" y="243" width="236" height="58" className="flowOlv" />
+                    <text x="955" y="267" className="flowSegmentName dark">OLV</text>
+                    <text x="955" y="291" className="flowSegmentValue small">38 → 55B</text>
+                    <g className="flowDeltaPill dark"><rect x="1100" y="254" width="48" height="18" rx="9" /><text x="1124" y="267" textAnchor="middle" className="flowSegmentDelta dark">+45%</text></g>
+                  </g>
+                </g>
+                <g className="flowOutcome">
+                  <rect x="936" y="312" width="236" height="80" rx="10" />
+                  <text x="955" y="337" className="flowOutcomeOverline"><tspan className="langZh">2030 视频广告总预算</tspan><tspan className="langEn">2030 TOTAL VIDEO BUDGET</tspan></text>
+                  <text x="955" y="378" className="flowOutcomeValue">$260B</text>
+                  <text x="1153" y="378" textAnchor="end" className="flowOutcomeRank">#1</text>
+                </g>
+
+              </svg>
+              <div className="marketFlowMobile" aria-label="移动端预算迁移流">
+                <div className="mobileMarketRows">
+                  <div><span>33%</span><strong>$220B</strong></div>
+                  <div className="active"><span>26%</span><strong>$160B</strong><small><span className="langZh">AI 降本释放规模供给</span><span className="langEn">AI cost-down unlocks supply</span></small></div>
+                  <div><span>24%</span><strong>$160B</strong></div>
+                  <div><span>17%</span><strong>$110B</strong></div>
+                </div>
+                <div className="mobileFlowArrow"><span>3–4 YEARS</span><b>↓</b><small><span className="langZh">跨过 $220B 搜索广告基准</span><span className="langEn">crosses the $220B search benchmark</span></small></div>
+                <div className="mobileVideoOutcome">
+                  <header><span>2030 · VIDEO #1</span><strong>$260B</strong></header>
+                  <div className="mobileOutcomeSummary"><span>3–4 YEARS</span><b><span className="langZh">超过搜索广告 / 展示广告</span><span className="langEn">Overtakes Search / Display</span></b><small><span className="langZh">AI 降本释放规模化视频供给</span><span className="langEn">AI cost-down scales video supply</span></small></div>
+                  <div className="mobileSegmentDetails">
+                    <div><span>SOCIAL VIDEO</span><b>$115B</b><small>62 → 115 · +85%</small></div>
+                    <div><span>CTV</span><b>$90B</b><small>45 → 90 · +100%</small></div>
+                    <div><span>OLV</span><b>$55B</b><small>38 → 55 · +45%</small></div>
+                  </div>
                 </div>
               </div>
-            </div>
             </figure>
           </div>
 
@@ -381,12 +381,15 @@ export default function Home() {
               headline={{ value: <span className="isQuote">&ldquo;they love it&rdquo;</span>, label: <B zh="WPP 制作团队对 Seedance 2.5 的原话" en="Production teams on Seedance 2.5, in their words" /> }}
               phaseLayout="rows"
               phases={[
-                { tag: "HAWKER CENTRE", when: "Seedance 2.5 sample", copy: <B zh="新加坡小贩中心的一场戏：朋友们举杯喝可乐，桌上一包“Chope liao”纸巾。多人物、嘈杂背景、真实的肤质与布料——整段由 Seedance 2.5 生成，无需实拍。" en="A Singapore hawker-centre scene: friends toast with Coke over dinner, a “Chope liao” tissue pack on the table. Multiple characters, a busy background, real skin and fabric — generated end-to-end on Seedance 2.5, no shoot." />,
-                  media: { kind: "video", src: "/media/wpp/seedance25-case-09.mp4", ratio: "16x9", label: "Seedance 2.5 sample film — live-action-grade" } },
-                { tag: "COCA-COLA", when: "Product macro · 2026 Q2–Q3", copy: <B zh="WPP × 可口可乐片子里的产品特写：瓶身上凝结的水珠、俯拍的瓶口拉近。Seedance 逐镜头保住产品外形、标签和高光——品牌团队肯签字的一致性。" en="Product macro from a WPP × Coca-Cola film: condensation beading on the glass, a top-down pull on the bottle mouth. Seedance holds the product’s shape, label and highlights shot to shot — the consistency brand teams sign off on." />,
-                  media: { kind: "video", src: "/media/wpp/cocacola-16x9.mp4", ratio: "16x9", label: "WPP × Coca-Cola AI-generated film" } },
+                {
+                  tag: "HAWKER CENTRE", when: "Seedance 2.5 sample", copy: <B zh="新加坡小贩中心的一场戏：朋友们举杯喝可乐，桌上一包“Chope liao”纸巾。多人物、嘈杂背景、真实的肤质与布料——整段由 Seedance 2.5 生成，无需实拍。" en="A Singapore hawker-centre scene: friends toast with Coke over dinner, a “Chope liao” tissue pack on the table. Multiple characters, a busy background, real skin and fabric — generated end-to-end on Seedance 2.5, no shoot." />,
+                  media: { kind: "video", src: "/media/wpp/seedance25-case-09.mp4", ratio: "16x9", label: "Seedance 2.5 sample film — live-action-grade" }
+                },
+                {
+                  tag: "COCA-COLA", when: "Product macro · 2026 Q2–Q3", copy: <B zh="WPP × 可口可乐片子里的产品特写：瓶身上凝结的水珠、俯拍的瓶口拉近。Seedance 逐镜头保住产品外形、标签和高光——品牌团队肯签字的一致性。" en="Product macro from a WPP × Coca-Cola film: condensation beading on the glass, a top-down pull on the bottle mouth. Seedance holds the product’s shape, label and highlights shot to shot — the consistency brand teams sign off on." />,
+                  media: { kind: "video", src: "/media/wpp/cocacola-16x9.mp4", ratio: "16x9", label: "WPP × Coca-Cola AI-generated film" }
+                },
               ]}
-              footnote={<B zh="用量数据来自 BytePlus 侧 4,000 个任务统计；闭门材料。" en="Usage figures from BytePlus-side stats over 4,000 tasks; closed-door material." />}
             />
 
             <GbsCase
@@ -405,12 +408,18 @@ export default function Home() {
               ]}
               headline={{ value: <B zh="待签" en="Commitment" />, label: <B zh="预估签约后进入 1,000+/天" en="1,000+/day expected once signed" /> }}
               phases={[
-                { tag: "CREATECH API", when: "2026 H1", copy: <B zh="CreaTech 接入 API，内部团队试用 2.0。" en="CreaTech integrates the API; internal teams trial 2.0." />,
-                  media: { kind: "placeholder", note: <B zh="样片待复现（王文杰 · 需 account id）" en="Sample pending — 王文杰 to reproduce from prompts (needs account id)" /> } },
-                { tag: "SEEDANCE 2.5", when: "2026 Aug", copy: <B zh="Seedance 2.5 发布，C 端团队周内上到 100+ 条 / 天。" en="Seedance 2.5 ships; consumer teams reach 100+ videos a day within the week." />,
-                  media: { kind: "placeholder", note: <B zh="样片待复现" en="Sample pending" /> } },
-                { tag: "1,000+ / DAY", when: "2026 H2", copy: <B zh="签 commitment，进入 1,000+ 条 / 天的品牌内容生产。" en="Sign the commitment; move to 1,000+ videos a day of brand content." />,
-                  media: { kind: "placeholder", note: <B zh="样片待复现" en="Sample pending" /> } },
+                {
+                  tag: "CREATECH API", when: "2026 H1", copy: <B zh="CreaTech 接入 API，内部团队试用 2.0。" en="CreaTech integrates the API; internal teams trial 2.0." />,
+                  media: { kind: "placeholder", note: <B zh="样片待复现（王文杰 · 需 account id）" en="Sample pending — 王文杰 to reproduce from prompts (needs account id)" /> }
+                },
+                {
+                  tag: "SEEDANCE 2.5", when: "2026 Aug", copy: <B zh="Seedance 2.5 发布，C 端团队周内上到 100+ 条 / 天。" en="Seedance 2.5 ships; consumer teams reach 100+ videos a day within the week." />,
+                  media: { kind: "placeholder", note: <B zh="样片待复现" en="Sample pending" /> }
+                },
+                {
+                  tag: "1,000+ / DAY", when: "2026 H2", copy: <B zh="签 commitment，进入 1,000+ 条 / 天的品牌内容生产。" en="Sign the commitment; move to 1,000+ videos a day of brand content." />,
+                  media: { kind: "placeholder", note: <B zh="样片待复现" en="Sample pending" /> }
+                },
               ]}
               footnote={<B zh="用量为内部观测值，闭门材料；样片由王文杰按同 prompt 复现后替换。" en="Volumes are internal observations, closed-door; samples to be replaced once 王文杰 reproduces from the same prompts." />}
             />
@@ -431,16 +440,24 @@ export default function Home() {
               ]}
               headline={{ value: <>&uarr;410%</>, label: <B zh="6s VTR · McDonaldland Q4’25" en="6s VTR · McDonaldland Q4’25" /> }}
               phases={[
-                { tag: "MCDONALDLAND", when: "2025 Q4", copy: <B zh="McDonaldland：第一支 3D CGI 社交视频，四项指标全胜。" en="McDonaldland: first 3D CGI social spot; wins on all four metrics." />,
-                  media: { kind: "video", src: "/media/goodtake/mcdonaldland.mp4", label: "Goodtake × McDonaldland" } },
-                { tag: "GRIMACE", when: "2026 Q2", copy: <B zh="Grimace：第二轮投放，Seedance 2.0。" en="Grimace: second flight on Seedance 2.0." />,
-                  media: { kind: "video", src: "/media/goodtake/grimace.mp4", label: "Goodtake × Grimace" } },
-                { tag: "SNUGGLE", when: "Unilever · 2026 Q3", copy: <B zh="Snuggle 品牌片：Seedance 2.5，真人实拍级质感。" en="Snuggle brand film on Seedance 2.5 — live-action-grade quality." />,
-                  media: { kind: "video", src: "/media/goodtake/snuggle.mp4", poster: "/media/goodtake/snuggle-poster.jpg", label: "Goodtake × Unilever Snuggle",
+                {
+                  tag: "MCDONALDLAND", when: "2025 Q4", copy: <B zh="McDonaldland：第一支 3D CGI 社交视频，四项指标全胜。" en="McDonaldland: first 3D CGI social spot; wins on all four metrics." />,
+                  media: { kind: "video", src: "/media/goodtake/mcdonaldland.mp4", label: "Goodtake × McDonaldland" }
+                },
+                {
+                  tag: "GRIMACE", when: "2026 Q2", copy: <B zh="Grimace：第二轮投放，Seedance 2.0。" en="Grimace: second flight on Seedance 2.0." />,
+                  media: { kind: "video", src: "/media/goodtake/grimace.mp4", label: "Goodtake × Grimace" }
+                },
+                {
+                  tag: "SNUGGLE", when: "Unilever · 2026 Q3", copy: <B zh="Snuggle 品牌片：Seedance 2.5，真人实拍级质感。" en="Snuggle brand film on Seedance 2.5 — live-action-grade quality." />,
+                  media: {
+                    kind: "video", src: "/media/goodtake/snuggle.mp4", poster: "/media/goodtake/snuggle-poster.jpg", label: "Goodtake × Unilever Snuggle",
                     stills: [
                       { src: "/media/goodtake/snuggle-still-01.jpg", alt: "Snuggle bear in a meadow — fur and daylight detail" },
                       { src: "/media/goodtake/snuggle-still-02.jpg", alt: "Snuggle bear hero close-up with the fragrance capsule" },
-                    ] } },
+                    ]
+                  }
+                },
               ]}
               footnote={<B zh="来源：Goodtake × 麦当劳投放数据 · 内部机密。" en="Source: Goodtake × McDonald’s campaign data · confidential." />}
             />
@@ -466,10 +483,14 @@ export default function Home() {
                 <B key="3" zh="在投放中 A/B 测试，胜出版本放量" en="A/B-tested in-market; winners get the budget." />,
               ]}
               phases={[
-                { tag: "SEPHORA", when: "Beauty", copy: <B zh="Rare Beauty × Sephora 西语市场投放素材，商品图生视频。" en="Rare Beauty × Sephora, Spanish-market ad — product image to video." />,
-                  media: { kind: "video", src: "/media/tecdo/sample-1.mp4", label: "Tec-do sample ad — Rare Beauty × Sephora" } },
-                { tag: "FRESH", when: "Beauty", copy: <B zh="Fresh 玫瑰面霜：同一流程跑不同品牌与语言。" en="Fresh Rose face cream — same pipeline, another brand and language." />,
-                  media: { kind: "video", src: "/media/tecdo/sample-2.mp4", label: "Tec-do sample ad — Fresh Rose face cream" } },
+                {
+                  tag: "SEPHORA", when: "Beauty", copy: <B zh="Rare Beauty × Sephora 西语市场投放素材，商品图生视频。" en="Rare Beauty × Sephora, Spanish-market ad — product image to video." />,
+                  media: { kind: "video", src: "/media/tecdo/sample-1.mp4", label: "Tec-do sample ad — Rare Beauty × Sephora" }
+                },
+                {
+                  tag: "FRESH", when: "Beauty", copy: <B zh="Fresh 玫瑰面霜：同一流程跑不同品牌与语言。" en="Fresh Rose face cream — same pipeline, another brand and language." />,
+                  media: { kind: "video", src: "/media/tecdo/sample-2.mp4", label: "Tec-do sample ad — Fresh Rose face cream" }
+                },
               ]}
               footnote={<B zh="效果数据来自钛动提供的材料。" en="Uplift figures from Tec-do’s own materials." />}
             />
@@ -490,12 +511,18 @@ export default function Home() {
               ]}
               headline={{ value: "80%", label: <B zh="网页转化在 24h 内完成" en="web conversions within 24h" /> }}
               phases={[
-                { tag: "PARADISE PAWS", when: "Gaming", copy: <B zh="可玩广告：直接在广告里试玩，再进安装。" en="Playable: try the game inside the ad, then install." />,
-                  media: { kind: "video", src: "/media/applovin/sample-02.mp4", label: "AppLovin playable ad — Paradise Paws" } },
-                { tag: "ILIA", when: "Beauty", copy: <B zh="互动电商广告：产品特写 + 促销，一键 Shop Now。" en="Interactive commerce: product close-up + offer, one-tap Shop Now." />,
-                  media: { kind: "video", src: "/media/applovin/beauty-011.mp4", label: "AppLovin interactive ad — ILIA mascara" } },
-                { tag: "TYMO", when: "Electronics", copy: <B zh="多 SKU 陈列式互动广告：一支覆盖整条产品线。" en="Multi-SKU showcase: one interactive unit covers the whole line." />,
-                  media: { kind: "video", src: "/media/applovin/electronics-008.mp4", label: "AppLovin interactive ad — TYMO hair tools" } },
+                {
+                  tag: "PARADISE PAWS", when: "Gaming", copy: <B zh="可玩广告：直接在广告里试玩，再进安装。" en="Playable: try the game inside the ad, then install." />,
+                  media: { kind: "video", src: "/media/applovin/sample-02.mp4", label: "AppLovin playable ad — Paradise Paws" }
+                },
+                {
+                  tag: "ILIA", when: "Beauty", copy: <B zh="互动电商广告：产品特写 + 促销，一键 Shop Now。" en="Interactive commerce: product close-up + offer, one-tap Shop Now." />,
+                  media: { kind: "video", src: "/media/applovin/beauty-011.mp4", label: "AppLovin interactive ad — ILIA mascara" }
+                },
+                {
+                  tag: "TYMO", when: "Electronics", copy: <B zh="多 SKU 陈列式互动广告：一支覆盖整条产品线。" en="Multi-SKU showcase: one interactive unit covers the whole line." />,
+                  media: { kind: "video", src: "/media/applovin/electronics-008.mp4", label: "AppLovin interactive ad — TYMO hair tools" }
+                },
               ]}
               footnote={<B zh="平台数据来自 applovin.com（consumer-brands / gaming-apps 页，2026-08 读取）；60K+ 为 BytePlus 侧创意生成量。AppLovin 未公开单案例效果数字。" en="Platform figures from applovin.com (consumer-brands / gaming-apps pages, read Aug 2026); 60K+ is BytePlus-side creative volume. AppLovin has not disclosed per-campaign uplift." />}
             />
