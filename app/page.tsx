@@ -774,12 +774,12 @@ export default function Home() {
                 { value: "—", label: <B zh="效果数字未公开" en="uplift not disclosed" /> },
               ]}
               phases={[
-                { tag: "CRAWL", when: "2026 Q1", copy: <B zh="可玩广告：Merge Dragons — 拖动即玩，直接进安装。" en="Playable: Merge Dragons — drag to play, straight to install." />,
-                  media: { kind: "video", src: "/media/applovin/sample-01.mp4", label: "AppLovin playable ad — Merge Dragons", portrait: true } },
-                { tag: "WALK", when: "2026 Q2", copy: <B zh="可玩广告：Paradise Paws — 同一套素材组合出的第二支。" en="Playable: Paradise Paws — a second unit composed from the same asset set." />,
+                { tag: "PARADISE PAWS", when: "Gaming", copy: <B zh="可玩广告：直接在广告里试玩，再进安装。" en="Playable: try the game inside the ad, then install." />,
                   media: { kind: "video", src: "/media/applovin/sample-02.mp4", label: "AppLovin playable ad — Paradise Paws", portrait: true } },
-                { tag: "RUN", when: "2026 H2", copy: <B zh="休闲品类规模化：更多创意输入喂 AXON，形成飞轮。" en="Casual at scale: more creative inputs feed AXON — the flywheel." />,
-                  media: { kind: "video", src: "/media/applovin/sample-03.mp4", label: "AppLovin playable ad — brick breaker", portrait: true } },
+                { tag: "ILIA", when: "Beauty", copy: <B zh="互动电商广告：产品特写 + 促销，一键 Shop Now。" en="Interactive commerce: product close-up + offer, one-tap Shop Now." />,
+                  media: { kind: "video", src: "/media/applovin/beauty-011.mp4", label: "AppLovin interactive ad — ILIA mascara", portrait: true } },
+                { tag: "TYMO", when: "Electronics", copy: <B zh="多 SKU 陈列式互动广告：一支覆盖整条产品线。" en="Multi-SKU showcase: one interactive unit covers the whole line." />,
+                  media: { kind: "video", src: "/media/applovin/electronics-008.mp4", label: "AppLovin interactive ad — TYMO hair tools", portrait: true } },
               ]}
               footnote={<B zh="AppLovin 未公开效果数字；此处只展示样片与机制。" en="AppLovin has not disclosed uplift; samples and mechanism only." />}
             />
