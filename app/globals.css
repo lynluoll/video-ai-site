@@ -7789,7 +7789,7 @@ body {
 .gbsCasePhases { min-height: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; list-style: none; }
 /* Pair: two portrait clips sit next to each other; the columns hug the
    media (auto width) instead of spreading across the whole row. */
-.gbsCasePhases.isPair { grid-template-columns: repeat(2, minmax(0, 250px)); justify-content: start; gap: 24px; }
+.gbsCasePhases.isPair { grid-template-columns: repeat(2, minmax(0, 260px)); justify-content: space-evenly; gap: 24px; padding-left: 40px; }
 .gbsCasePhases.isPair .gbsCaseMedia.isPortrait { justify-self: start; }
 /* twoUp: phase texts stacked on the left, one media cluster on the right —
    two portrait clips over a landscape film, outer edges aligned. */
@@ -7797,9 +7797,11 @@ body {
 .gbsCasePhases.isText { grid-template-columns: minmax(0, 1fr); grid-template-rows: repeat(3, auto); align-content: space-between; gap: 22px; padding-bottom: 6px; }
 .gbsCasePhases.isText .gbsCasePhase { grid-template-rows: auto auto; gap: 8px; }
 .gbsCasePhases.isText .gbsCasePhase p { font-size: var(--bp-t-body); }
-.gbsCaseCluster { min-height: 0; height: 100%; display: grid; grid-template-columns: repeat(2, auto); grid-template-rows: minmax(0, 1.55fr) minmax(0, 1fr); gap: 12px; justify-content: end; }
+.gbsCaseCluster { min-height: 0; height: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(0, 1.05fr) minmax(0, 1fr); gap: 12px; justify-content: end; }
 .gbsCaseCluster .gbsCaseMedia { height: 100%; width: auto; }
 .gbsCaseCluster .gbsCaseMedia:nth-child(-n+2) { aspect-ratio: 9 / 16; }
+.gbsCaseCluster .gbsCaseMedia:nth-child(1) { justify-self: end; }
+.gbsCaseCluster .gbsCaseMedia:nth-child(2) { justify-self: start; }
 .gbsCaseCluster .gbsCaseMedia:nth-child(-n+2) video { object-fit: cover; }
 .gbsCaseCluster .gbsCaseMedia:nth-child(3) { grid-column: 1 / -1; justify-self: center; aspect-ratio: 16 / 9; }
 .gbsCasePhase { min-width: 0; min-height: 0; display: grid; grid-template-rows: auto auto minmax(0, 1fr); gap: 12px; }
@@ -7813,6 +7815,11 @@ body {
 /* Portrait clip in a default column: keep 9:16 at full row height, centred. */
 .gbsCaseMedia.isPortrait { justify-self: center; align-self: stretch; width: auto; height: 100%; aspect-ratio: 9 / 16; }
 .gbsCaseMedia.isPortrait video { object-fit: cover; }
+/* Landscape / square clips in a tall column: size the box to the clip's own
+   ratio and top-align it instead of letterboxing inside the full-height box. */
+.gbsCaseMedia.isWide { align-self: start; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.gbsCaseMedia.isSquare { align-self: start; width: 100%; height: auto; aspect-ratio: 1 / 1; }
+.gbsCaseMedia.isWide video, .gbsCaseMedia.isSquare video { object-fit: cover; }
 .gbsCasePlaceholder { height: 100%; min-height: 160px; display: grid; place-items: center; padding: 20px; text-align: center; background: repeating-linear-gradient(135deg, #f4f6fa 0 10px, #eef1f6 10px 20px); }
 .gbsCasePlaceholder span { max-width: 22ch; color: var(--bp-ink-3); font-size: var(--bp-t-body); font-weight: var(--bp-w-medium); line-height: 1.4; }
 .gbsCaseFoot { margin: 0; color: var(--bp-ink-3); font-size: var(--bp-t-micro); }
@@ -7887,6 +7894,12 @@ body {
 .gbsKpi hr { margin: 18px 0 14px; border: 0; border-top: var(--bp-hairline) solid var(--bp-rule); }
 .gbsKpi p { margin: 6px 0 0; color: var(--bp-ink-2); font-size: var(--bp-t-body); }
 .gbsKpi p strong { color: var(--bp-ink); font-size: var(--bp-t-lede); font-weight: var(--bp-w-display); margin-right: 6px; }
+/* Customer logos: mono-ish, one row of two + a row of three, all sized to
+   a common cap height. */
+.gbsKpiLogos { margin: 10px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 16px; align-items: center; }
+.gbsKpiLogos li { display: flex; align-items: center; justify-content: center; height: 20px; }
+.gbsKpiLogos li:nth-child(5) { grid-column: 1 / -1; height: 18px; }
+.gbsKpiLogos img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; filter: grayscale(1); opacity: .85; }
 .gbsChart {
   position: relative;
   min-width: 0;

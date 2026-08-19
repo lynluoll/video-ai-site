@@ -21,7 +21,6 @@ test("server-renders the complete V3 advertising strategy", async () => {
 
   const html = await response.text();
   const performanceSolutionHtml = html.slice(html.indexOf('id="solution-performance"'), html.indexOf('id="solution-display"'));
-  const marketTrendHtml = html.slice(html.indexOf('class="marketTrendSection"'), html.indexOf('class="customerFlowPage"'));
 
   assert.match(html, /<html lang="en" class="[^"]*styles-pending[^"]*">/);
   assert.match(html, /Loading experience\\2026/);
@@ -45,32 +44,20 @@ test("server-renders the complete V3 advertising strategy", async () => {
   // the dollar figures above are the stable assertions.
   assert.doesNotMatch(html, /\$25–30B|\$29\.4B|可替代劳动力盘|Replaceable labor pool|VALUE CAPTURE|关键数字为方向性估算|参考页估算/);
 
-  // Chapter 01: the campaign-agent thesis with two trend cards (agent loop
-  // and the Goodtake production case).
-  assert.match(html, /Campaign Agent 规模化/);
-  assert.match(html, /Campaign Agents Scale on/);
-  assert.equal((html.match(/class="marketTrendCard /g) ?? []).length, 2);
-  assert.match(marketTrendHtml, /Every major ad manager now ships a campaign agent/);
-  assert.match(marketTrendHtml, /Starts with Ideation\./);
-  assert.doesNotMatch(marketTrendHtml, /SEARCH BENCHMARK|CORE SIGNAL|Meta Advantage\+ annual run-rate|IAB · The AI Ad Gap Widens|下一章：主要参与者|Next: Key Players/);
+  // GBS edition: the campaign-agent board and the Goodtake/Coke trend card
+  // are gone; chapter 01 is chart → usage → offer.
+  assert.doesNotMatch(html, /Campaign Agents Scale on|Every major ad manager now ships a campaign agent|Starts with Ideation\./);
+  assert.equal((html.match(/class="marketTrendCard /g) ?? []).length, 0);
 
   // The verified market chart remains, while the redundant Scene Landscape
   // overview and its three standalone demo pages are removed completely.
   assert.equal((html.match(/class="marketFlowSvg"/g) ?? []).length, 1);
   assert.match(html, /查看三赛道/);
   assert.doesNotMatch(html, /sceneLandscapePage|sceneDemoPages|sceneTrackCard|sceneDemoPage|SCENE LANDSCAPE|Mainstream ad scenarios/);
-  assert.match(html, /id="players"/);
-
-  // Chapter 02 is a single flat player map: four rows, the budget-role
-  // column removed so KEY TREND owns the centre of each row.
-  const customerFlowHtml = html.slice(html.indexOf('class="customerFlowPage"'), html.indexOf('customerCasesSection'));
-  assert.equal((customerFlowHtml.match(/class="customerFlowStage"/g) ?? []).length, 4);
-  assert.doesNotMatch(customerFlowHtml, /BUDGET ROLE|预算角色/);
-  assert.match(customerFlowHtml, /Brand owners.*Building in-house AI platforms/s);
-  assert.match(customerFlowHtml, /Agencies.*From previews into production.*WPP · Havas/s);
-  assert.match(customerFlowHtml, /Paid media.*Signals flow back into production.*Perplexity/s);
-  assert.match(customerFlowHtml, /class="customerFlowMoneyRail"/);
-  assert.doesNotMatch(customerFlowHtml, /STANDARD WORKFLOW|BYTEPLUS OFFER|customerMoneySpine|Brands hold the budget/);
+  // GBS edition: the Key Players map is gone; nav 02 points at the case
+  // chapter instead.
+  assert.doesNotMatch(html, /id="players"|class="customerFlowPage"|class="customerFlowStage"/);
+  assert.match(html, /href="#case-studies"[^>]*>.*?Case Studies/s);
 
   // Solution pages keep 3.x numbering (cases are asserted below).
   assert.match(html, /id="solutions"/);

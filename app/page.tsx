@@ -193,50 +193,6 @@ const performanceSkuAssets = [
   { index: "14", src: "/media/performance-2026/multi-sku-skus/14-gray-sweatpants.png", zh: "灰色运动裤", en: "Gray sweatpants" },
 ];
 
-const customerFlowStages = [
-  {
-    index: "01",
-    title: "品牌主",
-    titleEn: "Brand owners",
-    budgetRole: "负责预算与品牌资产",
-    budgetRoleEn: "Set budgets and brand assets",
-    trend: "建设内部 AI 平台",
-    trendEn: "Building in-house AI platforms",
-    examples: "典型全球品牌主",
-    examplesEn: "Global brand owners",
-  },
-  {
-    index: "02",
-    title: "代理商",
-    titleEn: "Agencies",
-    budgetRole: "承接创意与制作预算",
-    budgetRoleEn: "Hold creative and production budgets",
-    trend: "从创意预演进入正式制作",
-    trendEn: "From previews into production",
-    examples: "WPP · Havas",
-  },
-  {
-    index: "03",
-    title: "AdTech / MarTech",
-    titleEn: "AdTech / MarTech",
-    budgetRole: "将媒体预算转化为持续素材生产",
-    budgetRoleEn: "Turn media budgets into continuous production",
-    trend: "Campaign Agent 从 1 进入 3",
-    trendEn: "Campaign agents enter 1 → 3",
-    examples: "AppLovin · Tec-do",
-  },
-  {
-    index: "04",
-    title: "Paid Media",
-    titleEn: "Paid media",
-    budgetRole: "完成分发并返回效果信号",
-    budgetRoleEn: "Distribute and return performance signals",
-    trend: "效果信号回流至内容生产",
-    trendEn: "Signals flow back into production",
-    examples: "Perplexity",
-  },
-];
-
 export default function Home() {
   return (
     <main className="siteRoot" id="top">
@@ -250,7 +206,7 @@ export default function Home() {
         </a>
         <div className="navChapterLinks" aria-label="章节导航">
           <a href="#market"><span className="langZh">市场概览</span><span className="langEn">Market Overview</span></a>
-          <a href="#players"><span className="langZh">关键角色</span><span className="langEn">Key Players</span></a>
+          <a href="#case-studies"><span className="langZh">客户案例</span><span className="langEn">Case Studies</span></a>
           <a href="#solutions"><span className="langZh">解决方案</span><span className="langEn">Solutions</span></a>
           <a href="#demos"><span className="langZh">更多样片</span><span className="langEn">More Demos</span></a>
         </div>
@@ -423,6 +379,15 @@ export default function Home() {
                 <span><B zh="按画幅" en="BY FORMAT" /></span>
                 <p><strong>~70%</strong> <B zh="竖屏 9:16 · TikTok / Reels" en="portrait 9:16 · TikTok / Reels" /></p>
                 <p><strong>~30%</strong> <B zh="横屏 16:9 · CTV / 品牌" en="landscape 16:9 · CTV / brand" /></p>
+                <hr />
+                <span><B zh="部分广告客户" en="SELECTED ADS CUSTOMERS" /></span>
+                <ul className="gbsKpiLogos" aria-label="Selected ads customers">
+                  <li><img src="/logos/customers/wpp.svg" alt="WPP" /></li>
+                  <li><img src="/logos/customers/loreal.svg" alt="L’Oréal" /></li>
+                  <li><img src="/logos/customers/applovin.png" alt="AppLovin" /></li>
+                  <li><img src="/logos/customers/havas.svg" alt="Havas" /></li>
+                  <li><img src="/logos/customers/tecdo.svg" alt="Tec-do" /></li>
+                </ul>
               </aside>
 
               <figure className="gbsChart" role="img" aria-label="Daily ad-video volume rising from early 2026 to 100k+ per day by August, with product milestones marked along the curve">
@@ -533,88 +498,6 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="marketTrendSection" aria-labelledby="market-trends-title">
-            <header className="marketTrendSectionHeader">
-              <div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div>
-              <h2 id="market-trends-title"><B zh={<>Campaign Agent 规模化，靠<strong>素材供给自动化</strong></>} en={<>Campaign Agents Scale on <strong>Automated Creative Supply</strong></>} /></h2>
-            </header>
-
-            <div className="marketTrendGrid">
-              <article className="marketTrendCard marketTrendAgent">
-                <div className="marketTrendVisual agentPlatformBoard">
-                  <p className="agentPlatformLede"><B zh="主流 Ad Manager 都在内建 Campaign Agent" en="Every major ad manager now ships a campaign agent" /></p>
-
-                  <ol className="agentLoop" aria-label="Campaign Agent 的五步闭环">
-                    <li><span>01</span><b><B zh="市场洞察" en="Market insight" /></b></li>
-                    <li><span>02</span><b><B zh="广告脚本" en="Ad scripts" /></b></li>
-                    <li className="agentLoopCore"><span>03</span><b><B zh="素材自动生产" en="Automated creative production" /></b></li>
-                    <li><span>04</span><b><B zh="投放测试" en="Launch and test" /></b></li>
-                    <li><span>05</span><b><B zh="复刻胜出素材" en="Iterate winners" /></b></li>
-                  </ol>
-
-                  <p className="agentPlatformTier"><B zh="付费媒体平台" en="PAID MEDIA PLATFORMS" /></p>
-                  <ul className="agentPlatformRow">
-                    <li><img src="/logos/meta-color.svg" alt="" aria-hidden="true" /><div><b>Meta</b><em>Meta Ads Manager · Advantage+</em><small><B zh="生成背景 / 图片扩展 / 文案变体 / 视频动效" en="Generates backgrounds, image expansion, text variations, video animation" /></small></div></li>
-                    <li><img src="/logos/google-color.svg" alt="" aria-hidden="true" /><div><b>Google</b><em>Google Ads · Performance Max · AI Max</em><small><B zh="Gemini 生成图片与文案素材，自动组合投放" en="Gemini-generated image and text assets, auto-assembled per placement" /></small></div></li>
-                    <li><img src="/logos/tiktok-color.svg" alt="" aria-hidden="true" /><div><b>TikTok</b><em>TikTok Ads Manager · Smart+ · Symphony</em><small><B zh="脚本→视频、数字人、多语翻译，直出可投放的短视频" en="Script-to-video, digital avatars, translation — ready-to-run short video" /></small></div></li>
-                    <li><img src="/logos/amazon-color.svg" alt="" aria-hidden="true" /><div><b>Amazon</b><em>Amazon Ads · Creative Agent</em><small><B zh="从商品页生成图片与视频广告" en="Image and video ads generated from the product page" /></small></div></li>
-                    <li><img src="/logos/snapchat-color.svg" alt="" aria-hidden="true" /><div><b>Snap</b><em>Snap Ads Manager · Smart Assistant</em><small><B zh="生成式 Lens 与广告创意辅助" en="Generative Lenses and creative assist" /></small></div></li>
-                    <li><img src="/logos/pinterest-color.svg" alt="" aria-hidden="true" /><div><b>Pinterest</b><em>Pinterest Ads · Performance+ · Canvas</em><small><B zh="生成式背景，把商品图变成生活方式场景" en="Generative backgrounds that turn product shots into lifestyle scenes" /></small></div></li>
-                    <li><img src="/logos/reddit-color.svg" alt="" aria-hidden="true" /><div><b>Reddit</b><em>Reddit Ads · Max · AI copywriter</em><small><B zh="按社区语境生成广告文案" en="Ad copy generated for each community’s tone" /></small></div></li>
-                  </ul>
-
-                  <p className="agentPlatformTier"><B zh="广告技术" en="ADTECH" /></p>
-                  <ul className="agentPlatformRow">
-                    <li><img src="/logos/applovin-color.svg" alt="" aria-hidden="true" /><div><b>AppLovin</b><em>AXON · Creative Sets</em><small><B zh="上传素材 → 自动组合成可玩 / 视频 / 图片广告" en="Upload assets → auto-composed playable, video and image ads" /></small></div></li>
-                    <li><img src="/logos/thetradedesk-color.png" alt="" aria-hidden="true" /><div><b>The Trade Desk</b><em>Kokai · Koa Agents</em><small><B zh="投放决策 agent；素材生成靠合作方" en="Buying-decision agents; creative generation via partners" /></small></div></li>
-                    <li><img src="/logos/criteo-color.png" alt="" aria-hidden="true" /><div><b>Criteo</b><em>Commerce Media Platform</em></div></li>
-                    <li><img src="/logos/nativex-color.png" alt="" aria-hidden="true" /><div><b>Nativex</b><em>Navos</em></div></li>
-                  </ul>
-
-                  <p className="agentPlatformTier"><B zh="创意技术" en="CREATIVE TECH" /></p>
-                  <ul className="agentPlatformRow">
-                    <li><img src="/logos/smartly-color.svg" alt="" aria-hidden="true" /><div><b>Smartly.io</b><em>Smartly · AI Studio</em><small><B zh="生成图片 / 视频变体并跨平台投放" en="Generates image and video variants and ships them across platforms" /></small></div></li>
-                    <li><img className="agentLogoWide" src="/logos/celtra-color.svg" alt="" aria-hidden="true" /><div><b>Celtra</b><em>Celtra · Creative Automation</em></div></li>
-                    <li><img src="/logos/bannerflow-color.svg" alt="" aria-hidden="true" /><div><b>Bannerflow</b><em>Bannerflow · Creative Automation</em></div></li>
-                    <li><img src="/logos/storyteq-color.svg" alt="" aria-hidden="true" /><div><b>Storyteq</b><em>Storyteq · Creative Automation</em></div></li>
-                  </ul>
-
-                </div>
-              </article>
-
-
-              <article className="marketTrendCard goodtakeCase">
-                <header><div className="marketFlowIndex"><span>01</span><b>MARKET OVERVIEW</b></div></header>
-                <h3><B zh={<>从创意构想开始，<span>现在已经进入真实生产。</span></>} en={<>Starts with Ideation. <span>Now to Real Production.</span></>} /></h3>
-
-                <p className="goodtakeLede"><B zh="真实生产，两家伙伴：Goodtake 为联合利华韩国 Snuggle 制作的品牌广告，以及 WPP 用 AI 生成的可口可乐广告片。" en="Real production, two partners: Goodtake's brand spot for Unilever Korea's Snuggle, and WPP's AI-generated Coca-Cola films." /></p>
-
-                <div className="goodtakeGrid goodtakeGridV3">
-                  <figure className="goodtakeFeature goodtakeTile16">
-                    <div className="goodtakeMedia">
-                      <PauseWhenHiddenVideo src="/media/goodtake/snuggle.mp4" autoPlay controls loop muted playsInline ariaLabel="Goodtake 为联合利华韩国 Snuggle 制作的品牌广告" />
-                      <span className="goodtakeModelTag">Seedance 2.5</span>
-                    </div>
-                    <figcaption><b>Goodtake &times; Unilever&rsquo;s Snuggle</b><em>Unilever Korea</em></figcaption>
-                  </figure>
-                  <figure className="goodtakeFeature goodtakeTile16">
-                    <div className="goodtakeMedia">
-                      <PauseWhenHiddenVideo src="/media/wpp/cocacola-16x9.mp4" autoPlay controls loop muted playsInline ariaLabel="WPP 为可口可乐制作的 AI 生成横版广告" />
-                      <span className="goodtakeModelTag">Seedance 2.0</span>
-                    </div>
-                    <figcaption><b>WPP &times; Coca-Cola</b><em>16:9</em></figcaption>
-                  </figure>
-                  <figure className="goodtakeFeature goodtakeTile9">
-                    <div className="goodtakeMedia">
-                      <PauseWhenHiddenVideo src="/media/wpp/cocacola-9x16.mp4" autoPlay controls loop muted playsInline ariaLabel="WPP 为可口可乐制作的 AI 生成竖版广告" />
-                      <span className="goodtakeModelTag">Seedance 2.0</span>
-                    </div>
-                    <figcaption><b>WPP &times; Coca-Cola</b><em>9:16</em></figcaption>
-                  </figure>
-                </div>
-              </article>
-            </div>
-          </section>
         </div>
       </section>
 
@@ -629,26 +512,6 @@ export default function Home() {
             <h2 className="langZh" id="case-study-transition-title"><strong>头部客户</strong>怎么用 BytePlus。</h2>
             <h2 className="langEn">How <strong>leading partners</strong> use BytePlus.</h2>
           </div>
-        </div>
-      </section>
-
-      <section className="customerFlowPage" id="players" aria-label="广告产业四类参与者与关键趋势">
-        <div className="customerFlowShell">
-          <div className="customerFlowCanvas">
-            <div className="customerFlowRoute" aria-label="广告产业四类参与者与关键趋势">
-              <div className="customerFlowMoneyRail" aria-hidden="true"><span>$</span><i></i><em>↓</em></div>
-              <div className="customerFlowStages">
-                {customerFlowStages.map((stage) => (
-                  <article className="customerFlowStage" key={stage.index}>
-                    <div className="customerFlowIdentity"><span>{stage.index}</span><h3><B zh={stage.title} en={stage.titleEn} /></h3></div>
-                    <div className="customerFlowTrend"><small><B zh="关键趋势" en="KEY TREND" /></small><h4><B zh={stage.trend} en={stage.trendEn} /></h4></div>
-                    <div className="customerFlowExamples"><small><B zh="代表对象" en="REPRESENTATIVE" /></small><b><B zh={stage.examples} en={stage.examplesEn ?? stage.examples} /></b></div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -672,11 +535,11 @@ export default function Home() {
               headline={{ value: <>&ldquo;they love it&rdquo;</>, label: <B zh="WPP 制作团队对 Seedance 2.5 的原话" en="Production teams on Seedance 2.5, in their words" /> }}
               phases={[
                 { tag: "CRAWL", when: "2026 Q1", copy: <B zh="Seedance 成为 WPP Open 里可选的视频模型；创意团队用它做 pre-vis 拿签字与预算。" en="Seedance wired into WPP Open as a model option; creative teams use it for pre-vis to win sign-off and budget." />,
-                  media: { kind: "image", src: "/media/wpp/toolkit.png", alt: "WPP Open workspace with Team, Canvas and toolkit" } },
+                  media: { kind: "video", src: "/media/wpp/seedance25-case-09.mp4", label: "Seedance 2.5 sample film — live-action-grade", aspect: "wide" } },
                 { tag: "WALK", when: "2026 Q2–Q3", copy: <B zh="制作团队在 6+ 市场跑真活：可口可乐等大品牌的横竖版广告片。" en="Production teams in 6+ markets on live work — landscape and portrait films for brands like Coca-Cola." />,
-                  media: { kind: "video", src: "/media/wpp/cocacola-16x9.mp4", label: "WPP × Coca-Cola AI-generated film" } },
+                  media: { kind: "video", src: "/media/wpp/cocacola-16x9.mp4", label: "WPP × Coca-Cola AI-generated film", aspect: "wide" } },
                 { tag: "RUN", when: "2026 H2", copy: <B zh="WPP HEX：共建 FDE 人才梯队，嵌入客户团队，把能力留在 WPP 手里。" en="WPP HEX: co-built FDE cohort embedded in client teams — the capability stays with WPP." />,
-                  media: { kind: "image", src: "/media/wpp/wpp-hex.png", alt: "WPP launches HEX" } },
+                  media: { kind: "video", src: "/media/wpp/seedance25-case-19.mp4", label: "Seedance 2.5 sample — retail promo", aspect: "square" } },
               ]}
               footnote={<B zh="用量数据来自 BytePlus 侧 4,000 个任务统计；闭门材料。" en="Usage figures from BytePlus-side stats over 4,000 tasks; closed-door material." />}
             />

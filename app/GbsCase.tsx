@@ -9,7 +9,7 @@ import PauseWhenHiddenVideo from "./PauseWhenHiddenVideo";
 
 export type GbsMedia =
   | { kind: "image"; src: string; alt: string; fit?: "cover" | "contain" }
-  | { kind: "video"; src: string; poster?: string; label: string; portrait?: boolean }
+  | { kind: "video"; src: string; poster?: string; label: string; portrait?: boolean; aspect?: "wide" | "square" }
   | { kind: "placeholder"; note: ReactNode };
 
 export type GbsPhase = { tag: string; when: string; copy: ReactNode; media: GbsMedia };
@@ -109,7 +109,7 @@ export default function GbsCase(p: GbsCaseProps) {
                   <span>{ph.when}</span>
                 </header>
                 <p>{ph.copy}</p>
-                <figure className={`gbsCaseMedia is-${ph.media.kind}${ph.media.kind === "video" && ph.media.portrait ? " isPortrait" : ""}`}>
+                <figure className={`gbsCaseMedia is-${ph.media.kind}${ph.media.kind === "video" && ph.media.portrait ? " isPortrait" : ""}${ph.media.kind === "video" && ph.media.aspect === "wide" ? " isWide" : ""}${ph.media.kind === "video" && ph.media.aspect === "square" ? " isSquare" : ""}`}>
                   <Media m={ph.media} />
                 </figure>
               </li>
