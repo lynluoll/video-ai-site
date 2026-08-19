@@ -7787,6 +7787,18 @@ body {
 .gbsCaseHeadline b { display: block; color: var(--bp-blue); font-size: var(--bp-t-h1); font-weight: var(--bp-w-display); line-height: 1; letter-spacing: var(--bp-track-tight); }
 .gbsCaseHeadline span { display: block; margin-top: 8px; color: var(--bp-ink-2); font-size: var(--bp-t-label); font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-label); text-transform: uppercase; }
 .gbsCasePhases { min-height: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; list-style: none; }
+/* twoUp: portrait pair on top, landscape film across the bottom. Every
+   phase becomes text-left / media-right so the clip takes the full row
+   height and keeps its own aspect ratio (no letterboxing). */
+.gbsCasePhases.isTwoUp { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(0, 1.5fr) minmax(0, 1fr); gap: 16px 22px; }
+.gbsCasePhases.isTwoUp .gbsCasePhase { grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto minmax(0, 1fr); column-gap: 18px; row-gap: 10px; }
+.gbsCasePhases.isTwoUp .gbsCasePhase header { grid-column: 1; }
+.gbsCasePhases.isTwoUp .gbsCasePhase p { grid-column: 1; min-height: 0; font-size: var(--bp-t-body); }
+.gbsCasePhases.isTwoUp .gbsCasePhase .gbsCaseMedia { grid-column: 2; grid-row: 1 / 3; align-self: stretch; width: auto; height: 100%; }
+.gbsCasePhases.isTwoUp .gbsCasePhase:nth-child(-n+2) .gbsCaseMedia { aspect-ratio: 9 / 16; }
+.gbsCasePhases.isTwoUp .gbsCasePhase:nth-child(-n+2) .gbsCaseMedia video { object-fit: cover; }
+.gbsCasePhases.isTwoUp .gbsCasePhase:nth-child(3) { grid-column: 1 / -1; grid-template-columns: 300px minmax(0, 1fr); }
+.gbsCasePhases.isTwoUp .gbsCasePhase:nth-child(3) .gbsCaseMedia { aspect-ratio: 16 / 9; justify-self: start; }
 .gbsCasePhase { min-width: 0; min-height: 0; display: grid; grid-template-rows: auto auto minmax(0, 1fr); gap: 12px; }
 .gbsCasePhase header { padding-bottom: 8px; display: flex; align-items: baseline; gap: 8px; border-bottom: 2px solid var(--bp-blue); }
 .gbsCasePhase header b { color: var(--bp-blue); font-size: var(--bp-t-sub); font-weight: var(--bp-w-display); letter-spacing: .04em; }
@@ -7795,6 +7807,9 @@ body {
 .gbsCaseMedia { min-height: 0; margin: 0; overflow: hidden; background: var(--bp-surface-2); border: var(--bp-hairline) solid var(--bp-rule); border-radius: var(--bp-radius-card); }
 .gbsCaseMedia img, .gbsCaseMedia video { width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; }
 .gbsCaseMedia.is-video video { background: var(--bp-ink); object-fit: contain; }
+/* Portrait clip in a default column: keep 9:16 at full row height, centred. */
+.gbsCaseMedia.isPortrait { justify-self: center; align-self: stretch; width: auto; height: 100%; aspect-ratio: 9 / 16; }
+.gbsCaseMedia.isPortrait video { object-fit: cover; }
 .gbsCasePlaceholder { height: 100%; min-height: 160px; display: grid; place-items: center; padding: 20px; text-align: center; background: repeating-linear-gradient(135deg, #f4f6fa 0 10px, #eef1f6 10px 20px); }
 .gbsCasePlaceholder span { max-width: 22ch; color: var(--bp-ink-3); font-size: var(--bp-t-body); font-weight: var(--bp-w-medium); line-height: 1.4; }
 .gbsCaseFoot { margin: 0; color: var(--bp-ink-3); font-size: var(--bp-t-micro); }

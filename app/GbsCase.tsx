@@ -9,7 +9,7 @@ import PauseWhenHiddenVideo from "./PauseWhenHiddenVideo";
 
 export type GbsMedia =
   | { kind: "image"; src: string; alt: string; fit?: "cover" | "contain" }
-  | { kind: "video"; src: string; poster?: string; label: string }
+  | { kind: "video"; src: string; poster?: string; label: string; portrait?: boolean }
   | { kind: "placeholder"; note: ReactNode };
 
 export type GbsPhase = { tag: string; when: string; copy: ReactNode; media: GbsMedia };
@@ -26,6 +26,10 @@ export type GbsCaseProps = {
   kpis: GbsKpi[];
   headline?: { value: ReactNode; label: ReactNode };
   phases: [GbsPhase, GbsPhase, GbsPhase];
+  /* "row" (default): three equal columns. "twoUp": phases 1–2 side by side,
+     phase 3 full-width underneath — for a pair of portrait clips over one
+     landscape film. */
+  phaseLayout?: "row" | "twoUp";
   footnote?: ReactNode;
 };
 
@@ -73,7 +77,7 @@ export default function GbsCase(p: GbsCaseProps) {
           ) : null}
         </aside>
 
-        <ol className="gbsCasePhases">
+        <ol className={`gbsCasePhases${p.phaseLayout === "twoUp" ? " isTwoUp" : ""}`}>
           {p.phases.map((ph, i) => (
             <li key={i} className="gbsCasePhase">
               <header>
@@ -81,7 +85,7 @@ export default function GbsCase(p: GbsCaseProps) {
                 <span>{ph.when}</span>
               </header>
               <p>{ph.copy}</p>
-              <figure className={`gbsCaseMedia is-${ph.media.kind}`}>
+              <figure className={`gbsCaseMedia is-${ph.media.kind}${ph.media.kind === "video" && ph.media.portrait ? " isPortrait" : ""}`}>
                 <Media m={ph.media} />
               </figure>
             </li>

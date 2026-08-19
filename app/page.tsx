@@ -722,6 +722,7 @@ export default function Home() {
                 { value: "1.23%", label: <B zh="ER（其他 0.50%）" en="ER (others 0.50%)" /> },
               ]}
               headline={{ value: <>&uarr;410%</>, label: <B zh="6s VTR · McDonaldland Q4’25" en="6s VTR · McDonaldland Q4’25" /> }}
+              phaseLayout="twoUp"
               phases={[
                 { tag: "CRAWL", when: "2025 Q4", copy: <B zh="McDonaldland：第一支 3D CGI 社交视频，四项指标全胜。" en="McDonaldland: first 3D CGI social spot; wins on all four metrics." />,
                   media: { kind: "video", src: "/media/goodtake/mcdonaldland.mp4", label: "Goodtake × McDonaldland" } },
@@ -750,10 +751,10 @@ export default function Home() {
               phases={[
                 { tag: "CRAWL", when: "2026 H1", copy: <B zh="单品图生视频，验证商品一致性。" en="Single-product image-to-video; product consistency validated." />,
                   media: { kind: "image", src: "/media/performance-2026/multi-sku-skus/01-khaki-trench-coat.png", alt: "SKU input", fit: "contain" } },
-                { tag: "WALK", when: "2026 Q2", copy: <B zh="多 SKU 输入，一支稳定一致的效果广告成片。" en="Multiple SKUs in, one consistent performance video out." />,
-                  media: { kind: "video", src: "/media/performance-2026/multi-sku.mp4", poster: "/media/performance-2026/multi-sku.jpg", label: "Multi-SKU performance video" } },
-                { tag: "RUN", when: "2026 H2", copy: <B zh="agent 化：按 SKU 目录批量生成，本地化多语版本。" en="Agentic: batch across the catalog with localized variants." />,
-                  media: { kind: "placeholder", note: <B zh="钛动材料中的数据与样片待补" en="Figures and samples from the Tec-do deck to follow" /> } },
+                { tag: "WALK", when: "2026 Q2", copy: <B zh="美妆品图生视频：Rare Beauty × Sephora 西语市场投放素材。" en="Beauty image-to-video: Rare Beauty × Sephora, Spanish-market ad." />,
+                  media: { kind: "video", src: "/media/tecdo/sample-1.mp4", label: "Tec-do sample ad — Rare Beauty × Sephora", portrait: true } },
+                { tag: "RUN", when: "2026 H2", copy: <B zh="同一流程跑不同品牌与语言：Fresh 玫瑰面霜。" en="Same pipeline across brands and languages: Fresh Rose face cream." />,
+                  media: { kind: "video", src: "/media/tecdo/sample-2.mp4", label: "Tec-do sample ad — Fresh Rose face cream", portrait: true } },
               ]}
               footnote={<B zh="效果数据以钛动提供的材料为准，待挑选可用条目。" en="Uplift figures to be drawn from Tec-do’s own deck once vetted." />}
             />
