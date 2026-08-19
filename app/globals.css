@@ -7704,7 +7704,7 @@ body {
 /* v2.5 · Playable matrix click-to-zoom */
 .playableMatrix video { cursor: zoom-in; transition: transform .16s ease, box-shadow .16s ease; }
 .playableMatrix video:hover { transform: scale(1.04); box-shadow: 0 10px 26px rgba(21,27,42,.28); }
-.playableClipLightbox video { width: min(420px, 80vw); max-height: calc(90vh - 40px); display: block; object-fit: contain; background: #111827; }
+.playableClipLightbox video { width: min(420px, 80vw); max-height: calc(90vh - 40px); display: block; object-fit: contain; background: none; }
 
 /* v2.6 · 2030 combined video+image AI metric spans the year card */
 .marketFlowMetricCombined { grid-column: 1 / -1; }
@@ -7796,8 +7796,8 @@ body {
 .gbsCasePhase p { margin: 0; min-height: 3.6em; color: var(--bp-ink-2); font-size: var(--bp-t-body-l); line-height: 1.45; }
 .gbsCaseMedia { min-height: 0; margin: 0; overflow: hidden; background: var(--bp-surface-2); border: var(--bp-hairline) solid var(--bp-rule); border-radius: var(--bp-radius-card); }
 .gbsCaseMedia img, .gbsCaseMedia video { width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; }
-/* No letterbox. The frame is sized from the clip's own ratio (--v-ar, published
-   on loadedmetadata), so the picture reaches every edge of its border and the
+/* No letterbox. width:auto against a definite height lets the clip take its own
+   intrinsic ratio, so the picture reaches every edge of its border and the
    leftover column space stays page surface rather than a black slab. */
 .gbsCaseMedia.is-video:not(.is-stack) {
   display: grid;
@@ -7812,8 +7812,7 @@ body {
   width: auto;
   height: 100%;
   max-width: 100%;
-  aspect-ratio: var(--v-ar, 9 / 16);
-  object-fit: cover;
+  object-fit: contain;
   background: none;
   border: var(--bp-hairline) solid var(--bp-rule);
   border-radius: var(--bp-radius-card);
@@ -7847,6 +7846,49 @@ body {
 .gbsCasePlaceholder { height: 100%; min-height: 160px; display: grid; place-items: center; padding: 20px; text-align: center; background: repeating-linear-gradient(135deg, #f4f6fa 0 10px, #eef1f6 10px 20px); }
 .gbsCasePlaceholder span { max-width: 22ch; color: var(--bp-ink-3); font-size: var(--bp-t-body); font-weight: var(--bp-w-medium); line-height: 1.4; }
 .gbsCaseFoot { margin: 0; color: var(--bp-ink-3); font-size: var(--bp-t-micro); }
+
+/* Hover stage · any clip on the page lifts to full viewport after a beat of
+   hover. The native Fullscreen API needs a real user gesture, so this is an
+   in-page overlay; it leaves on pointer-out, Esc or a click on the backdrop. */
+.videoHoverStage {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 3vmin;
+  background: rgba(10, 14, 22, .82);
+  backdrop-filter: blur(6px);
+  animation: videoHoverStageIn .16s ease-out;
+}
+.videoHoverStageFilm {
+  max-width: 94vw;
+  max-height: 94vh;
+  display: block;
+  object-fit: contain;
+  background: none;
+  border-radius: var(--bp-radius-card);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+}
+.videoHoverStageClose {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-size: 26px;
+  line-height: 1;
+  background: rgba(255, 255, 255, .12);
+  border: var(--bp-hairline) solid rgba(255, 255, 255, .28);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.videoHoverStageClose:hover { background: rgba(255, 255, 255, .22); }
+@keyframes videoHoverStageIn { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .videoHoverStage { animation: none; } }
 @media (max-width: 1000px) {
   .gbsCase { aspect-ratio: auto; max-height: none; padding: 28px 22px; }
   .gbsCaseBody { grid-template-columns: 1fr; }

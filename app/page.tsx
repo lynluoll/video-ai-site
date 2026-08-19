@@ -491,7 +491,7 @@ export default function Home() {
               <span>POWERED BY THE SEED FAMILY</span>
               <ul>
                 <li className="isHot">Seedance 2.5</li>
-                <li>Seedream 5.0</li>
+                <li>Seedream 5.0 Pro</li>
                 <li>Seed Audio</li>
                 <li>Seed LLM</li>
               </ul>

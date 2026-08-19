@@ -68,15 +68,6 @@ export default function PauseWhenHiddenVideo({
     void video.play().catch(() => undefined);
   }, [autoPlay, shouldLoad, src]);
 
-  /* Publish the real aspect ratio so the frame can hug the picture instead of
-     padding it out with letterbox bars. */
-  const publishRatio = useCallback((video: HTMLVideoElement | null) => {
-    if (!video || !video.videoWidth || !video.videoHeight) return;
-    const ratio = `${video.videoWidth} / ${video.videoHeight}`;
-    video.style.setProperty("--v-ar", ratio);
-    video.parentElement?.style.setProperty("--v-ar", ratio);
-  }, []);
-
   const closeStage = useCallback(() => {
     window.clearTimeout(hoverTimer.current);
     setStaged(false);
@@ -103,7 +94,6 @@ export default function PauseWhenHiddenVideo({
         poster={poster}
         autoPlay={autoPlay}
         preload={shouldLoad ? (preload ?? (loadImmediately ? "auto" : "metadata")) : "none"}
-        onLoadedMetadata={(e) => publishRatio(e.currentTarget)}
         onPointerEnter={(e) => {
           setShouldLoad(true);
           if (!stageEnabled || e.pointerType === "touch") return;
@@ -131,7 +121,6 @@ export default function PauseWhenHiddenVideo({
                 preload="auto"
                 aria-label={ariaLabel}
                 onLoadedMetadata={(e) => {
-                  publishRatio(e.currentTarget);
                   const source = videoRef.current;
                   if (source && Number.isFinite(source.currentTime)) e.currentTarget.currentTime = source.currentTime;
                 }}
