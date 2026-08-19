@@ -7742,6 +7742,69 @@ body {
 }
 .marketFlowFigure { min-height: 610px; }
 
+/* ---- GBS case frame -----------------------------------------------------
+   One layout for every customer case, after the "Symphony × Amazon" slide:
+   left — objective, four KPI tiles, one headline stat; right — three phase
+   columns (crawl / walk / run) each with copy and one visual. */
+.gbsCase {
+  box-sizing: border-box;
+  aspect-ratio: 16 / 9;
+  min-height: 620px;
+  max-height: 900px;
+  margin-top: 28px;
+  padding: 40px 48px 34px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 22px;
+  color: var(--bp-ink);
+  background: var(--bp-surface);
+  border: var(--bp-hairline) solid var(--bp-rule);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.gbsCaseHead { min-width: 0; }
+.gbsCaseKicker { display: block; color: var(--bp-blue); font-size: var(--bp-t-label); font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-label); text-transform: uppercase; }
+.gbsCaseHead h3 { margin: 10px 0 0; display: flex; align-items: baseline; gap: 16px; color: var(--bp-ink); font-size: clamp(30px, 2.8vw, 42px); font-weight: var(--bp-w-display); line-height: 1.1; letter-spacing: var(--bp-track-tight); }
+.gbsCaseHead h3 i { padding: 4px 12px; color: var(--bp-blue); font-size: var(--bp-t-label); font-style: normal; font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-label); border: 2px solid var(--bp-blue); border-radius: 999px; }
+.gbsCaseHead h3 small { color: var(--bp-ink-3); font-size: var(--bp-t-lede); font-weight: var(--bp-w-medium); letter-spacing: 0; }
+.gbsCaseBody {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+.gbsCaseLeft { min-height: 0; display: grid; grid-template-rows: auto auto auto; align-content: start; gap: 12px; }
+.gbsCaseObjective { padding: 18px 20px; background: var(--bp-blue-wash-2); border-left: var(--bp-accent-bar) solid var(--bp-blue); border-radius: 0 var(--bp-radius-card) var(--bp-radius-card) 0; }
+.gbsCaseObjective b { display: block; color: var(--bp-ink); font-size: var(--bp-t-card); font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-tight); line-height: 1.2; }
+.gbsCaseObjective p { margin: 8px 0 0; color: var(--bp-ink-2); font-size: var(--bp-t-body-l); line-height: 1.45; }
+.gbsCaseKpis { margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; list-style: none; }
+.gbsCaseKpis li { padding: 14px 14px 12px; text-align: center; background: var(--bp-surface); border: var(--bp-hairline) solid var(--bp-rule-2); border-radius: var(--bp-radius-card); }
+.gbsCaseKpis b { display: block; color: var(--bp-blue); font-size: var(--bp-t-h2); font-weight: var(--bp-w-display); line-height: 1; letter-spacing: var(--bp-track-tight); }
+.gbsCaseKpis li.isInk b { color: var(--bp-ink); }
+.gbsCaseKpis span { display: block; margin-top: 6px; color: var(--bp-ink-2); font-size: var(--bp-t-micro); line-height: 1.3; letter-spacing: .02em; }
+.gbsCaseHeadline { padding: 16px 18px; text-align: center; background: var(--bp-surface); border: var(--bp-hairline) solid var(--bp-rule-2); border-radius: var(--bp-radius-card); }
+.gbsCaseHeadline b { display: block; color: var(--bp-blue); font-size: var(--bp-t-h1); font-weight: var(--bp-w-display); line-height: 1; letter-spacing: var(--bp-track-tight); }
+.gbsCaseHeadline span { display: block; margin-top: 8px; color: var(--bp-ink-2); font-size: var(--bp-t-label); font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-label); text-transform: uppercase; }
+.gbsCasePhases { min-height: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; list-style: none; }
+.gbsCasePhase { min-width: 0; min-height: 0; display: grid; grid-template-rows: auto auto minmax(0, 1fr); gap: 12px; }
+.gbsCasePhase header { padding-bottom: 8px; display: flex; align-items: baseline; gap: 8px; border-bottom: 2px solid var(--bp-blue); }
+.gbsCasePhase header b { color: var(--bp-blue); font-size: var(--bp-t-sub); font-weight: var(--bp-w-display); letter-spacing: .04em; }
+.gbsCasePhase header span { color: var(--bp-ink-3); font-size: var(--bp-t-body-l); font-weight: var(--bp-w-medium); }
+.gbsCasePhase p { margin: 0; min-height: 3.6em; color: var(--bp-ink-2); font-size: var(--bp-t-body-l); line-height: 1.45; }
+.gbsCaseMedia { min-height: 0; margin: 0; overflow: hidden; background: var(--bp-surface-2); border: var(--bp-hairline) solid var(--bp-rule); border-radius: var(--bp-radius-card); }
+.gbsCaseMedia img, .gbsCaseMedia video { width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; }
+.gbsCaseMedia.is-video video { background: var(--bp-ink); object-fit: contain; }
+.gbsCasePlaceholder { height: 100%; min-height: 160px; display: grid; place-items: center; padding: 20px; text-align: center; background: repeating-linear-gradient(135deg, #f4f6fa 0 10px, #eef1f6 10px 20px); }
+.gbsCasePlaceholder span { max-width: 22ch; color: var(--bp-ink-3); font-size: var(--bp-t-body); font-weight: var(--bp-w-medium); line-height: 1.4; }
+.gbsCaseFoot { margin: 0; color: var(--bp-ink-3); font-size: var(--bp-t-micro); }
+@media (max-width: 1000px) {
+  .gbsCase { aspect-ratio: auto; max-height: none; padding: 28px 22px; }
+  .gbsCaseBody { grid-template-columns: 1fr; }
+  .gbsCasePhases { grid-template-columns: 1fr; }
+  .gbsCasePhase p { min-height: 0; }
+}
+
 /* ---- GBS pitch pages (P2 usage · P3 offering) --------------------------
    Two 16:9 slides that sit between the trend chart and the campaign-agent
    board. White editorial canvas, blue as the only accent, generous type. */

@@ -72,10 +72,7 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(customerFlowHtml, /class="customerFlowMoneyRail"/);
   assert.doesNotMatch(customerFlowHtml, /STANDARD WORKFLOW|BYTEPLUS OFFER|customerMoneySpine|Brands hold the budget/);
 
-  // Customer cases run as CASE 1/2/3; solution pages keep 3.x numbering.
-  assert.match(html, /agencyOperatingIndex"><span>CASE 1<\/span>/);
-  assert.match(html, /appLovinCaseIndex"><span>CASE 2<\/span>/);
-  assert.doesNotMatch(html, /adtechCasePage|TikTok · Smart\+/);
+  // Solution pages keep 3.x numbering (cases are asserted below).
   assert.match(html, /id="solutions"/);
   assert.match(html, /brandHeroIndex"><span>3\.1A<\/span>/);
   assert.match(html, /brandCapabilitiesIndex"><span>3\.1B<\/span>/);
@@ -83,32 +80,24 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.match(html, /displaySolutionIndex"><span>3\.3<\/span>/);
   assert.match(html, /playableIndex"><span>3\.4<\/span>/);
 
-  // CASE 1 · BytePlus × WPP: lockup cover, WPP OPEN case-flow, six-cell
-  // campaign workflow, production side, HEX model — then the CASE 2 cover.
-  const agencyHtml = html.slice(html.indexOf('id="customer-agency"'), html.indexOf('id="customer-brand-cover"'));
-  assert.match(agencyHtml, /class="agencyLockup"/);
-  assert.match(agencyHtml, /\/byteplus-logo\.png/);
-  assert.match(agencyHtml, /\/logos\/wpp-halftone\.svg/);
-  assert.doesNotMatch(agencyHtml, /Start with Creative\.|Ogilvy · VML · AKQA · ~50k people|Hogarth and ~10k makers|WPP Media: formerly GroupM/);
-  assert.match(agencyHtml, /id="customer-agency-flow"/);
-  assert.match(agencyHtml, /WPP OPEN/);
-  assert.match(agencyHtml, /id="customer-agency-previs"/);
-  assert.match(agencyHtml, /CAMPAIGN WORKFLOW/);
-  assert.equal((agencyHtml.match(/class="previsCell(?: isDeliverable)?"/g) ?? []).length, 6);
-  assert.match(agencyHtml, /\/media\/wpp\/toolkit\.png/);
-  assert.match(agencyHtml, /\/media\/wpp\/flow\/previs-canvas\.png/);
-  assert.match(agencyHtml, /id="customer-agency-hex-model"/);
-  assert.match(agencyHtml, /Co-build an FDE cohort/);
-  assert.doesNotMatch(html, /Akia Mitchell/);
+  // GBS edition: five customer cases in one frame — objective + KPI tiles
+  // + three crawl/walk/run phases — WPP, L'Oréal, Goodtake, Tec-do, AppLovin.
+  const casesHtml = html.slice(html.indexOf('class="customerStories gbsCases"'), html.indexOf('id="solutions"'));
+  assert.equal((casesHtml.match(/class="gbsCase"/g) ?? []).length, 5);
+  for (const id of ["case-wpp", "case-loreal", "case-goodtake", "case-tecdo", "case-applovin"]) {
+    assert.match(casesHtml, new RegExp(`id="${id}"`));
+  }
+  assert.match(casesHtml, /BytePlus × WPP[\s\S]*they love it/);
+  assert.match(casesHtml, /BytePlus × L’Oréal/);
+  assert.match(casesHtml, /BytePlus × Goodtake[\s\S]*410%/);
+  assert.match(casesHtml, /BytePlus × Tec-do/);
+  assert.match(casesHtml, /BytePlus × AppLovin/);
+  assert.equal((casesHtml.match(/class="gbsCasePhase"/g) ?? []).length, 15);
+  assert.doesNotMatch(html, /Akia Mitchell|adtechCasePage|TikTok · Smart\+|id="customer-agency-hex-model"/);
 
-  // CASE 2 · AppLovin: BytePlus × AppLovin cover, then flywheel, full
-  // Creative Set capture, four demo clips.
-  assert.match(html, /id="customer-brand-cover"[\s\S]*class="caseLockup"/);
-  const appLovinHtml = html.slice(html.indexOf('id="customer-brand"'), html.indexOf('id="solutions"'));
-  assert.match(appLovinHtml, /AppLovin Flywheel of Scale/);
-  assert.match(appLovinHtml, /More creative inputs/);
-  assert.match(appLovinHtml, /creative-set-dashboard\.png/);
-  assert.equal((appLovinHtml.match(/class="appLovinClip"/g) ?? []).length, 4);
+  // GBS opening pages after the trend chart.
+  assert.match(html, /id="gbs-usage"[\s\S]*Growing[\s\S]*produced Ads[\s\S]*monthly/);
+  assert.match(html, /id="gbs-offer"[\s\S]*AIGC ATTRIBUTION/);
 
   // Branding is split into one hero-film page and one evidence page; the
   // performance section uses one SKU-proof page plus two focused capability pages.
@@ -180,7 +169,8 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   assert.match(page, /className="performanceCapabilityBody performanceCapabilityV3 performanceCapabilityExecutionBody"/);
   assert.match(page, /className="performanceFormatWall"/);
   assert.match(page, /className="productionChapter"/);
-  assert.match(page, /wppWorkPage agencyOperatingPage/);
+  assert.match(page, /import GbsCase from "\.\/GbsCase"/);
+  assert.equal((page.match(/<GbsCase\b/g) ?? []).length, 5);
   assert.doesNotMatch(page, /className="productGatePage"|模型短期能力短板/);
   assert.match(page, /<MoreDemosGallery \/>/);
   assert.match(moreDemos, /bytedance\.sg\.larkoffice\.com\/docx\/TmsqdH9TeoPVYyxzpZ9lwH91g7c/);
