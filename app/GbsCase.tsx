@@ -34,7 +34,7 @@ export type GbsCaseProps = {
   phaseLayout?: "rows";
   /* Wider left column (objective + KPIs) for cases with fewer phases. */
   leftWidth?: "wide";
-  phases: [GbsPhase, GbsPhase] | [GbsPhase, GbsPhase, GbsPhase];
+  phases: [GbsPhase, GbsPhase] | [GbsPhase, GbsPhase, GbsPhase] | [GbsPhase, GbsPhase, GbsPhase, GbsPhase];
   footnote?: ReactNode;
 };
 
@@ -103,7 +103,7 @@ export default function GbsCase(p: GbsCaseProps) {
           ) : null}
         </aside>
 
-        <ol className={`gbsCasePhases${p.phaseLayout === "rows" ? " isRows" : p.phases.length === 2 ? " isPair" : ""}`}>
+        <ol className={`gbsCasePhases${p.phaseLayout === "rows" ? " isRows" : p.phases.length === 2 ? " isPair" : p.phases.length === 4 ? " isQuad" : ""}`}>
           {p.phases.map((ph, i) => (
             <li key={i} className="gbsCasePhase">
               <header>

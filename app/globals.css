@@ -7794,6 +7794,11 @@ body {
 .gbsCase.isWideLeft .gbsCaseKpis span { font-size: var(--bp-t-body); }
 .gbsCase.isWideLeft .gbsCaseNotes { font-size: var(--bp-t-body-l); }
 .gbsCasePhases.isPair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.gbsCasePhases.isQuad { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.gbsCasePhases.isQuad .gbsCasePhase p { font-size: var(--bp-t-body); }
+.gbsCasePhases.isQuad .gbsCasePhase header { gap: 6px; }
+.gbsCasePhases.isQuad .gbsCasePhase header b { font-size: var(--bp-t-body-l); letter-spacing: .02em; }
+.gbsCasePhases.isQuad .gbsCasePhase header span { font-size: var(--bp-t-body); }
 .gbsCasePhases.isPair .gbsCasePhase p { max-width: 34em; }
 /* Rows: two landscape films stacked, text to the left of each, media
    height-led so both fill their row and share one right edge. */

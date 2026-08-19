@@ -440,24 +440,18 @@ export default function Home() {
               ]}
               headline={{ value: <>&uarr;410%</>, label: <B zh="6s VTR · McDonaldland Q4’25" en="6s VTR · McDonaldland Q4’25" /> }}
               phases={[
-                {
-                  tag: "MCDONALDLAND", when: "2025 Q4", copy: <B zh="McDonaldland：第一支 3D CGI 社交视频，四项指标全胜。" en="McDonaldland: first 3D CGI social spot; wins on all four metrics." />,
-                  media: { kind: "video", src: "/media/goodtake/mcdonaldland.mp4", label: "Goodtake × McDonaldland" }
-                },
-                {
-                  tag: "GRIMACE", when: "2026 Q2", copy: <B zh="Grimace：第二轮投放，Seedance 2.0。" en="Grimace: second flight on Seedance 2.0." />,
-                  media: { kind: "video", src: "/media/goodtake/grimace.mp4", label: "Goodtake × Grimace" }
-                },
-                {
-                  tag: "SNUGGLE", when: "Unilever · 2026 Q3", copy: <B zh="Snuggle 品牌片：Seedance 2.5，真人实拍级质感。" en="Snuggle brand film on Seedance 2.5 — live-action-grade quality." />,
-                  media: {
-                    kind: "video", src: "/media/goodtake/snuggle.mp4", poster: "/media/goodtake/snuggle-poster.jpg", label: "Goodtake × Unilever Snuggle",
+                { tag: "MCDONALDLAND", when: "2025 Q4", copy: <B zh="McDonaldland：第一支 3D CGI 社交视频，四项指标全胜。" en="McDonaldland: first 3D CGI social spot; wins on all four metrics." />,
+                  media: { kind: "video", src: "/media/goodtake/mcdonaldland.mp4", label: "Goodtake × McDonaldland" } },
+                { tag: "GRIMACE", when: "2026 Q2", copy: <B zh="Grimace：第二轮投放，Seedance 2.0。" en="Grimace: second flight on Seedance 2.0." />,
+                  media: { kind: "video", src: "/media/goodtake/grimace.mp4", label: "Goodtake × Grimace" } },
+                { tag: "SNUGGLE FILM", when: "2026 Q3", copy: <B zh="Snuggle 品牌片：Seedance 2.5，真人实拍级质感。" en="Snuggle brand film on Seedance 2.5 — live-action-grade quality." />,
+                  media: { kind: "video", src: "/media/goodtake/snuggle.mp4", poster: "/media/goodtake/snuggle-poster.jpg", label: "Goodtake × Unilever Snuggle",
                     stills: [
                       { src: "/media/goodtake/snuggle-still-01.jpg", alt: "Snuggle bear in a meadow — fur and daylight detail" },
                       { src: "/media/goodtake/snuggle-still-02.jpg", alt: "Snuggle bear hero close-up with the fragrance capsule" },
-                    ]
-                  }
-                },
+                    ] } },
+                { tag: "SNUGGLE SOCIAL", when: "9:16 cut", copy: <B zh="Snuggle 品牌片的竖版社交剪辑：毛绒熊和织物纹理在全屏 9:16 下依然经得起看。" en="Vertical social cut of the Snuggle film — the plush bear and fabric texture hold up full-screen in 9:16." />,
+                  media: { kind: "video", src: "/media/goodtake/snuggle-9x16.mp4", label: "Goodtake × Unilever Snuggle — 9:16 social cut" } },
               ]}
               footnote={<B zh="来源：Goodtake × 麦当劳投放数据 · 内部机密。" en="Source: Goodtake × McDonald’s campaign data · confidential." />}
             />
