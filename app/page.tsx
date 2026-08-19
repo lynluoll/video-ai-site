@@ -774,12 +774,12 @@ export default function Home() {
                 { value: "—", label: <B zh="效果数字未公开" en="uplift not disclosed" /> },
               ]}
               phases={[
-                { tag: "CRAWL", when: "2026 Q1", copy: <B zh="Creative Sets：上传素材，选格式，平台自动组合。" en="Creative Sets: upload assets, pick formats, the platform composes." />,
-                  media: { kind: "image", src: "/media/applovin/creative-set-dashboard.png", alt: "AppLovin Creative Set dashboard" } },
-                { tag: "WALK", when: "2026 Q2", copy: <B zh="互动广告：Seedance 生成的可玩创意进入投放。" en="Interactive: Seedance-generated playable creative goes live." />,
-                  media: { kind: "video", src: "/media/applovin/automating-creative-01.mp4", label: "AppLovin interactive ad sample" } },
-                { tag: "RUN", when: "2026 H2", copy: <B zh="视频广告规模化：更多输入喂 AXON，形成飞轮。" en="Video at scale: more inputs feed AXON — the flywheel." />,
-                  media: { kind: "video", src: "/media/applovin/generating-video-01.mp4", label: "AppLovin video ad sample" } },
+                { tag: "CRAWL", when: "2026 Q1", copy: <B zh="可玩广告：Merge Dragons — 拖动即玩，直接进安装。" en="Playable: Merge Dragons — drag to play, straight to install." />,
+                  media: { kind: "video", src: "/media/applovin/sample-01.mp4", label: "AppLovin playable ad — Merge Dragons", portrait: true } },
+                { tag: "WALK", when: "2026 Q2", copy: <B zh="可玩广告：Paradise Paws — 同一套素材组合出的第二支。" en="Playable: Paradise Paws — a second unit composed from the same asset set." />,
+                  media: { kind: "video", src: "/media/applovin/sample-02.mp4", label: "AppLovin playable ad — Paradise Paws", portrait: true } },
+                { tag: "RUN", when: "2026 H2", copy: <B zh="休闲品类规模化：更多创意输入喂 AXON，形成飞轮。" en="Casual at scale: more creative inputs feed AXON — the flywheel." />,
+                  media: { kind: "video", src: "/media/applovin/sample-03.mp4", label: "AppLovin playable ad — brick breaker", portrait: true } },
               ]}
               footnote={<B zh="AppLovin 未公开效果数字；此处只展示样片与机制。" en="AppLovin has not disclosed uplift; samples and mechanism only." />}
             />
