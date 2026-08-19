@@ -74,7 +74,7 @@ test("server-renders the complete V3 advertising strategy", async () => {
   // GBS edition: five customer cases in one frame — objective + KPI tiles
   // + three crawl/walk/run phases — WPP, L'Oréal, Goodtake, Tec-do, AppLovin.
   const casesHtml = html.slice(html.indexOf('class="customerStories gbsCases"'), html.indexOf('id="solutions"'));
-  assert.equal((casesHtml.match(/class="gbsCase"/g) ?? []).length, 5);
+  assert.equal((casesHtml.match(/class="gbsCase( isWideLeft)?"/g) ?? []).length, 5);
   for (const id of ["case-wpp", "case-loreal", "case-goodtake", "case-tecdo", "case-applovin"]) {
     assert.match(casesHtml, new RegExp(`id="${id}"`));
   }
