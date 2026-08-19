@@ -23,6 +23,15 @@ inside BytePlus CodePipeline.
 The checked-in pipeline definition is [`deploy/codepipeline.yaml`](codepipeline.yaml).
 The production endpoint is <https://ads.byteplus-demo.com/>.
 
+## GBS customer edition
+
+Pushes to `gbs-edition` use a fully separate delivery path. The workflow at
+`.github/workflows/byteplus-codepipeline-gbs.yml` forwards the event using the
+`BYTEPLUS_GBS_CODEPIPELINE_WEBHOOK_URL` secret. BytePlus CodePipeline then builds
+and pushes `ads-ai-strategy/ads-ai-strategy-gbs` before releasing VeFaaS function
+`8j4ibhau` (`ads-ai-strategy-gbs`). Its checked-in definition is
+[`deploy/codepipeline-gbs.yaml`](codepipeline-gbs.yaml).
+
 ## Rollback
 
 Use the VeFaaS release history for function `ads-ai-strategy-image` and move 100% of
