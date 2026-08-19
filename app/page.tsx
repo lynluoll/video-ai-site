@@ -441,92 +441,134 @@ export default function Home() {
             </figure>
           </div>
 
-          {/* ---- GBS pitch · P2 usage analysis -------------------------------
-              Numbers marked "待确认" are placeholders until 王文杰 pulls the
-              daily volume and portrait/landscape split. */}
-          <section className="gbsPage gbsUsagePage" id="gbs-usage" aria-labelledby="gbs-usage-title">
+          {/* ---- GBS pitch · P2 milestones & growth ------------------------
+              Structure borrowed from the reference "Product Milestones &
+              Revenue Penetration" slide: KPI card left, growth curve with
+              milestone callouts, phase bar underneath. Volumes, dates and the
+              format split are placeholders until 王文杰 pulls the numbers. */}
+          <section className="gbsPage gbsGrowthPage" id="gbs-usage" aria-labelledby="gbs-usage-title">
             <header className="gbsPageHead">
-              <span className="gbsKicker">BYTEPLUS · ADS WORKLOAD</span>
-              <h2 id="gbs-usage-title"><B zh={<>广告客户日均生成 <strong>10 万+ 条</strong>视频，月环比翻倍。</>} en={<>Ad customers generate <strong>100k+ videos a day</strong>, doubling month over month.</>} /></h2>
-              <p className="gbsSub"><B zh="都来自代理商与品牌主 —— 与 GBS 的客户高度重叠。" en="All from agencies and brand owners — the same customers GBS sells into." /></p>
+              <span className="gbsKicker">PRODUCT MILESTONES · ADS WORKLOAD</span>
+              <h2 id="gbs-usage-title"><B zh={<>产品里程碑与<strong>广告生成量增长</strong></>} en={<>Product milestones &amp; <strong>ads-workload growth</strong></>} /></h2>
             </header>
 
-            <div className="gbsUsageGrid">
-              <article className="gbsUsageCard gbsUsageGrowth">
-                <span className="gbsCardKicker"><B zh="日均生成量 · 月度" en="DAILY VOLUME · BY MONTH" /></span>
-                <div className="gbsBars" role="img" aria-label="Monthly daily-average video volume, doubling month over month">
-                  <div className="gbsBar" style={{ "--h": "18%" } as React.CSSProperties}><em>May</em></div>
-                  <div className="gbsBar" style={{ "--h": "30%" } as React.CSSProperties}><em>Jun</em></div>
-                  <div className="gbsBar" style={{ "--h": "52%" } as React.CSSProperties}><em>Jul</em></div>
-                  <div className="gbsBar isNow" style={{ "--h": "100%" } as React.CSSProperties}><b>100k+</b><em>Aug</em></div>
-                </div>
-                <p className="gbsCardNote"><B zh="MoM ×2 · 数字待王文杰确认" en="MoM ×2 · figures pending 王文杰" /></p>
-              </article>
+            <div className="gbsGrowthBody">
+              <aside className="gbsKpi">
+                <span><B zh="广告客户日均生成" en="ADS CUSTOMERS · DAILY VOLUME" /></span>
+                <b>100k<i>+</i></b>
+                <em><B zh="条视频 / 天 · 月环比 ×2" en="videos / day · MoM ×2" /></em>
+                <hr />
+                <span><B zh="按画幅" en="BY FORMAT" /></span>
+                <p><strong>~70%</strong> <B zh="竖屏 9:16 · TikTok / Reels" en="portrait 9:16 · TikTok / Reels" /></p>
+                <p><strong>~30%</strong> <B zh="横屏 16:9 · CTV / 品牌" en="landscape 16:9 · CTV / brand" /></p>
+              </aside>
 
-              <article className="gbsUsageCard gbsUsageFormat">
-                <span className="gbsCardKicker"><B zh="按画幅 · 竖屏 = social" en="BY FORMAT · PORTRAIT = SOCIAL" /></span>
-                <div className="gbsSplit" role="img" aria-label="Portrait vs landscape share">
-                  <div className="gbsSplitPortrait" style={{ "--w": "70%" } as React.CSSProperties}><b>~70%</b><span>9:16 · TikTok / Reels</span></div>
-                  <div className="gbsSplitLandscape"><b>~30%</b><span>16:9 · CTV / brand</span></div>
+              <figure className="gbsChart" role="img" aria-label="Daily ad-video volume rising from early 2026 to 100k+ per day by August, with product milestones marked along the curve">
+                <svg viewBox="0 0 900 380" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="gbsFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stopColor="#0066fc" stopOpacity=".18" />
+                      <stop offset="1" stopColor="#0066fc" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 340 C120 335 200 325 280 300 C360 275 420 250 500 205 C580 160 640 130 720 92 C790 60 840 42 900 30 L900 380 L0 380 Z" fill="url(#gbsFill)" />
+                  <path d="M0 340 C120 335 200 325 280 300 C360 275 420 250 500 205 C580 160 640 130 720 92 C790 60 840 42 900 30" fill="none" stroke="#0066fc" strokeWidth="4" strokeLinecap="round" />
+                  <g stroke="#b7bcc4" strokeDasharray="3 5" strokeWidth="1.5">
+                    <line x1="280" y1="300" x2="280" y2="150" />
+                    <line x1="560" y1="170" x2="560" y2="60" />
+                    <line x1="720" y1="92" x2="720" y2="8" />
+                  </g>
+                  <circle cx="0" cy="340" r="6" fill="#0066fc" />
+                  <circle cx="900" cy="30" r="7" fill="#0066fc" />
+                </svg>
+                <span className="gbsChartStart">~10k</span>
+                <span className="gbsChartEnd">100k+</span>
+                <div className="gbsMilestone" style={{ "--x": "31%", "--y": "34%" } as React.CSSProperties}><small>26/03 · MODEL</small><b>Seedance 2.0</b></div>
+                <div className="gbsMilestone" style={{ "--x": "62%", "--y": "8%" } as React.CSSProperties}><small>26/06 · PLATFORM</small><b>WPP Open · API live</b></div>
+                <div className="gbsMilestone gbsMilestoneTop" style={{ "--x": "80%", "--y": "-6%" } as React.CSSProperties}><small>26/08 · MODEL</small><b>Seedance 2.5</b></div>
+                <div className="gbsAxis"><span>Jan 26</span><span>Apr 26</span><span>Jul 26</span><span>Aug 26</span></div>
+                <div className="gbsPhases">
+                  <span><B zh="API 打底" en="API foundation" /></span>
+                  <span><B zh="代理商平台接入" en="Agency platforms" /></span>
+                  <span><B zh="品牌规模化" en="Brand scale" /></span>
                 </div>
-                <p className="gbsCardNote"><B zh="竖屏占大头 · 占比待确认" en="Portrait dominates · split pending" /></p>
-              </article>
-
-              <article className="gbsUsageCard gbsUsageCustomers">
-                <span className="gbsCardKicker"><B zh="典型客户" en="TYPICAL CUSTOMERS" /></span>
-                <ul className="gbsLogoRow">
-                  <li><img src="/logos/wpp-halftone.svg" alt="WPP" /></li>
-                  <li><b>L&rsquo;Or&eacute;al</b></li>
-                  <li><b>Goodtake</b></li>
-                  <li><b>Tec-do</b></li>
-                  <li><img src="/logos/applovin-color.svg" alt="" aria-hidden="true" /><b>AppLovin</b></li>
-                </ul>
-                <p className="gbsCardNote"><B zh="代理商 · 品牌主 · 游戏" en="Agencies · brand owners · gaming" /></p>
-              </article>
+              </figure>
             </div>
+            <p className="gbsFoot"><B zh="数据：BytePlus 广告行业客户生成量；日均条数、画幅占比与里程碑日期待确认。" en="Data: BytePlus ads-industry customer volume; daily counts, format split and milestone dates to be confirmed." /></p>
           </section>
 
-          {/* ---- GBS pitch · P3 what BytePlus brings ---------------------- */}
-          <section className="gbsPage gbsOfferPage" id="gbs-offer" aria-labelledby="gbs-offer-title">
+          {/* ---- GBS pitch · P3 four layers as one system ------------------
+              Structure borrowed from the reference multi-agent slide: input on
+              the left, three capability boxes in a row, output on the right,
+              a dashed feedback loop underneath (that loop IS layer 04), and a
+              powered-by strip at the bottom. */}
+          <section className="gbsPage gbsSystemPage" id="gbs-offer" aria-labelledby="gbs-offer-title">
             <header className="gbsPageHead">
-              <span className="gbsKicker">WHAT BYTEPLUS BRINGS</span>
-              <h2 id="gbs-offer-title"><B zh={<>不只是模型 API：<strong>四层能力</strong>，一起把 AI 视频广告在 TikTok 上做大。</>} en={<>More than a model API: <strong>four layers</strong> to grow AI video ads on TikTok together.</>} /></h2>
+              <span className="gbsKicker">FOUR LAYERS · ONE SYSTEM</span>
+              <h2 id="gbs-offer-title"><B zh={<>我们的差异化：<strong>模型 + agent + FDE + 归因</strong>，一套系统。</>} en={<>Our differentiation: <strong>model + agent + FDE + attribution</strong>, working as one system.</>} /></h2>
+              <p className="gbsSub"><B zh="前三层给客户把广告做出来；第四层让 GBS 看得见 AI 带来了多少投放。" en="Three layers make the ads for the customer; the fourth lets GBS see how much spend AI brought in." /></p>
             </header>
 
-            <ol className="gbsLayers">
-              <li className="gbsLayer">
-                <i>01</i>
-                <div>
-                  <b><B zh="最好的模型家族 · API" en="Best-in-class model family · API" /></b>
-                  <p><B zh="Seedance · Seedream · Seed Audio · Seed —— 品牌广告与效果广告都能适配。" en="Seedance · Seedream · Seed Audio · Seed — fits both brand and performance ads." /></p>
-                </div>
-                <span><B zh="给客户" en="FOR CUSTOMERS" /></span>
-              </li>
-              <li className="gbsLayer">
-                <i>02</i>
-                <div>
-                  <b><B zh="Campaign agent 最佳实践 · 原型" en="Campaign-agent best practice · prototypes" /></b>
-                  <p><B zh="参照 WPP、AppLovin 已在跑的形态：brief → 人设 → 概念 → 素材 → 投放，一步步接进客户自己的平台。" en="Modelled on what WPP and AppLovin already run: brief → personas → concept → assets → launch, wired into the customer’s own platform." /></p>
-                </div>
-                <span><B zh="给客户" en="FOR CUSTOMERS" /></span>
-              </li>
-              <li className="gbsLayer">
-                <i>03</i>
-                <div>
-                  <b><B zh="FDE 服务" en="FDE service" /></b>
-                  <p><B zh="嵌入客户团队的前线工程师：提示词、一致性、品牌调优 —— 把模型能力变成可交付的广告。" en="Forward-deployed engineers inside the customer’s team: prompts, consistency, brand tuning — turning model capability into deliverable ads." /></p>
-                </div>
-                <span><B zh="给客户" en="FOR CUSTOMERS" /></span>
-              </li>
-              <li className="gbsLayer isGbs">
-                <i>04</i>
-                <div>
-                  <b><B zh="AIGC 视频归因 · 暗水印" en="AIGC video attribution · invisible watermark" /></b>
-                  <p><B zh="让 TikTok 看到投放视频里有多少是 Seedance 生成的 —— 直接对上 GBS “AI 内容带动 10% 广告支出” 的目标。" en="Lets TikTok see how much of the video running on the platform is Seedance-made — feeding GBS’s target of 10% of ad spend driven by AI content." /></p>
-                </div>
-                <span><B zh="给 GBS" en="FOR GBS" /></span>
-              </li>
-            </ol>
+            <div className="gbsSystem">
+              <div className="gbsSysEnd gbsSysInput">
+                <span>INPUT</span>
+                <b><B zh="广告主 brief 与素材" en="Advertiser brief &amp; assets" /></b>
+                <b><B zh="TikTok 投放信号" en="TikTok ad signals" /></b>
+              </div>
+              <i className="gbsSysArrow" aria-hidden="true">→</i>
+              <article className="gbsSysBox">
+                <i className="gbsSysNum">01</i>
+                <b><B zh="模型家族 · API" en="Model family · API" /></b>
+                <ul>
+                  <li>Seedance · Seedream</li>
+                  <li>Seed Audio · Seed LLM</li>
+                  <li><B zh="品牌 + 效果广告都适配" en="Brand + performance ads" /></li>
+                </ul>
+              </article>
+              <i className="gbsSysArrow" aria-hidden="true">→</i>
+              <article className="gbsSysBox">
+                <i className="gbsSysNum">02</i>
+                <b><B zh="Campaign agent 实践" en="Campaign-agent practice" /></b>
+                <ul>
+                  <li>brief → personas → concept</li>
+                  <li>→ assets → launch</li>
+                  <li><B zh="接进客户自己的平台" en="Wired into the customer’s platform" /></li>
+                </ul>
+              </article>
+              <i className="gbsSysArrow" aria-hidden="true">→</i>
+              <article className="gbsSysBox">
+                <i className="gbsSysNum">03</i>
+                <b><B zh="FDE 服务" en="FDE service" /></b>
+                <ul>
+                  <li><B zh="提示词与一致性调优" en="Prompt &amp; consistency tuning" /></li>
+                  <li><B zh="品牌规范落地" en="Brand-kit adherence" /></li>
+                  <li><B zh="嵌入客户团队" en="Embedded in the team" /></li>
+                </ul>
+              </article>
+              <i className="gbsSysArrow" aria-hidden="true">→</i>
+              <div className="gbsSysEnd gbsSysOutput">
+                <span>OUTPUT</span>
+                <b><B zh="投到 TikTok 上的广告" en="Ads running on TikTok" /></b>
+                <em><B zh="视频广告支出 ↑" en="Video ad spend ↑" /></em>
+              </div>
+
+              <div className="gbsSysLoop" aria-label="Layer 04: attribution loop">
+                <i className="gbsSysNum isGbs">04</i>
+                <b><B zh="AIGC 归因 · 暗水印" en="AIGC ATTRIBUTION · INVISIBLE WATERMARK" /></b>
+                <p><B zh="投放侧看到有多少视频是 Seedance 生成 —— 对上 GBS “AI 内容带动 10% 广告支出” 目标。" en="Shows how much running video is Seedance-made — feeding GBS’s 10%-of-spend-from-AI target." /></p>
+                <span className="gbsSysLoopTag">FOR GBS</span>
+              </div>
+            </div>
+
+            <div className="gbsPowered">
+              <span>POWERED BY THE SEED FAMILY</span>
+              <ul>
+                <li className="isHot">Seedance 2.5</li>
+                <li>Seedream 5.0</li>
+                <li>Seed Audio</li>
+                <li>Seed LLM</li>
+              </ul>
+            </div>
           </section>
 
           <section className="marketTrendSection" aria-labelledby="market-trends-title">
