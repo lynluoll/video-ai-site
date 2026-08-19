@@ -25,7 +25,7 @@ export type GbsCaseProps = {
   objective: ReactNode;
   kpis: GbsKpi[];
   headline?: { value: ReactNode; label: ReactNode };
-  phases: [GbsPhase, GbsPhase, GbsPhase];
+  phases: [GbsPhase, GbsPhase] | [GbsPhase, GbsPhase, GbsPhase];
   /* "row" (default): three equal columns. "twoUp": phases 1–2 side by side,
      phase 3 full-width underneath — for a pair of portrait clips over one
      landscape film. */
@@ -77,7 +77,7 @@ export default function GbsCase(p: GbsCaseProps) {
           ) : null}
         </aside>
 
-        <ol className={`gbsCasePhases${p.phaseLayout === "twoUp" ? " isTwoUp" : ""}`}>
+        <ol className={`gbsCasePhases${p.phaseLayout === "twoUp" ? " isTwoUp" : ""}${p.phases.length === 2 ? " isPair" : ""}`}>
           {p.phases.map((ph, i) => (
             <li key={i} className="gbsCasePhase">
               <header>

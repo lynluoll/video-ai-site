@@ -743,20 +743,18 @@ export default function Home() {
               objectiveTitle={<B zh="商品图批量变成投放视频" en="Catalog images into ad video at scale" />}
               objective={<B zh="钛动用 Seedance + agent 把电商客户的商品图和 SKU 批量生成为可直接投放的效果视频。" en="Tec-do turns e-commerce clients’ product images and SKUs into ready-to-run performance video with Seedance + agents, at scale." />}
               kpis={[
-                { value: "14→1", label: <B zh="多 SKU 输入 → 一支成片" en="SKUs in → one consistent video" /> },
-                { value: "—", label: <B zh="效果数据待钛动 PPT 抽取" en="uplift figures pending Tec-do deck" /> },
-                { value: "—", label: <B zh="日均生成量待确认" en="daily volume pending" /> },
-                { value: "9:16", label: <B zh="主力画幅 · social" en="primary format · social" /> },
+                { value: "4×", label: <B zh="ROI" en="ROI" /> },
+                { value: "+22%", label: <B zh="CTR 提升" en="CTR uplift" /> },
+                { value: "2.5×", label: <B zh="AI 使每周创意素材产量提升至 2.5 倍" en="weekly creative output with AI" /> },
+                { value: "90%", label: <B zh="A/B 测试以 90% 置信度选出胜出版本" en="A/B-test confidence picking the winner" /> },
               ]}
               phases={[
-                { tag: "CRAWL", when: "2026 H1", copy: <B zh="单品图生视频，验证商品一致性。" en="Single-product image-to-video; product consistency validated." />,
-                  media: { kind: "image", src: "/media/performance-2026/multi-sku-skus/01-khaki-trench-coat.png", alt: "SKU input", fit: "contain" } },
-                { tag: "WALK", when: "2026 Q2", copy: <B zh="美妆品图生视频：Rare Beauty × Sephora 西语市场投放素材。" en="Beauty image-to-video: Rare Beauty × Sephora, Spanish-market ad." />,
+                { tag: "SEPHORA", when: "Beauty", copy: <B zh="Rare Beauty × Sephora 西语市场投放素材，商品图生视频。" en="Rare Beauty × Sephora, Spanish-market ad — product image to video." />,
                   media: { kind: "video", src: "/media/tecdo/sample-1.mp4", label: "Tec-do sample ad — Rare Beauty × Sephora", portrait: true } },
-                { tag: "RUN", when: "2026 H2", copy: <B zh="同一流程跑不同品牌与语言：Fresh 玫瑰面霜。" en="Same pipeline across brands and languages: Fresh Rose face cream." />,
+                { tag: "FRESH", when: "Beauty", copy: <B zh="Fresh 玫瑰面霜：同一流程跑不同品牌与语言。" en="Fresh Rose face cream — same pipeline, another brand and language." />,
                   media: { kind: "video", src: "/media/tecdo/sample-2.mp4", label: "Tec-do sample ad — Fresh Rose face cream", portrait: true } },
               ]}
-              footnote={<B zh="效果数据以钛动提供的材料为准，待挑选可用条目。" en="Uplift figures to be drawn from Tec-do’s own deck once vetted." />}
+              footnote={<B zh="效果数据来自钛动提供的材料。" en="Uplift figures from Tec-do’s own materials." />}
             />
 
             <GbsCase

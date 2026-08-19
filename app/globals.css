@@ -7787,6 +7787,7 @@ body {
 .gbsCaseHeadline b { display: block; color: var(--bp-blue); font-size: var(--bp-t-h1); font-weight: var(--bp-w-display); line-height: 1; letter-spacing: var(--bp-track-tight); }
 .gbsCaseHeadline span { display: block; margin-top: 8px; color: var(--bp-ink-2); font-size: var(--bp-t-label); font-weight: var(--bp-w-label); letter-spacing: var(--bp-track-label); text-transform: uppercase; }
 .gbsCasePhases { min-height: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; list-style: none; }
+.gbsCasePhases.isPair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 /* twoUp: portrait pair on top, landscape film across the bottom. Every
    phase becomes text-left / media-right so the clip takes the full row
    height and keeps its own aspect ratio (no letterboxing). */
