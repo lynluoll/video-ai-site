@@ -8046,7 +8046,7 @@ body {
 .gbsMilestoneLogo img { display: block; margin-top: 6px; height: 16px; width: auto; max-width: 120px; }
 .gbsMilestoneLogo img[alt="WPP"] { height: 18px; }
 .gbsMilestoneLogo img[alt="Tec-do"] { height: 13px; max-width: 130px; }
-.gbsMilestoneLogo img[alt="goodtake.ai"] { height: 15px; }
+.gbsMilestoneLogo img[alt="goodtake.ai"] { height: 22px; }
 .gbsMilestoneBelow { transform: translate(-72%, 0); }
 /* Projection card: dashed, right-anchored at the curve's projected end. */
 .gbsMilestoneProj { transform: translate(-100%, 0); text-align: right; }
