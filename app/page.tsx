@@ -197,10 +197,18 @@ export default function Home() {
             <div className="gbsGrowthBody">
               <aside className="gbsKpi gbsKpiTakeaways">
                 <span><B zh="核心结论" en="KEY TAKEAWAYS" /></span>
+                <div className="gbsTkStat">
+                  <b>42.6%</b>
+                  <small><B zh="横屏 16:9 · YouTube / TVC" en="horizontal ads 16:9 · YouTube / TVC" /></small>
+                </div>
+                <div className="gbsTkStat">
+                  <b>23.0%</b>
+                  <small><B zh="社交竖屏 9:16 · 第二位" en="social 9:16 · second" /></small>
+                </div>
                 <ul>
-                  <li><B zh={<><strong>横屏 16:9 占比最高 42.6%</strong>（YouTube / TVC），社交竖屏 9:16 第二 23.0%——对照大盘，9:16 的增长空间更大。</>} en={<><strong>Landscape 16:9 leads at 42.6%</strong> (YouTube / TVC); social 9:16 is second at 23.0% — yet 9:16 has the bigger headroom against the market mix.</>} /></li>
-                  <li><B zh={<><strong>720p 约 50%</strong>，由社交广告增长驱动；1080p（14.8%）是品牌 / TVC。</>} en={<><strong>720p is ~50%</strong> of output, driven by social-ad growth; 1080p (14.8%) is brand / TVC.</>} /></li>
-                  <li><B zh={<><strong>月环比 ×2</strong>：按此增速，12 月将达 <strong>100 万+ 条 / 天</strong>（预测）。</>} en={<><strong>Doubling MoM</strong>: at this pace we reach <strong>1M+ videos a day by December</strong> (projection).</>} /></li>
+                  <li><B zh={<>对照市场大盘，<strong>9:16 的增长空间更大</strong>。</>} en={<>Against the market mix, <strong>9:16 has the bigger headroom</strong>.</>} /></li>
+                  <li><B zh={<><strong>720p 约 50%</strong>，由社交广告驱动；1080p（14.8%）是品牌 / TVC。</>} en={<><strong>720p is ~50%</strong>, driven by social ads; 1080p (14.8%) is brand / TVC.</>} /></li>
+                  <li><B zh={<><strong>月环比 ×2</strong>：12 月将达 <strong>100 万+ 条 / 天</strong>（预测）。</>} en={<><strong>Doubling MoM</strong>: <strong>1M+ videos a day by December</strong> (projection).</>} /></li>
                 </ul>
               </aside>
 

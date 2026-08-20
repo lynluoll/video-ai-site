@@ -7988,7 +7988,11 @@ body {
    end label, so the figure is shown once. */
 .gbsGrowthBody .gbsChart { grid-column: 1; grid-row: 1; }
 .gbsGrowthBody .gbsKpi { grid-column: 2; grid-row: 1; align-self: center; }
-.gbsKpiTakeaways ul { margin: 10px 0 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+.gbsTkStat { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: baseline; column-gap: 12px; margin-top: 14px; }
+.gbsTkStat b { color: var(--bp-blue); font-size: var(--bp-t-h1); font-weight: var(--bp-w-display); line-height: 1; letter-spacing: var(--bp-track-tight); }
+.gbsTkStat small { color: var(--bp-ink-2); font-size: var(--bp-t-body); line-height: 1.3; }
+.gbsTkStat + .gbsTkStat { margin-top: 10px; padding-top: 10px; border-top: var(--bp-hairline) solid var(--bp-rule); }
+.gbsKpiTakeaways ul { margin: 14px 0 0; padding: 14px 0 0; border-top: var(--bp-hairline) solid var(--bp-rule); list-style: none; display: grid; gap: 12px; }
 .gbsKpiTakeaways li { padding-left: 14px; position: relative; color: var(--bp-ink-2); font-size: var(--bp-t-body-l); line-height: 1.42; }
 .gbsKpiTakeaways li::before { content: ""; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; border-radius: 50%; background: var(--bp-blue); }
 .gbsKpiTakeaways li strong { color: var(--bp-ink); font-weight: var(--bp-w-label); }
