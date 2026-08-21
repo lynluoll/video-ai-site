@@ -1,0 +1,14 @@
+.git
+.github
+.next
+.vinext
+.wrangler
+dist
+node_modules
+coverage
+output
+outputs
+work
+.DS_Store
+*.log
+*.md

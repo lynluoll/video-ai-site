@@ -1,16 +1,17 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, type VideoHTMLAttributes } from "react";
 
-type PauseWhenHiddenVideoProps = {
+type PauseWhenHiddenVideoProps = Omit<VideoHTMLAttributes<HTMLVideoElement>, "src" | "poster" | "aria-label"> & {
   src: string;
-  poster: string;
+  poster?: string;
   ariaLabel: string;
-  className?: string;
+  loadImmediately?: boolean;
 };
 
-export default function PauseWhenHiddenVideo({ src, poster, ariaLabel, className }: PauseWhenHiddenVideoProps) {
+export default function PauseWhenHiddenVideo({ src, poster, ariaLabel, autoPlay, loadImmediately = false, preload, ...videoProps }: PauseWhenHiddenVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(loadImmediately);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -18,24 +19,43 @@ export default function PauseWhenHiddenVideo({ src, poster, ariaLabel, className
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting && !video.paused) video.pause();
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          return;
+        }
+
+        if (!video.paused) video.pause();
       },
-      { threshold: 0.28 },
+      { rootMargin: "420px 0px", threshold: 0.01 },
     );
 
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
+    // Let the browser finish restoring scroll position or resolving a hash target
+    // before deciding which high-quality sources are actually near the viewport.
+    const anchorSettleDelay = !loadImmediately && window.location.hash ? 1500 : 0;
+    const observeTimer = window.setTimeout(() => observer.observe(video), anchorSettleDelay);
+    return () => {
+      window.clearTimeout(observeTimer);
+      observer.disconnect();
+    };
+  }, [loadImmediately]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !shouldLoad || !autoPlay) return;
+    void video.play().catch(() => undefined);
+  }, [autoPlay, shouldLoad, src]);
 
   return (
     <video
       ref={videoRef}
-      className={className}
-      src={src}
+      {...videoProps}
+      src={shouldLoad ? src : undefined}
+      data-video-src={src}
       poster={poster}
-      controls
-      playsInline
-      preload="metadata"
+      autoPlay={autoPlay}
+      preload={shouldLoad ? (preload ?? (loadImmediately ? "auto" : "metadata")) : "none"}
+      onPointerEnter={() => setShouldLoad(true)}
+      onFocus={() => setShouldLoad(true)}
       aria-label={ariaLabel}
     />
   );

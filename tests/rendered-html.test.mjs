@@ -23,7 +23,9 @@ test("server-renders the complete V3 advertising strategy", async () => {
   const performanceSolutionHtml = html.slice(html.indexOf('id="solution-performance"'), html.indexOf('id="solution-display"'));
   const marketTrendHtml = html.slice(html.indexOf('class="marketTrendSection"'), html.indexOf('class="customerFlowPage"'));
 
-  assert.match(html, /<html lang="en"(?: class="[^"]*")?>/);
+  assert.match(html, /<html lang="en" class="[^"]*styles-pending[^"]*">/);
+  assert.match(html, /Loading experience\\2026/);
+  assert.match(html, /classList\.add\("styles-ready"\)/);
   assert.match(html, /<title>BytePlus Advertising Creative Production Solutions<\/title>/);
   assert.match(html, /id="language-mode" type="checkbox"[^>]*checked=""/);
   assert.match(html, /<main class="siteRoot" id="top">/);
@@ -66,14 +68,14 @@ test("server-renders the complete V3 advertising strategy", async () => {
   assert.doesNotMatch(customerFlowHtml, /BUDGET ROLE|预算角色/);
   assert.match(customerFlowHtml, /Brand owners.*Building in-house AI platforms/s);
   assert.match(customerFlowHtml, /Agencies.*From previews into production.*WPP · Havas/s);
-  assert.match(customerFlowHtml, /Paid media.*Signals flow back into production/s);
+  assert.match(customerFlowHtml, /Paid media.*Signals flow back into production.*Perplexity/s);
   assert.match(customerFlowHtml, /class="customerFlowMoneyRail"/);
   assert.doesNotMatch(customerFlowHtml, /STANDARD WORKFLOW|BYTEPLUS OFFER|customerMoneySpine|Brands hold the budget/);
 
   // Customer cases run as CASE 1/2/3; solution pages keep 3.x numbering.
   assert.match(html, /agencyOperatingIndex"><span>CASE 1<\/span>/);
   assert.match(html, /appLovinCaseIndex"><span>CASE 2<\/span>/);
-  assert.match(html, /adtechCaseIndex"><span>CASE 3<\/span>/);
+  assert.doesNotMatch(html, /adtechCasePage|TikTok · Smart\+/);
   assert.match(html, /id="solutions"/);
   assert.match(html, /brandHeroIndex"><span>3\.1A<\/span>/);
   assert.match(html, /brandCapabilitiesIndex"><span>3\.1B<\/span>/);
@@ -102,16 +104,17 @@ test("server-renders the complete V3 advertising strategy", async () => {
   // CASE 2 · AppLovin: BytePlus × AppLovin cover, then flywheel, full
   // Creative Set capture, four demo clips.
   assert.match(html, /id="customer-brand-cover"[\s\S]*class="caseLockup"/);
-  const appLovinHtml = html.slice(html.indexOf('id="customer-brand"'), html.indexOf('id="customer-adtech"'));
+  const appLovinHtml = html.slice(html.indexOf('id="customer-brand"'), html.indexOf('id="solutions"'));
   assert.match(appLovinHtml, /AppLovin Flywheel of Scale/);
   assert.match(appLovinHtml, /More creative inputs/);
   assert.match(appLovinHtml, /creative-set-dashboard\.png/);
   assert.equal((appLovinHtml.match(/class="appLovinClip"/g) ?? []).length, 4);
 
   // Branding is split into one hero-film page and one evidence page; the
-  // performance is split into SKU proof and capability pages.
-  // 5 = brand hero, brand capabilities, performance demo, performance capabilities, display.
-  assert.equal((html.match(/class="solutionPage /g) ?? []).length, 5);
+  // performance section uses one SKU-proof page plus two focused capability pages.
+  // 6 = brand hero, brand capabilities, performance demo, capability foundation,
+  // capability localization/editing, and display.
+  assert.equal((html.match(/class="solutionPage /g) ?? []).length, 6);
   assert.match(html, /多种镜头，直出一支完整品牌片/);
   assert.match(html, /Multiple shots\. One coherent brand film/);
   assert.match(html, /一支生产可用的品牌片，背后是四项模型能力/);
@@ -173,7 +176,8 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   assert.doesNotMatch(page, /performance-generated\.mp4|performance-poster\.jpg|performance-[a-z]+-demo\.mp4/);
 
   assert.match(page, /className="performanceV2SkuMosaic"/);
-  assert.match(page, /className="performanceCapabilityBody performanceCapabilityV3"/);
+  assert.match(page, /className="performanceCapabilityBody performanceCapabilityV3 performanceCapabilityFoundationBody"/);
+  assert.match(page, /className="performanceCapabilityBody performanceCapabilityV3 performanceCapabilityExecutionBody"/);
   assert.match(page, /className="performanceFormatWall"/);
   assert.match(page, /className="productionChapter"/);
   assert.match(page, /wppWorkPage agencyOperatingPage/);
@@ -208,13 +212,15 @@ test("source contains the V3 media, interactions, and bilingual links", async ()
   assert.match(page, /import PerformanceLocalizationDemo/);
   assert.match(page, /<PerformanceLocalizationDemo \/>/);
   assert.match(localizationDemos, /portable-blender-master\.png/);
-  assert.equal((localizationDemos.match(/src: projectVideoUrl\("media\/performance-localization\/videos\/.+?\.mp4"\)/g) ?? []).length, 11);
+  assert.equal((localizationDemos.match(/src: projectVideoUrl\("media\/performance-localization\/videos\/.+?\.mp4"\)/g) ?? []).length, 10);
   assert.match(localizationDemos, /videos\/01-zh-cn\.mp4/);
-  assert.match(localizationDemos, /videos\/12-international-master\.mp4/);
-  assert.match(localizationDemos, /setActiveDemo\(demo\)/);
-  assert.match(localizationDemos, /performanceLocalizationTrack/);
-  assert.match(localizationDemos, /createPortal/);
+  assert.match(localizationDemos, /performance-precise-editing\/master\/master\.mp4/);
+  assert.match(localizationDemos, /setSelectedIndex\(index\)/);
+  assert.match(localizationDemos, /performanceLocalizationMarketRail/);
+  assert.match(localizationDemos, /aria-pressed=\{index === selectedIndex\}/);
   assert.match(localizationDemos, /controls/);
+  assert.match(page, /import PerformancePreciseEditingDemo/);
+  assert.match(page, /<PerformancePreciseEditingDemo \/>/);
 });
 
 test("keeps V3 desktop alignment, sticky media, language, and responsive safeguards", async () => {
