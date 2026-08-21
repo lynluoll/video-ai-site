@@ -654,8 +654,9 @@ export default function Home() {
                     <span className="prodSideKicker">DEMO</span>
                     <b><B zh="产线上真实跑出来的成片" en="Straight off that production line" /></b>
                   </figcaption>
-                  <div className="prodSideDemoFrame" role="img" aria-label="WPP 产线 Seedance 2.5 成片演示位">
-                    <span><B zh="演示视频位 · 16:9" en="Demo reel · 16:9" /></span>
+                  <div className="prodSideDemoFrame prodSideDemoLive">
+                    <video src="/media/wpp/cocacola-16x9.mp4" autoPlay controls loop muted playsInline preload="metadata" aria-label="WPP 产线用 Seedance 生成的可口可乐广告成片" />
+                    <span className="prodSideDemoTag">WPP &times; Coca-Cola</span>
                   </div>
                 </figure>
               </div>
